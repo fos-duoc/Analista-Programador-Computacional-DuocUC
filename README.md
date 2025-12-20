@@ -642,7 +642,7 @@ git clone https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC.
 **DuocUC** › Escuela de Informática y Telecomunicaciones
 
 [![Made with ❤️](https://img.shields.io/badge/Made_with-❤️-red?style=flat-square)](.)
-[![For Students](https://img.shields.io/badge/For-Students-blue?style=flat-square)](.)
+[![For Chavetas](https://img.shields.io/badge/For-Chavetas-blue?style=flat-square)](.)
 
 <sub>**{ código limpio · buenas prácticas · aprendizaje continuo }**</sub>
 
