@@ -293,79 +293,84 @@
 
 <div align="center">
 
+### 📅 Año 1 — Fundamentos
+
+[![B01](https://img.shields.io/badge/01-Bases-4CAF50?style=for-the-badge&logo=bookstack&logoColor=white)](Bimestre-01/)
+[![→](https://img.shields.io/badge/→-_-transparent?style=for-the-badge)](#)
+[![B02](https://img.shields.io/badge/02-OOP-66BB6A?style=for-the-badge&logo=java&logoColor=white)](Bimestre-02/)
+[![→](https://img.shields.io/badge/→-_-transparent?style=for-the-badge)](#)
+[![B03](https://img.shields.io/badge/03-Backend-81C784?style=for-the-badge&logo=spring&logoColor=white)](Bimestre-03/)
+[![→](https://img.shields.io/badge/→-_-transparent?style=for-the-badge)](#)
+[![B04](https://img.shields.io/badge/04-Cloud-A5D6A7?style=for-the-badge&logo=amazonaws&logoColor=white)](Bimestre-04/)
+
+<br>
+
+### 🏆 Salida Intermedia — Bimestre 05
+
+[![B05](https://img.shields.io/badge/BIMESTRE_05-SALIDA_INTERMEDIA-FF6600?style=for-the-badge&logo=award&logoColor=white)](Bimestre-05/)
+
 <table>
 <tr>
 <td align="center">
 
-```
-                              TRAYECTORIA ACADÉMICA
-     ┌─────────────────────────────────────────────────────────────────────┐
-     │                                                                     │
-     │   ┌─────┐    ┌─────┐    ┌─────┐    ┌─────┐    ┌─────┐    ┌─────┐   │
-     │   │ B01 │───▸│ B02 │───▸│ B03 │───▸│ B04 │───▸│ B05 │───▸│ B06 │   │
-     │   └─────┘    └─────┘    └─────┘    └─────┘    └──┬──┘    └─────┘   │
-     │                                                  │                  │
-     │                                           ╔══════╧══════╗           │
-     │                                           ║ 🏆 TÍTULO   ║           │
-     │                                           ║  INTERMEDIO ║           │
-     │                                           ╚═════════════╝           │
-     │                                                                     │
-     │   ┌─────┐    ┌─────┐    ┌─────┐    ┌─────┐                          │
-     │   │ B07 │───▸│ B08 │───▸│ B09 │───▸│ B10 │                          │
-     │   └─────┘    └─────┘    └─────┘    └──┬──┘                          │
-     │                                       │                             │
-     │                                ╔══════╧══════╗                      │
-     │                                ║ 🎓 TÍTULO   ║                      │
-     │                                ║    FINAL    ║                      │
-     │                                ╚═════════════╝                      │
-     │                                                                     │
-     └─────────────────────────────────────────────────────────────────────┘
-```
+<img src="https://img.shields.io/badge/🥈-PROGRAMADOR_DE_APLICACIONES_COMPUTACIONALES-FF6600?style=for-the-badge" alt="Titulo Intermedio"/>
+
+<sub>
+
+| Competencia | Nivel |
+|:------------|:------|
+| Desarrollo de aplicaciones | ⭐⭐⭐ |
+| Bases de datos SQL | ⭐⭐⭐ |
+| Cloud computing basics | ⭐⭐ |
+| Testing & QA | ⭐⭐ |
+
+</sub>
+
+</td>
+</tr>
+</table>
+
+<br>
+
+### 📅 Año 2 — Especialización
+
+[![B06](https://img.shields.io/badge/06-DevOps-2196F3?style=for-the-badge&logo=docker&logoColor=white)](Bimestre-06/)
+[![→](https://img.shields.io/badge/→-_-transparent?style=for-the-badge)](#)
+[![B07](https://img.shields.io/badge/07-Security-1976D2?style=for-the-badge&logo=springsecurity&logoColor=white)](Bimestre-07/)
+[![→](https://img.shields.io/badge/→-_-transparent?style=for-the-badge)](#)
+[![B08](https://img.shields.io/badge/08-Angular-1565C0?style=for-the-badge&logo=angular&logoColor=white)](Bimestre-08/)
+[![→](https://img.shields.io/badge/→-_-transparent?style=for-the-badge)](#)
+[![B09](https://img.shields.io/badge/09-Mobile-0D47A1?style=for-the-badge&logo=kotlin&logoColor=white)](Bimestre-09/)
+
+<br>
+
+### 🎓 Título Final — Bimestre 10
+
+[![B10](https://img.shields.io/badge/BIMESTRE_10-TÍTULO_FINAL-8E44AD?style=for-the-badge&logo=graduation-cap&logoColor=white)](Bimestre-10/)
+
+<table>
+<tr>
+<td align="center">
+
+<img src="https://img.shields.io/badge/🥇-INGENIERO_EN_DESARROLLO_DE_SOFTWARE-8E44AD?style=for-the-badge" alt="Titulo Final"/>
+
+<sub>
+
+| Competencia | Nivel |
+|:------------|:------|
+| Arquitectura enterprise | ⭐⭐⭐⭐⭐ |
+| Full-stack development | ⭐⭐⭐⭐⭐ |
+| Mobile (Android/iOS) | ⭐⭐⭐⭐ |
+| DevOps & Cloud native | ⭐⭐⭐⭐ |
+| Microservices | ⭐⭐⭐⭐ |
+
+</sub>
 
 </td>
 </tr>
 </table>
 
 </div>
-
-<table>
-<tr>
-<td align="center" width="50%">
-
-### 🥈 Salida Intermedia
-
-![Bimestre 05](https://img.shields.io/badge/Bimestre-05-FD7E14?style=for-the-badge)
-
-**PROGRAMADOR DE APLICACIONES COMPUTACIONALES**
-
-<sub>
-
-✓ Desarrollo de aplicaciones básicas<br>
-✓ Bases de datos y consultas SQL<br>
-✓ Fundamentos de cloud computing
-
-</sub>
-
-</td>
-<td align="center" width="50%">
-
-### 🥇 Título Final
-
-![Bimestre 10](https://img.shields.io/badge/Bimestre-10-8E44AD?style=for-the-badge)
-
-**INGENIERO EN DESARROLLO DE SOFTWARE**
-
-<sub>
-
-✓ Arquitectura de software enterprise<br>
-✓ Full-stack & mobile development<br>
-✓ DevOps, cloud native & microservices
-
-</sub>
-
-</td>
-</tr>
-</table>
 
 ---
 
