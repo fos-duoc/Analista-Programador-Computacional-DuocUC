@@ -62,31 +62,31 @@
 </tr>
 <tr>
 <td align="center" width="120">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="55" height="55" alt="Java" />
+<img src="https://techstack-generator.vercel.app/java-icon.svg" width="65" height="65" alt="Java" />
 <br><b>Java</b>
 </td>
 <td align="center" width="120">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="55" height="55" alt="Python" />
+<img src="https://techstack-generator.vercel.app/python-icon.svg" width="65" height="65" alt="Python" />
 <br><b>Python</b>
 </td>
 <td align="center" width="120">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="55" height="55" alt="JavaScript" />
+<img src="https://techstack-generator.vercel.app/js-icon.svg" width="65" height="65" alt="JavaScript" />
 <br><b>JavaScript</b>
 </td>
 <td align="center" width="120">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="55" height="55" alt="TypeScript" />
+<img src="https://techstack-generator.vercel.app/ts-icon.svg" width="65" height="65" alt="TypeScript" />
 <br><b>TypeScript</b>
 </td>
 <td align="center" width="120">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" width="55" height="55" alt="Kotlin" />
+<img src="https://techstack-generator.vercel.app/kotlin-icon.svg" width="65" height="65" alt="Kotlin" />
 <br><b>Kotlin</b>
 </td>
 <td align="center" width="120">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" width="55" height="55" alt="SQL" />
+<img src="https://techstack-generator.vercel.app/mysql-icon.svg" width="65" height="65" alt="SQL" />
 <br><b>SQL</b>
 </td>
 <td align="center" width="120">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="55" height="55" alt="HTML5" />
+<img src="https://skillicons.dev/icons?i=html" width="50" height="50" alt="HTML5" />
 <br><b>HTML5</b>
 </td>
 </tr>
@@ -193,20 +193,20 @@
 </tr>
 <tr>
 <td align="center" width="100">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" width="55" height="55" alt="AWS" />
-<br><sub><b>AWS</b></sub>
+<img src="https://techstack-generator.vercel.app/aws-icon.svg" width="65" height="65" alt="AWS" />
+<br><b>AWS</b>
 </td>
 <td align="center" width="100">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" width="48" height="48" alt="Azure" />
+<img src="https://skillicons.dev/icons?i=azure" width="48" height="48" alt="Azure" />
 <br><sub><b>Azure</b></sub>
 </td>
 <td align="center" width="100">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="55" height="55" alt="Docker" />
-<br><sub><b>Docker</b></sub>
+<img src="https://techstack-generator.vercel.app/docker-icon.svg" width="65" height="65" alt="Docker" />
+<br><b>Docker</b>
 </td>
 <td align="center" width="100">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" width="55" height="55" alt="Kubernetes" />
-<br><sub><b>K8s</b></sub>
+<img src="https://techstack-generator.vercel.app/kubernetes-icon.svg" width="65" height="65" alt="Kubernetes" />
+<br><b>K8s</b>
 </td>
 <td align="center" width="100">
 <img src="https://skillicons.dev/icons?i=jenkins" width="48" height="48" alt="Jenkins" />
@@ -236,12 +236,12 @@
 </tr>
 <tr>
 <td align="center" width="100">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="48" height="48" alt="Git" />
+<img src="https://skillicons.dev/icons?i=git" width="48" height="48" alt="Git" />
 <br><sub><b>Git</b></sub>
 </td>
 <td align="center" width="100">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="55" height="55" alt="GitHub" />
-<br><sub><b>GitHub</b></sub>
+<img src="https://techstack-generator.vercel.app/github-icon.svg" width="65" height="65" alt="GitHub" />
+<br><b>GitHub</b>
 </td>
 <td align="center" width="100">
 <img src="https://skillicons.dev/icons?i=vscode" width="48" height="48" alt="VS Code" />
