@@ -7,6 +7,10 @@
 [![DuocUC](https://img.shields.io/badge/DuocUC-Escuela_de_Informática-003366?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xMiAzTDEgOWw0IDIuMTh2NkwxMiAyMWw3LTMuODJ2LTZMMT05bDExLTZ6Ii8+PC9zdmc+)](https://www.duoc.cl/)
 [![Modalidad](https://img.shields.io/badge/Modalidad-Online-8E44AD?style=for-the-badge&logo=wifi&logoColor=white)](.)
 [![10 Bimestres](https://img.shields.io/badge/Duración-10_Bimestres-FF6600?style=for-the-badge&logo=calendar&logoColor=white)](.)
+[![Oracle](https://img.shields.io/badge/Oracle-Academy-F80000?style=for-the-badge&logo=oracle&logoColor=white)](https://academy.oracle.com/)
+
+[![Malla Técnico](https://img.shields.io/badge/📄_Malla-Técnico_2025-2E86AB?style=flat-square)](_Recursos-Adicionales/mallas/malla-tecnico-2025.pdf)
+[![Malla Ing Software](https://img.shields.io/badge/📄_Malla-Ing._Software_2025-28A745?style=flat-square)](_Recursos-Adicionales/mallas/malla-ing-software-2025.pdf)
 
 **━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
 
