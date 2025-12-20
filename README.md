@@ -162,7 +162,7 @@
 <br><sub><b>Firebase</b></sub>
 </td>
 <td align="center" width="100">
-<img src="https://skillicons.dev/icons?i=oracle" width="48" height="48" alt="Oracle" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" width="48" height="48" alt="Oracle" />
 <br><sub><b>Oracle</b></sub>
 </td>
 <td align="center" width="100">
