@@ -1,134 +1,182 @@
+<div align="center">
+
 # ◈ Fundamentos de Programación
 
-```
-┌──────────────────────────────────────────────────────────────────────────────┐
-│  Bimestre 01 · Lenguaje: Python 3.x · Paradigma: Estructurado               │
-└──────────────────────────────────────────────────────────────────────────────┘
-```
+![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Paradigma](https://img.shields.io/badge/Paradigma-Estructurado-orange?style=for-the-badge)
+![Bimestre](https://img.shields.io/badge/Bimestre-01-blue?style=for-the-badge)
 
-## ⚡ Tabla de Contenidos
+**━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
+
+</div>
+
+## 📑 Tabla de Contenidos
+
+<table>
+<tr>
+<td width="50%">
 
 - [Variables y Tipos](#-variables-y-tipos)
 - [Operadores](#-operadores)
 - [Estructuras de Control](#-estructuras-de-control)
 - [Funciones](#-funciones)
+
+</td>
+<td width="50%">
+
 - [Estructuras de Datos](#-estructuras-de-datos)
 - [Entrada/Salida](#-entradasalida)
 - [Manejo de Errores](#-manejo-de-errores)
+- [Patrones Comunes](#-patrones-comunes)
+
+</td>
+</tr>
+</table>
 
 ---
 
 ## 📌 Variables y Tipos
 
+<table>
+<tr>
+<td width="50%">
+
+### Tipos Primitivos
+
 ```python
-# ═══════════════════════════════════════════════════════════════════════
-# TIPOS PRIMITIVOS
-# ═══════════════════════════════════════════════════════════════════════
+# ══════════════════════════════════
+# NUMÉRICOS
+# ══════════════════════════════════
+entero = 42                 # int
+decimal = 3.14159           # float
+complejo = 2 + 3j           # complex
 
-# Numéricos
-entero = 42                    # int
-decimal = 3.14159              # float
-complejo = 2 + 3j              # complex
+# ══════════════════════════════════
+# TEXTO
+# ══════════════════════════════════
+texto = "Hola Mundo"        # str
+caracter = 'A'              # str
 
-# Texto
-texto = "Hola Mundo"           # str
-caracter = 'A'                 # str (Python no tiene char)
+# ══════════════════════════════════
+# BOOLEANOS
+# ══════════════════════════════════
+verdadero = True            # bool
+falso = False               # bool
+nada = None                 # NoneType
+```
 
-# Booleano
-verdadero = True               # bool
-falso = False                  # bool
+</td>
+<td width="50%">
 
-# Nulo
-nada = None                    # NoneType
+### Conversión de Tipos
 
-# ═══════════════════════════════════════════════════════════════════════
-# CONVERSIÓN DE TIPOS (Casting)
-# ═══════════════════════════════════════════════════════════════════════
-
+```python
+# ══════════════════════════════════
+# CASTING
+# ══════════════════════════════════
 int("42")        # → 42
 float("3.14")    # → 3.14
 str(100)         # → "100"
 bool(1)          # → True
 bool(0)          # → False
 
-# ═══════════════════════════════════════════════════════════════════════
+# ══════════════════════════════════
 # VERIFICAR TIPO
-# ═══════════════════════════════════════════════════════════════════════
-
-type(variable)                 # Retorna el tipo
-isinstance(x, int)             # True si x es int
+# ══════════════════════════════════
+type(variable)          # Retorna tipo
+isinstance(x, int)      # True si x es int
+isinstance(x, (int, float))  # Múltiples
 ```
+
+</td>
+</tr>
+</table>
 
 ---
 
 ## 📌 Operadores
 
-```python
-# ═══════════════════════════════════════════════════════════════════════
-# ARITMÉTICOS
-# ═══════════════════════════════════════════════════════════════════════
+<table>
+<tr>
+<td width="33%">
 
-a + b      # Suma
-a - b      # Resta
-a * b      # Multiplicación
-a / b      # División (float)
-a // b     # División entera
-a % b      # Módulo (resto)
-a ** b     # Potencia
+### Aritméticos
 
-# ═══════════════════════════════════════════════════════════════════════
-# COMPARACIÓN
-# ═══════════════════════════════════════════════════════════════════════
+| Op | Descripción |
+|:--:|:------------|
+| `+` | Suma |
+| `-` | Resta |
+| `*` | Multiplicación |
+| `/` | División (float) |
+| `//` | División entera |
+| `%` | Módulo |
+| `**` | Potencia |
 
-a == b     # Igual
-a != b     # Diferente
-a > b      # Mayor que
-a < b      # Menor que
-a >= b     # Mayor o igual
-a <= b     # Menor o igual
+</td>
+<td width="33%">
 
-# ═══════════════════════════════════════════════════════════════════════
-# LÓGICOS
-# ═══════════════════════════════════════════════════════════════════════
+### Comparación
 
-a and b    # Y lógico
-a or b     # O lógico
-not a      # Negación
+| Op | Descripción |
+|:--:|:------------|
+| `==` | Igual |
+| `!=` | Diferente |
+| `>` | Mayor que |
+| `<` | Menor que |
+| `>=` | Mayor o igual |
+| `<=` | Menor o igual |
 
-# ═══════════════════════════════════════════════════════════════════════
-# ASIGNACIÓN COMPUESTA
-# ═══════════════════════════════════════════════════════════════════════
+</td>
+<td width="33%">
 
-x += 1     # x = x + 1
-x -= 1     # x = x - 1
-x *= 2     # x = x * 2
-x /= 2     # x = x / 2
-x //= 2    # x = x // 2
-x %= 2     # x = x % 2
-x **= 2    # x = x ** 2
-```
+### Lógicos
+
+| Op | Descripción |
+|:--:|:------------|
+| `and` | Y lógico |
+| `or` | O lógico |
+| `not` | Negación |
+
+### Asignación
+
+| Op | Equivale a |
+|:--:|:-----------|
+| `+=` | `x = x + n` |
+| `-=` | `x = x - n` |
+| `*=` | `x = x * n` |
+
+</td>
+</tr>
+</table>
 
 ---
 
 ## 📌 Estructuras de Control
 
+### ▸ Condicionales
+
 ```python
-# ═══════════════════════════════════════════════════════════════════════
-# CONDICIONALES
-# ═══════════════════════════════════════════════════════════════════════
+# ══════════════════════════════════════════════════════════════════════════════
+# IF - ELIF - ELSE
+# ══════════════════════════════════════════════════════════════════════════════
 
-# If-Elif-Else
 if condicion:
-    # código
+    # código si True
 elif otra_condicion:
-    # código
+    # código alternativo
 else:
-    # código
+    # código por defecto
 
-# Operador Ternario
+# ══════════════════════════════════════════════════════════════════════════════
+# OPERADOR TERNARIO
+# ══════════════════════════════════════════════════════════════════════════════
+
 resultado = "par" if x % 2 == 0 else "impar"
 
-# Match (Python 3.10+)
+# ══════════════════════════════════════════════════════════════════════════════
+# MATCH (Python 3.10+)
+# ══════════════════════════════════════════════════════════════════════════════
+
 match valor:
     case 1:
         print("uno")
@@ -136,41 +184,65 @@ match valor:
         print("dos")
     case _:
         print("otro")
+```
 
-# ═══════════════════════════════════════════════════════════════════════
-# BUCLES
-# ═══════════════════════════════════════════════════════════════════════
+### ▸ Bucles
 
-# While
+<table>
+<tr>
+<td width="50%">
+
+#### While
+
+```python
 contador = 0
 while contador < 5:
     print(contador)
     contador += 1
+```
 
-# For con range
-for i in range(5):           # 0, 1, 2, 3, 4
+</td>
+<td width="50%">
+
+#### For
+
+```python
+# Con range
+for i in range(5):          # 0,1,2,3,4
     print(i)
 
-for i in range(1, 6):        # 1, 2, 3, 4, 5
+for i in range(1, 6):       # 1,2,3,4,5
     print(i)
 
-for i in range(0, 10, 2):    # 0, 2, 4, 6, 8 (step=2)
+for i in range(0, 10, 2):   # 0,2,4,6,8
     print(i)
+```
 
-# For con colección
+</td>
+</tr>
+</table>
+
+```python
+# ══════════════════════════════════════════════════════════════════════════════
+# ITERACIÓN SOBRE COLECCIONES
+# ══════════════════════════════════════════════════════════════════════════════
+
 for item in lista:
     print(item)
 
-for i, item in enumerate(lista):
+for i, item in enumerate(lista):      # Con índice
     print(f"{i}: {item}")
 
-# ═══════════════════════════════════════════════════════════════════════
-# CONTROL DE FLUJO
-# ═══════════════════════════════════════════════════════════════════════
+for clave, valor in diccionario.items():
+    print(f"{clave}: {valor}")
 
-break       # Sale del bucle
-continue    # Salta a siguiente iteración
-pass        # No hace nada (placeholder)
+# ══════════════════════════════════════════════════════════════════════════════
+# CONTROL DE FLUJO
+# ══════════════════════════════════════════════════════════════════════════════
+
+break       # 🛑 Sale del bucle
+continue    # ⏭️ Salta a siguiente iteración
+pass        # ⏸️ No hace nada (placeholder)
 ```
 
 ---
@@ -178,208 +250,216 @@ pass        # No hace nada (placeholder)
 ## 📌 Funciones
 
 ```python
-# ═══════════════════════════════════════════════════════════════════════
+# ══════════════════════════════════════════════════════════════════════════════
 # DEFINICIÓN BÁSICA
-# ═══════════════════════════════════════════════════════════════════════
+# ══════════════════════════════════════════════════════════════════════════════
 
 def saludar():
+    """Función sin parámetros"""
     print("Hola!")
 
-def saludar_a(nombre):
-    print(f"Hola, {nombre}!")
-
 def sumar(a, b):
+    """Función con retorno"""
     return a + b
 
-# ═══════════════════════════════════════════════════════════════════════
-# PARÁMETROS
-# ═══════════════════════════════════════════════════════════════════════
+# ══════════════════════════════════════════════════════════════════════════════
+# PARÁMETROS AVANZADOS
+# ══════════════════════════════════════════════════════════════════════════════
 
-# Parámetros por defecto
-def saludar(nombre="Mundo"):
+def saludar(nombre="Mundo"):              # Valor por defecto
     print(f"Hola, {nombre}!")
 
-# Argumentos posicionales y con nombre
-def info(nombre, edad, ciudad="Santiago"):
-    print(f"{nombre}, {edad} años, {ciudad}")
-
-info("Juan", 25)                    # Posicional
-info(nombre="Ana", edad=30)         # Con nombre
-info("Pedro", ciudad="Valpo", edad=28)
-
-# *args (argumentos variables)
-def sumar_todos(*numeros):
+def sumar_todos(*numeros):                 # Args variables
     return sum(numeros)
 
-sumar_todos(1, 2, 3, 4)  # → 10
-
-# **kwargs (keyword arguments)
-def mostrar_datos(**datos):
+def mostrar_datos(**datos):                # Keyword args
     for clave, valor in datos.items():
         print(f"{clave}: {valor}")
 
-mostrar_datos(nombre="Ana", edad=25)
-
-# ═══════════════════════════════════════════════════════════════════════
+# ══════════════════════════════════════════════════════════════════════════════
 # FUNCIONES LAMBDA
-# ═══════════════════════════════════════════════════════════════════════
+# ══════════════════════════════════════════════════════════════════════════════
 
 cuadrado = lambda x: x ** 2
 sumar = lambda a, b: a + b
 
 # Uso con funciones de orden superior
 numeros = [1, 2, 3, 4, 5]
-cuadrados = list(map(lambda x: x**2, numeros))
-pares = list(filter(lambda x: x % 2 == 0, numeros))
+cuadrados = list(map(lambda x: x**2, numeros))      # [1, 4, 9, 16, 25]
+pares = list(filter(lambda x: x % 2 == 0, numeros)) # [2, 4]
 ```
 
 ---
 
 ## 📌 Estructuras de Datos
 
-```python
-# ═══════════════════════════════════════════════════════════════════════
-# LISTAS (mutables, ordenadas)
-# ═══════════════════════════════════════════════════════════════════════
+### ▸ Listas `[ ]`
 
+> [!NOTE]
+> Las listas son **mutables** y **ordenadas**. Permiten duplicados.
+
+```python
 lista = [1, 2, 3, 4, 5]
 lista = list()                 # Lista vacía
 
-# Acceso
+# ══════════════════════════════════════════════════════════════════════════════
+# ACCESO
+# ══════════════════════════════════════════════════════════════════════════════
 lista[0]                       # Primer elemento
 lista[-1]                      # Último elemento
 lista[1:3]                     # Slice [1, 2]
 lista[::2]                     # Cada 2 elementos
 
-# Modificación
-lista.append(6)                # Agregar al final
-lista.insert(0, 0)             # Insertar en posición
-lista.extend([7, 8])           # Extender con otra lista
-lista.remove(3)                # Eliminar por valor
-lista.pop()                    # Eliminar último
-lista.pop(0)                   # Eliminar por índice
-lista.clear()                  # Vaciar lista
+# ══════════════════════════════════════════════════════════════════════════════
+# MODIFICACIÓN
+# ══════════════════════════════════════════════════════════════════════════════
+lista.append(6)                # ➕ Agregar al final
+lista.insert(0, 0)             # ➕ Insertar en posición
+lista.extend([7, 8])           # ➕ Extender con otra lista
+lista.remove(3)                # ➖ Eliminar por valor
+lista.pop()                    # ➖ Eliminar último
+lista.pop(0)                   # ➖ Eliminar por índice
 
-# Utilidades
-len(lista)                     # Longitud
-lista.index(3)                 # Índice del elemento
-lista.count(2)                 # Contar ocurrencias
-lista.sort()                   # Ordenar (in-place)
-lista.reverse()                # Invertir (in-place)
-sorted(lista)                  # Retorna nueva lista ordenada
+# ══════════════════════════════════════════════════════════════════════════════
+# UTILIDADES
+# ══════════════════════════════════════════════════════════════════════════════
+len(lista)                     # 📏 Longitud
+lista.sort()                   # 🔤 Ordenar (in-place)
+sorted(lista)                  # 🔤 Retorna nueva lista ordenada
+lista.reverse()                # 🔄 Invertir
 
-# List comprehension
+# ══════════════════════════════════════════════════════════════════════════════
+# LIST COMPREHENSION ⭐
+# ══════════════════════════════════════════════════════════════════════════════
 cuadrados = [x**2 for x in range(10)]
 pares = [x for x in range(10) if x % 2 == 0]
+```
 
-# ═══════════════════════════════════════════════════════════════════════
-# TUPLAS (inmutables, ordenadas)
-# ═══════════════════════════════════════════════════════════════════════
+### ▸ Diccionarios `{ }`
 
-tupla = (1, 2, 3)
-tupla = 1, 2, 3                # Sin paréntesis también funciona
-singleton = (1,)               # Tupla de un elemento
+> [!NOTE]
+> Los diccionarios son pares **clave-valor**. Claves únicas.
 
-# Desempaquetado
-a, b, c = tupla
-primero, *resto = (1, 2, 3, 4)  # primero=1, resto=[2,3,4]
-
-# ═══════════════════════════════════════════════════════════════════════
-# DICCIONARIOS (mutables, clave-valor)
-# ═══════════════════════════════════════════════════════════════════════
-
+```python
 dic = {"nombre": "Juan", "edad": 25}
 dic = dict(nombre="Juan", edad=25)
 
-# Acceso
+# ══════════════════════════════════════════════════════════════════════════════
+# ACCESO
+# ══════════════════════════════════════════════════════════════════════════════
 dic["nombre"]                  # Lanza KeyError si no existe
 dic.get("nombre")              # Retorna None si no existe
 dic.get("ciudad", "N/A")       # Retorna valor por defecto
 
-# Modificación
-dic["ciudad"] = "Santiago"     # Agregar/modificar
-dic.update({"pais": "Chile"})  # Actualizar con otro dict
-del dic["edad"]                # Eliminar clave
-dic.pop("nombre")              # Eliminar y retornar
+# ══════════════════════════════════════════════════════════════════════════════
+# MODIFICACIÓN
+# ══════════════════════════════════════════════════════════════════════════════
+dic["ciudad"] = "Santiago"     # ➕ Agregar/modificar
+dic.update({"pais": "Chile"})  # ➕ Actualizar con otro dict
+del dic["edad"]                # ➖ Eliminar clave
 
-# Iteración
-for clave in dic:
-    print(clave)
-for clave, valor in dic.items():
-    print(f"{clave}: {valor}")
-for valor in dic.values():
-    print(valor)
+# ══════════════════════════════════════════════════════════════════════════════
+# ITERACIÓN
+# ══════════════════════════════════════════════════════════════════════════════
+for clave in dic:              # Solo claves
+for clave, valor in dic.items():  # Clave y valor
+for valor in dic.values():     # Solo valores
 
 # Dict comprehension
-cuadrados = {x: x**2 for x in range(5)}
-
-# ═══════════════════════════════════════════════════════════════════════
-# SETS (únicos, no ordenados)
-# ═══════════════════════════════════════════════════════════════════════
-
-conjunto = {1, 2, 3, 4, 5}
-conjunto = set([1, 2, 2, 3])   # → {1, 2, 3}
-
-conjunto.add(6)                # Agregar
-conjunto.remove(3)             # Eliminar (error si no existe)
-conjunto.discard(10)           # Eliminar (sin error)
-
-# Operaciones de conjuntos
-a | b                          # Unión
-a & b                          # Intersección
-a - b                          # Diferencia
-a ^ b                          # Diferencia simétrica
+cuadrados = {x: x**2 for x in range(5)}  # {0:0, 1:1, 2:4, 3:9, 4:16}
 ```
+
+<table>
+<tr>
+<td width="50%">
+
+### ▸ Tuplas `( )`
+
+```python
+# Inmutables, ordenadas
+tupla = (1, 2, 3)
+tupla = 1, 2, 3         # Sin paréntesis
+singleton = (1,)        # Un elemento
+
+# Desempaquetado
+a, b, c = tupla
+primero, *resto = (1, 2, 3, 4)
+```
+
+</td>
+<td width="50%">
+
+### ▸ Sets `{ }`
+
+```python
+# Únicos, no ordenados
+conjunto = {1, 2, 3, 4, 5}
+conjunto = set([1, 2, 2, 3])  # → {1, 2, 3}
+
+# Operaciones
+a | b    # Unión
+a & b    # Intersección
+a - b    # Diferencia
+```
+
+</td>
+</tr>
+</table>
 
 ---
 
 ## 📌 Entrada/Salida
 
-```python
-# ═══════════════════════════════════════════════════════════════════════
-# INPUT
-# ═══════════════════════════════════════════════════════════════════════
+<table>
+<tr>
+<td width="50%">
 
+### Input
+
+```python
 nombre = input("Ingrese nombre: ")
 edad = int(input("Ingrese edad: "))
 precio = float(input("Ingrese precio: "))
+```
 
-# ═══════════════════════════════════════════════════════════════════════
-# PRINT
-# ═══════════════════════════════════════════════════════════════════════
+</td>
+<td width="50%">
 
+### Print
+
+```python
 print("Hola Mundo")
-print("Valor:", variable)
-print("a", "b", "c", sep="-")          # a-b-c
-print("Sin salto", end="")             # Sin newline
+print("a", "b", "c", sep="-")  # a-b-c
+print("Sin salto", end="")
 
-# F-strings (recomendado)
-print(f"Nombre: {nombre}, Edad: {edad}")
-print(f"Precio: ${precio:.2f}")        # 2 decimales
-print(f"Número: {num:05d}")            # Padding con ceros
+# F-strings (recomendado) ⭐
+print(f"Nombre: {nombre}")
+print(f"Precio: ${precio:.2f}")
+```
 
-# Format
-print("Nombre: {}, Edad: {}".format(nombre, edad))
-print("Nombre: {n}, Edad: {e}".format(n=nombre, e=edad))
+</td>
+</tr>
+</table>
 
-# ═══════════════════════════════════════════════════════════════════════
+```python
+# ══════════════════════════════════════════════════════════════════════════════
 # ARCHIVOS
-# ═══════════════════════════════════════════════════════════════════════
+# ══════════════════════════════════════════════════════════════════════════════
 
-# Lectura
+# 📖 Lectura
 with open("archivo.txt", "r", encoding="utf-8") as f:
-    contenido = f.read()           # Todo el contenido
+    contenido = f.read()        # Todo el contenido
     # o
-    lineas = f.readlines()         # Lista de líneas
+    lineas = f.readlines()      # Lista de líneas
     # o
     for linea in f:
         print(linea.strip())
 
-# Escritura
+# ✏️ Escritura
 with open("archivo.txt", "w", encoding="utf-8") as f:
     f.write("Hola Mundo\n")
 
-# Append
+# ➕ Append
 with open("archivo.txt", "a", encoding="utf-8") as f:
     f.write("Nueva línea\n")
 ```
@@ -389,21 +469,24 @@ with open("archivo.txt", "a", encoding="utf-8") as f:
 ## 📌 Manejo de Errores
 
 ```python
-# ═══════════════════════════════════════════════════════════════════════
-# TRY-EXCEPT
-# ═══════════════════════════════════════════════════════════════════════
+# ══════════════════════════════════════════════════════════════════════════════
+# TRY - EXCEPT
+# ══════════════════════════════════════════════════════════════════════════════
 
 try:
     resultado = 10 / 0
 except ZeroDivisionError:
-    print("Error: División por cero")
+    print("❌ Error: División por cero")
 
 try:
     numero = int(input("Número: "))
 except ValueError:
-    print("Error: No es un número válido")
+    print("❌ Error: No es un número válido")
 
-# Múltiples excepciones
+# ══════════════════════════════════════════════════════════════════════════════
+# MÚLTIPLES EXCEPCIONES
+# ══════════════════════════════════════════════════════════════════════════════
+
 try:
     # código riesgoso
     pass
@@ -414,76 +497,75 @@ except TypeError:
 except Exception as e:
     print(f"Error inesperado: {e}")
 
-# Try-Except-Else-Finally
+# ══════════════════════════════════════════════════════════════════════════════
+# TRY - EXCEPT - ELSE - FINALLY
+# ══════════════════════════════════════════════════════════════════════════════
+
 try:
     resultado = operacion()
 except Exception as e:
     print(f"Error: {e}")
 else:
-    print("Éxito!")              # Solo si no hay error
+    print("✅ Éxito!")          # Solo si no hay error
 finally:
-    print("Siempre se ejecuta")  # Limpieza
-
-# ═══════════════════════════════════════════════════════════════════════
-# RAISE (Lanzar excepciones)
-# ═══════════════════════════════════════════════════════════════════════
-
-def dividir(a, b):
-    if b == 0:
-        raise ValueError("El divisor no puede ser cero")
-    return a / b
+    print("🔄 Siempre se ejecuta")  # Limpieza
 ```
 
 ---
 
-## 🎯 Patrones Comunes
+## 📌 Patrones Comunes
+
+### ▸ Validación de Entrada
 
 ```python
-# ═══════════════════════════════════════════════════════════════════════
-# VALIDACIÓN DE ENTRADA
-# ═══════════════════════════════════════════════════════════════════════
-
 def leer_entero(mensaje):
+    """Lee un entero con validación"""
     while True:
         try:
             return int(input(mensaje))
         except ValueError:
-            print("⚠ Ingrese un número válido")
+            print("⚠️ Ingrese un número válido")
 
 def leer_rango(mensaje, minimo, maximo):
+    """Lee un entero dentro de un rango"""
     while True:
         valor = leer_entero(mensaje)
         if minimo <= valor <= maximo:
             return valor
-        print(f"⚠ Debe estar entre {minimo} y {maximo}")
+        print(f"⚠️ Debe estar entre {minimo} y {maximo}")
+```
 
-# ═══════════════════════════════════════════════════════════════════════
-# MENÚ INTERACTIVO
-# ═══════════════════════════════════════════════════════════════════════
+### ▸ Menú Interactivo
 
+```python
 def mostrar_menu():
-    print("\n╔═══════════════════════╗")
-    print("║       MENÚ            ║")
-    print("╠═══════════════════════╣")
-    print("║ 1. Opción 1           ║")
-    print("║ 2. Opción 2           ║")
-    print("║ 0. Salir              ║")
-    print("╚═══════════════════════╝")
+    print("""
+    ╔═══════════════════════════╗
+    ║         MENÚ              ║
+    ╠═══════════════════════════╣
+    ║  1. Opción 1              ║
+    ║  2. Opción 2              ║
+    ║  3. Opción 3              ║
+    ║  0. Salir                 ║
+    ╚═══════════════════════════╝
+    """)
 
 def main():
     while True:
         mostrar_menu()
-        opcion = leer_entero("Seleccione: ")
+        opcion = leer_entero("▸ Seleccione: ")
 
         if opcion == 1:
             print("Ejecutando opción 1...")
         elif opcion == 2:
             print("Ejecutando opción 2...")
+        elif opcion == 3:
+            print("Ejecutando opción 3...")
         elif opcion == 0:
-            print("¡Hasta luego!")
+            print("👋 ¡Hasta luego!")
             break
         else:
-            print("⚠ Opción no válida")
+            print("⚠️ Opción no válida")
 
 if __name__ == "__main__":
     main()
@@ -493,6 +575,10 @@ if __name__ == "__main__":
 
 <div align="center">
 
-`{ Fundamentos sólidos → Código limpio }`
+**━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
+
+[![Volver](https://img.shields.io/badge/←_Volver_al_inicio-blue?style=flat-square)](../../README.md)
+
+**{ Fundamentos sólidos → Código limpio }**
 
 </div>
