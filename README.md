@@ -324,106 +324,133 @@
 
 <div align="center">
 
-<!-- TIMELINE AÑO 1 -->
-<table>
-<tr><td align="center">
-
-<img src="https://img.shields.io/badge/AÑO_1-FUNDAMENTOS-2E7D32?style=for-the-badge&logo=bookopen&logoColor=white" height="30"/>
+<img src="https://capsule-render.vercel.app/api?type=soft&color=gradient&customColorList=24&height=45&section=header&text=LEARNING%20PATH&fontSize=18&fontColor=ffffff&fontAlignY=55&animation=twinkling" width="300"/>
 
 <br><br>
 
-<a href="Bimestre-01/"><img src="https://img.shields.io/badge/01-2E7D32?style=for-the-badge" height="28"/></a>
-<img src="https://img.shields.io/badge/→-555?style=flat-square" height="20"/>
-<a href="Bimestre-02/"><img src="https://img.shields.io/badge/02-388E3C?style=for-the-badge" height="28"/></a>
-<img src="https://img.shields.io/badge/→-555?style=flat-square" height="20"/>
-<a href="Bimestre-03/"><img src="https://img.shields.io/badge/03-43A047?style=for-the-badge" height="28"/></a>
-<img src="https://img.shields.io/badge/→-555?style=flat-square" height="20"/>
-<a href="Bimestre-04/"><img src="https://img.shields.io/badge/04-4CAF50?style=for-the-badge" height="28"/></a>
+<!-- TIMELINE VISUAL -->
+<table>
+<tr>
+<td align="center" width="220">
 
-</td></tr>
+<img src="https://capsule-render.vercel.app/api?type=rounded&color=2E7D32&height=40&section=header&text=AÑO%201&fontSize=14&fontColor=ffffff&fontAlignY=55" width="180"/>
+
+<br>
+
+<sub>**FUNDAMENTOS**</sub>
+
+<br><br>
+
+<a href="Bimestre-01/"><img src="https://img.shields.io/badge/B01-Python_·_SQL-2E7D32?style=flat-square&logo=python&logoColor=white" height="24"/></a>
+
+<a href="Bimestre-02/"><img src="https://img.shields.io/badge/B02-Java_·_Cloud-388E3C?style=flat-square&logo=openjdk&logoColor=white" height="24"/></a>
+
+<a href="Bimestre-03/"><img src="https://img.shields.io/badge/B03-POO_·_DevOps-43A047?style=flat-square&logo=docker&logoColor=white" height="24"/></a>
+
+<a href="Bimestre-04/"><img src="https://img.shields.io/badge/B04-SQL_·_Security-4CAF50?style=flat-square&logo=oracle&logoColor=white" height="24"/></a>
+
+</td>
+<td align="center" width="60">
+
+<img src="https://img.shields.io/badge/━━━▶-FF6600?style=flat-square" height="12"/>
+
+</td>
+<td align="center" width="280">
+
+<img src="https://capsule-render.vercel.app/api?type=rounded&color=gradient&customColorList=27&height=55&section=header&text=🏆%20SALIDA%20INTERMEDIA&fontSize=12&fontColor=ffffff&fontAlignY=55" width="250"/>
+
+<br>
+
+<a href="Bimestre-05/"><img src="https://img.shields.io/badge/BIMESTRE_05-E65100?style=for-the-badge&logo=award&logoColor=white" height="32"/></a>
+
+<br><br>
+
+<img src="https://img.shields.io/badge/Programador_de_Aplicaciones-Computacionales-FF6600?style=flat-square&labelColor=333" height="22"/>
+
+<br><br>
+
+<table>
+<tr>
+<td><sub><b>Apps</b></sub></td>
+<td><img src="https://progress-bar.xyz/60/?width=80&color=FF6600" height="12"/></td>
+</tr>
+<tr>
+<td><sub><b>SQL</b></sub></td>
+<td><img src="https://progress-bar.xyz/60/?width=80&color=FF6600" height="12"/></td>
+</tr>
+<tr>
+<td><sub><b>Cloud</b></sub></td>
+<td><img src="https://progress-bar.xyz/40/?width=80&color=FF9800" height="12"/></td>
+</tr>
+</table>
+
+</td>
+<td align="center" width="60">
+
+<img src="https://img.shields.io/badge/━━━▶-1565C0?style=flat-square" height="12"/>
+
+</td>
+<td align="center" width="220">
+
+<img src="https://capsule-render.vercel.app/api?type=rounded&color=1565C0&height=40&section=header&text=AÑO%202&fontSize=14&fontColor=ffffff&fontAlignY=55" width="180"/>
+
+<br>
+
+<sub>**ESPECIALIZACIÓN**</sub>
+
+<br><br>
+
+<a href="Bimestre-06/"><img src="https://img.shields.io/badge/B06-Spring_Boot-1565C0?style=flat-square&logo=springboot&logoColor=white" height="24"/></a>
+
+<a href="Bimestre-07/"><img src="https://img.shields.io/badge/B07-Backend_Pro-1976D2?style=flat-square&logo=spring&logoColor=white" height="24"/></a>
+
+<a href="Bimestre-08/"><img src="https://img.shields.io/badge/B08-Angular-1E88E5?style=flat-square&logo=angular&logoColor=white" height="24"/></a>
+
+<a href="Bimestre-09/"><img src="https://img.shields.io/badge/B09-Mobile_Kotlin-2196F3?style=flat-square&logo=kotlin&logoColor=white" height="24"/></a>
+
+</td>
+</tr>
 </table>
 
 <br>
 
-<!-- SALIDA INTERMEDIA -->
-<table>
-<tr><td align="center">
-
-<img src="https://img.shields.io/badge/🏆_SALIDA_INTERMEDIA-FF6600?style=for-the-badge" height="35"/>
+<img src="https://img.shields.io/badge/━━━━━━━━━━━━━━━━━━━▼━━━━━━━━━━━━━━━━━━━-555?style=flat-square" height="8"/>
 
 <br><br>
-
-<a href="Bimestre-05/"><img src="https://img.shields.io/badge/BIMESTRE-05-E65100?style=for-the-badge&logo=award&logoColor=white" height="40"/></a>
-
-<br><br>
-
-<img src="https://img.shields.io/badge/PROGRAMADOR_DE_APLICACIONES_COMPUTACIONALES-FF6600?style=flat-square" height="25"/>
-
-<br><br>
-
-| Competencia | Nivel |
-|:--|:--|
-| Desarrollo de aplicaciones | `▓▓▓░░` 60% |
-| Bases de datos SQL | `▓▓▓░░` 60% |
-| Cloud computing | `▓▓░░░` 40% |
-| Testing & QA | `▓▓░░░` 40% |
-
-</td></tr>
-</table>
-
-<br>
-
-<!-- TIMELINE AÑO 2 -->
-<table>
-<tr><td align="center">
-
-<img src="https://img.shields.io/badge/AÑO_2-ESPECIALIZACIÓN-1565C0?style=for-the-badge&logo=rocket&logoColor=white" height="30"/>
-
-<br><br>
-
-<a href="Bimestre-06/"><img src="https://img.shields.io/badge/06-1565C0?style=for-the-badge" height="28"/></a>
-<img src="https://img.shields.io/badge/→-555?style=flat-square" height="20"/>
-<a href="Bimestre-07/"><img src="https://img.shields.io/badge/07-1976D2?style=for-the-badge" height="28"/></a>
-<img src="https://img.shields.io/badge/→-555?style=flat-square" height="20"/>
-<a href="Bimestre-08/"><img src="https://img.shields.io/badge/08-1E88E5?style=for-the-badge" height="28"/></a>
-<img src="https://img.shields.io/badge/→-555?style=flat-square" height="20"/>
-<a href="Bimestre-09/"><img src="https://img.shields.io/badge/09-2196F3?style=for-the-badge" height="28"/></a>
-
-</td></tr>
-</table>
-
-<br>
 
 <!-- TÍTULO FINAL -->
+<img src="https://capsule-render.vercel.app/api?type=rounded&color=gradient&customColorList=20&height=70&section=header&text=🎓%20TÍTULO%20FINAL&fontSize=16&fontColor=ffffff&fontAlignY=55" width="350"/>
+
+<br><br>
+
+<a href="Bimestre-10/"><img src="https://img.shields.io/badge/BIMESTRE_10-Taller_de_Título-6A1B9A?style=for-the-badge&logo=mortarboard&logoColor=white" height="38"/></a>
+
+<br><br>
+
+<img src="https://img.shields.io/badge/INGENIERO_EN_DESARROLLO-DE_SOFTWARE-8E44AD?style=for-the-badge&labelColor=4A148C" height="28"/>
+
+<br><br>
+
 <table>
-<tr><td align="center">
-
-<img src="https://img.shields.io/badge/🎓_TÍTULO_FINAL-8E44AD?style=for-the-badge" height="35"/>
-
-<br><br>
-
-<a href="Bimestre-10/"><img src="https://img.shields.io/badge/BIMESTRE-10-6A1B9A?style=for-the-badge&logo=mortarboard&logoColor=white" height="40"/></a>
-
-<br><br>
-
-<img src="https://img.shields.io/badge/INGENIERO_EN_DESARROLLO_DE_SOFTWARE-8E44AD?style=flat-square" height="25"/>
-
-<br><br>
-
-| Competencia | Nivel |
-|:--|:--|
-| Arquitectura enterprise | `▓▓▓▓▓` 100% |
-| Full-stack development | `▓▓▓▓▓` 100% |
-| Mobile (Android/iOS) | `▓▓▓▓░` 80% |
-| DevOps & Cloud native | `▓▓▓▓░` 80% |
-| Microservices | `▓▓▓▓░` 80% |
-
-</td></tr>
+<tr>
+<td align="center"><sub><b>Arquitectura</b></sub></td>
+<td align="center"><sub><b>Full-Stack</b></sub></td>
+<td align="center"><sub><b>Mobile</b></sub></td>
+<td align="center"><sub><b>DevOps</b></sub></td>
+<td align="center"><sub><b>Microservices</b></sub></td>
+</tr>
+<tr>
+<td align="center"><img src="https://progress-bar.xyz/100/?width=70&color=8E44AD" height="14"/></td>
+<td align="center"><img src="https://progress-bar.xyz/100/?width=70&color=9C27B0" height="14"/></td>
+<td align="center"><img src="https://progress-bar.xyz/80/?width=70&color=AB47BC" height="14"/></td>
+<td align="center"><img src="https://progress-bar.xyz/80/?width=70&color=BA68C8" height="14"/></td>
+<td align="center"><img src="https://progress-bar.xyz/80/?width=70&color=CE93D8" height="14"/></td>
+</tr>
 </table>
 
 <br>
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=12&height=2&section=footer" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=20&height=3&section=footer" width="100%"/>
 
 </div>
 
