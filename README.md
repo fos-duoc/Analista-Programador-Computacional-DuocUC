@@ -320,119 +320,105 @@
 
 ---
 
-## 🎯 Hitos de la Carrera
+## 🎯 Trayectoria Académica
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=12&height=2&section=header" width="100%"/>
-
-<br>
-
-<!-- AÑO 1 -->
+<!-- TIMELINE AÑO 1 -->
 <table>
-<tr>
-<td align="center">
-<h3>📗 AÑO 1 — FUNDAMENTOS</h3>
-</td>
-</tr>
-<tr>
-<td align="center">
+<tr><td align="center">
 
-<a href="Bimestre-01/"><img src="https://img.shields.io/badge/B01-FUNDAMENTOS-2E7D32?style=flat-square&labelColor=1B5E20" height="35"/></a>
-<img src="https://img.shields.io/badge/▸-2E7D32?style=flat-square&labelColor=2E7D32" height="35"/>
-<a href="Bimestre-02/"><img src="https://img.shields.io/badge/B02-OOP_&_CLOUD-388E3C?style=flat-square&labelColor=2E7D32" height="35"/></a>
-<img src="https://img.shields.io/badge/▸-388E3C?style=flat-square&labelColor=388E3C" height="35"/>
-<a href="Bimestre-03/"><img src="https://img.shields.io/badge/B03-DEVOPS-43A047?style=flat-square&labelColor=388E3C" height="35"/></a>
-<img src="https://img.shields.io/badge/▸-43A047?style=flat-square&labelColor=43A047" height="35"/>
-<a href="Bimestre-04/"><img src="https://img.shields.io/badge/B04-SEGURIDAD-4CAF50?style=flat-square&labelColor=43A047" height="35"/></a>
+<img src="https://img.shields.io/badge/AÑO_1-FUNDAMENTOS-2E7D32?style=for-the-badge&logo=bookopen&logoColor=white" height="30"/>
 
-</td>
-</tr>
+<br><br>
+
+<a href="Bimestre-01/"><img src="https://img.shields.io/badge/01-2E7D32?style=for-the-badge" height="28"/></a>
+<img src="https://img.shields.io/badge/→-555?style=flat-square" height="20"/>
+<a href="Bimestre-02/"><img src="https://img.shields.io/badge/02-388E3C?style=for-the-badge" height="28"/></a>
+<img src="https://img.shields.io/badge/→-555?style=flat-square" height="20"/>
+<a href="Bimestre-03/"><img src="https://img.shields.io/badge/03-43A047?style=for-the-badge" height="28"/></a>
+<img src="https://img.shields.io/badge/→-555?style=flat-square" height="20"/>
+<a href="Bimestre-04/"><img src="https://img.shields.io/badge/04-4CAF50?style=for-the-badge" height="28"/></a>
+
+</td></tr>
 </table>
 
 <br>
 
 <!-- SALIDA INTERMEDIA -->
 <table>
-<tr>
-<td align="center" style="background: linear-gradient(135deg, #FF6600, #FF8C00);">
+<tr><td align="center">
 
-<h2>🏆 SALIDA INTERMEDIA</h2>
-
-<a href="Bimestre-05/"><img src="https://img.shields.io/badge/BIMESTRE_05-FF6600?style=for-the-badge&labelColor=E65100" height="45"/></a>
+<img src="https://img.shields.io/badge/🏆_SALIDA_INTERMEDIA-FF6600?style=for-the-badge" height="35"/>
 
 <br><br>
 
-<img src="https://img.shields.io/badge/🥈_PROGRAMADOR_DE_APLICACIONES-FF6600?style=for-the-badge" height="40"/>
-<br>
-<img src="https://img.shields.io/badge/COMPUTACIONALES-FF8C00?style=for-the-badge" height="35"/>
+<a href="Bimestre-05/"><img src="https://img.shields.io/badge/BIMESTRE-05-E65100?style=for-the-badge&logo=award&logoColor=white" height="40"/></a>
 
 <br><br>
 
-| Competencia | Dominio |
-|:------------|:-------:|
-| **Desarrollo de aplicaciones** | 🟢🟢🟢⚪⚪ |
-| **Bases de datos SQL** | 🟢🟢🟢⚪⚪ |
-| **Cloud computing** | 🟢🟢⚪⚪⚪ |
-| **Testing & QA** | 🟢🟢⚪⚪⚪ |
+<img src="https://img.shields.io/badge/PROGRAMADOR_DE_APLICACIONES_COMPUTACIONALES-FF6600?style=flat-square" height="25"/>
 
-</td>
-</tr>
+<br><br>
+
+| Competencia | Nivel |
+|:--|:--|
+| Desarrollo de aplicaciones | `▓▓▓░░` 60% |
+| Bases de datos SQL | `▓▓▓░░` 60% |
+| Cloud computing | `▓▓░░░` 40% |
+| Testing & QA | `▓▓░░░` 40% |
+
+</td></tr>
 </table>
 
 <br>
 
-<!-- AÑO 2 -->
+<!-- TIMELINE AÑO 2 -->
 <table>
-<tr>
-<td align="center">
-<h3>📘 AÑO 2 — ESPECIALIZACIÓN</h3>
-</td>
-</tr>
-<tr>
-<td align="center">
+<tr><td align="center">
 
-<a href="Bimestre-06/"><img src="https://img.shields.io/badge/B06-BACKEND-1565C0?style=flat-square&labelColor=0D47A1" height="35"/></a>
-<img src="https://img.shields.io/badge/▸-1565C0?style=flat-square&labelColor=1565C0" height="35"/>
-<a href="Bimestre-07/"><img src="https://img.shields.io/badge/B07-SECURITY-1976D2?style=flat-square&labelColor=1565C0" height="35"/></a>
-<img src="https://img.shields.io/badge/▸-1976D2?style=flat-square&labelColor=1976D2" height="35"/>
-<a href="Bimestre-08/"><img src="https://img.shields.io/badge/B08-FRONTEND-1E88E5?style=flat-square&labelColor=1976D2" height="35"/></a>
-<img src="https://img.shields.io/badge/▸-1E88E5?style=flat-square&labelColor=1E88E5" height="35"/>
-<a href="Bimestre-09/"><img src="https://img.shields.io/badge/B09-MOBILE-2196F3?style=flat-square&labelColor=1E88E5" height="35"/></a>
+<img src="https://img.shields.io/badge/AÑO_2-ESPECIALIZACIÓN-1565C0?style=for-the-badge&logo=rocket&logoColor=white" height="30"/>
 
-</td>
-</tr>
+<br><br>
+
+<a href="Bimestre-06/"><img src="https://img.shields.io/badge/06-1565C0?style=for-the-badge" height="28"/></a>
+<img src="https://img.shields.io/badge/→-555?style=flat-square" height="20"/>
+<a href="Bimestre-07/"><img src="https://img.shields.io/badge/07-1976D2?style=for-the-badge" height="28"/></a>
+<img src="https://img.shields.io/badge/→-555?style=flat-square" height="20"/>
+<a href="Bimestre-08/"><img src="https://img.shields.io/badge/08-1E88E5?style=for-the-badge" height="28"/></a>
+<img src="https://img.shields.io/badge/→-555?style=flat-square" height="20"/>
+<a href="Bimestre-09/"><img src="https://img.shields.io/badge/09-2196F3?style=for-the-badge" height="28"/></a>
+
+</td></tr>
 </table>
 
 <br>
 
 <!-- TÍTULO FINAL -->
 <table>
-<tr>
-<td align="center" style="background: linear-gradient(135deg, #6A1B9A, #8E24AA);">
+<tr><td align="center">
 
-<h2>🎓 TÍTULO FINAL</h2>
-
-<a href="Bimestre-10/"><img src="https://img.shields.io/badge/BIMESTRE_10-8E44AD?style=for-the-badge&labelColor=6A1B9A" height="45"/></a>
+<img src="https://img.shields.io/badge/🎓_TÍTULO_FINAL-8E44AD?style=for-the-badge" height="35"/>
 
 <br><br>
 
-<img src="https://img.shields.io/badge/🥇_INGENIERO_EN_DESARROLLO-8E44AD?style=for-the-badge" height="40"/>
-<br>
-<img src="https://img.shields.io/badge/DE_SOFTWARE-9C27B0?style=for-the-badge" height="35"/>
+<a href="Bimestre-10/"><img src="https://img.shields.io/badge/BIMESTRE-10-6A1B9A?style=for-the-badge&logo=mortarboard&logoColor=white" height="40"/></a>
 
 <br><br>
 
-| Competencia | Dominio |
-|:------------|:-------:|
-| **Arquitectura enterprise** | 🟣🟣🟣🟣🟣 |
-| **Full-stack development** | 🟣🟣🟣🟣🟣 |
-| **Mobile (Android/iOS)** | 🟣🟣🟣🟣⚪ |
-| **DevOps & Cloud native** | 🟣🟣🟣🟣⚪ |
-| **Microservices** | 🟣🟣🟣🟣⚪ |
+<img src="https://img.shields.io/badge/INGENIERO_EN_DESARROLLO_DE_SOFTWARE-8E44AD?style=flat-square" height="25"/>
 
-</td>
-</tr>
+<br><br>
+
+| Competencia | Nivel |
+|:--|:--|
+| Arquitectura enterprise | `▓▓▓▓▓` 100% |
+| Full-stack development | `▓▓▓▓▓` 100% |
+| Mobile (Android/iOS) | `▓▓▓▓░` 80% |
+| DevOps & Cloud native | `▓▓▓▓░` 80% |
+| Microservices | `▓▓▓▓░` 80% |
+
+</td></tr>
 </table>
 
 <br>
