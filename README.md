@@ -7,7 +7,6 @@
 [![DuocUC](https://img.shields.io/badge/DuocUC-Escuela_de_Informática-003366?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xMiAzTDEgOWw0IDIuMTh2NkwxMiAyMWw3LTMuODJ2LTZMMT05bDExLTZ6Ii8+PC9zdmc+)](https://www.duoc.cl/)
 [![Modalidad](https://img.shields.io/badge/Modalidad-Online-8E44AD?style=for-the-badge&logo=wifi&logoColor=white)](.)
 [![10 Bimestres](https://img.shields.io/badge/Duración-10_Bimestres-FF6600?style=for-the-badge&logo=calendar&logoColor=white)](.)
-[![Oracle Academy](https://img.shields.io/badge/Oracle_Academy-F80000?style=for-the-badge&logo=oracle&logoColor=white)](https://academy.oracle.com/)
 
 <br>
 
@@ -325,38 +324,27 @@
 
 <div align="center">
 
-### 📅 Año 1 — Fundamentos
-
-[![B01](https://img.shields.io/badge/01-Bases-4CAF50?style=for-the-badge&logo=bookstack&logoColor=white)](Bimestre-01/)
-[![→](https://img.shields.io/badge/→-_-transparent?style=for-the-badge)](#)
-[![B02](https://img.shields.io/badge/02-OOP-66BB6A?style=for-the-badge&logo=java&logoColor=white)](Bimestre-02/)
-[![→](https://img.shields.io/badge/→-_-transparent?style=for-the-badge)](#)
-[![B03](https://img.shields.io/badge/03-Backend-81C784?style=for-the-badge&logo=spring&logoColor=white)](Bimestre-03/)
-[![→](https://img.shields.io/badge/→-_-transparent?style=for-the-badge)](#)
-[![B04](https://img.shields.io/badge/04-Cloud-A5D6A7?style=for-the-badge&logo=amazonaws&logoColor=white)](Bimestre-04/)
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=12&height=2&section=header" width="100%"/>
 
 <br>
 
-### 🏆 Salida Intermedia — Bimestre 05
-
-[![B05](https://img.shields.io/badge/BIMESTRE_05-SALIDA_INTERMEDIA-FF6600?style=for-the-badge&logo=award&logoColor=white)](Bimestre-05/)
-
+<!-- AÑO 1 -->
 <table>
 <tr>
 <td align="center">
+<h3>📗 AÑO 1 — FUNDAMENTOS</h3>
+</td>
+</tr>
+<tr>
+<td align="center">
 
-<img src="https://img.shields.io/badge/🥈-PROGRAMADOR_DE_APLICACIONES_COMPUTACIONALES-FF6600?style=for-the-badge" alt="Titulo Intermedio"/>
-
-<sub>
-
-| Competencia | Nivel |
-|:------------|:------|
-| Desarrollo de aplicaciones | ⭐⭐⭐ |
-| Bases de datos SQL | ⭐⭐⭐ |
-| Cloud computing basics | ⭐⭐ |
-| Testing & QA | ⭐⭐ |
-
-</sub>
+<a href="Bimestre-01/"><img src="https://img.shields.io/badge/B01-FUNDAMENTOS-2E7D32?style=flat-square&labelColor=1B5E20" height="35"/></a>
+<img src="https://img.shields.io/badge/▸-2E7D32?style=flat-square&labelColor=2E7D32" height="35"/>
+<a href="Bimestre-02/"><img src="https://img.shields.io/badge/B02-OOP_&_CLOUD-388E3C?style=flat-square&labelColor=2E7D32" height="35"/></a>
+<img src="https://img.shields.io/badge/▸-388E3C?style=flat-square&labelColor=388E3C" height="35"/>
+<a href="Bimestre-03/"><img src="https://img.shields.io/badge/B03-DEVOPS-43A047?style=flat-square&labelColor=388E3C" height="35"/></a>
+<img src="https://img.shields.io/badge/▸-43A047?style=flat-square&labelColor=43A047" height="35"/>
+<a href="Bimestre-04/"><img src="https://img.shields.io/badge/B04-SEGURIDAD-4CAF50?style=flat-square&labelColor=43A047" height="35"/></a>
 
 </td>
 </tr>
@@ -364,43 +352,92 @@
 
 <br>
 
-### 📅 Año 2 — Especialización
-
-[![B06](https://img.shields.io/badge/06-DevOps-2196F3?style=for-the-badge&logo=docker&logoColor=white)](Bimestre-06/)
-[![→](https://img.shields.io/badge/→-_-transparent?style=for-the-badge)](#)
-[![B07](https://img.shields.io/badge/07-Security-1976D2?style=for-the-badge&logo=springsecurity&logoColor=white)](Bimestre-07/)
-[![→](https://img.shields.io/badge/→-_-transparent?style=for-the-badge)](#)
-[![B08](https://img.shields.io/badge/08-Angular-1565C0?style=for-the-badge&logo=angular&logoColor=white)](Bimestre-08/)
-[![→](https://img.shields.io/badge/→-_-transparent?style=for-the-badge)](#)
-[![B09](https://img.shields.io/badge/09-Mobile-0D47A1?style=for-the-badge&logo=kotlin&logoColor=white)](Bimestre-09/)
-
-<br>
-
-### 🎓 Título Final — Bimestre 10
-
-[![B10](https://img.shields.io/badge/BIMESTRE_10-TÍTULO_FINAL-8E44AD?style=for-the-badge&logo=graduation-cap&logoColor=white)](Bimestre-10/)
-
+<!-- SALIDA INTERMEDIA -->
 <table>
 <tr>
-<td align="center">
+<td align="center" style="background: linear-gradient(135deg, #FF6600, #FF8C00);">
 
-<img src="https://img.shields.io/badge/🥇-INGENIERO_EN_DESARROLLO_DE_SOFTWARE-8E44AD?style=for-the-badge" alt="Titulo Final"/>
+<h2>🏆 SALIDA INTERMEDIA</h2>
 
-<sub>
+<a href="Bimestre-05/"><img src="https://img.shields.io/badge/BIMESTRE_05-FF6600?style=for-the-badge&labelColor=E65100" height="45"/></a>
 
-| Competencia | Nivel |
-|:------------|:------|
-| Arquitectura enterprise | ⭐⭐⭐⭐⭐ |
-| Full-stack development | ⭐⭐⭐⭐⭐ |
-| Mobile (Android/iOS) | ⭐⭐⭐⭐ |
-| DevOps & Cloud native | ⭐⭐⭐⭐ |
-| Microservices | ⭐⭐⭐⭐ |
+<br><br>
 
-</sub>
+<img src="https://img.shields.io/badge/🥈_PROGRAMADOR_DE_APLICACIONES-FF6600?style=for-the-badge" height="40"/>
+<br>
+<img src="https://img.shields.io/badge/COMPUTACIONALES-FF8C00?style=for-the-badge" height="35"/>
+
+<br><br>
+
+| Competencia | Dominio |
+|:------------|:-------:|
+| **Desarrollo de aplicaciones** | 🟢🟢🟢⚪⚪ |
+| **Bases de datos SQL** | 🟢🟢🟢⚪⚪ |
+| **Cloud computing** | 🟢🟢⚪⚪⚪ |
+| **Testing & QA** | 🟢🟢⚪⚪⚪ |
 
 </td>
 </tr>
 </table>
+
+<br>
+
+<!-- AÑO 2 -->
+<table>
+<tr>
+<td align="center">
+<h3>📘 AÑO 2 — ESPECIALIZACIÓN</h3>
+</td>
+</tr>
+<tr>
+<td align="center">
+
+<a href="Bimestre-06/"><img src="https://img.shields.io/badge/B06-BACKEND-1565C0?style=flat-square&labelColor=0D47A1" height="35"/></a>
+<img src="https://img.shields.io/badge/▸-1565C0?style=flat-square&labelColor=1565C0" height="35"/>
+<a href="Bimestre-07/"><img src="https://img.shields.io/badge/B07-SECURITY-1976D2?style=flat-square&labelColor=1565C0" height="35"/></a>
+<img src="https://img.shields.io/badge/▸-1976D2?style=flat-square&labelColor=1976D2" height="35"/>
+<a href="Bimestre-08/"><img src="https://img.shields.io/badge/B08-FRONTEND-1E88E5?style=flat-square&labelColor=1976D2" height="35"/></a>
+<img src="https://img.shields.io/badge/▸-1E88E5?style=flat-square&labelColor=1E88E5" height="35"/>
+<a href="Bimestre-09/"><img src="https://img.shields.io/badge/B09-MOBILE-2196F3?style=flat-square&labelColor=1E88E5" height="35"/></a>
+
+</td>
+</tr>
+</table>
+
+<br>
+
+<!-- TÍTULO FINAL -->
+<table>
+<tr>
+<td align="center" style="background: linear-gradient(135deg, #6A1B9A, #8E24AA);">
+
+<h2>🎓 TÍTULO FINAL</h2>
+
+<a href="Bimestre-10/"><img src="https://img.shields.io/badge/BIMESTRE_10-8E44AD?style=for-the-badge&labelColor=6A1B9A" height="45"/></a>
+
+<br><br>
+
+<img src="https://img.shields.io/badge/🥇_INGENIERO_EN_DESARROLLO-8E44AD?style=for-the-badge" height="40"/>
+<br>
+<img src="https://img.shields.io/badge/DE_SOFTWARE-9C27B0?style=for-the-badge" height="35"/>
+
+<br><br>
+
+| Competencia | Dominio |
+|:------------|:-------:|
+| **Arquitectura enterprise** | 🟣🟣🟣🟣🟣 |
+| **Full-stack development** | 🟣🟣🟣🟣🟣 |
+| **Mobile (Android/iOS)** | 🟣🟣🟣🟣⚪ |
+| **DevOps & Cloud native** | 🟣🟣🟣🟣⚪ |
+| **Microservices** | 🟣🟣🟣🟣⚪ |
+
+</td>
+</tr>
+</table>
+
+<br>
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=12&height=2&section=footer" width="100%"/>
 
 </div>
 
