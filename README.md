@@ -280,39 +280,39 @@
 <tr>
 <td width="50%" valign="top">
 
-### 📘 Año 1 › Semestre 1
+<h4>📘 Año 1 › Semestre 1</h4>
 
 | | Bimestre 01 | Bimestre 02 |
 |:--|:--|:--|
-| <img src="https://skillicons.dev/icons?i=python" width="20"/> | [Fundamentos Programación](Bimestre-01/Fundamentos-Programacion/) | [Programación OO I](Bimestre-02/Programacion-OO-I/) <img src="https://skillicons.dev/icons?i=java" width="20"/> |
-| <img src="https://skillicons.dev/icons?i=oracle" width="20"/> | [Modelamiento BD](Bimestre-01/Modelamiento-BD/) | [Computación Nube](Bimestre-02/Computacion-Nube/) <img src="https://skillicons.dev/icons?i=aws" width="20"/> |
-| 📚 | [Antropología](Bimestre-01/Antropologia/) | [Comunicación](Bimestre-02/Comunicacion/) 📚 |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="16"/> | [Fundamentos Prog.](Bimestre-01/Fundamentos-Programacion/) | [POO I](Bimestre-02/Programacion-OO-I/) <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="16"/> |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" width="16"/> | [Modelamiento BD](Bimestre-01/Modelamiento-BD/) | [Cloud](Bimestre-02/Computacion-Nube/) <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" width="16"/> |
+| 📚 | [Antropología](Bimestre-01/Antropologia/) | [Comunicación](Bimestre-02/Comunicacion/) |
 
-### 📗 Año 1 › Semestre 2
+<h4>📗 Año 1 › Semestre 2</h4>
 
 | | Bimestre 03 | Bimestre 04 |
 |:--|:--|:--|
-| <img src="https://skillicons.dev/icons?i=java" width="20"/> | [Programación OO II](Bimestre-03/Programacion-OO-II/) | [SQL Consultas](Bimestre-04/SQL-Consultas/) <img src="https://skillicons.dev/icons?i=oracle" width="20"/> |
-| <img src="https://skillicons.dev/icons?i=docker" width="20"/> | [DevOps](Bimestre-03/DevOps/) | [Seguridad Informática](Bimestre-04/Seguridad-Informatica/) 🔐 |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="16"/> | [POO II](Bimestre-03/Programacion-OO-II/) | [SQL Consultas](Bimestre-04/SQL-Consultas/) <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" width="16"/> |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="16"/> | [DevOps](Bimestre-03/DevOps/) | [Seguridad](Bimestre-04/Seguridad-Informatica/) 🔐 |
 | 📚 | [Ética](Bimestre-03/Etica/) | |
 
 </td>
 <td width="50%" valign="top">
 
-### 📙 Año 2 › Semestre 1
+<h4>📙 Año 2 › Semestre 1</h4>
 
 | | Bimestre 05 🏆 | Bimestre 06 |
 |:--|:--|:--|
-| <img src="https://skillicons.dev/icons?i=oracle" width="20"/> | [SQL Programación](Bimestre-05/SQL-Programacion/) | [Backend I](Bimestre-06/Backend-I/) <img src="https://skillicons.dev/icons?i=spring" width="20"/> |
-| <img src="https://skillicons.dev/icons?i=kubernetes" width="20"/> | [Cloud Native](Bimestre-05/Cloud-Native/) | [Ing. Software I](Bimestre-06/Ingenieria-Software-I/) 📋 |
-| 📋 | [Ing. Requisitos](Bimestre-05/Ingenieria-Requisitos/) | |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" width="16"/> | [SQL Prog.](Bimestre-05/SQL-Programacion/) | [Backend I](Bimestre-06/Backend-I/) <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" width="16"/> |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" width="16"/> | [Cloud Native](Bimestre-05/Cloud-Native/) | [Ing. Soft. I](Bimestre-06/Ingenieria-Software-I/) 📋 |
+| 📋 | [Requisitos](Bimestre-05/Ingenieria-Requisitos/) | |
 
-### 📕 Año 2 › Semestre 2
+<h4>📕 Año 2 › Semestre 2</h4>
 
 | | Bimestre 07 | Bimestre 08 | Bimestre 09 | Bimestre 10 🎓 |
 |:--|:--|:--|:--|:--|
-| <img src="https://skillicons.dev/icons?i=spring" width="20"/> | [Backend II-III](Bimestre-07/Backend-II-III/) | [Frontend I-II](Bimestre-08/Frontend-I-II/) <img src="https://skillicons.dev/icons?i=angular" width="20"/> | [Mobile I](Bimestre-09/Mobile-I/) <img src="https://skillicons.dev/icons?i=kotlin" width="20"/> | [Mobile II](Bimestre-10/Mobile-II/) <img src="https://skillicons.dev/icons?i=ionic" width="20"/> |
-| 🏛️ | [Ing. Software II](Bimestre-07/Ingenieria-Software-II/) | [Arquitectura](Bimestre-08/Arquitectura-Software/) | [Frontend III](Bimestre-09/Frontend-III/) <img src="https://skillicons.dev/icons?i=angular" width="20"/> | [Taller Título](Bimestre-10/Taller-Titulo/) 🎯 |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" width="16"/> | [Backend II-III](Bimestre-07/Backend-II-III/) | [Frontend I-II](Bimestre-08/Frontend-I-II/) <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" width="16"/> | [Mobile I](Bimestre-09/Mobile-I/) <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" width="16"/> | [Mobile II](Bimestre-10/Mobile-II/) <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ionic/ionic-original.svg" width="16"/> |
+| 🏛️ | [Ing. Soft. II](Bimestre-07/Ingenieria-Software-II/) | [Arquitectura](Bimestre-08/Arquitectura-Software/) | [Frontend III](Bimestre-09/Frontend-III/) <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" width="16"/> | [Taller Título](Bimestre-10/Taller-Titulo/) 🎯 |
 
 </td>
 </tr>
