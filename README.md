@@ -78,7 +78,7 @@
 <br><b>TypeScript</b>
 </td>
 <td align="center" width="120">
-<img src="https://techstack-generator.vercel.app/kotlin-icon.svg" width="65" height="65" alt="Kotlin" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" width="55" height="55" alt="Kotlin" />
 <br><b>Kotlin</b>
 </td>
 <td align="center" width="120">
@@ -280,39 +280,39 @@
 <tr>
 <td width="50%" valign="top">
 
-<h4>📘 Año 1 › Semestre 1</h4>
+**📘 Año 1 › Semestre 1**
 
-| | Bimestre 01 | Bimestre 02 |
+| | **Bimestre 01** | **Bimestre 02** |
 |:--|:--|:--|
-| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="16"/> | [Fundamentos Prog.](Bimestre-01/Fundamentos-Programacion/) | [POO I](Bimestre-02/Programacion-OO-I/) <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="16"/> |
-| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" width="16"/> | [Modelamiento BD](Bimestre-01/Modelamiento-BD/) | [Cloud](Bimestre-02/Computacion-Nube/) <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" width="16"/> |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="18"/> | **[Fundamentos Prog.](Bimestre-01/Fundamentos-Programacion/)** | **[POO I](Bimestre-02/Programacion-OO-I/)** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="18"/> |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" width="18"/> | **[Modelamiento BD](Bimestre-01/Modelamiento-BD/)** | **[Cloud](Bimestre-02/Computacion-Nube/)** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" width="18"/> |
 | 📚 | [Antropología](Bimestre-01/Antropologia/) | [Comunicación](Bimestre-02/Comunicacion/) |
 
-<h4>📗 Año 1 › Semestre 2</h4>
+**📗 Año 1 › Semestre 2**
 
-| | Bimestre 03 | Bimestre 04 |
+| | **Bimestre 03** | **Bimestre 04** |
 |:--|:--|:--|
-| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="16"/> | [POO II](Bimestre-03/Programacion-OO-II/) | [SQL Consultas](Bimestre-04/SQL-Consultas/) <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" width="16"/> |
-| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="16"/> | [DevOps](Bimestre-03/DevOps/) | [Seguridad](Bimestre-04/Seguridad-Informatica/) 🔐 |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="18"/> | **[POO II](Bimestre-03/Programacion-OO-II/)** | **[SQL Consultas](Bimestre-04/SQL-Consultas/)** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" width="18"/> |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="18"/> | **[DevOps](Bimestre-03/DevOps/)** | **[Seguridad](Bimestre-04/Seguridad-Informatica/)** 🔐 |
 | 📚 | [Ética](Bimestre-03/Etica/) | |
 
 </td>
 <td width="50%" valign="top">
 
-<h4>📙 Año 2 › Semestre 1</h4>
+**📙 Año 2 › Semestre 1**
 
-| | Bimestre 05 🏆 | Bimestre 06 |
+| | **Bimestre 05** 🏆 | **Bimestre 06** |
 |:--|:--|:--|
-| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" width="16"/> | [SQL Prog.](Bimestre-05/SQL-Programacion/) | [Backend I](Bimestre-06/Backend-I/) <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" width="16"/> |
-| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" width="16"/> | [Cloud Native](Bimestre-05/Cloud-Native/) | [Ing. Soft. I](Bimestre-06/Ingenieria-Software-I/) 📋 |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" width="18"/> | **[SQL Prog.](Bimestre-05/SQL-Programacion/)** | **[Backend I](Bimestre-06/Backend-I/)** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" width="18"/> |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" width="18"/> | **[Cloud Native](Bimestre-05/Cloud-Native/)** | **[Ing. Soft. I](Bimestre-06/Ingenieria-Software-I/)** 📋 |
 | 📋 | [Requisitos](Bimestre-05/Ingenieria-Requisitos/) | |
 
-<h4>📕 Año 2 › Semestre 2</h4>
+**📕 Año 2 › Semestre 2**
 
-| | Bimestre 07 | Bimestre 08 | Bimestre 09 | Bimestre 10 🎓 |
+| | **Bimestre 07** | **Bimestre 08** | **Bimestre 09** | **Bimestre 10** 🎓 |
 |:--|:--|:--|:--|:--|
-| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" width="16"/> | [Backend II-III](Bimestre-07/Backend-II-III/) | [Frontend I-II](Bimestre-08/Frontend-I-II/) <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" width="16"/> | [Mobile I](Bimestre-09/Mobile-I/) <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" width="16"/> | [Mobile II](Bimestre-10/Mobile-II/) <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ionic/ionic-original.svg" width="16"/> |
-| 🏛️ | [Ing. Soft. II](Bimestre-07/Ingenieria-Software-II/) | [Arquitectura](Bimestre-08/Arquitectura-Software/) | [Frontend III](Bimestre-09/Frontend-III/) <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" width="16"/> | [Taller Título](Bimestre-10/Taller-Titulo/) 🎯 |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" width="18"/> | **[Backend II-III](Bimestre-07/Backend-II-III/)** | **[Frontend I-II](Bimestre-08/Frontend-I-II/)** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" width="18"/> | **[Mobile I](Bimestre-09/Mobile-I/)** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" width="18"/> | **[Mobile II](Bimestre-10/Mobile-II/)** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ionic/ionic-original.svg" width="18"/> |
+| 🏛️ | **[Ing. Soft. II](Bimestre-07/Ingenieria-Software-II/)** | **[Arquitectura](Bimestre-08/Arquitectura-Software/)** | **[Frontend III](Bimestre-09/Frontend-III/)** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" width="18"/> | **[Taller Título](Bimestre-10/Taller-Titulo/)** 🎯 |
 
 </td>
 </tr>
