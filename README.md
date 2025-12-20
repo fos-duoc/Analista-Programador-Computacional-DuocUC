@@ -5,8 +5,8 @@
 
 <!-- BADGES -->
 [![DuocUC](https://img.shields.io/badge/DuocUC-Escuela_de_Informática-003366?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xMiAzTDEgOWw0IDIuMTh2NkwxMiAyMWw3LTMuODJ2LTZMMT05bDExLTZ6Ii8+PC9zdmc+)](https://www.duoc.cl/)
-[![Malla 2025](https://img.shields.io/badge/Malla-2025-00CC66?style=for-the-badge)](.)
-[![10 Bimestres](https://img.shields.io/badge/Duración-10_Bimestres-FF6600?style=for-the-badge)](.)
+[![Modalidad](https://img.shields.io/badge/Modalidad-Online-8E44AD?style=for-the-badge&logo=wifi&logoColor=white)](.)
+[![10 Bimestres](https://img.shields.io/badge/Duración-10_Bimestres-FF6600?style=for-the-badge&logo=calendar&logoColor=white)](.)
 
 **━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
 
@@ -241,47 +241,121 @@
 
 ## ⚡ Navegación Rápida
 
+<div align="center">
+
+<!-- AÑO 1 - SEMESTRE 1 -->
 <table>
 <tr>
-<td width="50%" valign="top">
-
-### 📘 Año 1 › Semestre 1
-
-| | Bimestre 01 | Bimestre 02 |
-|:--|:--|:--|
-| 🔷 | [Fundamentos Programación](Bimestre-01/Fundamentos-Programacion/) | [Programación OO I](Bimestre-02/Programacion-OO-I/) |
-| 🔷 | [Modelamiento BD](Bimestre-01/Modelamiento-BD/) | [Computación Nube](Bimestre-02/Computacion-Nube/) |
-| 🔷 | [Antropología](Bimestre-01/Antropologia/) | [Comunicación](Bimestre-02/Comunicacion/) |
-
-### 📗 Año 1 › Semestre 2
-
-| | Bimestre 03 | Bimestre 04 |
-|:--|:--|:--|
-| 🔷 | [Programación OO II](Bimestre-03/Programacion-OO-II/) | [SQL Consultas](Bimestre-04/SQL-Consultas/) |
-| 🔷 | [DevOps](Bimestre-03/DevOps/) | [Seguridad Informática](Bimestre-04/Seguridad-Informatica/) |
-| 🔷 | [Ética](Bimestre-03/Etica/) | |
-
+<td colspan="2" align="center">
+<img src="https://img.shields.io/badge/━━━━━━━━━━━━━━━━━━━━━━━━━━━━-AÑO_1_•_SEMESTRE_1-2E86AB?style=for-the-badge&labelColor=2E86AB" />
 </td>
-<td width="50%" valign="top">
-
-### 📙 Año 2 › Semestre 1
-
-| | Bimestre 05 🏆 | Bimestre 06 |
-|:--|:--|:--|
-| 🔶 | [SQL Programación](Bimestre-05/SQL-Programacion/) | [Backend I](Bimestre-06/Backend-I/) |
-| 🔶 | [Cloud Native](Bimestre-05/Cloud-Native/) | [Ing. Software I](Bimestre-06/Ingenieria-Software-I/) |
-| 🔶 | [Ing. Requisitos](Bimestre-05/Ingenieria-Requisitos/) | |
-
-### 📕 Año 2 › Semestre 2
-
-| | Bimestre 07 | Bimestre 08 | Bimestre 09 | Bimestre 10 🎓 |
-|:--|:--|:--|:--|:--|
-| 🔶 | [Backend II-III](Bimestre-07/Backend-II-III/) | [Frontend I-II](Bimestre-08/Frontend-I-II/) | [Mobile I](Bimestre-09/Mobile-I/) | [Mobile II](Bimestre-10/Mobile-II/) |
-| 🔶 | [Ing. Software II](Bimestre-07/Ingenieria-Software-II/) | [Arquitectura](Bimestre-08/Arquitectura-Software/) | [Frontend III](Bimestre-09/Frontend-III/) | [Taller Título](Bimestre-10/Taller-Titulo/) |
-
+</tr>
+<tr>
+<td align="center">
+<img src="https://img.shields.io/badge/BIMESTRE-01-1A5F7A?style=for-the-badge&logo=bookstack&logoColor=white" />
+<br><br>
+<a href="Bimestre-01/Fundamentos-Programacion/"><img src="https://img.shields.io/badge/Python-Fundamentos_Prog-3776AB?style=flat-square&logo=python&logoColor=white" /></a><br>
+<a href="Bimestre-01/Modelamiento-BD/"><img src="https://img.shields.io/badge/Oracle-Modelamiento_BD-F80000?style=flat-square&logo=oracle&logoColor=white" /></a><br>
+<a href="Bimestre-01/Antropologia/"><img src="https://img.shields.io/badge/📚-Antropología-6C757D?style=flat-square" /></a>
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/BIMESTRE-02-1A5F7A?style=for-the-badge&logo=bookstack&logoColor=white" />
+<br><br>
+<a href="Bimestre-02/Programacion-OO-I/"><img src="https://img.shields.io/badge/Java-POO_I-ED8B00?style=flat-square&logo=openjdk&logoColor=white" /></a><br>
+<a href="Bimestre-02/Computacion-Nube/"><img src="https://img.shields.io/badge/AWS-Cloud_Computing-FF9900?style=flat-square&logo=amazonaws&logoColor=white" /></a><br>
+<a href="Bimestre-02/Comunicacion/"><img src="https://img.shields.io/badge/📚-Comunicación-6C757D?style=flat-square" /></a>
 </td>
 </tr>
 </table>
+
+<!-- AÑO 1 - SEMESTRE 2 -->
+<table>
+<tr>
+<td colspan="2" align="center">
+<img src="https://img.shields.io/badge/━━━━━━━━━━━━━━━━━━━━━━━━━━━━-AÑO_1_•_SEMESTRE_2-28A745?style=for-the-badge&labelColor=28A745" />
+</td>
+</tr>
+<tr>
+<td align="center">
+<img src="https://img.shields.io/badge/BIMESTRE-03-157347?style=for-the-badge&logo=bookstack&logoColor=white" />
+<br><br>
+<a href="Bimestre-03/Programacion-OO-II/"><img src="https://img.shields.io/badge/Java-POO_II-ED8B00?style=flat-square&logo=openjdk&logoColor=white" /></a><br>
+<a href="Bimestre-03/DevOps/"><img src="https://img.shields.io/badge/DevOps-CI%2FCD-326CE5?style=flat-square&logo=docker&logoColor=white" /></a><br>
+<a href="Bimestre-03/Etica/"><img src="https://img.shields.io/badge/📚-Ética-6C757D?style=flat-square" /></a>
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/BIMESTRE-04-157347?style=for-the-badge&logo=bookstack&logoColor=white" />
+<br><br>
+<a href="Bimestre-04/SQL-Consultas/"><img src="https://img.shields.io/badge/Oracle-SQL_Consultas-F80000?style=flat-square&logo=oracle&logoColor=white" /></a><br>
+<a href="Bimestre-04/Seguridad-Informatica/"><img src="https://img.shields.io/badge/Security-Seguridad_Info-DC3545?style=flat-square&logo=hackaday&logoColor=white" /></a><br>
+<img src="https://img.shields.io/badge/—-—-transparent?style=flat-square" />
+</td>
+</tr>
+</table>
+
+<!-- AÑO 2 - SEMESTRE 1 -->
+<table>
+<tr>
+<td colspan="2" align="center">
+<img src="https://img.shields.io/badge/━━━━━━━━━━━━━━━━━━━━━━━━━━━━-AÑO_2_•_SEMESTRE_1-FD7E14?style=for-the-badge&labelColor=FD7E14" />
+</td>
+</tr>
+<tr>
+<td align="center">
+<img src="https://img.shields.io/badge/BIMESTRE-05-D35400?style=for-the-badge&logo=bookstack&logoColor=white" />
+<img src="https://img.shields.io/badge/🏆-TÍTULO_INTERMEDIO-FFD700?style=flat-square" />
+<br><br>
+<a href="Bimestre-05/SQL-Programacion/"><img src="https://img.shields.io/badge/PL%2FSQL-SQL_Programación-F80000?style=flat-square&logo=oracle&logoColor=white" /></a><br>
+<a href="Bimestre-05/Cloud-Native/"><img src="https://img.shields.io/badge/K8s-Cloud_Native-326CE5?style=flat-square&logo=kubernetes&logoColor=white" /></a><br>
+<a href="Bimestre-05/Ingenieria-Requisitos/"><img src="https://img.shields.io/badge/📋-Ing._Requisitos-17A2B8?style=flat-square" /></a>
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/BIMESTRE-06-D35400?style=for-the-badge&logo=bookstack&logoColor=white" />
+<br><br>
+<a href="Bimestre-06/Backend-I/"><img src="https://img.shields.io/badge/Spring-Backend_I-6DB33F?style=flat-square&logo=spring&logoColor=white" /></a><br>
+<a href="Bimestre-06/Ingenieria-Software-I/"><img src="https://img.shields.io/badge/Scrum-Ing._Software_I-009FDA?style=flat-square&logo=scrumalliance&logoColor=white" /></a><br>
+<img src="https://img.shields.io/badge/—-—-transparent?style=flat-square" />
+</td>
+</tr>
+</table>
+
+<!-- AÑO 2 - SEMESTRE 2 -->
+<table>
+<tr>
+<td colspan="4" align="center">
+<img src="https://img.shields.io/badge/━━━━━━━━━━━━━━━━━━━━━━━━━━━━-AÑO_2_•_SEMESTRE_2-DC3545?style=for-the-badge&labelColor=DC3545" />
+</td>
+</tr>
+<tr>
+<td align="center">
+<img src="https://img.shields.io/badge/BIMESTRE-07-A71D2A?style=for-the-badge&logo=bookstack&logoColor=white" />
+<br><br>
+<a href="Bimestre-07/Backend-II-III/"><img src="https://img.shields.io/badge/Spring-Backend_II--III-6DB33F?style=flat-square&logo=spring&logoColor=white" /></a><br>
+<a href="Bimestre-07/Ingenieria-Software-II/"><img src="https://img.shields.io/badge/Patterns-Ing._Software_II-9B59B6?style=flat-square&logo=uml&logoColor=white" /></a>
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/BIMESTRE-08-A71D2A?style=for-the-badge&logo=bookstack&logoColor=white" />
+<br><br>
+<a href="Bimestre-08/Frontend-I-II/"><img src="https://img.shields.io/badge/Angular-Frontend_I--II-DD0031?style=flat-square&logo=angular&logoColor=white" /></a><br>
+<a href="Bimestre-08/Arquitectura-Software/"><img src="https://img.shields.io/badge/🏛️-Arquitectura-8E44AD?style=flat-square" /></a>
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/BIMESTRE-09-A71D2A?style=for-the-badge&logo=bookstack&logoColor=white" />
+<br><br>
+<a href="Bimestre-09/Mobile-I/"><img src="https://img.shields.io/badge/Kotlin-Mobile_I-7F52FF?style=flat-square&logo=kotlin&logoColor=white" /></a><br>
+<a href="Bimestre-09/Frontend-III/"><img src="https://img.shields.io/badge/Angular-Frontend_III-DD0031?style=flat-square&logo=angular&logoColor=white" /></a>
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/BIMESTRE-10-A71D2A?style=for-the-badge&logo=bookstack&logoColor=white" />
+<img src="https://img.shields.io/badge/🎓-TÍTULO_FINAL-FFD700?style=flat-square" />
+<br><br>
+<a href="Bimestre-10/Mobile-II/"><img src="https://img.shields.io/badge/Ionic-Mobile_II-3880FF?style=flat-square&logo=ionic&logoColor=white" /></a><br>
+<a href="Bimestre-10/Taller-Titulo/"><img src="https://img.shields.io/badge/🎯-Taller_Título-E91E63?style=flat-square" /></a>
+</td>
+</tr>
+</table>
+
+</div>
 
 ---
 
@@ -289,133 +363,274 @@
 
 <div align="center">
 
-```
-          ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-          ┃                          TRAYECTORIA ACADÉMICA                               ┃
-          ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+<!-- TRAYECTORIA VISUAL -->
+<img src="https://img.shields.io/badge/━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━-TRAYECTORIA_ACADÉMICA-6C5CE7?style=for-the-badge&labelColor=6C5CE7" />
 
-    ╭─────────╮      ╭─────────╮      ╭─────────╮      ╭─────────╮      ╭─────────╮
-    │   B01   │ ───▶ │   B03   │ ───▶ │   B05   │ ───▶ │   B08   │ ───▶ │   B10   │
-    ╰─────────╯      ╰─────────╯      ╰────┬────╯      ╰─────────╯      ╰────┬────╯
-                                           │                                 │
-                                    ╔══════╧══════╗                   ╔══════╧══════╗
-                                    ║   🥈 SALIDA  ║                   ║   🥇 TÍTULO  ║
-                                    ║  INTERMEDIA ║                   ║    FINAL    ║
-                                    ╚═════════════╝                   ╚═════════════╝
-```
+<br><br>
 
-</div>
+<table>
+<tr>
+<td align="center">
+<img src="https://img.shields.io/badge/B01-003366?style=for-the-badge&logo=1&logoColor=white" />
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/→-transparent?style=for-the-badge" />
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/B02-003366?style=for-the-badge" />
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/→-transparent?style=for-the-badge" />
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/B03-28A745?style=for-the-badge" />
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/→-transparent?style=for-the-badge" />
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/B04-28A745?style=for-the-badge" />
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/→-transparent?style=for-the-badge" />
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/B05-FD7E14?style=for-the-badge" /><br>
+<img src="https://img.shields.io/badge/🏆-FFD700?style=flat-square" />
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/→-transparent?style=for-the-badge" />
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/B06-FD7E14?style=for-the-badge" />
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/→-transparent?style=for-the-badge" />
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/B07-DC3545?style=for-the-badge" />
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/→-transparent?style=for-the-badge" />
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/B08-DC3545?style=for-the-badge" />
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/→-transparent?style=for-the-badge" />
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/B09-DC3545?style=for-the-badge" />
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/→-transparent?style=for-the-badge" />
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/B10-8E44AD?style=for-the-badge" /><br>
+<img src="https://img.shields.io/badge/🎓-FFD700?style=flat-square" />
+</td>
+</tr>
+</table>
 
+<br>
+
+<!-- TÍTULOS -->
 <table>
 <tr>
 <td align="center" width="50%">
 
-### 🥈 Salida Intermedia
+<img src="https://img.shields.io/badge/🥈_SALIDA_INTERMEDIA-Bimestre_05-FD7E14?style=for-the-badge&labelColor=333" />
 
-<img src="https://img.shields.io/badge/Bimestre-05-orange?style=for-the-badge" />
+<br><br>
 
-```
-╔════════════════════════════════════════════╗
-║                                            ║
-║   PROGRAMADOR DE APLICACIONES              ║
-║   COMPUTACIONALES                          ║
-║                                            ║
-╚════════════════════════════════════════════╝
-```
+<img src="https://img.shields.io/badge/PROGRAMADOR_DE_APLICACIONES-COMPUTACIONALES-FD7E14?style=for-the-badge&labelColor=FD7E14&logo=code&logoColor=white" />
+
+<br><br>
+
+<sub>
+
+`▸ Desarrollo de aplicaciones básicas`<br>
+`▸ Bases de datos y consultas SQL`<br>
+`▸ Fundamentos de cloud computing`
+
+</sub>
 
 </td>
 <td align="center" width="50%">
 
-### 🥇 Título Final
+<img src="https://img.shields.io/badge/🥇_TÍTULO_FINAL-Bimestre_10-8E44AD?style=for-the-badge&labelColor=333" />
 
-<img src="https://img.shields.io/badge/Bimestre-10-gold?style=for-the-badge" />
+<br><br>
 
-```
-╔════════════════════════════════════════════╗
-║                                            ║
-║        INGENIERO EN DESARROLLO             ║
-║           DE SOFTWARE                      ║
-║                                            ║
-╚════════════════════════════════════════════╝
-```
+<img src="https://img.shields.io/badge/INGENIERO_EN_DESARROLLO-DE_SOFTWARE-8E44AD?style=for-the-badge&labelColor=8E44AD&logo=mortarboard&logoColor=white" />
+
+<br><br>
+
+<sub>
+
+`▸ Arquitectura de software enterprise`<br>
+`▸ Full-stack & mobile development`<br>
+`▸ DevOps, cloud native & microservices`
+
+</sub>
 
 </td>
 </tr>
 </table>
+
+</div>
 
 ---
 
 ## 📂 Estructura del Repositorio
 
+<div align="center">
+
+<table>
+<tr>
+<td>
+
 ```
-📁 Bimestre-XX/
+Bimestre-XX/
 │
-├── 📁 Asignatura/
+├── Asignatura/
 │   │
-│   ├── 📄 README.md              ◀━━━ 📋 Cheatsheet (código copy-paste ready)
+│   ├── README.md
 │   │
-│   ├── 📁 Exp1/                  ◀━━━ 🔬 Experiencia 1
-│   │   ├── 📁 Semana-01/
-│   │   ├── 📁 Semana-02/
-│   │   └── 📁 Semana-03/
+│   ├── Exp1/
+│   │   ├── Semana-01/
+│   │   ├── Semana-02/
+│   │   └── Semana-03/
 │   │
-│   ├── 📁 Exp2/                  ◀━━━ 🔬 Experiencia 2
-│   │   ├── 📁 Semana-04/
-│   │   └── 📁 Semana-05/
+│   ├── Exp2/
+│   │   ├── Semana-04/
+│   │   └── Semana-05/
 │   │
-│   ├── 📁 Exp3/                  ◀━━━ 🔬 Experiencia 3
-│   │   ├── 📁 Semana-06/
-│   │   ├── 📁 Semana-07/
-│   │   └── 📁 Semana-08/
+│   ├── Exp3/
+│   │   ├── Semana-06/
+│   │   ├── Semana-07/
+│   │   └── Semana-08/
 │   │
-│   ├── 📁 Actividades/           ◀━━━ 📝 Evaluaciones
+│   ├── Actividades/
 │   │
-│   └── 📁 Archivos-Curso/        ◀━━━ 📚 Material original
+│   └── Archivos-Curso/
 │
-└── 📁 _Recursos-Adicionales/
-    ├── 📁 mallas/                ◀━━━ 📊 PDFs malla curricular
-    └── 📁 documentos/            ◀━━━ 📋 Reglamentos
+└── _Recursos-Adicionales/
+    ├── mallas/
+    └── documentos/
 ```
+
+</td>
+<td width="50%">
+
+<img src="https://img.shields.io/badge/📄_README.md-Cheatsheet-2E86AB?style=for-the-badge" />
+
+<sub>Código copy-paste ready para cada asignatura</sub>
+
+<br><br>
+
+<img src="https://img.shields.io/badge/🔬_Exp1_•_Exp2_•_Exp3-Experiencias-28A745?style=for-the-badge" />
+
+<sub>3 experiencias × 8 semanas = contenido semanal</sub>
+
+<br><br>
+
+<img src="https://img.shields.io/badge/📝_Actividades-Evaluaciones-FD7E14?style=for-the-badge" />
+
+<sub>Guías, ejercicios y pruebas resueltas</sub>
+
+<br><br>
+
+<img src="https://img.shields.io/badge/📚_Archivos--Curso-Material_Original-DC3545?style=for-the-badge" />
+
+<sub>PDFs, PPTs y recursos del profesor</sub>
+
+<br><br>
+
+<img src="https://img.shields.io/badge/📊_Recursos-Mallas_&_Docs-6C757D?style=for-the-badge" />
+
+<sub>Malla curricular y reglamentos</sub>
+
+</td>
+</tr>
+</table>
+
+</div>
 
 ---
 
 ## 📋 Uso de los Cheatsheets
 
-> [!TIP]
-> Cada `README.md` de asignatura contiene código **copy-paste ready** para usar directamente en tus proyectos.
+<div align="center">
+
+<img src="https://img.shields.io/badge/💡_TIP-Cada_README.md_contiene_código_copy--paste_ready-17A2B8?style=for-the-badge&labelColor=17A2B8" />
+
+<br><br>
 
 <table>
 <tr>
-<td width="50%">
-
-### ◈ Contenido de cada cheatsheet
-
-| Sección | Descripción |
-|:--------|:------------|
-| 📝 **Sintaxis** | Código esencial listo para usar |
-| 🔄 **Patrones** | Soluciones probadas a problemas comunes |
-| 💡 **Ejemplos** | Casos de uso del mundo real |
-| ⚠️ **Gotchas** | Errores frecuentes y cómo evitarlos |
-
+<td align="center" width="25%">
+<img src="https://img.shields.io/badge/📝-2E86AB?style=for-the-badge" />
+<br><br>
+<b>Sintaxis</b>
+<br>
+<sub>Código esencial<br>listo para usar</sub>
 </td>
-<td width="50%">
-
-### ◈ Cómo empezar
-
-```bash
-# 1. Clonar repositorio
-git clone https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC.git
-
-# 2. Navegar
-cd Analista-Programador-Computacional-DuocUC
-
-# 3. Abrir en VS Code
-code .
-```
-
+<td align="center" width="25%">
+<img src="https://img.shields.io/badge/🔄-28A745?style=for-the-badge" />
+<br><br>
+<b>Patrones</b>
+<br>
+<sub>Soluciones probadas<br>a problemas comunes</sub>
+</td>
+<td align="center" width="25%">
+<img src="https://img.shields.io/badge/💡-FD7E14?style=for-the-badge" />
+<br><br>
+<b>Ejemplos</b>
+<br>
+<sub>Casos de uso<br>del mundo real</sub>
+</td>
+<td align="center" width="25%">
+<img src="https://img.shields.io/badge/⚠️-DC3545?style=for-the-badge" />
+<br><br>
+<b>Gotchas</b>
+<br>
+<sub>Errores frecuentes<br>y cómo evitarlos</sub>
 </td>
 </tr>
 </table>
+
+<br>
+
+<img src="https://img.shields.io/badge/━━━━━━━━━━━━━━━━━━━━━━━━━━━━-QUICK_START-333?style=for-the-badge&labelColor=333" />
+
+<br><br>
+
+<table>
+<tr>
+<td align="center">
+<img src="https://img.shields.io/badge/1-Clone-2E86AB?style=for-the-badge&logo=git&logoColor=white" />
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/→-transparent?style=for-the-badge" />
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/2-Navigate-28A745?style=for-the-badge&logo=folder&logoColor=white" />
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/→-transparent?style=for-the-badge" />
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/3-Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white" />
+</td>
+</tr>
+</table>
+
+```bash
+git clone https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC.git && cd Analista-Programador-Computacional-DuocUC && code .
+```
+
+</div>
 
 ---
 
