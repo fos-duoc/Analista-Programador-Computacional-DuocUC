@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guion Video EFT S9 - Teatro Moro</title>
+    <style>
+        @media print {
+            body { margin: 1cm; }
+            .page-break { page-break-before: always; }
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 21cm;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #0066cc;
+            border-bottom: 3px solid #0066cc;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #004499;
+            background: #f0f8ff;
+            padding: 10px;
+            border-left: 5px solid #0066cc;
+            margin-top: 30px;
+        }
+        .tiempo {
+            color: #666;
+            font-style: italic;
+            font-size: 0.9em;
+        }
+        .contenido {
+            background: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 3px solid #ccc;
+        }
+        .instruccion {
+            background: #fffacd;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .tips {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .checklist {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .checklist ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .checklist li::before {
+            content: "☐ ";
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background: #0066cc;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .header-info {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: #f0f8ff;
+            border-radius: 5px;
+            font-size: 1.2em;
+            color: #0066cc;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎬 GUION PARA VIDEO - EVALUACIÓN FINAL TRANSVERSAL SEMANA 9</h1>
+
+    <div class="header-info">
+        <strong>Sistema:</strong> Teatro Moro - Gestión de Ventas de Entradas<br>
+        <strong>Asignatura:</strong> Fundamentos de Programación (PRY2201)<br>
+        <strong>Duración:</strong> 5 minutos máximo<br>
+        <strong>Estudiante:</strong> <span style="background: #ffeb3b; padding: 2px 8px;">Fuad Oñate - Programación Online</span>
+    </div>
+
+    <!-- INTRODUCCIÓN -->
+    <h2>📍 INTRODUCCIÓN <span class="tiempo">(30 segundos)</span></h2>
+    <div class="contenido">
+        <p>Hola, mi nombre es <strong>Fuad Oñate</strong> y les presento el Sistema de Gestión de Ventas de Entradas para el Teatro Moro, desarrollado como Evaluación Final Transversal de la asignatura Fundamentos de Programación, semana 9.</p>
+        <p>Este sistema permite vender entradas, gestionar asientos y aplicar descuentos automáticos según el tipo de cliente.</p>
+    </div>
+
+    <!-- ARQUITECTURA -->
+    <h2>🏗️ ARQUITECTURA DEL SISTEMA <span class="tiempo">(45 segundos)</span></h2>
+    <div class="instruccion">📺 MOSTRAR CÓDIGO EN NETBEANS - LÍNEAS 14-39</div>
+    <div class="contenido">
+        <p>El sistema está construido con:</p>
+        <ul>
+            <li><strong>10 arrays paralelos</strong> que almacenan información de 150 asientos, incluyendo datos del cliente, precios y estados.</li>
+            <li><strong>Un ArrayList</strong> para el historial dinámico de ventas.</li>
+            <li><strong>Variables estáticas</strong> que rastrean las ventas totales, ingresos y descuentos aplicados.</li>
+            <li><strong>5 constantes</strong> para los precios de cada ubicación: VIP a 60 mil pesos, Palco a 50 mil, Platea Baja a 40 mil, Platea Alta a 30 mil y Galería a 20 mil pesos.</li>
+        </ul>
+        <p>El teatro tiene 150 asientos divididos en estas 5 secciones de 30 asientos cada una.</p>
+    </div>
+
+    <!-- IMPLEMENTACIÓN -->
+    <h2>⚙️ IMPLEMENTACIÓN Y ESTRATEGIAS <span class="tiempo">(1 minuto)</span></h2>
+    <div class="instruccion">📺 MOSTRAR MÉTODO venderEntrada()</div>
+    <div class="contenido">
+        <p>Implementé el sistema usando múltiples estructuras de control:</p>
+        <ul>
+            <li><strong>Estructuras IF-ELSE</strong> para validar edad y aplicar descuentos automáticos. Si el cliente es menor de 12 años, aplica 5% de descuento. Si tiene 65 años o más, aplica 30% para tercera edad.</li>
+            <li><strong>Un SWITCH</strong> para el menú principal y la selección de ubicaciones.</li>
+            <li><strong>Ciclos FOR</strong> para recorrer los asientos y buscar disponibilidad.</li>
+            <li><strong>Un DO-WHILE</strong> para mantener el menú activo hasta que el usuario decida salir.</li>
+        </ul>
+        <p>El manejo de excepciones está implementado con bloques <strong>TRY-CATCH</strong> en todas las entradas del usuario, protegiendo el sistema de datos inválidos.</p>
+    </div>
+
+    <!-- DIFICULTADES -->
+    <h2>🔧 DIFICULTADES Y SOLUCIONES <span class="tiempo">(45 segundos)</span></h2>
+    <div class="instruccion">📺 MOSTRAR MÉTODO modificarAsiento() - LÍNEAS 304-317</div>
+    <div class="contenido">
+        <p>Durante el desarrollo enfrenté varios desafíos:</p>
+        <p>El principal fue la <strong>modificación de asientos</strong> cuando el cliente cambia de ubicación. La dificultad era recalcular el precio manteniendo el descuento proporcional.</p>
+        <p>Lo resolví calculando primero el porcentaje de descuento original, luego aplicando ese mismo porcentaje al precio de la nueva ubicación, y finalmente ajustando los totales del sistema.</p>
+        <p>Otro desafío fue la <strong>validación de RUT</strong> para evitar compras duplicadas. Lo solucioné recorriendo todos los asientos vendidos y comparando el RUT ingresado.</p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- DEMOSTRACIÓN -->
+    <h2>💻 DEMOSTRACIÓN EN VIVO <span class="tiempo">(1 minuto 45 segundos)</span></h2>
+    <div class="instruccion">📺 EJECUTAR EL PROGRAMA</div>
+    <div class="contenido">
+        <p><strong>Ahora les muestro el sistema en funcionamiento.</strong></p>
+
+        <h3>🔹 OPCIÓN 1: VENDER ENTRADA</h3>
+        <p>Selecciono la opción 1 para vender una entrada.<br>
+        El sistema muestra la disponibilidad por sección.<br>
+        Elijo ubicación VIP.<br>
+        Veo los asientos disponibles del 1 al 30.<br>
+        Selecciono el asiento 5.</p>
+
+        <p><strong>Ingreso los datos del cliente:</strong></p>
+        <ul>
+            <li>Nombre: Juan Pérez</li>
+            <li>RUT: 12345678</li>
+            <li>Edad: 25 años</li>
+            <li>¿Es mujer? No</li>
+            <li>¿Es estudiante? Sí</li>
+        </ul>
+
+        <p>El sistema aplica automáticamente un descuento del 25% por estudiante.<br>
+        <strong>Precio base 60 mil, descuento 15 mil, total a pagar 45 mil pesos.</strong><br>
+        Venta exitosa.</p>
+
+        <h3>🔹 OPCIÓN 4: IMPRIMIR BOLETA</h3>
+        <p>Ahora imprimo la boleta del asiento 5.<br>
+        Vemos toda la información: cliente, ubicación, fila, columna, y el desglose de precios.</p>
+
+        <h3>🔹 OPCIÓN 6: GENERAR REPORTE</h3>
+        <p>Genero el reporte del sistema.<br>
+        Muestra que tengo 1 venta, 0.6% de ocupación, ingresos de 45 mil pesos, y el desglose por ubicación y tipo de cliente.</p>
+
+        <h3>🔹 OPCIÓN 7: EJECUTAR PRUEBAS</h3>
+        <p>Ejecuto las pruebas del sistema.<br>
+        Las 4 pruebas pasan correctamente: integridad de datos OK, consistencia OK, validación de precios OK, y rendimiento en pocos milisegundos.</p>
+    </div>
+
+    <!-- CARACTERÍSTICAS -->
+    <h2>✨ CARACTERÍSTICAS ÚNICAS <span class="tiempo">(30 segundos)</span></h2>
+    <div class="instruccion">📺 MOSTRAR MÉTODO ejecutarPruebas() - LÍNEAS 511-559</div>
+    <div class="contenido">
+        <p>Las características destacadas de este sistema son:</p>
+        <ul>
+            <li><strong>Suite completa de 4 pruebas automatizadas</strong> que validan integridad, consistencia, precios y rendimiento.</li>
+            <li><strong>Sistema inteligente de descuentos</strong> que detecta automáticamente la edad del cliente.</li>
+            <li><strong>Funcionalidad de modificación de asientos</strong> con recálculo automático de precios cuando cambia la ubicación.</li>
+            <li><strong>Validaciones robustas</strong> que previenen errores y duplicados.</li>
+            <li><strong>Visualización gráfica</strong> del estado de todos los asientos por sección.</li>
+        </ul>
+    </div>
+
+    <!-- CIERRE -->
+    <h2>🎯 CIERRE <span class="tiempo">(15 segundos)</span></h2>
+    <div class="instruccion">📺 SELECCIONAR OPCIÓN 8: SALIR</div>
+    <div class="contenido">
+        <p>Al salir, el sistema muestra el resumen: total vendido y cantidad de ventas.</p>
+        <p><strong>Esto concluye la presentación del Sistema Teatro Moro.<br>
+        Muchas gracias por su atención.</strong></p>
+    </div>
+
+    <!-- DISTRIBUCIÓN DEL TIEMPO -->
+    <h2>📊 DISTRIBUCIÓN DEL TIEMPO</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Sección</th>
+                <th>Duración</th>
+                <th>Tiempo Acumulado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Introducción</td>
+                <td>0:30</td>
+                <td>0:30</td>
+            </tr>
+            <tr>
+                <td>Arquitectura del Sistema</td>
+                <td>0:45</td>
+                <td>1:15</td>
+            </tr>
+            <tr>
+                <td>Implementación y Estrategias</td>
+                <td>1:00</td>
+                <td>2:15</td>
+            </tr>
+            <tr>
+                <td>Dificultades y Soluciones</td>
+                <td>0:45</td>
+                <td>3:00</td>
+            </tr>
+            <tr>
+                <td>Demostración en Vivo</td>
+                <td>1:45</td>
+                <td>4:45</td>
+            </tr>
+            <tr>
+                <td>Características Únicas</td>
+                <td>0:30</td>
+                <td>5:15*</td>
+            </tr>
+            <tr>
+                <td>Cierre</td>
+                <td>0:15</td>
+                <td><strong>5:00</strong></td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="font-size: 0.9em; color: #666;">* Ajusta el ritmo en la demostración para no pasar de 5 minutos</p>
+
+    <!-- TIPS -->
+    <h2>💡 TIPS PARA LA GRABACIÓN</h2>
+    <div class="tips">
+        <ol>
+            <li><strong>Practica 2-3 veces</strong> antes de grabar</li>
+            <li><strong>Habla natural</strong>, no como robot</li>
+            <li><strong>Haz pausas breves</strong> entre secciones</li>
+            <li><strong>Sincroniza</strong> lo que dices con lo que muestras en pantalla</li>
+            <li><strong>Si te equivocas</strong>, respira y continúa</li>
+            <li><strong>Mira a la cámara</strong> cuando hablas (no leas directamente)</li>
+            <li><strong>Sonríe</strong> al inicio y al final</li>
+        </ol>
+    </div>
+
+    <!-- ACCIONES EN PANTALLA -->
+    <h2>🎬 ACCIONES EN PANTALLA SINCRONIZADAS</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Sección</th>
+                <th>Qué Mostrar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Arquitectura</td>
+                <td>Líneas 14-39 del código (arrays y variables)</td>
+            </tr>
+            <tr>
+                <td>Implementación</td>
+                <td>Método venderEntrada() - líneas 80-258</td>
+            </tr>
+            <tr>
+                <td>Dificultades</td>
+                <td>Método modificarAsiento() - líneas 304-317</td>
+            </tr>
+            <tr>
+                <td>Demostración</td>
+                <td>Ejecutar programa en consola</td>
+            </tr>
+            <tr>
+                <td>Características</td>
+                <td>Método ejecutarPruebas() - líneas 511-559</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- CHECKLIST -->
+    <h2>✅ CHECKLIST PRE-GRABACIÓN</h2>
+    <div class="checklist">
+        <ul>
+            <li>NetBeans abierto con proyecto funcionando</li>
+            <li>Micrófono y cámara funcionando</li>
+            <li>Buena iluminación y audio claro</li>
+            <li>Script leído y practicado al menos 2 veces</li>
+            <li>Programa ejecutándose sin errores</li>
+            <li>Datos de prueba preparados (RUT: 12345678, Nombre: Juan Pérez)</li>
+            <li>Pantalla limpia (cerrar pestañas innecesarias)</li>
+            <li>Zoom al código activado (Ctrl + Scroll para ampliar)</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        ✨ ¡Éxito con tu grabación! 🎉
+    </div>
+
+    <script>
+        // Función para imprimir a PDF
+        function imprimirPDF() {
+            window.print();
+        }
+    </script>
+</body>
+</html>

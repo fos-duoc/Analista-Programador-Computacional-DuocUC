@@ -1,0 +1,245 @@
+================================================================================
+🎬 GUION PARA VIDEO - EVALUACIÓN FINAL TRANSVERSAL SEMANA 9
+💻 SISTEMA TEATRO MORO - FUNDAMENTOS DE PROGRAMACIÓN
+================================================================================
+
+⏱️  DURACIÓN TOTAL: 5 MINUTOS
+👨‍💻 Estudiante: Fuad Oñate - Programación Online
+🎓 Duoc UC
+
+================================================================================
+📍 INTRODUCCIÓN (30 segundos)
+================================================================================
+
+Hola, mi nombre es Fuad Oñate y les presento el Sistema de Gestión
+de Ventas de Entradas para el Teatro Moro, desarrollado como
+Evaluación Final Transversal de la asignatura Fundamentos de
+Programación, semana 9.
+
+Este sistema permite vender entradas, gestionar asientos y aplicar
+descuentos automáticos según el tipo de cliente.
+
+
+================================================================================
+🏗️ ARQUITECTURA DEL SISTEMA (45 segundos)
+================================================================================
+
+📺 [MOSTRAR CÓDIGO EN NETBEANS - LÍNEAS 14-39]
+
+El sistema está construido con:
+
+📊 10 arrays paralelos que almacenan información de 150 asientos,
+   incluyendo datos del cliente, precios y estados.
+
+📋 Un ArrayList para el historial dinámico de ventas.
+
+🔢 Variables estáticas que rastrean las ventas totales, ingresos
+   y descuentos aplicados.
+
+💰 5 constantes para los precios de cada ubicación: VIP a 60 mil pesos,
+   Palco a 50 mil, Platea Baja a 40 mil, Platea Alta a 30 mil
+   y Galería a 20 mil pesos.
+
+El teatro tiene 150 asientos divididos en estas 5 secciones de
+30 asientos cada una.
+
+
+================================================================================
+⚙️ IMPLEMENTACIÓN Y ESTRATEGIAS (1 minuto)
+================================================================================
+
+📺 [MOSTRAR MÉTODO venderEntrada()]
+
+Implementé el sistema usando múltiples estructuras de control:
+
+🔀 Estructuras IF-ELSE para validar edad y aplicar descuentos automáticos.
+   Si el cliente es menor de 12 años, aplica 5% de descuento.
+   Si tiene 65 años o más, aplica 30% para tercera edad.
+
+🔄 Un SWITCH para el menú principal y la selección de ubicaciones.
+
+🔁 Ciclos FOR para recorrer los asientos y buscar disponibilidad.
+
+♾️ Un DO-WHILE para mantener el menú activo hasta que el usuario
+   decida salir.
+
+⚠️ El manejo de excepciones está implementado con bloques TRY-CATCH
+   en todas las entradas del usuario, protegiendo el sistema de
+   datos inválidos.
+
+
+================================================================================
+🔧 DIFICULTADES Y SOLUCIONES (45 segundos)
+================================================================================
+
+📺 [MOSTRAR MÉTODO modificarAsiento() - LÍNEAS 304-317]
+
+Durante el desarrollo enfrenté varios desafíos:
+
+❌ El principal fue la modificación de asientos cuando el cliente
+   cambia de ubicación. La dificultad era recalcular el precio
+   manteniendo el descuento proporcional.
+
+✅ Lo resolví calculando primero el porcentaje de descuento original,
+   luego aplicando ese mismo porcentaje al precio de la nueva ubicación,
+   y finalmente ajustando los totales del sistema.
+
+❌ Otro desafío fue la validación de RUT para evitar compras duplicadas.
+
+✅ Lo solucioné recorriendo todos los asientos vendidos y comparando
+   el RUT ingresado.
+
+
+================================================================================
+💻 DEMOSTRACIÓN EN VIVO (1 minuto 45 segundos)
+================================================================================
+
+📺 [EJECUTAR EL PROGRAMA]
+
+Ahora les muestro el sistema en funcionamiento.
+
+1️⃣ OPCIÓN 1: VENDER ENTRADA
+───────────────────────────────────────────────────────────────────────────
+
+Selecciono la opción 1 para vender una entrada.
+El sistema muestra la disponibilidad por sección.
+Elijo ubicación VIP.
+Veo los asientos disponibles del 1 al 30.
+Selecciono el asiento 5.
+
+Ingreso los datos del cliente:
+👤 Nombre: Juan Pérez
+🆔 RUT: 12345678
+🎂 Edad: 25 años
+❓ ¿Es mujer? No
+📚 ¿Es estudiante? Sí
+
+El sistema aplica automáticamente un descuento del 25% por estudiante.
+💰 Precio base 60 mil, descuento 15 mil, total a pagar 45 mil pesos.
+✅ Venta exitosa.
+
+4️⃣ OPCIÓN 4: IMPRIMIR BOLETA
+───────────────────────────────────────────────────────────────────────────
+
+Ahora imprimo la boleta del asiento 5.
+🧾 Vemos toda la información: cliente, ubicación, fila, columna,
+   y el desglose de precios.
+
+6️⃣ OPCIÓN 6: GENERAR REPORTE
+───────────────────────────────────────────────────────────────────────────
+
+Genero el reporte del sistema.
+📈 Muestra que tengo 1 venta, 0.6% de ocupación, ingresos de 45 mil pesos,
+   y el desglose por ubicación y tipo de cliente.
+
+7️⃣ OPCIÓN 7: EJECUTAR PRUEBAS
+───────────────────────────────────────────────────────────────────────────
+
+Ejecuto las pruebas del sistema.
+✅ Las 4 pruebas pasan correctamente: integridad de datos OK,
+   consistencia OK, validación de precios OK, y rendimiento en
+   pocos milisegundos.
+
+
+================================================================================
+✨ CARACTERÍSTICAS ÚNICAS (30 segundos)
+================================================================================
+
+📺 [MOSTRAR MÉTODO ejecutarPruebas() - LÍNEAS 511-559]
+
+Las características destacadas de este sistema son:
+
+🧪 Suite completa de 4 pruebas automatizadas que validan integridad,
+   consistencia, precios y rendimiento.
+
+🎁 Sistema inteligente de descuentos que detecta automáticamente
+   la edad del cliente.
+
+🔄 Funcionalidad de modificación de asientos con recálculo automático
+   de precios cuando cambia la ubicación.
+
+🛡️ Validaciones robustas que previenen errores y duplicados.
+
+📊 Visualización gráfica del estado de todos los asientos por sección.
+
+
+================================================================================
+🎯 CIERRE (15 segundos)
+================================================================================
+
+📺 [SELECCIONAR OPCIÓN 8: SALIR]
+
+Al salir, el sistema muestra el resumen: total vendido y cantidad
+de ventas.
+
+Esto concluye la presentación del Sistema Teatro Moro.
+Muchas gracias por su atención.
+
+
+================================================================================
+📊 DISTRIBUCIÓN DEL TIEMPO
+================================================================================
+
+┌──────────────────────────┬──────────┬────────────┐
+│ Sección                  │ Duración │ Acumulado  │
+├──────────────────────────┼──────────┼────────────┤
+│ 📍 Introducción          │   0:30   │    0:30    │
+│ 🏗️ Arquitectura          │   0:45   │    1:15    │
+│ ⚙️ Implementación        │   1:00   │    2:15    │
+│ 🔧 Dificultades          │   0:45   │    3:00    │
+│ 💻 Demostración          │   1:45   │    4:45    │
+│ ✨ Características       │   0:30   │    5:15*   │
+│ 🎯 Cierre                │   0:15   │    5:00    │
+└──────────────────────────┴──────────┴────────────┘
+
+*Ajusta el ritmo en la demostración para no pasar de 5 minutos
+
+
+================================================================================
+💡 TIPS PARA LA GRABACIÓN
+================================================================================
+
+1. 🔄 Practica 2-3 veces antes de grabar
+2. 🗣️ Habla natural, no como robot
+3. ⏸️ Haz pausas breves entre secciones
+4. 🎬 Sincroniza lo que dices con lo que muestras en pantalla
+5. 😌 Si te equivocas, respira y continúa
+6. 📷 Mira a la cámara cuando hablas (no leas directamente)
+7. 😊 Sonríe al inicio y al final
+
+
+================================================================================
+🎬 ACCIONES EN PANTALLA SINCRONIZADAS
+================================================================================
+
+ARQUITECTURA       → 📺 Mostrar líneas 14-39 del código
+IMPLEMENTACIÓN     → 📺 Mostrar método venderEntrada() líneas 80-258
+DIFICULTADES       → 📺 Mostrar método modificarAsiento() líneas 304-317
+DEMOSTRACIÓN       → 📺 Ejecutar programa en consola
+CARACTERÍSTICAS    → 📺 Mostrar método ejecutarPruebas() líneas 511-559
+
+
+================================================================================
+✅ CHECKLIST PRE-GRABACIÓN
+================================================================================
+
+☐ NetBeans abierto con proyecto funcionando
+☐ Micrófono y cámara funcionando
+☐ Buena iluminación y audio claro
+☐ Script leído y practicado al menos 2 veces
+☐ Programa ejecutándose sin errores
+☐ Datos de prueba preparados (RUT: 12345678, Nombre: Juan Pérez)
+☐ Pantalla limpia (cerrar pestañas innecesarias)
+☐ Zoom al código activado (Ctrl + Scroll para ampliar)
+
+
+================================================================================
+🎉 ¡ÉXITO CON TU GRABACIÓN! 🚀
+================================================================================
+
+👨‍💻 Fuad Oñate
+🎓 Programación Online - Duoc UC
+💻 Sistema Teatro Moro - Fundamentos de Programación
+
+FIN DEL GUION
+================================================================================

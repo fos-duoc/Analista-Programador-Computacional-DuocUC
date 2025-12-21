@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python:*)",
+      "Bash(start GUION_VIDEO_FINAL_Fuad_Onate.docx)",
+      "Bash(start GUION_VIDEO_FINAL_Fuad_Onate.pptx)",
+      "Bash(dir:*)",
+      "Bash(findstr:*)",
+      "Bash(awk:*)",
+      "Bash(start snowflake_itseckpi_viewer.html)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
