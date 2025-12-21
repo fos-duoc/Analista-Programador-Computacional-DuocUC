@@ -1,9 +1,19 @@
 /**
  * ANALISTA PROGRAMADOR COMPUTACIONAL - DUOC UC
- * GitHub Pages Dashboard Scripts
+ * GitHub Pages Dashboard - Premium Edition
  */
 
-// Smooth scroll for navigation links
+// Header scroll effect
+const header = document.querySelector('.header');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+// Smooth scroll for navigation
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -17,25 +27,101 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Header scroll effect
-const header = document.querySelector('.header');
-let lastScroll = 0;
+// Active nav link on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
 
 window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
+    let current = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= sectionTop - 200) {
+            current = section.getAttribute('id');
+        }
+    });
 
-    if (currentScroll > 50) {
-        header.style.background = 'rgba(13, 17, 23, 0.95)';
-        header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.3)';
-    } else {
-        header.style.background = 'rgba(13, 17, 23, 0.85)';
-        header.style.boxShadow = 'none';
-    }
-
-    lastScroll = currentScroll;
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
 });
 
-// Intersection Observer for scroll animations
+// Copy prompt functionality
+const copyPromptBtn = document.getElementById('copyPrompt');
+const promptContent = document.getElementById('promptContent');
+
+if (copyPromptBtn && promptContent) {
+    copyPromptBtn.addEventListener('click', async () => {
+        const promptText = `Role: Claude, eres un tutor académico experto en desarrollo de software que trabaja en español. Apoyas a un estudiante de la carrera Analista Programador Computacional modalidad Online de Duoc UC, programa técnico de nivel superior (5 niveles, 20 meses) que forma profesionales capaces de analizar, diseñar, desarrollar e implementar soluciones de software aplicando metodologías ágiles, criterios de seguridad y buenas prácticas de la industria TI. El egresado se desenvuelve en equipos multidisciplinarios, participa en todo el ciclo de desarrollo de software, y puede ejercer en empresas de tecnología, consultoras, startups o de forma independiente.
+
+Input: Consultas académicas relacionadas con las siguientes áreas de la malla curricular 2025:
+- Fundamentos de Programación: lógica, algoritmos, estructuras de datos, paradigma orientado a objetos
+- Bases de Datos: modelamiento, SQL, procedimientos almacenados, optimización
+- Desarrollo Backend: APIs RESTful, arquitecturas de servicios, frameworks, integración con BD
+- Desarrollo Frontend: HTML5, CSS3, JavaScript, frameworks modernos, responsive design, consumo de APIs
+- Desarrollo Móvil: apps nativas/híbridas, persistencia local, publicación en stores
+- Cloud Computing y DevOps: servicios cloud, Docker, CI/CD, Git, microservicios
+- Seguridad y Calidad: OWASP, testing, vulnerabilidades, code review
+- Ingeniería de Software: requisitos, metodologías ágiles, UML, arquitectura, documentación
+
+Steps:
+1. Identificar el área curricular y nivel de avance del estudiante
+2. Evaluar el tipo de consulta: conceptual, práctica, debugging, diseño o evaluación
+3. Guiar al estudiante hacia la solución mediante preguntas y pistas antes de entregar respuestas directas
+4. Proporcionar ejemplos de código comentados en español cuando corresponda
+5. Conectar el tema con otras asignaturas y contexto laboral real
+6. Incluir consideraciones de buenas prácticas, seguridad y testing
+7. Sugerir recursos adicionales (documentación oficial, herramientas) si es útil
+
+Expectations:
+- Adaptación: Ajustar complejidad según nivel del estudiante (1-10)
+- Código: Siempre comentado, funcional, siguiendo convenciones del lenguaje
+- Pedagogía: Fomentar pensamiento crítico y resolución autónoma, no resolver evaluaciones completas
+- Integración: Relacionar conceptos entre asignaturas (backend-frontend-BD-cloud)
+- Industria: Contextualizar con casos de uso reales del mercado chileno/latinoamericano
+- Ética: Mantener estándares académicos, no fomentar plagio, citar fuentes cuando corresponda
+- Retroalimentación: Ofrecer crítica constructiva cuando el estudiante comparta código o diseños`;
+
+        try {
+            await navigator.clipboard.writeText(promptText);
+            copyPromptBtn.innerHTML = '<i class="fas fa-check"></i>';
+            copyPromptBtn.style.background = 'var(--success)';
+
+            setTimeout(() => {
+                copyPromptBtn.innerHTML = '<i class="fas fa-copy"></i>';
+                copyPromptBtn.style.background = '';
+            }, 2000);
+        } catch (err) {
+            console.error('Error copying:', err);
+        }
+    });
+}
+
+// Copy code functionality
+document.querySelectorAll('.code-window .copy-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+        const codeWindow = btn.closest('.code-window');
+        const code = codeWindow.querySelector('code').textContent;
+
+        try {
+            await navigator.clipboard.writeText(code);
+            btn.innerHTML = '<i class="fas fa-check"></i>';
+            btn.style.background = 'var(--success)';
+
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-copy"></i>';
+                btn.style.background = '';
+            }, 2000);
+        } catch (err) {
+            console.error('Error copying:', err);
+        }
+    });
+});
+
+// Intersection Observer for scroll reveal
 const observerOptions = {
     root: null,
     rootMargin: '0px',
@@ -45,93 +131,39 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-in-up');
-            entry.target.style.opacity = '1';
+            entry.target.classList.add('visible');
         }
     });
 }, observerOptions);
 
-// Observe cards for animation
-document.querySelectorAll('.bimestre-card, .resource-card, .stack-category').forEach(card => {
-    card.style.opacity = '0';
-    observer.observe(card);
+document.querySelectorAll('.reveal').forEach(el => {
+    observer.observe(el);
 });
 
-// Typing effect for code window (optional enhancement)
-class TypeWriter {
-    constructor(element, text, speed = 50) {
-        this.element = element;
-        this.text = text;
-        this.speed = speed;
-        this.index = 0;
-    }
+// Add reveal class to animated elements
+document.querySelectorAll('.bimestre-card, .stack-category, .recurso-card').forEach((el, index) => {
+    el.classList.add('reveal');
+    el.style.transitionDelay = `${index * 0.1}s`;
+    observer.observe(el);
+});
 
-    type() {
-        if (this.index < this.text.length) {
-            this.element.innerHTML += this.text.charAt(this.index);
-            this.index++;
-            setTimeout(() => this.type(), this.speed);
-        }
-    }
-}
-
-// Initialize typing effect when hero is visible
-const codeBody = document.querySelector('.code-body pre');
-if (codeBody) {
-    const codeObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Code is already rendered via HTML
-                codeObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    codeObserver.observe(codeBody);
-}
-
-// Add current year to footer
-const yearElement = document.querySelector('.current-year');
-if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-}
-
-// Mobile menu toggle (if needed in future)
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const navLinks = document.querySelector('.nav-links');
-
-if (mobileMenuBtn) {
-    mobileMenuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        mobileMenuBtn.classList.toggle('active');
-    });
-}
-
-// Console easter egg
+// Console Easter Egg
 console.log(`
 %c╔══════════════════════════════════════════════════════════╗
-%c║  ANALISTA PROGRAMADOR COMPUTACIONAL - DUOC UC           ║
-%c║  Bienvenido al dashboard del programa!                  ║
-%c║                                                          ║
-%c║  🎓 5 años de formación profesional                     ║
-%c║  💻 Full Stack Development                              ║
-%c║  ☁️  Cloud & DevOps                                      ║
+%c║  ANALISTA PROGRAMADOR COMPUTACIONAL                     ║
+%c║  DuocUC - Escuela de Informática                        ║
+%c╠══════════════════════════════════════════════════════════╣
+%c║  🎓 5 niveles · 20 meses · 25+ asignaturas              ║
+%c║  💻 Full Stack · Cloud · Mobile · DevOps                ║
+%c║  🚀 { código limpio · buenas prácticas }                ║
 %c╚══════════════════════════════════════════════════════════╝
 `,
-    'color: #00d9ff; font-weight: bold;',
-    'color: #00d9ff;',
-    'color: #8b949e;',
-    'color: #8b949e;',
-    'color: #58a6ff;',
-    'color: #58a6ff;',
-    'color: #58a6ff;',
-    'color: #00d9ff; font-weight: bold;'
+    'color: #00d4ff; font-weight: bold;',
+    'color: #00d4ff;',
+    'color: #94a3b8;',
+    'color: #00d4ff;',
+    'color: #7c3aed;',
+    'color: #7c3aed;',
+    'color: #f472b6;',
+    'color: #00d4ff; font-weight: bold;'
 );
-
-// Performance: Lazy load images if any
-if ('loading' in HTMLImageElement.prototype) {
-    const images = document.querySelectorAll('img[loading="lazy"]');
-    images.forEach(img => {
-        img.src = img.dataset.src;
-    });
-}
