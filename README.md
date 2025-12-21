@@ -1,12 +1,17 @@
 <div align="center">
 
-<!-- HEADER -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:003366,100:0066CC&height=200&section=header&text=Analista%20Programador&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Computacional%20%E2%80%A2%20DuocUC&descSize=20&descAlignY=55" width="100%"/>
+<!-- HEADER PREMIUM -->
+<img src="https://capsule-render.vercel.app/api?type=venom&color=0:1a1a2e,50:16213e,100:0f3460&height=220&section=header&text=ANALISTA%20PROGRAMADOR&fontSize=38&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=COMPUTACIONAL%20%E2%94%82%20DUOC%20UC&descSize=16&descAlignY=58&stroke=00d9ff&strokeWidth=1" width="100%"/>
 
-<!-- BADGES -->
-[![DuocUC](https://img.shields.io/badge/DuocUC-Escuela_de_Informática-003366?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xMiAzTDEgOWw0IDIuMTh2NkwxMiAyMWw3LTMuODJ2LTZMMT05bDExLTZ6Ii8+PC9zdmc+)](https://www.duoc.cl/)
-![Modalidad](https://img.shields.io/badge/Modalidad-Online-8E44AD?style=for-the-badge&logo=wifi&logoColor=white)
-![10 Bimestres](https://img.shields.io/badge/Duración-10_Bimestres-FF6600?style=for-the-badge&logo=calendar&logoColor=white)
+<!-- BADGES PREMIUM -->
+<p>
+<a href="https://www.duoc.cl/"><img src="https://img.shields.io/badge/DUOC_UC-Escuela_de_Informática_y_Telecomunicaciones-0d1b2a?style=for-the-badge&logo=academia&logoColor=00d9ff&labelColor=1a1a2e" alt="DuocUC"/></a>
+</p>
+<p>
+<img src="https://img.shields.io/badge/⚡_MODALIDAD-ONLINE-00d9ff?style=flat-square&labelColor=1a1a2e"/>
+<img src="https://img.shields.io/badge/📅_DURACIÓN-10_BIMESTRES-00d9ff?style=flat-square&labelColor=1a1a2e"/>
+<img src="https://img.shields.io/badge/🎯_2025-ACTUALIZADO-00d9ff?style=flat-square&labelColor=1a1a2e"/>
+</p>
 
 <br>
 
@@ -120,17 +125,42 @@
 
 </details>
 
-**━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="700"/>
 
 </div>
 
 ---
 
-## 🛠️ Stack Tecnológico
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Hammer%20and%20Wrench.png" alt="Tools" width="28" /> Stack Tecnológico
 
 <div align="center">
 
-<!-- LANGUAGES -->
+<!-- ANIMATED TECH STACK -->
+<img src="https://skillicons.dev/icons?i=java,python,js,ts,kotlin,html,css&perline=7&theme=dark" alt="Languages"/>
+
+<br><br>
+
+<img src="https://skillicons.dev/icons?i=spring,nodejs,express,angular,react,bootstrap,hibernate&perline=7&theme=dark" alt="Frameworks"/>
+
+<br><br>
+
+<img src="https://skillicons.dev/icons?i=androidstudio,firebase,oracle,postgres,mysql,mongodb,redis&perline=7&theme=dark" alt="Data"/>
+
+<br><br>
+
+<img src="https://skillicons.dev/icons?i=aws,azure,docker,kubernetes,jenkins,githubactions,terraform,linux&perline=8&theme=dark" alt="Cloud"/>
+
+<br><br>
+
+<img src="https://skillicons.dev/icons?i=git,github,vscode,idea,postman,figma,maven,gradle&perline=8&theme=dark" alt="Tools"/>
+
+<br>
+
+<!-- LANGUAGES TABLE (fallback) -->
+<details>
+<summary><b>📊 Ver Stack Detallado</b></summary>
+<br>
+
 <table>
 <tr>
 <td align="center" colspan="7">
@@ -347,11 +377,13 @@
 </tr>
 </table>
 
+</details>
+
 </div>
 
 ---
 
-## ⚡ Navegación Rápida
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/High%20Voltage.png" alt="Zap" width="28" /> Navegación Rápida
 
 <table>
 <tr>
@@ -397,7 +429,7 @@
 
 ---
 
-## 🎯 Trayectoria Académica
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Bullseye.png" alt="Target" width="28" /> Trayectoria Académica
 
 <div align="center">
 
