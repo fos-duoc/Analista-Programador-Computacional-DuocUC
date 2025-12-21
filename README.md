@@ -284,17 +284,17 @@
 
 | | **Bimestre 01** | **Bimestre 02** |
 |:--|:--|:--|
-| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="18"/> | **[Fundamentos Prog.](Bimestre-01%20-%20Antropología,%20Fundamentos%20Prog.,%20Modelamiento%20BD/Fundamentos-Programacion/)** | **[POO I](Bimestre-02%20-%20Computación%20Nube,%20Comunicación,%20POO%20I/Programacion-OO-I/)** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="18"/> |
-| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" width="18"/> | **[Modelamiento BD](Bimestre-01%20-%20Antropología,%20Fundamentos%20Prog.,%20Modelamiento%20BD/Modelamiento-BD/)** | **[Cloud](Bimestre-02%20-%20Computación%20Nube,%20Comunicación,%20POO%20I/Computacion-Nube/)** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" width="18"/> |
-| 📚 | [Antropología](Bimestre-01%20-%20Antropología,%20Fundamentos%20Prog.,%20Modelamiento%20BD/Antropologia/) | [Comunicación](Bimestre-02%20-%20Computación%20Nube,%20Comunicación,%20POO%20I/Comunicacion/) |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="18"/> | **[Fundamentos Prog.](Bimestre%2001/Fundamentos-Programacion/)** | **[POO I](Bimestre%2002/Programacion-OO-I/)** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="18"/> |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" width="18"/> | **[Modelamiento BD](Bimestre%2001/Modelamiento-BD/)** | **[Cloud](Bimestre%2002/Computacion-Nube/)** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" width="18"/> |
+| 📚 | [Antropología](Bimestre%2001/Antropologia/) | [Comunicación](Bimestre%2002/Comunicacion/) |
 
 **📗 Año 1 › Semestre 2**
 
 | | **Bimestre 03** | **Bimestre 04** |
 |:--|:--|:--|
-| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="18"/> | **[POO II](Bimestre-03%20-%20DevOps,%20Ética,%20POO%20II/Programacion-OO-II/)** | **[SQL Consultas](Bimestre-04%20-%20SQL%20Consultas,%20Seguridad%20Informática/SQL-Consultas/)** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" width="18"/> |
-| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="18"/> | **[DevOps](Bimestre-03%20-%20DevOps,%20Ética,%20POO%20II/DevOps/)** | **[Seguridad](Bimestre-04%20-%20SQL%20Consultas,%20Seguridad%20Informática/Seguridad-Informatica/)** 🔐 |
-| 📚 | [Ética](Bimestre-03%20-%20DevOps,%20Ética,%20POO%20II/Etica/) | |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="18"/> | **[POO II](Bimestre%2003/Programacion-OO-II/)** | **[SQL Consultas](Bimestre%2004/SQL-Consultas/)** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" width="18"/> |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="18"/> | **[DevOps](Bimestre%2003/DevOps/)** | **[Seguridad](Bimestre%2004/Seguridad-Informatica/)** 🔐 |
+| 📚 | [Ética](Bimestre%2003/Etica/) | |
 
 </td>
 <td width="50%" valign="top">
@@ -303,16 +303,16 @@
 
 | | **Bimestre 05** 🏆 | **Bimestre 06** |
 |:--|:--|:--|
-| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" width="18"/> | **[SQL Prog.](Bimestre-05%20-%20Cloud%20Native,%20Ing.%20Requisitos,%20SQL%20Programación/SQL-Programacion/)** | **[Backend I](Bimestre-06%20-%20Backend%20I,%20Ing.%20Software%20I/Backend-I/)** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" width="18"/> |
-| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" width="18"/> | **[Cloud Native](Bimestre-05%20-%20Cloud%20Native,%20Ing.%20Requisitos,%20SQL%20Programación/Cloud-Native/)** | **[Ing. Soft. I](Bimestre-06%20-%20Backend%20I,%20Ing.%20Software%20I/Ingenieria-Software-I/)** 📋 |
-| 📋 | [Requisitos](Bimestre-05%20-%20Cloud%20Native,%20Ing.%20Requisitos,%20SQL%20Programación/Ingenieria-Requisitos/) | |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" width="18"/> | **[SQL Prog.](Bimestre%2005/SQL-Programacion/)** | **[Backend I](Bimestre%2006/Backend-I/)** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" width="18"/> |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" width="18"/> | **[Cloud Native](Bimestre%2005/Cloud-Native/)** | **[Ing. Soft. I](Bimestre%2006/Ingenieria-Software-I/)** 📋 |
+| 📋 | [Requisitos](Bimestre%2005/Ingenieria-Requisitos/) | |
 
 **📕 Año 2 › Semestre 2**
 
 | | **Bimestre 07** | **Bimestre 08** | **Bimestre 09** | **Bimestre 10** 🎓 |
 |:--|:--|:--|:--|:--|
-| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" width="18"/> | **[Backend II-III](Bimestre-07%20-%20Backend%20II-III,%20Ing.%20Software%20II/Backend-II-III/)** | **[Frontend I-II](Bimestre-08%20-%20Arquitectura%20Software,%20Frontend%20I-II/Frontend-I-II/)** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" width="18"/> | **[Mobile I](Bimestre-09%20-%20Frontend%20III,%20Mobile%20I/Mobile-I/)** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" width="18"/> | **[Mobile II](Bimestre-10%20-%20Mobile%20II,%20Taller%20Título/Mobile-II/)** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ionic/ionic-original.svg" width="18"/> |
-| 🏛️ | **[Ing. Soft. II](Bimestre-07%20-%20Backend%20II-III,%20Ing.%20Software%20II/Ingenieria-Software-II/)** | **[Arquitectura](Bimestre-08%20-%20Arquitectura%20Software,%20Frontend%20I-II/Arquitectura-Software/)** | **[Frontend III](Bimestre-09%20-%20Frontend%20III,%20Mobile%20I/Frontend-III/)** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" width="18"/> | **[Taller Título](Bimestre-10%20-%20Mobile%20II,%20Taller%20Título/Taller-Titulo/)** 🎯 |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" width="18"/> | **[Backend II-III](Bimestre%2007/Backend-II-III/)** | **[Frontend I-II](Bimestre%2008/Frontend-I-II/)** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" width="18"/> | **[Mobile I](Bimestre%2009/Mobile-I/)** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" width="18"/> | **[Mobile II](Bimestre%2010/Mobile-II/)** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ionic/ionic-original.svg" width="18"/> |
+| 🏛️ | **[Ing. Soft. II](Bimestre%2007/Ingenieria-Software-II/)** | **[Arquitectura](Bimestre%2008/Arquitectura-Software/)** | **[Frontend III](Bimestre%2009/Frontend-III/)** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" width="18"/> | **[Taller Título](Bimestre%2010/Taller-Titulo/)** 🎯 |
 
 </td>
 </tr>
@@ -341,13 +341,13 @@
 
 <br><br>
 
-<a href="Bimestre-01%20-%20Antropología,%20Fundamentos%20Prog.,%20Modelamiento%20BD/"><img src="https://img.shields.io/badge/B01-Python_·_SQL-2E7D32?style=flat-square&logo=python&logoColor=white" height="24"/></a>
+<a href="Bimestre%2001/"><img src="https://img.shields.io/badge/B01-Python_·_SQL-2E7D32?style=flat-square&logo=python&logoColor=white" height="24"/></a>
 
-<a href="Bimestre-02%20-%20Computación%20Nube,%20Comunicación,%20POO%20I/"><img src="https://img.shields.io/badge/B02-Java_·_Cloud-388E3C?style=flat-square&logo=openjdk&logoColor=white" height="24"/></a>
+<a href="Bimestre%2002/"><img src="https://img.shields.io/badge/B02-Java_·_Cloud-388E3C?style=flat-square&logo=openjdk&logoColor=white" height="24"/></a>
 
-<a href="Bimestre-03%20-%20DevOps,%20Ética,%20POO%20II/"><img src="https://img.shields.io/badge/B03-POO_·_DevOps-43A047?style=flat-square&logo=docker&logoColor=white" height="24"/></a>
+<a href="Bimestre%2003/"><img src="https://img.shields.io/badge/B03-POO_·_DevOps-43A047?style=flat-square&logo=docker&logoColor=white" height="24"/></a>
 
-<a href="Bimestre-04%20-%20SQL%20Consultas,%20Seguridad%20Informática/"><img src="https://img.shields.io/badge/B04-SQL_·_Security-4CAF50?style=flat-square&logo=oracle&logoColor=white" height="24"/></a>
+<a href="Bimestre%2004/"><img src="https://img.shields.io/badge/B04-SQL_·_Security-4CAF50?style=flat-square&logo=oracle&logoColor=white" height="24"/></a>
 
 </td>
 <td align="center" width="60">
@@ -361,7 +361,7 @@
 
 <br>
 
-<a href="Bimestre-05%20-%20Cloud%20Native,%20Ing.%20Requisitos,%20SQL%20Programación/"><img src="https://img.shields.io/badge/BIMESTRE_05-E65100?style=for-the-badge&logo=award&logoColor=white" height="32"/></a>
+<a href="Bimestre%2005/"><img src="https://img.shields.io/badge/BIMESTRE_05-E65100?style=for-the-badge&logo=award&logoColor=white" height="32"/></a>
 
 <br><br>
 
@@ -400,13 +400,13 @@
 
 <br><br>
 
-<a href="Bimestre-06%20-%20Backend%20I,%20Ing.%20Software%20I/"><img src="https://img.shields.io/badge/B06-Spring_Boot-1565C0?style=flat-square&logo=springboot&logoColor=white" height="24"/></a>
+<a href="Bimestre%2006/"><img src="https://img.shields.io/badge/B06-Spring_Boot-1565C0?style=flat-square&logo=springboot&logoColor=white" height="24"/></a>
 
-<a href="Bimestre-07%20-%20Backend%20II-III,%20Ing.%20Software%20II/"><img src="https://img.shields.io/badge/B07-Backend_Pro-1976D2?style=flat-square&logo=spring&logoColor=white" height="24"/></a>
+<a href="Bimestre%2007/"><img src="https://img.shields.io/badge/B07-Backend_Pro-1976D2?style=flat-square&logo=spring&logoColor=white" height="24"/></a>
 
-<a href="Bimestre-08%20-%20Arquitectura%20Software,%20Frontend%20I-II/"><img src="https://img.shields.io/badge/B08-Angular-1E88E5?style=flat-square&logo=angular&logoColor=white" height="24"/></a>
+<a href="Bimestre%2008/"><img src="https://img.shields.io/badge/B08-Angular-1E88E5?style=flat-square&logo=angular&logoColor=white" height="24"/></a>
 
-<a href="Bimestre-09%20-%20Frontend%20III,%20Mobile%20I/"><img src="https://img.shields.io/badge/B09-Mobile_Kotlin-2196F3?style=flat-square&logo=kotlin&logoColor=white" height="24"/></a>
+<a href="Bimestre%2009/"><img src="https://img.shields.io/badge/B09-Mobile_Kotlin-2196F3?style=flat-square&logo=kotlin&logoColor=white" height="24"/></a>
 
 </td>
 </tr>
@@ -423,7 +423,7 @@
 
 <br><br>
 
-<a href="Bimestre-10%20-%20Mobile%20II,%20Taller%20Título/"><img src="https://img.shields.io/badge/BIMESTRE_10-Taller_de_Título-6A1B9A?style=for-the-badge&logo=mortarboard&logoColor=white" height="38"/></a>
+<a href="Bimestre%2010/"><img src="https://img.shields.io/badge/BIMESTRE_10-Taller_de_Título-6A1B9A?style=for-the-badge&logo=mortarboard&logoColor=white" height="38"/></a>
 
 <br><br>
 
