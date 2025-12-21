@@ -374,6 +374,9 @@ body {
 .tech-badges {
   text-align: center;
   margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .tech-badges img {
