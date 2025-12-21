@@ -106,6 +106,14 @@
 </td>
 <td align="center">
 
+**🎓 Ingeniería en Informática**
+
+<sub>8 Semestres · Presencial Diurno</sub>
+
+<a href="_Recursos-Adicionales/mallas/malla-presencial-informatica.png">
+<img src="_Recursos-Adicionales/mallas/malla-presencial-informatica.png" width="280" alt="Malla Ing Informática"/>
+</a>
+
 </td>
 </tr>
 </table>
