@@ -5,8 +5,8 @@
 
 <!-- BADGES -->
 [![DuocUC](https://img.shields.io/badge/DuocUC-Escuela_de_Informática-003366?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xMiAzTDEgOWw0IDIuMTh2NkwxMiAyMWw3LTMuODJ2LTZMMT05bDExLTZ6Ii8+PC9zdmc+)](https://www.duoc.cl/)
-[![Modalidad](https://img.shields.io/badge/Modalidad-Online-8E44AD?style=for-the-badge&logo=wifi&logoColor=white)](.)
-[![10 Bimestres](https://img.shields.io/badge/Duración-10_Bimestres-FF6600?style=for-the-badge&logo=calendar&logoColor=white)](.)
+![Modalidad](https://img.shields.io/badge/Modalidad-Online-8E44AD?style=for-the-badge&logo=wifi&logoColor=white)
+![10 Bimestres](https://img.shields.io/badge/Duración-10_Bimestres-FF6600?style=for-the-badge&logo=calendar&logoColor=white)
 
 <br>
 
@@ -537,8 +537,8 @@ code .
 
 **DuocUC** › Escuela de Informática y Telecomunicaciones
 
-[![Made with ❤️](https://img.shields.io/badge/Made_with-❤️-red?style=flat-square)](.)
-[![For Chavetas](https://img.shields.io/badge/For-Chavetas-blue?style=flat-square)](.)
+![Made with ❤️](https://img.shields.io/badge/Made_with-❤️-red?style=flat-square)
+![For Chavetas](https://img.shields.io/badge/For-Chavetas-blue?style=flat-square)
 
 <sub>**{ código limpio · buenas prácticas · aprendizaje continuo }**</sub>
 
