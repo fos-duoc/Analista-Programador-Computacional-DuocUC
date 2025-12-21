@@ -32,7 +32,6 @@
                 <a href="#inicio" class="nav-link active">Inicio</a>
                 <a href="#bimestres" class="nav-link">Bimestres</a>
                 <a href="#stack" class="nav-link">Stack</a>
-                <a href="#tutor" class="nav-link"><i class="fas fa-robot"></i> AI Tutor</a>
                 <a href="#recursos" class="nav-link">Recursos</a>
             </nav>
             <a href="https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC" target="_blank" class="github-btn">
@@ -90,32 +89,28 @@
                         <span class="copy-btn" title="Copiar código"><i class="fas fa-copy"></i></span>
                     </div>
                 </div>
-                <pre class="code-content"><code><span class="comment">/**
- * Analista Programador Computacional
- * DuocUC - Escuela de Informática
- */</span>
+                <pre class="code-content"><code><span class="keyword">import</span> java.util.List;
+<span class="keyword">import</span> java.util.ArrayList;
+
 <span class="keyword">public class</span> <span class="class">AnalistaProgramador</span> {
 
     <span class="keyword">private</span> List&lt;String&gt; skills = <span class="keyword">new</span> ArrayList&lt;&gt;();
 
     <span class="keyword">public static void</span> <span class="method">main</span>(String[] args) {
-        AnalistaProgramador estudiante = <span class="keyword">new</span> AnalistaProgramador();
+        AnalistaProgramador dev = <span class="keyword">new</span> AnalistaProgramador();
 
         String[] tecnologias = {
-            <span class="string">"Java"</span>, <span class="string">"Python"</span>, <span class="string">"Spring Boot"</span>,
+            <span class="string">"Java"</span>, <span class="string">"Python"</span>, <span class="string">"Spring"</span>,
             <span class="string">"Angular"</span>, <span class="string">"Docker"</span>, <span class="string">"AWS"</span>
         };
 
         <span class="keyword">for</span> (String tech : tecnologias) {
-            estudiante.<span class="method">aprender</span>(tech);
+            dev.<span class="method">aprender</span>(tech);
         }
-
-        System.out.println(<span class="string">"✓ Skills: "</span> + estudiante.skills);
     }
 
     <span class="keyword">public void</span> <span class="method">aprender</span>(String skill) {
         <span class="keyword">this</span>.skills.add(skill);
-        System.out.println(<span class="string">"📚 Aprendiendo: "</span> + skill);
     }
 }</code></pre>
             </div>
@@ -402,113 +397,6 @@
                     <div class="tech-item"><i class="devicon-github-original"></i><span>GitHub</span></div>
                     <div class="tech-item"><i class="devicon-vscode-plain colored"></i><span>VS Code</span></div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- AI Tutor Section -->
-    <section id="tutor" class="tutor">
-        <div class="section-header">
-            <h2 class="section-title">
-                <i class="fas fa-robot"></i>
-                AI Tutor Académico
-            </h2>
-            <p class="section-subtitle">Tu asistente inteligente para el desarrollo de software</p>
-        </div>
-
-        <div class="tutor-container">
-            <div class="tutor-info">
-                <div class="tutor-badge">
-                    <i class="fas fa-brain"></i>
-                    <span>Powered by Claude AI</span>
-                </div>
-                <h3>Aprende con Inteligencia Artificial</h3>
-                <p>Un tutor especializado en todas las áreas del programa, diseñado para guiarte en tu aprendizaje sin darte las respuestas directamente.</p>
-
-                <div class="tutor-features">
-                    <div class="feature">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Explicaciones adaptadas a tu nivel</span>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Código comentado en español</span>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Conexión con el mercado laboral</span>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Buenas prácticas y seguridad</span>
-                    </div>
-                </div>
-
-                <div class="tutor-areas">
-                    <span class="area-tag"><i class="devicon-python-plain"></i> Fundamentos</span>
-                    <span class="area-tag"><i class="devicon-oracle-original"></i> Bases de Datos</span>
-                    <span class="area-tag"><i class="devicon-spring-plain"></i> Backend</span>
-                    <span class="area-tag"><i class="devicon-angularjs-plain"></i> Frontend</span>
-                    <span class="area-tag"><i class="devicon-kotlin-plain"></i> Mobile</span>
-                    <span class="area-tag"><i class="devicon-docker-plain"></i> DevOps</span>
-                    <span class="area-tag"><i class="fas fa-shield-alt"></i> Seguridad</span>
-                    <span class="area-tag"><i class="fas fa-project-diagram"></i> Ing. Software</span>
-                </div>
-            </div>
-
-            <div class="tutor-prompt">
-                <div class="prompt-window">
-                    <div class="window-header">
-                        <div class="window-dots">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                        </div>
-                        <span class="window-title">system-prompt.md</span>
-                        <div class="window-actions">
-                            <span class="copy-btn" id="copyPrompt" title="Copiar prompt"><i class="fas fa-copy"></i></span>
-                        </div>
-                    </div>
-                    <div class="prompt-content" id="promptContent">
-                        <p><strong>Role:</strong> Claude, eres un tutor académico experto en desarrollo de software que trabaja en español. Apoyas a un estudiante de la carrera <em>Analista Programador Computacional</em> modalidad Online de Duoc UC, programa técnico de nivel superior (5 niveles, 20 meses) que forma profesionales capaces de analizar, diseñar, desarrollar e implementar soluciones de software aplicando metodologías ágiles, criterios de seguridad y buenas prácticas de la industria TI.</p>
-
-                        <p><strong>Input:</strong> Consultas académicas relacionadas con:</p>
-                        <ul>
-                            <li>🐍 <strong>Fundamentos de Programación:</strong> lógica, algoritmos, estructuras de datos, POO</li>
-                            <li>🗄️ <strong>Bases de Datos:</strong> modelamiento, SQL, procedimientos almacenados</li>
-                            <li>⚙️ <strong>Backend:</strong> APIs RESTful, arquitecturas, frameworks, integración BD</li>
-                            <li>🎨 <strong>Frontend:</strong> HTML5, CSS3, JavaScript, frameworks modernos</li>
-                            <li>📱 <strong>Mobile:</strong> apps nativas/híbridas, persistencia, stores</li>
-                            <li>☁️ <strong>Cloud & DevOps:</strong> servicios cloud, Docker, CI/CD, microservicios</li>
-                            <li>🔒 <strong>Seguridad:</strong> OWASP, testing, vulnerabilidades</li>
-                            <li>📐 <strong>Ing. Software:</strong> requisitos, metodologías ágiles, UML</li>
-                        </ul>
-
-                        <p><strong>Steps:</strong></p>
-                        <ol>
-                            <li>Identificar el área curricular y nivel de avance</li>
-                            <li>Evaluar tipo de consulta: conceptual, práctica, debugging, diseño</li>
-                            <li>Guiar mediante preguntas antes de dar respuestas directas</li>
-                            <li>Proporcionar código comentado en español</li>
-                            <li>Conectar con otras asignaturas y contexto laboral real</li>
-                            <li>Incluir buenas prácticas, seguridad y testing</li>
-                        </ol>
-
-                        <p><strong>Expectations:</strong></p>
-                        <ul>
-                            <li>📊 Adaptar complejidad según nivel (1-10)</li>
-                            <li>💻 Código siempre comentado y funcional</li>
-                            <li>🎓 Fomentar pensamiento crítico, no resolver evaluaciones</li>
-                            <li>🔗 Relacionar conceptos entre asignaturas</li>
-                            <li>🌎 Contextualizar con mercado chileno/latinoamericano</li>
-                            <li>⚖️ Mantener estándares éticos académicos</li>
-                        </ul>
-                    </div>
-                </div>
-                <a href="https://claude.ai/new" target="_blank" class="btn btn-ai">
-                    <i class="fas fa-external-link-alt"></i>
-                    Usar en Claude.ai
-                </a>
             </div>
         </div>
     </section>
