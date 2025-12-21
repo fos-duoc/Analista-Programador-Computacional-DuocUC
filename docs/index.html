@@ -117,13 +117,71 @@
     extract >> transform >> load  <span class="comment"># ETL Flow</span></code></pre>
             </div>
 
-            <!-- Architecture Cards Row -->
+            <!-- Architecture Cards Row 1 -->
             <div class="arch-cards-row" data-aos="fade-up" data-aos-delay="700">
+                <!-- Microservices -->
+                <div class="arch-card glass-card microservices">
+                    <div class="arch-header">
+                        <i class="fas fa-cubes"></i>
+                        <span>Microservices</span>
+                    </div>
+                    <div class="microservices-diagram">
+                        <div class="ms-gateway">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>API Gateway</span>
+                        </div>
+                        <div class="ms-services">
+                            <div class="ms-service"><i class="fas fa-user"></i></div>
+                            <div class="ms-service"><i class="fas fa-shopping-cart"></i></div>
+                            <div class="ms-service"><i class="fas fa-credit-card"></i></div>
+                        </div>
+                        <div class="ms-infra">
+                            <span class="ms-tag">Docker</span>
+                            <span class="ms-tag">K8s</span>
+                            <span class="ms-tag">MQ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CI/CD Pipeline -->
+                <div class="arch-card glass-card cicd">
+                    <div class="arch-header">
+                        <i class="fas fa-infinity"></i>
+                        <span>CI/CD Pipeline</span>
+                    </div>
+                    <div class="cicd-pipeline">
+                        <div class="pipeline-stage code"><i class="fas fa-code"></i><span>Code</span></div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-stage build"><i class="fas fa-hammer"></i><span>Build</span></div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-stage test"><i class="fas fa-vial"></i><span>Test</span></div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-stage deploy"><i class="fas fa-rocket"></i><span>Deploy</span></div>
+                    </div>
+                </div>
+
+                <!-- Clean Architecture -->
+                <div class="arch-card glass-card clean-arch">
+                    <div class="arch-header">
+                        <i class="fas fa-bullseye"></i>
+                        <span>Clean Architecture</span>
+                    </div>
+                    <div class="clean-layers">
+                        <div class="clean-ring entities">Entities</div>
+                        <div class="clean-ring usecases">Use Cases</div>
+                        <div class="clean-ring adapters">Adapters</div>
+                        <div class="clean-ring frameworks">Frameworks</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Architecture Cards Row 2 -->
+            <div class="arch-cards-row" data-aos="fade-up" data-aos-delay="800">
                 <!-- Medallion Architecture -->
                 <div class="arch-card glass-card medallion">
                     <div class="arch-header">
                         <i class="fas fa-layer-group"></i>
-                        <span>Medallion Architecture</span>
+                        <span>Medallion</span>
                     </div>
                     <div class="medallion-layers">
                         <div class="medal-layer gold">

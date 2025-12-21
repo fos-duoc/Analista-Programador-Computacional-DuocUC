@@ -853,6 +853,174 @@ body {
   }
 }
 
+/* Microservices Architecture */
+.microservices-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.ms-gateway {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #3b82f6;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.6rem;
+  font-weight: 500;
+  width: 100%;
+  justify-content: center;
+}
+
+.ms-gateway i {
+  font-size: 0.7rem;
+}
+
+.ms-services {
+  display: flex;
+  gap: 0.3rem;
+  width: 100%;
+}
+
+.ms-service {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #10b981;
+  padding: 0.4rem;
+  border-radius: 6px;
+  font-size: 0.7rem;
+}
+
+.ms-infra {
+  display: flex;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+.ms-tag {
+  flex: 1;
+  text-align: center;
+  background: rgba(124, 58, 237, 0.15);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  color: #a78bfa;
+  padding: 0.2rem;
+  border-radius: 4px;
+  font-size: 0.5rem;
+  font-weight: 500;
+}
+
+/* CI/CD Pipeline */
+.cicd-pipeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  flex-wrap: wrap;
+}
+
+.pipeline-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.3rem 0.4rem;
+  border-radius: 6px;
+  font-size: 0.5rem;
+  font-weight: 500;
+}
+
+.pipeline-stage i {
+  font-size: 0.7rem;
+}
+
+.pipeline-stage.code {
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: #818cf8;
+}
+
+.pipeline-stage.build {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #f59e0b;
+}
+
+.pipeline-stage.test {
+  background: rgba(236, 72, 153, 0.15);
+  border: 1px solid rgba(236, 72, 153, 0.3);
+  color: #ec4899;
+}
+
+.pipeline-stage.deploy {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #10b981;
+}
+
+.pipeline-arrow {
+  color: var(--text-muted);
+  font-size: 0.6rem;
+}
+
+/* Clean Architecture */
+.clean-layers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.clean-ring {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  font-size: 0.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.clean-ring.entities {
+  width: 60px;
+  height: 20px;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.3) 0%, rgba(255, 193, 7, 0.2) 100%);
+  border: 1px solid rgba(255, 215, 0, 0.5);
+  color: #ffd700;
+}
+
+.clean-ring.usecases {
+  width: 80px;
+  height: 20px;
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.2) 0%, rgba(236, 72, 153, 0.1) 100%);
+  border: 1px solid rgba(236, 72, 153, 0.4);
+  color: #ec4899;
+}
+
+.clean-ring.adapters {
+  width: 100px;
+  height: 20px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0.1) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  color: #3b82f6;
+}
+
+.clean-ring.frameworks {
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.1) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #10b981;
+}
+
 /* ============================================
    SECTIONS COMMON
    ============================================ */
