@@ -77,42 +77,51 @@
             </div>
         </div>
         <div class="hero-visual">
-            <div class="code-window">
+            <!-- Tech Badges -->
+            <div class="tech-badges">
+                <img src="https://skillicons.dev/icons?i=java,python,spring,angular,docker,aws,kubernetes&perline=7&theme=dark" alt="Tech Stack"/>
+            </div>
+
+            <!-- Code Window - Compact -->
+            <div class="code-window compact">
                 <div class="window-header">
                     <div class="window-dots">
                         <span class="dot red"></span>
                         <span class="dot yellow"></span>
                         <span class="dot green"></span>
                     </div>
-                    <span class="window-title">AnalistaProgramador.java</span>
-                    <div class="window-actions">
-                        <span class="copy-btn" title="Copiar código"><i class="fas fa-copy"></i></span>
-                    </div>
+                    <span class="window-title">DataEngineer.py</span>
                 </div>
-                <pre class="code-content"><code><span class="keyword">import</span> java.util.List;
-<span class="keyword">import</span> java.util.ArrayList;
+                <pre class="code-content"><code><span class="keyword">from</span> airflow <span class="keyword">import</span> DAG
+<span class="keyword">from</span> airflow.operators.python <span class="keyword">import</span> PythonOperator
 
-<span class="keyword">public class</span> <span class="class">AnalistaProgramador</span> {
+<span class="keyword">with</span> DAG(<span class="string">'etl_pipeline'</span>) <span class="keyword">as</span> dag:
+    extract = PythonOperator(task_id=<span class="string">'extract'</span>)
+    transform = PythonOperator(task_id=<span class="string">'transform'</span>)
+    load = PythonOperator(task_id=<span class="string">'load'</span>)
 
-    <span class="keyword">private</span> List&lt;String&gt; skills = <span class="keyword">new</span> ArrayList&lt;&gt;();
+    extract >> transform >> load</code></pre>
+            </div>
 
-    <span class="keyword">public static void</span> <span class="method">main</span>(String[] args) {
-        AnalistaProgramador dev = <span class="keyword">new</span> AnalistaProgramador();
-
-        String[] tecnologias = {
-            <span class="string">"Java"</span>, <span class="string">"Python"</span>, <span class="string">"Spring"</span>,
-            <span class="string">"Angular"</span>, <span class="string">"Docker"</span>, <span class="string">"AWS"</span>
-        };
-
-        <span class="keyword">for</span> (String tech : tecnologias) {
-            dev.<span class="method">aprender</span>(tech);
-        }
-    }
-
-    <span class="keyword">public void</span> <span class="method">aprender</span>(String skill) {
-        <span class="keyword">this</span>.skills.add(skill);
-    }
-}</code></pre>
+            <!-- Terminal Window -->
+            <div class="terminal-window">
+                <div class="window-header terminal-header">
+                    <div class="window-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <span class="window-title"><i class="fas fa-terminal"></i> data-pipeline</span>
+                </div>
+                <div class="terminal-content">
+                    <div class="terminal-line"><span class="terminal-prompt">$</span> docker-compose up -d airflow</div>
+                    <div class="terminal-line success"><span class="terminal-icon">✓</span> Container airflow-webserver started</div>
+                    <div class="terminal-line success"><span class="terminal-icon">✓</span> Container airflow-scheduler started</div>
+                    <div class="terminal-line"><span class="terminal-prompt">$</span> airflow dags trigger etl_pipeline</div>
+                    <div class="terminal-line success"><span class="terminal-icon">✓</span> DAG etl_pipeline triggered</div>
+                    <div class="terminal-line"><span class="terminal-prompt">$</span> kubectl apply -f deployment.yaml</div>
+                    <div class="terminal-line success"><span class="terminal-icon">✓</span> deployment.apps/data-api created</div>
+                </div>
             </div>
         </div>
     </section>
