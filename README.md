@@ -135,10 +135,6 @@
 
 <div align="center">
 
-<details>
-<summary><b>📊 Ver Stack Detallado</b></summary>
-<br>
-
 <table>
 <tr>
 <td align="center" colspan="7">
@@ -354,8 +350,6 @@
 </td>
 </tr>
 </table>
-
-</details>
 
 </div>
 
