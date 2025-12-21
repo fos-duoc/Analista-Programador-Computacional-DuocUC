@@ -235,9 +235,20 @@ body {
 .hero {
   min-height: 100vh;
   display: flex;
-  align-items: center;
-  padding: 8rem 2rem 4rem;
+  flex-direction: column;
+  padding: 5rem 2rem 4rem;
   position: relative;
+}
+
+.hero-header {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+}
+
+.hero-header img {
+  width: 100%;
+  height: auto;
 }
 
 
