@@ -14,6 +14,8 @@
 <summary><b>📋 Ver Mallas Curriculares 2025</b></summary>
 <br>
 
+### 🌐 Modalidad Online
+
 <table>
 <tr>
 <td align="center">
@@ -36,6 +38,73 @@
 <a href="_Recursos-Adicionales/mallas/malla-ing-software-2025.jpg">
 <img src="_Recursos-Adicionales/mallas/malla-ing-software-2025.jpg" width="450" alt="Malla Ing Software 2025"/>
 </a>
+
+</td>
+</tr>
+</table>
+
+### 🏫 Modalidad Presencial
+
+<table>
+<tr>
+<td align="center">
+
+**💻 Ing. Informática - Desarrollo de Software**
+
+<sub>8 Semestres · Presencial Diurno</sub>
+
+<a href="_Recursos-Adicionales/mallas/malla-presencial-desarrollo-software.png">
+<img src="_Recursos-Adicionales/mallas/malla-presencial-desarrollo-software.png" width="280" alt="Malla Desarrollo Software"/>
+</a>
+
+</td>
+<td align="center">
+
+**📊 Ing. Informática - Ingeniería de Datos**
+
+<sub>8 Semestres · Presencial Diurno</sub>
+
+<a href="_Recursos-Adicionales/mallas/malla-presencial-ingenieria-datos.jpg">
+<img src="_Recursos-Adicionales/mallas/malla-presencial-ingenieria-datos.jpg" width="280" alt="Malla Ingeniería de Datos"/>
+</a>
+
+</td>
+<td align="center">
+
+**🤖 Ing. Informática - Inteligencia Artificial**
+
+<sub>8 Semestres · Presencial Diurno</sub>
+
+<a href="_Recursos-Adicionales/mallas/malla-presencial-inteligencia-artificial.jpg">
+<img src="_Recursos-Adicionales/mallas/malla-presencial-inteligencia-artificial.jpg" width="280" alt="Malla Inteligencia Artificial"/>
+</a>
+
+</td>
+</tr>
+<tr>
+<td align="center">
+
+**⚙️ Ing. Informática - Automatización**
+
+<sub>8 Semestres · Presencial Diurno</sub>
+
+<a href="_Recursos-Adicionales/mallas/malla-presencial-automatizacion.jpg">
+<img src="_Recursos-Adicionales/mallas/malla-presencial-automatizacion.jpg" width="280" alt="Malla Automatización"/>
+</a>
+
+</td>
+<td align="center">
+
+**🔬 Ing. Informática - Ciencia de Datos**
+
+<sub>8 Semestres · Presencial Diurno</sub>
+
+<a href="_Recursos-Adicionales/mallas/malla-presencial-ciencia-datos.jpg">
+<img src="_Recursos-Adicionales/mallas/malla-presencial-ciencia-datos.jpg" width="280" alt="Malla Ciencia de Datos"/>
+</a>
+
+</td>
+<td align="center">
 
 </td>
 </tr>
