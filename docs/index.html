@@ -80,29 +80,71 @@
             </div>
         </div>
         <div class="hero-visual" data-aos="fade-left" data-aos-delay="400">
-            <!-- Tech Badges -->
-            <div class="tech-badges" data-aos="zoom-in" data-aos-delay="500">
-                <img src="https://skillicons.dev/icons?i=java,python,spring,angular,docker,aws,kubernetes&perline=7&theme=dark" alt="Tech Stack"/>
+            <!-- Floating Tech Icons -->
+            <div class="floating-icons">
+                <i class="devicon-java-plain colored floating-icon" data-aos="zoom-in" data-aos-delay="300" style="--delay: 0s; --x: 85%; --y: 5%;"></i>
+                <i class="devicon-python-plain colored floating-icon" data-aos="zoom-in" data-aos-delay="400" style="--delay: 1s; --x: 95%; --y: 25%;"></i>
+                <i class="devicon-docker-plain colored floating-icon" data-aos="zoom-in" data-aos-delay="500" style="--delay: 2s; --x: 92%; --y: 50%;"></i>
+                <i class="devicon-kubernetes-plain colored floating-icon" data-aos="zoom-in" data-aos-delay="600" style="--delay: 3s; --x: 88%; --y: 75%;"></i>
+                <i class="devicon-postgresql-plain colored floating-icon" data-aos="zoom-in" data-aos-delay="700" style="--delay: 4s; --x: 5%; --y: 15%;"></i>
+                <i class="devicon-spring-plain colored floating-icon" data-aos="zoom-in" data-aos-delay="800" style="--delay: 5s; --x: 3%; --y: 45%;"></i>
+                <i class="devicon-angularjs-plain colored floating-icon" data-aos="zoom-in" data-aos-delay="900" style="--delay: 6s; --x: 8%; --y: 70%;"></i>
+                <i class="devicon-amazonwebservices-plain-wordmark colored floating-icon" data-aos="zoom-in" data-aos-delay="1000" style="--delay: 7s; --x: 90%; --y: 90%;"></i>
             </div>
 
-            <!-- Code Window - Compact -->
-            <div class="code-window compact glass-card" data-aos="fade-up" data-aos-delay="600">
+            <!-- Tech Badges -->
+            <div class="tech-badges" data-aos="zoom-in" data-aos-delay="500">
+                <img src="https://skillicons.dev/icons?i=java,python,spring,angular,docker,aws,kubernetes,postgres&perline=8&theme=dark" alt="Tech Stack"/>
+            </div>
+
+            <!-- Code Window - Expanded DAG -->
+            <div class="code-window glass-card" data-aos="fade-up" data-aos-delay="600">
                 <div class="window-header">
                     <div class="window-dots">
                         <span class="dot red"></span>
                         <span class="dot yellow"></span>
                         <span class="dot green"></span>
                     </div>
-                    <span class="window-title">DataEngineer.py</span>
+                    <span class="window-title"><i class="devicon-python-plain"></i> data_pipeline_dag.py</span>
+                    <span class="window-badge">Airflow DAG</span>
                 </div>
-                <pre class="code-content"><code><span class="keyword">from</span> airflow <span class="keyword">import</span> DAG
+                <pre class="code-content"><code><span class="comment"># ETL Pipeline - Apache Airflow DAG</span>
+<span class="keyword">from</span> airflow <span class="keyword">import</span> DAG
 <span class="keyword">from</span> airflow.operators.python <span class="keyword">import</span> PythonOperator
+<span class="keyword">from</span> airflow.providers.postgres.operators.postgres <span class="keyword">import</span> PostgresOperator
+<span class="keyword">from</span> datetime <span class="keyword">import</span> datetime, timedelta
 
-<span class="keyword">with</span> DAG(<span class="string">'etl_pipeline'</span>) <span class="keyword">as</span> dag:
-    extract = PythonOperator(task_id=<span class="string">'extract'</span>)
-    transform = PythonOperator(task_id=<span class="string">'transform'</span>)
-    load = PythonOperator(task_id=<span class="string">'load'</span>)
+default_args = {
+    <span class="string">'owner'</span>: <span class="string">'data_team'</span>,
+    <span class="string">'retries'</span>: <span class="number">3</span>,
+    <span class="string">'retry_delay'</span>: timedelta(minutes=<span class="number">5</span>)
+}
 
+<span class="keyword">with</span> DAG(
+    dag_id=<span class="string">'etl_data_pipeline'</span>,
+    default_args=default_args,
+    schedule_interval=<span class="string">'@daily'</span>,
+    start_date=datetime(<span class="number">2025</span>, <span class="number">1</span>, <span class="number">1</span>),
+    catchup=<span class="keyword">False</span>
+) <span class="keyword">as</span> dag:
+
+    extract = PythonOperator(
+        task_id=<span class="string">'extract_data'</span>,
+        python_callable=extract_from_api
+    )
+
+    transform = PythonOperator(
+        task_id=<span class="string">'transform_data'</span>,
+        python_callable=clean_and_transform
+    )
+
+    load = PostgresOperator(
+        task_id=<span class="string">'load_to_warehouse'</span>,
+        postgres_conn_id=<span class="string">'postgres_dwh'</span>,
+        sql=<span class="string">'sql/insert_data.sql'</span>
+    )
+
+    <span class="comment"># DAG Dependencies</span>
     extract >> transform >> load</code></pre>
             </div>
 
@@ -117,13 +159,40 @@
                     <span class="window-title"><i class="fas fa-terminal"></i> data-pipeline</span>
                 </div>
                 <div class="terminal-content">
-                    <div class="terminal-line"><span class="terminal-prompt">$</span> docker-compose up -d airflow</div>
+                    <div class="terminal-line"><span class="terminal-prompt">$</span> docker-compose up -d airflow postgres redis</div>
                     <div class="terminal-line success"><span class="terminal-icon">✓</span> Container airflow-webserver started</div>
                     <div class="terminal-line success"><span class="terminal-icon">✓</span> Container airflow-scheduler started</div>
-                    <div class="terminal-line"><span class="terminal-prompt">$</span> airflow dags trigger etl_pipeline</div>
-                    <div class="terminal-line success"><span class="terminal-icon">✓</span> DAG etl_pipeline triggered</div>
-                    <div class="terminal-line"><span class="terminal-prompt">$</span> kubectl apply -f deployment.yaml</div>
+                    <div class="terminal-line success"><span class="terminal-icon">✓</span> Container postgres-dwh started</div>
+                    <div class="terminal-line"><span class="terminal-prompt">$</span> airflow dags trigger etl_data_pipeline</div>
+                    <div class="terminal-line success"><span class="terminal-icon">✓</span> DAG etl_data_pipeline triggered successfully</div>
+                    <div class="terminal-line"><span class="terminal-prompt">$</span> kubectl apply -f k8s/deployment.yaml</div>
                     <div class="terminal-line success"><span class="terminal-icon">✓</span> deployment.apps/data-api created</div>
+                    <div class="terminal-line success"><span class="terminal-icon">✓</span> service/data-api-svc exposed</div>
+                </div>
+            </div>
+
+            <!-- DAG Visual Flow -->
+            <div class="dag-flow glass-card" data-aos="fade-up" data-aos-delay="800">
+                <div class="dag-header">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>DAG Flow: etl_data_pipeline</span>
+                    <span class="dag-status running">Running</span>
+                </div>
+                <div class="dag-nodes">
+                    <div class="dag-node success">
+                        <i class="fas fa-download"></i>
+                        <span>extract</span>
+                    </div>
+                    <div class="dag-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="dag-node success">
+                        <i class="fas fa-cogs"></i>
+                        <span>transform</span>
+                    </div>
+                    <div class="dag-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="dag-node running">
+                        <i class="fas fa-database"></i>
+                        <span>load</span>
+                    </div>
                 </div>
             </div>
         </div>
