@@ -135,28 +135,6 @@
 
 <div align="center">
 
-<!-- ANIMATED TECH STACK -->
-<img src="https://skillicons.dev/icons?i=java,python,js,ts,kotlin,html,css&perline=7&theme=dark" alt="Languages"/>
-
-<br><br>
-
-<img src="https://skillicons.dev/icons?i=spring,nodejs,express,angular,react,bootstrap,hibernate&perline=7&theme=dark" alt="Frameworks"/>
-
-<br><br>
-
-<img src="https://skillicons.dev/icons?i=androidstudio,firebase,oracle,postgres,mysql,mongodb,redis&perline=7&theme=dark" alt="Data"/>
-
-<br><br>
-
-<img src="https://skillicons.dev/icons?i=aws,azure,docker,kubernetes,jenkins,githubactions,terraform,linux&perline=8&theme=dark" alt="Cloud"/>
-
-<br><br>
-
-<img src="https://skillicons.dev/icons?i=git,github,vscode,idea,postman,figma,maven,gradle&perline=8&theme=dark" alt="Tools"/>
-
-<br>
-
-<!-- LANGUAGES TABLE (fallback) -->
 <details>
 <summary><b>📊 Ver Stack Detallado</b></summary>
 <br>
