@@ -14,7 +14,7 @@
 <summary><b>📋 Ver Mallas Curriculares 2025</b></summary>
 <br>
 
-### 🌐 Modalidad Online
+### 🌐 Online
 
 <table>
 <tr>
@@ -43,7 +43,7 @@
 </tr>
 </table>
 
-### 🏫 Modalidad Presencial
+### 🏫 Presencial
 
 <table>
 <tr>
