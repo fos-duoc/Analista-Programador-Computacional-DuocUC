@@ -117,50 +117,80 @@
     extract >> transform >> load  <span class="comment"># ETL Flow</span></code></pre>
             </div>
 
-            <!-- Terminal Window -->
-            <div class="terminal-window glass-card" data-aos="fade-up" data-aos-delay="700">
-                <div class="window-header terminal-header">
-                    <div class="window-dots">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
+            <!-- Architecture Cards Row -->
+            <div class="arch-cards-row" data-aos="fade-up" data-aos-delay="700">
+                <!-- Medallion Architecture -->
+                <div class="arch-card glass-card medallion">
+                    <div class="arch-header">
+                        <i class="fas fa-layer-group"></i>
+                        <span>Medallion Architecture</span>
                     </div>
-                    <span class="window-title"><i class="fas fa-terminal"></i> data-pipeline</span>
+                    <div class="medallion-layers">
+                        <div class="medal-layer gold">
+                            <i class="fas fa-gem"></i>
+                            <span>Gold</span>
+                            <small>Analytics</small>
+                        </div>
+                        <div class="medal-layer silver">
+                            <i class="fas fa-filter"></i>
+                            <span>Silver</span>
+                            <small>Cleaned</small>
+                        </div>
+                        <div class="medal-layer bronze">
+                            <i class="fas fa-database"></i>
+                            <span>Bronze</span>
+                            <small>Raw</small>
+                        </div>
+                    </div>
                 </div>
-                <div class="terminal-content">
-                    <div class="terminal-line"><span class="terminal-prompt">$</span> docker-compose up -d airflow postgres redis</div>
-                    <div class="terminal-line success"><span class="terminal-icon">✓</span> Container airflow-webserver started</div>
-                    <div class="terminal-line success"><span class="terminal-icon">✓</span> Container airflow-scheduler started</div>
-                    <div class="terminal-line success"><span class="terminal-icon">✓</span> Container postgres-dwh started</div>
-                    <div class="terminal-line"><span class="terminal-prompt">$</span> airflow dags trigger etl_data_pipeline</div>
-                    <div class="terminal-line success"><span class="terminal-icon">✓</span> DAG etl_data_pipeline triggered successfully</div>
-                    <div class="terminal-line"><span class="terminal-prompt">$</span> kubectl apply -f k8s/deployment.yaml</div>
-                    <div class="terminal-line success"><span class="terminal-icon">✓</span> deployment.apps/data-api created</div>
-                    <div class="terminal-line success"><span class="terminal-icon">✓</span> service/data-api-svc exposed</div>
-                </div>
-            </div>
 
-            <!-- DAG Visual Flow -->
-            <div class="dag-flow glass-card" data-aos="fade-up" data-aos-delay="800">
-                <div class="dag-header">
-                    <i class="fas fa-project-diagram"></i>
-                    <span>DAG Flow: etl_data_pipeline</span>
-                    <span class="dag-status running">Running</span>
+                <!-- Lakehouse Architecture -->
+                <div class="arch-card glass-card lakehouse">
+                    <div class="arch-header">
+                        <i class="fas fa-warehouse"></i>
+                        <span>Lakehouse</span>
+                    </div>
+                    <div class="lakehouse-diagram">
+                        <div class="lake-row">
+                            <div class="lake-component bi">
+                                <i class="fas fa-chart-pie"></i>
+                                <span>BI</span>
+                            </div>
+                            <div class="lake-component ml">
+                                <i class="fas fa-brain"></i>
+                                <span>ML</span>
+                            </div>
+                        </div>
+                        <div class="lake-arrow"></div>
+                        <div class="lake-component delta">
+                            <i class="fas fa-table"></i>
+                            <span>Delta Lake</span>
+                        </div>
+                        <div class="lake-arrow"></div>
+                        <div class="lake-component storage">
+                            <i class="fas fa-cloud"></i>
+                            <span>Storage</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="dag-nodes">
-                    <div class="dag-node success">
-                        <i class="fas fa-download"></i>
-                        <span>extract</span>
+
+                <!-- Agile/Scrum -->
+                <div class="arch-card glass-card agile">
+                    <div class="arch-header">
+                        <i class="fas fa-sync-alt"></i>
+                        <span>Agile Scrum</span>
                     </div>
-                    <div class="dag-arrow"><i class="fas fa-arrow-right"></i></div>
-                    <div class="dag-node success">
-                        <i class="fas fa-cogs"></i>
-                        <span>transform</span>
-                    </div>
-                    <div class="dag-arrow"><i class="fas fa-arrow-right"></i></div>
-                    <div class="dag-node running">
-                        <i class="fas fa-database"></i>
-                        <span>load</span>
+                    <div class="scrum-cycle">
+                        <div class="scrum-sprint">
+                            <div class="sprint-icon"><i class="fas fa-rocket"></i></div>
+                            <span>Sprint</span>
+                        </div>
+                        <div class="scrum-events">
+                            <span class="event plan">Plan</span>
+                            <span class="event daily">Daily</span>
+                            <span class="event review">Review</span>
+                            <span class="event retro">Retro</span>
+                        </div>
                     </div>
                 </div>
             </div>
