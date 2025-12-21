@@ -588,113 +588,190 @@
         </div>
     </section>
 
-    <!-- Industry Languages Stats 2025 -->
+    <!-- Industry Languages Stats 2025 - Sophisticated Dashboard -->
     <section id="languages-2025" class="languages-section">
         <div class="section-header" data-aos="fade-up">
             <h2 class="section-title">
-                <i class="fas fa-code"></i>
+                <img src="https://media.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif" width="28" alt="code"/>
                 Lenguajes Mas Usados 2025 a la Fecha
             </h2>
             <p class="section-subtitle">Estadisticas de la industria - Stack Overflow, TIOBE, GitHub</p>
         </div>
 
-        <div class="languages-grid" data-aos="fade-up" data-aos-delay="200">
-            <!-- JavaScript -->
-            <div class="lang-card glass-card">
-                <div class="lang-header">
-                    <i class="devicon-javascript-plain colored"></i>
-                    <div class="lang-info">
-                        <span class="lang-name">JavaScript</span>
-                        <span class="lang-percent">66%</span>
-                    </div>
+        <!-- Main Dashboard Card -->
+        <div class="lang-dashboard glass-card" data-aos="fade-up" data-aos-delay="200">
+            <!-- Dashboard Header -->
+            <div class="dashboard-header">
+                <div class="dashboard-title">
+                    <img src="https://media.giphy.com/media/iY8CRBdQXODJSCERIr/giphy.gif" width="24" alt="stats"/>
+                    <span>Top Languages & Technologies 2025</span>
                 </div>
-                <div class="lang-bar">
-                    <div class="lang-progress js" style="width: 66%"></div>
+                <div class="dashboard-badges">
+                    <span class="dash-badge tiobe"><i class="fas fa-trophy"></i> TIOBE</span>
+                    <span class="dash-badge stackoverflow"><i class="fab fa-stack-overflow"></i> Stack Overflow</span>
+                    <span class="dash-badge github"><i class="fab fa-github"></i> GitHub</span>
                 </div>
-                <span class="lang-source">Stack Overflow 2025</span>
             </div>
 
-            <!-- Python -->
-            <div class="lang-card glass-card">
-                <div class="lang-header">
-                    <i class="devicon-python-plain colored"></i>
-                    <div class="lang-info">
-                        <span class="lang-name">Python</span>
-                        <span class="lang-percent">26.14%</span>
+            <!-- Languages Grid with Animated Icons -->
+            <div class="lang-showcase">
+                <!-- Row 1: Top 3 -->
+                <div class="lang-podium">
+                    <!-- #1 Python -->
+                    <div class="lang-item gold">
+                        <div class="lang-rank">#1</div>
+                        <div class="lang-icon-wrap">
+                            <img src="https://media.giphy.com/media/KAq5w47R9rmTuvWOWa/giphy.gif" width="50" alt="Python"/>
+                        </div>
+                        <div class="lang-details">
+                            <span class="lang-name">Python</span>
+                            <span class="lang-stat">26.14%</span>
+                            <span class="lang-badge">TIOBE #1</span>
+                        </div>
+                        <div class="lang-bar-mini">
+                            <div class="bar-fill python" style="width: 100%"></div>
+                        </div>
+                    </div>
+
+                    <!-- #2 JavaScript -->
+                    <div class="lang-item silver">
+                        <div class="lang-rank">#2</div>
+                        <div class="lang-icon-wrap">
+                            <img src="https://media.giphy.com/media/ln7z2eWriiQAllfVcn/giphy.gif" width="50" alt="JavaScript"/>
+                        </div>
+                        <div class="lang-details">
+                            <span class="lang-name">JavaScript</span>
+                            <span class="lang-stat">66%</span>
+                            <span class="lang-badge">Most Used</span>
+                        </div>
+                        <div class="lang-bar-mini">
+                            <div class="bar-fill js" style="width: 66%"></div>
+                        </div>
+                    </div>
+
+                    <!-- #3 TypeScript -->
+                    <div class="lang-item bronze">
+                        <div class="lang-rank">#3</div>
+                        <div class="lang-icon-wrap">
+                            <img src="https://media.giphy.com/media/fsEaZldNC8A1PJ3mwp/giphy.gif" width="50" alt="TypeScript"/>
+                        </div>
+                        <div class="lang-details">
+                            <span class="lang-name">TypeScript</span>
+                            <span class="lang-stat">+37%</span>
+                            <span class="lang-badge">Fastest Growing</span>
+                        </div>
+                        <div class="lang-bar-mini">
+                            <div class="bar-fill ts" style="width: 85%"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="lang-bar">
-                    <div class="lang-progress python" style="width: 100%"></div>
-                </div>
-                <span class="lang-source">TIOBE #1 - Dic 2025</span>
-            </div>
 
-            <!-- TypeScript -->
-            <div class="lang-card glass-card">
-                <div class="lang-header">
-                    <i class="devicon-typescript-plain colored"></i>
-                    <div class="lang-info">
-                        <span class="lang-name">TypeScript</span>
-                        <span class="lang-percent">+37%</span>
+                <!-- Row 2: Other Top Languages -->
+                <div class="lang-grid-secondary">
+                    <!-- Java -->
+                    <div class="lang-chip">
+                        <img src="https://media.giphy.com/media/TfY3ORyNfVEvvr94jZ/giphy.gif" width="32" alt="Java"/>
+                        <div class="chip-info">
+                            <span class="chip-name">Java</span>
+                            <span class="chip-stat">9.68% · #4 TIOBE</span>
+                        </div>
+                    </div>
+
+                    <!-- C++ -->
+                    <div class="lang-chip">
+                        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnJ5cWRlNnJiNXM1aGJ5YjVuMXY5ZHB6ZXNyc3F0YjNqNTcyanJlayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MVDPX3gaKFPuo/giphy.gif" width="32" alt="C++"/>
+                        <div class="chip-info">
+                            <span class="chip-name">C++</span>
+                            <span class="chip-stat">10.03% · #2 TIOBE</span>
+                        </div>
+                    </div>
+
+                    <!-- C# -->
+                    <div class="lang-chip">
+                        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWIxNGUwZWZyZ2RiZzRlcWV0cGVtbzR4bTRjNnR0YWRlMXU1OWV2ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cNjQh8OuJrDkQaZjVH/giphy.gif" width="32" alt="C#"/>
+                        <div class="chip-info">
+                            <span class="chip-name">C#</span>
+                            <span class="chip-stat">6.27% · #5 TIOBE</span>
+                        </div>
+                    </div>
+
+                    <!-- Go -->
+                    <div class="lang-chip">
+                        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHI2bHFnN3g2MXk5OGlmY2ljdXJ5cW9ybGZoNWxnZjNuZXJlMnB6byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/xTk9ZMytqqfijNEJmU/giphy.gif" width="32" alt="Go"/>
+                        <div class="chip-info">
+                            <span class="chip-name">Go</span>
+                            <span class="chip-stat">1.92% · #8 TIOBE</span>
+                        </div>
+                    </div>
+
+                    <!-- Rust -->
+                    <div class="lang-chip">
+                        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZGRiajF5a25jZGNqbGt1dHVuOWlpaTI0cHpidDI5czlncDVnMHZldyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/fwbzI2kV3Qrlpk3tUW/giphy.gif" width="32" alt="Rust"/>
+                        <div class="chip-info">
+                            <span class="chip-name">Rust</span>
+                            <span class="chip-stat">Most Loved</span>
+                        </div>
+                    </div>
+
+                    <!-- Kotlin -->
+                    <div class="lang-chip">
+                        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTFtNXJleXprN2N4dHU2bW54Ymp2aG5tNmhtdnQyNmphZnBqdnV4cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/eNAsjO55tPbgaor7ma/giphy.gif" width="32" alt="Kotlin"/>
+                        <div class="chip-info">
+                            <span class="chip-name">Kotlin</span>
+                            <span class="chip-stat">1.45% · Android</span>
+                        </div>
                     </div>
                 </div>
-                <div class="lang-bar">
-                    <div class="lang-progress ts" style="width: 85%"></div>
-                </div>
-                <span class="lang-source">GitHub Trending 2025</span>
-            </div>
 
-            <!-- Java -->
-            <div class="lang-card glass-card">
-                <div class="lang-header">
-                    <i class="devicon-java-plain colored"></i>
-                    <div class="lang-info">
-                        <span class="lang-name">Java</span>
-                        <span class="lang-percent">9.68%</span>
+                <!-- Database Section -->
+                <div class="db-section">
+                    <div class="db-header">
+                        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjdsYWQxbGp4N2ZhdGJjc3JjY3hkZzVheHJtZGx6eXk2OHRnNm5rcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MGuKy9OqUUoLFWpGGM/giphy.gif" width="24" alt="database"/>
+                        <span>Top Databases 2025</span>
+                    </div>
+                    <div class="db-chips">
+                        <div class="db-chip postgres">
+                            <i class="devicon-postgresql-plain colored"></i>
+                            <span>PostgreSQL</span>
+                            <span class="db-stat">55.6%</span>
+                        </div>
+                        <div class="db-chip mysql">
+                            <i class="devicon-mysql-plain colored"></i>
+                            <span>MySQL</span>
+                            <span class="db-stat">41.1%</span>
+                        </div>
+                        <div class="db-chip mongodb">
+                            <i class="devicon-mongodb-plain colored"></i>
+                            <span>MongoDB</span>
+                            <span class="db-stat">25.5%</span>
+                        </div>
+                        <div class="db-chip redis">
+                            <i class="devicon-redis-plain colored"></i>
+                            <span>Redis</span>
+                            <span class="db-stat">20.3%</span>
+                        </div>
                     </div>
                 </div>
-                <div class="lang-bar">
-                    <div class="lang-progress java" style="width: 37%"></div>
-                </div>
-                <span class="lang-source">TIOBE #4 - Dic 2025</span>
             </div>
 
-            <!-- C++ -->
-            <div class="lang-card glass-card">
-                <div class="lang-header">
-                    <i class="devicon-cplusplus-plain colored"></i>
-                    <div class="lang-info">
-                        <span class="lang-name">C++</span>
-                        <span class="lang-percent">10.03%</span>
-                    </div>
+            <!-- Dashboard Footer with Sources -->
+            <div class="dashboard-footer">
+                <div class="sources-row">
+                    <span class="source-label"><i class="fas fa-link"></i> Fuentes:</span>
+                    <a href="https://survey.stackoverflow.co/2025/" target="_blank" class="source-link">
+                        <i class="fab fa-stack-overflow"></i> Stack Overflow 2025
+                    </a>
+                    <a href="https://www.tiobe.com/tiobe-index/" target="_blank" class="source-link">
+                        <i class="fas fa-chart-line"></i> TIOBE Index
+                    </a>
+                    <a href="https://github.blog/news-insights/octoverse/octoverse-2024/" target="_blank" class="source-link">
+                        <i class="fab fa-github"></i> GitHub Octoverse
+                    </a>
                 </div>
-                <div class="lang-bar">
-                    <div class="lang-progress cpp" style="width: 38%"></div>
+                <div class="update-badge">
+                    <i class="fas fa-sync-alt"></i> Actualizado: Diciembre 2025
                 </div>
-                <span class="lang-source">TIOBE #2 - Dic 2025</span>
             </div>
-
-            <!-- PostgreSQL (DB) -->
-            <div class="lang-card glass-card">
-                <div class="lang-header">
-                    <i class="devicon-postgresql-plain colored"></i>
-                    <div class="lang-info">
-                        <span class="lang-name">PostgreSQL</span>
-                        <span class="lang-percent">55.6%</span>
-                    </div>
-                </div>
-                <div class="lang-bar">
-                    <div class="lang-progress postgres" style="width: 55.6%"></div>
-                </div>
-                <span class="lang-source">Stack Overflow DB 2025</span>
-            </div>
-        </div>
-
-        <div class="sources-footer" data-aos="fade-up" data-aos-delay="300">
-            <span class="sources-label"><i class="fas fa-info-circle"></i> Fuentes:</span>
-            <a href="https://survey.stackoverflow.co/2025/" target="_blank">Stack Overflow Developer Survey 2025</a>
-            <a href="https://www.tiobe.com/tiobe-index/" target="_blank">TIOBE Index Dic 2025</a>
-            <a href="https://github.blog/news-insights/octoverse/octoverse-2024/" target="_blank">GitHub Octoverse</a>
         </div>
     </section>
 
