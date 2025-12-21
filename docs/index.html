@@ -29,7 +29,7 @@
         <div class="header-content">
             <div class="logo">
                 <i class="devicon-java-plain colored"></i>
-                <span>APC</span>
+                <span>DUOC</span>
             </div>
             <nav class="nav">
                 <a href="#inicio" class="nav-link active">Inicio</a>
@@ -80,16 +80,14 @@
             </div>
         </div>
         <div class="hero-visual" data-aos="fade-left" data-aos-delay="400">
-            <!-- Floating Tech Icons -->
-            <div class="floating-icons">
-                <i class="devicon-java-plain colored floating-icon" data-aos="zoom-in" data-aos-delay="300" style="--delay: 0s; --x: 85%; --y: 5%;"></i>
-                <i class="devicon-python-plain colored floating-icon" data-aos="zoom-in" data-aos-delay="400" style="--delay: 1s; --x: 95%; --y: 25%;"></i>
-                <i class="devicon-docker-plain colored floating-icon" data-aos="zoom-in" data-aos-delay="500" style="--delay: 2s; --x: 92%; --y: 50%;"></i>
-                <i class="devicon-kubernetes-plain colored floating-icon" data-aos="zoom-in" data-aos-delay="600" style="--delay: 3s; --x: 88%; --y: 75%;"></i>
-                <i class="devicon-postgresql-plain colored floating-icon" data-aos="zoom-in" data-aos-delay="700" style="--delay: 4s; --x: 5%; --y: 15%;"></i>
-                <i class="devicon-spring-plain colored floating-icon" data-aos="zoom-in" data-aos-delay="800" style="--delay: 5s; --x: 3%; --y: 45%;"></i>
-                <i class="devicon-angularjs-plain colored floating-icon" data-aos="zoom-in" data-aos-delay="900" style="--delay: 6s; --x: 8%; --y: 70%;"></i>
-                <i class="devicon-amazonwebservices-plain-wordmark colored floating-icon" data-aos="zoom-in" data-aos-delay="1000" style="--delay: 7s; --x: 90%; --y: 90%;"></i>
+            <!-- Floating Tech Icons - Right Side Only -->
+            <div class="floating-icons-right">
+                <i class="devicon-java-plain colored floating-icon" style="--delay: 0s; --y: 5%;"></i>
+                <i class="devicon-python-plain colored floating-icon" style="--delay: 0.5s; --y: 20%;"></i>
+                <i class="devicon-docker-plain colored floating-icon" style="--delay: 1s; --y: 35%;"></i>
+                <i class="devicon-kubernetes-plain colored floating-icon" style="--delay: 1.5s; --y: 50%;"></i>
+                <i class="devicon-spring-plain colored floating-icon" style="--delay: 2s; --y: 65%;"></i>
+                <i class="devicon-angularjs-plain colored floating-icon" style="--delay: 2.5s; --y: 80%;"></i>
             </div>
 
             <!-- Tech Badges -->
@@ -97,55 +95,26 @@
                 <img src="https://skillicons.dev/icons?i=java,python,spring,angular,docker,aws,kubernetes,postgres&perline=8&theme=dark" alt="Tech Stack"/>
             </div>
 
-            <!-- Code Window - Expanded DAG -->
-            <div class="code-window glass-card" data-aos="fade-up" data-aos-delay="600">
+            <!-- Code Window - Compact DAG -->
+            <div class="code-window compact glass-card" data-aos="fade-up" data-aos-delay="600">
                 <div class="window-header">
                     <div class="window-dots">
                         <span class="dot red"></span>
                         <span class="dot yellow"></span>
                         <span class="dot green"></span>
                     </div>
-                    <span class="window-title"><i class="devicon-python-plain"></i> data_pipeline_dag.py</span>
-                    <span class="window-badge">Airflow DAG</span>
+                    <span class="window-title"><i class="devicon-python-plain"></i> etl_dag.py</span>
+                    <span class="window-badge">Airflow</span>
                 </div>
-                <pre class="code-content"><code><span class="comment"># ETL Pipeline - Apache Airflow DAG</span>
-<span class="keyword">from</span> airflow <span class="keyword">import</span> DAG
+                <pre class="code-content"><code><span class="keyword">from</span> airflow <span class="keyword">import</span> DAG
 <span class="keyword">from</span> airflow.operators.python <span class="keyword">import</span> PythonOperator
-<span class="keyword">from</span> airflow.providers.postgres.operators.postgres <span class="keyword">import</span> PostgresOperator
-<span class="keyword">from</span> datetime <span class="keyword">import</span> datetime, timedelta
 
-default_args = {
-    <span class="string">'owner'</span>: <span class="string">'data_team'</span>,
-    <span class="string">'retries'</span>: <span class="number">3</span>,
-    <span class="string">'retry_delay'</span>: timedelta(minutes=<span class="number">5</span>)
-}
+<span class="keyword">with</span> DAG(<span class="string">'etl_pipeline'</span>, schedule=<span class="string">'@daily'</span>) <span class="keyword">as</span> dag:
+    extract = PythonOperator(task_id=<span class="string">'extract'</span>, python_callable=get_data)
+    transform = PythonOperator(task_id=<span class="string">'transform'</span>, python_callable=clean)
+    load = PythonOperator(task_id=<span class="string">'load'</span>, python_callable=save_to_db)
 
-<span class="keyword">with</span> DAG(
-    dag_id=<span class="string">'etl_data_pipeline'</span>,
-    default_args=default_args,
-    schedule_interval=<span class="string">'@daily'</span>,
-    start_date=datetime(<span class="number">2025</span>, <span class="number">1</span>, <span class="number">1</span>),
-    catchup=<span class="keyword">False</span>
-) <span class="keyword">as</span> dag:
-
-    extract = PythonOperator(
-        task_id=<span class="string">'extract_data'</span>,
-        python_callable=extract_from_api
-    )
-
-    transform = PythonOperator(
-        task_id=<span class="string">'transform_data'</span>,
-        python_callable=clean_and_transform
-    )
-
-    load = PostgresOperator(
-        task_id=<span class="string">'load_to_warehouse'</span>,
-        postgres_conn_id=<span class="string">'postgres_dwh'</span>,
-        sql=<span class="string">'sql/insert_data.sql'</span>
-    )
-
-    <span class="comment"># DAG Dependencies</span>
-    extract >> transform >> load</code></pre>
+    extract >> transform >> load  <span class="comment"># ETL Flow</span></code></pre>
             </div>
 
             <!-- Terminal Window -->
