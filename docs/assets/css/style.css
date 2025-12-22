@@ -2947,7 +2947,7 @@ section {
 
 .db-chips {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 0.5rem;
 }
 
@@ -2995,6 +2995,112 @@ section {
 .db-chip.redis {
   background: rgba(220, 56, 45, 0.15);
   border: 1px solid rgba(220, 56, 45, 0.3);
+}
+
+/* Data Engineering Chips */
+.db-chip.spark {
+  background: rgba(227, 117, 35, 0.15);
+  border: 1px solid rgba(227, 117, 35, 0.3);
+}
+
+.db-chip.airflow {
+  background: rgba(0, 173, 181, 0.15);
+  border: 1px solid rgba(0, 173, 181, 0.3);
+}
+
+.db-chip.kafka {
+  background: rgba(35, 31, 32, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.db-chip.snowflake {
+  background: rgba(41, 181, 226, 0.15);
+  border: 1px solid rgba(41, 181, 226, 0.3);
+}
+
+.db-chip.databricks {
+  background: rgba(255, 63, 56, 0.15);
+  border: 1px solid rgba(255, 63, 56, 0.3);
+}
+
+.db-chip.dbt {
+  background: rgba(255, 105, 76, 0.15);
+  border: 1px solid rgba(255, 105, 76, 0.3);
+}
+
+/* Data Visualization Chips */
+.db-chip.tableau {
+  background: rgba(35, 81, 153, 0.15);
+  border: 1px solid rgba(35, 81, 153, 0.3);
+}
+
+.db-chip.powerbi {
+  background: rgba(247, 190, 45, 0.15);
+  border: 1px solid rgba(247, 190, 45, 0.3);
+}
+
+.db-chip.looker {
+  background: rgba(52, 168, 83, 0.15);
+  border: 1px solid rgba(52, 168, 83, 0.3);
+}
+
+.db-chip.grafana {
+  background: rgba(240, 122, 18, 0.15);
+  border: 1px solid rgba(240, 122, 18, 0.3);
+}
+
+.db-chip.d3 {
+  background: rgba(247, 151, 103, 0.15);
+  border: 1px solid rgba(247, 151, 103, 0.3);
+}
+
+.db-chip.superset {
+  background: rgba(32, 163, 158, 0.15);
+  border: 1px solid rgba(32, 163, 158, 0.3);
+}
+
+/* Software Engineering Chips */
+.db-chip.git {
+  background: rgba(240, 80, 51, 0.15);
+  border: 1px solid rgba(240, 80, 51, 0.3);
+}
+
+.db-chip.docker {
+  background: rgba(36, 150, 237, 0.15);
+  border: 1px solid rgba(36, 150, 237, 0.3);
+}
+
+.db-chip.kubernetes {
+  background: rgba(50, 108, 229, 0.15);
+  border: 1px solid rgba(50, 108, 229, 0.3);
+}
+
+.db-chip.ghactions {
+  background: rgba(33, 136, 255, 0.15);
+  border: 1px solid rgba(33, 136, 255, 0.3);
+}
+
+.db-chip.terraform {
+  background: rgba(98, 75, 187, 0.15);
+  border: 1px solid rgba(98, 75, 187, 0.3);
+}
+
+.db-chip.jest {
+  background: rgba(153, 66, 91, 0.15);
+  border: 1px solid rgba(153, 66, 91, 0.3);
+}
+
+/* Section Headers with Icons */
+.db-section.data-eng .db-header i {
+  color: #e37523;
+}
+
+.db-section.data-viz .db-header i {
+  color: #f7be2d;
+}
+
+.db-section.soft-eng .db-header i {
+  color: #2188ff;
 }
 
 /* Dashboard Footer */
