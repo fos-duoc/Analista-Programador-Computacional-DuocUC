@@ -1258,29 +1258,389 @@ default_args = {<span class="string">'retries'</span>: <span class="number">3</s
                 <!-- Database Section -->
                 <div class="db-section">
                     <div class="db-header">
-                        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjdsYWQxbGp4N2ZhdGJjc3JjY3hkZzVheHJtZGx6eXk2OHRnNm5rcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MGuKy9OqUUoLFWpGGM/giphy.gif" width="24" alt="database"/>
-                        <span>Top Databases 2025</span>
+                        <i class="fas fa-database"></i>
+                        <span>Bases de Datos</span>
                     </div>
                     <div class="db-chips">
                         <a href="https://www.postgresql.org/" target="_blank" rel="noopener" class="db-chip postgres">
                             <i class="devicon-postgresql-plain colored"></i>
                             <span>PostgreSQL</span>
-                            <span class="db-stat">55.6%</span>
+                            <span class="db-stat">55.6% SO</span>
                         </a>
                         <a href="https://www.mysql.com/" target="_blank" rel="noopener" class="db-chip mysql">
                             <i class="devicon-mysql-plain colored"></i>
                             <span>MySQL</span>
-                            <span class="db-stat">41.1%</span>
+                            <span class="db-stat">41.1% SO</span>
                         </a>
                         <a href="https://www.mongodb.com/" target="_blank" rel="noopener" class="db-chip mongodb">
                             <i class="devicon-mongodb-plain colored"></i>
                             <span>MongoDB</span>
-                            <span class="db-stat">25.5%</span>
+                            <span class="db-stat">25.5% SO</span>
                         </a>
                         <a href="https://redis.io/" target="_blank" rel="noopener" class="db-chip redis">
                             <i class="devicon-redis-plain colored"></i>
                             <span>Redis</span>
-                            <span class="db-stat">20.3%</span>
+                            <span class="db-stat">20.3% SO</span>
+                        </a>
+                        <a href="https://www.sqlite.org/" target="_blank" rel="noopener" class="db-chip sqlite">
+                            <i class="devicon-sqlite-plain colored"></i>
+                            <span>SQLite</span>
+                            <span class="db-stat">33.1% SO</span>
+                        </a>
+                        <a href="https://www.elastic.co/" target="_blank" rel="noopener" class="db-chip elastic">
+                            <i class="devicon-elasticsearch-plain colored"></i>
+                            <span>Elasticsearch</span>
+                            <span class="db-stat">12.4% SO</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Cloud Platforms -->
+                <div class="db-section">
+                    <div class="db-header">
+                        <i class="fas fa-cloud"></i>
+                        <span>Plataformas Cloud</span>
+                    </div>
+                    <div class="db-chips">
+                        <a href="https://aws.amazon.com/" target="_blank" rel="noopener" class="db-chip aws">
+                            <i class="devicon-amazonwebservices-plain-wordmark colored"></i>
+                            <span>AWS</span>
+                            <span class="db-stat">32% mercado</span>
+                        </a>
+                        <a href="https://azure.microsoft.com/" target="_blank" rel="noopener" class="db-chip azure">
+                            <i class="devicon-azure-plain colored"></i>
+                            <span>Azure</span>
+                            <span class="db-stat">23% mercado</span>
+                        </a>
+                        <a href="https://cloud.google.com/" target="_blank" rel="noopener" class="db-chip gcp">
+                            <i class="devicon-googlecloud-plain colored"></i>
+                            <span>Google Cloud</span>
+                            <span class="db-stat">10% mercado</span>
+                        </a>
+                        <a href="https://www.digitalocean.com/" target="_blank" rel="noopener" class="db-chip digitalocean">
+                            <i class="devicon-digitalocean-plain colored"></i>
+                            <span>DigitalOcean</span>
+                            <span class="db-stat">Dev friendly</span>
+                        </a>
+                        <a href="https://vercel.com/" target="_blank" rel="noopener" class="db-chip vercel">
+                            <i class="devicon-vercel-original"></i>
+                            <span>Vercel</span>
+                            <span class="db-stat">Frontend</span>
+                        </a>
+                        <a href="https://www.netlify.com/" target="_blank" rel="noopener" class="db-chip netlify">
+                            <i class="devicon-netlify-plain colored"></i>
+                            <span>Netlify</span>
+                            <span class="db-stat">JAMstack</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Data Engineering & Pipelines -->
+                <div class="db-section">
+                    <div class="db-header">
+                        <i class="fas fa-stream"></i>
+                        <span>Ingeniería de Datos & Pipelines</span>
+                    </div>
+                    <div class="db-chips">
+                        <a href="https://spark.apache.org/" target="_blank" rel="noopener" class="db-chip spark">
+                            <i class="devicon-apachespark-original colored"></i>
+                            <span>Apache Spark</span>
+                            <span class="db-stat">#1 Big Data</span>
+                        </a>
+                        <a href="https://airflow.apache.org/" target="_blank" rel="noopener" class="db-chip airflow">
+                            <i class="devicon-apacheairflow-plain"></i>
+                            <span>Airflow</span>
+                            <span class="db-stat">Orquestación</span>
+                        </a>
+                        <a href="https://kafka.apache.org/" target="_blank" rel="noopener" class="db-chip kafka">
+                            <i class="devicon-apachekafka-original"></i>
+                            <span>Kafka</span>
+                            <span class="db-stat">Streaming</span>
+                        </a>
+                        <a href="https://www.getdbt.com/" target="_blank" rel="noopener" class="db-chip dbt">
+                            <i class="fas fa-code-branch"></i>
+                            <span>dbt</span>
+                            <span class="db-stat">Transform</span>
+                        </a>
+                        <a href="https://www.prefect.io/" target="_blank" rel="noopener" class="db-chip prefect">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>Prefect</span>
+                            <span class="db-stat">Workflows</span>
+                        </a>
+                        <a href="https://dagster.io/" target="_blank" rel="noopener" class="db-chip dagster">
+                            <i class="fas fa-sitemap"></i>
+                            <span>Dagster</span>
+                            <span class="db-stat">Data Assets</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Data Warehouse & Lakehouse -->
+                <div class="db-section">
+                    <div class="db-header">
+                        <i class="fas fa-warehouse"></i>
+                        <span>Data Warehouse & Lakehouse</span>
+                    </div>
+                    <div class="db-chips">
+                        <a href="https://www.snowflake.com/" target="_blank" rel="noopener" class="db-chip snowflake">
+                            <i class="fas fa-snowflake"></i>
+                            <span>Snowflake</span>
+                            <span class="db-stat">35% Cloud DW</span>
+                        </a>
+                        <a href="https://www.databricks.com/" target="_blank" rel="noopener" class="db-chip databricks">
+                            <i class="fas fa-cubes"></i>
+                            <span>Databricks</span>
+                            <span class="db-stat">Lakehouse</span>
+                        </a>
+                        <a href="https://cloud.google.com/bigquery" target="_blank" rel="noopener" class="db-chip bigquery">
+                            <i class="devicon-googlecloud-plain colored"></i>
+                            <span>BigQuery</span>
+                            <span class="db-stat">Serverless</span>
+                        </a>
+                        <a href="https://aws.amazon.com/redshift/" target="_blank" rel="noopener" class="db-chip redshift">
+                            <i class="devicon-amazonwebservices-plain-wordmark colored"></i>
+                            <span>Redshift</span>
+                            <span class="db-stat">AWS DW</span>
+                        </a>
+                        <a href="https://delta.io/" target="_blank" rel="noopener" class="db-chip delta">
+                            <i class="fas fa-layer-group"></i>
+                            <span>Delta Lake</span>
+                            <span class="db-stat">ACID Lake</span>
+                        </a>
+                        <a href="https://iceberg.apache.org/" target="_blank" rel="noopener" class="db-chip iceberg">
+                            <i class="fas fa-table"></i>
+                            <span>Apache Iceberg</span>
+                            <span class="db-stat">Open Format</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Data Visualization -->
+                <div class="db-section">
+                    <div class="db-header">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Visualización de Datos</span>
+                    </div>
+                    <div class="db-chips">
+                        <a href="https://powerbi.microsoft.com/" target="_blank" rel="noopener" class="db-chip powerbi">
+                            <i class="fas fa-chart-pie"></i>
+                            <span>Power BI</span>
+                            <span class="db-stat">22% mercado</span>
+                        </a>
+                        <a href="https://www.tableau.com/" target="_blank" rel="noopener" class="db-chip tableau">
+                            <i class="fas fa-chart-area"></i>
+                            <span>Tableau</span>
+                            <span class="db-stat">17.8% mercado</span>
+                        </a>
+                        <a href="https://grafana.com/" target="_blank" rel="noopener" class="db-chip grafana">
+                            <i class="devicon-grafana-original colored"></i>
+                            <span>Grafana</span>
+                            <span class="db-stat">Monitoring</span>
+                        </a>
+                        <a href="https://metabase.com/" target="_blank" rel="noopener" class="db-chip metabase">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Metabase</span>
+                            <span class="db-stat">Open Source</span>
+                        </a>
+                        <a href="https://superset.apache.org/" target="_blank" rel="noopener" class="db-chip superset">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Superset</span>
+                            <span class="db-stat">Apache</span>
+                        </a>
+                        <a href="https://cloud.google.com/looker" target="_blank" rel="noopener" class="db-chip looker">
+                            <i class="fas fa-eye"></i>
+                            <span>Looker</span>
+                            <span class="db-stat">Google</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- DevOps & Infrastructure -->
+                <div class="db-section">
+                    <div class="db-header">
+                        <i class="fas fa-infinity"></i>
+                        <span>DevOps & Infraestructura</span>
+                    </div>
+                    <div class="db-chips">
+                        <a href="https://www.docker.com/" target="_blank" rel="noopener" class="db-chip docker">
+                            <i class="devicon-docker-plain colored"></i>
+                            <span>Docker</span>
+                            <span class="db-stat">58.7% SO</span>
+                        </a>
+                        <a href="https://kubernetes.io/" target="_blank" rel="noopener" class="db-chip kubernetes">
+                            <i class="devicon-kubernetes-plain colored"></i>
+                            <span>Kubernetes</span>
+                            <span class="db-stat">22% SO</span>
+                        </a>
+                        <a href="https://www.terraform.io/" target="_blank" rel="noopener" class="db-chip terraform">
+                            <i class="devicon-terraform-plain colored"></i>
+                            <span>Terraform</span>
+                            <span class="db-stat">IaC</span>
+                        </a>
+                        <a href="https://www.ansible.com/" target="_blank" rel="noopener" class="db-chip ansible">
+                            <i class="devicon-ansible-plain colored"></i>
+                            <span>Ansible</span>
+                            <span class="db-stat">Automation</span>
+                        </a>
+                        <a href="https://github.com/features/actions" target="_blank" rel="noopener" class="db-chip ghactions">
+                            <i class="devicon-githubactions-plain"></i>
+                            <span>GitHub Actions</span>
+                            <span class="db-stat">CI/CD</span>
+                        </a>
+                        <a href="https://www.jenkins.io/" target="_blank" rel="noopener" class="db-chip jenkins">
+                            <i class="devicon-jenkins-plain colored"></i>
+                            <span>Jenkins</span>
+                            <span class="db-stat">CI/CD</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Frameworks Backend -->
+                <div class="db-section">
+                    <div class="db-header">
+                        <i class="fas fa-server"></i>
+                        <span>Frameworks Backend</span>
+                    </div>
+                    <div class="db-chips">
+                        <a href="https://nodejs.org/" target="_blank" rel="noopener" class="db-chip nodejs">
+                            <i class="devicon-nodejs-plain colored"></i>
+                            <span>Node.js</span>
+                            <span class="db-stat">42.7% SO</span>
+                        </a>
+                        <a href="https://spring.io/" target="_blank" rel="noopener" class="db-chip spring">
+                            <i class="devicon-spring-original colored"></i>
+                            <span>Spring Boot</span>
+                            <span class="db-stat">Java #1</span>
+                        </a>
+                        <a href="https://www.djangoproject.com/" target="_blank" rel="noopener" class="db-chip django">
+                            <i class="devicon-django-plain colored"></i>
+                            <span>Django</span>
+                            <span class="db-stat">Python #1</span>
+                        </a>
+                        <a href="https://fastapi.tiangolo.com/" target="_blank" rel="noopener" class="db-chip fastapi">
+                            <i class="devicon-fastapi-plain colored"></i>
+                            <span>FastAPI</span>
+                            <span class="db-stat">+150% GH</span>
+                        </a>
+                        <a href="https://dotnet.microsoft.com/" target="_blank" rel="noopener" class="db-chip dotnet">
+                            <i class="devicon-dotnetcore-plain colored"></i>
+                            <span>.NET Core</span>
+                            <span class="db-stat">C# #1</span>
+                        </a>
+                        <a href="https://nestjs.com/" target="_blank" rel="noopener" class="db-chip nestjs">
+                            <i class="devicon-nestjs-original colored"></i>
+                            <span>NestJS</span>
+                            <span class="db-stat">Enterprise</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Frameworks Frontend -->
+                <div class="db-section">
+                    <div class="db-header">
+                        <i class="fas fa-desktop"></i>
+                        <span>Frameworks Frontend</span>
+                    </div>
+                    <div class="db-chips">
+                        <a href="https://react.dev/" target="_blank" rel="noopener" class="db-chip react">
+                            <i class="devicon-react-original colored"></i>
+                            <span>React</span>
+                            <span class="db-stat">40.6% SO</span>
+                        </a>
+                        <a href="https://vuejs.org/" target="_blank" rel="noopener" class="db-chip vue">
+                            <i class="devicon-vuejs-plain colored"></i>
+                            <span>Vue.js</span>
+                            <span class="db-stat">15.4% SO</span>
+                        </a>
+                        <a href="https://angular.io/" target="_blank" rel="noopener" class="db-chip angular">
+                            <i class="devicon-angular-plain colored"></i>
+                            <span>Angular</span>
+                            <span class="db-stat">17.1% SO</span>
+                        </a>
+                        <a href="https://nextjs.org/" target="_blank" rel="noopener" class="db-chip nextjs">
+                            <i class="devicon-nextjs-original"></i>
+                            <span>Next.js</span>
+                            <span class="db-stat">#1 React</span>
+                        </a>
+                        <a href="https://svelte.dev/" target="_blank" rel="noopener" class="db-chip svelte">
+                            <i class="devicon-svelte-plain colored"></i>
+                            <span>Svelte</span>
+                            <span class="db-stat">Most Loved</span>
+                        </a>
+                        <a href="https://tailwindcss.com/" target="_blank" rel="noopener" class="db-chip tailwind">
+                            <i class="devicon-tailwindcss-original colored"></i>
+                            <span>Tailwind</span>
+                            <span class="db-stat">CSS #1</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Version Control & Repos -->
+                <div class="db-section">
+                    <div class="db-header">
+                        <i class="fas fa-code-branch"></i>
+                        <span>Control de Versiones & Repos</span>
+                    </div>
+                    <div class="db-chips">
+                        <a href="https://git-scm.com/" target="_blank" rel="noopener" class="db-chip git">
+                            <i class="devicon-git-plain colored"></i>
+                            <span>Git</span>
+                            <span class="db-stat">93% SO</span>
+                        </a>
+                        <a href="https://github.com/" target="_blank" rel="noopener" class="db-chip github">
+                            <i class="devicon-github-original"></i>
+                            <span>GitHub</span>
+                            <span class="db-stat">100M+ devs</span>
+                        </a>
+                        <a href="https://gitlab.com/" target="_blank" rel="noopener" class="db-chip gitlab">
+                            <i class="devicon-gitlab-plain colored"></i>
+                            <span>GitLab</span>
+                            <span class="db-stat">DevSecOps</span>
+                        </a>
+                        <a href="https://bitbucket.org/" target="_blank" rel="noopener" class="db-chip bitbucket">
+                            <i class="devicon-bitbucket-original colored"></i>
+                            <span>Bitbucket</span>
+                            <span class="db-stat">Atlassian</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Testing & QA -->
+                <div class="db-section">
+                    <div class="db-header">
+                        <i class="fas fa-vial"></i>
+                        <span>Testing & QA</span>
+                    </div>
+                    <div class="db-chips">
+                        <a href="https://jestjs.io/" target="_blank" rel="noopener" class="db-chip jest">
+                            <i class="devicon-jest-plain colored"></i>
+                            <span>Jest</span>
+                            <span class="db-stat">JS #1</span>
+                        </a>
+                        <a href="https://pytest.org/" target="_blank" rel="noopener" class="db-chip pytest">
+                            <i class="devicon-pytest-plain colored"></i>
+                            <span>Pytest</span>
+                            <span class="db-stat">Python #1</span>
+                        </a>
+                        <a href="https://www.selenium.dev/" target="_blank" rel="noopener" class="db-chip selenium">
+                            <i class="devicon-selenium-original colored"></i>
+                            <span>Selenium</span>
+                            <span class="db-stat">E2E</span>
+                        </a>
+                        <a href="https://www.cypress.io/" target="_blank" rel="noopener" class="db-chip cypress">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Cypress</span>
+                            <span class="db-stat">Modern E2E</span>
+                        </a>
+                        <a href="https://playwright.dev/" target="_blank" rel="noopener" class="db-chip playwright">
+                            <i class="fas fa-theater-masks"></i>
+                            <span>Playwright</span>
+                            <span class="db-stat">Microsoft</span>
+                        </a>
+                        <a href="https://www.postman.com/" target="_blank" rel="noopener" class="db-chip postman">
+                            <i class="devicon-postman-plain colored"></i>
+                            <span>Postman</span>
+                            <span class="db-stat">API Testing</span>
                         </a>
                     </div>
                 </div>
