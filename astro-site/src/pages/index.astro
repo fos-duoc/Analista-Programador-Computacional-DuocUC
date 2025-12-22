@@ -1,21 +1,14 @@
 ---
 // Main page - Analista Programador Computacional DuocUC
+// Landing page simplificada - contenido detallado en páginas dedicadas
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PlanEstudiosHero from '../components/PlanEstudiosHero.astro';
 import BimestresSection from '../components/BimestresSection.astro';
-import StackSection from '../components/StackSection.astro';
-import RecursosSection from '../components/RecursosSection.astro';
-import TechStack2025 from '../components/TechStack2025.astro';
-import DataPipeline from '../components/DataPipeline.astro';
-import ArchitectureSection from '../components/ArchitectureSection.astro';
-import ScrumFramework from '../components/ScrumFramework.astro';
 import StatsSection from '../components/StatsSection.astro';
-import AIToolsSection from '../components/AIToolsSection.astro';
-import LearningRoadmap from '../components/LearningRoadmap.astro';
-import CapstoneProjects from '../components/CapstoneProjects.astro';
-import Recursos2025 from '../components/Recursos2025.astro';
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="Analista Programador Computacional | DuocUC">
@@ -137,11 +130,15 @@ import Recursos2025 from '../components/Recursos2025.astro';
             <div class="hero-cta-premium" data-aos="fade-up" data-aos-delay="600">
                 <a href="#bimestres" class="cta-btn-premium primary">
                     <i class="fas fa-rocket"></i>
-                    <span>Explorar Plan de Estudios</span>
+                    <span>Plan de Estudios</span>
                 </a>
-                <a href="#languages-2025" class="cta-btn-premium secondary">
+                <a href={`${base}stack`} class="cta-btn-premium secondary">
                     <i class="fas fa-layer-group"></i>
                     <span>Stack Tecnológico</span>
+                </a>
+                <a href={`${base}recursos`} class="cta-btn-premium accent">
+                    <i class="fas fa-book-reader"></i>
+                    <span>Recursos</span>
                 </a>
                 <a href="https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC" target="_blank" class="cta-btn-premium github">
                     <i class="fab fa-github"></i>
@@ -260,41 +257,170 @@ import Recursos2025 from '../components/Recursos2025.astro';
     <!-- Bimestres Section -->
     <BimestresSection />
 
-    <!-- Stack Tecnológico -->
-    <StackSection />
-
-    <!-- Recursos Section -->
-    <RecursosSection />
-
-    <!-- Tech Stack 2025 - Industry Languages -->
-    <TechStack2025 />
-
-    <!-- Data Pipeline End-to-End -->
-    <DataPipeline />
-
-    <!-- Architecture & DevOps -->
-    <ArchitectureSection />
-
-    <!-- Agile Scrum Framework -->
-    <ScrumFramework />
-
-    <!-- AI Tools for Students 2025 -->
-    <AIToolsSection />
-
-    <!-- Learning Roadmap -->
-    <LearningRoadmap />
-
-    <!-- Capstone Projects -->
-    <CapstoneProjects />
-
-    <!-- Recursos 2025 -->
-    <Recursos2025 />
+    <!-- Quick Navigation Cards -->
+    <section class="quick-nav-section">
+        <div class="quick-nav-container">
+            <h2 data-aos="fade-up">Explora más</h2>
+            <div class="quick-nav-grid" data-aos="fade-up" data-aos-delay="100">
+                <a href={`${base}stack`} class="quick-nav-card glass-card">
+                    <div class="nav-card-icon cyan">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>Stack Tecnológico</h3>
+                    <p>65+ tecnologías y herramientas de la industria</p>
+                    <span class="nav-card-arrow"><i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href={`${base}arquitectura`} class="quick-nav-card glass-card">
+                    <div class="nav-card-icon purple">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <h3>Arquitectura & DevOps</h3>
+                    <p>Patrones, pipelines y metodologías ágiles</p>
+                    <span class="nav-card-arrow"><i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href={`${base}recursos`} class="quick-nav-card glass-card">
+                    <div class="nav-card-icon orange">
+                        <i class="fas fa-book-reader"></i>
+                    </div>
+                    <h3>Recursos</h3>
+                    <p>Videos, herramientas AI, código y cursos</p>
+                    <span class="nav-card-arrow"><i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href={`${base}proyectos`} class="quick-nav-card glass-card">
+                    <div class="nav-card-icon green">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Proyectos & Roadmap</h3>
+                    <p>Ruta de aprendizaje y proyectos para tu portafolio</p>
+                    <span class="nav-card-arrow"><i class="fas fa-arrow-right"></i></span>
+                </a>
+            </div>
+        </div>
+    </section>
 
     <!-- GitHub Stats -->
     <StatsSection />
 
     <Footer />
 </Layout>
+
+<style>
+    .quick-nav-section {
+        padding: 4rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .quick-nav-container h2 {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        background: linear-gradient(135deg, #f8fafc, #94a3b8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .quick-nav-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .quick-nav-card {
+        padding: 1.5rem;
+        border-radius: 16px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .quick-nav-card:hover {
+        transform: translateY(-4px);
+    }
+
+    .quick-nav-card:hover .nav-card-arrow {
+        transform: translateX(4px);
+    }
+
+    .nav-card-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .nav-card-icon.cyan {
+        background: rgba(0, 212, 255, 0.2);
+        color: #00d4ff;
+    }
+
+    .nav-card-icon.purple {
+        background: rgba(124, 58, 237, 0.2);
+        color: #a78bfa;
+    }
+
+    .nav-card-icon.orange {
+        background: rgba(245, 158, 11, 0.2);
+        color: #f59e0b;
+    }
+
+    .nav-card-icon.green {
+        background: rgba(16, 185, 129, 0.2);
+        color: #10b981;
+    }
+
+    .quick-nav-card h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #f8fafc;
+        margin-bottom: 0.5rem;
+    }
+
+    .quick-nav-card p {
+        font-size: 0.85rem;
+        color: #94a3b8;
+        line-height: 1.5;
+    }
+
+    .nav-card-arrow {
+        position: absolute;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        color: #64748b;
+        transition: transform 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+        .quick-nav-container h2 {
+            font-size: 1.5rem;
+        }
+
+        .quick-nav-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    :global([data-theme="light"]) .quick-nav-container h2 {
+        background: linear-gradient(135deg, #1e293b, #475569);
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+
+    :global([data-theme="light"]) .quick-nav-card h3 {
+        color: #1e293b;
+    }
+
+    :global([data-theme="light"]) .quick-nav-card p {
+        color: #64748b;
+    }
+</style>
 
 <script>
     // Console Easter Egg

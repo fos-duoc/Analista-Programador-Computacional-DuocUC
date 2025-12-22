@@ -1,10 +1,18 @@
 ---
 const base = import.meta.env.BASE_URL;
+const currentPath = Astro.url.pathname;
+
+// Determinar qué enlace está activo basado en la ruta actual
+const isHome = currentPath === base || currentPath === base + 'index.html' || currentPath.endsWith('/');
+const isStack = currentPath.includes('/stack');
+const isArquitectura = currentPath.includes('/arquitectura');
+const isRecursos = currentPath.includes('/recursos');
+const isProyectos = currentPath.includes('/proyectos');
 ---
 
-<header class="header">
+<header class="header" transition:persist>
     <div class="header-content">
-        <a href="#inicio" class="logo">
+        <a href={base} class="logo">
             <div class="logo-icon">
                 <i class="fas fa-code"></i>
             </div>
@@ -14,13 +22,11 @@ const base = import.meta.env.BASE_URL;
             </div>
         </a>
         <nav class="nav">
-            <a href="#inicio" class="nav-link active">Inicio</a>
-            <a href="#bimestres" class="nav-link">Bimestres</a>
-            <a href="#stack" class="nav-link">Stack</a>
-            <a href="#recursos-2025" class="nav-link">Recursos 2025</a>
-            <a href="#ai-tools" class="nav-link">AI Tools</a>
-            <a href="#learning-roadmap" class="nav-link">Roadmap</a>
-            <a href="#capstone-projects" class="nav-link">Proyectos</a>
+            <a href={base} class={`nav-link ${isHome ? 'active' : ''}`}>Inicio</a>
+            <a href={`${base}stack`} class={`nav-link ${isStack ? 'active' : ''}`}>Stack</a>
+            <a href={`${base}arquitectura`} class={`nav-link ${isArquitectura ? 'active' : ''}`}>Arquitectura</a>
+            <a href={`${base}recursos`} class={`nav-link ${isRecursos ? 'active' : ''}`}>Recursos</a>
+            <a href={`${base}proyectos`} class={`nav-link ${isProyectos ? 'active' : ''}`}>Proyectos</a>
         </nav>
         <div class="header-actions">
             <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" title="Cambiar tema">
@@ -35,68 +41,63 @@ const base = import.meta.env.BASE_URL;
     </div>
 </header>
 
-<script>
-    // Header scroll effect
-    const header = document.querySelector('.header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header?.classList.add('scrolled');
-        } else {
-            header?.classList.remove('scrolled');
+<script is:inline>
+    // Initialize on page load and after view transitions
+    function initHeader() {
+        const header = document.querySelector('.header');
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        // Header scroll effect
+        function handleScroll() {
+            if (window.scrollY > 50) {
+                header?.classList.add('scrolled');
+            } else {
+                header?.classList.remove('scrolled');
+            }
         }
-    });
 
-    // Active nav link on scroll
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Initial check
 
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            if (scrollY >= sectionTop - 200) {
-                current = section.getAttribute('id') || '';
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
-    });
-
-    // Smooth scroll for navigation
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const href = this.getAttribute('href');
-            if (href) {
-                const target = document.querySelector(href);
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                if (href && href !== '#') {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
                 }
-            }
+            });
         });
-    });
 
-    // Theme Toggle
-    const themeToggle = document.getElementById('theme-toggle');
-    const html = document.documentElement;
+        // Theme Toggle - Persist across pages
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        html.setAttribute('data-theme', savedTheme);
 
-    // Check for saved theme preference or default to dark
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    html.setAttribute('data-theme', savedTheme);
+        themeToggle?.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    }
 
-    themeToggle?.addEventListener('click', () => {
-        const currentTheme = html.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    // Run on initial page load
+    document.addEventListener('DOMContentLoaded', initHeader);
 
-        html.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
+    // Run after Astro view transitions
+    document.addEventListener('astro:page-load', initHeader);
+
+    // Preserve theme during transitions
+    document.addEventListener('astro:before-swap', (event) => {
+        const theme = localStorage.getItem('theme') || 'dark';
+        event.newDocument.documentElement.setAttribute('data-theme', theme);
     });
 </script>

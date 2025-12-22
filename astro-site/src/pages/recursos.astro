@@ -1,0 +1,173 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import AIToolsSection from '../components/AIToolsSection.astro';
+import Recursos2025 from '../components/Recursos2025.astro';
+import YouTubeSection from '../components/YouTubeSection.astro';
+import NotionEmbed from '../components/NotionEmbed.astro';
+import CodeSnippets from '../components/CodeSnippets.astro';
+---
+
+<Layout title="Recursos de Aprendizaje | DuocUC">
+    <Header />
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-book-reader"></i>
+                <span>Centro de Recursos</span>
+            </div>
+            <h1>Recursos de Aprendizaje</h1>
+            <p>Herramientas, videos, documentación y código para potenciar tu aprendizaje</p>
+            <div class="hero-cards">
+                <a href="#ai-tools" class="quick-nav">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Tools</span>
+                </a>
+                <a href="#videos" class="quick-nav">
+                    <i class="fab fa-youtube"></i>
+                    <span>Videos</span>
+                </a>
+                <a href="#notion-workspace" class="quick-nav">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Notion</span>
+                </a>
+                <a href="#code-snippets" class="quick-nav">
+                    <i class="fas fa-code"></i>
+                    <span>Código</span>
+                </a>
+                <a href="#recursos-2025" class="quick-nav">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Cursos</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Tools Section -->
+    <AIToolsSection />
+
+    <!-- YouTube Videos Section -->
+    <YouTubeSection />
+
+    <!-- Notion Workspace -->
+    <NotionEmbed />
+
+    <!-- Code Snippets -->
+    <CodeSnippets />
+
+    <!-- Recursos 2025 -->
+    <Recursos2025 />
+
+    <Footer />
+</Layout>
+
+<style>
+    .page-hero {
+        padding: 8rem 2rem 4rem;
+        text-align: center;
+        background: linear-gradient(180deg, rgba(245, 158, 11, 0.1) 0%, transparent 100%);
+    }
+
+    .hero-content {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: rgba(245, 158, 11, 0.1);
+        border: 1px solid rgba(245, 158, 11, 0.3);
+        border-radius: 20px;
+        font-size: 0.85rem;
+        color: #f59e0b;
+        margin-bottom: 1.5rem;
+    }
+
+    .page-hero h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, #f8fafc, #94a3b8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .page-hero p {
+        font-size: 1.25rem;
+        color: #94a3b8;
+        margin-bottom: 2rem;
+    }
+
+    .hero-cards {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .quick-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 1.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .quick-nav:hover {
+        background: rgba(245, 158, 11, 0.1);
+        border-color: rgba(245, 158, 11, 0.3);
+        transform: translateY(-4px);
+    }
+
+    .quick-nav i {
+        font-size: 1.5rem;
+        color: #f59e0b;
+    }
+
+    .quick-nav span {
+        font-size: 0.85rem;
+        color: #94a3b8;
+        font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+        .page-hero h1 {
+            font-size: 2rem;
+        }
+
+        .hero-cards {
+            gap: 0.75rem;
+        }
+
+        .quick-nav {
+            padding: 0.75rem 1rem;
+        }
+
+        .quick-nav i {
+            font-size: 1.25rem;
+        }
+    }
+
+    :global([data-theme="light"]) .page-hero h1 {
+        background: linear-gradient(135deg, #1e293b, #475569);
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+
+    :global([data-theme="light"]) .page-hero p,
+    :global([data-theme="light"]) .quick-nav span {
+        color: #64748b;
+    }
+</style>

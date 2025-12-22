@@ -1,0 +1,132 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import DataPipeline from '../components/DataPipeline.astro';
+import ArchitectureSection from '../components/ArchitectureSection.astro';
+import ScrumFramework from '../components/ScrumFramework.astro';
+---
+
+<Layout title="Arquitectura & DevOps | DuocUC">
+    <Header />
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-sitemap"></i>
+                <span>Arquitectura & DevOps</span>
+            </div>
+            <h1>Patrones & Prácticas</h1>
+            <p>Diseño de sistemas, pipelines de datos y metodologías ágiles</p>
+            <div class="hero-topics">
+                <span class="topic"><i class="fas fa-project-diagram"></i> Microservicios</span>
+                <span class="topic"><i class="fas fa-stream"></i> Data Pipelines</span>
+                <span class="topic"><i class="fas fa-infinity"></i> CI/CD</span>
+                <span class="topic"><i class="fas fa-sync-alt"></i> Scrum</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Pipeline -->
+    <DataPipeline />
+
+    <!-- Architecture Patterns -->
+    <ArchitectureSection />
+
+    <!-- Scrum Framework -->
+    <ScrumFramework />
+
+    <Footer />
+</Layout>
+
+<style>
+    .page-hero {
+        padding: 8rem 2rem 4rem;
+        text-align: center;
+        background: linear-gradient(180deg, rgba(124, 58, 237, 0.1) 0%, transparent 100%);
+    }
+
+    .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: rgba(124, 58, 237, 0.1);
+        border: 1px solid rgba(124, 58, 237, 0.3);
+        border-radius: 20px;
+        font-size: 0.85rem;
+        color: #a78bfa;
+        margin-bottom: 1.5rem;
+    }
+
+    .page-hero h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, #f8fafc, #94a3b8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .page-hero p {
+        font-size: 1.25rem;
+        color: #94a3b8;
+        margin-bottom: 2rem;
+    }
+
+    .hero-topics {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .topic {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        font-size: 0.85rem;
+        color: #94a3b8;
+    }
+
+    .topic i {
+        color: #7c3aed;
+    }
+
+    @media (max-width: 768px) {
+        .page-hero h1 {
+            font-size: 2rem;
+        }
+
+        .hero-topics {
+            gap: 0.5rem;
+        }
+
+        .topic {
+            font-size: 0.75rem;
+            padding: 0.4rem 0.8rem;
+        }
+    }
+
+    :global([data-theme="light"]) .page-hero h1 {
+        background: linear-gradient(135deg, #1e293b, #475569);
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+
+    :global([data-theme="light"]) .page-hero p,
+    :global([data-theme="light"]) .topic {
+        color: #64748b;
+    }
+</style>
