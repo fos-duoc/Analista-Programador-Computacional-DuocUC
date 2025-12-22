@@ -6915,3 +6915,446 @@ section {
     justify-content: center;
   }
 }
+
+/* ============================================
+   LIGHT MODE - COMPREHENSIVE STYLES
+   ============================================ */
+
+/* Plan de Estudios Hero - Light */
+[data-theme="light"] .plan-estudios-hero {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .plan-header {
+  border-bottom-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .plan-title {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .plan-subtitle {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .plan-bim {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .plan-bim:hover {
+  background: rgba(8, 145, 178, 0.1) !important;
+  border-color: rgba(8, 145, 178, 0.3) !important;
+}
+
+[data-theme="light"] .bim-title {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .bim-subjects span {
+  color: #475569 !important;
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] .year-num,
+[data-theme="light"] .year-label {
+  color: #0f172a !important;
+}
+
+/* Career Headers - Light */
+[data-theme="light"] .career-header {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .career-duration {
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Milestone & Final - Light */
+[data-theme="light"] .milestone-title,
+[data-theme="light"] .final-title {
+  color: #0f172a !important;
+}
+
+/* Architecture Cards - Light */
+[data-theme="light"] .arch-card,
+[data-theme="light"] .arch-card-lg,
+[data-theme="light"] .arch-card-xl {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .arch-card:hover,
+[data-theme="light"] .arch-card-lg:hover,
+[data-theme="light"] .arch-card-xl:hover {
+  background: rgba(255, 255, 255, 0.95) !important;
+}
+
+[data-theme="light"] .arch-header span,
+[data-theme="light"] .arch-header-lg span {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .arch-tips {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .tip-header {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .tip-item {
+  color: #475569 !important;
+}
+
+/* Data Governance - Light */
+[data-theme="light"] .gov-pillar {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .gov-pillar-header span {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .gov-tool {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .gov-tool-link {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #0891b2 !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .gov-tool-link:hover {
+  background: rgba(8, 145, 178, 0.15) !important;
+}
+
+/* Data Pipeline - Light */
+[data-theme="light"] .pipeline-premium-container {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .pipeline-section-title {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .stage-card-premium {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .stage-card-premium:hover {
+  background: rgba(8, 145, 178, 0.08) !important;
+}
+
+[data-theme="light"] .stage-title {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .tech-stack-list span {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #475569 !important;
+}
+
+[data-theme="light"] .layer-card {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .layer-card span {
+  color: #0f172a !important;
+}
+
+/* Scrum Framework - Light */
+[data-theme="light"] .scrum-premium-container {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .scrum-section-title {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .event-card-premium {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .event-card-premium:hover {
+  background: rgba(8, 145, 178, 0.08) !important;
+}
+
+[data-theme="light"] .event-title {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .event-description {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .role-card {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .role-card span {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .scrum-premium-container .artifact-chip {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #475569 !important;
+}
+
+[data-theme="light"] .scrum-premium-container .value-badge {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #475569 !important;
+}
+
+/* Tech Stack 2025 - Light */
+[data-theme="light"] .tech-stack-2025 {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .tech-hero-header h2 {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .tech-hero-header p {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .tech-category-card {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .tech-category-card:hover {
+  background: rgba(8, 145, 178, 0.08) !important;
+}
+
+[data-theme="light"] .cat-label {
+  color: #0f172a !important;
+  border-bottom-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .mini-chip {
+  background: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .mini-chip:hover {
+  background: rgba(8, 145, 178, 0.12) !important;
+}
+
+[data-theme="light"] .mini-chip .chip-name {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .chip-stat {
+  background: rgba(8, 145, 178, 0.15) !important;
+  color: #0891b2 !important;
+}
+
+/* Bimestres Section - Light */
+[data-theme="light"] .bimestre-card {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .bimestre-card:hover {
+  background: rgba(255, 255, 255, 0.95) !important;
+}
+
+[data-theme="light"] .bimestre-title {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .bimestre-subjects li {
+  color: #475569 !important;
+}
+
+/* Stack Section - Light */
+[data-theme="light"] .stack-card {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .stack-card:hover {
+  background: rgba(255, 255, 255, 0.95) !important;
+}
+
+[data-theme="light"] .stack-title {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .stack-tech {
+  color: #475569 !important;
+}
+
+/* Recursos Section - Light */
+[data-theme="light"] .recurso-card {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .recurso-card:hover {
+  background: rgba(255, 255, 255, 0.95) !important;
+}
+
+[data-theme="light"] .recurso-title {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .recurso-description {
+  color: #475569 !important;
+}
+
+/* Stats Section - Light */
+[data-theme="light"] .stats-container {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .stats-header h3 {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .quick-stat span {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .quick-stat strong {
+  color: #0891b2 !important;
+}
+
+/* Footer - Light */
+[data-theme="light"] .footer {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border-top-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .footer-content {
+  color: #475569 !important;
+}
+
+/* Buttons - Light */
+[data-theme="light"] .btn-outline {
+  border-color: rgba(0, 0, 0, 0.2) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .btn-outline:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] .btn-secondary {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .btn-secondary:hover {
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Hero Intro - Light */
+[data-theme="light"] .hero-intro {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .hero-description {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .hero-description strong {
+  color: #0f172a !important;
+}
+
+/* Badges - Light */
+[data-theme="light"] .badge {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #475569 !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .badge.accent {
+  background: rgba(8, 145, 178, 0.15) !important;
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .badge.success {
+  background: rgba(16, 185, 129, 0.15) !important;
+  color: #059669 !important;
+}
+
+/* Section Headers - Light */
+[data-theme="light"] .section-header h2 {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .section-header p {
+  color: #475569 !important;
+}
+
+/* Code blocks - Light */
+[data-theme="light"] pre,
+[data-theme="light"] code {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #0f172a !important;
+}
+
+/* Mode selectors and tabs - Light */
+[data-theme="light"] .mode-btn {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #475569 !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .mode-btn.active {
+  background: rgba(8, 145, 178, 0.15) !important;
+  color: #0891b2 !important;
+  border-color: rgba(8, 145, 178, 0.3) !important;
+}
+
+/* Metric badges - Light */
+[data-theme="light"] .metric-badge {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #475569 !important;
+}
+
+/* Arch badges - Light */
+[data-theme="light"] .arch-badge {
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Links in light mode */
+[data-theme="light"] a {
+  color: #0891b2;
+}
+
+[data-theme="light"] a:hover {
+  color: #0e7490;
+}
+
+/* Fix for devicon icons in light mode that might be invisible */
+[data-theme="light"] .devicon-nextjs-plain,
+[data-theme="light"] .devicon-github-original,
+[data-theme="light"] .devicon-vercel-original,
+[data-theme="light"] .devicon-express-original,
+[data-theme="light"] .devicon-flask-original,
+[data-theme="light"] .devicon-linux-plain,
+[data-theme="light"] .devicon-bash-plain,
+[data-theme="light"] .devicon-rust-original,
+[data-theme="light"] .devicon-ansible-plain,
+[data-theme="light"] .devicon-apachekafka-original {
+  filter: invert(0) !important;
+  color: #0f172a !important;
+}
