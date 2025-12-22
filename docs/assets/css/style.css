@@ -362,8 +362,8 @@ body {
 
 /* Hero Visual / Code Window */
 .hero-visual {
-  flex: 1;
-  max-width: 580px;
+  flex: 1.5;
+  max-width: 750px;
   margin-left: auto;
   display: flex;
   flex-direction: column;
@@ -387,6 +387,7 @@ body {
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-lg), var(--shadow-glow);
+  width: 100%;
 }
 
 .window-header {
@@ -1027,8 +1028,9 @@ body {
 .arch-cards-row-expanded {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+  width: 100%;
 }
 
 .arch-card-lg {
@@ -1048,14 +1050,16 @@ body {
 
 /* XL Cards with Tips Section */
 .arch-card-xl {
-  padding: 1.25rem;
+  padding: 1.5rem;
   border-radius: var(--radius-lg);
-  min-height: 300px;
+  min-height: 320px;
   background: rgba(18, 18, 26, 0.7);
   border: 1px solid var(--border-color);
   transition: var(--transition);
   display: flex;
   flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .arch-card-xl:hover {
@@ -1210,7 +1214,7 @@ body {
 
 .ms-services-lg {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 0.5rem;
 }
 
@@ -1291,8 +1295,9 @@ body {
 .pipeline-row {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.3rem;
+  justify-content: space-between;
+  gap: 0.4rem;
+  width: 100%;
 }
 
 .pipeline-stage-lg {
