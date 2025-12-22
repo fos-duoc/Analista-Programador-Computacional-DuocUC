@@ -120,137 +120,242 @@
     extract >> transform >> load  <span class="comment"># ETL Flow</span></code></pre>
             </div>
 
-            <!-- Architecture Cards Row 1 -->
-            <div class="arch-cards-row" data-aos="fade-up" data-aos-delay="700">
+            <!-- Architecture Cards Row 1 - Expanded -->
+            <div class="arch-cards-row-expanded" data-aos="fade-up" data-aos-delay="700">
                 <!-- Microservices -->
-                <div class="arch-card glass-card microservices">
-                    <div class="arch-header">
+                <div class="arch-card-lg glass-card microservices">
+                    <div class="arch-header-lg">
                         <i class="fas fa-cubes"></i>
-                        <span>Microservices</span>
+                        <span>Microservices Architecture</span>
+                        <span class="arch-badge">Distributed</span>
                     </div>
-                    <div class="microservices-diagram">
-                        <div class="ms-gateway">
+                    <div class="microservices-diagram-lg">
+                        <div class="ms-layer client">
+                            <span class="layer-label">Client</span>
+                            <div class="ms-clients">
+                                <span class="client-item"><i class="fas fa-globe"></i> Web</span>
+                                <span class="client-item"><i class="fas fa-mobile-alt"></i> Mobile</span>
+                            </div>
+                        </div>
+                        <div class="ms-arrow-down"><i class="fas fa-arrow-down"></i></div>
+                        <div class="ms-gateway-lg">
                             <i class="fas fa-shield-alt"></i>
                             <span>API Gateway</span>
+                            <small>Load Balancer · Auth · Rate Limit</small>
                         </div>
-                        <div class="ms-services">
-                            <div class="ms-service"><i class="fas fa-user"></i></div>
-                            <div class="ms-service"><i class="fas fa-shopping-cart"></i></div>
-                            <div class="ms-service"><i class="fas fa-credit-card"></i></div>
+                        <div class="ms-arrow-down"><i class="fas fa-arrow-down"></i></div>
+                        <div class="ms-services-lg">
+                            <div class="ms-service-lg"><i class="fas fa-user"></i><span>Users</span><small>Auth</small></div>
+                            <div class="ms-service-lg"><i class="fas fa-box"></i><span>Products</span><small>Catalog</small></div>
+                            <div class="ms-service-lg"><i class="fas fa-shopping-cart"></i><span>Orders</span><small>Cart</small></div>
+                            <div class="ms-service-lg"><i class="fas fa-credit-card"></i><span>Payments</span><small>Stripe</small></div>
                         </div>
-                        <div class="ms-infra">
-                            <span class="ms-tag">Docker</span>
-                            <span class="ms-tag">K8s</span>
-                            <span class="ms-tag">MQ</span>
+                        <div class="ms-infra-lg">
+                            <span class="ms-tag-lg docker"><i class="devicon-docker-plain"></i> Docker</span>
+                            <span class="ms-tag-lg k8s"><i class="devicon-kubernetes-plain"></i> K8s</span>
+                            <span class="ms-tag-lg kafka"><i class="fas fa-stream"></i> Kafka</span>
+                            <span class="ms-tag-lg redis"><i class="devicon-redis-plain"></i> Redis</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- CI/CD Pipeline -->
-                <div class="arch-card glass-card cicd">
-                    <div class="arch-header">
+                <div class="arch-card-lg glass-card cicd">
+                    <div class="arch-header-lg">
                         <i class="fas fa-infinity"></i>
                         <span>CI/CD Pipeline</span>
+                        <span class="arch-badge">DevOps</span>
                     </div>
-                    <div class="cicd-pipeline">
-                        <div class="pipeline-stage code"><i class="fas fa-code"></i><span>Code</span></div>
-                        <div class="pipeline-arrow">→</div>
-                        <div class="pipeline-stage build"><i class="fas fa-hammer"></i><span>Build</span></div>
-                        <div class="pipeline-arrow">→</div>
-                        <div class="pipeline-stage test"><i class="fas fa-vial"></i><span>Test</span></div>
-                        <div class="pipeline-arrow">→</div>
-                        <div class="pipeline-stage deploy"><i class="fas fa-rocket"></i><span>Deploy</span></div>
-                    </div>
-                </div>
-
-                <!-- Clean Architecture -->
-                <div class="arch-card glass-card clean-arch">
-                    <div class="arch-header">
-                        <i class="fas fa-bullseye"></i>
-                        <span>Clean Architecture</span>
-                    </div>
-                    <div class="clean-layers">
-                        <div class="clean-ring entities">Entities</div>
-                        <div class="clean-ring usecases">Use Cases</div>
-                        <div class="clean-ring adapters">Adapters</div>
-                        <div class="clean-ring frameworks">Frameworks</div>
+                    <div class="cicd-pipeline-lg">
+                        <div class="pipeline-row">
+                            <div class="pipeline-stage-lg code">
+                                <i class="fas fa-code-branch"></i>
+                                <span>Code</span>
+                                <small>Git Push</small>
+                            </div>
+                            <div class="pipeline-connector"><i class="fas fa-chevron-right"></i></div>
+                            <div class="pipeline-stage-lg build">
+                                <i class="fas fa-hammer"></i>
+                                <span>Build</span>
+                                <small>Compile</small>
+                            </div>
+                            <div class="pipeline-connector"><i class="fas fa-chevron-right"></i></div>
+                            <div class="pipeline-stage-lg test">
+                                <i class="fas fa-vial"></i>
+                                <span>Test</span>
+                                <small>Unit · E2E</small>
+                            </div>
+                            <div class="pipeline-connector"><i class="fas fa-chevron-right"></i></div>
+                            <div class="pipeline-stage-lg deploy">
+                                <i class="fas fa-rocket"></i>
+                                <span>Deploy</span>
+                                <small>Prod</small>
+                            </div>
+                        </div>
+                        <div class="pipeline-tools">
+                            <span class="tool-tag"><i class="devicon-github-original"></i> Actions</span>
+                            <span class="tool-tag"><i class="devicon-jenkins-plain"></i> Jenkins</span>
+                            <span class="tool-tag"><i class="fas fa-ship"></i> ArgoCD</span>
+                            <span class="tool-tag"><i class="devicon-terraform-plain"></i> Terraform</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Architecture Cards Row 2 -->
-            <div class="arch-cards-row" data-aos="fade-up" data-aos-delay="800">
-                <!-- Medallion Architecture -->
-                <div class="arch-card glass-card medallion">
-                    <div class="arch-header">
-                        <i class="fas fa-layer-group"></i>
-                        <span>Medallion</span>
+            <!-- Architecture Cards Row 2 - Expanded -->
+            <div class="arch-cards-row-expanded" data-aos="fade-up" data-aos-delay="800">
+                <!-- Clean Architecture -->
+                <div class="arch-card-lg glass-card clean-arch">
+                    <div class="arch-header-lg">
+                        <i class="fas fa-bullseye"></i>
+                        <span>Clean Architecture</span>
+                        <span class="arch-badge">SOLID</span>
                     </div>
-                    <div class="medallion-layers">
-                        <div class="medal-layer gold">
-                            <i class="fas fa-gem"></i>
-                            <span>Gold</span>
-                            <small>Analytics</small>
+                    <div class="clean-layers-lg">
+                        <div class="clean-circle">
+                            <div class="clean-ring-lg entities">
+                                <span class="ring-label">Entities</span>
+                                <small>Business Objects</small>
+                            </div>
+                            <div class="clean-ring-lg usecases">
+                                <span class="ring-label">Use Cases</span>
+                                <small>Application Logic</small>
+                            </div>
+                            <div class="clean-ring-lg adapters">
+                                <span class="ring-label">Adapters</span>
+                                <small>Controllers · Gateways</small>
+                            </div>
+                            <div class="clean-ring-lg frameworks">
+                                <span class="ring-label">Frameworks</span>
+                                <small>DB · Web · UI</small>
+                            </div>
                         </div>
-                        <div class="medal-layer silver">
-                            <i class="fas fa-filter"></i>
-                            <span>Silver</span>
-                            <small>Cleaned</small>
-                        </div>
-                        <div class="medal-layer bronze">
-                            <i class="fas fa-database"></i>
-                            <span>Bronze</span>
-                            <small>Raw</small>
+                        <div class="clean-principle">
+                            <span class="principle-item"><i class="fas fa-arrow-right"></i> Dependency Rule</span>
+                            <span class="principle-item"><i class="fas fa-plug"></i> Interface Adapters</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Lakehouse Architecture -->
-                <div class="arch-card glass-card lakehouse">
-                    <div class="arch-header">
-                        <i class="fas fa-warehouse"></i>
-                        <span>Lakehouse</span>
+                <!-- Medallion Architecture -->
+                <div class="arch-card-lg glass-card medallion">
+                    <div class="arch-header-lg">
+                        <i class="fas fa-layer-group"></i>
+                        <span>Medallion Architecture</span>
+                        <span class="arch-badge">Data Lake</span>
                     </div>
-                    <div class="lakehouse-diagram">
-                        <div class="lake-row">
-                            <div class="lake-component bi">
+                    <div class="medallion-layers-lg">
+                        <div class="medal-layer-lg gold">
+                            <div class="medal-icon"><i class="fas fa-gem"></i></div>
+                            <div class="medal-info">
+                                <span class="medal-title">Gold Layer</span>
+                                <span class="medal-desc">Business-Level Aggregates</span>
+                                <small>Analytics Ready · KPIs · Reports</small>
+                            </div>
+                        </div>
+                        <div class="medal-arrow"><i class="fas fa-arrow-up"></i> Transform</div>
+                        <div class="medal-layer-lg silver">
+                            <div class="medal-icon"><i class="fas fa-filter"></i></div>
+                            <div class="medal-info">
+                                <span class="medal-title">Silver Layer</span>
+                                <span class="medal-desc">Cleaned & Conformed</span>
+                                <small>Schema Applied · Deduplicated</small>
+                            </div>
+                        </div>
+                        <div class="medal-arrow"><i class="fas fa-arrow-up"></i> Validate</div>
+                        <div class="medal-layer-lg bronze">
+                            <div class="medal-icon"><i class="fas fa-database"></i></div>
+                            <div class="medal-info">
+                                <span class="medal-title">Bronze Layer</span>
+                                <span class="medal-desc">Raw Ingestion</span>
+                                <small>As-Is Data · All Sources</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Architecture Cards Row 3 - Expanded -->
+            <div class="arch-cards-row-expanded" data-aos="fade-up" data-aos-delay="900">
+                <!-- Lakehouse Architecture -->
+                <div class="arch-card-lg glass-card lakehouse">
+                    <div class="arch-header-lg">
+                        <i class="fas fa-warehouse"></i>
+                        <span>Lakehouse Architecture</span>
+                        <span class="arch-badge">Unified</span>
+                    </div>
+                    <div class="lakehouse-diagram-lg">
+                        <div class="lake-consumers">
+                            <div class="lake-comp-lg bi">
                                 <i class="fas fa-chart-pie"></i>
-                                <span>BI</span>
+                                <span>BI & Reports</span>
+                                <small>Power BI · Tableau</small>
                             </div>
-                            <div class="lake-component ml">
+                            <div class="lake-comp-lg ml">
                                 <i class="fas fa-brain"></i>
-                                <span>ML</span>
+                                <span>ML & AI</span>
+                                <small>TensorFlow · PyTorch</small>
+                            </div>
+                            <div class="lake-comp-lg sql">
+                                <i class="fas fa-terminal"></i>
+                                <span>SQL Analytics</span>
+                                <small>Spark SQL · Presto</small>
                             </div>
                         </div>
-                        <div class="lake-arrow"></div>
-                        <div class="lake-component delta">
+                        <div class="lake-arrow-lg"><i class="fas fa-arrows-alt-v"></i></div>
+                        <div class="lake-comp-lg delta">
                             <i class="fas fa-table"></i>
-                            <span>Delta Lake</span>
+                            <span>Delta Lake / Iceberg</span>
+                            <small>ACID Transactions · Time Travel · Schema Evolution</small>
                         </div>
-                        <div class="lake-arrow"></div>
-                        <div class="lake-component storage">
+                        <div class="lake-arrow-lg"><i class="fas fa-arrows-alt-v"></i></div>
+                        <div class="lake-comp-lg storage">
                             <i class="fas fa-cloud"></i>
-                            <span>Storage</span>
+                            <span>Cloud Object Storage</span>
+                            <small>S3 · ADLS · GCS</small>
                         </div>
                     </div>
                 </div>
 
                 <!-- Agile/Scrum -->
-                <div class="arch-card glass-card agile">
-                    <div class="arch-header">
+                <div class="arch-card-lg glass-card agile">
+                    <div class="arch-header-lg">
                         <i class="fas fa-sync-alt"></i>
-                        <span>Agile Scrum</span>
+                        <span>Agile Scrum Framework</span>
+                        <span class="arch-badge">Iterative</span>
                     </div>
-                    <div class="scrum-cycle">
-                        <div class="scrum-sprint">
-                            <div class="sprint-icon"><i class="fas fa-rocket"></i></div>
-                            <span>Sprint</span>
+                    <div class="scrum-cycle-lg">
+                        <div class="scrum-sprint-lg">
+                            <div class="sprint-icon-lg"><i class="fas fa-rocket"></i></div>
+                            <span class="sprint-label">Sprint</span>
+                            <small>2-4 Weeks</small>
                         </div>
-                        <div class="scrum-events">
-                            <span class="event plan">Plan</span>
-                            <span class="event daily">Daily</span>
-                            <span class="event review">Review</span>
-                            <span class="event retro">Retro</span>
+                        <div class="scrum-events-lg">
+                            <div class="event-lg plan">
+                                <i class="fas fa-clipboard-list"></i>
+                                <span>Planning</span>
+                                <small>Define Goals</small>
+                            </div>
+                            <div class="event-lg daily">
+                                <i class="fas fa-users"></i>
+                                <span>Daily</span>
+                                <small>15 min Sync</small>
+                            </div>
+                            <div class="event-lg review">
+                                <i class="fas fa-eye"></i>
+                                <span>Review</span>
+                                <small>Demo Work</small>
+                            </div>
+                            <div class="event-lg retro">
+                                <i class="fas fa-lightbulb"></i>
+                                <span>Retro</span>
+                                <small>Improve</small>
+                            </div>
+                        </div>
+                        <div class="scrum-roles">
+                            <span class="role-tag po"><i class="fas fa-user-tie"></i> Product Owner</span>
+                            <span class="role-tag sm"><i class="fas fa-user-shield"></i> Scrum Master</span>
+                            <span class="role-tag dev"><i class="fas fa-code"></i> Dev Team</span>
                         </div>
                     </div>
                 </div>
