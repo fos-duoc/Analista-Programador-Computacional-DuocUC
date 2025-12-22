@@ -40,7 +40,7 @@ const { title, description = "Repositorio de materiales del programa Analista Pr
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <!-- Main Styles (versioned for cache busting) -->
-    <link rel="stylesheet" href="/Analista-Programador-Computacional-DuocUC/assets/css/style.css?v=2025122202">
+    <link rel="stylesheet" href="/Analista-Programador-Computacional-DuocUC/assets/css/style.css?v=2025122203">
 
     <link rel="icon" href="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg">
 </head>
@@ -51,42 +51,54 @@ const { title, description = "Repositorio de materiales del programa Analista Pr
     <script is:inline src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script is:inline>
         // Site version for cache busting
-        const SITE_VERSION = '2025122202';
+        const SITE_VERSION = '2025122203';
 
         // Check if we need to clear cache
         (function() {
             const storedVersion = localStorage.getItem('siteVersion');
             if (storedVersion !== SITE_VERSION) {
                 localStorage.setItem('siteVersion', SITE_VERSION);
-                // Clear service worker caches if any
                 if ('caches' in window) {
                     caches.keys().then(names => {
                         names.forEach(name => caches.delete(name));
                     });
                 }
-                // If version changed and not first visit, reload
                 if (storedVersion) {
                     window.location.reload(true);
                 }
             }
         })();
 
-        document.addEventListener('DOMContentLoaded', function() {
+        // Initialize AOS function
+        function initAOS() {
             if (typeof AOS !== 'undefined') {
+                // Reset all AOS elements first
+                document.querySelectorAll('[data-aos]').forEach(el => {
+                    el.classList.remove('aos-animate');
+                });
+                // Re-init AOS
                 AOS.init({
                     duration: 800,
-                    once: true,
-                    offset: 50
+                    once: false,
+                    offset: 50,
+                    disable: false
                 });
+                // Force refresh after small delay
+                setTimeout(() => {
+                    AOS.refresh();
+                    window.dispatchEvent(new Event('scroll'));
+                }, 100);
             }
-        });
+        }
 
-        // Also init AOS after Astro page transitions
-        document.addEventListener('astro:page-load', function() {
-            if (typeof AOS !== 'undefined') {
-                AOS.refresh();
-            }
-        });
+        // Initial load
+        document.addEventListener('DOMContentLoaded', initAOS);
+
+        // After Astro view transitions - reinitialize completely
+        document.addEventListener('astro:page-load', initAOS);
+
+        // Before swap - prepare for new page
+        document.addEventListener('astro:after-swap', initAOS);
     </script>
 </body>
 </html>
