@@ -120,10 +120,10 @@
     extract >> transform >> load  <span class="comment"># ETL Flow</span></code></pre>
             </div>
 
-            <!-- Architecture Cards Row 1 - Expanded -->
+            <!-- Architecture Cards Row 1 - Expanded with Tips -->
             <div class="arch-cards-row-expanded" data-aos="fade-up" data-aos-delay="700">
                 <!-- Microservices -->
-                <div class="arch-card-lg glass-card microservices">
+                <div class="arch-card-xl glass-card microservices">
                     <div class="arch-header-lg">
                         <i class="fas fa-cubes"></i>
                         <span>Microservices Architecture</span>
@@ -135,20 +135,22 @@
                             <div class="ms-clients">
                                 <span class="client-item"><i class="fas fa-globe"></i> Web</span>
                                 <span class="client-item"><i class="fas fa-mobile-alt"></i> Mobile</span>
+                                <span class="client-item"><i class="fas fa-robot"></i> API</span>
                             </div>
                         </div>
                         <div class="ms-arrow-down"><i class="fas fa-arrow-down"></i></div>
                         <div class="ms-gateway-lg">
                             <i class="fas fa-shield-alt"></i>
                             <span>API Gateway</span>
-                            <small>Load Balancer · Auth · Rate Limit</small>
+                            <small>Load Balancer · Auth · Rate Limit · Circuit Breaker</small>
                         </div>
                         <div class="ms-arrow-down"><i class="fas fa-arrow-down"></i></div>
                         <div class="ms-services-lg">
-                            <div class="ms-service-lg"><i class="fas fa-user"></i><span>Users</span><small>Auth</small></div>
+                            <div class="ms-service-lg"><i class="fas fa-user"></i><span>Users</span><small>JWT Auth</small></div>
                             <div class="ms-service-lg"><i class="fas fa-box"></i><span>Products</span><small>Catalog</small></div>
-                            <div class="ms-service-lg"><i class="fas fa-shopping-cart"></i><span>Orders</span><small>Cart</small></div>
-                            <div class="ms-service-lg"><i class="fas fa-credit-card"></i><span>Payments</span><small>Stripe</small></div>
+                            <div class="ms-service-lg"><i class="fas fa-shopping-cart"></i><span>Orders</span><small>Saga Pattern</small></div>
+                            <div class="ms-service-lg"><i class="fas fa-credit-card"></i><span>Payments</span><small>Stripe/PayPal</small></div>
+                            <div class="ms-service-lg"><i class="fas fa-bell"></i><span>Notify</span><small>Events</small></div>
                         </div>
                         <div class="ms-infra-lg">
                             <span class="ms-tag-lg docker"><i class="devicon-docker-plain"></i> Docker</span>
@@ -157,10 +159,19 @@
                             <span class="ms-tag-lg redis"><i class="devicon-redis-plain"></i> Redis</span>
                         </div>
                     </div>
+                    <div class="arch-tips">
+                        <div class="tip-header"><i class="fas fa-lightbulb"></i> Best Practices</div>
+                        <div class="tips-grid">
+                            <span class="tip-item"><i class="fas fa-check"></i> Un servicio = una responsabilidad</span>
+                            <span class="tip-item"><i class="fas fa-check"></i> Comunicacion asincrona (eventos)</span>
+                            <span class="tip-item"><i class="fas fa-check"></i> Base de datos por servicio</span>
+                            <span class="tip-item"><i class="fas fa-check"></i> API versionada (/v1, /v2)</span>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- CI/CD Pipeline -->
-                <div class="arch-card-lg glass-card cicd">
+                <div class="arch-card-xl glass-card cicd">
                     <div class="arch-header-lg">
                         <i class="fas fa-infinity"></i>
                         <span>CI/CD Pipeline</span>
@@ -177,19 +188,25 @@
                             <div class="pipeline-stage-lg build">
                                 <i class="fas fa-hammer"></i>
                                 <span>Build</span>
-                                <small>Compile</small>
+                                <small>Maven/Gradle</small>
                             </div>
                             <div class="pipeline-connector"><i class="fas fa-chevron-right"></i></div>
                             <div class="pipeline-stage-lg test">
                                 <i class="fas fa-vial"></i>
                                 <span>Test</span>
-                                <small>Unit · E2E</small>
+                                <small>Unit · Integration</small>
+                            </div>
+                            <div class="pipeline-connector"><i class="fas fa-chevron-right"></i></div>
+                            <div class="pipeline-stage-lg security">
+                                <i class="fas fa-shield-virus"></i>
+                                <span>Security</span>
+                                <small>SAST · DAST</small>
                             </div>
                             <div class="pipeline-connector"><i class="fas fa-chevron-right"></i></div>
                             <div class="pipeline-stage-lg deploy">
                                 <i class="fas fa-rocket"></i>
                                 <span>Deploy</span>
-                                <small>Prod</small>
+                                <small>Blue/Green</small>
                             </div>
                         </div>
                         <div class="pipeline-tools">
@@ -197,15 +214,25 @@
                             <span class="tool-tag"><i class="devicon-jenkins-plain"></i> Jenkins</span>
                             <span class="tool-tag"><i class="fas fa-ship"></i> ArgoCD</span>
                             <span class="tool-tag"><i class="devicon-terraform-plain"></i> Terraform</span>
+                            <span class="tool-tag"><i class="fas fa-cube"></i> SonarQube</span>
+                        </div>
+                    </div>
+                    <div class="arch-tips">
+                        <div class="tip-header"><i class="fas fa-lightbulb"></i> Best Practices</div>
+                        <div class="tips-grid">
+                            <span class="tip-item"><i class="fas fa-check"></i> Commits pequenos y frecuentes</span>
+                            <span class="tip-item"><i class="fas fa-check"></i> Tests automatizados obligatorios</span>
+                            <span class="tip-item"><i class="fas fa-check"></i> Rollback automatico si falla</span>
+                            <span class="tip-item"><i class="fas fa-check"></i> Infraestructura como codigo (IaC)</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Architecture Cards Row 2 - Expanded -->
+            <!-- Architecture Cards Row 2 - Expanded with Tips -->
             <div class="arch-cards-row-expanded" data-aos="fade-up" data-aos-delay="800">
                 <!-- Clean Architecture -->
-                <div class="arch-card-lg glass-card clean-arch">
+                <div class="arch-card-xl glass-card clean-arch">
                     <div class="arch-header-lg">
                         <i class="fas fa-bullseye"></i>
                         <span>Clean Architecture</span>
@@ -215,30 +242,41 @@
                         <div class="clean-circle">
                             <div class="clean-ring-lg entities">
                                 <span class="ring-label">Entities</span>
-                                <small>Business Objects</small>
+                                <small>Domain Models · Business Rules</small>
                             </div>
                             <div class="clean-ring-lg usecases">
                                 <span class="ring-label">Use Cases</span>
-                                <small>Application Logic</small>
+                                <small>Application Services · Interactors</small>
                             </div>
                             <div class="clean-ring-lg adapters">
-                                <span class="ring-label">Adapters</span>
-                                <small>Controllers · Gateways</small>
+                                <span class="ring-label">Interface Adapters</span>
+                                <small>Controllers · Presenters · Gateways</small>
                             </div>
                             <div class="clean-ring-lg frameworks">
-                                <span class="ring-label">Frameworks</span>
-                                <small>DB · Web · UI</small>
+                                <span class="ring-label">Frameworks & Drivers</span>
+                                <small>Spring · JPA · REST · UI</small>
                             </div>
                         </div>
                         <div class="clean-principle">
                             <span class="principle-item"><i class="fas fa-arrow-right"></i> Dependency Rule</span>
-                            <span class="principle-item"><i class="fas fa-plug"></i> Interface Adapters</span>
+                            <span class="principle-item"><i class="fas fa-plug"></i> Inversion of Control</span>
+                            <span class="principle-item"><i class="fas fa-cubes"></i> Separation of Concerns</span>
+                        </div>
+                    </div>
+                    <div class="arch-tips">
+                        <div class="tip-header"><i class="fas fa-lightbulb"></i> SOLID Principles</div>
+                        <div class="tips-grid">
+                            <span class="tip-item"><i class="fas fa-s"></i> Single Responsibility</span>
+                            <span class="tip-item"><i class="fas fa-o"></i> Open/Closed</span>
+                            <span class="tip-item"><i class="fas fa-l"></i> Liskov Substitution</span>
+                            <span class="tip-item"><i class="fas fa-i"></i> Interface Segregation</span>
+                            <span class="tip-item"><i class="fas fa-d"></i> Dependency Inversion</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Medallion Architecture -->
-                <div class="arch-card-lg glass-card medallion">
+                <div class="arch-card-xl glass-card medallion">
                     <div class="arch-header-lg">
                         <i class="fas fa-layer-group"></i>
                         <span>Medallion Architecture</span>
@@ -250,35 +288,44 @@
                             <div class="medal-info">
                                 <span class="medal-title">Gold Layer</span>
                                 <span class="medal-desc">Business-Level Aggregates</span>
-                                <small>Analytics Ready · KPIs · Reports</small>
+                                <small>Analytics Ready · KPIs · Dashboards · ML Features</small>
                             </div>
                         </div>
-                        <div class="medal-arrow"><i class="fas fa-arrow-up"></i> Transform</div>
+                        <div class="medal-arrow"><i class="fas fa-arrow-up"></i> Transform & Aggregate</div>
                         <div class="medal-layer-lg silver">
                             <div class="medal-icon"><i class="fas fa-filter"></i></div>
                             <div class="medal-info">
                                 <span class="medal-title">Silver Layer</span>
                                 <span class="medal-desc">Cleaned & Conformed</span>
-                                <small>Schema Applied · Deduplicated</small>
+                                <small>Schema Enforced · Deduplicated · Validated</small>
                             </div>
                         </div>
-                        <div class="medal-arrow"><i class="fas fa-arrow-up"></i> Validate</div>
+                        <div class="medal-arrow"><i class="fas fa-arrow-up"></i> Clean & Validate</div>
                         <div class="medal-layer-lg bronze">
                             <div class="medal-icon"><i class="fas fa-database"></i></div>
                             <div class="medal-info">
                                 <span class="medal-title">Bronze Layer</span>
-                                <span class="medal-desc">Raw Ingestion</span>
-                                <small>As-Is Data · All Sources</small>
+                                <span class="medal-desc">Raw Ingestion Zone</span>
+                                <small>As-Is · JSON/CSV/Parquet · All Sources</small>
                             </div>
+                        </div>
+                    </div>
+                    <div class="arch-tips">
+                        <div class="tip-header"><i class="fas fa-lightbulb"></i> Best Practices</div>
+                        <div class="tips-grid">
+                            <span class="tip-item"><i class="fas fa-check"></i> Inmutabilidad en Bronze</span>
+                            <span class="tip-item"><i class="fas fa-check"></i> Schema evolution controlado</span>
+                            <span class="tip-item"><i class="fas fa-check"></i> Particionamiento por fecha</span>
+                            <span class="tip-item"><i class="fas fa-check"></i> Data quality checks</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Architecture Cards Row 3 - Expanded -->
+            <!-- Architecture Cards Row 3 - Expanded with Tips -->
             <div class="arch-cards-row-expanded" data-aos="fade-up" data-aos-delay="900">
                 <!-- Lakehouse Architecture -->
-                <div class="arch-card-lg glass-card lakehouse">
+                <div class="arch-card-xl glass-card lakehouse">
                     <div class="arch-header-lg">
                         <i class="fas fa-warehouse"></i>
                         <span>Lakehouse Architecture</span>
@@ -289,36 +336,45 @@
                             <div class="lake-comp-lg bi">
                                 <i class="fas fa-chart-pie"></i>
                                 <span>BI & Reports</span>
-                                <small>Power BI · Tableau</small>
+                                <small>Power BI · Tableau · Looker</small>
                             </div>
                             <div class="lake-comp-lg ml">
                                 <i class="fas fa-brain"></i>
                                 <span>ML & AI</span>
-                                <small>TensorFlow · PyTorch</small>
+                                <small>MLflow · Feature Store</small>
                             </div>
                             <div class="lake-comp-lg sql">
                                 <i class="fas fa-terminal"></i>
                                 <span>SQL Analytics</span>
-                                <small>Spark SQL · Presto</small>
+                                <small>Spark SQL · Presto · Trino</small>
                             </div>
                         </div>
                         <div class="lake-arrow-lg"><i class="fas fa-arrows-alt-v"></i></div>
                         <div class="lake-comp-lg delta">
                             <i class="fas fa-table"></i>
-                            <span>Delta Lake / Iceberg</span>
-                            <small>ACID Transactions · Time Travel · Schema Evolution</small>
+                            <span>Delta Lake / Apache Iceberg / Hudi</span>
+                            <small>ACID Transactions · Time Travel · Schema Evolution · Upserts</small>
                         </div>
                         <div class="lake-arrow-lg"><i class="fas fa-arrows-alt-v"></i></div>
                         <div class="lake-comp-lg storage">
                             <i class="fas fa-cloud"></i>
                             <span>Cloud Object Storage</span>
-                            <small>S3 · ADLS · GCS</small>
+                            <small>AWS S3 · Azure ADLS · Google GCS</small>
+                        </div>
+                    </div>
+                    <div class="arch-tips">
+                        <div class="tip-header"><i class="fas fa-lightbulb"></i> Key Benefits</div>
+                        <div class="tips-grid">
+                            <span class="tip-item"><i class="fas fa-check"></i> Costo de Data Lake + ACID de DW</span>
+                            <span class="tip-item"><i class="fas fa-check"></i> Streaming + Batch unificado</span>
+                            <span class="tip-item"><i class="fas fa-check"></i> BI y ML sobre mismos datos</span>
+                            <span class="tip-item"><i class="fas fa-check"></i> Open formats (Parquet)</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Agile/Scrum -->
-                <div class="arch-card-lg glass-card agile">
+                <div class="arch-card-xl glass-card agile">
                     <div class="arch-header-lg">
                         <i class="fas fa-sync-alt"></i>
                         <span>Agile Scrum Framework</span>
@@ -328,34 +384,44 @@
                         <div class="scrum-sprint-lg">
                             <div class="sprint-icon-lg"><i class="fas fa-rocket"></i></div>
                             <span class="sprint-label">Sprint</span>
-                            <small>2-4 Weeks</small>
+                            <small>2-4 Weeks · Increment</small>
                         </div>
                         <div class="scrum-events-lg">
                             <div class="event-lg plan">
                                 <i class="fas fa-clipboard-list"></i>
                                 <span>Planning</span>
-                                <small>Define Goals</small>
+                                <small>Sprint Goal</small>
                             </div>
                             <div class="event-lg daily">
                                 <i class="fas fa-users"></i>
                                 <span>Daily</span>
-                                <small>15 min Sync</small>
+                                <small>15 min Stand-up</small>
                             </div>
                             <div class="event-lg review">
                                 <i class="fas fa-eye"></i>
                                 <span>Review</span>
-                                <small>Demo Work</small>
+                                <small>Demo to Stakeholders</small>
                             </div>
                             <div class="event-lg retro">
                                 <i class="fas fa-lightbulb"></i>
                                 <span>Retro</span>
-                                <small>Improve</small>
+                                <small>Continuous Improvement</small>
                             </div>
                         </div>
                         <div class="scrum-roles">
                             <span class="role-tag po"><i class="fas fa-user-tie"></i> Product Owner</span>
                             <span class="role-tag sm"><i class="fas fa-user-shield"></i> Scrum Master</span>
-                            <span class="role-tag dev"><i class="fas fa-code"></i> Dev Team</span>
+                            <span class="role-tag dev"><i class="fas fa-code"></i> Dev Team (3-9)</span>
+                        </div>
+                    </div>
+                    <div class="arch-tips">
+                        <div class="tip-header"><i class="fas fa-lightbulb"></i> Scrum Values</div>
+                        <div class="tips-grid">
+                            <span class="tip-item"><i class="fas fa-heart"></i> Commitment</span>
+                            <span class="tip-item"><i class="fas fa-mountain"></i> Courage</span>
+                            <span class="tip-item"><i class="fas fa-bullseye"></i> Focus</span>
+                            <span class="tip-item"><i class="fas fa-door-open"></i> Openness</span>
+                            <span class="tip-item"><i class="fas fa-handshake"></i> Respect</span>
                         </div>
                     </div>
                 </div>

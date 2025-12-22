@@ -1046,6 +1046,75 @@ body {
   transform: translateY(-4px);
 }
 
+/* XL Cards with Tips Section */
+.arch-card-xl {
+  padding: 1.25rem;
+  border-radius: var(--radius-lg);
+  min-height: 300px;
+  background: rgba(18, 18, 26, 0.7);
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.arch-card-xl:hover {
+  border-color: rgba(0, 212, 255, 0.3);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 212, 255, 0.1);
+  transform: translateY(-4px);
+}
+
+/* Tips Section */
+.arch-tips {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--border-color);
+}
+
+.tip-header {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #fbbf24;
+  margin-bottom: 0.5rem;
+}
+
+.tip-header i {
+  color: #fbbf24;
+}
+
+.tips-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tip-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.5rem;
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  border-radius: 4px;
+  font-size: 0.6rem;
+  color: rgba(251, 191, 36, 0.9);
+}
+
+.tip-item i {
+  font-size: 0.5rem;
+  color: #10b981;
+}
+
+/* Security stage for CI/CD */
+.pipeline-stage-lg.security {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
+}
+
 .arch-header-lg {
   display: flex;
   align-items: center;
