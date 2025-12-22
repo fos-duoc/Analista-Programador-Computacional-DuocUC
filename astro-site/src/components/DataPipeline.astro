@@ -1131,24 +1131,28 @@ default_args = &#123;
         }
     }
 
-    // Add event listeners when DOM is ready
-    document.addEventListener('DOMContentLoaded', function() {
+    // Initialize pipeline buttons
+    function initPipelineButtons() {
         var btnRealtime = document.getElementById('btn-realtime');
         var btnBatch = document.getElementById('btn-batch');
         var btnArchitecture = document.getElementById('btn-architecture');
         var btnGovernance = document.getElementById('btn-governance');
 
         if (btnRealtime) {
-            btnRealtime.addEventListener('click', function() { switchPipelineMode('realtime'); });
+            btnRealtime.onclick = function() { switchPipelineMode('realtime'); };
         }
         if (btnBatch) {
-            btnBatch.addEventListener('click', function() { switchPipelineMode('batch'); });
+            btnBatch.onclick = function() { switchPipelineMode('batch'); };
         }
         if (btnArchitecture) {
-            btnArchitecture.addEventListener('click', function() { switchPipelineMode('architecture'); });
+            btnArchitecture.onclick = function() { switchPipelineMode('architecture'); };
         }
         if (btnGovernance) {
-            btnGovernance.addEventListener('click', function() { switchPipelineMode('governance'); });
+            btnGovernance.onclick = function() { switchPipelineMode('governance'); };
         }
-    });
+    }
+
+    // Add event listeners for both initial load and Astro View Transitions
+    document.addEventListener('DOMContentLoaded', initPipelineButtons);
+    document.addEventListener('astro:page-load', initPipelineButtons);
 </script>
