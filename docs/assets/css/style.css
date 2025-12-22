@@ -3292,13 +3292,206 @@ section {
 }
 
 /* ============================================
-   GITHUB STATS SECTION
+   GITHUB STATS SECTION - ENHANCED
    ============================================ */
 .stats-section {
   background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
   padding: 6rem 2rem;
 }
 
+/* Stats Dashboard Container */
+.stats-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+}
+
+/* Dashboard Header */
+.stats-dash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 2rem;
+}
+
+.stats-repo-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stats-repo-info > i {
+  font-size: 2.5rem;
+  color: var(--text-primary);
+}
+
+.repo-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.repo-owner {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.repo-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+}
+
+.stats-badges-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.stats-badges-row img {
+  height: 28px;
+  border-radius: 6px;
+}
+
+/* Stats Cards Grid */
+.stats-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card-item {
+  background: rgba(13, 17, 23, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.stat-card-item.wide {
+  grid-column: 1 / -1;
+}
+
+.stat-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.stat-card-header i {
+  color: var(--accent-primary);
+  font-size: 1rem;
+}
+
+.stat-card-header span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.stat-card-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* Quick Stats Row */
+.quick-stats-row {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: rgba(0, 212, 255, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  border-radius: var(--radius-md);
+  margin-bottom: 2rem;
+}
+
+.quick-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+}
+
+.quick-stat i {
+  font-size: 1.5rem;
+  color: var(--accent-primary);
+}
+
+.quick-stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.quick-stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.quick-stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Contribution Row */
+.stats-contrib-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Stats Footer */
+.stats-footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stats-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: rgba(124, 58, 237, 0.1);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.stats-link:hover {
+  background: rgba(124, 58, 237, 0.2);
+  border-color: var(--accent-secondary);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+.stats-link i {
+  font-size: 1rem;
+}
+
+/* Legacy support */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -3497,7 +3690,7 @@ section {
   }
 }
 
-/* Responsive stats */
+/* Responsive stats - Enhanced */
 @media (max-width: 768px) {
   .stats-grid {
     grid-template-columns: 1fr;
@@ -3505,6 +3698,51 @@ section {
 
   .stats-card {
     padding: 1rem;
+  }
+
+  .stats-dashboard {
+    padding: 1rem;
+  }
+
+  .stats-dash-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .stats-badges-row {
+    justify-content: flex-start;
+  }
+
+  .stats-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-contrib-row {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-stats-row {
+    justify-content: flex-start;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  .quick-stat {
+    flex: 1 1 45%;
+    min-width: 120px;
+  }
+
+  .quick-stat-value {
+    font-size: 1.2rem;
+  }
+
+  .stats-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .stats-link {
+    justify-content: center;
   }
 }
 
