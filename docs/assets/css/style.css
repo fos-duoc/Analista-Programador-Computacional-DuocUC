@@ -4763,12 +4763,12 @@ section {
 .mini-chip {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0.9rem;
+  gap: 0.6rem;
+  padding: 0.6rem 1rem;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  font-size: 0.82rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
   font-weight: 500;
   color: var(--text-secondary);
   text-decoration: none;
@@ -4777,7 +4777,7 @@ section {
 }
 
 .mini-chip i {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
 }
 
 .mini-chip:hover {
@@ -4789,13 +4789,13 @@ section {
 }
 
 .chip-stat {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--accent-primary);
   background: rgba(0, 212, 255, 0.15);
-  padding: 0.2rem 0.45rem;
-  border-radius: 4px;
-  margin-left: 0.3rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  margin-left: 0.35rem;
 }
 
 /* Responsive Tech Grid */
