@@ -21,118 +21,150 @@ import Recursos2025 from '../components/Recursos2025.astro';
 <Layout title="Analista Programador Computacional | DuocUC">
     <Header />
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero">
-        <div class="hero-header">
-            <img src="https://capsule-render.vercel.app/api?type=venom&color=0:1a1a2e,50:16213e,100:0f3460&height=280&section=header&text=Analista%20Programador%20Computacional&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Duoc%20UC%20Online&descSize=22&descAlignY=62&stroke=00d9ff&strokeWidth=2" width="100%" alt="Header"/>
+    <!-- Hero Section - Premium Data Engineering Theme -->
+    <section id="inicio" class="hero-premium">
+        <!-- Animated Data Pipeline Background -->
+        <div class="data-bg-canvas">
+            <!-- Flowing Data Streams -->
+            <div class="data-stream stream-1"></div>
+            <div class="data-stream stream-2"></div>
+            <div class="data-stream stream-3"></div>
+
+            <!-- Data Nodes -->
+            <div class="data-node node-1"><i class="fas fa-database"></i></div>
+            <div class="data-node node-2"><i class="fas fa-server"></i></div>
+            <div class="data-node node-3"><i class="fas fa-cloud"></i></div>
+            <div class="data-node node-4"><i class="fas fa-chart-line"></i></div>
+            <div class="data-node node-5"><i class="fas fa-code-branch"></i></div>
+            <div class="data-node node-6"><i class="fas fa-microchip"></i></div>
+
+            <!-- Binary Rain -->
+            <div class="binary-column col-1">01001010</div>
+            <div class="binary-column col-2">11010100</div>
+            <div class="binary-column col-3">00101101</div>
+            <div class="binary-column col-4">10110010</div>
+            <div class="binary-column col-5">01101001</div>
+
+            <!-- Connection Lines -->
+            <svg class="connection-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path class="connection-path path-1" d="M10,80 Q30,60 50,50 T90,20" />
+                <path class="connection-path path-2" d="M5,50 Q25,30 50,35 T95,60" />
+                <path class="connection-path path-3" d="M15,20 Q40,40 60,30 T85,70" />
+            </svg>
+
+            <!-- Floating Tech Orbs -->
+            <div class="tech-orb orb-1"><i class="devicon-python-plain"></i></div>
+            <div class="tech-orb orb-2"><i class="devicon-postgresql-plain"></i></div>
+            <div class="tech-orb orb-3"><i class="devicon-docker-plain"></i></div>
+            <div class="tech-orb orb-4"><i class="devicon-kubernetes-plain"></i></div>
+            <div class="tech-orb orb-5"><i class="devicon-apachekafka-original"></i></div>
+            <div class="tech-orb orb-6"><i class="fas fa-fire"></i></div>
         </div>
 
-        <!-- Hero Intro Section -->
-        <div class="hero-intro glass-card" data-aos="fade-up" data-aos-delay="150">
-            <div class="hero-intro-content">
-                <div class="hero-intro-left">
-                    <div class="badge-container">
-                        <span class="badge">DuocUC 2025</span>
-                        <span class="badge accent">Online</span>
-                        <span class="badge success">Acreditado</span>
-                    </div>
-                    <p class="hero-description">
-                        Formación integral en desarrollo de software con enfoque práctico.
-                        Domina tecnologías modernas: <strong>Java, Python, Cloud, DevOps, Frontend y Mobile</strong>.
-                        Dos titulaciones en 20 meses de estudio intensivo.
-                    </p>
-                    <div class="hero-highlights">
-                        <div class="highlight-item">
-                            <i class="fas fa-laptop-code"></i>
-                            <span>100% Online</span>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-clock"></i>
-                            <span>20 Meses</span>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-certificate"></i>
-                            <span>Doble Titulación</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero-intro-right">
-                    <div class="hero-stats-grid">
-                        <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
-                            <span class="stat-number">10</span>
-                            <span class="stat-label">Bimestres</span>
-                        </div>
-                        <div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
-                            <span class="stat-number">25+</span>
-                            <span class="stat-label">Asignaturas</span>
-                        </div>
-                        <div class="stat-card" data-aos="zoom-in" data-aos-delay="400">
-                            <span class="stat-number">2</span>
-                            <span class="stat-label">Títulos</span>
-                        </div>
-                        <div class="stat-card" data-aos="zoom-in" data-aos-delay="500">
-                            <span class="stat-number">65+</span>
-                            <span class="stat-label">Tecnologías</span>
-                        </div>
-                    </div>
+        <!-- Hero Content -->
+        <div class="hero-premium-content">
+            <!-- Top Badges -->
+            <div class="hero-badges-row" data-aos="fade-down" data-aos-delay="100">
+                <span class="premium-badge primary">
+                    <i class="fas fa-graduation-cap"></i>
+                    DuocUC 2025
+                </span>
+                <span class="premium-badge accent">
+                    <i class="fas fa-globe"></i>
+                    100% Online
+                </span>
+                <span class="premium-badge success">
+                    <i class="fas fa-check-circle"></i>
+                    Acreditado
+                </span>
+            </div>
+
+            <!-- Main Title - Premium Typography -->
+            <div class="hero-title-block" data-aos="fade-up" data-aos-delay="200">
+                <h1 class="hero-title-premium">
+                    <span class="title-line-1">Analista Programador</span>
+                    <span class="title-line-2">Computacional</span>
+                </h1>
+                <div class="hero-subtitle-row">
+                    <span class="subtitle-divider"></span>
+                    <span class="hero-subtitle-text">Escuela de Informática</span>
+                    <span class="subtitle-divider"></span>
                 </div>
             </div>
-            <div class="hero-cta-row">
-                <a href="#bimestres" class="btn btn-primary">
+
+            <!-- Description -->
+            <p class="hero-description-premium" data-aos="fade-up" data-aos-delay="300">
+                Formación integral en <span class="highlight-text">desarrollo de software</span> con enfoque práctico.
+                Domina tecnologías modernas y obtén <span class="highlight-text">doble titulación</span> en 20 meses.
+            </p>
+
+            <!-- Stats Row -->
+            <div class="hero-stats-premium" data-aos="fade-up" data-aos-delay="400">
+                <div class="stat-premium">
+                    <span class="stat-value">10</span>
+                    <span class="stat-label">Bimestres</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-premium">
+                    <span class="stat-value">25+</span>
+                    <span class="stat-label">Asignaturas</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-premium">
+                    <span class="stat-value">2</span>
+                    <span class="stat-label">Títulos</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-premium">
+                    <span class="stat-value">65+</span>
+                    <span class="stat-label">Tecnologías</span>
+                </div>
+            </div>
+
+            <!-- Tech Stack Preview -->
+            <div class="hero-tech-preview" data-aos="fade-up" data-aos-delay="500">
+                <a href="https://www.oracle.com/java/" target="_blank" rel="noopener" title="Java" class="tech-preview-icon"><i class="devicon-java-plain colored"></i></a>
+                <a href="https://www.python.org/" target="_blank" rel="noopener" title="Python" class="tech-preview-icon"><i class="devicon-python-plain colored"></i></a>
+                <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener" title="TypeScript" class="tech-preview-icon"><i class="devicon-typescript-plain colored"></i></a>
+                <a href="https://react.dev/" target="_blank" rel="noopener" title="React" class="tech-preview-icon"><i class="devicon-react-original colored"></i></a>
+                <a href="https://spring.io/" target="_blank" rel="noopener" title="Spring" class="tech-preview-icon"><i class="devicon-spring-original colored"></i></a>
+                <a href="https://www.docker.com/" target="_blank" rel="noopener" title="Docker" class="tech-preview-icon"><i class="devicon-docker-plain colored"></i></a>
+                <a href="https://aws.amazon.com/" target="_blank" rel="noopener" title="AWS" class="tech-preview-icon"><i class="devicon-amazonwebservices-plain-wordmark colored"></i></a>
+                <a href="https://www.postgresql.org/" target="_blank" rel="noopener" title="PostgreSQL" class="tech-preview-icon"><i class="devicon-postgresql-plain colored"></i></a>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="hero-cta-premium" data-aos="fade-up" data-aos-delay="600">
+                <a href="#bimestres" class="cta-btn-premium primary">
                     <i class="fas fa-rocket"></i>
-                    Explorar Plan de Estudios
+                    <span>Explorar Plan de Estudios</span>
                 </a>
-                <a href="#languages-2025" class="btn btn-outline">
+                <a href="#languages-2025" class="cta-btn-premium secondary">
                     <i class="fas fa-layer-group"></i>
-                    Ver Stack Tecnológico
+                    <span>Stack Tecnológico</span>
                 </a>
-                <a href="https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC" target="_blank" class="btn btn-secondary">
+                <a href="https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC" target="_blank" class="cta-btn-premium github">
                     <i class="fab fa-github"></i>
-                    Repositorio
+                    <span>GitHub</span>
                 </a>
             </div>
-        </div>
 
-        <div class="hero-main">
-            <div class="hero-content" data-aos="fade-right" data-aos-delay="200" style="display: none;">
-                <!-- Legacy content hidden -->
-            </div>
-            <div class="hero-visual" data-aos="fade-left" data-aos-delay="400">
-                <!-- Floating Tech Icons -->
-                <div class="floating-icons-right">
-                    <a href="https://www.python.org/" target="_blank" rel="noopener" class="floating-icon-link" title="Python">
-                        <i class="devicon-python-plain colored floating-icon" style="--delay: 0s;"></i>
-                    </a>
-                    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener" class="floating-icon-link" title="JavaScript">
-                        <i class="devicon-javascript-plain colored floating-icon" style="--delay: 0.3s;"></i>
-                    </a>
-                    <a href="https://www.oracle.com/java/" target="_blank" rel="noopener" class="floating-icon-link" title="Java">
-                        <i class="devicon-java-plain colored floating-icon" style="--delay: 0.6s;"></i>
-                    </a>
-                    <a href="https://react.dev/" target="_blank" rel="noopener" class="floating-icon-link" title="React">
-                        <i class="devicon-react-original colored floating-icon" style="--delay: 0.9s;"></i>
-                    </a>
-                    <a href="https://www.docker.com/" target="_blank" rel="noopener" class="floating-icon-link" title="Docker">
-                        <i class="devicon-docker-plain colored floating-icon" style="--delay: 1.2s;"></i>
-                    </a>
-                    <a href="https://aws.amazon.com/" target="_blank" rel="noopener" class="floating-icon-link" title="AWS">
-                        <i class="devicon-amazonwebservices-plain-wordmark colored floating-icon" style="--delay: 1.5s;"></i>
-                    </a>
-                    <a href="https://kubernetes.io/" target="_blank" rel="noopener" class="floating-icon-link" title="Kubernetes">
-                        <i class="devicon-kubernetes-plain colored floating-icon" style="--delay: 1.8s;"></i>
-                    </a>
-                    <a href="https://www.postgresql.org/" target="_blank" rel="noopener" class="floating-icon-link" title="PostgreSQL">
-                        <i class="devicon-postgresql-plain colored floating-icon" style="--delay: 2.1s;"></i>
-                    </a>
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="700">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
                 </div>
+                <span>Scroll para explorar</span>
             </div>
         </div>
+    </section>
 
-        <!-- Plan de Estudios - Visual Overview -->
-        <PlanEstudiosHero />
+    <!-- Plan de Estudios - Visual Overview -->
+    <PlanEstudiosHero />
 
-        <!-- Tech Badges Grid - Con links a páginas oficiales -->
-        <div class="tech-icons-grid" data-aos="zoom-in" data-aos-delay="400" style="margin-top: 2rem;">
+    <!-- Tech Badges Grid - Con links a páginas oficiales -->
+    <section class="tech-icons-section">
+        <div class="tech-icons-grid" data-aos="zoom-in" data-aos-delay="100">
             <!-- Row 1: Core Languages -->
             <div class="tech-row">
                 <a href="https://www.oracle.com/java/" target="_blank" rel="noopener" title="Java"><i class="devicon-java-plain colored"></i></a>
