@@ -1107,31 +1107,48 @@ default_args = &#123;
     </div>
 </section>
 
-<script>
+<script is:inline>
     // Pipeline Mode Switcher
-    function switchPipelineMode(mode: string) {
-        // Update buttons
-        document.querySelectorAll('.mode-btn').forEach(btn => {
+    function switchPipelineMode(mode) {
+        // Update buttons - remove active from all, add to clicked
+        var buttons = document.querySelectorAll('.mode-btn');
+        buttons.forEach(function(btn) {
             btn.classList.remove('active');
-            if ((btn as HTMLElement).dataset.mode === mode) {
+            if (btn.dataset.mode === mode) {
                 btn.classList.add('active');
             }
         });
 
-        // Update pipeline views
-        document.querySelectorAll('.pipeline-mode').forEach(pipeline => {
+        // Update pipeline views - hide all, show selected
+        var pipelines = document.querySelectorAll('.pipeline-mode');
+        pipelines.forEach(function(pipeline) {
             pipeline.classList.remove('active');
         });
 
-        const targetPipeline = document.getElementById(`pipeline-${mode}`);
+        var targetPipeline = document.getElementById('pipeline-' + mode);
         if (targetPipeline) {
             targetPipeline.classList.add('active');
         }
     }
 
-    // Add event listeners
-    document.getElementById('btn-realtime')?.addEventListener('click', () => switchPipelineMode('realtime'));
-    document.getElementById('btn-batch')?.addEventListener('click', () => switchPipelineMode('batch'));
-    document.getElementById('btn-architecture')?.addEventListener('click', () => switchPipelineMode('architecture'));
-    document.getElementById('btn-governance')?.addEventListener('click', () => switchPipelineMode('governance'));
+    // Add event listeners when DOM is ready
+    document.addEventListener('DOMContentLoaded', function() {
+        var btnRealtime = document.getElementById('btn-realtime');
+        var btnBatch = document.getElementById('btn-batch');
+        var btnArchitecture = document.getElementById('btn-architecture');
+        var btnGovernance = document.getElementById('btn-governance');
+
+        if (btnRealtime) {
+            btnRealtime.addEventListener('click', function() { switchPipelineMode('realtime'); });
+        }
+        if (btnBatch) {
+            btnBatch.addEventListener('click', function() { switchPipelineMode('batch'); });
+        }
+        if (btnArchitecture) {
+            btnArchitecture.addEventListener('click', function() { switchPipelineMode('architecture'); });
+        }
+        if (btnGovernance) {
+            btnGovernance.addEventListener('click', function() { switchPipelineMode('governance'); });
+        }
+    });
 </script>

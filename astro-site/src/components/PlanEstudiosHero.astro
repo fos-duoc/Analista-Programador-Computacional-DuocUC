@@ -2,6 +2,38 @@
 // Plan de Estudios Hero - Dos carreras: Analista Programador (B01-B10) + Ingeniería (B11-B17)
 // Basado en Malla Curricular 1444729 - 2025
 
+const githubBase = "https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main";
+
+// Mapeo de asignaturas a carpetas del repositorio
+const subjectLinks: Record<string, string> = {
+    "Fundamentos Prog.": "Fundamentos%20de%20Programaci%C3%B3n",
+    "Modelamiento BD": "Bimestre-01%20-%20Antropolog%C3%ADa%2C%20Fundamentos%20Prog.%2C%20Modelamiento%20BD/Modelamiento-BD",
+    "Antropología": "Antropolog%C3%ADa",
+    "Desarrollo OO I": "Desarrollo%20Orientado%20a%20Objetos%20I",
+    "Intro Cloud Computing": "Bimestre-02%20-%20Computaci%C3%B3n%20Nube%2C%20Comunicaci%C3%B3n%2C%20POO%20I/Computacion-Nube",
+    "Comunicación": "Habilidades%20de%20Comunicaci%C3%B3n",
+    "Desarrollo OO II": "Bimestre-03%20-%20DevOps%2C%20%C3%89tica%2C%20POO%20II/Programacion-OO-II",
+    "Herramientas DevOps": "Bimestre-03%20-%20DevOps%2C%20%C3%89tica%2C%20POO%20II/DevOps",
+    "Ética": "Bimestre-03%20-%20DevOps%2C%20%C3%89tica%2C%20POO%20II/Etica",
+    "Consulta BD": "Bimestre-04%20-%20SQL%20Consultas%2C%20Seguridad%20Inform%C3%A1tica/SQL-Consultas",
+    "Seguridad y Calidad": "Bimestre-04%20-%20SQL%20Consultas%2C%20Seguridad%20Inform%C3%A1tica/Seguridad-Informatica",
+    "Programación BD": "Bimestre-05%20-%20Cloud%20Native%2C%20Ing.%20Requisitos%2C%20SQL%20Programaci%C3%B3n/SQL-Programacion",
+    "Desarrollo Cloud Native": "Bimestre-05%20-%20Cloud%20Native%2C%20Ing.%20Requisitos%2C%20SQL%20Programaci%C3%B3n/Cloud-Native",
+    "Gestión Requisitos": "Bimestre-05%20-%20Cloud%20Native%2C%20Ing.%20Requisitos%2C%20SQL%20Programaci%C3%B3n/Ingenieria-Requisitos",
+    "Backend I": "Bimestre-06%20-%20Backend%20I%2C%20Ing.%20Software%20I/Backend-I",
+    "Ing. Software I": "Bimestre-06%20-%20Backend%20I%2C%20Ing.%20Software%20I/Ingenieria-Software-I",
+    "Backend II": "Bimestre-07%20-%20Backend%20II-III%2C%20Ing.%20Software%20II/Backend-II-III",
+    "Backend III": "Bimestre-07%20-%20Backend%20II-III%2C%20Ing.%20Software%20II/Backend-II-III",
+    "Ing. Software II": "Bimestre-07%20-%20Backend%20II-III%2C%20Ing.%20Software%20II/Ingenieria-Software-II",
+    "Arquitectura SW": "Bimestre-08%20-%20Arquitectura%20Software%2C%20Frontend%20I-II/Arquitectura-Software",
+    "Frontend I": "Bimestre-08%20-%20Arquitectura%20Software%2C%20Frontend%20I-II/Frontend-I-II",
+    "Frontend II": "Bimestre-08%20-%20Arquitectura%20Software%2C%20Frontend%20I-II/Frontend-I-II",
+    "Frontend III": "Bimestre-09%20-%20Frontend%20III%2C%20Mobile%20I/Frontend-III",
+    "App Móviles I": "Bimestre-09%20-%20Frontend%20III%2C%20Mobile%20I/Mobile-I",
+    "App Móviles II": "Bimestre-10%20-%20Mobile%20II%2C%20Taller%20T%C3%ADtulo/Mobile-II",
+    "Taller Aplicado SW": "Bimestre-10%20-%20Mobile%20II%2C%20Taller%20T%C3%ADtulo/Taller-Titulo",
+};
+
 // CARRERA 1: Analista Programador Computacional (10 bimestres)
 const analistaYear1 = [
     { num: "B01", title: "Fundamentos", subjects: ["Fundamentos Prog.", "Modelamiento BD", "Antropología"] },
@@ -32,16 +64,24 @@ const ingenieriaYear4 = [
     { num: "B16", title: "Gestión SW", subjects: ["Evaluación Proyectos SW", "Gestión Proyectos SW"] },
     { num: "B17", title: "Título Ing.", subjects: ["Ética Profesional", "Taller Aplicado SW"] }
 ];
+
+function getSubjectLink(subject: string): string | null {
+    return subjectLinks[subject] ? `${githubBase}/${subjectLinks[subject]}` : null;
+}
 ---
 
 <div class="plan-estudios-hero glass-card" data-aos="fade-up" data-aos-delay="300">
     <!-- Header -->
-    <div class="plan-header">
-        <div class="plan-title">
-            <i class="fas fa-graduation-cap"></i>
-            <span>Plan de Estudios Completo</span>
+    <div class="plan-header-premium">
+        <div class="plan-title-wrap">
+            <div class="plan-icon-glow">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="plan-title-content">
+                <h2 class="plan-main-title">Plan de Estudios <span class="gradient-text">Completo</span></h2>
+                <p class="plan-tagline">17 Bimestres · 2 Títulos Profesionales · 40+ Asignaturas</p>
+            </div>
         </div>
-        <div class="plan-subtitle">17 Bimestres · 2 Títulos Profesionales</div>
     </div>
 
     <!-- ══════════════════════════════════════════════════════════════ -->
@@ -61,15 +101,35 @@ const ingenieriaYear4 = [
                 <span class="year-num">Año 1</span>
                 <span class="year-label">Fundamentos</span>
             </div>
-            <div class="plan-bimestres-row year1">
+            <div class="plan-bimestres-grid">
                 {analistaYear1.map(bim => (
-                    <div class="plan-bim">
-                        <span class="bim-num">{bim.num}</span>
-                        <span class="bim-title">{bim.title}</span>
-                        <div class="bim-subjects">
-                            {bim.subjects.map(sub => (
-                                <span>{sub}</span>
-                            ))}
+                    <div class="plan-bim-card">
+                        <div class="bim-header">
+                            <span class="bim-num">{bim.num}</span>
+                            <span class="bim-title">{bim.title}</span>
+                        </div>
+                        <div class="bim-subjects-section">
+                            <div class="subjects-label">
+                                <i class="fas fa-book-open"></i>
+                                <span>Asignaturas</span>
+                            </div>
+                            <div class="subjects-list">
+                                {bim.subjects.map(sub => {
+                                    const link = getSubjectLink(sub);
+                                    return link ? (
+                                        <a href={link} target="_blank" class="subject-link">
+                                            <i class="fas fa-folder"></i>
+                                            <span>{sub}</span>
+                                            <i class="fas fa-external-link-alt link-icon"></i>
+                                        </a>
+                                    ) : (
+                                        <span class="subject-item">
+                                            <i class="fas fa-book"></i>
+                                            <span>{sub}</span>
+                                        </span>
+                                    );
+                                })}
+                            </div>
                         </div>
                     </div>
                 ))}
@@ -82,15 +142,35 @@ const ingenieriaYear4 = [
                 <span class="year-num">Año 2</span>
                 <span class="year-label">Especialización</span>
             </div>
-            <div class="plan-bimestres-row year2">
+            <div class="plan-bimestres-grid">
                 {analistaYear2.map(bim => (
-                    <div class="plan-bim">
-                        <span class="bim-num">{bim.num}</span>
-                        <span class="bim-title">{bim.title}</span>
-                        <div class="bim-subjects">
-                            {bim.subjects.map(sub => (
-                                <span>{sub}</span>
-                            ))}
+                    <div class="plan-bim-card">
+                        <div class="bim-header">
+                            <span class="bim-num">{bim.num}</span>
+                            <span class="bim-title">{bim.title}</span>
+                        </div>
+                        <div class="bim-subjects-section">
+                            <div class="subjects-label">
+                                <i class="fas fa-book-open"></i>
+                                <span>Asignaturas</span>
+                            </div>
+                            <div class="subjects-list">
+                                {bim.subjects.map(sub => {
+                                    const link = getSubjectLink(sub);
+                                    return link ? (
+                                        <a href={link} target="_blank" class="subject-link">
+                                            <i class="fas fa-folder"></i>
+                                            <span>{sub}</span>
+                                            <i class="fas fa-external-link-alt link-icon"></i>
+                                        </a>
+                                    ) : (
+                                        <span class="subject-item">
+                                            <i class="fas fa-book"></i>
+                                            <span>{sub}</span>
+                                        </span>
+                                    );
+                                })}
+                            </div>
                         </div>
                     </div>
                 ))}
@@ -135,15 +215,26 @@ const ingenieriaYear4 = [
                 <span class="year-num">Año 3</span>
                 <span class="year-label">Fullstack</span>
             </div>
-            <div class="plan-bimestres-row year3">
+            <div class="plan-bimestres-grid">
                 {ingenieriaYear3.map(bim => (
-                    <div class="plan-bim ing">
-                        <span class="bim-num">{bim.num}</span>
-                        <span class="bim-title">{bim.title}</span>
-                        <div class="bim-subjects">
-                            {bim.subjects.map(sub => (
-                                <span>{sub}</span>
-                            ))}
+                    <div class="plan-bim-card ing">
+                        <div class="bim-header">
+                            <span class="bim-num">{bim.num}</span>
+                            <span class="bim-title">{bim.title}</span>
+                        </div>
+                        <div class="bim-subjects-section">
+                            <div class="subjects-label">
+                                <i class="fas fa-book-open"></i>
+                                <span>Asignaturas</span>
+                            </div>
+                            <div class="subjects-list">
+                                {bim.subjects.map(sub => (
+                                    <span class="subject-item pending">
+                                        <i class="fas fa-clock"></i>
+                                        <span>{sub}</span>
+                                    </span>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 ))}
@@ -156,15 +247,26 @@ const ingenieriaYear4 = [
                 <span class="year-num">Año 4</span>
                 <span class="year-label">Ingeniería</span>
             </div>
-            <div class="plan-bimestres-row year4">
+            <div class="plan-bimestres-grid year4-grid">
                 {ingenieriaYear4.map(bim => (
-                    <div class="plan-bim ing">
-                        <span class="bim-num">{bim.num}</span>
-                        <span class="bim-title">{bim.title}</span>
-                        <div class="bim-subjects">
-                            {bim.subjects.map(sub => (
-                                <span>{sub}</span>
-                            ))}
+                    <div class="plan-bim-card ing">
+                        <div class="bim-header">
+                            <span class="bim-num">{bim.num}</span>
+                            <span class="bim-title">{bim.title}</span>
+                        </div>
+                        <div class="bim-subjects-section">
+                            <div class="subjects-label">
+                                <i class="fas fa-book-open"></i>
+                                <span>Asignaturas</span>
+                            </div>
+                            <div class="subjects-list">
+                                {bim.subjects.map(sub => (
+                                    <span class="subject-item pending">
+                                        <i class="fas fa-clock"></i>
+                                        <span>{sub}</span>
+                                    </span>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 ))}
@@ -205,34 +307,97 @@ const ingenieriaYear4 = [
 </div>
 
 <style>
+    /* Premium Header */
+    .plan-header-premium {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .plan-title-wrap {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+    }
+
+    .plan-icon-glow {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #00d4ff, #7c3aed);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+        animation: pulse-glow 2s ease-in-out infinite;
+    }
+
+    .plan-icon-glow i {
+        font-size: 2rem;
+        color: white;
+    }
+
+    @keyframes pulse-glow {
+        0%, 100% { box-shadow: 0 0 30px rgba(0, 212, 255, 0.4); }
+        50% { box-shadow: 0 0 50px rgba(124, 58, 237, 0.6); }
+    }
+
+    .plan-title-content {
+        text-align: left;
+    }
+
+    .plan-main-title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 0;
+        color: var(--text-primary);
+    }
+
+    .plan-main-title .gradient-text {
+        background: linear-gradient(135deg, #00d4ff, #7c3aed);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .plan-tagline {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        margin: 0.5rem 0 0;
+    }
+
     /* Career Section */
     .career-section {
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
     }
 
     .career-header {
         display: flex;
         align-items: center;
         gap: 0.75rem;
-        padding: 0.75rem 1rem;
-        border-radius: 8px;
-        margin-bottom: 1rem;
+        padding: 1rem 1.25rem;
+        border-radius: 12px;
+        margin-bottom: 1.5rem;
         font-weight: 600;
+        font-size: 1.1rem;
         flex-wrap: wrap;
     }
 
     .career-header.analista {
         background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(124, 58, 237, 0.15));
-        border-left: 3px solid #00d4ff;
+        border-left: 4px solid #00d4ff;
     }
 
     .career-header.ingenieria {
         background: linear-gradient(135deg, rgba(255, 152, 0, 0.15), rgba(255, 215, 0, 0.15));
-        border-left: 3px solid #ff9800;
+        border-left: 4px solid #ff9800;
     }
 
     .career-header i {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
     }
 
     .career-header.analista i {
@@ -245,11 +410,209 @@ const ingenieriaYear4 = [
 
     .career-duration {
         margin-left: auto;
-        font-size: 0.8rem;
+        font-size: 0.85rem;
         opacity: 0.8;
         background: rgba(255,255,255,0.1);
-        padding: 0.25rem 0.75rem;
+        padding: 0.35rem 1rem;
         border-radius: 20px;
+    }
+
+    /* Plan Year */
+    .plan-year {
+        margin-bottom: 2rem;
+    }
+
+    .year-marker {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5rem 1.5rem;
+        border-radius: 25px;
+        margin-bottom: 1.25rem;
+        color: white;
+    }
+
+    .year-marker.cyan {
+        background: linear-gradient(135deg, #00d4ff, #0891b2);
+    }
+
+    .year-marker.purple {
+        background: linear-gradient(135deg, #7c3aed, #9333ea);
+    }
+
+    .year-marker.orange {
+        background: linear-gradient(135deg, #ff9800, #f57c00);
+    }
+
+    .year-marker.gold {
+        background: linear-gradient(135deg, #ffd700, #ffb300);
+        color: #1a1a2e;
+    }
+
+    .year-num {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    .year-label {
+        font-size: 0.75rem;
+        opacity: 0.9;
+    }
+
+    /* Bimestres Grid */
+    .plan-bimestres-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.25rem;
+    }
+
+    .year4-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Bimestre Card */
+    .plan-bim-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(0, 212, 255, 0.2);
+        border-radius: 16px;
+        padding: 1.25rem;
+        transition: all 0.3s ease;
+    }
+
+    .plan-bim-card:hover {
+        border-color: rgba(0, 212, 255, 0.5);
+        box-shadow: 0 8px 30px rgba(0, 212, 255, 0.15);
+        transform: translateY(-3px);
+    }
+
+    .plan-bim-card.ing {
+        border-color: rgba(255, 152, 0, 0.2);
+    }
+
+    .plan-bim-card.ing:hover {
+        border-color: rgba(255, 152, 0, 0.5);
+        box-shadow: 0 8px 30px rgba(255, 152, 0, 0.15);
+    }
+
+    .bim-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .bim-num {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: #00d4ff;
+    }
+
+    .plan-bim-card.ing .bim-num {
+        color: #ff9800;
+    }
+
+    .bim-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+    }
+
+    /* Subjects Section */
+    .bim-subjects-section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .subjects-label {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .subjects-label i {
+        color: #7c3aed;
+        font-size: 0.9rem;
+    }
+
+    .subjects-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    /* Subject Link */
+    .subject-link {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.6rem 0.9rem;
+        background: rgba(0, 212, 255, 0.08);
+        border: 1px solid rgba(0, 212, 255, 0.15);
+        border-radius: 10px;
+        color: var(--text-primary);
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+
+    .subject-link:hover {
+        background: rgba(0, 212, 255, 0.18);
+        border-color: rgba(0, 212, 255, 0.4);
+        color: #00d4ff;
+        transform: translateX(4px);
+    }
+
+    .subject-link i.fa-folder {
+        color: #ffd700;
+        font-size: 0.9rem;
+    }
+
+    .subject-link .link-icon {
+        margin-left: auto;
+        font-size: 0.7rem;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .subject-link:hover .link-icon {
+        opacity: 1;
+    }
+
+    /* Subject Item (no link) */
+    .subject-item {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.6rem 0.9rem;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        font-weight: 500;
+    }
+
+    .subject-item i {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+    }
+
+    .subject-item.pending {
+        background: rgba(255, 152, 0, 0.05);
+        border-color: rgba(255, 152, 0, 0.15);
+    }
+
+    .subject-item.pending i {
+        color: #ff9800;
     }
 
     /* Career Connector */
@@ -258,7 +621,7 @@ const ingenieriaYear4 = [
         align-items: center;
         justify-content: center;
         gap: 1rem;
-        margin: 1.5rem 0;
+        margin: 2rem 0;
         padding: 1rem 0;
     }
 
@@ -273,9 +636,10 @@ const ingenieriaYear4 = [
         align-items: center;
         gap: 0.5rem;
         background: linear-gradient(135deg, rgba(255, 152, 0, 0.2), rgba(255, 215, 0, 0.2));
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-        font-size: 0.85rem;
+        padding: 0.6rem 1.25rem;
+        border-radius: 25px;
+        font-size: 0.9rem;
+        font-weight: 600;
         color: #ff9800;
         border: 1px solid rgba(255, 152, 0, 0.3);
     }
@@ -289,57 +653,43 @@ const ingenieriaYear4 = [
         50% { transform: translateY(3px); }
     }
 
-    /* Year Markers - Orange & Gold for Ingeniería */
-    .year-marker.orange {
-        background: linear-gradient(135deg, #ff9800, #f57c00) !important;
+    /* Final Badges */
+    .plan-final {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        padding: 1.25rem;
+        flex-wrap: wrap;
     }
 
-    .year-marker.gold {
-        background: linear-gradient(135deg, #ffd700, #ffb300) !important;
-        color: #1a1a2e !important;
+    .final-line {
+        flex: 1;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.5), transparent);
     }
 
-    .year-marker.gold .year-num,
-    .year-marker.gold .year-label {
-        color: #1a1a2e !important;
+    .final-badge {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        font-size: 0.85rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.05);
     }
 
-    /* Ingeniería Bimestres */
-    .plan-bim.ing {
-        border-color: rgba(255, 152, 0, 0.3) !important;
+    .final-title {
+        font-size: 1.4rem;
+        font-weight: 700;
     }
 
-    .plan-bim.ing:hover {
-        border-color: #ff9800 !important;
-        box-shadow: 0 4px 15px rgba(255, 152, 0, 0.2) !important;
-    }
-
-    .plan-bim.ing .bim-num {
-        color: #ff9800 !important;
-    }
-
-    /* Final badges - Gold variant */
-    .final-line.gold {
-        background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.5), transparent) !important;
-    }
-
-    .final-badge.gold {
-        background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 152, 0, 0.2)) !important;
-        border-color: rgba(255, 215, 0, 0.4) !important;
-        color: #ffd700 !important;
-    }
-
-    .final-title.gold {
-        background: linear-gradient(135deg, #ffd700, #ff9800) !important;
-        -webkit-background-clip: text !important;
-        -webkit-text-fill-color: transparent !important;
-        background-clip: text !important;
-    }
-
-    /* Analista Final styling */
+    /* Analista Final */
     .analista-final .final-badge {
         background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(0, 212, 255, 0.2));
         border-color: rgba(124, 58, 237, 0.4);
+        color: #00d4ff;
     }
 
     .analista-final .final-title {
@@ -349,30 +699,34 @@ const ingenieriaYear4 = [
         background-clip: text;
     }
 
-    /* Ingeniería Final styling */
-    .ingenieria-final .final-badge {
+    /* Ingeniería Final */
+    .final-line.gold {
+        background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.5), transparent);
+    }
+
+    .final-badge.gold {
         background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 152, 0, 0.2));
         border-color: rgba(255, 215, 0, 0.4);
         color: #ffd700;
     }
 
-    .ingenieria-final .final-title {
+    .final-title.gold {
         background: linear-gradient(135deg, #ffd700, #ff9800);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        font-size: 1.3rem;
+        font-size: 1.5rem;
     }
 
     /* Plan Summary */
     .plan-summary {
         display: flex;
         justify-content: center;
-        gap: 2rem;
-        padding: 1rem;
-        margin-top: 1.5rem;
+        gap: 2.5rem;
+        padding: 1.25rem;
+        margin-top: 2rem;
         background: rgba(255, 255, 255, 0.05);
-        border-radius: 12px;
+        border-radius: 16px;
         border: 1px solid rgba(255, 255, 255, 0.1);
         flex-wrap: wrap;
     }
@@ -380,20 +734,46 @@ const ingenieriaYear4 = [
     .summary-item {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
-        font-size: 0.9rem;
+        gap: 0.6rem;
+        font-size: 1rem;
     }
 
     .summary-item i {
         color: #00d4ff;
+        font-size: 1.1rem;
     }
 
     .summary-item strong {
         color: #ffd700;
+        font-size: 1.2rem;
     }
 
     /* Responsive */
+    @media (max-width: 900px) {
+        .plan-bimestres-grid,
+        .year4-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
     @media (max-width: 768px) {
+        .plan-header-premium {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .plan-title-wrap {
+            flex-direction: column;
+        }
+
+        .plan-title-content {
+            text-align: center;
+        }
+
+        .plan-main-title {
+            font-size: 1.6rem;
+        }
+
         .career-header {
             flex-direction: column;
             text-align: center;
@@ -404,12 +784,26 @@ const ingenieriaYear4 = [
             margin-left: 0;
         }
 
+        .plan-bimestres-grid,
+        .year4-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .plan-final {
+            flex-direction: column;
+        }
+
+        .final-line {
+            width: 60%;
+            flex: none;
+        }
+
         .plan-summary {
-            gap: 1rem;
+            gap: 1.25rem;
         }
 
         .summary-item {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
         }
     }
 </style>

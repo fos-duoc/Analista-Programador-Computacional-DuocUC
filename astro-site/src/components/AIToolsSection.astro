@@ -82,6 +82,46 @@ const aiTools = [
         features: ["Automatización", "Notas inteligentes", "Integración apps", "Flujos de trabajo"],
         link: "https://www.antigravity.ai/",
         linkText: "Explorar"
+    },
+    {
+        name: "VS Code for the Web",
+        icon: "fas fa-globe",
+        badge: "NAVEGADOR",
+        badgeColor: "vscode",
+        description: "Visual Studio Code directamente en tu navegador. Sin instalación, desde cualquier lugar.",
+        features: ["Sin instalación", "GitHub integrado", "Extensiones", "Sincronización"],
+        link: "https://vscode.dev",
+        linkText: "Abrir Editor"
+    },
+    {
+        name: "Notion",
+        icon: "fas fa-sticky-note",
+        badge: "ALL-IN-ONE",
+        badgeColor: "notion",
+        description: "Workspace todo-en-uno para notas, proyectos, docs y wikis. Perfecto para organizar estudios.",
+        features: ["Notas & docs", "Bases de datos", "Colaboración", "Templates gratis"],
+        link: "https://www.notion.so/students",
+        linkText: "Obtener Gratis"
+    },
+    {
+        name: "Notepad++",
+        icon: "fas fa-file-code",
+        badge: "LIGERO",
+        badgeColor: "notepad",
+        description: "Editor de código ligero y potente para Windows. Ideal para edición rápida de archivos.",
+        features: ["Ultra ligero", "Syntax highlight", "Plugins", "Multi-documento"],
+        link: "https://notepad-plus-plus.org/",
+        linkText: "Descargar"
+    },
+    {
+        name: "Flameshot",
+        icon: "fas fa-camera",
+        badge: "SCREENSHOTS",
+        badgeColor: "flameshot",
+        description: "Herramienta de capturas de pantalla con anotaciones. Ideal para documentar código y bugs.",
+        features: ["Capturas editables", "Anotaciones", "Blur & flechas", "Multiplataforma"],
+        link: "https://flameshot.org/",
+        linkText: "Descargar"
     }
 ];
 
@@ -362,6 +402,30 @@ const bestPractices = [
         background: rgba(249, 115, 22, 0.2);
         color: #fb923c;
         border: 1px solid rgba(249, 115, 22, 0.3);
+    }
+
+    .ai-tool-badge.vscode {
+        background: rgba(0, 122, 204, 0.2);
+        color: #4fc3f7;
+        border: 1px solid rgba(0, 122, 204, 0.3);
+    }
+
+    .ai-tool-badge.notion {
+        background: rgba(255, 255, 255, 0.15);
+        color: #f8fafc;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .ai-tool-badge.notepad {
+        background: rgba(144, 238, 144, 0.2);
+        color: #90ee90;
+        border: 1px solid rgba(144, 238, 144, 0.3);
+    }
+
+    .ai-tool-badge.flameshot {
+        background: rgba(255, 87, 34, 0.2);
+        color: #ff7043;
+        border: 1px solid rgba(255, 87, 34, 0.3);
     }
 
     .ai-tool-description {
