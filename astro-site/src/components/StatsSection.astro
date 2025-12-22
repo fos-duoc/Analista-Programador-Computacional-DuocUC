@@ -1,0 +1,74 @@
+---
+// GitHub Stats Section - Repository statistics
+const repoBase = "https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC";
+const repoId = "fos-duoc/Analista-Programador-Computacional-DuocUC";
+---
+
+<section id="stats" class="stats-section">
+    <div class="section-header" data-aos="fade-up">
+        <h2 class="section-title">
+            <i class="fab fa-github"></i>
+            Repositorio Stats
+        </h2>
+        <p class="section-subtitle">Estadísticas y métricas del proyecto en GitHub</p>
+    </div>
+
+    <!-- Stats Container -->
+    <div class="stats-container" data-aos="fade-up" data-aos-delay="100">
+        <!-- Badges Row - Centered -->
+        <div class="stats-badges-center">
+            <img src={`https://img.shields.io/github/stars/${repoId}?style=for-the-badge&logo=github&logoColor=white&labelColor=0d1117&color=00d4ff`} alt="Stars"/>
+            <img src={`https://img.shields.io/github/forks/${repoId}?style=for-the-badge&logo=git&logoColor=white&labelColor=0d1117&color=7c3aed`} alt="Forks"/>
+            <img src={`https://img.shields.io/github/watchers/${repoId}?style=for-the-badge&logo=github&logoColor=white&labelColor=0d1117&color=f472b6`} alt="Watchers"/>
+        </div>
+
+        <!-- Cards Row - Centered -->
+        <div class="stats-cards-center">
+            <div class="stats-card-wrapper">
+                <img src={`https://github-readme-stats.vercel.app/api/pin/?username=fos-duoc&repo=Analista-Programador-Computacional-DuocUC&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=00d4ff&icon_color=7c3aed&text_color=94a3b8`} alt="Repo Card"/>
+            </div>
+            <div class="stats-card-wrapper">
+                <img src={`https://github-readme-stats.vercel.app/api/top-langs/?username=fos-duoc&repo=Analista-Programador-Computacional-DuocUC&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=00d4ff&text_color=94a3b8&langs_count=6`} alt="Top Languages"/>
+            </div>
+        </div>
+
+        <!-- Quick Stats - Horizontal Centered -->
+        <div class="stats-quick-center">
+            <div class="stat-item">
+                <span class="stat-number">10</span>
+                <span class="stat-label">Bimestres</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-number">25+</span>
+                <span class="stat-label">Asignaturas</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-number">100+</span>
+                <span class="stat-label">Archivos</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">Commits</span>
+            </div>
+        </div>
+
+        <!-- Links Row - Centered -->
+        <div class="stats-links-center">
+            <a href={repoBase} target="_blank" class="stat-link-btn">
+                <i class="fab fa-github"></i> Ver Repositorio
+            </a>
+            <a href={`${repoBase}/graphs/contributors`} target="_blank" class="stat-link-btn">
+                <i class="fas fa-users"></i> Contributors
+            </a>
+            <a href={`${repoBase}/commits`} target="_blank" class="stat-link-btn">
+                <i class="fas fa-history"></i> Historial
+            </a>
+            <a href={`${repoBase}/network`} target="_blank" class="stat-link-btn">
+                <i class="fas fa-project-diagram"></i> Network
+            </a>
+        </div>
+    </div>
+</section>

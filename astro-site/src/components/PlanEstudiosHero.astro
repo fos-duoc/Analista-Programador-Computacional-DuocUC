@@ -1,0 +1,425 @@
+---
+// Plan de Estudios Hero - Dos carreras: Analista Programador (B01-B10) + Ingeniería (B11-B17)
+
+// CARRERA 1: Analista Programador Computacional (10 bimestres)
+const analistaYear1 = [
+    { num: "B01", title: "Fundamentos", subjects: ["Fundamentos Prog.", "Modelamiento BD", "Antropología"] },
+    { num: "B02", title: "POO & Cloud", subjects: ["POO I", "Computación Nube", "Comunicación"] },
+    { num: "B03", title: "POO & DevOps", subjects: ["POO II", "DevOps", "Ética"] },
+    { num: "B04", title: "SQL & Security", subjects: ["SQL Consultas", "Seguridad Informática"] }
+];
+
+const analistaYear2 = [
+    { num: "B05", title: "SQL & Cloud Native", subjects: ["SQL Programación", "Cloud Native", "Ing. Requisitos"] },
+    { num: "B06", title: "Backend & Ing. SW", subjects: ["Backend I", "Ing. Software I"] },
+    { num: "B07", title: "Backend Avanzado", subjects: ["Backend II-III", "Ing. Software II"] },
+    { num: "B08", title: "Arquitectura & FE", subjects: ["Arquitectura SW", "Frontend I-II"] },
+    { num: "B09", title: "Frontend & Mobile", subjects: ["Frontend III", "Mobile I"] },
+    { num: "B10", title: "Mobile & Título", subjects: ["Mobile II", "Taller Título"] }
+];
+
+// CARRERA 2: Ingeniería en Desarrollo de Software (7 bimestres - continuidad)
+const ingenieriaYear3 = [
+    { num: "B11", title: "Fullstack I", subjects: ["Desarrollo Fullstack I", "BD Aplicada"] },
+    { num: "B12", title: "Fullstack II", subjects: ["Desarrollo Fullstack II", "Cloud Computing"] },
+    { num: "B13", title: "Fullstack III", subjects: ["Desarrollo Fullstack III", "DevOps"] },
+    { num: "B14", title: "Mobile & Cloud", subjects: ["Desarrollo App Móviles", "Cloud Native I"] }
+];
+
+const ingenieriaYear4 = [
+    { num: "B15", title: "Cloud Native II", subjects: ["Cloud Native II", "Seguridad y Calidad"] },
+    { num: "B16", title: "Gestión SW", subjects: ["Evaluación Proyectos SW", "Gestión Proyectos SW"] },
+    { num: "B17", title: "Título Ing.", subjects: ["Ética Profesional", "Taller Aplicado SW"] }
+];
+---
+
+<div class="plan-estudios-hero glass-card" data-aos="fade-up" data-aos-delay="300">
+    <!-- Header -->
+    <div class="plan-header">
+        <div class="plan-title">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Plan de Estudios Completo</span>
+        </div>
+        <div class="plan-subtitle">17 Bimestres · 2 Títulos Profesionales</div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════════ -->
+    <!-- CARRERA 1: ANALISTA PROGRAMADOR COMPUTACIONAL -->
+    <!-- ══════════════════════════════════════════════════════════════ -->
+
+    <div class="career-section">
+        <div class="career-header analista">
+            <i class="fas fa-code"></i>
+            <span>Carrera 1: Analista Programador Computacional</span>
+            <span class="career-duration">10 Bimestres · 20 meses</span>
+        </div>
+
+        <!-- Año 1 - Fundamentos -->
+        <div class="plan-year">
+            <div class="year-marker cyan">
+                <span class="year-num">Año 1</span>
+                <span class="year-label">Fundamentos</span>
+            </div>
+            <div class="plan-bimestres-row year1">
+                {analistaYear1.map(bim => (
+                    <div class="plan-bim">
+                        <span class="bim-num">{bim.num}</span>
+                        <span class="bim-title">{bim.title}</span>
+                        <div class="bim-subjects">
+                            {bim.subjects.map(sub => (
+                                <span>{sub}</span>
+                            ))}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <!-- Salida Intermedia B05 -->
+        <div class="plan-milestone">
+            <div class="milestone-line"></div>
+            <div class="milestone-badge">
+                <i class="fas fa-award"></i>
+                <span>Salida Intermedia - Bimestre 05</span>
+            </div>
+            <span class="milestone-title">Programador de Aplicaciones Computacionales</span>
+            <div class="milestone-line"></div>
+        </div>
+
+        <!-- Año 2 - Especialización -->
+        <div class="plan-year">
+            <div class="year-marker purple">
+                <span class="year-num">Año 2</span>
+                <span class="year-label">Especialización</span>
+            </div>
+            <div class="plan-bimestres-row year2">
+                {analistaYear2.map(bim => (
+                    <div class="plan-bim">
+                        <span class="bim-num">{bim.num}</span>
+                        <span class="bim-title">{bim.title}</span>
+                        <div class="bim-subjects">
+                            {bim.subjects.map(sub => (
+                                <span>{sub}</span>
+                            ))}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <!-- Título Analista -->
+        <div class="plan-final analista-final">
+            <div class="final-line"></div>
+            <div class="final-badge">
+                <i class="fas fa-user-graduate"></i>
+                <span>Título Técnico - Bimestre 10</span>
+            </div>
+            <span class="final-title">Analista Programador Computacional</span>
+            <div class="final-line"></div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════════ -->
+    <!-- CONTINUIDAD: INGENIERÍA EN DESARROLLO DE SOFTWARE -->
+    <!-- ══════════════════════════════════════════════════════════════ -->
+
+    <div class="career-connector">
+        <div class="connector-line"></div>
+        <div class="connector-badge">
+            <i class="fas fa-arrow-down"></i>
+            <span>Continuidad de Estudios</span>
+        </div>
+        <div class="connector-line"></div>
+    </div>
+
+    <div class="career-section ingenieria">
+        <div class="career-header ingenieria">
+            <i class="fas fa-laptop-code"></i>
+            <span>Carrera 2: Ingeniería en Desarrollo de Software</span>
+            <span class="career-duration">7 Bimestres · 14 meses</span>
+        </div>
+
+        <!-- Año 3 - Desarrollo Fullstack -->
+        <div class="plan-year">
+            <div class="year-marker orange">
+                <span class="year-num">Año 3</span>
+                <span class="year-label">Fullstack</span>
+            </div>
+            <div class="plan-bimestres-row year3">
+                {ingenieriaYear3.map(bim => (
+                    <div class="plan-bim ing">
+                        <span class="bim-num">{bim.num}</span>
+                        <span class="bim-title">{bim.title}</span>
+                        <div class="bim-subjects">
+                            {bim.subjects.map(sub => (
+                                <span>{sub}</span>
+                            ))}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <!-- Año 4 - Ingeniería Avanzada -->
+        <div class="plan-year">
+            <div class="year-marker gold">
+                <span class="year-num">Año 4</span>
+                <span class="year-label">Ingeniería</span>
+            </div>
+            <div class="plan-bimestres-row year4">
+                {ingenieriaYear4.map(bim => (
+                    <div class="plan-bim ing">
+                        <span class="bim-num">{bim.num}</span>
+                        <span class="bim-title">{bim.title}</span>
+                        <div class="bim-subjects">
+                            {bim.subjects.map(sub => (
+                                <span>{sub}</span>
+                            ))}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <!-- Título Ingeniería -->
+        <div class="plan-final ingenieria-final">
+            <div class="final-line gold"></div>
+            <div class="final-badge gold">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Título Profesional - Bimestre 17</span>
+            </div>
+            <span class="final-title gold">Ingeniero(a) en Desarrollo de Software</span>
+            <div class="final-line gold"></div>
+        </div>
+    </div>
+
+    <!-- Resumen Total -->
+    <div class="plan-summary">
+        <div class="summary-item">
+            <i class="fas fa-calendar-alt"></i>
+            <span><strong>17</strong> Bimestres</span>
+        </div>
+        <div class="summary-item">
+            <i class="fas fa-clock"></i>
+            <span><strong>34</strong> Meses</span>
+        </div>
+        <div class="summary-item">
+            <i class="fas fa-award"></i>
+            <span><strong>2</strong> Títulos</span>
+        </div>
+        <div class="summary-item">
+            <i class="fas fa-book"></i>
+            <span><strong>40+</strong> Asignaturas</span>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Career Section */
+    .career-section {
+        margin-bottom: 1.5rem;
+    }
+
+    .career-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        font-weight: 600;
+        flex-wrap: wrap;
+    }
+
+    .career-header.analista {
+        background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(124, 58, 237, 0.15));
+        border-left: 3px solid #00d4ff;
+    }
+
+    .career-header.ingenieria {
+        background: linear-gradient(135deg, rgba(255, 152, 0, 0.15), rgba(255, 215, 0, 0.15));
+        border-left: 3px solid #ff9800;
+    }
+
+    .career-header i {
+        font-size: 1.25rem;
+    }
+
+    .career-header.analista i {
+        color: #00d4ff;
+    }
+
+    .career-header.ingenieria i {
+        color: #ff9800;
+    }
+
+    .career-duration {
+        margin-left: auto;
+        font-size: 0.8rem;
+        opacity: 0.8;
+        background: rgba(255,255,255,0.1);
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+    }
+
+    /* Career Connector */
+    .career-connector {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin: 1.5rem 0;
+        padding: 1rem 0;
+    }
+
+    .connector-line {
+        flex: 1;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(255, 152, 0, 0.5), transparent);
+    }
+
+    .connector-badge {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: linear-gradient(135deg, rgba(255, 152, 0, 0.2), rgba(255, 215, 0, 0.2));
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        color: #ff9800;
+        border: 1px solid rgba(255, 152, 0, 0.3);
+    }
+
+    .connector-badge i {
+        animation: bounce 1s infinite;
+    }
+
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(3px); }
+    }
+
+    /* Year Markers - Orange & Gold for Ingeniería */
+    .year-marker.orange {
+        background: linear-gradient(135deg, #ff9800, #f57c00) !important;
+    }
+
+    .year-marker.gold {
+        background: linear-gradient(135deg, #ffd700, #ffb300) !important;
+        color: #1a1a2e !important;
+    }
+
+    .year-marker.gold .year-num,
+    .year-marker.gold .year-label {
+        color: #1a1a2e !important;
+    }
+
+    /* Ingeniería Bimestres */
+    .plan-bim.ing {
+        border-color: rgba(255, 152, 0, 0.3) !important;
+    }
+
+    .plan-bim.ing:hover {
+        border-color: #ff9800 !important;
+        box-shadow: 0 4px 15px rgba(255, 152, 0, 0.2) !important;
+    }
+
+    .plan-bim.ing .bim-num {
+        color: #ff9800 !important;
+    }
+
+    /* Final badges - Gold variant */
+    .final-line.gold {
+        background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.5), transparent) !important;
+    }
+
+    .final-badge.gold {
+        background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 152, 0, 0.2)) !important;
+        border-color: rgba(255, 215, 0, 0.4) !important;
+        color: #ffd700 !important;
+    }
+
+    .final-title.gold {
+        background: linear-gradient(135deg, #ffd700, #ff9800) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+    }
+
+    /* Analista Final styling */
+    .analista-final .final-badge {
+        background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(0, 212, 255, 0.2));
+        border-color: rgba(124, 58, 237, 0.4);
+    }
+
+    .analista-final .final-title {
+        background: linear-gradient(135deg, #7c3aed, #00d4ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    /* Ingeniería Final styling */
+    .ingenieria-final .final-badge {
+        background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 152, 0, 0.2));
+        border-color: rgba(255, 215, 0, 0.4);
+        color: #ffd700;
+    }
+
+    .ingenieria-final .final-title {
+        background: linear-gradient(135deg, #ffd700, #ff9800);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-size: 1.3rem;
+    }
+
+    /* Plan Summary */
+    .plan-summary {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        padding: 1rem;
+        margin-top: 1.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        flex-wrap: wrap;
+    }
+
+    .summary-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .summary-item i {
+        color: #00d4ff;
+    }
+
+    .summary-item strong {
+        color: #ffd700;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .career-header {
+            flex-direction: column;
+            text-align: center;
+            gap: 0.5rem;
+        }
+
+        .career-duration {
+            margin-left: 0;
+        }
+
+        .plan-summary {
+            gap: 1rem;
+        }
+
+        .summary-item {
+            font-size: 0.8rem;
+        }
+    }
+</style>

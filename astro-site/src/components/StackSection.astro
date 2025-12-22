@@ -1,0 +1,113 @@
+---
+// Stack Tecnológico Section - Technologies used in the program
+const categories = [
+    {
+        title: "Lenguajes",
+        icon: "fas fa-code",
+        techs: [
+            { name: "Java", icon: "devicon-java-plain colored", url: "https://www.oracle.com/java/" },
+            { name: "Python", icon: "devicon-python-plain colored", url: "https://www.python.org/" },
+            { name: "JavaScript", icon: "devicon-javascript-plain colored", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+            { name: "TypeScript", icon: "devicon-typescript-plain colored", url: "https://www.typescriptlang.org/" },
+            { name: "Kotlin", icon: "devicon-kotlin-plain colored", url: "https://kotlinlang.org/" },
+            { name: "HTML5", icon: "devicon-html5-plain colored", url: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
+            { name: "CSS3", icon: "devicon-css3-plain colored", url: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+            { name: "SQL", icon: "devicon-azuresqldatabase-plain colored", url: "https://en.wikipedia.org/wiki/SQL" },
+            { name: "C#", icon: "devicon-csharp-plain colored", url: "https://learn.microsoft.com/en-us/dotnet/csharp/" },
+            { name: "Go", icon: "devicon-go-original-wordmark colored", url: "https://go.dev/" }
+        ]
+    },
+    {
+        title: "Backend",
+        icon: "fas fa-server",
+        techs: [
+            { name: "Spring Boot", icon: "devicon-spring-plain colored", url: "https://spring.io/projects/spring-boot" },
+            { name: "Node.js", icon: "devicon-nodejs-plain colored", url: "https://nodejs.org/" },
+            { name: "Express", icon: "devicon-express-original", url: "https://expressjs.com/" },
+            { name: "Django", icon: "devicon-django-plain colored", url: "https://www.djangoproject.com/" },
+            { name: "FastAPI", icon: "devicon-fastapi-plain colored", url: "https://fastapi.tiangolo.com/" },
+            { name: "NestJS", icon: "devicon-nestjs-original colored", url: "https://nestjs.com/" },
+            { name: ".NET Core", icon: "devicon-dotnetcore-plain colored", url: "https://dotnet.microsoft.com/" }
+        ]
+    },
+    {
+        title: "Frontend",
+        icon: "fas fa-palette",
+        techs: [
+            { name: "Angular", icon: "devicon-angularjs-plain colored", url: "https://angular.io/" },
+            { name: "React", icon: "devicon-react-original colored", url: "https://react.dev/" },
+            { name: "Vue.js", icon: "devicon-vuejs-plain colored", url: "https://vuejs.org/" },
+            { name: "Bootstrap", icon: "devicon-bootstrap-plain colored", url: "https://getbootstrap.com/" },
+            { name: "Tailwind", icon: "devicon-tailwindcss-original colored", url: "https://tailwindcss.com/" },
+            { name: "Sass", icon: "devicon-sass-original colored", url: "https://sass-lang.com/" },
+            { name: "Next.js", icon: "devicon-nextjs-original", url: "https://nextjs.org/" }
+        ]
+    },
+    {
+        title: "Bases de Datos",
+        icon: "fas fa-database",
+        techs: [
+            { name: "Oracle", icon: "devicon-oracle-original colored", url: "https://www.oracle.com/database/" },
+            { name: "PostgreSQL", icon: "devicon-postgresql-plain colored", url: "https://www.postgresql.org/" },
+            { name: "MySQL", icon: "devicon-mysql-original colored", url: "https://www.mysql.com/" },
+            { name: "MongoDB", icon: "devicon-mongodb-plain colored", url: "https://www.mongodb.com/" },
+            { name: "Redis", icon: "devicon-redis-plain colored", url: "https://redis.io/" },
+            { name: "Firebase", icon: "devicon-firebase-plain colored", url: "https://firebase.google.com/" }
+        ]
+    },
+    {
+        title: "Cloud & DevOps",
+        icon: "fas fa-cloud",
+        techs: [
+            { name: "AWS", icon: "devicon-amazonwebservices-plain-wordmark colored", url: "https://aws.amazon.com/" },
+            { name: "Azure", icon: "devicon-azure-plain colored", url: "https://azure.microsoft.com/" },
+            { name: "GCP", icon: "devicon-googlecloud-plain colored", url: "https://cloud.google.com/" },
+            { name: "Docker", icon: "devicon-docker-plain colored", url: "https://www.docker.com/" },
+            { name: "Kubernetes", icon: "devicon-kubernetes-plain colored", url: "https://kubernetes.io/" },
+            { name: "Terraform", icon: "devicon-terraform-plain colored", url: "https://www.terraform.io/" },
+            { name: "Jenkins", icon: "devicon-jenkins-line colored", url: "https://www.jenkins.io/" },
+            { name: "GitHub Actions", icon: "devicon-githubactions-plain colored", url: "https://github.com/features/actions" }
+        ]
+    },
+    {
+        title: "Herramientas",
+        icon: "fas fa-tools",
+        techs: [
+            { name: "Git", icon: "devicon-git-plain colored", url: "https://git-scm.com/" },
+            { name: "GitHub", icon: "devicon-github-original", url: "https://github.com/" },
+            { name: "VS Code", icon: "devicon-vscode-plain colored", url: "https://code.visualstudio.com/" },
+            { name: "IntelliJ", icon: "devicon-intellij-plain colored", url: "https://www.jetbrains.com/idea/" },
+            { name: "Postman", icon: "devicon-postman-plain colored", url: "https://www.postman.com/" },
+            { name: "Figma", icon: "devicon-figma-plain colored", url: "https://www.figma.com/" },
+            { name: "Jira", icon: "devicon-jira-plain colored", url: "https://www.atlassian.com/software/jira" },
+            { name: "Slack", icon: "devicon-slack-plain colored", url: "https://slack.com/" }
+        ]
+    }
+];
+---
+
+<section id="stack" class="stack-section">
+    <div class="section-header" data-aos="fade-up">
+        <h2 class="section-title">
+            <i class="fas fa-layer-group"></i>
+            Stack Tecnológico
+        </h2>
+        <p class="section-subtitle">Tecnologías y herramientas del programa</p>
+    </div>
+
+    <div class="stack-grid">
+        {categories.map((category, idx) => (
+            <div class="stack-category glass-card" data-aos="zoom-in" data-aos-duration="400" data-aos-delay={idx * 50}>
+                <h3 class="category-title"><i class={category.icon}></i> {category.title}</h3>
+                <div class="tech-list">
+                    {category.techs.map(tech => (
+                        <a href={tech.url} target="_blank" rel="noopener" class="tech-item">
+                            <i class={tech.icon}></i>
+                            <span>{tech.name}</span>
+                        </a>
+                    ))}
+                </div>
+            </div>
+        ))}
+    </div>
+</section>

@@ -1,0 +1,182 @@
+---
+// Industry Tech Stack 2025 - Languages and Technologies Dashboard
+const topLanguages = [
+    { rank: 1, name: "JavaScript", icon: "https://media.giphy.com/media/ln7z2eWriiQAllfVcn/giphy.gif", stat: "62.3% SO", badge: "Most Used", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", class: "gold", barWidth: "100%" },
+    { rank: 2, name: "Python", icon: "https://media.giphy.com/media/KAq5w47R9rmTuvWOWa/giphy.gif", stat: "51% SO · #1 GitHub", badge: "Most Popular", url: "https://www.python.org/", class: "silver", barWidth: "82%" },
+    { rank: 3, name: "TypeScript", icon: "https://media.giphy.com/media/fsEaZldNC8A1PJ3mwp/giphy.gif", stat: "38.5% SO", badge: "Fastest Growing", url: "https://www.typescriptlang.org/", class: "bronze", barWidth: "62%" }
+];
+
+const secondaryLanguages = [
+    { name: "Java", icon: "https://media.giphy.com/media/TfY3ORyNfVEvvr94jZ/giphy.gif", stat: "30.3% SO · #4 GH", url: "https://www.oracle.com/java/" },
+    { name: "C#", icon: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWIxNGUwZWZyZ2RiZzRlcWV0cGVtbzR4bTRjNnR0YWRlMXU1OWV2ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cNjQh8OuJrDkQaZjVH/giphy.gif", stat: "27.1% SO · #6 GH", url: "https://learn.microsoft.com/en-us/dotnet/csharp/" },
+    { name: "Go", icon: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHI2bHFnN3g2MXk5OGlmY2ljdXJ5cW9ybGZoNWxnZjNuZXJlMnB6byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/xTk9ZMytqqfijNEJmU/giphy.gif", stat: "13.5% SO · #8 GH", url: "https://go.dev/" },
+    { name: "Rust", icon: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZGRiajF5a25jZGNqbGt1dHVuOWlpaTI0cHpidDI5czlncDVnMHZldyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/fwbzI2kV3Qrlpk3tUW/giphy.gif", stat: "12.6% SO · Most Admired", url: "https://www.rust-lang.org/" },
+    { name: "Kotlin", icon: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTFtNXJleXprN2N4dHU2bW54Ymp2aG5tNmhtdnQyNmphZnBqdnV4cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/eNAsjO55tPbgaor7ma/giphy.gif", stat: "9.4% SO · #10 GH", url: "https://kotlinlang.org/" }
+];
+
+const techCategories = [
+    {
+        title: "Bases de Datos", icon: "fas fa-database",
+        items: [
+            { name: "PostgreSQL", icon: "devicon-postgresql-plain colored", stat: "55.6%", desc: "OLTP/OLAP", url: "https://www.postgresql.org/" },
+            { name: "MySQL", icon: "devicon-mysql-plain colored", stat: "41.1%", desc: "Web Apps", url: "https://www.mysql.com/" },
+            { name: "MongoDB", icon: "devicon-mongodb-plain colored", stat: "25.5%", desc: "NoSQL", url: "https://www.mongodb.com/" },
+            { name: "Redis", icon: "devicon-redis-plain colored", stat: "20.3%", desc: "Cache", url: "https://redis.io/" }
+        ]
+    },
+    {
+        title: "Cloud", icon: "fas fa-cloud",
+        items: [
+            { name: "AWS", icon: "devicon-amazonwebservices-plain-wordmark colored", stat: "32%", desc: "Full Cloud", url: "https://aws.amazon.com/" },
+            { name: "Azure", icon: "devicon-azure-plain colored", stat: "23%", desc: "Enterprise", url: "https://azure.microsoft.com/" },
+            { name: "GCP", icon: "devicon-googlecloud-plain colored", stat: "10%", desc: "ML/BigData", url: "https://cloud.google.com/" },
+            { name: "Vercel", icon: "devicon-vercel-original", stat: "5.1%", desc: "Frontend", url: "https://vercel.com/" }
+        ]
+    },
+    {
+        title: "Data Engineering", icon: "fas fa-stream",
+        items: [
+            { name: "Spark", icon: "devicon-apachespark-original colored", stat: "68%", desc: "Big Data ETL", url: "https://spark.apache.org/" },
+            { name: "Airflow", icon: "devicon-apacheairflow-plain", stat: "52%", desc: "Orchestration", url: "https://airflow.apache.org/" },
+            { name: "Kafka", icon: "devicon-apachekafka-original", stat: "45%", desc: "Streaming", url: "https://kafka.apache.org/" },
+            { name: "dbt", icon: "fas fa-code-branch", stat: "38%", desc: "Transform", url: "https://www.getdbt.com/" }
+        ]
+    },
+    {
+        title: "DevOps", icon: "fas fa-infinity",
+        items: [
+            { name: "Docker", icon: "devicon-docker-plain colored", stat: "58.7%", desc: "Containers", url: "https://www.docker.com/" },
+            { name: "K8s", icon: "devicon-kubernetes-plain colored", stat: "22%", desc: "Orchestration", url: "https://kubernetes.io/" },
+            { name: "Terraform", icon: "devicon-terraform-plain colored", stat: "15.3%", desc: "IaC", url: "https://www.terraform.io/" },
+            { name: "Actions", icon: "devicon-githubactions-plain", stat: "45%", desc: "CI/CD", url: "https://github.com/features/actions" }
+        ]
+    },
+    {
+        title: "Backend", icon: "fas fa-server",
+        items: [
+            { name: "Node.js", icon: "devicon-nodejs-plain colored", stat: "42.7%", desc: "JS Runtime", url: "https://nodejs.org/" },
+            { name: "Spring", icon: "devicon-spring-original colored", stat: "18.5%", desc: "Java", url: "https://spring.io/" },
+            { name: "FastAPI", icon: "devicon-fastapi-plain colored", stat: "+150%", desc: "Python API", url: "https://fastapi.tiangolo.com/" },
+            { name: ".NET", icon: "devicon-dotnetcore-plain colored", stat: "19.4%", desc: "C#", url: "https://dotnet.microsoft.com/" }
+        ]
+    },
+    {
+        title: "Frontend", icon: "fas fa-desktop",
+        items: [
+            { name: "React", icon: "devicon-react-original colored", stat: "40.6%", desc: "UI Components", url: "https://react.dev/" },
+            { name: "Vue", icon: "devicon-vuejs-plain colored", stat: "15.4%", desc: "Progressive", url: "https://vuejs.org/" },
+            { name: "Next.js", icon: "devicon-nextjs-original", stat: "18.5%", desc: "React SSR", url: "https://nextjs.org/" },
+            { name: "Tailwind", icon: "devicon-tailwindcss-original colored", stat: "23.2%", desc: "Utility CSS", url: "https://tailwindcss.com/" }
+        ]
+    },
+    {
+        title: "Testing & QA", icon: "fas fa-vial",
+        items: [
+            { name: "Jest", icon: "devicon-jest-plain colored", stat: "29.1%", desc: "Unit JS", url: "https://jestjs.io/" },
+            { name: "Pytest", icon: "devicon-pytest-plain colored", stat: "24.6%", desc: "Unit Python", url: "https://pytest.org/" },
+            { name: "Playwright", icon: "fas fa-theater-masks", stat: "+180%", desc: "E2E", url: "https://playwright.dev/" },
+            { name: "Postman", icon: "devicon-postman-plain colored", stat: "30M+", desc: "API Testing", url: "https://www.postman.com/" }
+        ]
+    },
+    {
+        title: "Version Control", icon: "fas fa-code-branch",
+        items: [
+            { name: "Git", icon: "devicon-git-plain colored", stat: "93%", desc: "VCS", url: "https://git-scm.com/" },
+            { name: "GitHub", icon: "devicon-github-original", stat: "100M+", desc: "Repos", url: "https://github.com/" },
+            { name: "GitLab", icon: "devicon-gitlab-plain colored", stat: "30M+", desc: "DevSecOps", url: "https://gitlab.com/" },
+            { name: "Bitbucket", icon: "devicon-bitbucket-original colored", stat: "10M+", desc: "Atlassian", url: "https://bitbucket.org/" }
+        ]
+    }
+];
+---
+
+<section id="languages-2025" class="languages-section">
+    <!-- Premium Header -->
+    <div class="tech-hero-header" data-aos="fade-up">
+        <div class="tech-title-wrap">
+            <div class="tech-icon-glow">
+                <i class="fas fa-layer-group"></i>
+            </div>
+            <div class="tech-title-content">
+                <h2 class="tech-main-title">Stack Tecnológico <span class="gradient-text">2025</span></h2>
+                <p class="tech-tagline">70+ tecnologías que dominan la industria</p>
+            </div>
+        </div>
+        <div class="tech-sources">
+            <span class="source-chip so"><i class="fab fa-stack-overflow"></i> SO Survey</span>
+            <span class="source-chip gh"><i class="fab fa-github"></i> Octoverse</span>
+        </div>
+    </div>
+
+    <!-- Compact Dashboard -->
+    <div class="lang-dashboard glass-card compact-dashboard" data-aos="fade-up" data-aos-delay="100">
+        <!-- Languages Grid with Animated Icons -->
+        <div class="lang-showcase">
+            <!-- Row 1: Top 3 -->
+            <div class="lang-podium">
+                {topLanguages.map(lang => (
+                    <a href={lang.url} target="_blank" rel="noopener" class={`lang-item ${lang.class}`}>
+                        <div class="lang-rank">#{lang.rank}</div>
+                        <div class="lang-icon-wrap">
+                            <img src={lang.icon} width="50" alt={lang.name}/>
+                        </div>
+                        <div class="lang-details">
+                            <span class="lang-name">{lang.name}</span>
+                            <span class="lang-stat">{lang.stat}</span>
+                            <span class="lang-badge">{lang.badge}</span>
+                        </div>
+                        <div class="lang-bar-mini">
+                            <div class={`bar-fill ${lang.name.toLowerCase()}`} style={`width: ${lang.barWidth}`}></div>
+                        </div>
+                    </a>
+                ))}
+            </div>
+
+            <!-- Row 2: Other Languages -->
+            <div class="lang-grid-secondary">
+                {secondaryLanguages.map(lang => (
+                    <a href={lang.url} target="_blank" rel="noopener" class="lang-chip">
+                        <img src={lang.icon} width="32" alt={lang.name}/>
+                        <div class="chip-info">
+                            <span class="chip-name">{lang.name}</span>
+                            <span class="chip-stat">{lang.stat}</span>
+                        </div>
+                    </a>
+                ))}
+            </div>
+
+            <!-- Tech Categories Grid -->
+            <div class="tech-categories-grid">
+                {techCategories.map(category => (
+                    <div class="tech-cat">
+                        <div class="cat-label"><i class={category.icon}></i> {category.title}</div>
+                        <div class="cat-items">
+                            {category.items.map(item => (
+                                <a href={item.url} target="_blank" class="mini-chip">
+                                    <i class={item.icon}></i> {item.name}
+                                    <span class="chip-stat">{item.stat} · {item.desc}</span>
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <!-- Dashboard Footer -->
+        <div class="dashboard-footer">
+            <div class="sources-row">
+                <span class="source-label"><i class="fas fa-link"></i> Fuentes:</span>
+                <a href="https://survey.stackoverflow.co/2024/" target="_blank" class="source-link">
+                    <i class="fab fa-stack-overflow"></i> Stack Overflow 2024
+                </a>
+                <a href="https://github.blog/news-insights/octoverse/octoverse-2024/" target="_blank" class="source-link">
+                    <i class="fab fa-github"></i> GitHub Octoverse 2024
+                </a>
+            </div>
+            <div class="update-badge">
+                <i class="fas fa-sync-alt"></i> Actualizado: Diciembre 2025
+            </div>
+        </div>
+    </div>
+</section>
