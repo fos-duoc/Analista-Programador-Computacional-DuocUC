@@ -4641,7 +4641,7 @@ section {
 }
 
 .tech-main-title {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 800;
   color: var(--text-primary);
   letter-spacing: -0.02em;
@@ -4656,7 +4656,7 @@ section {
 }
 
 .tech-tagline {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   color: var(--text-secondary);
   margin: 0;
 }
