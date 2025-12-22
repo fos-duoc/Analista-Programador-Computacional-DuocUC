@@ -2890,6 +2890,142 @@ body,
   animation: pulseArrow 2s infinite;
 }
 
+/* ==================== DATA GOVERNANCE ==================== */
+.data-governance .arch-badge.governance {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(168, 85, 247, 0.2)) !important;
+  border-color: rgba(139, 92, 246, 0.5) !important;
+  color: #a78bfa !important;
+}
+
+.metric-badge.governance-metric {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(168, 85, 247, 0.1)) !important;
+  border: 1px solid rgba(139, 92, 246, 0.3) !important;
+  color: #c4b5fd !important;
+}
+
+.governance-framework {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.gov-pillar {
+  background: rgba(15, 15, 25, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.gov-pillar:hover {
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.15);
+  transform: translateY(-2px);
+}
+
+.gov-pillar-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gov-pillar-header i {
+  font-size: 0.9rem;
+}
+
+.gov-pillar-header.catalog {
+  color: #60a5fa;
+}
+
+.gov-pillar-header.catalog i {
+  color: #3b82f6;
+}
+
+.gov-pillar-header.quality {
+  color: #34d399;
+}
+
+.gov-pillar-header.quality i {
+  color: #10b981;
+}
+
+.gov-pillar-header.security {
+  color: #f472b6;
+}
+
+.gov-pillar-header.security i {
+  color: #ec4899;
+}
+
+.gov-pillar-header.observability {
+  color: #fbbf24;
+}
+
+.gov-pillar-header.observability i {
+  color: #f59e0b;
+}
+
+.gov-pillar-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.gov-tool {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.4rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  font-size: 0.6rem;
+  color: var(--text-secondary);
+}
+
+.gov-tool i {
+  font-size: 0.55rem;
+  opacity: 0.8;
+}
+
+.gov-tools-row {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.gov-tool-link {
+  display: inline-block;
+  padding: 0.15rem 0.35rem;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(168, 85, 247, 0.1));
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: 4px;
+  font-size: 0.55rem;
+  color: #c4b5fd;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.gov-tool-link:hover {
+  background: rgba(139, 92, 246, 0.25);
+  border-color: rgba(139, 92, 246, 0.5);
+  color: #e9d5ff;
+  transform: translateY(-1px);
+}
+
+/* Responsive Data Governance */
+@media (max-width: 600px) {
+  .governance-framework {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Agile Scrum Expanded */
 /* ==================== SCRUM PREMIUM DESIGN ==================== */
 .scrum-premium-container.glass-card {
