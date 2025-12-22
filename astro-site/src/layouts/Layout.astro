@@ -40,7 +40,7 @@ const { title, description = "Repositorio de materiales del programa Analista Pr
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <!-- Main Styles (versioned for cache busting) -->
-    <link rel="stylesheet" href="/Analista-Programador-Computacional-DuocUC/assets/css/style.css?v=2025122201">
+    <link rel="stylesheet" href="/Analista-Programador-Computacional-DuocUC/assets/css/style.css?v=2025122202">
 
     <link rel="icon" href="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg">
 </head>
@@ -50,6 +50,27 @@ const { title, description = "Repositorio de materiales del programa Analista Pr
     <!-- AOS - Load and Initialize -->
     <script is:inline src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script is:inline>
+        // Site version for cache busting
+        const SITE_VERSION = '2025122202';
+
+        // Check if we need to clear cache
+        (function() {
+            const storedVersion = localStorage.getItem('siteVersion');
+            if (storedVersion !== SITE_VERSION) {
+                localStorage.setItem('siteVersion', SITE_VERSION);
+                // Clear service worker caches if any
+                if ('caches' in window) {
+                    caches.keys().then(names => {
+                        names.forEach(name => caches.delete(name));
+                    });
+                }
+                // If version changed and not first visit, reload
+                if (storedVersion) {
+                    window.location.reload(true);
+                }
+            }
+        })();
+
         document.addEventListener('DOMContentLoaded', function() {
             if (typeof AOS !== 'undefined') {
                 AOS.init({
@@ -57,6 +78,13 @@ const { title, description = "Repositorio de materiales del programa Analista Pr
                     once: true,
                     offset: 50
                 });
+            }
+        });
+
+        // Also init AOS after Astro page transitions
+        document.addEventListener('astro:page-load', function() {
+            if (typeof AOS !== 'undefined') {
+                AOS.refresh();
             }
         });
     </script>
