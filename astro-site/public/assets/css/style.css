@@ -7358,3 +7358,19 @@ section {
   filter: invert(0) !important;
   color: #0f172a !important;
 }
+
+/* Fix dark icons in dark mode - Django, Flask, Express need brighter colors */
+[data-theme="dark"] .devicon-django-plain.colored,
+.devicon-django-plain.colored {
+  color: #44B78B !important; /* Django green but brighter */
+}
+
+[data-theme="dark"] .devicon-flask-original,
+.devicon-flask-original {
+  color: #f8fafc !important; /* White for visibility */
+}
+
+[data-theme="dark"] .devicon-express-original,
+.devicon-express-original {
+  color: #f8fafc !important; /* White for visibility */
+}
