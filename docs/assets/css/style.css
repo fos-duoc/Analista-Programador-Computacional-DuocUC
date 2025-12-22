@@ -2696,7 +2696,7 @@ section {
 }
 
 .lang-dashboard {
-  max-width: 1100px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0;
   overflow: hidden;
@@ -2763,20 +2763,20 @@ section {
 
 /* Language Showcase */
 .lang-showcase {
-  padding: 1.5rem;
+  padding: 2rem 2.5rem;
 }
 
 /* Top 3 Podium */
 .lang-podium {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .lang-item {
   position: relative;
-  padding: 1.25rem;
+  padding: 1.75rem 1.5rem;
   border-radius: var(--radius-md);
   background: var(--bg-tertiary);
   border: 1px solid var(--border-color);
@@ -2886,15 +2886,15 @@ section {
 .lang-grid-secondary {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .lang-chip {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 0.75rem;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
   background: var(--bg-tertiary);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
@@ -2917,13 +2917,13 @@ section {
 }
 
 .chip-name {
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--text-primary);
 }
 
 .chip-stat {
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   color: var(--text-muted);
 }
 
@@ -2931,8 +2931,13 @@ section {
 .db-section {
   background: rgba(0, 0, 0, 0.2);
   border-radius: var(--radius-md);
-  padding: 1rem;
+  padding: 1.25rem 1.5rem;
   border: 1px solid var(--border-color);
+  margin-bottom: 1rem;
+}
+
+.db-section:last-of-type {
+  margin-bottom: 0;
 }
 
 .db-header {
@@ -2947,32 +2952,32 @@ section {
 
 .db-chips {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 0.5rem;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.75rem;
 }
 
 .db-chip {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0.75rem;
+  gap: 0.6rem;
+  padding: 0.65rem 1rem;
   border-radius: var(--radius-sm);
   transition: var(--transition);
 }
 
 .db-chip i {
-  font-size: 1.25rem;
+  font-size: 1.4rem;
 }
 
 .db-chip span:first-of-type {
-  font-size: 0.75rem;
-  font-weight: 500;
+  font-size: 0.85rem;
+  font-weight: 600;
   color: var(--text-primary);
 }
 
 .db-stat {
   margin-left: auto;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--accent-primary);
 }
