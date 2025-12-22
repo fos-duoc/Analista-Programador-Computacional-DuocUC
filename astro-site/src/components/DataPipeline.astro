@@ -336,22 +336,21 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Airflow DAG Code -->
-        <div class="dag-code-container glass-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="code-header">
-                <div class="code-file">
-                    <i class="devicon-python-plain colored"></i>
-                    <span>etl_dag.py</span>
+            <!-- Airflow DAG Code -->
+            <div class="dag-code-container glass-card">
+                <div class="code-header">
+                    <div class="code-file">
+                        <i class="devicon-python-plain colored"></i>
+                        <span>etl_dag.py</span>
+                    </div>
+                    <div class="code-badges">
+                        <span class="code-badge airflow"><i class="devicon-apacheairflow-plain"></i> Airflow 2.x</span>
+                        <span class="code-badge python"><i class="devicon-python-plain"></i> Python 3.11</span>
+                    </div>
                 </div>
-                <div class="code-badges">
-                    <span class="code-badge airflow"><i class="devicon-apacheairflow-plain"></i> Airflow 2.x</span>
-                    <span class="code-badge python"><i class="devicon-python-plain"></i> Python 3.11</span>
-                </div>
-            </div>
-            <div class="code-block">
-                <pre><code class="language-python"><span class="code-comment"># etl_dag.py - Pipeline de datos completo</span>
+                <div class="code-block">
+                    <pre><code class="language-python"><span class="code-comment"># etl_dag.py - Pipeline de datos completo</span>
 <span class="code-keyword">from</span> airflow <span class="code-keyword">import</span> DAG
 <span class="code-keyword">from</span> airflow.operators.python <span class="code-keyword">import</span> PythonOperator
 <span class="code-keyword">from</span> airflow.providers.postgres.operators.postgres <span class="code-keyword">import</span> PostgresOperator
@@ -395,10 +394,11 @@ default_args = &#123;
 
     <span class="code-comment"># Definir dependencias</span>
     extract >> transform >> load</code></pre>
-            </div>
-            <div class="code-footer">
-                <span class="code-meta"><i class="fas fa-clock"></i> Schedule: Daily 6:00 AM</span>
-                <span class="code-meta"><i class="fas fa-tags"></i> Tags: etl, production</span>
+                </div>
+                <div class="code-footer">
+                    <span class="code-meta"><i class="fas fa-clock"></i> Schedule: Daily 6:00 AM</span>
+                    <span class="code-meta"><i class="fas fa-tags"></i> Tags: etl, production</span>
+                </div>
             </div>
         </div>
 
