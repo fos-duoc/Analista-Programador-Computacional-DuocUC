@@ -41,7 +41,8 @@ const courses = [
     {
         name: "Coursera",
         platform: "Coursera",
-        icon: "fas fa-university",
+        iconType: "img",
+        iconSrc: "https://cdn.simpleicons.org/coursera/0056D2",
         description: "Cursos de Google, IBM, Meta y universidades top del mundo",
         topics: ["Data Science", "Cloud", "ML/AI", "DevOps"],
         link: "https://www.coursera.org/",
@@ -50,7 +51,8 @@ const courses = [
     {
         name: "DataCamp",
         platform: "DataCamp",
-        icon: "fas fa-database",
+        iconType: "img",
+        iconSrc: "https://cdn.simpleicons.org/datacamp/03EF62",
         description: "Cursos interactivos de Python, SQL y Data Science",
         topics: ["Python", "SQL", "Data Science", "ML"],
         link: "https://www.datacamp.com/",
@@ -59,7 +61,8 @@ const courses = [
     {
         name: "freeCodeCamp",
         platform: "freeCodeCamp",
-        icon: "fas fa-fire",
+        iconType: "img",
+        iconSrc: "https://cdn.simpleicons.org/freecodecamp/0A0A23",
         description: "Certificaciones gratuitas en desarrollo web y más",
         topics: ["HTML/CSS", "JavaScript", "React", "APIs"],
         link: "https://www.freecodecamp.org/",
@@ -68,7 +71,8 @@ const courses = [
     {
         name: "Whizlabs",
         platform: "Whizlabs",
-        icon: "fas fa-cloud",
+        iconType: "img",
+        iconSrc: "https://www.whizlabs.com/favicon.ico",
         description: "Preparación para certificaciones cloud AWS, Azure, GCP",
         topics: ["AWS", "Azure", "GCP", "Kubernetes"],
         link: "https://www.whizlabs.com/",
@@ -169,7 +173,7 @@ const tools = [
                     <a href={course.link} target="_blank" rel="noopener" class="course-card glass-card" data-aos="zoom-in" data-aos-delay={index * 50}>
                         <div class="course-header">
                             <div class="course-icon">
-                                <i class={course.icon}></i>
+                                <img src={course.iconSrc} alt={course.name} class="course-logo" />
                             </div>
                             <span class="course-badge">{course.badge}</span>
                         </div>
@@ -442,6 +446,13 @@ const tools = [
     .course-icon i {
         font-size: 1.25rem;
         color: #10b981;
+    }
+
+    .course-logo {
+        width: 28px;
+        height: 28px;
+        object-fit: contain;
+        filter: brightness(1.2);
     }
 
     .course-badge {
