@@ -1,17 +1,30 @@
 <div align="center">
 
-<!-- HEADER PREMIUM -->
-<img src="https://capsule-render.vercel.app/api?type=venom&color=0:1a1a2e,50:16213e,100:0f3460&height=220&section=header&text=ANALISTA%20PROGRAMADOR&fontSize=38&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=COMPUTACIONAL%20%E2%94%82%20DUOC%20UC&descSize=16&descAlignY=58&stroke=00d9ff&strokeWidth=1" width="100%"/>
+<!-- HEADER PREMIUM - WAVE GRADIENT -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:667eea,25:764ba2,50:f093fb,75:5ee7df,100:b8c6db&height=180&section=header&animation=fadeIn" width="100%"/>
 
-<!-- BADGES PREMIUM -->
-<p>
-<a href="https://www.duoc.cl/"><img src="https://img.shields.io/badge/DUOC_UC-Escuela_de_Informática_y_Telecomunicaciones-0d1b2a?style=for-the-badge&logo=academia&logoColor=00d9ff&labelColor=1a1a2e" alt="DuocUC"/></a>
-</p>
-<p>
-<img src="https://img.shields.io/badge/⚡_MODALIDAD-ONLINE-00d9ff?style=flat-square&labelColor=1a1a2e"/>
-<img src="https://img.shields.io/badge/📅_DURACIÓN-10_BIMESTRES-00d9ff?style=flat-square&labelColor=1a1a2e"/>
-<img src="https://img.shields.io/badge/🎯_2025-ACTUALIZADO-00d9ff?style=flat-square&labelColor=1a1a2e"/>
-</p>
+<!-- TÍTULO PRINCIPAL -->
+<br>
+
+<a href="#">
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=800&size=42&duration=3000&pause=1000&color=667EEA&center=true&vCenter=true&multiline=true&repeat=false&width=800&height=50&lines=ANALISTA+PROGRAMADOR" alt="Title"/>
+</a>
+
+<a href="#">
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=28&duration=2500&pause=800&color=764BA2&center=true&vCenter=true&repeat=false&width=600&height=40&lines=COMPUTACIONAL" alt="Subtitle"/>
+</a>
+
+<br>
+
+<img src="https://img.shields.io/badge/DUOC_UC-Escuela_de_Informática-667eea?style=for-the-badge&logo=academia&logoColor=white&labelColor=764ba2" alt="DuocUC"/>
+
+<br><br>
+
+<!-- STATS BADGES -->
+<img src="https://img.shields.io/badge/MODALIDAD-ONLINE-5ee7df?style=flat-square&logo=wifi&logoColor=white&labelColor=667eea"/>
+<img src="https://img.shields.io/badge/DURACIÓN-10_BIMESTRES-f093fb?style=flat-square&logo=calendar&logoColor=white&labelColor=764ba2"/>
+<img src="https://img.shields.io/badge/2025-ACTUALIZADO-b8c6db?style=flat-square&logo=checkmarx&logoColor=white&labelColor=667eea"/>
+<img src="https://img.shields.io/badge/TITULO-TÉCNICO_NIVEL_SUPERIOR-5ee7df?style=flat-square&logo=mortarboard&logoColor=white&labelColor=764ba2"/>
 
 <br>
 
@@ -611,10 +624,209 @@ code .
 
 ---
 
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Gear.png" alt="Gear" width="28" /> Herramientas para tu GitHub Profile
+
+> [!TIP]
+> Colección curada de las mejores herramientas para crear perfiles de GitHub profesionales y repositorios atractivos.
+
+<div align="center">
+
+### 🏆 TIER S - Imprescindibles
+
+<table>
+<tr>
+<td align="center" width="200">
+
+**📊 GitHub Readme Stats**
+
+<a href="https://github.com/anuraghazra/github-readme-stats">
+<img src="https://img.shields.io/badge/⭐_69k+-Stats_Cards-667eea?style=for-the-badge&labelColor=1a1a2e" height="28"/>
+</a>
+
+<sub>Stats, Top Langs, Repo Cards</sub>
+
+</td>
+<td align="center" width="200">
+
+**🔥 Streak Stats**
+
+<a href="https://github.com/DenverCoder1/github-readme-streak-stats">
+<img src="https://img.shields.io/badge/⭐_5k+-Streak_Fire-f093fb?style=for-the-badge&labelColor=1a1a2e" height="28"/>
+</a>
+
+<sub>Racha de contribuciones</sub>
+
+</td>
+<td align="center" width="200">
+
+**📈 Metrics**
+
+<a href="https://github.com/lowlighter/metrics">
+<img src="https://img.shields.io/badge/⭐_13k+-Advanced_Stats-5ee7df?style=for-the-badge&labelColor=1a1a2e" height="28"/>
+</a>
+
+<sub>+50 plugins personalizables</sub>
+
+</td>
+<td align="center" width="200">
+
+**⌨️ Typing SVG**
+
+<a href="https://github.com/DenverCoder1/readme-typing-svg">
+<img src="https://img.shields.io/badge/⭐_5k+-Animated_Text-764ba2?style=for-the-badge&labelColor=1a1a2e" height="28"/>
+</a>
+
+<sub>Texto animado tipo terminal</sub>
+
+</td>
+</tr>
+</table>
+
+---
+
+### 🎨 Headers & Banners
+
+| Herramienta | Descripción | Enlace |
+|:------------|:------------|:------:|
+| **Capsule Render** | Headers/footers con gradientes y animaciones | [![Link](https://img.shields.io/badge/↗-667eea?style=flat-square)](https://github.com/kyechan99/capsule-render) |
+| **SVG Banners** | Banners minimalistas estilo terminal | [![Link](https://img.shields.io/badge/↗-764ba2?style=flat-square)](https://github.com/Akshay090/svg-banners) |
+| **Header Generator** | Generador visual de headers | [![Link](https://img.shields.io/badge/↗-f093fb?style=flat-square)](https://leviarista.github.io/github-profile-header-generator/) |
+| **Profile Header Generator** | Headers con imágenes de fondo | [![Link](https://img.shields.io/badge/↗-5ee7df?style=flat-square)](https://github.com/khalby786/REHeader) |
+
+---
+
+### 📊 Stats & Métricas
+
+| Herramienta | Tipo | Enlace |
+|:------------|:-----|:------:|
+| **GitHub Profile Trophy** | Trofeos por logros | [![Link](https://img.shields.io/badge/↗-FFD700?style=flat-square)](https://github.com/ryo-ma/github-profile-trophy) |
+| **GitHub Profile Views Counter** | Contador de visitas | [![Link](https://img.shields.io/badge/↗-667eea?style=flat-square)](https://github.com/antonkomarev/github-profile-views-counter) |
+| **GitHub Trends** | Gráficas de tendencias | [![Link](https://img.shields.io/badge/↗-764ba2?style=flat-square)](https://github.com/avgupta456/github-trends) |
+| **GitHub Profile Summary Cards** | Resumen visual completo | [![Link](https://img.shields.io/badge/↗-f093fb?style=flat-square)](https://github.com/vn7n24fzkq/github-profile-summary-cards) |
+| **WakaTime Stats** | Tiempo de coding por lenguaje | [![Link](https://img.shields.io/badge/↗-5ee7df?style=flat-square)](https://github.com/anmol098/waka-readme-stats) |
+| **GitHub Contribution 3D** | Contribuciones en 3D | [![Link](https://img.shields.io/badge/↗-667eea?style=flat-square)](https://github.com/yoshi389111/github-profile-3d-contrib) |
+
+---
+
+### 🛠️ Generadores de README
+
+<table>
+<tr>
+<td align="center" width="220">
+
+**GPRM**
+
+<a href="https://gprm.itsvg.in/">
+<img src="https://img.shields.io/badge/GitHub_Profile-README_Maker-667eea?style=for-the-badge&labelColor=1a1a2e" height="28"/>
+</a>
+
+<sub>⭐ El más completo</sub>
+
+</td>
+<td align="center" width="220">
+
+**Profile Generator**
+
+<a href="https://rahuldkjain.github.io/gh-profile-readme-generator/">
+<img src="https://img.shields.io/badge/Profile-Generator-764ba2?style=for-the-badge&labelColor=1a1a2e" height="28"/>
+</a>
+
+<sub>Visual y fácil de usar</sub>
+
+</td>
+<td align="center" width="220">
+
+**Profilinator**
+
+<a href="https://profilinator.rishav.dev/">
+<img src="https://img.shields.io/badge/Profilinator-Builder-f093fb?style=for-the-badge&labelColor=1a1a2e" height="28"/>
+</a>
+
+<sub>Drag & drop sections</sub>
+
+</td>
+<td align="center" width="220">
+
+**readme.so**
+
+<a href="https://readme.so/">
+<img src="https://img.shields.io/badge/readme.so-Editor-5ee7df?style=for-the-badge&labelColor=1a1a2e" height="28"/>
+</a>
+
+<sub>Editor markdown visual</sub>
+
+</td>
+</tr>
+</table>
+
+---
+
+### 🐍 Snake Animation
+
+> Animación de serpiente que "come" tus contribuciones. Muy popular en perfiles de GitHub.
+
+```yaml
+# .github/workflows/snake.yml
+name: Generate Snake
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"  # Cada 12 horas
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Platane/snk@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/github-snake.svg
+            dist/github-snake-dark.svg?palette=github-dark
+```
+
+<a href="https://github.com/Platane/snk">
+<img src="https://img.shields.io/badge/📦_Platane/snk-Snake_Animation-2ea44f?style=for-the-badge&labelColor=1a1a2e" height="32"/>
+</a>
+
+---
+
+### 🎯 Recursos Adicionales
+
+<table>
+<tr>
+<td width="50%">
+
+**📚 Íconos & Badges**
+
+- [Skill Icons](https://skillicons.dev/) - Íconos de tecnologías
+- [Simple Icons](https://simpleicons.org/) - +2800 logos de marcas
+- [Devicon](https://devicon.dev/) - Íconos de desarrollo
+- [Shields.io](https://shields.io/) - Badges personalizables
+
+</td>
+<td width="50%">
+
+**✨ Decoración**
+
+- [Animated Fluent Emojis](https://github.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis) - Emojis animados
+- [GitHub Readme Activity Graph](https://github.com/Ashutosh00710/github-readme-activity-graph) - Gráfico de actividad
+- [Spotify Now Playing](https://github.com/novatorem/novatorem) - Widget de Spotify
+- [Blog Post Workflow](https://github.com/gautamkrishnar/blog-post-workflow) - Posts de blog automáticos
+
+</td>
+</tr>
+</table>
+
+</div>
+
+---
+
 <div align="center">
 
 <!-- FOOTER -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0066CC,100:003366&height=120&section=footer" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:667eea,50:764ba2,100:f093fb&height=120&section=footer" width="100%"/>
 
 **DuocUC** › Escuela de Informática y Telecomunicaciones
 
