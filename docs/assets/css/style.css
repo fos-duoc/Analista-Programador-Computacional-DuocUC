@@ -434,6 +434,50 @@ body {
   transform: translateY(-2px) scale(1.1);
 }
 
+/* Devicon Box Style - for devicon icons in grid */
+.tech-icon-link.devicon-box {
+  background: rgba(30, 30, 40, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 8px;
+}
+
+.tech-icon-link.devicon-box i {
+  font-size: 28px;
+}
+
+.tech-icon-link.devicon-box .simple-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.tech-icon-link.devicon-box:hover {
+  background: rgba(0, 212, 255, 0.15);
+  border-color: rgba(0, 212, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+  .tech-icon-link.devicon-box i {
+    font-size: 22px;
+  }
+  .tech-icon-link.devicon-box .simple-icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-icon-link.devicon-box i {
+    font-size: 18px;
+  }
+  .tech-icon-link.devicon-box .simple-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
 /* Floating Icon Links */
 .floating-icon-link {
   text-decoration: none;
