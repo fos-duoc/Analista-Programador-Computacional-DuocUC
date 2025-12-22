@@ -42,6 +42,16 @@ const aiTools = [
         features: ["Explicación de código", "Debugging asistido", "Generación de tests"],
         link: "https://claude.ai",
         linkText: "Probar Claude"
+    },
+    {
+        name: "Le Chat (Mistral AI)",
+        icon: "fas fa-comments",
+        badge: "ECONÓMICO",
+        badgeColor: "cyan",
+        description: "Asistente IA francés, potente y accesible. Ideal para estudiantes con presupuesto limitado.",
+        features: ["Código & debugging", "Muy económico", "Multilingüe", "API asequible"],
+        link: "https://chat.mistral.ai/chat",
+        linkText: "Probar Le Chat"
     }
 ];
 
@@ -298,6 +308,12 @@ const bestPractices = [
         background: rgba(124, 58, 237, 0.2);
         color: #a78bfa;
         border: 1px solid rgba(124, 58, 237, 0.3);
+    }
+
+    .ai-tool-badge.cyan {
+        background: rgba(6, 182, 212, 0.2);
+        color: #22d3ee;
+        border: 1px solid rgba(6, 182, 212, 0.3);
     }
 
     .ai-tool-description {

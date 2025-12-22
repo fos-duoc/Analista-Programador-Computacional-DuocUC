@@ -26,6 +26,16 @@
                 <span>Batch Processing</span>
                 <small>Alto volumen</small>
             </button>
+            <button class="mode-btn" data-mode="architecture" id="btn-architecture">
+                <i class="fas fa-stream"></i>
+                <span>Pipeline Architecture</span>
+                <small>E2E Diagram</small>
+            </button>
+            <button class="mode-btn" data-mode="governance" id="btn-governance">
+                <i class="fas fa-shield-alt"></i>
+                <span>Data Governance</span>
+                <small>Framework</small>
+            </button>
         </div>
     </div>
 
@@ -392,9 +402,8 @@ default_args = &#123;
             </div>
         </div>
 
-        <!-- ==================== VISUAL DIAGRAMS SECTION ==================== -->
-        <div class="pipeline-diagrams-visual" data-aos="fade-up" data-aos-delay="100">
-
+        <!-- ==================== ARCHITECTURE DIAGRAM ==================== -->
+        <div id="pipeline-architecture" class="pipeline-diagram-premium pipeline-mode">
             <!-- ========== DIAGRAM 1: END-TO-END PIPELINE FLOW ========== -->
             <div class="visual-diagram-box glass-card">
                 <div class="diagram-header">
@@ -658,7 +667,10 @@ default_args = &#123;
                     </div>
                 </div>
             </div>
+        </div>
 
+        <!-- ==================== GOVERNANCE DIAGRAM ==================== -->
+        <div id="pipeline-governance" class="pipeline-diagram-premium pipeline-mode">
             <!-- ========== DIAGRAM 2: DATA GOVERNANCE FRAMEWORK ========== -->
             <div class="visual-diagram-box glass-card governance-diagram">
                 <div class="diagram-header">
@@ -988,4 +1000,6 @@ default_args = &#123;
     // Add event listeners
     document.getElementById('btn-realtime')?.addEventListener('click', () => switchPipelineMode('realtime'));
     document.getElementById('btn-batch')?.addEventListener('click', () => switchPipelineMode('batch'));
+    document.getElementById('btn-architecture')?.addEventListener('click', () => switchPipelineMode('architecture'));
+    document.getElementById('btn-governance')?.addEventListener('click', () => switchPipelineMode('governance'));
 </script>
