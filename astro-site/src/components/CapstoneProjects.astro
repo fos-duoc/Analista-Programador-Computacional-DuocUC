@@ -1,0 +1,554 @@
+---
+// Capstone Projects - Proyectos prácticos por nivel
+// Basado en mejores prácticas 2025 y malla DuocUC
+
+const projectLevels = [
+    {
+        level: "Beginner",
+        levelNum: 1,
+        color: "cyan",
+        icon: "fas fa-seedling",
+        description: "Proyectos para consolidar fundamentos de programación",
+        bimestres: "B01-B02",
+        projects: [
+            {
+                name: "CLI Task Manager",
+                description: "Aplicación de consola para gestionar tareas con persistencia en archivos",
+                skills: ["Python", "Archivos JSON", "Lógica"],
+                duration: "2-3 semanas",
+                difficulty: 1
+            },
+            {
+                name: "ETL Pipeline Básico",
+                description: "Pipeline que ingesta CSV, transforma datos y carga en SQLite",
+                skills: ["Python", "Pandas", "SQL básico"],
+                duration: "2 semanas",
+                difficulty: 2
+            },
+            {
+                name: "API de Calculadora",
+                description: "REST API simple con operaciones matemáticas usando Flask/FastAPI",
+                skills: ["Python", "HTTP", "JSON"],
+                duration: "1-2 semanas",
+                difficulty: 2
+            }
+        ]
+    },
+    {
+        level: "Intermediate",
+        levelNum: 2,
+        color: "purple",
+        icon: "fas fa-cubes",
+        description: "Proyectos con arquitectura POO y bases de datos",
+        bimestres: "B03-B06",
+        projects: [
+            {
+                name: "E-Commerce Backend",
+                description: "API REST completa con usuarios, productos, carrito y órdenes",
+                skills: ["Spring Boot / FastAPI", "PostgreSQL", "JWT Auth"],
+                duration: "4-6 semanas",
+                difficulty: 3
+            },
+            {
+                name: "Real-Time Dashboard",
+                description: "Dashboard con datos en tiempo real usando WebSockets",
+                skills: ["Node.js", "Socket.io", "Redis", "Chart.js"],
+                duration: "3-4 semanas",
+                difficulty: 3
+            },
+            {
+                name: "Microservicios Demo",
+                description: "Sistema de 3 microservicios comunicándose via REST/mensajería",
+                skills: ["Docker", "RabbitMQ/Kafka", "API Gateway"],
+                duration: "4-5 semanas",
+                difficulty: 4
+            }
+        ]
+    },
+    {
+        level: "Advanced",
+        levelNum: 3,
+        color: "orange",
+        icon: "fas fa-rocket",
+        description: "Proyectos cloud-native con deploy real",
+        bimestres: "B07-B10",
+        projects: [
+            {
+                name: "Fullstack SaaS App",
+                description: "Aplicación SaaS completa con frontend React, backend y DB en la nube",
+                skills: ["React/Angular", "Node.js/Spring", "AWS/GCP", "CI/CD"],
+                duration: "6-8 semanas",
+                difficulty: 4
+            },
+            {
+                name: "Data Pipeline E2E",
+                description: "Pipeline de ingesta, procesamiento y visualización de datos",
+                skills: ["Airflow", "Spark", "PostgreSQL/Snowflake", "Grafana"],
+                duration: "5-6 semanas",
+                difficulty: 5
+            },
+            {
+                name: "Mobile App + Backend",
+                description: "App móvil con backend propio, auth, notificaciones push",
+                skills: ["Flutter/React Native", "Firebase", "Play Store/App Store"],
+                duration: "6-8 semanas",
+                difficulty: 5
+            }
+        ]
+    }
+];
+
+const projectTips = [
+    { icon: "fas fa-git-alt", title: "Usa Git desde el día 1", desc: "Commits frecuentes, branches, PRs" },
+    { icon: "fas fa-file-alt", title: "Documenta tu proyecto", desc: "README, diagramas, API docs" },
+    { icon: "fas fa-vial", title: "Escribe tests", desc: "Unit tests, integration tests" },
+    { icon: "fas fa-cloud-upload-alt", title: "Despliega temprano", desc: "CI/CD desde el inicio" }
+];
+---
+
+<section id="capstone-projects" class="capstone-section">
+    <div class="capstone-container">
+        <!-- Header -->
+        <div class="capstone-header" data-aos="fade-up">
+            <div class="capstone-header-icon">
+                <i class="fas fa-project-diagram"></i>
+            </div>
+            <h2>Proyectos Capstone</h2>
+            <p class="capstone-subtitle">Construye tu portafolio con proyectos reales por nivel</p>
+            <div class="capstone-stats">
+                <span class="capstone-stat">
+                    <i class="fas fa-folder-open"></i>
+                    <strong>9</strong> Proyectos
+                </span>
+                <span class="capstone-stat">
+                    <i class="fas fa-layer-group"></i>
+                    <strong>3</strong> Niveles
+                </span>
+                <span class="capstone-stat">
+                    <i class="fas fa-briefcase"></i>
+                    Portfolio Ready
+                </span>
+            </div>
+        </div>
+
+        <!-- Project Levels -->
+        <div class="capstone-levels">
+            {projectLevels.map((level, levelIndex) => (
+                <div class={`capstone-level level-${level.color}`} data-aos="fade-up" data-aos-delay={levelIndex * 100}>
+                    <!-- Level Header -->
+                    <div class="level-header">
+                        <div class="level-badge">
+                            <i class={level.icon}></i>
+                            <span>Level {level.levelNum}</span>
+                        </div>
+                        <div class="level-info">
+                            <h3>{level.level}</h3>
+                            <p>{level.description}</p>
+                            <span class="level-bimestres">{level.bimestres}</span>
+                        </div>
+                    </div>
+
+                    <!-- Projects Grid -->
+                    <div class="projects-grid">
+                        {level.projects.map((project, projIndex) => (
+                            <div class="project-card glass-card" data-aos="zoom-in" data-aos-delay={100 + projIndex * 50}>
+                                <div class="project-header">
+                                    <h4>{project.name}</h4>
+                                    <div class="project-difficulty">
+                                        {[...Array(5)].map((_, i) => (
+                                            <i class={`fas fa-star ${i < project.difficulty ? 'filled' : ''}`}></i>
+                                        ))}
+                                    </div>
+                                </div>
+                                <p class="project-description">{project.description}</p>
+                                <div class="project-skills">
+                                    {project.skills.map(skill => (
+                                        <span class="project-skill">{skill}</span>
+                                    ))}
+                                </div>
+                                <div class="project-footer">
+                                    <span class="project-duration">
+                                        <i class="fas fa-clock"></i> {project.duration}
+                                    </span>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            ))}
+        </div>
+
+        <!-- Project Tips -->
+        <div class="capstone-tips glass-card" data-aos="fade-up">
+            <div class="tips-title">
+                <i class="fas fa-lightbulb"></i>
+                <span>Tips para Proyectos Exitosos</span>
+            </div>
+            <div class="tips-grid">
+                {projectTips.map(tip => (
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class={tip.icon}></i>
+                        </div>
+                        <div class="tip-content">
+                            <h5>{tip.title}</h5>
+                            <p>{tip.desc}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="capstone-cta" data-aos="fade-up">
+            <a href="https://github.com/new" target="_blank" rel="noopener" class="cta-button">
+                <i class="fab fa-github"></i>
+                Crear Nuevo Repositorio
+            </a>
+            <span class="cta-hint">Empieza tu primer proyecto hoy</span>
+        </div>
+    </div>
+</section>
+
+<style>
+    .capstone-section {
+        padding: 4rem 2rem;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    /* Header */
+    .capstone-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .capstone-header-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 1.5rem;
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(0, 212, 255, 0.2));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .capstone-header-icon i {
+        font-size: 2.5rem;
+        background: linear-gradient(135deg, #10b981, #00d4ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .capstone-header h2 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+        background: linear-gradient(135deg, #f8fafc, #94a3b8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .capstone-subtitle {
+        font-size: 1.1rem;
+        color: #94a3b8;
+        margin-bottom: 1.5rem;
+    }
+
+    .capstone-stats {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .capstone-stat {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #94a3b8;
+        font-size: 0.9rem;
+    }
+
+    .capstone-stat i {
+        color: #10b981;
+    }
+
+    .capstone-stat strong {
+        color: #f8fafc;
+    }
+
+    /* Levels */
+    .capstone-levels {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .capstone-level {
+        padding: 2rem;
+        background: rgba(18, 18, 26, 0.6);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .level-cyan { border-left: 4px solid #00d4ff; }
+    .level-purple { border-left: 4px solid #7c3aed; }
+    .level-orange { border-left: 4px solid #f59e0b; }
+
+    .level-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .level-badge {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        min-width: 80px;
+    }
+
+    .level-cyan .level-badge i { color: #00d4ff; font-size: 1.5rem; }
+    .level-purple .level-badge i { color: #7c3aed; font-size: 1.5rem; }
+    .level-orange .level-badge i { color: #f59e0b; font-size: 1.5rem; }
+
+    .level-badge span {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: #94a3b8;
+        text-transform: uppercase;
+    }
+
+    .level-info h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #f8fafc;
+        margin-bottom: 0.25rem;
+    }
+
+    .level-info p {
+        color: #94a3b8;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .level-bimestres {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        background: rgba(0, 212, 255, 0.1);
+        border-radius: 12px;
+        font-size: 0.8rem;
+        color: #00d4ff;
+        font-weight: 600;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+    }
+
+    .project-card {
+        padding: 1.25rem;
+        border-radius: 14px;
+        transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+        transform: translateY(-4px);
+    }
+
+    .project-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 0.75rem;
+    }
+
+    .project-header h4 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #f8fafc;
+    }
+
+    .project-difficulty {
+        display: flex;
+        gap: 2px;
+    }
+
+    .project-difficulty i {
+        font-size: 0.65rem;
+        color: #334155;
+    }
+
+    .project-difficulty i.filled {
+        color: #ffd700;
+    }
+
+    .project-description {
+        font-size: 0.85rem;
+        color: #94a3b8;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+    }
+
+    .project-skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .project-skill {
+        padding: 0.25rem 0.6rem;
+        background: rgba(0, 212, 255, 0.1);
+        border: 1px solid rgba(0, 212, 255, 0.2);
+        border-radius: 8px;
+        font-size: 0.7rem;
+        color: #00d4ff;
+        font-weight: 500;
+    }
+
+    .project-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .project-duration {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.8rem;
+        color: #64748b;
+    }
+
+    .project-duration i {
+        color: #f59e0b;
+    }
+
+    /* Tips */
+    .capstone-tips {
+        padding: 1.5rem;
+        border-radius: 16px;
+        margin-top: 2rem;
+    }
+
+    .tips-title {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 700;
+        color: #f8fafc;
+        margin-bottom: 1rem;
+    }
+
+    .tips-title i {
+        color: #f59e0b;
+        font-size: 1.25rem;
+    }
+
+    .tips-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+
+    .tip-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 0.75rem;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 10px;
+    }
+
+    .tip-icon {
+        width: 36px;
+        height: 36px;
+        background: rgba(245, 158, 11, 0.15);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .tip-icon i {
+        color: #f59e0b;
+        font-size: 0.9rem;
+    }
+
+    .tip-content h5 {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #f8fafc;
+        margin-bottom: 0.2rem;
+    }
+
+    .tip-content p {
+        font-size: 0.75rem;
+        color: #64748b;
+    }
+
+    /* CTA */
+    .capstone-cta {
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    .cta-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem 2rem;
+        background: linear-gradient(135deg, #10b981, #059669);
+        border-radius: 12px;
+        font-size: 1rem;
+        font-weight: 700;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 30px rgba(16, 185, 129, 0.4);
+    }
+
+    .cta-hint {
+        display: block;
+        margin-top: 0.75rem;
+        font-size: 0.85rem;
+        color: #64748b;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .capstone-header h2 {
+            font-size: 1.75rem;
+        }
+
+        .level-header {
+            flex-direction: column;
+        }
+
+        .projects-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .tips-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

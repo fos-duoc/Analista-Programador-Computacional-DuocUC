@@ -7374,3 +7374,316 @@ section {
 .devicon-express-original {
   color: #f8fafc !important; /* White for visibility */
 }
+
+/* ============================================
+   LIGHT MODE - NEW 2025 SECTIONS
+   AI Tools, Learning Roadmap, Capstone Projects, Recursos 2025
+   ============================================ */
+
+/* AI Tools Section - Light Mode */
+[data-theme="light"] .ai-tools-section {
+  background: var(--bg-secondary) !important;
+}
+
+[data-theme="light"] .ai-section-header h2 {
+  background: linear-gradient(135deg, #0f172a, #475569) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+[data-theme="light"] .ai-subtitle {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .ai-header-icon {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(8, 145, 178, 0.1)) !important;
+}
+
+[data-theme="light"] .ai-source-badge {
+  background: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #475569 !important;
+}
+
+[data-theme="light"] .ai-tool-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] .ai-tool-title-group h3 {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .ai-tool-description {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .ai-feature-chip {
+  background: rgba(0, 0, 0, 0.04) !important;
+  color: #475569 !important;
+}
+
+[data-theme="light"] .ai-best-practices {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .ai-practices-header {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .ai-practice-item {
+  background: rgba(0, 0, 0, 0.03) !important;
+  color: #475569 !important;
+}
+
+[data-theme="light"] .ai-cta-banner {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(8, 145, 178, 0.06)) !important;
+  border-color: rgba(124, 58, 237, 0.2) !important;
+}
+
+[data-theme="light"] .ai-cta-text h4 {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .ai-cta-text p {
+  color: #475569 !important;
+}
+
+/* Learning Roadmap - Light Mode */
+[data-theme="light"] .roadmap-section {
+  background: var(--bg-primary) !important;
+}
+
+[data-theme="light"] .roadmap-header h2 {
+  background: linear-gradient(135deg, #0f172a, #475569) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+[data-theme="light"] .roadmap-subtitle {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .phase-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] .phase-info h3 {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .phase-info p {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .skills-section h4 {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .skill-tag {
+  background: rgba(0, 0, 0, 0.04) !important;
+  color: #475569 !important;
+}
+
+[data-theme="light"] .roadmap-achievements {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .achievements-title {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .achievement-card {
+  background: rgba(0, 0, 0, 0.03) !important;
+}
+
+[data-theme="light"] .achievement-card h4 {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .achievement-card p {
+  color: #64748b !important;
+}
+
+/* Capstone Projects - Light Mode */
+[data-theme="light"] .capstone-section {
+  background: var(--bg-secondary) !important;
+}
+
+[data-theme="light"] .capstone-header h2 {
+  background: linear-gradient(135deg, #0f172a, #475569) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+[data-theme="light"] .capstone-subtitle {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .capstone-stat {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .capstone-stat strong {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .capstone-level {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] .level-badge {
+  background: rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="light"] .level-badge span {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .level-info h3 {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .level-info p {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .project-card {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-theme="light"] .project-header h4 {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .project-description {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .project-skill {
+  background: rgba(8, 145, 178, 0.08) !important;
+  border-color: rgba(8, 145, 178, 0.15) !important;
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .project-duration {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .capstone-tips {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .tips-title {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .tip-card {
+  background: rgba(0, 0, 0, 0.03) !important;
+}
+
+[data-theme="light"] .tip-content h5 {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .tip-content p {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .cta-hint {
+  color: #64748b !important;
+}
+
+/* Recursos 2025 - Light Mode */
+[data-theme="light"] .recursos-section {
+  background: var(--bg-primary) !important;
+}
+
+[data-theme="light"] .recursos-header h2 {
+  background: linear-gradient(135deg, #0f172a, #475569) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+[data-theme="light"] .recursos-subtitle {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .categoria-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] .categoria-header h3 {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .recurso-item {
+  background: rgba(0, 0, 0, 0.03) !important;
+}
+
+[data-theme="light"] .recurso-item:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] .recurso-content h4 {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .recurso-content p {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .recurso-tag {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #475569 !important;
+}
+
+[data-theme="light"] .recursos-tools {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .tools-title {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .tool-item {
+  background: rgba(0, 0, 0, 0.03) !important;
+}
+
+[data-theme="light"] .tool-item span {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .recursos-quick-links {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .quick-links-title {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .quick-link {
+  background: rgba(0, 0, 0, 0.03) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .quick-link span {
+  color: #64748b !important;
+}
