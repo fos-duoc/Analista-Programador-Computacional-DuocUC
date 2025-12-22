@@ -404,265 +404,321 @@ default_args = &#123;
 
         <!-- ==================== ARCHITECTURE DIAGRAM ==================== -->
         <div id="pipeline-architecture" class="pipeline-diagram-premium pipeline-mode">
-            <!-- ========== DIAGRAM 1: END-TO-END PIPELINE FLOW ========== -->
-            <div class="visual-diagram-box glass-card">
-                <div class="diagram-header">
-                    <div class="diagram-title-row">
-                        <div class="diagram-icon pipeline-icon">
-                            <i class="fas fa-stream"></i>
+            <!-- Premium Architecture Diagram -->
+            <div class="arch-diagram-premium glass-card">
+                <!-- Header with Live Status -->
+                <div class="arch-premium-header">
+                    <div class="arch-title-section">
+                        <div class="arch-icon-animated">
+                            <i class="fas fa-project-diagram"></i>
+                            <div class="pulse-ring"></div>
                         </div>
-                        <div class="diagram-title-content">
-                            <h3>Data Pipeline Architecture</h3>
-                            <span class="diagram-subtitle">End-to-End Data Flow Diagram</span>
+                        <div class="arch-title-text">
+                            <h3>Modern Data Platform Architecture</h3>
+                            <span class="arch-subtitle">Enterprise-Grade End-to-End Data Flow</span>
                         </div>
                     </div>
-                    <div class="diagram-badges">
-                        <span class="diagram-badge realtime"><i class="fas fa-bolt"></i> Real-time</span>
-                        <span class="diagram-badge batch"><i class="fas fa-layer-group"></i> Batch</span>
+                    <div class="arch-live-status">
+                        <div class="live-indicator">
+                            <span class="live-dot"></span>
+                            <span>LIVE</span>
+                        </div>
+                        <div class="arch-metrics-mini">
+                            <span><i class="fas fa-tachometer-alt"></i> 2.4M events/min</span>
+                            <span><i class="fas fa-clock"></i> 99.9% uptime</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="pipeline-visual-diagram">
-                    <!-- Data Sources Layer -->
-                    <div class="diagram-layer sources-layer">
-                        <div class="layer-label">
-                            <i class="fas fa-database"></i>
-                            <span>DATA SOURCES</span>
+                <!-- Main Architecture Flow -->
+                <div class="arch-flow-container">
+                    <!-- Layer 1: Data Sources -->
+                    <div class="arch-layer sources">
+                        <div class="layer-header-premium">
+                            <div class="layer-number">01</div>
+                            <div class="layer-title">
+                                <i class="fas fa-database"></i>
+                                <span>DATA SOURCES</span>
+                            </div>
+                            <div class="layer-throughput">
+                                <i class="fas fa-arrow-up"></i> 500K/s
+                            </div>
                         </div>
-                        <div class="layer-nodes">
-                            <div class="source-node">
-                                <i class="fas fa-mobile-alt"></i>
-                                <span>Apps</span>
-                                <small>Events</small>
-                            </div>
-                            <div class="source-node">
-                                <i class="fas fa-server"></i>
-                                <span>APIs</span>
-                                <small>REST/GraphQL</small>
-                            </div>
-                            <div class="source-node">
-                                <i class="devicon-postgresql-plain colored"></i>
-                                <span>OLTP</span>
-                                <small>PostgreSQL</small>
-                            </div>
-                            <div class="source-node">
-                                <i class="fas fa-file-csv"></i>
-                                <span>Files</span>
-                                <small>CSV/JSON</small>
-                            </div>
-                            <div class="source-node">
-                                <i class="fas fa-cloud"></i>
-                                <span>SaaS</span>
-                                <small>Salesforce</small>
-                            </div>
+                        <div class="source-cards-grid">
+                            <a href="https://www.salesforce.com/" target="_blank" class="source-card-premium saas">
+                                <div class="source-icon"><i class="fab fa-salesforce"></i></div>
+                                <div class="source-info">
+                                    <span class="source-name">SaaS Apps</span>
+                                    <span class="source-detail">Salesforce, HubSpot</span>
+                                </div>
+                                <div class="source-rate">12K/min</div>
+                            </a>
+                            <a href="https://www.postgresql.org/" target="_blank" class="source-card-premium oltp">
+                                <div class="source-icon"><i class="devicon-postgresql-plain colored"></i></div>
+                                <div class="source-info">
+                                    <span class="source-name">OLTP DBs</span>
+                                    <span class="source-detail">PostgreSQL, MySQL</span>
+                                </div>
+                                <div class="source-rate">45K/min</div>
+                            </a>
+                            <a href="https://kafka.apache.org/" target="_blank" class="source-card-premium events">
+                                <div class="source-icon"><i class="devicon-apachekafka-original"></i></div>
+                                <div class="source-info">
+                                    <span class="source-name">Event Streams</span>
+                                    <span class="source-detail">Kafka, Kinesis</span>
+                                </div>
+                                <div class="source-rate">2.1M/min</div>
+                            </a>
+                            <a href="https://aws.amazon.com/s3/" target="_blank" class="source-card-premium files">
+                                <div class="source-icon"><i class="fas fa-file-alt"></i></div>
+                                <div class="source-info">
+                                    <span class="source-name">File Storage</span>
+                                    <span class="source-detail">S3, GCS, ADLS</span>
+                                </div>
+                                <div class="source-rate">8TB/day</div>
+                            </a>
                         </div>
                     </div>
 
-                    <!-- Flow Arrow -->
-                    <div class="flow-arrow-vertical">
-                        <div class="arrow-line"></div>
-                        <div class="arrow-label">Ingestion</div>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-
-                    <!-- Ingestion Layer -->
-                    <div class="diagram-layer ingestion-layer">
-                        <div class="layer-label">
-                            <i class="fas fa-download"></i>
+                    <!-- Animated Flow Line -->
+                    <div class="flow-connector-premium">
+                        <div class="flow-line-animated"></div>
+                        <div class="flow-label-badge">
+                            <i class="fas fa-arrow-down"></i>
                             <span>INGESTION</span>
                         </div>
-                        <div class="layer-tools">
-                            <div class="tool-box streaming">
-                                <div class="tool-header">
-                                    <i class="devicon-apachekafka-original"></i>
-                                    <span>Kafka</span>
-                                </div>
-                                <div class="tool-detail">Streaming Events</div>
+                    </div>
+
+                    <!-- Layer 2: Ingestion -->
+                    <div class="arch-layer ingestion">
+                        <div class="layer-header-premium">
+                            <div class="layer-number">02</div>
+                            <div class="layer-title">
+                                <i class="fas fa-download"></i>
+                                <span>INGESTION LAYER</span>
                             </div>
-                            <div class="tool-box batch">
-                                <div class="tool-header">
-                                    <i class="fas fa-plug"></i>
-                                    <span>Fivetran</span>
-                                </div>
-                                <div class="tool-detail">CDC / Batch Sync</div>
-                            </div>
-                            <div class="tool-box api">
-                                <div class="tool-header">
-                                    <i class="devicon-python-plain colored"></i>
-                                    <span>Custom</span>
-                                </div>
-                                <div class="tool-detail">Python Scripts</div>
-                            </div>
+                        </div>
+                        <div class="ingestion-tools-premium">
+                            <a href="https://kafka.apache.org/" target="_blank" class="ingestion-tool streaming">
+                                <div class="tool-icon-wrap"><i class="devicon-apachekafka-original"></i></div>
+                                <div class="tool-name">Kafka Connect</div>
+                                <div class="tool-type">Streaming</div>
+                                <div class="tool-latency"><i class="fas fa-bolt"></i> &lt;10ms</div>
+                            </a>
+                            <a href="https://www.fivetran.com/" target="_blank" class="ingestion-tool batch">
+                                <div class="tool-icon-wrap"><i class="fas fa-plug"></i></div>
+                                <div class="tool-name">Fivetran</div>
+                                <div class="tool-type">CDC/Batch</div>
+                                <div class="tool-latency"><i class="fas fa-clock"></i> 5min</div>
+                            </a>
+                            <a href="https://airbyte.com/" target="_blank" class="ingestion-tool hybrid">
+                                <div class="tool-icon-wrap"><i class="fas fa-sync-alt"></i></div>
+                                <div class="tool-name">Airbyte</div>
+                                <div class="tool-type">EL Tool</div>
+                                <div class="tool-latency"><i class="fas fa-clock"></i> Custom</div>
+                            </a>
                         </div>
                     </div>
 
-                    <!-- Flow Arrow -->
-                    <div class="flow-arrow-vertical">
-                        <div class="arrow-line"></div>
-                        <div class="arrow-label">Raw Data</div>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-
-                    <!-- Storage Layer (Data Lake) -->
-                    <div class="diagram-layer storage-layer">
-                        <div class="layer-label">
-                            <i class="fas fa-water"></i>
-                            <span>DATA LAKE / LAKEHOUSE</span>
-                        </div>
-                        <div class="lake-zones">
-                            <div class="lake-zone bronze">
-                                <div class="zone-header">
-                                    <span class="zone-badge">BRONZE</span>
-                                    <span class="zone-name">Raw Zone</span>
-                                </div>
-                                <div class="zone-detail">
-                                    <i class="fas fa-file-archive"></i>
-                                    <span>Landing, as-is data</span>
-                                </div>
-                            </div>
-                            <div class="zone-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="lake-zone silver">
-                                <div class="zone-header">
-                                    <span class="zone-badge">SILVER</span>
-                                    <span class="zone-name">Cleaned</span>
-                                </div>
-                                <div class="zone-detail">
-                                    <i class="fas fa-broom"></i>
-                                    <span>Validated, deduplicated</span>
-                                </div>
-                            </div>
-                            <div class="zone-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="lake-zone gold">
-                                <div class="zone-header">
-                                    <span class="zone-badge">GOLD</span>
-                                    <span class="zone-name">Business</span>
-                                </div>
-                                <div class="zone-detail">
-                                    <i class="fas fa-gem"></i>
-                                    <span>Aggregated, ready</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="lake-tech">
-                            <span class="tech-chip"><i class="fas fa-snowflake"></i> Delta Lake</span>
-                            <span class="tech-chip"><i class="fas fa-cubes"></i> Iceberg</span>
-                            <span class="tech-chip"><i class="devicon-amazonwebservices-plain-wordmark"></i> S3</span>
+                    <!-- Animated Flow Line -->
+                    <div class="flow-connector-premium">
+                        <div class="flow-line-animated delay-1"></div>
+                        <div class="flow-label-badge">
+                            <i class="fas fa-arrow-down"></i>
+                            <span>RAW DATA</span>
                         </div>
                     </div>
 
-                    <!-- Flow Arrow -->
-                    <div class="flow-arrow-vertical">
-                        <div class="arrow-line"></div>
-                        <div class="arrow-label">Transform</div>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-
-                    <!-- Processing Layer -->
-                    <div class="diagram-layer processing-layer">
-                        <div class="layer-label">
-                            <i class="fas fa-cogs"></i>
-                            <span>PROCESSING & TRANSFORMATION</span>
-                        </div>
-                        <div class="processing-engines">
-                            <div class="engine-box">
-                                <i class="devicon-apachespark-original colored"></i>
-                                <span>Spark</span>
-                                <small>Distributed Processing</small>
-                            </div>
-                            <div class="engine-box">
-                                <i class="fas fa-code-branch"></i>
-                                <span>dbt</span>
-                                <small>SQL Transformations</small>
-                            </div>
-                            <div class="engine-box">
+                    <!-- Layer 3: Lakehouse -->
+                    <div class="arch-layer lakehouse">
+                        <div class="layer-header-premium">
+                            <div class="layer-number">03</div>
+                            <div class="layer-title">
                                 <i class="fas fa-water"></i>
-                                <span>Flink</span>
-                                <small>Stream Processing</small>
+                                <span>LAKEHOUSE</span>
+                            </div>
+                            <div class="layer-storage">
+                                <i class="fas fa-hdd"></i> 45 PB
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Flow Arrow -->
-                    <div class="flow-arrow-vertical">
-                        <div class="arrow-line"></div>
-                        <div class="arrow-label">Curated Data</div>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-
-                    <!-- Data Warehouse -->
-                    <div class="diagram-layer warehouse-layer">
-                        <div class="layer-label">
-                            <i class="fas fa-warehouse"></i>
-                            <span>DATA WAREHOUSE</span>
-                        </div>
-                        <div class="warehouse-box">
-                            <div class="dw-icon">
-                                <i class="fas fa-snowflake"></i>
+                        <div class="medallion-architecture">
+                            <div class="medallion-zone bronze">
+                                <div class="zone-glow"></div>
+                                <div class="zone-content">
+                                    <div class="zone-icon"><i class="fas fa-file-import"></i></div>
+                                    <div class="zone-label">BRONZE</div>
+                                    <div class="zone-desc">Raw Landing</div>
+                                    <div class="zone-stats">
+                                        <span><i class="fas fa-table"></i> 1,240</span>
+                                        <span><i class="fas fa-database"></i> 12TB</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="dw-content">
-                                <span class="dw-name">Snowflake / BigQuery / Databricks</span>
-                                <div class="dw-features">
-                                    <span><i class="fas fa-check"></i> Star Schema</span>
-                                    <span><i class="fas fa-check"></i> OLAP Optimized</span>
-                                    <span><i class="fas fa-check"></i> Semantic Layer</span>
+                            <div class="zone-flow">
+                                <div class="flow-particles">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                            <div class="medallion-zone silver">
+                                <div class="zone-glow"></div>
+                                <div class="zone-content">
+                                    <div class="zone-icon"><i class="fas fa-broom"></i></div>
+                                    <div class="zone-label">SILVER</div>
+                                    <div class="zone-desc">Cleaned & Validated</div>
+                                    <div class="zone-stats">
+                                        <span><i class="fas fa-table"></i> 890</span>
+                                        <span><i class="fas fa-database"></i> 8TB</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="zone-flow">
+                                <div class="flow-particles">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                            <div class="medallion-zone gold">
+                                <div class="zone-glow"></div>
+                                <div class="zone-content">
+                                    <div class="zone-icon"><i class="fas fa-gem"></i></div>
+                                    <div class="zone-label">GOLD</div>
+                                    <div class="zone-desc">Business Ready</div>
+                                    <div class="zone-stats">
+                                        <span><i class="fas fa-table"></i> 156</span>
+                                        <span><i class="fas fa-database"></i> 2TB</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Flow Arrow -->
-                    <div class="flow-arrow-vertical">
-                        <div class="arrow-line"></div>
-                        <div class="arrow-label">Analytics</div>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-
-                    <!-- Visualization Layer -->
-                    <div class="diagram-layer visualization-layer">
-                        <div class="layer-label">
-                            <i class="fas fa-chart-line"></i>
-                            <span>VISUALIZATION & CONSUMPTION</span>
+                        <div class="lakehouse-tech-row">
+                            <a href="https://delta.io/" target="_blank" class="lake-tech-chip"><i class="fas fa-layer-group"></i> Delta Lake</a>
+                            <a href="https://iceberg.apache.org/" target="_blank" class="lake-tech-chip"><i class="fas fa-cubes"></i> Iceberg</a>
+                            <a href="https://aws.amazon.com/s3/" target="_blank" class="lake-tech-chip"><i class="devicon-amazonwebservices-plain-wordmark"></i> S3</a>
+                            <a href="https://hudi.apache.org/" target="_blank" class="lake-tech-chip"><i class="fas fa-bolt"></i> Hudi</a>
                         </div>
-                        <div class="viz-tools">
-                            <div class="viz-box">
+                    </div>
+
+                    <!-- Animated Flow Line -->
+                    <div class="flow-connector-premium">
+                        <div class="flow-line-animated delay-2"></div>
+                        <div class="flow-label-badge">
+                            <i class="fas fa-arrow-down"></i>
+                            <span>TRANSFORM</span>
+                        </div>
+                    </div>
+
+                    <!-- Layer 4: Processing -->
+                    <div class="arch-layer processing">
+                        <div class="layer-header-premium">
+                            <div class="layer-number">04</div>
+                            <div class="layer-title">
+                                <i class="fas fa-cogs"></i>
+                                <span>PROCESSING</span>
+                            </div>
+                        </div>
+                        <div class="processing-engines-premium">
+                            <a href="https://spark.apache.org/" target="_blank" class="engine-card-premium">
+                                <div class="engine-icon"><i class="devicon-apachespark-original colored"></i></div>
+                                <div class="engine-name">Apache Spark</div>
+                                <div class="engine-use">Distributed ETL</div>
+                                <div class="engine-metric"><i class="fas fa-microchip"></i> 500 cores</div>
+                            </a>
+                            <a href="https://www.getdbt.com/" target="_blank" class="engine-card-premium">
+                                <div class="engine-icon"><i class="fas fa-code-branch"></i></div>
+                                <div class="engine-name">dbt Core</div>
+                                <div class="engine-use">SQL Transforms</div>
+                                <div class="engine-metric"><i class="fas fa-cube"></i> 340 models</div>
+                            </a>
+                            <a href="https://flink.apache.org/" target="_blank" class="engine-card-premium">
+                                <div class="engine-icon"><i class="fas fa-water"></i></div>
+                                <div class="engine-name">Apache Flink</div>
+                                <div class="engine-use">Stream Processing</div>
+                                <div class="engine-metric"><i class="fas fa-bolt"></i> Real-time</div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Animated Flow Line -->
+                    <div class="flow-connector-premium">
+                        <div class="flow-line-animated delay-3"></div>
+                        <div class="flow-label-badge">
+                            <i class="fas fa-arrow-down"></i>
+                            <span>SERVE</span>
+                        </div>
+                    </div>
+
+                    <!-- Layer 5: Serving -->
+                    <div class="arch-layer serving">
+                        <div class="layer-header-premium">
+                            <div class="layer-number">05</div>
+                            <div class="layer-title">
+                                <i class="fas fa-chart-line"></i>
+                                <span>DATA PRODUCTS</span>
+                            </div>
+                        </div>
+                        <div class="serving-grid-premium">
+                            <a href="https://www.snowflake.com/" target="_blank" class="serving-card warehouse">
+                                <i class="fas fa-snowflake"></i>
+                                <span>Snowflake</span>
+                                <small>Cloud DW</small>
+                            </a>
+                            <a href="https://powerbi.microsoft.com/" target="_blank" class="serving-card bi">
                                 <i class="fas fa-chart-pie"></i>
                                 <span>Power BI</span>
-                                <small>BI Reports</small>
-                            </div>
-                            <div class="viz-box">
-                                <i class="fas fa-chart-area"></i>
-                                <span>Tableau</span>
                                 <small>Dashboards</small>
-                            </div>
-                            <div class="viz-box">
+                            </a>
+                            <a href="https://grafana.com/" target="_blank" class="serving-card monitoring">
                                 <i class="devicon-grafana-original colored"></i>
                                 <span>Grafana</span>
                                 <small>Monitoring</small>
-                            </div>
-                            <div class="viz-box">
-                                <i class="fas fa-robot"></i>
+                            </a>
+                            <a href="https://www.tensorflow.org/" target="_blank" class="serving-card ml">
+                                <i class="fas fa-brain"></i>
                                 <span>ML Models</span>
                                 <small>Predictions</small>
-                            </div>
-                            <div class="viz-box">
-                                <i class="fas fa-code"></i>
+                            </a>
+                            <a href="https://fastapi.tiangolo.com/" target="_blank" class="serving-card api">
+                                <i class="fas fa-plug"></i>
                                 <span>APIs</span>
                                 <small>Data Products</small>
-                            </div>
+                            </a>
+                            <a href="https://www.looker.com/" target="_blank" class="serving-card semantic">
+                                <i class="fas fa-cubes"></i>
+                                <span>Semantic</span>
+                                <small>Metrics Layer</small>
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Orchestration Footer -->
-                <div class="diagram-footer">
-                    <div class="orchestration-bar">
-                        <div class="orch-label">
+                <!-- Orchestration Bar -->
+                <div class="orchestration-premium">
+                    <div class="orch-wrapper">
+                        <div class="orch-icon-animated">
                             <i class="devicon-apacheairflow-plain"></i>
-                            <span>Orchestration: Apache Airflow</span>
                         </div>
-                        <div class="orch-status">
-                            <span class="status-dot running"></span>
-                            <span>Pipeline Healthy</span>
+                        <div class="orch-info">
+                            <span class="orch-name">Apache Airflow</span>
+                            <span class="orch-role">Orchestration & Scheduling</span>
+                        </div>
+                        <div class="orch-stats">
+                            <div class="orch-stat">
+                                <span class="stat-num">156</span>
+                                <span class="stat-label">DAGs</span>
+                            </div>
+                            <div class="orch-stat">
+                                <span class="stat-num">12K</span>
+                                <span class="stat-label">Tasks/day</span>
+                            </div>
+                            <div class="orch-stat success">
+                                <span class="stat-num">99.8%</span>
+                                <span class="stat-label">Success</span>
+                            </div>
+                        </div>
+                        <div class="orch-status-badge running">
+                            <span class="status-pulse"></span>
+                            <span>All Systems Operational</span>
                         </div>
                     </div>
                 </div>
@@ -671,303 +727,379 @@ default_args = &#123;
 
         <!-- ==================== GOVERNANCE DIAGRAM ==================== -->
         <div id="pipeline-governance" class="pipeline-diagram-premium pipeline-mode">
-            <!-- ========== DIAGRAM 2: DATA GOVERNANCE FRAMEWORK ========== -->
-            <div class="visual-diagram-box glass-card governance-diagram">
-                <div class="diagram-header">
-                    <div class="diagram-title-row">
-                        <div class="diagram-icon governance-icon">
+            <!-- Premium Governance Framework -->
+            <div class="gov-diagram-premium glass-card">
+                <!-- Header with Compliance Status -->
+                <div class="gov-premium-header">
+                    <div class="gov-title-section">
+                        <div class="gov-icon-animated">
                             <i class="fas fa-shield-alt"></i>
+                            <div class="shield-glow"></div>
                         </div>
-                        <div class="diagram-title-content">
-                            <h3>Data Governance Framework</h3>
-                            <span class="diagram-subtitle">Roles, Responsabilidades y Flujo de Gobernanza</span>
+                        <div class="gov-title-text">
+                            <h3>Enterprise Data Governance</h3>
+                            <span class="gov-subtitle">Compliance, Quality & Security Framework</span>
                         </div>
                     </div>
-                    <div class="diagram-badges">
-                        <span class="diagram-badge compliance"><i class="fas fa-gavel"></i> GDPR</span>
-                        <span class="diagram-badge compliance"><i class="fas fa-user-shield"></i> CCPA</span>
-                        <span class="diagram-badge compliance"><i class="fas fa-check-double"></i> SOC2</span>
+                    <div class="compliance-badges">
+                        <div class="compliance-badge gdpr">
+                            <i class="fas fa-check-circle"></i>
+                            <span>GDPR</span>
+                        </div>
+                        <div class="compliance-badge ccpa">
+                            <i class="fas fa-check-circle"></i>
+                            <span>CCPA</span>
+                        </div>
+                        <div class="compliance-badge soc2">
+                            <i class="fas fa-check-circle"></i>
+                            <span>SOC2</span>
+                        </div>
+                        <div class="compliance-badge hipaa">
+                            <i class="fas fa-check-circle"></i>
+                            <span>HIPAA</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="governance-visual-diagram">
-                    <!-- Governance Council -->
-                    <div class="gov-tier council-tier">
-                        <div class="tier-header">
-                            <i class="fas fa-users-cog"></i>
-                            <span>DATA GOVERNANCE COUNCIL</span>
+                <!-- Governance Pyramid -->
+                <div class="gov-pyramid-container">
+                    <!-- Level 1: Executive -->
+                    <div class="pyramid-level executive">
+                        <div class="level-header">
+                            <div class="level-icon"><i class="fas fa-crown"></i></div>
+                            <span class="level-title">GOVERNANCE COUNCIL</span>
+                            <span class="level-badge">Strategic</span>
                         </div>
-                        <div class="council-members">
-                            <div class="member-card chief">
-                                <div class="member-avatar">
+                        <div class="executive-row">
+                            <div class="exec-card cdo">
+                                <div class="exec-avatar">
                                     <i class="fas fa-user-tie"></i>
+                                    <div class="exec-status online"></div>
                                 </div>
-                                <div class="member-info">
-                                    <span class="member-role">Chief Data Officer</span>
-                                    <span class="member-resp">Strategic Leadership</span>
+                                <div class="exec-info">
+                                    <span class="exec-role">Chief Data Officer</span>
+                                    <span class="exec-dept">Data Strategy & Vision</span>
                                 </div>
-                                <div class="member-badge cdo">CDO</div>
+                                <div class="exec-tag">CDO</div>
                             </div>
-                            <div class="member-card">
-                                <div class="member-avatar">
-                                    <i class="fas fa-balance-scale"></i>
-                                </div>
-                                <div class="member-info">
-                                    <span class="member-role">Legal & Compliance</span>
-                                    <span class="member-resp">Regulatory Oversight</span>
-                                </div>
-                            </div>
-                            <div class="member-card">
-                                <div class="member-avatar">
+                            <div class="exec-card ciso">
+                                <div class="exec-avatar">
                                     <i class="fas fa-shield-alt"></i>
+                                    <div class="exec-status online"></div>
                                 </div>
-                                <div class="member-info">
-                                    <span class="member-role">Security Officer</span>
-                                    <span class="member-resp">Data Protection</span>
+                                <div class="exec-info">
+                                    <span class="exec-role">Chief Security Officer</span>
+                                    <span class="exec-dept">Data Protection</span>
+                                </div>
+                                <div class="exec-tag">CISO</div>
+                            </div>
+                            <div class="exec-card legal">
+                                <div class="exec-avatar">
+                                    <i class="fas fa-balance-scale"></i>
+                                    <div class="exec-status online"></div>
+                                </div>
+                                <div class="exec-info">
+                                    <span class="exec-role">Legal & Compliance</span>
+                                    <span class="exec-dept">Regulatory Affairs</span>
+                                </div>
+                                <div class="exec-tag">CLO</div>
+                            </div>
+                            <div class="exec-card business">
+                                <div class="exec-avatar">
+                                    <i class="fas fa-briefcase"></i>
+                                    <div class="exec-status online"></div>
+                                </div>
+                                <div class="exec-info">
+                                    <span class="exec-role">Business Sponsors</span>
+                                    <span class="exec-dept">Domain Leadership</span>
+                                </div>
+                                <div class="exec-tag">BIZ</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Connector -->
+                    <div class="pyramid-connector">
+                        <div class="connector-arrow">
+                            <div class="arrow-body"></div>
+                            <div class="arrow-head"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <span class="connector-text">Policies & Standards</span>
+                    </div>
+
+                    <!-- Level 2: Data Domains -->
+                    <div class="pyramid-level domains">
+                        <div class="level-header">
+                            <div class="level-icon"><i class="fas fa-sitemap"></i></div>
+                            <span class="level-title">DATA DOMAINS & STEWARDSHIP</span>
+                            <span class="level-badge">Tactical</span>
+                        </div>
+                        <div class="domains-grid">
+                            <div class="domain-card sales">
+                                <div class="domain-icon"><i class="fas fa-chart-line"></i></div>
+                                <div class="domain-content">
+                                    <span class="domain-name">Sales & Marketing</span>
+                                    <div class="domain-steward">
+                                        <i class="fas fa-user"></i>
+                                        <span>Revenue Ops Lead</span>
+                                    </div>
+                                    <div class="domain-assets">
+                                        <span><i class="fas fa-table"></i> 45 tables</span>
+                                        <span><i class="fas fa-chart-bar"></i> 12 metrics</span>
+                                    </div>
+                                </div>
+                                <div class="domain-health good">
+                                    <span class="health-score">98%</span>
                                 </div>
                             </div>
-                            <div class="member-card">
-                                <div class="member-avatar">
-                                    <i class="fas fa-building"></i>
+                            <div class="domain-card finance">
+                                <div class="domain-icon"><i class="fas fa-dollar-sign"></i></div>
+                                <div class="domain-content">
+                                    <span class="domain-name">Finance & Accounting</span>
+                                    <div class="domain-steward">
+                                        <i class="fas fa-user"></i>
+                                        <span>CFO Office</span>
+                                    </div>
+                                    <div class="domain-assets">
+                                        <span><i class="fas fa-table"></i> 32 tables</span>
+                                        <span><i class="fas fa-chart-bar"></i> 8 metrics</span>
+                                    </div>
                                 </div>
-                                <div class="member-info">
-                                    <span class="member-role">Business Sponsors</span>
-                                    <span class="member-resp">Domain Representatives</span>
+                                <div class="domain-health good">
+                                    <span class="health-score">99%</span>
+                                </div>
+                            </div>
+                            <div class="domain-card customer">
+                                <div class="domain-icon"><i class="fas fa-users"></i></div>
+                                <div class="domain-content">
+                                    <span class="domain-name">Customer 360</span>
+                                    <div class="domain-steward">
+                                        <i class="fas fa-user"></i>
+                                        <span>CX Director</span>
+                                    </div>
+                                    <div class="domain-assets">
+                                        <span><i class="fas fa-table"></i> 28 tables</span>
+                                        <span><i class="fas fa-fingerprint"></i> PII</span>
+                                    </div>
+                                </div>
+                                <div class="domain-health warning">
+                                    <span class="health-score">94%</span>
+                                </div>
+                            </div>
+                            <div class="domain-card product">
+                                <div class="domain-icon"><i class="fas fa-box"></i></div>
+                                <div class="domain-content">
+                                    <span class="domain-name">Product & Operations</span>
+                                    <div class="domain-steward">
+                                        <i class="fas fa-user"></i>
+                                        <span>Product Analytics</span>
+                                    </div>
+                                    <div class="domain-assets">
+                                        <span><i class="fas fa-table"></i> 51 tables</span>
+                                        <span><i class="fas fa-chart-bar"></i> 15 metrics</span>
+                                    </div>
+                                </div>
+                                <div class="domain-health good">
+                                    <span class="health-score">97%</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Connection Line -->
-                    <div class="gov-connector">
-                        <div class="connector-line-v"></div>
-                        <span class="connector-label">Policies & Standards</span>
+                    <!-- Connector -->
+                    <div class="pyramid-connector">
+                        <div class="connector-arrow">
+                            <div class="arrow-body"></div>
+                            <div class="arrow-head"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <span class="connector-text">Implementation</span>
                     </div>
 
-                    <!-- Data Stewardship Layer -->
-                    <div class="gov-tier stewards-tier">
-                        <div class="tier-header">
-                            <i class="fas fa-user-shield"></i>
-                            <span>DATA STEWARDSHIP</span>
+                    <!-- Level 3: Technical Pillars -->
+                    <div class="pyramid-level technical">
+                        <div class="level-header">
+                            <div class="level-icon"><i class="fas fa-cogs"></i></div>
+                            <span class="level-title">TECHNICAL GOVERNANCE</span>
+                            <span class="level-badge">Operational</span>
                         </div>
-                        <div class="stewards-grid">
-                            <div class="steward-domain">
-                                <div class="domain-header sales">
-                                    <i class="fas fa-chart-line"></i>
-                                    <span>Sales Domain</span>
-                                </div>
-                                <div class="steward-card">
-                                    <span class="steward-title">Data Steward</span>
-                                    <span class="steward-name">Business Owner</span>
-                                    <div class="steward-tasks">
-                                        <span><i class="fas fa-check"></i> Define data definitions</span>
-                                        <span><i class="fas fa-check"></i> Approve access requests</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="steward-domain">
-                                <div class="domain-header finance">
-                                    <i class="fas fa-dollar-sign"></i>
-                                    <span>Finance Domain</span>
-                                </div>
-                                <div class="steward-card">
-                                    <span class="steward-title">Data Steward</span>
-                                    <span class="steward-name">Finance Lead</span>
-                                    <div class="steward-tasks">
-                                        <span><i class="fas fa-check"></i> Validate calculations</span>
-                                        <span><i class="fas fa-check"></i> Audit compliance</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="steward-domain">
-                                <div class="domain-header customer">
-                                    <i class="fas fa-users"></i>
-                                    <span>Customer Domain</span>
-                                </div>
-                                <div class="steward-card">
-                                    <span class="steward-title">Data Steward</span>
-                                    <span class="steward-name">CRM Manager</span>
-                                    <div class="steward-tasks">
-                                        <span><i class="fas fa-check"></i> PII classification</span>
-                                        <span><i class="fas fa-check"></i> Consent management</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="steward-domain">
-                                <div class="domain-header product">
-                                    <i class="fas fa-box"></i>
-                                    <span>Product Domain</span>
-                                </div>
-                                <div class="steward-card">
-                                    <span class="steward-title">Data Steward</span>
-                                    <span class="steward-name">Product Owner</span>
-                                    <div class="steward-tasks">
-                                        <span><i class="fas fa-check"></i> Schema ownership</span>
-                                        <span><i class="fas fa-check"></i> Quality rules</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Connection Line -->
-                    <div class="gov-connector">
-                        <div class="connector-line-v"></div>
-                        <span class="connector-label">Implementation</span>
-                    </div>
-
-                    <!-- Technical Implementation Layer -->
-                    <div class="gov-tier technical-tier">
-                        <div class="tier-header">
-                            <i class="fas fa-cogs"></i>
-                            <span>TECHNICAL IMPLEMENTATION</span>
-                        </div>
-                        <div class="tech-pillars">
-                            <!-- Data Catalog -->
-                            <div class="tech-pillar catalog">
-                                <div class="pillar-icon">
+                        <div class="tech-pillars-premium">
+                            <a href="https://atlan.com/" target="_blank" class="pillar-card-premium catalog">
+                                <div class="pillar-glow"></div>
+                                <div class="pillar-icon-wrap">
                                     <i class="fas fa-book-open"></i>
                                 </div>
-                                <div class="pillar-content">
-                                    <span class="pillar-title">Data Catalog</span>
-                                    <div class="pillar-items">
-                                        <span><i class="fas fa-search"></i> Discovery</span>
-                                        <span><i class="fas fa-tags"></i> Metadata</span>
-                                        <span><i class="fas fa-sitemap"></i> Lineage</span>
-                                    </div>
-                                    <div class="pillar-tools">
-                                        <a href="https://atlan.com/" target="_blank">Atlan</a>
-                                        <a href="https://datahubproject.io/" target="_blank">DataHub</a>
-                                    </div>
+                                <div class="pillar-name">Data Catalog</div>
+                                <div class="pillar-features">
+                                    <span><i class="fas fa-search"></i> Discovery</span>
+                                    <span><i class="fas fa-tags"></i> Metadata</span>
+                                    <span><i class="fas fa-project-diagram"></i> Lineage</span>
                                 </div>
-                            </div>
-
-                            <!-- Data Quality -->
-                            <div class="tech-pillar quality">
-                                <div class="pillar-icon">
+                                <div class="pillar-tools-row">
+                                    <span>Atlan</span>
+                                    <span>DataHub</span>
+                                    <span>Collibra</span>
+                                </div>
+                                <div class="pillar-metric">
+                                    <span class="metric-num">156</span>
+                                    <span class="metric-label">Assets</span>
+                                </div>
+                            </a>
+                            <a href="https://greatexpectations.io/" target="_blank" class="pillar-card-premium quality">
+                                <div class="pillar-glow"></div>
+                                <div class="pillar-icon-wrap">
                                     <i class="fas fa-check-double"></i>
                                 </div>
-                                <div class="pillar-content">
-                                    <span class="pillar-title">Data Quality</span>
-                                    <div class="pillar-items">
-                                        <span><i class="fas fa-ruler"></i> Validation</span>
-                                        <span><i class="fas fa-percentage"></i> Profiling</span>
-                                        <span><i class="fas fa-bell"></i> Alerts</span>
-                                    </div>
-                                    <div class="pillar-tools">
-                                        <a href="https://greatexpectations.io/" target="_blank">GX</a>
-                                        <a href="https://www.soda.io/" target="_blank">Soda</a>
-                                    </div>
+                                <div class="pillar-name">Data Quality</div>
+                                <div class="pillar-features">
+                                    <span><i class="fas fa-ruler"></i> Validation</span>
+                                    <span><i class="fas fa-chart-bar"></i> Profiling</span>
+                                    <span><i class="fas fa-bell"></i> Alerts</span>
                                 </div>
-                            </div>
-
-                            <!-- Access Control -->
-                            <div class="tech-pillar access">
-                                <div class="pillar-icon">
-                                    <i class="fas fa-lock"></i>
+                                <div class="pillar-tools-row">
+                                    <span>Great Expectations</span>
+                                    <span>Soda</span>
                                 </div>
-                                <div class="pillar-content">
-                                    <span class="pillar-title">Access Control</span>
-                                    <div class="pillar-items">
-                                        <span><i class="fas fa-user-shield"></i> RBAC</span>
-                                        <span><i class="fas fa-mask"></i> Masking</span>
-                                        <span><i class="fas fa-key"></i> Encryption</span>
-                                    </div>
-                                    <div class="pillar-tools">
-                                        <a href="https://immuta.com/" target="_blank">Immuta</a>
-                                        <a href="https://privacera.com/" target="_blank">Privacera</a>
-                                    </div>
+                                <div class="pillar-metric">
+                                    <span class="metric-num">98.5%</span>
+                                    <span class="metric-label">Score</span>
                                 </div>
-                            </div>
-
-                            <!-- Observability -->
-                            <div class="tech-pillar observability">
-                                <div class="pillar-icon">
+                            </a>
+                            <a href="https://www.montecarlodata.com/" target="_blank" class="pillar-card-premium observability">
+                                <div class="pillar-glow"></div>
+                                <div class="pillar-icon-wrap">
                                     <i class="fas fa-eye"></i>
                                 </div>
-                                <div class="pillar-content">
-                                    <span class="pillar-title">Observability</span>
-                                    <div class="pillar-items">
-                                        <span><i class="fas fa-heartbeat"></i> Health</span>
-                                        <span><i class="fas fa-stream"></i> Freshness</span>
-                                        <span><i class="fas fa-bug"></i> Anomalies</span>
-                                    </div>
-                                    <div class="pillar-tools">
-                                        <a href="https://www.montecarlodata.com/" target="_blank">Monte Carlo</a>
-                                        <a href="https://www.bigeye.com/" target="_blank">Bigeye</a>
-                                    </div>
+                                <div class="pillar-name">Observability</div>
+                                <div class="pillar-features">
+                                    <span><i class="fas fa-heartbeat"></i> Health</span>
+                                    <span><i class="fas fa-clock"></i> Freshness</span>
+                                    <span><i class="fas fa-bug"></i> Anomalies</span>
                                 </div>
-                            </div>
+                                <div class="pillar-tools-row">
+                                    <span>Monte Carlo</span>
+                                    <span>Bigeye</span>
+                                </div>
+                                <div class="pillar-metric">
+                                    <span class="metric-num">24/7</span>
+                                    <span class="metric-label">Monitoring</span>
+                                </div>
+                            </a>
+                            <a href="https://privacera.com/" target="_blank" class="pillar-card-premium security">
+                                <div class="pillar-glow"></div>
+                                <div class="pillar-icon-wrap">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                                <div class="pillar-name">Access Control</div>
+                                <div class="pillar-features">
+                                    <span><i class="fas fa-user-shield"></i> RBAC</span>
+                                    <span><i class="fas fa-mask"></i> Masking</span>
+                                    <span><i class="fas fa-key"></i> Encryption</span>
+                                </div>
+                                <div class="pillar-tools-row">
+                                    <span>Privacera</span>
+                                    <span>Immuta</span>
+                                </div>
+                                <div class="pillar-metric">
+                                    <span class="metric-num">100%</span>
+                                    <span class="metric-label">Compliant</span>
+                                </div>
+                            </a>
                         </div>
                     </div>
 
-                    <!-- PII & Data Classification -->
-                    <div class="gov-tier classification-tier">
-                        <div class="tier-header">
+                    <!-- Data Classification -->
+                    <div class="classification-premium">
+                        <div class="class-header">
                             <i class="fas fa-fingerprint"></i>
-                            <span>DATA CLASSIFICATION & PII</span>
+                            <span>DATA CLASSIFICATION</span>
                         </div>
-                        <div class="classification-grid">
-                            <div class="class-level public">
-                                <div class="class-badge">PUBLIC</div>
-                                <div class="class-desc">General information, no restrictions</div>
-                                <div class="class-examples">
-                                    <span>Product names</span>
-                                    <span>Public reports</span>
+                        <div class="class-spectrum">
+                            <div class="class-item public">
+                                <div class="class-dot"></div>
+                                <div class="class-info">
+                                    <span class="class-label">PUBLIC</span>
+                                    <span class="class-count">42 assets</span>
+                                </div>
+                                <div class="class-actions">
+                                    <i class="fas fa-globe" title="No restrictions"></i>
                                 </div>
                             </div>
-                            <div class="class-level internal">
-                                <div class="class-badge">INTERNAL</div>
-                                <div class="class-desc">Internal use only</div>
-                                <div class="class-examples">
-                                    <span>Sales metrics</span>
-                                    <span>Operational data</span>
+                            <div class="class-item internal">
+                                <div class="class-dot"></div>
+                                <div class="class-info">
+                                    <span class="class-label">INTERNAL</span>
+                                    <span class="class-count">89 assets</span>
+                                </div>
+                                <div class="class-actions">
+                                    <i class="fas fa-building" title="Internal only"></i>
                                 </div>
                             </div>
-                            <div class="class-level confidential">
-                                <div class="class-badge">CONFIDENTIAL</div>
-                                <div class="class-desc">Restricted access, business sensitive</div>
-                                <div class="class-examples">
-                                    <span>Financial data</span>
-                                    <span>Strategy docs</span>
+                            <div class="class-item confidential">
+                                <div class="class-dot"></div>
+                                <div class="class-info">
+                                    <span class="class-label">CONFIDENTIAL</span>
+                                    <span class="class-count">18 assets</span>
+                                </div>
+                                <div class="class-actions">
+                                    <i class="fas fa-lock" title="Restricted access"></i>
                                 </div>
                             </div>
-                            <div class="class-level pii">
-                                <div class="class-badge">PII / SENSITIVE</div>
-                                <div class="class-desc">Personal data, requires masking</div>
-                                <div class="class-examples">
-                                    <span>Email, SSN</span>
-                                    <span>Credit cards</span>
+                            <div class="class-item pii">
+                                <div class="class-dot"></div>
+                                <div class="class-info">
+                                    <span class="class-label">PII / SENSITIVE</span>
+                                    <span class="class-count">7 assets</span>
                                 </div>
-                                <div class="pii-actions">
-                                    <span class="pii-action"><i class="fas fa-mask"></i> Masked</span>
-                                    <span class="pii-action"><i class="fas fa-key"></i> Encrypted</span>
-                                    <span class="pii-action"><i class="fas fa-clock"></i> Retention</span>
+                                <div class="class-actions">
+                                    <i class="fas fa-mask" title="Masked"></i>
+                                    <i class="fas fa-key" title="Encrypted"></i>
+                                    <i class="fas fa-clock" title="Retention policy"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Governance Metrics Footer -->
-                <div class="diagram-footer governance-footer">
-                    <div class="gov-metrics">
-                        <div class="gov-metric">
-                            <span class="metric-value">98.5%</span>
-                            <span class="metric-label">Data Quality Score</span>
+                <!-- Governance Dashboard Footer -->
+                <div class="gov-dashboard-footer">
+                    <div class="dashboard-metrics">
+                        <div class="dash-metric">
+                            <div class="metric-icon quality"><i class="fas fa-check-circle"></i></div>
+                            <div class="metric-content">
+                                <span class="metric-value">98.5%</span>
+                                <span class="metric-name">Data Quality</span>
+                            </div>
+                            <div class="metric-trend up"><i class="fas fa-arrow-up"></i> 2.1%</div>
                         </div>
-                        <div class="gov-metric">
-                            <span class="metric-value">156</span>
-                            <span class="metric-label">Catalogued Assets</span>
+                        <div class="dash-metric">
+                            <div class="metric-icon coverage"><i class="fas fa-book"></i></div>
+                            <div class="metric-content">
+                                <span class="metric-value">156</span>
+                                <span class="metric-name">Catalogued</span>
+                            </div>
+                            <div class="metric-trend up"><i class="fas fa-arrow-up"></i> 12</div>
                         </div>
-                        <div class="gov-metric">
-                            <span class="metric-value">100%</span>
-                            <span class="metric-label">PII Compliant</span>
+                        <div class="dash-metric">
+                            <div class="metric-icon compliance"><i class="fas fa-shield-alt"></i></div>
+                            <div class="metric-content">
+                                <span class="metric-value">100%</span>
+                                <span class="metric-name">PII Compliant</span>
+                            </div>
+                            <div class="metric-trend stable"><i class="fas fa-minus"></i></div>
                         </div>
-                        <div class="gov-metric">
-                            <span class="metric-value">4</span>
-                            <span class="metric-label">Data Domains</span>
+                        <div class="dash-metric">
+                            <div class="metric-icon freshness"><i class="fas fa-clock"></i></div>
+                            <div class="metric-content">
+                                <span class="metric-value">99.9%</span>
+                                <span class="metric-name">SLA Met</span>
+                            </div>
+                            <div class="metric-trend up"><i class="fas fa-arrow-up"></i> 0.3%</div>
                         </div>
+                    </div>
+                    <div class="dashboard-status">
+                        <span class="status-indicator healthy"></span>
+                        <span>All governance checks passing</span>
+                        <span class="last-updated">Updated 2 min ago</span>
                     </div>
                 </div>
             </div>
