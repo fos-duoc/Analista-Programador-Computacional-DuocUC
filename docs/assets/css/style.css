@@ -4145,58 +4145,62 @@ section {
 
 /* Pipeline Stages Grid */
 .pipeline-stages-grid {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
-  position: relative;
-  z-index: 1;
-  margin-bottom: 2.5rem;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 0.75rem !important;
+  position: relative !important;
+  z-index: 1 !important;
+  margin-bottom: 2.5rem !important;
+  flex-wrap: nowrap !important;
 }
 
 /* Stage Card */
 .pipeline-stage-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.5rem 1rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  min-width: 180px;
-  flex: 1;
-  transition: all 0.4s ease;
-  position: relative;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  padding: 1.5rem 1rem !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 20px !important;
+  min-width: 160px !important;
+  max-width: 200px !important;
+  flex: 1 !important;
+  transition: all 0.4s ease !important;
+  position: relative !important;
 }
 
 .pipeline-stage-card:hover {
-  transform: translateY(-8px);
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(0, 212, 255, 0.3);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 212, 255, 0.1);
+  transform: translateY(-8px) !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(0, 212, 255, 0.3) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 212, 255, 0.1) !important;
 }
 
 .stage-number {
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 0.7rem;
-  font-weight: 800;
-  color: var(--accent-primary);
-  background: var(--bg-primary);
-  padding: 0.25rem 0.75rem;
-  border-radius: 12px;
-  border: 1px solid rgba(0, 212, 255, 0.3);
+  position: absolute !important;
+  top: -12px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  font-size: 0.7rem !important;
+  font-weight: 800 !important;
+  color: var(--accent-primary) !important;
+  background: #0a0a0f !important;
+  padding: 0.25rem 0.75rem !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(0, 212, 255, 0.3) !important;
+  z-index: 10 !important;
 }
 
 /* Stage Icon Premium */
 .stage-icon-premium {
-  position: relative;
-  width: 70px;
-  height: 70px;
-  border-radius: 20px;
+  position: relative !important;
+  width: 70px !important;
+  height: 70px !important;
+  border-radius: 20px !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -4224,28 +4228,28 @@ section {
 }
 
 .stage-icon-premium.extract {
-  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4) !important;
 }
-.stage-icon-premium.extract + .stage-pulse { background: rgba(59, 130, 246, 0.3); }
+.stage-icon-premium.extract + .stage-pulse { background: rgba(59, 130, 246, 0.3) !important; }
 
 .stage-icon-premium.transform {
-  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
-  box-shadow: 0 10px 30px rgba(249, 115, 22, 0.4);
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%) !important;
+  box-shadow: 0 10px 30px rgba(249, 115, 22, 0.4) !important;
 }
-.stage-icon-premium.transform + .stage-pulse { background: rgba(249, 115, 22, 0.3); }
+.stage-icon-premium.transform + .stage-pulse { background: rgba(249, 115, 22, 0.3) !important; }
 
 .stage-icon-premium.load {
-  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%) !important;
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4) !important;
 }
-.stage-icon-premium.load + .stage-pulse { background: rgba(139, 92, 246, 0.3); }
+.stage-icon-premium.load + .stage-pulse { background: rgba(139, 92, 246, 0.3) !important; }
 
 .stage-icon-premium.serve {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4) !important;
 }
-.stage-icon-premium.serve + .stage-pulse { background: rgba(16, 185, 129, 0.3); }
+.stage-icon-premium.serve + .stage-pulse { background: rgba(16, 185, 129, 0.3) !important; }
 
 /* Stage Content */
 .stage-content {
@@ -4318,22 +4322,24 @@ section {
 
 /* Pipeline Layers */
 .pipeline-layers {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin-top: 1rem;
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 1rem !important;
+  margin-top: 1.5rem !important;
+  padding-top: 1.5rem !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
 /* Layer Card */
 .layer-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  padding: 1.25rem;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.3s ease;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.75rem !important;
+  padding: 1.25rem !important;
+  border-radius: 16px !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  transition: all 0.3s ease !important;
 }
 
 .layer-card:hover {
