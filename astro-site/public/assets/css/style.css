@@ -764,7 +764,8 @@ body,
   gap: 12px;
   margin-bottom: 1rem;
   width: 100%;
-  max-width: 900px;
+  max-width: 100%;
+  padding: 0 1rem;
   margin-left: auto;
   margin-right: auto;
 }
@@ -773,8 +774,10 @@ body,
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   flex-wrap: wrap;
+  width: 100%;
+  max-width: 1400px;
 }
 
 .tech-row a {
