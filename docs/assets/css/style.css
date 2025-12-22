@@ -514,231 +514,276 @@ body {
 }
 
 /* ============================================
-   PLAN DE ESTUDIOS - HERO SECTION
+   PLAN DE ESTUDIOS - HERO SECTION (Premium)
    ============================================ */
 .plan-estudios-hero {
-  width: 100%;
-  padding: 1.5rem;
-  margin-top: 1rem;
-  border-radius: var(--radius-lg);
+  width: 100% !important;
+  padding: 2rem !important;
+  margin-top: 1.5rem !important;
+  border-radius: 20px !important;
+  background: rgba(18, 18, 26, 0.8) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
 }
 
 .plan-header {
-  text-align: center;
-  margin-bottom: 1.5rem;
+  text-align: center !important;
+  margin-bottom: 2rem !important;
+  padding-bottom: 1rem !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 .plan-title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 0.25rem;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.75rem !important;
+  font-size: 1.5rem !important;
+  font-weight: 800 !important;
+  color: #f8fafc !important;
+  margin-bottom: 0.5rem !important;
 }
 
 .plan-title i {
-  color: var(--accent-primary);
+  color: #00d4ff !important;
+  font-size: 1.75rem !important;
 }
 
 .plan-subtitle {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
+  font-size: 1rem !important;
+  color: #94a3b8 !important;
+  font-weight: 500 !important;
 }
 
 /* Year Container */
 .plan-year {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem !important;
 }
 
 .year-marker {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
-  padding: 0.5rem 1rem;
-  border-radius: var(--radius-md);
-  width: fit-content;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 1rem !important;
+  margin-bottom: 1rem !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 12px !important;
 }
 
 .year-marker.year-1 {
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(0, 212, 255, 0.05));
-  border-left: 3px solid var(--accent-primary);
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(0, 212, 255, 0.05)) !important;
+  border: 1px solid rgba(0, 212, 255, 0.3) !important;
+  border-left: 4px solid #00d4ff !important;
 }
 
 .year-marker.year-2 {
-  background: linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(124, 58, 237, 0.05));
-  border-left: 3px solid var(--accent-secondary);
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(124, 58, 237, 0.05)) !important;
+  border: 1px solid rgba(124, 58, 237, 0.3) !important;
+  border-left: 4px solid #7c3aed !important;
 }
 
 .year-num {
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: var(--text-primary);
+  font-weight: 800 !important;
+  font-size: 1.1rem !important;
+  color: #f8fafc !important;
 }
 
 .year-desc {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
+  font-size: 0.95rem !important;
+  color: #94a3b8 !important;
+  font-weight: 500 !important;
 }
 
-/* Bimestres Row */
+/* Bimestres Row - Grid */
 .plan-bimestres-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.5rem;
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 0.75rem !important;
 }
 
-.plan-year:last-of-type .plan-bimestres-row {
-  grid-template-columns: repeat(6, 1fr);
+.plan-year:nth-child(3) .plan-bimestres-row {
+  grid-template-columns: repeat(6, 1fr) !important;
 }
 
 .plan-bim {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: var(--radius-sm);
-  padding: 0.6rem;
-  text-align: center;
-  transition: var(--transition-fast);
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  padding: 1rem !important;
+  text-align: center !important;
+  transition: all 0.3s ease !important;
+  cursor: default !important;
 }
 
 .plan-bim:hover {
-  background: rgba(0, 212, 255, 0.08);
-  border-color: rgba(0, 212, 255, 0.2);
-  transform: translateY(-2px);
+  background: rgba(0, 212, 255, 0.1) !important;
+  border-color: rgba(0, 212, 255, 0.3) !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.15) !important;
 }
 
 .bim-num {
-  display: inline-block;
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-weight: 800;
-  font-size: 0.85rem;
-  margin-bottom: 0.25rem;
+  display: block !important;
+  background: linear-gradient(135deg, #00d4ff, #7c3aed, #f472b6) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  font-weight: 900 !important;
+  font-size: 1.1rem !important;
+  margin-bottom: 0.5rem !important;
 }
 
 .bim-title {
-  display: block;
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.35rem;
-  line-height: 1.2;
+  display: block !important;
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  color: #f8fafc !important;
+  margin-bottom: 0.5rem !important;
+  line-height: 1.3 !important;
 }
 
 .bim-subjects {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
 }
 
 .bim-subjects span {
-  font-size: 0.6rem;
-  color: var(--text-muted);
-  line-height: 1.3;
+  display: block !important;
+  font-size: 0.7rem !important;
+  color: #64748b !important;
+  line-height: 1.4 !important;
+  padding: 2px 6px !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-radius: 4px !important;
 }
 
-/* Milestone */
+/* Milestone - Salida Intermedia & Título */
 .plan-milestone {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  margin: 1.25rem 0;
-  text-align: center;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 1rem !important;
+  margin: 2rem 0 !important;
+  padding: 1rem 0 !important;
 }
 
 .milestone-line {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+  flex: 1 !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, #10b981, transparent) !important;
+  max-width: 150px !important;
+}
+
+.plan-milestone.final .milestone-line {
+  background: linear-gradient(90deg, transparent, #f472b6, transparent) !important;
 }
 
 .milestone-badge {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(16, 185, 129, 0.05));
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  padding: 0.35rem 0.75rem;
-  border-radius: 20px;
-  font-size: 0.7rem;
-  color: var(--accent-tertiary);
-  font-weight: 600;
-  white-space: nowrap;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(16, 185, 129, 0.1)) !important;
+  border: 2px solid rgba(16, 185, 129, 0.4) !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 25px !important;
+  font-size: 0.85rem !important;
+  color: #10b981 !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
 }
 
 .milestone-badge i {
-  font-size: 0.75rem;
+  font-size: 1rem !important;
 }
 
 .milestone-badge.final {
-  background: linear-gradient(135deg, rgba(244, 114, 182, 0.2), rgba(124, 58, 237, 0.1));
-  border-color: rgba(244, 114, 182, 0.3);
-  color: #f472b6;
+  background: linear-gradient(135deg, rgba(244, 114, 182, 0.25), rgba(124, 58, 237, 0.15)) !important;
+  border-color: rgba(244, 114, 182, 0.4) !important;
+  color: #f472b6 !important;
 }
 
 .milestone-title {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-  white-space: nowrap;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  color: #94a3b8 !important;
+  white-space: nowrap !important;
 }
 
 .milestone-title.final {
-  color: var(--text-primary);
-  font-size: 0.8rem;
+  color: #f8fafc !important;
+  font-size: 1.1rem !important;
+  background: linear-gradient(135deg, #f472b6, #7c3aed) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
 }
 
-/* Responsive */
+/* Responsive - Plan de Estudios */
+@media (max-width: 1100px) {
+  .plan-year:nth-child(3) .plan-bimestres-row {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
 @media (max-width: 900px) {
   .plan-bimestres-row {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr) !important;
   }
-  .plan-year:last-of-type .plan-bimestres-row {
-    grid-template-columns: repeat(3, 1fr);
+  .plan-year:nth-child(3) .plan-bimestres-row {
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 }
 
 @media (max-width: 600px) {
   .plan-estudios-hero {
-    padding: 1rem;
+    padding: 1.25rem !important;
+  }
+  .plan-title {
+    font-size: 1.2rem !important;
+  }
+  .plan-title i {
+    font-size: 1.4rem !important;
   }
   .plan-bimestres-row,
-  .plan-year:last-of-type .plan-bimestres-row {
-    grid-template-columns: repeat(2, 1fr);
+  .plan-year:nth-child(3) .plan-bimestres-row {
+    grid-template-columns: repeat(2, 1fr) !important;
   }
   .plan-milestone {
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    flex-wrap: wrap !important;
+    gap: 0.75rem !important;
   }
   .milestone-line {
-    display: none;
+    display: none !important;
   }
   .milestone-badge {
-    font-size: 0.65rem;
-    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem !important;
+    padding: 0.4rem 0.8rem !important;
   }
   .milestone-title {
-    width: 100%;
-    font-size: 0.7rem;
+    width: 100% !important;
+    text-align: center !important;
+    font-size: 0.9rem !important;
   }
 }
 
 @media (max-width: 400px) {
   .plan-bimestres-row,
-  .plan-year:last-of-type .plan-bimestres-row {
-    grid-template-columns: 1fr 1fr;
+  .plan-year:nth-child(3) .plan-bimestres-row {
+    grid-template-columns: 1fr !important;
+  }
+  .plan-bim {
+    padding: 0.75rem !important;
+  }
+  .bim-num {
+    font-size: 1rem !important;
   }
   .bim-title {
-    font-size: 0.65rem;
+    font-size: 0.75rem !important;
   }
   .bim-subjects span {
-    font-size: 0.55rem;
+    font-size: 0.65rem !important;
   }
 }
 
