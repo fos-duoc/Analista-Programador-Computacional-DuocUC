@@ -6,6 +6,7 @@ const githubBase = "https://github.com/fos-duoc/Analista-Programador-Computacion
 
 // Mapeo de asignaturas a carpetas del repositorio
 const subjectLinks: Record<string, string> = {
+    // Carrera 1: Analista Programador Computacional (B01-B10)
     "Fundamentos Prog.": "Fundamentos%20de%20Programaci%C3%B3n",
     "Modelamiento BD": "Bimestre-01%20-%20Antropolog%C3%ADa%2C%20Fundamentos%20Prog.%2C%20Modelamiento%20BD/Modelamiento-BD",
     "Antropología": "Antropolog%C3%ADa",
@@ -32,6 +33,29 @@ const subjectLinks: Record<string, string> = {
     "App Móviles I": "Bimestre-09%20-%20Frontend%20III%2C%20Mobile%20I/Mobile-I",
     "App Móviles II": "Bimestre-10%20-%20Mobile%20II%2C%20Taller%20T%C3%ADtulo/Mobile-II",
     "Taller Aplicado SW": "Bimestre-10%20-%20Mobile%20II%2C%20Taller%20T%C3%ADtulo/Taller-Titulo",
+
+    // Carrera 2: Ingeniería en Desarrollo de Software (B11-B17)
+    // Bimestre 11
+    "Desarrollo Fullstack I": "Bimestre-11%20-%20Desarrollo%20Fullstack%20I%2C%20BD%20Aplicada/Desarrollo-Fullstack-I",
+    "BD Aplicada": "Bimestre-11%20-%20Desarrollo%20Fullstack%20I%2C%20BD%20Aplicada/BD-Aplicada",
+    // Bimestre 12
+    "Desarrollo Fullstack II": "Bimestre-12%20-%20Desarrollo%20Fullstack%20II%2C%20Cloud%20Computing/Desarrollo-Fullstack-II",
+    "Cloud Computing": "Bimestre-12%20-%20Desarrollo%20Fullstack%20II%2C%20Cloud%20Computing/Cloud-Computing",
+    // Bimestre 13
+    "Desarrollo Fullstack III": "Bimestre-13%20-%20Desarrollo%20Fullstack%20III%2C%20DevOps/Desarrollo-Fullstack-III",
+    "DevOps": "Bimestre-13%20-%20Desarrollo%20Fullstack%20III%2C%20DevOps/DevOps-Ingenieria",
+    // Bimestre 14
+    "Desarrollo App Móviles": "Bimestre-14%20-%20Desarrollo%20App%20Moviles%2C%20Cloud%20Native%20I/Desarrollo-App-Moviles",
+    "Cloud Native I": "Bimestre-14%20-%20Desarrollo%20App%20Moviles%2C%20Cloud%20Native%20I/Cloud-Native-I",
+    // Bimestre 15
+    "Cloud Native II": "Bimestre-15%20-%20Cloud%20Native%20II%2C%20Seguridad%20y%20Calidad/Cloud-Native-II",
+    "Seguridad y Calidad Ing": "Bimestre-15%20-%20Cloud%20Native%20II%2C%20Seguridad%20y%20Calidad/Seguridad-y-Calidad",
+    // Bimestre 16
+    "Evaluación Proyectos SW": "Bimestre-16%20-%20Evaluacion%20y%20Gestion%20Proyectos%20SW/Evaluacion-Proyectos-SW",
+    "Gestión Proyectos SW": "Bimestre-16%20-%20Evaluacion%20y%20Gestion%20Proyectos%20SW/Gestion-Proyectos-SW",
+    // Bimestre 17
+    "Ética Profesional": "Bimestre-17%20-%20Etica%20Profesional%2C%20Taller%20Aplicado%20SW/Etica-Profesional",
+    "Taller Aplicado SW Ing": "Bimestre-17%20-%20Etica%20Profesional%2C%20Taller%20Aplicado%20SW/Taller-Aplicado-SW",
 };
 
 // CARRERA 1: Analista Programador Computacional (10 bimestres)
@@ -60,9 +84,9 @@ const ingenieriaYear3 = [
 ];
 
 const ingenieriaYear4 = [
-    { num: "B15", title: "Cloud Native II", subjects: ["Cloud Native II", "Seguridad y Calidad"] },
+    { num: "B15", title: "Cloud Native II", subjects: ["Cloud Native II", "Seguridad y Calidad Ing"] },
     { num: "B16", title: "Gestión SW", subjects: ["Evaluación Proyectos SW", "Gestión Proyectos SW"] },
-    { num: "B17", title: "Título Ing.", subjects: ["Ética Profesional", "Taller Aplicado SW"] }
+    { num: "B17", title: "Título Ing.", subjects: ["Ética Profesional", "Taller Aplicado SW Ing"] }
 ];
 
 function getSubjectLink(subject: string): string | null {
@@ -228,12 +252,21 @@ function getSubjectLink(subject: string): string | null {
                                 <span>Asignaturas</span>
                             </div>
                             <div class="subjects-list">
-                                {bim.subjects.map(sub => (
-                                    <span class="subject-item pending">
-                                        <i class="fas fa-clock"></i>
-                                        <span>{sub}</span>
-                                    </span>
-                                ))}
+                                {bim.subjects.map(sub => {
+                                    const link = getSubjectLink(sub);
+                                    return link ? (
+                                        <a href={link} target="_blank" class="subject-link ing-link">
+                                            <i class="fas fa-folder"></i>
+                                            <span>{sub.replace(" Ing", "")}</span>
+                                            <i class="fas fa-external-link-alt link-icon"></i>
+                                        </a>
+                                    ) : (
+                                        <span class="subject-item pending">
+                                            <i class="fas fa-clock"></i>
+                                            <span>{sub}</span>
+                                        </span>
+                                    );
+                                })}
                             </div>
                         </div>
                     </div>
@@ -260,12 +293,21 @@ function getSubjectLink(subject: string): string | null {
                                 <span>Asignaturas</span>
                             </div>
                             <div class="subjects-list">
-                                {bim.subjects.map(sub => (
-                                    <span class="subject-item pending">
-                                        <i class="fas fa-clock"></i>
-                                        <span>{sub}</span>
-                                    </span>
-                                ))}
+                                {bim.subjects.map(sub => {
+                                    const link = getSubjectLink(sub);
+                                    return link ? (
+                                        <a href={link} target="_blank" class="subject-link ing-link">
+                                            <i class="fas fa-folder"></i>
+                                            <span>{sub.replace(" Ing", "")}</span>
+                                            <i class="fas fa-external-link-alt link-icon"></i>
+                                        </a>
+                                    ) : (
+                                        <span class="subject-item pending">
+                                            <i class="fas fa-clock"></i>
+                                            <span>{sub}</span>
+                                        </span>
+                                    );
+                                })}
                             </div>
                         </div>
                     </div>
@@ -585,6 +627,22 @@ function getSubjectLink(subject: string): string | null {
 
     .subject-link:hover .link-icon {
         opacity: 1;
+    }
+
+    /* Ingeniería Subject Links */
+    .subject-link.ing-link {
+        background: rgba(255, 152, 0, 0.08);
+        border-color: rgba(255, 152, 0, 0.15);
+    }
+
+    .subject-link.ing-link:hover {
+        background: rgba(255, 152, 0, 0.18);
+        border-color: rgba(255, 152, 0, 0.4);
+        color: #ff9800;
+    }
+
+    .subject-link.ing-link i.fa-folder {
+        color: #ff9800;
     }
 
     /* Subject Item (no link) */
