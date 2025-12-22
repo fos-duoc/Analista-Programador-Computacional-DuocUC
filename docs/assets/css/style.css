@@ -4758,6 +4758,16 @@ section {
   transform: translateY(-1px);
 }
 
+.chip-stat {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  background: rgba(0, 212, 255, 0.12);
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+  margin-left: 0.2rem;
+}
+
 /* Responsive Tech Grid */
 @media (max-width: 900px) {
   .tech-categories-grid {
