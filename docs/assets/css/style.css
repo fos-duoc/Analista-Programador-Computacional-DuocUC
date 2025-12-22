@@ -2428,15 +2428,17 @@ body {
 
 /* Agile Scrum Expanded */
 /* ==================== SCRUM PREMIUM DESIGN ==================== */
-.scrum-premium-container {
+.scrum-premium-container.glass-card {
   padding: 2rem !important;
   background: linear-gradient(145deg, rgba(18, 18, 26, 0.95) 0%, rgba(10, 10, 15, 0.98) 100%) !important;
   border: 1px solid rgba(124, 58, 237, 0.2) !important;
   border-radius: 16px !important;
+  display: block !important;
 }
 
-.scrum-hero-header {
+.scrum-premium-container .scrum-hero-header {
   display: flex !important;
+  flex-direction: row !important;
   justify-content: space-between !important;
   align-items: center !important;
   margin-bottom: 2rem !important;
@@ -2446,15 +2448,17 @@ body {
   gap: 1.5rem !important;
 }
 
-.scrum-title-wrap {
+.scrum-premium-container .scrum-title-wrap {
   display: flex !important;
+  flex-direction: row !important;
   align-items: center !important;
   gap: 1rem !important;
 }
 
-.scrum-icon-glow {
+.scrum-premium-container .scrum-icon-glow {
   width: 60px !important;
   height: 60px !important;
+  min-width: 60px !important;
   border-radius: 16px !important;
   background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(124, 58, 237, 0.2)) !important;
   display: flex !important;
@@ -2463,7 +2467,7 @@ body {
   animation: pulse 2s ease-in-out infinite !important;
 }
 
-.scrum-icon-glow i {
+.scrum-premium-container .scrum-icon-glow i {
   font-size: 1.8rem !important;
   background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)) !important;
   -webkit-background-clip: text !important;
@@ -2471,27 +2475,28 @@ body {
   background-clip: text !important;
 }
 
-.scrum-main-title {
+.scrum-premium-container .scrum-main-title {
   font-size: 1.8rem !important;
   font-weight: 800 !important;
   color: var(--text-primary) !important;
   margin: 0 !important;
 }
 
-.scrum-tagline {
+.scrum-premium-container .scrum-tagline {
   font-size: 0.9rem !important;
   color: var(--text-muted) !important;
   margin: 0.25rem 0 0 0 !important;
 }
 
-.scrum-metrics-premium {
+.scrum-premium-container .scrum-metrics-premium {
   display: flex !important;
+  flex-direction: row !important;
   gap: 0.75rem !important;
   flex-wrap: wrap !important;
 }
 
 /* Sprint Visual Center */
-.scrum-sprint-visual {
+.scrum-premium-container .scrum-sprint-visual {
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
@@ -2499,16 +2504,17 @@ body {
   margin-bottom: 2rem !important;
 }
 
-.sprint-center {
+.scrum-premium-container .sprint-center {
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
   gap: 0.5rem !important;
 }
 
-.sprint-icon-premium {
+.scrum-premium-container .sprint-icon-premium {
   width: 90px !important;
   height: 90px !important;
+  min-width: 90px !important;
   border-radius: 50% !important;
   background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%) !important;
   display: flex !important;
@@ -2519,7 +2525,7 @@ body {
   overflow: hidden !important;
 }
 
-.sprint-icon-premium img {
+.scrum-premium-container .sprint-icon-premium img {
   border-radius: 50% !important;
 }
 
@@ -2528,7 +2534,7 @@ body {
   50% { transform: scale(1.05); box-shadow: 0 12px 40px rgba(0, 212, 255, 0.6); }
 }
 
-.sprint-label-premium {
+.scrum-premium-container .sprint-label-premium {
   font-size: 1.2rem !important;
   font-weight: 800 !important;
   background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)) !important;
@@ -2538,13 +2544,13 @@ body {
   letter-spacing: 2px !important;
 }
 
-.sprint-duration {
+.scrum-premium-container .sprint-duration {
   font-size: 0.75rem !important;
   color: var(--text-muted) !important;
 }
 
 /* Scrum Connection Line */
-.scrum-connection-line {
+.scrum-premium-container .scrum-connection-line {
   position: relative !important;
   width: 90% !important;
   height: 3px !important;
@@ -2554,7 +2560,7 @@ body {
   margin: 0.5rem 0 !important;
 }
 
-.scrum-flow-animation {
+.scrum-premium-container .scrum-flow-animation {
   position: absolute !important;
   top: 0 !important;
   left: -100% !important;
@@ -2569,34 +2575,36 @@ body {
   100% { left: 100%; }
 }
 
-/* Events Premium Grid */
-.scrum-events-premium {
+/* Events Premium Grid - HORIZONTAL LAYOUT */
+.scrum-premium-container .scrum-events-premium {
   display: flex !important;
+  flex-direction: row !important;
   align-items: flex-start !important;
-  justify-content: space-between !important;
+  justify-content: center !important;
   gap: 0.5rem !important;
   width: 100% !important;
   flex-wrap: nowrap !important;
 }
 
-.event-card-premium {
+.scrum-premium-container .event-card-premium {
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
+  text-align: center !important;
   padding: 1rem !important;
   border-radius: 12px !important;
   min-width: 130px !important;
   max-width: 160px !important;
-  flex: 1 !important;
+  flex: 1 1 auto !important;
   position: relative !important;
   transition: all 0.3s ease !important;
 }
 
-.event-card-premium:hover {
+.scrum-premium-container .event-card-premium:hover {
   transform: translateY(-5px) !important;
 }
 
-.event-number {
+.scrum-premium-container .event-number {
   position: absolute !important;
   top: -10px !important;
   left: 10px !important;
@@ -2612,9 +2620,10 @@ body {
   z-index: 2 !important;
 }
 
-.event-icon-wrap {
+.scrum-premium-container .event-icon-wrap {
   width: 55px !important;
   height: 55px !important;
+  min-width: 55px !important;
   border-radius: 50% !important;
   display: flex !important;
   align-items: center !important;
@@ -2623,113 +2632,114 @@ body {
   overflow: hidden !important;
 }
 
-.event-icon-wrap img {
+.scrum-premium-container .event-icon-wrap img {
   border-radius: 50% !important;
 }
 
-.event-content {
-  text-align: center !important;
-}
-
-.event-content h4 {
-  font-size: 0.9rem !important;
-  font-weight: 700 !important;
-  margin: 0 0 0.2rem 0 !important;
-}
-
-.event-content p {
-  font-size: 0.7rem !important;
-  margin: 0 !important;
-  opacity: 0.8 !important;
-}
-
-.event-meta {
-  margin-top: 0.5rem !important;
-  font-size: 0.65rem !important;
-  opacity: 0.7 !important;
-}
-
-.event-meta i {
-  font-size: 0.6rem !important;
-  margin-right: 0.2rem !important;
-}
-
-.event-arrow {
+.scrum-premium-container .event-arrow {
   display: flex !important;
   align-items: center !important;
   color: var(--text-muted) !important;
   font-size: 0.9rem !important;
   animation: arrowPulse 1.5s ease-in-out infinite !important;
   padding-top: 2rem !important;
+  flex-shrink: 0 !important;
+}
+
+.scrum-premium-container .event-content {
+  text-align: center !important;
+}
+
+.scrum-premium-container .event-content h4 {
+  font-size: 0.9rem !important;
+  font-weight: 700 !important;
+  margin: 0 0 0.2rem 0 !important;
+}
+
+.scrum-premium-container .event-content p {
+  font-size: 0.7rem !important;
+  margin: 0 !important;
+  opacity: 0.8 !important;
+}
+
+.scrum-premium-container .event-meta {
+  margin-top: 0.5rem !important;
+  font-size: 0.65rem !important;
+  opacity: 0.7 !important;
+}
+
+.scrum-premium-container .event-meta i {
+  font-size: 0.6rem !important;
+  margin-right: 0.2rem !important;
 }
 
 /* Event Card Colors */
-.event-card-premium.plan {
+.scrum-premium-container .event-card-premium.plan {
   background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(96, 165, 250, 0.08)) !important;
   border: 1px solid rgba(59, 130, 246, 0.3) !important;
   color: #60a5fa !important;
 }
-.event-card-premium.plan .event-number {
+.scrum-premium-container .event-card-premium.plan .event-number {
   background: #3b82f6 !important;
 }
-.event-card-premium.plan .event-icon-wrap {
+.scrum-premium-container .event-card-premium.plan .event-icon-wrap {
   background: rgba(59, 130, 246, 0.2) !important;
   border: 2px solid rgba(59, 130, 246, 0.4) !important;
 }
-.event-card-premium.plan:hover {
+.scrum-premium-container .event-card-premium.plan:hover {
   box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3) !important;
 }
 
-.event-card-premium.daily {
+.scrum-premium-container .event-card-premium.daily {
   background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(52, 211, 153, 0.08)) !important;
   border: 1px solid rgba(16, 185, 129, 0.3) !important;
   color: #34d399 !important;
 }
-.event-card-premium.daily .event-number {
+.scrum-premium-container .event-card-premium.daily .event-number {
   background: #10b981 !important;
 }
-.event-card-premium.daily .event-icon-wrap {
+.scrum-premium-container .event-card-premium.daily .event-icon-wrap {
   background: rgba(16, 185, 129, 0.2) !important;
   border: 2px solid rgba(16, 185, 129, 0.4) !important;
 }
-.event-card-premium.daily:hover {
+.scrum-premium-container .event-card-premium.daily:hover {
   box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3) !important;
 }
 
-.event-card-premium.review {
+.scrum-premium-container .event-card-premium.review {
   background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(251, 191, 36, 0.08)) !important;
   border: 1px solid rgba(245, 158, 11, 0.3) !important;
   color: #fbbf24 !important;
 }
-.event-card-premium.review .event-number {
+.scrum-premium-container .event-card-premium.review .event-number {
   background: #f59e0b !important;
 }
-.event-card-premium.review .event-icon-wrap {
+.scrum-premium-container .event-card-premium.review .event-icon-wrap {
   background: rgba(245, 158, 11, 0.2) !important;
   border: 2px solid rgba(245, 158, 11, 0.4) !important;
 }
-.event-card-premium.review:hover {
+.scrum-premium-container .event-card-premium.review:hover {
   box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3) !important;
 }
 
-.event-card-premium.retro {
+.scrum-premium-container .event-card-premium.retro {
   background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(244, 114, 182, 0.08)) !important;
   border: 1px solid rgba(236, 72, 153, 0.3) !important;
   color: #f472b6 !important;
 }
-.event-card-premium.retro .event-number {
+.scrum-premium-container .event-card-premium.retro .event-number {
   background: #ec4899 !important;
 }
-.event-card-premium.retro .event-icon-wrap {
+.scrum-premium-container .event-card-premium.retro .event-icon-wrap {
   background: rgba(236, 72, 153, 0.2) !important;
   border: 2px solid rgba(236, 72, 153, 0.4) !important;
 }
-.event-card-premium.retro:hover {
+.scrum-premium-container .event-card-premium.retro:hover {
   box-shadow: 0 8px 25px rgba(236, 72, 153, 0.3) !important;
 }
 
 /* Bottom Layers */
-.scrum-bottom-layers {
+.scrum-premium-container .scrum-bottom-layers {
   display: grid !important;
   grid-template-columns: repeat(3, 1fr) !important;
   gap: 1rem !important;
@@ -2738,38 +2748,40 @@ body {
   border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-.scrum-layer {
+.scrum-premium-container .scrum-layer {
   background: rgba(30, 30, 45, 0.5) !important;
   border-radius: 12px !important;
   padding: 1rem !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
-.layer-label {
+.scrum-premium-container .scrum-layer .layer-label {
   font-size: 0.7rem !important;
   font-weight: 700 !important;
   letter-spacing: 1px !important;
   color: var(--text-muted) !important;
   margin-bottom: 0.75rem !important;
   display: flex !important;
+  flex-direction: row !important;
   align-items: center !important;
   gap: 0.5rem !important;
 }
 
-.layer-label i {
+.scrum-premium-container .scrum-layer .layer-label i {
   font-size: 0.8rem !important;
   opacity: 0.7 !important;
 }
 
 /* Roles Grid */
-.roles-grid {
+.scrum-premium-container .roles-grid {
   display: flex !important;
   flex-direction: column !important;
   gap: 0.5rem !important;
 }
 
-.role-card {
+.scrum-premium-container .role-card {
   display: flex !important;
+  flex-direction: row !important;
   align-items: center !important;
   gap: 0.5rem !important;
   padding: 0.5rem 0.75rem !important;
@@ -2779,46 +2791,47 @@ body {
   transition: all 0.2s ease !important;
 }
 
-.role-card:hover {
+.scrum-premium-container .role-card:hover {
   transform: translateX(3px) !important;
 }
 
-.role-card i {
+.scrum-premium-container .role-card i {
   font-size: 0.9rem !important;
 }
 
-.role-card small {
+.scrum-premium-container .role-card small {
   font-size: 0.6rem !important;
   opacity: 0.7 !important;
   margin-left: auto !important;
 }
 
-.role-card.po {
+.scrum-premium-container .role-card.po {
   background: rgba(124, 58, 237, 0.15) !important;
   border: 1px solid rgba(124, 58, 237, 0.3) !important;
   color: #a78bfa !important;
 }
 
-.role-card.sm {
+.scrum-premium-container .role-card.sm {
   background: rgba(0, 212, 255, 0.15) !important;
   border: 1px solid rgba(0, 212, 255, 0.3) !important;
   color: var(--accent-primary) !important;
 }
 
-.role-card.dev {
+.scrum-premium-container .role-card.dev {
   background: rgba(16, 185, 129, 0.15) !important;
   border: 1px solid rgba(16, 185, 129, 0.3) !important;
   color: #10b981 !important;
 }
 
 /* Artifacts Grid */
-.artifacts-grid {
+.scrum-premium-container .artifacts-grid {
   display: flex !important;
+  flex-direction: row !important;
   flex-wrap: wrap !important;
   gap: 0.4rem !important;
 }
 
-.artifact-chip {
+.scrum-premium-container .artifact-chip {
   display: inline-flex !important;
   align-items: center !important;
   gap: 0.3rem !important;
@@ -2831,19 +2844,19 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-.artifact-chip i {
+.scrum-premium-container .artifact-chip i {
   font-size: 0.6rem !important;
   opacity: 0.7 !important;
 }
 
 /* Values Grid */
-.values-grid {
+.scrum-premium-container .values-grid {
   display: flex !important;
   flex-wrap: wrap !important;
   gap: 0.4rem !important;
 }
 
-.value-badge {
+.scrum-premium-container .value-badge {
   display: inline-flex !important;
   align-items: center !important;
   gap: 0.3rem !important;
@@ -2856,36 +2869,36 @@ body {
   border: 1px solid rgba(0, 212, 255, 0.2) !important;
 }
 
-.value-badge i {
+.scrum-premium-container .value-badge i {
   font-size: 0.55rem !important;
 }
 
 /* Scrum Responsive */
 @media (max-width: 900px) {
-  .scrum-events-premium {
+  .scrum-premium-container .scrum-events-premium {
     flex-wrap: wrap !important;
     justify-content: center !important;
   }
-  .event-arrow {
+  .scrum-premium-container .event-arrow {
     display: none !important;
   }
-  .scrum-bottom-layers {
+  .scrum-premium-container .scrum-bottom-layers {
     grid-template-columns: 1fr !important;
   }
-  .scrum-connection-line {
+  .scrum-premium-container .scrum-connection-line {
     display: none !important;
   }
 }
 
 @media (max-width: 600px) {
-  .scrum-hero-header {
+  .scrum-premium-container .scrum-hero-header {
     flex-direction: column !important;
     text-align: center !important;
   }
-  .scrum-title-wrap {
+  .scrum-premium-container .scrum-title-wrap {
     flex-direction: column !important;
   }
-  .scrum-metrics-premium {
+  .scrum-premium-container .scrum-metrics-premium {
     justify-content: center !important;
   }
 }
