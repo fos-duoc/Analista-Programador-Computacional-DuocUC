@@ -4475,6 +4475,191 @@ section {
   }
 }
 
+/* ==================== PIPELINE MODE SELECTOR ==================== */
+.pipeline-mode-selector {
+  display: flex !important;
+  gap: 1rem !important;
+  justify-content: center !important;
+  margin-top: 2rem !important;
+}
+
+.mode-btn {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0.3rem !important;
+  padding: 1rem 2rem !important;
+  background: rgba(30, 30, 45, 0.6) !important;
+  border: 2px solid rgba(148, 163, 184, 0.2) !important;
+  border-radius: 12px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  min-width: 180px !important;
+}
+
+.mode-btn i {
+  font-size: 1.5rem !important;
+  color: var(--text-secondary) !important;
+  transition: all 0.3s ease !important;
+}
+
+.mode-btn span {
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  color: var(--text-primary) !important;
+}
+
+.mode-btn small {
+  font-size: 0.7rem !important;
+  color: var(--text-muted) !important;
+  opacity: 0.7 !important;
+}
+
+.mode-btn:hover {
+  background: rgba(40, 40, 60, 0.8) !important;
+  border-color: rgba(148, 163, 184, 0.4) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Real-time mode active state */
+.mode-btn.active[data-mode="realtime"] {
+  background: linear-gradient(145deg, rgba(245, 158, 11, 0.15), rgba(234, 88, 12, 0.1)) !important;
+  border-color: #f59e0b !important;
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.2) !important;
+}
+
+.mode-btn.active[data-mode="realtime"] i {
+  color: #f59e0b !important;
+  text-shadow: 0 0 10px rgba(245, 158, 11, 0.5) !important;
+}
+
+/* Batch mode active state */
+.mode-btn.active[data-mode="batch"] {
+  background: linear-gradient(145deg, rgba(124, 58, 237, 0.15), rgba(139, 92, 246, 0.1)) !important;
+  border-color: #7c3aed !important;
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.2) !important;
+}
+
+.mode-btn.active[data-mode="batch"] i {
+  color: #7c3aed !important;
+  text-shadow: 0 0 10px rgba(124, 58, 237, 0.5) !important;
+}
+
+/* Pipeline Mode Display Toggle */
+.pipeline-mode {
+  display: none !important;
+}
+
+.pipeline-mode.active {
+  display: block !important;
+  animation: fadeInMode 0.4s ease !important;
+}
+
+@keyframes fadeInMode {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pipeline Mode Headers */
+.pipeline-mode-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 1rem 1.5rem !important;
+  border-radius: 12px !important;
+  margin-bottom: 2rem !important;
+  flex-wrap: wrap !important;
+  gap: 1rem !important;
+}
+
+.pipeline-mode-header.realtime {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(234, 88, 12, 0.05)) !important;
+  border: 1px solid rgba(245, 158, 11, 0.3) !important;
+}
+
+.pipeline-mode-header.batch {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(139, 92, 246, 0.05)) !important;
+  border: 1px solid rgba(124, 58, 237, 0.3) !important;
+}
+
+.mode-indicator {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+}
+
+.pipeline-mode-header.realtime .mode-indicator i {
+  color: #f59e0b !important;
+  font-size: 1.3rem !important;
+}
+
+.pipeline-mode-header.batch .mode-indicator i {
+  color: #7c3aed !important;
+  font-size: 1.3rem !important;
+}
+
+.mode-stats {
+  display: flex !important;
+  gap: 0.75rem !important;
+  flex-wrap: wrap !important;
+}
+
+.stat-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.4rem !important;
+  padding: 0.4rem 0.8rem !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 20px !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  color: var(--text-secondary) !important;
+}
+
+.stat-pill i {
+  font-size: 0.7rem !important;
+  opacity: 0.8 !important;
+}
+
+/* Real-time specific line */
+.pipeline-connection-line.realtime-line .data-flow-animation {
+  background: linear-gradient(90deg, transparent, #f59e0b, transparent) !important;
+}
+
+/* Batch specific line */
+.pipeline-connection-line.batch-line .data-flow-animation {
+  background: linear-gradient(90deg, transparent, #7c3aed, transparent) !important;
+  animation-duration: 4s !important;
+}
+
+/* Responsive Mode Selector */
+@media (max-width: 500px) {
+  .pipeline-mode-selector {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .mode-btn {
+    width: 100% !important;
+    max-width: 250px !important;
+  }
+  .pipeline-mode-header {
+    flex-direction: column !important;
+    text-align: center !important;
+  }
+  .mode-stats {
+    justify-content: center !important;
+  }
+}
+
 /* DAG Code Container */
 .dag-code-container {
   border-radius: var(--radius-lg);

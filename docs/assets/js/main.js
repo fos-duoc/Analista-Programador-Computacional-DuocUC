@@ -96,6 +96,27 @@ document.querySelectorAll('.bimestre-card, .stack-category, .recurso-card').forE
     observer.observe(el);
 });
 
+// Pipeline Mode Switcher
+function switchPipelineMode(mode) {
+    // Update buttons
+    document.querySelectorAll('.mode-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.mode === mode) {
+            btn.classList.add('active');
+        }
+    });
+
+    // Update pipeline views
+    document.querySelectorAll('.pipeline-mode').forEach(pipeline => {
+        pipeline.classList.remove('active');
+    });
+
+    const targetPipeline = document.getElementById(`pipeline-${mode}`);
+    if (targetPipeline) {
+        targetPipeline.classList.add('active');
+    }
+}
+
 // Console Easter Egg
 console.log(`
 %c╔══════════════════════════════════════════════════════════╗
