@@ -1418,114 +1418,178 @@ default_args = {<span class="string">'retries'</span>: <span class="number">3</s
         </div>
     </section>
 
-    <!-- Data Pipeline Section -->
+    <!-- Data Pipeline Section - Premium Design -->
     <section id="pipeline" class="pipeline-section">
-        <div class="section-header" data-aos="fade-up">
-            <h2 class="section-title">
-                <i class="fas fa-stream"></i>
-                Data Pipeline End-to-End
-            </h2>
-            <p class="section-subtitle">Flujo completo de datos: desde la ingesta hasta la visualizacion</p>
+        <!-- Premium Header -->
+        <div class="pipeline-hero-header" data-aos="fade-up">
+            <div class="pipeline-title-wrap">
+                <div class="pipeline-icon-glow">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <div class="pipeline-title-content">
+                    <h2 class="pipeline-main-title">Data Pipeline <span class="gradient-text">End-to-End</span></h2>
+                    <p class="pipeline-tagline">Arquitectura moderna de flujo de datos en tiempo real y batch</p>
+                </div>
+            </div>
+            <div class="pipeline-mode-badges">
+                <span class="mode-badge realtime"><i class="fas fa-bolt"></i> Real-time Streaming</span>
+                <span class="mode-badge batch"><i class="fas fa-layer-group"></i> Batch Processing</span>
+            </div>
         </div>
 
-        <!-- Pipeline Diagram -->
+        <!-- Pipeline Diagram - Redesigned -->
         <div class="pipeline-container" data-aos="fade-up" data-aos-delay="100">
-            <div class="pipeline-diagram glass-card">
-                <div class="pipeline-header">
-                    <div class="pipeline-title">
-                        <i class="fas fa-project-diagram"></i>
-                        <span>ETL Pipeline Architecture</span>
-                    </div>
-                    <div class="pipeline-badges">
-                        <span class="pipe-badge"><i class="fas fa-clock"></i> Real-time</span>
-                        <span class="pipe-badge"><i class="fas fa-database"></i> Batch</span>
-                    </div>
+            <div class="pipeline-diagram-premium">
+                <!-- Animated Connection Line -->
+                <div class="pipeline-connection-line">
+                    <div class="data-flow-animation"></div>
                 </div>
 
-                <!-- Pipeline Flow -->
-                <div class="pipeline-flow">
-                    <!-- Stage 1: Sources -->
-                    <div class="pipeline-stage">
-                        <div class="stage-icon sources">
-                            <i class="fas fa-cloud-download-alt"></i>
+                <!-- Pipeline Stages -->
+                <div class="pipeline-stages-grid">
+                    <!-- Stage 1: Extract -->
+                    <div class="pipeline-stage-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="stage-number">01</div>
+                        <div class="stage-icon-premium extract">
+                            <i class="fas fa-database"></i>
+                            <div class="stage-pulse"></div>
                         </div>
-                        <div class="stage-label">Data Sources</div>
-                        <div class="stage-items">
-                            <span class="stage-item"><i class="fas fa-database"></i> APIs</span>
-                            <span class="stage-item"><i class="fas fa-file-csv"></i> CSV/JSON</span>
-                            <span class="stage-item"><i class="fas fa-stream"></i> Streams</span>
+                        <div class="stage-content">
+                            <h4 class="stage-title">Extract</h4>
+                            <p class="stage-desc">Fuentes de datos</p>
                         </div>
-                    </div>
-
-                    <div class="pipeline-arrow"><i class="fas fa-chevron-right"></i></div>
-
-                    <!-- Stage 2: Ingestion -->
-                    <div class="pipeline-stage">
-                        <div class="stage-icon ingestion">
-                            <i class="devicon-apachekafka-original"></i>
-                        </div>
-                        <div class="stage-label">Ingestion</div>
-                        <div class="stage-items">
-                            <span class="stage-item"><i class="devicon-apachekafka-original"></i> Kafka</span>
-                            <span class="stage-item"><i class="fas fa-bolt"></i> Kinesis</span>
+                        <div class="stage-tech-stack">
+                            <a href="https://www.postman.com/" target="_blank" class="tech-mini"><i class="devicon-postman-plain colored"></i> APIs REST</a>
+                            <a href="https://kafka.apache.org/" target="_blank" class="tech-mini"><i class="devicon-apachekafka-original"></i> Kafka</a>
+                            <a href="https://aws.amazon.com/kinesis/" target="_blank" class="tech-mini"><i class="devicon-amazonwebservices-plain-wordmark"></i> Kinesis</a>
+                            <a href="https://www.postgresql.org/" target="_blank" class="tech-mini"><i class="devicon-postgresql-plain colored"></i> CDC</a>
                         </div>
                     </div>
 
-                    <div class="pipeline-arrow"><i class="fas fa-chevron-right"></i></div>
+                    <!-- Arrow -->
+                    <div class="stage-arrow"><i class="fas fa-arrow-right"></i></div>
 
-                    <!-- Stage 3: Processing -->
-                    <div class="pipeline-stage">
-                        <div class="stage-icon processing">
-                            <i class="devicon-apachespark-original"></i>
+                    <!-- Stage 2: Transform -->
+                    <div class="pipeline-stage-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="stage-number">02</div>
+                        <div class="stage-icon-premium transform">
+                            <i class="fas fa-cogs"></i>
+                            <div class="stage-pulse"></div>
                         </div>
-                        <div class="stage-label">Processing</div>
-                        <div class="stage-items">
-                            <span class="stage-item"><i class="devicon-apachespark-original"></i> Spark</span>
-                            <span class="stage-item"><i class="fas fa-cogs"></i> dbt</span>
+                        <div class="stage-content">
+                            <h4 class="stage-title">Transform</h4>
+                            <p class="stage-desc">Procesamiento</p>
+                        </div>
+                        <div class="stage-tech-stack">
+                            <a href="https://spark.apache.org/" target="_blank" class="tech-mini"><i class="devicon-apachespark-original colored"></i> Spark</a>
+                            <a href="https://www.getdbt.com/" target="_blank" class="tech-mini"><i class="fas fa-code-branch"></i> dbt</a>
+                            <a href="https://flink.apache.org/" target="_blank" class="tech-mini"><i class="fas fa-water"></i> Flink</a>
+                            <a href="https://www.python.org/" target="_blank" class="tech-mini"><i class="devicon-python-plain colored"></i> PySpark</a>
                         </div>
                     </div>
 
-                    <div class="pipeline-arrow"><i class="fas fa-chevron-right"></i></div>
+                    <!-- Arrow -->
+                    <div class="stage-arrow"><i class="fas fa-arrow-right"></i></div>
 
-                    <!-- Stage 4: Storage -->
-                    <div class="pipeline-stage">
-                        <div class="stage-icon storage">
+                    <!-- Stage 3: Load -->
+                    <div class="pipeline-stage-card" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="stage-number">03</div>
+                        <div class="stage-icon-premium load">
                             <i class="fas fa-warehouse"></i>
+                            <div class="stage-pulse"></div>
                         </div>
-                        <div class="stage-label">Storage</div>
-                        <div class="stage-items">
-                            <span class="stage-item"><i class="fas fa-snowflake"></i> Snowflake</span>
-                            <span class="stage-item"><i class="devicon-postgresql-plain"></i> PostgreSQL</span>
+                        <div class="stage-content">
+                            <h4 class="stage-title">Load</h4>
+                            <p class="stage-desc">Data Warehouse</p>
+                        </div>
+                        <div class="stage-tech-stack">
+                            <a href="https://www.snowflake.com/" target="_blank" class="tech-mini"><i class="fas fa-snowflake"></i> Snowflake</a>
+                            <a href="https://www.databricks.com/" target="_blank" class="tech-mini"><i class="fas fa-cubes"></i> Databricks</a>
+                            <a href="https://cloud.google.com/bigquery" target="_blank" class="tech-mini"><i class="devicon-googlecloud-plain colored"></i> BigQuery</a>
+                            <a href="https://aws.amazon.com/redshift/" target="_blank" class="tech-mini"><i class="devicon-amazonwebservices-plain-wordmark"></i> Redshift</a>
                         </div>
                     </div>
 
-                    <div class="pipeline-arrow"><i class="fas fa-chevron-right"></i></div>
+                    <!-- Arrow -->
+                    <div class="stage-arrow"><i class="fas fa-arrow-right"></i></div>
 
-                    <!-- Stage 5: Visualization -->
-                    <div class="pipeline-stage">
-                        <div class="stage-icon visualization">
+                    <!-- Stage 4: Serve -->
+                    <div class="pipeline-stage-card" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="stage-number">04</div>
+                        <div class="stage-icon-premium serve">
                             <i class="fas fa-chart-line"></i>
+                            <div class="stage-pulse"></div>
                         </div>
-                        <div class="stage-label">Visualization</div>
-                        <div class="stage-items">
-                            <span class="stage-item"><i class="fas fa-chart-bar"></i> Power BI</span>
-                            <span class="stage-item"><i class="devicon-grafana-original"></i> Grafana</span>
+                        <div class="stage-content">
+                            <h4 class="stage-title">Serve</h4>
+                            <p class="stage-desc">Visualización</p>
+                        </div>
+                        <div class="stage-tech-stack">
+                            <a href="https://powerbi.microsoft.com/" target="_blank" class="tech-mini"><i class="fas fa-chart-pie"></i> Power BI</a>
+                            <a href="https://www.tableau.com/" target="_blank" class="tech-mini"><i class="fas fa-chart-area"></i> Tableau</a>
+                            <a href="https://grafana.com/" target="_blank" class="tech-mini"><i class="devicon-grafana-original colored"></i> Grafana</a>
+                            <a href="https://metabase.com/" target="_blank" class="tech-mini"><i class="fas fa-chart-bar"></i> Metabase</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Orchestration Bar -->
-                <div class="orchestration-bar">
-                    <div class="orch-icon">
-                        <i class="devicon-apacheairflow-plain"></i>
+                <!-- Orchestration & Governance Layer -->
+                <div class="pipeline-layers">
+                    <!-- Orchestration -->
+                    <div class="layer-card orchestration">
+                        <div class="layer-icon">
+                            <i class="devicon-apacheairflow-plain"></i>
+                        </div>
+                        <div class="layer-info">
+                            <span class="layer-label">ORCHESTRATION</span>
+                            <span class="layer-name">Apache Airflow</span>
+                        </div>
+                        <div class="layer-status running">
+                            <span class="status-indicator"></span>
+                            <span>DAG Active</span>
+                        </div>
+                        <div class="layer-extras">
+                            <span class="extra-badge"><i class="fas fa-clock"></i> Cron: 0 6 * * *</span>
+                            <span class="extra-badge"><i class="fas fa-redo"></i> Retries: 3</span>
+                        </div>
                     </div>
-                    <div class="orch-info">
-                        <span class="orch-label">Orchestration</span>
-                        <span class="orch-name">Apache Airflow</span>
+
+                    <!-- Data Quality -->
+                    <div class="layer-card quality">
+                        <div class="layer-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="layer-info">
+                            <span class="layer-label">DATA QUALITY</span>
+                            <span class="layer-name">Great Expectations</span>
+                        </div>
+                        <div class="layer-status healthy">
+                            <span class="status-indicator"></span>
+                            <span>Tests Passing</span>
+                        </div>
+                        <div class="layer-extras">
+                            <span class="extra-badge"><i class="fas fa-check-circle"></i> 47 Expectations</span>
+                            <span class="extra-badge"><i class="fas fa-percentage"></i> 99.8% Pass</span>
+                        </div>
                     </div>
-                    <div class="orch-status">
-                        <span class="status-dot"></span>
-                        <span>DAG Running</span>
+
+                    <!-- Observability -->
+                    <div class="layer-card observability">
+                        <div class="layer-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="layer-info">
+                            <span class="layer-label">OBSERVABILITY</span>
+                            <span class="layer-name">Monte Carlo</span>
+                        </div>
+                        <div class="layer-status monitoring">
+                            <span class="status-indicator"></span>
+                            <span>Monitoring</span>
+                        </div>
+                        <div class="layer-extras">
+                            <span class="extra-badge"><i class="fas fa-table"></i> 156 Tables</span>
+                            <span class="extra-badge"><i class="fas fa-bell"></i> 0 Alerts</span>
+                        </div>
                     </div>
                 </div>
             </div>
