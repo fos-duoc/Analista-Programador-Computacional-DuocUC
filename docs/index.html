@@ -1290,6 +1290,184 @@ default_args = {<span class="string">'retries'</span>: <span class="number">3</s
         </div>
     </section>
 
+    <!-- Data Pipeline Section -->
+    <section id="pipeline" class="pipeline-section">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">
+                <i class="fas fa-stream"></i>
+                Data Pipeline End-to-End
+            </h2>
+            <p class="section-subtitle">Flujo completo de datos: desde la ingesta hasta la visualizacion</p>
+        </div>
+
+        <!-- Pipeline Diagram -->
+        <div class="pipeline-container" data-aos="fade-up" data-aos-delay="100">
+            <div class="pipeline-diagram glass-card">
+                <div class="pipeline-header">
+                    <div class="pipeline-title">
+                        <i class="fas fa-project-diagram"></i>
+                        <span>ETL Pipeline Architecture</span>
+                    </div>
+                    <div class="pipeline-badges">
+                        <span class="pipe-badge"><i class="fas fa-clock"></i> Real-time</span>
+                        <span class="pipe-badge"><i class="fas fa-database"></i> Batch</span>
+                    </div>
+                </div>
+
+                <!-- Pipeline Flow -->
+                <div class="pipeline-flow">
+                    <!-- Stage 1: Sources -->
+                    <div class="pipeline-stage">
+                        <div class="stage-icon sources">
+                            <i class="fas fa-cloud-download-alt"></i>
+                        </div>
+                        <div class="stage-label">Data Sources</div>
+                        <div class="stage-items">
+                            <span class="stage-item"><i class="fas fa-database"></i> APIs</span>
+                            <span class="stage-item"><i class="fas fa-file-csv"></i> CSV/JSON</span>
+                            <span class="stage-item"><i class="fas fa-stream"></i> Streams</span>
+                        </div>
+                    </div>
+
+                    <div class="pipeline-arrow"><i class="fas fa-chevron-right"></i></div>
+
+                    <!-- Stage 2: Ingestion -->
+                    <div class="pipeline-stage">
+                        <div class="stage-icon ingestion">
+                            <i class="devicon-apachekafka-original"></i>
+                        </div>
+                        <div class="stage-label">Ingestion</div>
+                        <div class="stage-items">
+                            <span class="stage-item"><i class="devicon-apachekafka-original"></i> Kafka</span>
+                            <span class="stage-item"><i class="fas fa-bolt"></i> Kinesis</span>
+                        </div>
+                    </div>
+
+                    <div class="pipeline-arrow"><i class="fas fa-chevron-right"></i></div>
+
+                    <!-- Stage 3: Processing -->
+                    <div class="pipeline-stage">
+                        <div class="stage-icon processing">
+                            <i class="devicon-apachespark-original"></i>
+                        </div>
+                        <div class="stage-label">Processing</div>
+                        <div class="stage-items">
+                            <span class="stage-item"><i class="devicon-apachespark-original"></i> Spark</span>
+                            <span class="stage-item"><i class="fas fa-cogs"></i> dbt</span>
+                        </div>
+                    </div>
+
+                    <div class="pipeline-arrow"><i class="fas fa-chevron-right"></i></div>
+
+                    <!-- Stage 4: Storage -->
+                    <div class="pipeline-stage">
+                        <div class="stage-icon storage">
+                            <i class="fas fa-warehouse"></i>
+                        </div>
+                        <div class="stage-label">Storage</div>
+                        <div class="stage-items">
+                            <span class="stage-item"><i class="fas fa-snowflake"></i> Snowflake</span>
+                            <span class="stage-item"><i class="devicon-postgresql-plain"></i> PostgreSQL</span>
+                        </div>
+                    </div>
+
+                    <div class="pipeline-arrow"><i class="fas fa-chevron-right"></i></div>
+
+                    <!-- Stage 5: Visualization -->
+                    <div class="pipeline-stage">
+                        <div class="stage-icon visualization">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stage-label">Visualization</div>
+                        <div class="stage-items">
+                            <span class="stage-item"><i class="fas fa-chart-bar"></i> Power BI</span>
+                            <span class="stage-item"><i class="devicon-grafana-original"></i> Grafana</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orchestration Bar -->
+                <div class="orchestration-bar">
+                    <div class="orch-icon">
+                        <i class="devicon-apacheairflow-plain"></i>
+                    </div>
+                    <div class="orch-info">
+                        <span class="orch-label">Orchestration</span>
+                        <span class="orch-name">Apache Airflow</span>
+                    </div>
+                    <div class="orch-status">
+                        <span class="status-dot"></span>
+                        <span>DAG Running</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Airflow DAG Code -->
+            <div class="dag-code-container glass-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="code-header">
+                    <div class="code-file">
+                        <i class="devicon-python-plain colored"></i>
+                        <span>etl_dag.py</span>
+                    </div>
+                    <div class="code-badges">
+                        <span class="code-badge airflow"><i class="devicon-apacheairflow-plain"></i> Airflow 2.x</span>
+                        <span class="code-badge python"><i class="devicon-python-plain"></i> Python 3.11</span>
+                    </div>
+                </div>
+                <div class="code-block">
+                    <pre><code class="language-python"><span class="code-comment"># etl_dag.py - Pipeline de datos completo</span>
+<span class="code-keyword">from</span> airflow <span class="code-keyword">import</span> DAG
+<span class="code-keyword">from</span> airflow.operators.python <span class="code-keyword">import</span> PythonOperator
+<span class="code-keyword">from</span> airflow.providers.postgres.operators.postgres <span class="code-keyword">import</span> PostgresOperator
+<span class="code-keyword">from</span> datetime <span class="code-keyword">import</span> datetime, timedelta
+
+<span class="code-comment"># Configuracion del DAG</span>
+default_args = {
+    <span class="code-string">'owner'</span>: <span class="code-string">'data-team'</span>,
+    <span class="code-string">'depends_on_past'</span>: <span class="code-keyword">False</span>,
+    <span class="code-string">'start_date'</span>: datetime(<span class="code-number">2025</span>, <span class="code-number">1</span>, <span class="code-number">1</span>),
+    <span class="code-string">'retries'</span>: <span class="code-number">3</span>,
+    <span class="code-string">'retry_delay'</span>: timedelta(minutes=<span class="code-number">5</span>),
+}
+
+<span class="code-keyword">with</span> DAG(
+    <span class="code-string">'etl_pipeline_prod'</span>,
+    default_args=default_args,
+    schedule_interval=<span class="code-string">'0 6 * * *'</span>,  <span class="code-comment"># Diario a las 6 AM</span>
+    catchup=<span class="code-keyword">False</span>,
+    tags=[<span class="code-string">'etl'</span>, <span class="code-string">'production'</span>]
+) <span class="code-keyword">as</span> dag:
+
+    <span class="code-comment"># Task 1: Extraer datos desde API</span>
+    extract = PythonOperator(
+        task_id=<span class="code-string">'extract_from_api'</span>,
+        python_callable=extract_data
+    )
+
+    <span class="code-comment"># Task 2: Transformar con Spark</span>
+    transform = PythonOperator(
+        task_id=<span class="code-string">'transform_spark'</span>,
+        python_callable=spark_transform
+    )
+
+    <span class="code-comment"># Task 3: Cargar a Data Warehouse</span>
+    load = PostgresOperator(
+        task_id=<span class="code-string">'load_to_warehouse'</span>,
+        postgres_conn_id=<span class="code-string">'warehouse_conn'</span>,
+        sql=<span class="code-string">'sql/load_facts.sql'</span>
+    )
+
+    <span class="code-comment"># Definir dependencias</span>
+    extract >> transform >> load</code></pre>
+                </div>
+                <div class="code-footer">
+                    <span class="code-meta"><i class="fas fa-clock"></i> Schedule: Daily 6:00 AM</span>
+                    <span class="code-meta"><i class="fas fa-tags"></i> Tags: etl, production</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- GitHub Stats Section - Clean Design -->
     <section id="stats" class="stats-section">
         <div class="section-header" data-aos="fade-up">
