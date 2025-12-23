@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import LearningRoadmap from '../components/LearningRoadmap.astro';
 import CapstoneProjects from '../components/CapstoneProjects.astro';
+import WorkProjects from '../components/WorkProjects.astro';
 ---
 
 <Layout title="Proyectos & Roadmap | DuocUC">
@@ -16,9 +17,30 @@ import CapstoneProjects from '../components/CapstoneProjects.astro';
                 <i class="fas fa-rocket"></i>
                 <span>Proyectos & Roadmap</span>
             </div>
-            <h1>Roadmap & Proyectos</h1>
-            <p>Del código al portafolio profesional</p>
-            <div class="hero-progress">
+            <h1>Proyectos para tu <span class="gradient-text">Carrera</span></h1>
+            <p>Desde proyectos de estudio hasta tu portafolio profesional</p>
+
+            <!-- Tab Navigation -->
+            <div class="tab-navigation">
+                <button class="tab-btn active" data-tab="estudio">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Proyectos de Estudio</span>
+                    <small>Roadmap & Práctica</small>
+                </button>
+                <button class="tab-btn" data-tab="trabajo">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Proyectos de Trabajo</span>
+                    <small>Portafolio Profesional</small>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tab Content: Proyectos de Estudio -->
+    <div id="tab-estudio" class="tab-content active">
+        <!-- Progress Indicator -->
+        <div class="progress-section">
+            <div class="progress-container">
                 <div class="progress-item">
                     <div class="progress-icon beginner">
                         <i class="fas fa-seedling"></i>
@@ -45,26 +67,67 @@ import CapstoneProjects from '../components/CapstoneProjects.astro';
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Learning Roadmap -->
-    <LearningRoadmap />
+        <!-- Learning Roadmap -->
+        <LearningRoadmap />
 
-    <!-- Capstone Projects -->
-    <CapstoneProjects />
+        <!-- Capstone Projects -->
+        <CapstoneProjects />
+    </div>
+
+    <!-- Tab Content: Proyectos de Trabajo -->
+    <div id="tab-trabajo" class="tab-content">
+        <WorkProjects />
+    </div>
 
     <Footer />
 </Layout>
 
+<script is:inline>
+document.addEventListener('astro:page-load', initProjectTabs);
+document.addEventListener('DOMContentLoaded', initProjectTabs);
+
+function initProjectTabs() {
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabBtns.forEach(btn => {
+        btn.onclick = () => {
+            const targetTab = btn.dataset.tab;
+
+            // Update active button
+            tabBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Update active content
+            tabContents.forEach(content => {
+                if (content.id === `tab-${targetTab}`) {
+                    content.classList.add('active');
+                    content.style.animation = 'fadeInTab 0.4s ease';
+                } else {
+                    content.classList.remove('active');
+                }
+            });
+
+            // Scroll to top of content
+            window.scrollTo({
+                top: document.querySelector('.page-hero').offsetHeight - 100,
+                behavior: 'smooth'
+            });
+        };
+    });
+}
+</script>
+
 <style>
     .page-hero {
-        padding: 8rem 2rem 4rem;
+        padding: 8rem 2rem 3rem;
         text-align: center;
         background: linear-gradient(180deg, rgba(16, 185, 129, 0.1) 0%, transparent 100%);
     }
 
     .hero-content {
-        max-width: 800px;
+        max-width: 900px;
         margin: 0 auto;
     }
 
@@ -82,10 +145,17 @@ import CapstoneProjects from '../components/CapstoneProjects.astro';
     }
 
     .page-hero h1 {
-        font-size: 3.5rem;
+        font-size: 3rem;
         font-weight: 800;
         margin-bottom: 1rem;
         background: linear-gradient(135deg, #f8fafc, #94a3b8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .gradient-text {
+        background: linear-gradient(135deg, #10b981, #00d4ff);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -97,11 +167,113 @@ import CapstoneProjects from '../components/CapstoneProjects.astro';
         margin-bottom: 2rem;
     }
 
-    .hero-progress {
+    /* Tab Navigation */
+    .tab-navigation {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .tab-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 1.25rem 2rem;
+        background: rgba(255, 255, 255, 0.03);
+        border: 2px solid var(--border-color);
+        border-radius: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        min-width: 200px;
+    }
+
+    .tab-btn i {
+        font-size: 1.5rem;
+        color: var(--text-muted);
+        margin-bottom: 0.25rem;
+        transition: all 0.3s ease;
+    }
+
+    .tab-btn span {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text-primary);
+    }
+
+    .tab-btn small {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        font-weight: 400;
+    }
+
+    .tab-btn:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.15);
+        transform: translateY(-2px);
+    }
+
+    .tab-btn:hover i {
+        color: var(--text-secondary);
+    }
+
+    .tab-btn.active {
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(0, 212, 255, 0.15));
+        border-color: rgba(16, 185, 129, 0.5);
+    }
+
+    .tab-btn.active i {
+        color: #10b981;
+    }
+
+    .tab-btn.active span {
+        background: linear-gradient(135deg, #10b981, #00d4ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .tab-btn.active small {
+        color: var(--text-secondary);
+    }
+
+    /* Tab Content */
+    .tab-content {
+        display: none;
+    }
+
+    .tab-content.active {
+        display: block;
+    }
+
+    @keyframes fadeInTab {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Progress Section (for Study tab) */
+    .progress-section {
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .progress-container {
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 1rem;
+        background: rgba(255, 255, 255, 0.02);
+        padding: 1.5rem 2.5rem;
+        border-radius: 16px;
+        border: 1px solid var(--border-color);
     }
 
     .progress-item {
@@ -147,13 +319,37 @@ import CapstoneProjects from '../components/CapstoneProjects.astro';
         font-size: 1.25rem;
     }
 
+    /* Responsive */
     @media (max-width: 768px) {
         .page-hero h1 {
             font-size: 2rem;
         }
 
-        .hero-progress {
+        .tab-navigation {
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .tab-btn {
+            min-width: auto;
+            width: 100%;
+            padding: 1rem 1.5rem;
+            flex-direction: row;
+            justify-content: flex-start;
+            gap: 1rem;
+        }
+
+        .tab-btn i {
+            margin-bottom: 0;
+        }
+
+        .tab-btn span {
+            font-size: 0.9rem;
+        }
+
+        .progress-container {
             flex-wrap: wrap;
+            padding: 1rem;
         }
 
         .progress-icon {
@@ -163,6 +359,7 @@ import CapstoneProjects from '../components/CapstoneProjects.astro';
         }
     }
 
+    /* Light Mode */
     :global([data-theme="light"]) .page-hero h1 {
         background: linear-gradient(135deg, #1e293b, #475569);
         -webkit-background-clip: text;
@@ -172,5 +369,21 @@ import CapstoneProjects from '../components/CapstoneProjects.astro';
     :global([data-theme="light"]) .page-hero p,
     :global([data-theme="light"]) .progress-item span {
         color: #64748b;
+    }
+
+    :global([data-theme="light"]) .tab-btn {
+        background: rgba(0, 0, 0, 0.02);
+    }
+
+    :global([data-theme="light"]) .tab-btn:hover {
+        background: rgba(0, 0, 0, 0.05);
+    }
+
+    :global([data-theme="light"]) .tab-btn.active {
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(8, 145, 178, 0.1));
+    }
+
+    :global([data-theme="light"]) .progress-container {
+        background: rgba(0, 0, 0, 0.02);
     }
 </style>
