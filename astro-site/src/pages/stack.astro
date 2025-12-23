@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import StackSection from '../components/StackSection.astro';
 import TechStack2025 from '../components/TechStack2025.astro';
 ---
 
@@ -16,27 +15,24 @@ import TechStack2025 from '../components/TechStack2025.astro';
                 <i class="fas fa-layer-group"></i>
                 <span>Stack Tecnológico</span>
             </div>
-            <h1>Tecnologías 2025</h1>
+            <h1>Tecnologías <span class="gradient-accent">2025</span></h1>
             <p>Domina las herramientas y lenguajes más demandados en la industria</p>
             <div class="hero-stats">
                 <div class="stat">
-                    <span class="stat-value">65+</span>
+                    <span class="stat-value">70+</span>
                     <span class="stat-label">Tecnologías</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-value">10</span>
+                    <span class="stat-value">8</span>
                     <span class="stat-label">Categorías</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-value">100%</span>
-                    <span class="stat-label">Industria</span>
+                    <span class="stat-value">2025</span>
+                    <span class="stat-label">Actualizado</span>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Stack Section -->
-    <StackSection />
 
     <!-- Tech Stack 2025 -->
     <TechStack2025 />
@@ -132,5 +128,12 @@ import TechStack2025 from '../components/TechStack2025.astro';
 
     :global([data-theme="light"]) .page-hero p {
         color: #64748b;
+    }
+
+    .gradient-accent {
+        background: linear-gradient(135deg, #00d4ff, #7c3aed);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
 </style>

@@ -1,182 +1,1010 @@
 ---
-// Industry Tech Stack 2025 - Languages and Technologies Dashboard
+// Industry Tech Stack 2025 - Premium Dashboard with Interactive Features
 const topLanguages = [
-    { rank: 1, name: "JavaScript", icon: "https://media.giphy.com/media/ln7z2eWriiQAllfVcn/giphy.gif", stat: "62.3% SO", badge: "Most Used", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", class: "gold", barWidth: "100%" },
-    { rank: 2, name: "Python", icon: "https://media.giphy.com/media/KAq5w47R9rmTuvWOWa/giphy.gif", stat: "51% SO · #1 GitHub", badge: "Most Popular", url: "https://www.python.org/", class: "silver", barWidth: "82%" },
-    { rank: 3, name: "TypeScript", icon: "https://media.giphy.com/media/fsEaZldNC8A1PJ3mwp/giphy.gif", stat: "38.5% SO", badge: "Fastest Growing", url: "https://www.typescriptlang.org/", class: "bronze", barWidth: "62%" }
+    { rank: 1, name: "JavaScript", icon: "https://media.giphy.com/media/ln7z2eWriiQAllfVcn/giphy.gif", stat: "62.3% SO", badge: "Most Used", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", class: "gold", barWidth: "100%", trend: "+2.1%", jobs: "850K+" },
+    { rank: 2, name: "Python", icon: "https://media.giphy.com/media/KAq5w47R9rmTuvWOWa/giphy.gif", stat: "51% SO · #1 GitHub", badge: "Most Popular", url: "https://www.python.org/", class: "silver", barWidth: "82%", trend: "+5.3%", jobs: "720K+" },
+    { rank: 3, name: "TypeScript", icon: "https://media.giphy.com/media/fsEaZldNC8A1PJ3mwp/giphy.gif", stat: "38.5% SO", badge: "Fastest Growing", url: "https://www.typescriptlang.org/", class: "bronze", barWidth: "62%", trend: "+8.2%", jobs: "480K+" }
 ];
 
 const secondaryLanguages = [
-    { name: "Java", icon: "https://media.giphy.com/media/TfY3ORyNfVEvvr94jZ/giphy.gif", stat: "30.3% SO · #4 GH", url: "https://www.oracle.com/java/" },
-    { name: "C#", icon: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWIxNGUwZWZyZ2RiZzRlcWV0cGVtbzR4bTRjNnR0YWRlMXU1OWV2ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cNjQh8OuJrDkQaZjVH/giphy.gif", stat: "27.1% SO · #6 GH", url: "https://learn.microsoft.com/en-us/dotnet/csharp/" },
-    { name: "Go", icon: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHI2bHFnN3g2MXk5OGlmY2ljdXJ5cW9ybGZoNWxnZjNuZXJlMnB6byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/xTk9ZMytqqfijNEJmU/giphy.gif", stat: "13.5% SO · #8 GH", url: "https://go.dev/" },
-    { name: "Rust", icon: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZGRiajF5a25jZGNqbGt1dHVuOWlpaTI0cHpidDI5czlncDVnMHZldyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/fwbzI2kV3Qrlpk3tUW/giphy.gif", stat: "12.6% SO · Most Admired", url: "https://www.rust-lang.org/" },
-    { name: "Kotlin", icon: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTFtNXJleXprN2N4dHU2bW54Ymp2aG5tNmhtdnQyNmphZnBqdnV4cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/eNAsjO55tPbgaor7ma/giphy.gif", stat: "9.4% SO · #10 GH", url: "https://kotlinlang.org/" }
+    { name: "Java", icon: "https://media.giphy.com/media/TfY3ORyNfVEvvr94jZ/giphy.gif", stat: "30.3% SO · #4 GH", url: "https://www.oracle.com/java/", trend: "-1.2%", category: "enterprise" },
+    { name: "C#", icon: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWIxNGUwZWZyZ2RiZzRlcWV0cGVtbzR4bTRjNnR0YWRlMXU1OWV2ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cNjQh8OuJrDkQaZjVH/giphy.gif", stat: "27.1% SO · #6 GH", url: "https://learn.microsoft.com/en-us/dotnet/csharp/", trend: "+0.8%", category: "enterprise" },
+    { name: "Go", icon: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHI2bHFnN3g2MXk5OGlmY2ljdXJ5cW9ybGZoNWxnZjNuZXJlMnB6byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/xTk9ZMytqqfijNEJmU/giphy.gif", stat: "13.5% SO · #8 GH", url: "https://go.dev/", trend: "+3.1%", category: "cloud" },
+    { name: "Rust", icon: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZGRiajF5a25jZGNqbGt1dHVuOWlpaTI0cHpidDI5czlncDVnMHZldyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/fwbzI2kV3Qrlpk3tUW/giphy.gif", stat: "12.6% SO · Most Admired", url: "https://www.rust-lang.org/", trend: "+4.5%", category: "systems" },
+    { name: "Kotlin", icon: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTFtNXJleXprN2N4dHU2bW54Ymp2aG5tNmhtdnQyNmphZnBqdnV4cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/eNAsjO55tPbgaor7ma/giphy.gif", stat: "9.4% SO · #10 GH", url: "https://kotlinlang.org/", trend: "+2.8%", category: "mobile" },
+    { name: "Swift", icon: "devicon-swift-plain colored", stat: "4.7% SO · iOS", url: "https://swift.org/", trend: "+1.2%", category: "mobile" }
 ];
 
 const techCategories = [
     {
-        title: "Bases de Datos", icon: "fas fa-database",
+        id: "databases",
+        title: "Bases de Datos",
+        icon: "fas fa-database",
+        color: "#3b82f6",
         items: [
-            { name: "PostgreSQL", icon: "devicon-postgresql-plain colored", stat: "55.6%", desc: "OLTP/OLAP", url: "https://www.postgresql.org/" },
+            { name: "PostgreSQL", icon: "devicon-postgresql-plain colored", stat: "55.6%", desc: "OLTP/OLAP", url: "https://www.postgresql.org/", hot: true },
             { name: "MySQL", icon: "devicon-mysql-plain colored", stat: "41.1%", desc: "Web Apps", url: "https://www.mysql.com/" },
-            { name: "MongoDB", icon: "devicon-mongodb-plain colored", stat: "25.5%", desc: "NoSQL", url: "https://www.mongodb.com/" },
-            { name: "Redis", icon: "devicon-redis-plain colored", stat: "20.3%", desc: "Cache", url: "https://redis.io/" }
+            { name: "MongoDB", icon: "devicon-mongodb-plain colored", stat: "25.5%", desc: "NoSQL Docs", url: "https://www.mongodb.com/" },
+            { name: "Redis", icon: "devicon-redis-plain colored", stat: "20.3%", desc: "In-Memory", url: "https://redis.io/", hot: true },
+            { name: "SQLite", icon: "devicon-sqlite-plain colored", stat: "31.2%", desc: "Embedded", url: "https://sqlite.org/" },
+            { name: "Elasticsearch", icon: "devicon-elasticsearch-plain colored", stat: "12.8%", desc: "Search", url: "https://www.elastic.co/" }
         ]
     },
     {
-        title: "Cloud", icon: "fas fa-cloud",
+        id: "cloud",
+        title: "Cloud",
+        icon: "fas fa-cloud",
+        color: "#f59e0b",
         items: [
-            { name: "AWS", icon: "devicon-amazonwebservices-plain-wordmark colored", stat: "32%", desc: "Full Cloud", url: "https://aws.amazon.com/" },
+            { name: "AWS", icon: "devicon-amazonwebservices-plain-wordmark colored", stat: "32%", desc: "Market Leader", url: "https://aws.amazon.com/", hot: true },
             { name: "Azure", icon: "devicon-azure-plain colored", stat: "23%", desc: "Enterprise", url: "https://azure.microsoft.com/" },
             { name: "GCP", icon: "devicon-googlecloud-plain colored", stat: "10%", desc: "ML/BigData", url: "https://cloud.google.com/" },
-            { name: "Vercel", icon: "devicon-vercel-original", stat: "5.1%", desc: "Frontend", url: "https://vercel.com/" }
+            { name: "Vercel", icon: "devicon-vercel-original", stat: "5.1%", desc: "Edge Deploy", url: "https://vercel.com/", hot: true },
+            { name: "DigitalOcean", icon: "devicon-digitalocean-plain colored", stat: "4.2%", desc: "Simplicity", url: "https://www.digitalocean.com/" },
+            { name: "Cloudflare", icon: "devicon-cloudflare-plain colored", stat: "15%", desc: "Edge/CDN", url: "https://www.cloudflare.com/" }
         ]
     },
     {
-        title: "Data Engineering", icon: "fas fa-stream",
+        id: "data-engineering",
+        title: "Data Engineering",
+        icon: "fas fa-stream",
+        color: "#8b5cf6",
         items: [
-            { name: "Spark", icon: "devicon-apachespark-original colored", stat: "68%", desc: "Big Data ETL", url: "https://spark.apache.org/" },
-            { name: "Airflow", icon: "devicon-apacheairflow-plain", stat: "52%", desc: "Orchestration", url: "https://airflow.apache.org/" },
+            { name: "Spark", icon: "devicon-apachespark-original colored", stat: "68%", desc: "Big Data ETL", url: "https://spark.apache.org/", hot: true },
+            { name: "Airflow", icon: "devicon-apacheairflow-plain", stat: "52%", desc: "Orchestration", url: "https://airflow.apache.org/", hot: true },
             { name: "Kafka", icon: "devicon-apachekafka-original", stat: "45%", desc: "Streaming", url: "https://kafka.apache.org/" },
-            { name: "dbt", icon: "fas fa-code-branch", stat: "38%", desc: "Transform", url: "https://www.getdbt.com/" }
+            { name: "dbt", icon: "fas fa-code-branch", stat: "38%", desc: "Transform", url: "https://www.getdbt.com/", hot: true },
+            { name: "Snowflake", icon: "fas fa-snowflake", stat: "35%", desc: "Cloud DW", url: "https://www.snowflake.com/" },
+            { name: "Databricks", icon: "fas fa-cube", stat: "28%", desc: "Lakehouse", url: "https://www.databricks.com/" }
         ]
     },
     {
-        title: "DevOps", icon: "fas fa-infinity",
+        id: "devops",
+        title: "DevOps",
+        icon: "fas fa-infinity",
+        color: "#10b981",
         items: [
-            { name: "Docker", icon: "devicon-docker-plain colored", stat: "58.7%", desc: "Containers", url: "https://www.docker.com/" },
-            { name: "K8s", icon: "devicon-kubernetes-plain colored", stat: "22%", desc: "Orchestration", url: "https://kubernetes.io/" },
+            { name: "Docker", icon: "devicon-docker-plain colored", stat: "58.7%", desc: "Containers", url: "https://www.docker.com/", hot: true },
+            { name: "Kubernetes", icon: "devicon-kubernetes-plain colored", stat: "22%", desc: "Orchestration", url: "https://kubernetes.io/", hot: true },
             { name: "Terraform", icon: "devicon-terraform-plain colored", stat: "15.3%", desc: "IaC", url: "https://www.terraform.io/" },
-            { name: "Actions", icon: "devicon-githubactions-plain", stat: "45%", desc: "CI/CD", url: "https://github.com/features/actions" }
+            { name: "GitHub Actions", icon: "devicon-githubactions-plain", stat: "45%", desc: "CI/CD", url: "https://github.com/features/actions", hot: true },
+            { name: "ArgoCD", icon: "devicon-argocd-plain colored", stat: "18%", desc: "GitOps", url: "https://argoproj.github.io/cd/" },
+            { name: "Prometheus", icon: "devicon-prometheus-original colored", stat: "25%", desc: "Monitoring", url: "https://prometheus.io/" }
         ]
     },
     {
-        title: "Backend", icon: "fas fa-server",
+        id: "backend",
+        title: "Backend",
+        icon: "fas fa-server",
+        color: "#ef4444",
         items: [
-            { name: "Node.js", icon: "devicon-nodejs-plain colored", stat: "42.7%", desc: "JS Runtime", url: "https://nodejs.org/" },
-            { name: "Spring", icon: "devicon-spring-original colored", stat: "18.5%", desc: "Java", url: "https://spring.io/" },
-            { name: "FastAPI", icon: "devicon-fastapi-plain colored", stat: "+150%", desc: "Python API", url: "https://fastapi.tiangolo.com/" },
-            { name: ".NET", icon: "devicon-dotnetcore-plain colored", stat: "19.4%", desc: "C#", url: "https://dotnet.microsoft.com/" }
+            { name: "Node.js", icon: "devicon-nodejs-plain colored", stat: "42.7%", desc: "JS Runtime", url: "https://nodejs.org/", hot: true },
+            { name: "Spring Boot", icon: "devicon-spring-original colored", stat: "18.5%", desc: "Java Enterprise", url: "https://spring.io/" },
+            { name: "FastAPI", icon: "devicon-fastapi-plain colored", stat: "+150%", desc: "Python Async", url: "https://fastapi.tiangolo.com/", hot: true },
+            { name: ".NET Core", icon: "devicon-dotnetcore-plain colored", stat: "19.4%", desc: "C# Cross-Platform", url: "https://dotnet.microsoft.com/" },
+            { name: "Django", icon: "devicon-django-plain", stat: "14.2%", desc: "Python Full", url: "https://www.djangoproject.com/" },
+            { name: "NestJS", icon: "devicon-nestjs-original colored", stat: "+85%", desc: "Node Enterprise", url: "https://nestjs.com/", hot: true }
         ]
     },
     {
-        title: "Frontend", icon: "fas fa-desktop",
+        id: "frontend",
+        title: "Frontend",
+        icon: "fas fa-desktop",
+        color: "#06b6d4",
         items: [
-            { name: "React", icon: "devicon-react-original colored", stat: "40.6%", desc: "UI Components", url: "https://react.dev/" },
-            { name: "Vue", icon: "devicon-vuejs-plain colored", stat: "15.4%", desc: "Progressive", url: "https://vuejs.org/" },
-            { name: "Next.js", icon: "devicon-nextjs-original", stat: "18.5%", desc: "React SSR", url: "https://nextjs.org/" },
-            { name: "Tailwind", icon: "devicon-tailwindcss-original colored", stat: "23.2%", desc: "Utility CSS", url: "https://tailwindcss.com/" }
+            { name: "React", icon: "devicon-react-original colored", stat: "40.6%", desc: "Component UI", url: "https://react.dev/", hot: true },
+            { name: "Vue.js", icon: "devicon-vuejs-plain colored", stat: "15.4%", desc: "Progressive", url: "https://vuejs.org/" },
+            { name: "Next.js", icon: "devicon-nextjs-original", stat: "18.5%", desc: "React Framework", url: "https://nextjs.org/", hot: true },
+            { name: "Angular", icon: "devicon-angularjs-plain colored", stat: "17.1%", desc: "Enterprise SPA", url: "https://angular.io/" },
+            { name: "Tailwind", icon: "devicon-tailwindcss-original colored", stat: "23.2%", desc: "Utility-First", url: "https://tailwindcss.com/", hot: true },
+            { name: "Svelte", icon: "devicon-svelte-plain colored", stat: "+45%", desc: "Compiler", url: "https://svelte.dev/" }
         ]
     },
     {
-        title: "Testing & QA", icon: "fas fa-vial",
+        id: "testing",
+        title: "Testing & QA",
+        icon: "fas fa-vial",
+        color: "#ec4899",
         items: [
-            { name: "Jest", icon: "devicon-jest-plain colored", stat: "29.1%", desc: "Unit JS", url: "https://jestjs.io/" },
-            { name: "Pytest", icon: "devicon-pytest-plain colored", stat: "24.6%", desc: "Unit Python", url: "https://pytest.org/" },
-            { name: "Playwright", icon: "fas fa-theater-masks", stat: "+180%", desc: "E2E", url: "https://playwright.dev/" },
-            { name: "Postman", icon: "devicon-postman-plain colored", stat: "30M+", desc: "API Testing", url: "https://www.postman.com/" }
+            { name: "Jest", icon: "devicon-jest-plain colored", stat: "29.1%", desc: "Unit Testing", url: "https://jestjs.io/" },
+            { name: "Pytest", icon: "devicon-pytest-plain colored", stat: "24.6%", desc: "Python Testing", url: "https://pytest.org/" },
+            { name: "Playwright", icon: "fas fa-theater-masks", stat: "+180%", desc: "E2E Testing", url: "https://playwright.dev/", hot: true },
+            { name: "Cypress", icon: "devicon-cypressio-plain", stat: "18.3%", desc: "Frontend E2E", url: "https://www.cypress.io/" },
+            { name: "Postman", icon: "devicon-postman-plain colored", stat: "30M+", desc: "API Testing", url: "https://www.postman.com/" },
+            { name: "Selenium", icon: "devicon-selenium-original colored", stat: "22.1%", desc: "Browser Auto", url: "https://www.selenium.dev/" }
         ]
     },
     {
-        title: "Version Control", icon: "fas fa-code-branch",
+        id: "vcs",
+        title: "Version Control",
+        icon: "fas fa-code-branch",
+        color: "#84cc16",
         items: [
-            { name: "Git", icon: "devicon-git-plain colored", stat: "93%", desc: "VCS", url: "https://git-scm.com/" },
-            { name: "GitHub", icon: "devicon-github-original", stat: "100M+", desc: "Repos", url: "https://github.com/" },
+            { name: "Git", icon: "devicon-git-plain colored", stat: "93%", desc: "Standard VCS", url: "https://git-scm.com/", hot: true },
+            { name: "GitHub", icon: "devicon-github-original", stat: "100M+", desc: "Social Coding", url: "https://github.com/", hot: true },
             { name: "GitLab", icon: "devicon-gitlab-plain colored", stat: "30M+", desc: "DevSecOps", url: "https://gitlab.com/" },
             { name: "Bitbucket", icon: "devicon-bitbucket-original colored", stat: "10M+", desc: "Atlassian", url: "https://bitbucket.org/" }
         ]
     }
 ];
+
+const categoryFilters = techCategories.map(cat => ({ id: cat.id, title: cat.title, icon: cat.icon, color: cat.color }));
 ---
 
-<section id="languages-2025" class="languages-section">
-    <!-- Premium Header -->
-    <div class="tech-hero-header" data-aos="fade-up">
-        <div class="tech-title-wrap">
-            <div class="tech-icon-glow">
+<section id="tech-stack-2025" class="tech-stack-section">
+    <!-- Premium Header with Search -->
+    <div class="tech-header-premium" data-aos="fade-up">
+        <div class="header-main">
+            <div class="header-icon-wrap">
+                <div class="icon-ring"></div>
                 <i class="fas fa-layer-group"></i>
             </div>
-            <div class="tech-title-content">
-                <h2 class="tech-main-title">Stack Tecnológico <span class="gradient-text">2025</span></h2>
-                <p class="tech-tagline">70+ tecnologías que dominan la industria</p>
+            <div class="header-text">
+                <h2>Stack Tecnológico <span class="gradient-text">2025</span></h2>
+                <p>70+ tecnologías que dominan la industria tech global</p>
             </div>
         </div>
-        <div class="tech-sources">
-            <span class="source-chip so"><i class="fab fa-stack-overflow"></i> SO Survey</span>
-            <span class="source-chip gh"><i class="fab fa-github"></i> Octoverse</span>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="tech-search" placeholder="Buscar tecnología..." class="search-input" />
+            <kbd class="search-kbd">⌘K</kbd>
+        </div>
+
+        <!-- Data Sources -->
+        <div class="data-sources">
+            <a href="https://survey.stackoverflow.co/2024/" target="_blank" class="source-badge so">
+                <i class="fab fa-stack-overflow"></i> Stack Overflow 2024
+            </a>
+            <a href="https://github.blog/news-insights/octoverse/octoverse-2024/" target="_blank" class="source-badge gh">
+                <i class="fab fa-github"></i> Octoverse 2024
+            </a>
         </div>
     </div>
 
-    <!-- Compact Dashboard -->
-    <div class="lang-dashboard glass-card compact-dashboard" data-aos="fade-up" data-aos-delay="100">
-        <!-- Languages Grid with Animated Icons -->
-        <div class="lang-showcase">
-            <!-- Row 1: Top 3 -->
-            <div class="lang-podium">
+    <!-- Category Filters -->
+    <div class="category-filters" data-aos="fade-up" data-aos-delay="50">
+        <button class="filter-btn active" data-filter="all">
+            <i class="fas fa-th-large"></i> Todas
+        </button>
+        {categoryFilters.map(cat => (
+            <button class="filter-btn" data-filter={cat.id} style={`--cat-color: ${cat.color}`}>
+                <i class={cat.icon}></i> {cat.title}
+            </button>
+        ))}
+    </div>
+
+    <!-- Main Dashboard -->
+    <div class="tech-dashboard" data-aos="fade-up" data-aos-delay="100">
+
+        <!-- Top Languages Podium -->
+        <div class="languages-podium glass-card">
+            <div class="podium-header">
+                <h3><i class="fas fa-trophy"></i> Top Lenguajes 2025</h3>
+                <span class="live-badge"><span class="pulse"></span> Live Rankings</span>
+            </div>
+            <div class="podium-grid">
                 {topLanguages.map(lang => (
-                    <a href={lang.url} target="_blank" rel="noopener" class={`lang-item ${lang.class}`}>
-                        <div class="lang-rank">#{lang.rank}</div>
-                        <div class="lang-icon-wrap">
-                            <img src={lang.icon} width="50" alt={lang.name}/>
+                    <a href={lang.url} target="_blank" rel="noopener" class={`podium-card ${lang.class}`}>
+                        <div class="rank-badge">#{lang.rank}</div>
+                        <div class="lang-avatar">
+                            <img src={lang.icon} alt={lang.name} loading="lazy" />
                         </div>
-                        <div class="lang-details">
+                        <div class="lang-info">
                             <span class="lang-name">{lang.name}</span>
                             <span class="lang-stat">{lang.stat}</span>
-                            <span class="lang-badge">{lang.badge}</span>
+                            <div class="lang-meta">
+                                <span class="trend positive"><i class="fas fa-arrow-up"></i> {lang.trend}</span>
+                                <span class="jobs"><i class="fas fa-briefcase"></i> {lang.jobs}</span>
+                            </div>
                         </div>
-                        <div class="lang-bar-mini">
-                            <div class={`bar-fill ${lang.name.toLowerCase()}`} style={`width: ${lang.barWidth}`}></div>
+                        <span class="lang-badge-label">{lang.badge}</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style={`width: ${lang.barWidth}`}></div>
                         </div>
                     </a>
                 ))}
             </div>
 
-            <!-- Row 2: Other Languages -->
-            <div class="lang-grid-secondary">
+            <!-- Secondary Languages -->
+            <div class="secondary-langs">
                 {secondaryLanguages.map(lang => (
-                    <a href={lang.url} target="_blank" rel="noopener" class="lang-chip">
-                        <img src={lang.icon} width="32" alt={lang.name}/>
-                        <div class="chip-info">
-                            <span class="chip-name">{lang.name}</span>
-                            <span class="chip-stat">{lang.stat}</span>
-                        </div>
+                    <a href={lang.url} target="_blank" rel="noopener" class="lang-chip-mini">
+                        {lang.icon.startsWith('devicon') ? (
+                            <i class={lang.icon}></i>
+                        ) : (
+                            <img src={lang.icon} alt={lang.name} width="24" loading="lazy" />
+                        )}
+                        <span class="chip-name">{lang.name}</span>
+                        <span class="chip-trend">{lang.trend}</span>
                     </a>
-                ))}
-            </div>
-
-            <!-- Tech Categories Grid -->
-            <div class="tech-categories-grid">
-                {techCategories.map(category => (
-                    <div class="tech-cat">
-                        <div class="cat-label"><i class={category.icon}></i> {category.title}</div>
-                        <div class="cat-items">
-                            {category.items.map(item => (
-                                <a href={item.url} target="_blank" class="mini-chip">
-                                    <i class={item.icon}></i> {item.name}
-                                    <span class="chip-stat">{item.stat} · {item.desc}</span>
-                                </a>
-                            ))}
-                        </div>
-                    </div>
                 ))}
             </div>
         </div>
 
-        <!-- Dashboard Footer -->
-        <div class="dashboard-footer">
-            <div class="sources-row">
-                <span class="source-label"><i class="fas fa-link"></i> Fuentes:</span>
-                <a href="https://survey.stackoverflow.co/2024/" target="_blank" class="source-link">
-                    <i class="fab fa-stack-overflow"></i> Stack Overflow 2024
-                </a>
-                <a href="https://github.blog/news-insights/octoverse/octoverse-2024/" target="_blank" class="source-link">
-                    <i class="fab fa-github"></i> GitHub Octoverse 2024
-                </a>
+        <!-- Tech Categories Grid -->
+        <div class="categories-grid">
+            {techCategories.map((category, idx) => (
+                <div class="category-card glass-card" data-category={category.id} data-aos="zoom-in" data-aos-delay={50 + idx * 30}>
+                    <div class="category-header" style={`--cat-color: ${category.color}`}>
+                        <div class="cat-icon"><i class={category.icon}></i></div>
+                        <h4>{category.title}</h4>
+                        <span class="cat-count">{category.items.length}</span>
+                    </div>
+                    <div class="category-items">
+                        {category.items.map(item => (
+                            <a href={item.url} target="_blank" rel="noopener" class={`tech-item ${item.hot ? 'hot' : ''}`}>
+                                <i class={item.icon}></i>
+                                <div class="item-info">
+                                    <span class="item-name">{item.name}</span>
+                                    <span class="item-desc">{item.desc}</span>
+                                </div>
+                                <div class="item-stat">
+                                    {item.hot && <span class="hot-badge">🔥</span>}
+                                    <span class="stat-value">{item.stat}</span>
+                                </div>
+                            </a>
+                        ))}
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+
+    <!-- Dashboard Footer -->
+    <div class="dashboard-footer glass-card" data-aos="fade-up">
+        <div class="footer-stats">
+            <div class="stat-item">
+                <i class="fas fa-code"></i>
+                <span class="stat-num">70+</span>
+                <span class="stat-label">Tecnologías</span>
             </div>
-            <div class="update-badge">
-                <i class="fas fa-sync-alt"></i> Actualizado: Diciembre 2025
+            <div class="stat-item">
+                <i class="fas fa-folder"></i>
+                <span class="stat-num">8</span>
+                <span class="stat-label">Categorías</span>
             </div>
+            <div class="stat-item">
+                <i class="fas fa-fire"></i>
+                <span class="stat-num">15</span>
+                <span class="stat-label">Hot Trends</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-sync-alt"></i>
+                <span class="stat-num">2025</span>
+                <span class="stat-label">Actualizado</span>
+            </div>
+        </div>
+        <div class="footer-note">
+            <i class="fas fa-info-circle"></i>
+            Estadísticas basadas en encuestas de desarrolladores y análisis de repositorios. Los porcentajes reflejan uso profesional.
         </div>
     </div>
 </section>
+
+<script is:inline>
+document.addEventListener('astro:page-load', initTechStack);
+document.addEventListener('DOMContentLoaded', initTechStack);
+
+function initTechStack() {
+    // Category Filters
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const categoryCards = document.querySelectorAll('.category-card');
+
+    filterBtns.forEach(btn => {
+        btn.onclick = () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filter = btn.dataset.filter;
+            categoryCards.forEach(card => {
+                if (filter === 'all' || card.dataset.category === filter) {
+                    card.style.display = 'block';
+                    card.style.animation = 'fadeIn 0.3s ease';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        };
+    });
+
+    // Search Functionality
+    const searchInput = document.getElementById('tech-search');
+    if (searchInput) {
+        searchInput.oninput = (e) => {
+            const query = e.target.value.toLowerCase();
+            const techItems = document.querySelectorAll('.tech-item, .lang-chip-mini, .podium-card');
+
+            techItems.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (query === '' || text.includes(query)) {
+                    item.style.opacity = '1';
+                    item.style.transform = 'scale(1)';
+                } else {
+                    item.style.opacity = '0.3';
+                    item.style.transform = 'scale(0.95)';
+                }
+            });
+        };
+
+        // Keyboard shortcut
+        document.addEventListener('keydown', (e) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                searchInput.focus();
+            }
+            if (e.key === 'Escape') {
+                searchInput.value = '';
+                searchInput.dispatchEvent(new Event('input'));
+                searchInput.blur();
+            }
+        });
+    }
+}
+</script>
+
+<style>
+    .tech-stack-section {
+        padding: 4rem 2rem;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    /* Premium Header */
+    .tech-header-premium {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .header-main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .header-icon-wrap {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(124, 58, 237, 0.2));
+        border-radius: 20px;
+        font-size: 2rem;
+        color: #00d4ff;
+    }
+
+    .icon-ring {
+        position: absolute;
+        inset: -4px;
+        border: 2px solid transparent;
+        border-radius: 24px;
+        background: linear-gradient(135deg, #00d4ff, #7c3aed) border-box;
+        -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        animation: rotate 8s linear infinite;
+    }
+
+    @keyframes rotate {
+        to { transform: rotate(360deg); }
+    }
+
+    .header-text h2 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin: 0;
+        color: var(--text-primary);
+    }
+
+    .gradient-text {
+        background: linear-gradient(135deg, #00d4ff, #7c3aed);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .header-text p {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        margin: 0.5rem 0 0;
+    }
+
+    /* Search */
+    .search-container {
+        position: relative;
+        max-width: 400px;
+        margin: 1.5rem auto;
+    }
+
+    .search-icon {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-muted);
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 0.875rem 1rem 0.875rem 2.75rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        color: var(--text-primary);
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+    }
+
+    .search-input:focus {
+        outline: none;
+        border-color: #00d4ff;
+        box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+    }
+
+    .search-input::placeholder {
+        color: var(--text-muted);
+    }
+
+    .search-kbd {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 0.25rem 0.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 6px;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+    }
+
+    /* Data Sources */
+    .data-sources {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .source-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .source-badge.so {
+        background: rgba(244, 128, 36, 0.1);
+        color: #f48024;
+        border: 1px solid rgba(244, 128, 36, 0.3);
+    }
+
+    .source-badge.gh {
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--text-primary);
+        border: 1px solid var(--border-color);
+    }
+
+    .source-badge:hover {
+        transform: translateY(-2px);
+    }
+
+    /* Category Filters */
+    .category-filters {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 16px;
+    }
+
+    .filter-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.625rem 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        color: var(--text-secondary);
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--text-primary);
+    }
+
+    .filter-btn.active {
+        background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(124, 58, 237, 0.2));
+        border-color: rgba(0, 212, 255, 0.5);
+        color: #00d4ff;
+    }
+
+    /* Languages Podium */
+    .languages-podium {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .podium-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .podium-header h3 {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 0;
+    }
+
+    .podium-header h3 i {
+        color: #f59e0b;
+    }
+
+    .live-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.375rem 0.75rem;
+        background: rgba(16, 185, 129, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 20px;
+        font-size: 0.75rem;
+        color: #10b981;
+    }
+
+    .pulse {
+        width: 8px;
+        height: 8px;
+        background: #10b981;
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.5; transform: scale(1.2); }
+    }
+
+    .podium-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .podium-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1.5rem 1rem;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        overflow: hidden;
+    }
+
+    .podium-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .podium-card.gold {
+        border-color: rgba(245, 158, 11, 0.5);
+        background: linear-gradient(180deg, rgba(245, 158, 11, 0.1), transparent);
+    }
+
+    .podium-card.silver {
+        border-color: rgba(156, 163, 175, 0.5);
+        background: linear-gradient(180deg, rgba(156, 163, 175, 0.1), transparent);
+    }
+
+    .podium-card.bronze {
+        border-color: rgba(180, 83, 9, 0.5);
+        background: linear-gradient(180deg, rgba(180, 83, 9, 0.1), transparent);
+    }
+
+    .rank-badge {
+        position: absolute;
+        top: 0.75rem;
+        left: 0.75rem;
+        padding: 0.25rem 0.5rem;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 6px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: #f59e0b;
+    }
+
+    .lang-avatar {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 1rem;
+    }
+
+    .lang-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .lang-info {
+        text-align: center;
+    }
+
+    .lang-name {
+        display: block;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-primary);
+    }
+
+    .lang-stat {
+        display: block;
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        margin: 0.25rem 0;
+    }
+
+    .lang-meta {
+        display: flex;
+        gap: 0.75rem;
+        justify-content: center;
+        margin-top: 0.5rem;
+    }
+
+    .trend, .jobs {
+        font-size: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
+
+    .trend.positive {
+        color: #10b981;
+    }
+
+    .jobs {
+        color: var(--text-muted);
+    }
+
+    .lang-badge-label {
+        margin-top: 0.75rem;
+        padding: 0.25rem 0.75rem;
+        background: rgba(0, 212, 255, 0.1);
+        border: 1px solid rgba(0, 212, 255, 0.3);
+        border-radius: 12px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: #00d4ff;
+        text-transform: uppercase;
+    }
+
+    .progress-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #00d4ff, #7c3aed);
+        transition: width 1s ease;
+    }
+
+    /* Secondary Languages */
+    .secondary-langs {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-color);
+    }
+
+    .lang-chip-mini {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 0.875rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .lang-chip-mini:hover {
+        background: rgba(0, 212, 255, 0.1);
+        border-color: rgba(0, 212, 255, 0.3);
+        transform: translateY(-2px);
+    }
+
+    .lang-chip-mini img,
+    .lang-chip-mini i {
+        width: 24px;
+        height: 24px;
+        font-size: 1.25rem;
+    }
+
+    .chip-name {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--text-primary);
+    }
+
+    .chip-trend {
+        font-size: 0.7rem;
+        color: #10b981;
+    }
+
+    /* Categories Grid */
+    .categories-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        gap: 1.25rem;
+    }
+
+    .category-card {
+        padding: 1.25rem;
+        transition: all 0.3s ease;
+    }
+
+    .category-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .category-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .cat-icon {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, var(--cat-color), transparent);
+        border-radius: 10px;
+        color: var(--cat-color);
+        font-size: 1rem;
+    }
+
+    .category-header h4 {
+        flex: 1;
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 0;
+    }
+
+    .cat-count {
+        padding: 0.25rem 0.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 6px;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+    }
+
+    .category-items {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .tech-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.625rem 0.75rem;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid transparent;
+        border-radius: 10px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+    }
+
+    .tech-item:hover {
+        background: rgba(0, 212, 255, 0.05);
+        border-color: rgba(0, 212, 255, 0.2);
+        transform: translateX(4px);
+    }
+
+    .tech-item.hot {
+        background: rgba(239, 68, 68, 0.05);
+        border-color: rgba(239, 68, 68, 0.1);
+    }
+
+    .tech-item i {
+        font-size: 1.5rem;
+        width: 32px;
+        text-align: center;
+    }
+
+    .item-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0.125rem;
+    }
+
+    .item-name {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text-primary);
+    }
+
+    .item-desc {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+    }
+
+    .item-stat {
+        display: flex;
+        align-items: center;
+        gap: 0.375rem;
+    }
+
+    .hot-badge {
+        font-size: 0.875rem;
+    }
+
+    .stat-value {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+        background: rgba(255, 255, 255, 0.1);
+        padding: 0.2rem 0.5rem;
+        border-radius: 6px;
+    }
+
+    /* Dashboard Footer */
+    .dashboard-footer {
+        margin-top: 2rem;
+        padding: 1.5rem;
+    }
+
+    .footer-stats {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .stat-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+    }
+
+    .stat-item i {
+        font-size: 1.25rem;
+        color: #00d4ff;
+    }
+
+    .stat-num {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--text-primary);
+    }
+
+    .stat-label {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+    }
+
+    .footer-note {
+        text-align: center;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-color);
+    }
+
+    .footer-note i {
+        margin-right: 0.5rem;
+        color: #00d4ff;
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+        .podium-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .categories-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .header-main {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .footer-stats {
+            gap: 1.5rem;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .category-filters {
+            padding: 0.75rem;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 0.75rem;
+            font-size: 0.8rem;
+        }
+
+        .header-text h2 {
+            font-size: 1.75rem;
+        }
+    }
+
+    /* Light Mode */
+    :global([data-theme="light"]) .search-input {
+        background: rgba(0, 0, 0, 0.03);
+    }
+
+    :global([data-theme="light"]) .podium-card {
+        background: rgba(0, 0, 0, 0.02);
+    }
+
+    :global([data-theme="light"]) .tech-item {
+        background: rgba(0, 0, 0, 0.02);
+    }
+
+    :global([data-theme="light"]) .tech-item:hover {
+        background: rgba(0, 212, 255, 0.08);
+    }
+
+    :global([data-theme="light"]) .lang-chip-mini {
+        background: rgba(0, 0, 0, 0.03);
+    }
+
+    :global([data-theme="light"]) .filter-btn {
+        background: rgba(0, 0, 0, 0.03);
+    }
+</style>
