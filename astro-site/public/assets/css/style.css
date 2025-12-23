@@ -341,24 +341,70 @@ body,
   color: #f59e0b;
 }
 
-.github-btn {
+/* Repo Icons Container */
+.repo-icons {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-color);
-  padding: 0.6rem 1.25rem;
-  border-radius: var(--radius-md);
-  color: var(--text-primary);
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: var(--transition);
 }
 
-.github-btn:hover {
-  background: var(--text-primary);
-  color: var(--bg-primary);
+.repo-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.repo-icon-btn:hover {
   transform: translateY(-2px);
+  border-color: transparent;
+}
+
+/* GitHub */
+.repo-icon-btn.github:hover {
+  background: #24292e;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(36, 41, 46, 0.4);
+}
+
+/* GitLab */
+.repo-icon-btn.gitlab:hover {
+  background: #fc6d26;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(252, 109, 38, 0.4);
+}
+
+/* BitBucket */
+.repo-icon-btn.bitbucket:hover {
+  background: #0052cc;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 82, 204, 0.4);
+}
+
+/* Azure DevOps */
+.repo-icon-btn.azure:hover {
+  background: #0078d4;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 120, 212, 0.4);
+}
+
+/* Light mode adjustments */
+[data-theme="light"] .repo-icon-btn {
+  background: rgba(0, 0, 0, 0.03);
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .repo-icon-btn.github:hover {
+  background: #24292e;
+  color: #ffffff;
 }
 
 /* ============================================
