@@ -1,0 +1,517 @@
+---
+// Main page - Analista Programador Computacional DuocUC
+// Landing page simplificada - contenido detallado en páginas dedicadas
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PlanEstudiosHero from '../../components/PlanEstudiosHero.astro';
+import BimestresSection from '../../components/BimestresSection.astro';
+import StatsSection from '../../components/StatsSection.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Analista Programador Computacional | DuocUC">
+    <Header />
+
+    <!-- Hero Section - Premium Data Engineering Theme -->
+    <section id="inicio" class="hero-premium">
+        <!-- Animated Data Pipeline Background -->
+        <div class="data-bg-canvas">
+            <!-- Flowing Data Streams -->
+            <div class="data-stream stream-1"></div>
+            <div class="data-stream stream-2"></div>
+            <div class="data-stream stream-3"></div>
+
+            <!-- Data Nodes -->
+            <div class="data-node node-1"><i class="fas fa-database"></i></div>
+            <div class="data-node node-2"><i class="fas fa-server"></i></div>
+            <div class="data-node node-3"><i class="fas fa-cloud"></i></div>
+            <div class="data-node node-4"><i class="fas fa-chart-line"></i></div>
+            <div class="data-node node-5"><i class="fas fa-code-branch"></i></div>
+            <div class="data-node node-6"><i class="fas fa-microchip"></i></div>
+
+            <!-- Binary Rain -->
+            <div class="binary-column col-1">01001010</div>
+            <div class="binary-column col-2">11010100</div>
+            <div class="binary-column col-3">00101101</div>
+            <div class="binary-column col-4">10110010</div>
+            <div class="binary-column col-5">01101001</div>
+
+            <!-- Connection Lines -->
+            <svg class="connection-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path class="connection-path path-1" d="M10,80 Q30,60 50,50 T90,20" />
+                <path class="connection-path path-2" d="M5,50 Q25,30 50,35 T95,60" />
+                <path class="connection-path path-3" d="M15,20 Q40,40 60,30 T85,70" />
+            </svg>
+
+            <!-- Floating Tech Orbs -->
+            <div class="tech-orb orb-1"><i class="devicon-python-plain"></i></div>
+            <div class="tech-orb orb-2"><i class="devicon-postgresql-plain"></i></div>
+            <div class="tech-orb orb-3"><i class="devicon-docker-plain"></i></div>
+            <div class="tech-orb orb-4"><i class="devicon-kubernetes-plain"></i></div>
+            <div class="tech-orb orb-5"><i class="devicon-apachekafka-original"></i></div>
+            <div class="tech-orb orb-6"><i class="fas fa-fire"></i></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="hero-premium-content">
+            <!-- Top Badges -->
+            <div class="hero-badges-row" data-aos="fade-down" data-aos-delay="100">
+                <span class="premium-badge primary">
+                    <i class="fas fa-graduation-cap"></i>
+                    DuocUC 2025
+                </span>
+                <span class="premium-badge accent">
+                    <i class="fas fa-globe"></i>
+                    100% Online
+                </span>
+                <span class="premium-badge success">
+                    <i class="fas fa-check-circle"></i>
+                    Acreditado
+                </span>
+            </div>
+
+            <!-- Main Title - Premium Typography -->
+            <div class="hero-title-block" data-aos="fade-up" data-aos-delay="200">
+                <h1 class="hero-title-premium">
+                    <span class="title-line-1">Analista Programador</span>
+                    <span class="title-line-2">Computacional</span>
+                </h1>
+                <div class="hero-subtitle-row">
+                    <span class="subtitle-divider"></span>
+                    <span class="hero-subtitle-text">Escuela de Informática</span>
+                    <span class="subtitle-divider"></span>
+                </div>
+            </div>
+
+            <!-- Description -->
+            <p class="hero-description-premium" data-aos="fade-up" data-aos-delay="300">
+                Formación integral en <span class="highlight-text">desarrollo de software</span> con enfoque práctico.
+                Domina tecnologías modernas y obtén <span class="highlight-text">doble titulación</span> en 20 meses.
+            </p>
+
+            <!-- Stats Row -->
+            <div class="hero-stats-premium" data-aos="fade-up" data-aos-delay="400">
+                <div class="stat-premium">
+                    <span class="stat-value">10</span>
+                    <span class="stat-label">Bimestres</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-premium">
+                    <span class="stat-value">25+</span>
+                    <span class="stat-label">Asignaturas</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-premium">
+                    <span class="stat-value">2</span>
+                    <span class="stat-label">Títulos</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-premium">
+                    <span class="stat-value">65+</span>
+                    <span class="stat-label">Tecnologías</span>
+                </div>
+            </div>
+
+            <!-- Tech Stack Preview -->
+            <div class="hero-tech-preview" data-aos="fade-up" data-aos-delay="500">
+                <a href="https://www.oracle.com/java/" target="_blank" rel="noopener" data-tooltip="Java" class="tech-preview-icon"><i class="devicon-java-plain colored"></i></a>
+                <a href="https://www.python.org/" target="_blank" rel="noopener" data-tooltip="Python" class="tech-preview-icon"><i class="devicon-python-plain colored"></i></a>
+                <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener" data-tooltip="TypeScript" class="tech-preview-icon"><i class="devicon-typescript-plain colored"></i></a>
+                <a href="https://react.dev/" target="_blank" rel="noopener" data-tooltip="React" class="tech-preview-icon"><i class="devicon-react-original colored"></i></a>
+                <a href="https://spring.io/" target="_blank" rel="noopener" data-tooltip="Spring" class="tech-preview-icon"><i class="devicon-spring-original colored"></i></a>
+                <a href="https://www.docker.com/" target="_blank" rel="noopener" data-tooltip="Docker" class="tech-preview-icon"><i class="devicon-docker-plain colored"></i></a>
+                <a href="https://aws.amazon.com/" target="_blank" rel="noopener" data-tooltip="AWS" class="tech-preview-icon"><i class="devicon-amazonwebservices-plain-wordmark colored"></i></a>
+                <a href="https://www.postgresql.org/" target="_blank" rel="noopener" data-tooltip="PostgreSQL" class="tech-preview-icon"><i class="devicon-postgresql-plain colored"></i></a>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="hero-cta-premium" data-aos="fade-up" data-aos-delay="600">
+                <a href="#bimestres" class="cta-btn-premium primary">
+                    <i class="fas fa-rocket"></i>
+                    <span>Plan de Estudios</span>
+                </a>
+                <a href={`${base}/stack`} class="cta-btn-premium secondary">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Stack Tecnológico</span>
+                </a>
+                <a href={`${base}/recursos`} class="cta-btn-premium accent">
+                    <i class="fas fa-book-reader"></i>
+                    <span>Recursos</span>
+                </a>
+                <a href="https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC" target="_blank" class="cta-btn-premium github">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="700">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+                <span>Scroll para explorar</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plan de Estudios - Visual Overview -->
+    <PlanEstudiosHero />
+
+    <!-- Tech Badges Grid - Con links a páginas oficiales -->
+    <section class="tech-icons-section">
+        <div class="tech-icons-grid" data-aos="zoom-in" data-aos-delay="100">
+            <!-- Row 1: Core Languages -->
+            <div class="tech-row">
+                <a href="https://www.oracle.com/java/" target="_blank" rel="noopener" data-tooltip="Java"><i class="devicon-java-plain colored"></i></a>
+                <a href="https://www.python.org/" target="_blank" rel="noopener" data-tooltip="Python"><i class="devicon-python-plain colored"></i></a>
+                <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener" data-tooltip="TypeScript"><i class="devicon-typescript-plain colored"></i></a>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener" data-tooltip="JavaScript"><i class="devicon-javascript-plain colored"></i></a>
+                <a href="https://go.dev/" target="_blank" rel="noopener" data-tooltip="Go"><i class="devicon-go-original-wordmark colored"></i></a>
+                <a href="https://www.rust-lang.org/" target="_blank" rel="noopener" data-tooltip="Rust"><i class="devicon-rust-original"></i></a>
+                <a href="https://kotlinlang.org/" target="_blank" rel="noopener" data-tooltip="Kotlin"><i class="devicon-kotlin-plain colored"></i></a>
+                <a href="https://www.swift.org/" target="_blank" rel="noopener" data-tooltip="Swift"><i class="devicon-swift-plain colored"></i></a>
+                <a href="https://isocpp.org/" target="_blank" rel="noopener" data-tooltip="C++"><i class="devicon-cplusplus-plain colored"></i></a>
+                <a href="https://docs.microsoft.com/en-us/dotnet/csharp/" target="_blank" rel="noopener" data-tooltip="C#"><i class="devicon-csharp-plain colored"></i></a>
+            </div>
+            <!-- Row 2: Backend Frameworks -->
+            <div class="tech-row">
+                <a href="https://spring.io/" target="_blank" rel="noopener" data-tooltip="Spring"><i class="devicon-spring-original colored"></i></a>
+                <a href="https://nodejs.org/" target="_blank" rel="noopener" data-tooltip="Node.js"><i class="devicon-nodejs-plain colored"></i></a>
+                <a href="https://dotnet.microsoft.com/" target="_blank" rel="noopener" data-tooltip=".NET"><i class="devicon-dotnetcore-plain colored"></i></a>
+                <a href="https://www.djangoproject.com/" target="_blank" rel="noopener" data-tooltip="Django"><i class="devicon-django-plain colored"></i></a>
+                <a href="https://fastapi.tiangolo.com/" target="_blank" rel="noopener" data-tooltip="FastAPI"><i class="devicon-fastapi-plain colored"></i></a>
+                <a href="https://flask.palletsprojects.com/" target="_blank" rel="noopener" data-tooltip="Flask"><i class="devicon-flask-original"></i></a>
+                <a href="https://expressjs.com/" target="_blank" rel="noopener" data-tooltip="Express"><i class="devicon-express-original"></i></a>
+                <a href="https://nestjs.com/" target="_blank" rel="noopener" data-tooltip="NestJS"><i class="devicon-nestjs-original colored"></i></a>
+                <a href="https://graphql.org/" target="_blank" rel="noopener" data-tooltip="GraphQL"><i class="devicon-graphql-plain colored"></i></a>
+            </div>
+            <!-- Row 3: Frontend Frameworks -->
+            <div class="tech-row">
+                <a href="https://react.dev/" target="_blank" rel="noopener" data-tooltip="React"><i class="devicon-react-original colored"></i></a>
+                <a href="https://angular.io/" target="_blank" rel="noopener" data-tooltip="Angular"><i class="devicon-angularjs-plain colored"></i></a>
+                <a href="https://vuejs.org/" target="_blank" rel="noopener" data-tooltip="Vue.js"><i class="devicon-vuejs-plain colored"></i></a>
+                <a href="https://nextjs.org/" target="_blank" rel="noopener" data-tooltip="Next.js"><i class="devicon-nextjs-plain"></i></a>
+                <a href="https://tailwindcss.com/" target="_blank" rel="noopener" data-tooltip="Tailwind CSS"><i class="devicon-tailwindcss-original colored"></i></a>
+                <a href="https://sass-lang.com/" target="_blank" rel="noopener" data-tooltip="Sass"><i class="devicon-sass-original colored"></i></a>
+                <a href="https://webpack.js.org/" target="_blank" rel="noopener" data-tooltip="Webpack"><i class="devicon-webpack-plain colored"></i></a>
+                <a href="https://vitejs.dev/" target="_blank" rel="noopener" data-tooltip="Vite"><i class="devicon-vitejs-plain colored"></i></a>
+            </div>
+            <!-- Row 4: Databases -->
+            <div class="tech-row">
+                <a href="https://www.postgresql.org/" target="_blank" rel="noopener" data-tooltip="PostgreSQL"><i class="devicon-postgresql-plain colored"></i></a>
+                <a href="https://www.mysql.com/" target="_blank" rel="noopener" data-tooltip="MySQL"><i class="devicon-mysql-original colored"></i></a>
+                <a href="https://www.mongodb.com/" target="_blank" rel="noopener" data-tooltip="MongoDB"><i class="devicon-mongodb-plain colored"></i></a>
+                <a href="https://redis.io/" target="_blank" rel="noopener" data-tooltip="Redis"><i class="devicon-redis-plain colored"></i></a>
+                <a href="https://www.elastic.co/" target="_blank" rel="noopener" data-tooltip="Elasticsearch"><i class="devicon-elasticsearch-plain colored"></i></a>
+                <a href="https://kafka.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache Kafka"><i class="devicon-apachekafka-original"></i></a>
+                <a href="https://www.oracle.com/database/" target="_blank" rel="noopener" data-tooltip="Oracle"><i class="devicon-oracle-original colored"></i></a>
+            </div>
+            <!-- Row 5: Cloud & DevOps -->
+            <div class="tech-row">
+                <a href="https://aws.amazon.com/" target="_blank" rel="noopener" data-tooltip="AWS"><i class="devicon-amazonwebservices-plain-wordmark colored"></i></a>
+                <a href="https://azure.microsoft.com/" target="_blank" rel="noopener" data-tooltip="Azure"><i class="devicon-azure-plain colored"></i></a>
+                <a href="https://cloud.google.com/" target="_blank" rel="noopener" data-tooltip="Google Cloud"><i class="devicon-googlecloud-plain colored"></i></a>
+                <a href="https://www.docker.com/" target="_blank" rel="noopener" data-tooltip="Docker"><i class="devicon-docker-plain colored"></i></a>
+                <a href="https://kubernetes.io/" target="_blank" rel="noopener" data-tooltip="Kubernetes"><i class="devicon-kubernetes-plain colored"></i></a>
+                <a href="https://www.terraform.io/" target="_blank" rel="noopener" data-tooltip="Terraform"><i class="devicon-terraform-plain colored"></i></a>
+                <a href="https://www.ansible.com/" target="_blank" rel="noopener" data-tooltip="Ansible"><i class="devicon-ansible-plain"></i></a>
+                <a href="https://www.jenkins.io/" target="_blank" rel="noopener" data-tooltip="Jenkins"><i class="devicon-jenkins-plain colored"></i></a>
+                <a href="https://github.com/features/actions" target="_blank" rel="noopener" data-tooltip="GitHub Actions"><i class="devicon-githubactions-plain colored"></i></a>
+            </div>
+            <!-- Row 6: DevOps & Infrastructure -->
+            <div class="tech-row">
+                <a href="https://www.linux.org/" target="_blank" rel="noopener" data-tooltip="Linux"><i class="devicon-linux-plain"></i></a>
+                <a href="https://nginx.org/" target="_blank" rel="noopener" data-tooltip="Nginx"><i class="devicon-nginx-original colored"></i></a>
+                <a href="https://git-scm.com/" target="_blank" rel="noopener" data-tooltip="Git"><i class="devicon-git-plain colored"></i></a>
+                <a href="https://github.com/" target="_blank" rel="noopener" data-tooltip="GitHub"><i class="devicon-github-original"></i></a>
+                <a href="https://gitlab.com/" target="_blank" rel="noopener" data-tooltip="GitLab"><i class="devicon-gitlab-plain colored"></i></a>
+                <a href="https://vercel.com/" target="_blank" rel="noopener" data-tooltip="Vercel"><i class="devicon-vercel-original"></i></a>
+                <a href="https://gradle.org/" target="_blank" rel="noopener" data-tooltip="Gradle"><i class="devicon-gradle-original colored"></i></a>
+                <a href="https://maven.apache.org/" target="_blank" rel="noopener" data-tooltip="Maven"><i class="devicon-maven-plain colored"></i></a>
+                <a href="https://www.npmjs.com/" target="_blank" rel="noopener" data-tooltip="npm"><i class="devicon-npm-original-wordmark colored"></i></a>
+            </div>
+            <!-- Row 7: Testing, Monitoring & ML -->
+            <div class="tech-row">
+                <a href="https://grafana.com/" target="_blank" rel="noopener" data-tooltip="Grafana"><i class="devicon-grafana-plain colored"></i></a>
+                <a href="https://prometheus.io/" target="_blank" rel="noopener" data-tooltip="Prometheus"><i class="devicon-prometheus-original colored"></i></a>
+                <a href="https://jestjs.io/" target="_blank" rel="noopener" data-tooltip="Jest"><i class="devicon-jest-plain colored"></i></a>
+                <a href="https://www.selenium.dev/" target="_blank" rel="noopener" data-tooltip="Selenium"><i class="devicon-selenium-original colored"></i></a>
+                <a href="https://pytorch.org/" target="_blank" rel="noopener" data-tooltip="PyTorch"><i class="devicon-pytorch-original colored"></i></a>
+                <a href="https://www.tensorflow.org/" target="_blank" rel="noopener" data-tooltip="TensorFlow"><i class="devicon-tensorflow-original colored"></i></a>
+                <a href="https://www.figma.com/" target="_blank" rel="noopener" data-tooltip="Figma"><i class="devicon-figma-plain colored"></i></a>
+                <a href="https://www.postman.com/" target="_blank" rel="noopener" data-tooltip="Postman"><i class="devicon-postman-plain colored"></i></a>
+            </div>
+            <!-- Row 8: IDEs & Editors -->
+            <div class="tech-row">
+                <a href="https://code.visualstudio.com/" target="_blank" rel="noopener" data-tooltip="VS Code"><i class="devicon-vscode-plain colored"></i></a>
+                <a href="https://www.jetbrains.com/idea/" target="_blank" rel="noopener" data-tooltip="IntelliJ IDEA"><i class="devicon-intellij-plain colored"></i></a>
+                <a href="https://www.jetbrains.com/pycharm/" target="_blank" rel="noopener" data-tooltip="PyCharm"><i class="devicon-pycharm-plain colored"></i></a>
+                <a href="https://www.jetbrains.com/datagrip/" target="_blank" rel="noopener" data-tooltip="DataGrip"><i class="devicon-datagrip-plain colored"></i></a>
+                <a href="https://neovim.io/" target="_blank" rel="noopener" data-tooltip="Neovim"><i class="devicon-neovim-plain colored"></i></a>
+                <a href="https://visualstudio.microsoft.com/" target="_blank" rel="noopener" data-tooltip="Visual Studio"><i class="devicon-visualstudio-plain colored"></i></a>
+                <a href="https://www.gnu.org/software/bash/" target="_blank" rel="noopener" data-tooltip="Bash"><i class="devicon-bash-plain"></i></a>
+                <a href="https://www.rstudio.com/" target="_blank" rel="noopener" data-tooltip="RStudio"><i class="devicon-rstudio-plain colored"></i></a>
+            </div>
+            <!-- Row 9: Data Engineering & Big Data -->
+            <div class="tech-row">
+                <a href="https://spark.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache Spark"><i class="devicon-apachespark-original colored"></i></a>
+                <a href="https://hadoop.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache Hadoop"><i class="devicon-hadoop-plain colored"></i></a>
+                <a href="https://airflow.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache Airflow"><i class="devicon-apacheairflow-plain"></i></a>
+                <a href="https://flink.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache Flink"><img src="https://cdn.simpleicons.org/apacheflink/E6526F" alt="Flink" class="simple-icon" /></a>
+                <a href="https://beam.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache Beam"><img src="https://cdn.simpleicons.org/apachebeam/FD7E14" alt="Beam" class="simple-icon" /></a>
+                <a href="https://nifi.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache NiFi"><img src="https://cdn.simpleicons.org/apache/D22128" alt="NiFi" class="simple-icon" /></a>
+                <a href="https://www.getdbt.com/" target="_blank" rel="noopener" data-tooltip="dbt"><img src="https://cdn.simpleicons.org/dbt/FF694B" alt="dbt" class="simple-icon" /></a>
+                <a href="https://www.prefect.io/" target="_blank" rel="noopener" data-tooltip="Prefect"><img src="https://cdn.simpleicons.org/prefect/024DFD" alt="Prefect" class="simple-icon" /></a>
+            </div>
+            <!-- Row 10: Data Warehouses & Lakehouse -->
+            <div class="tech-row">
+                <a href="https://www.snowflake.com/" target="_blank" rel="noopener" data-tooltip="Snowflake"><img src="https://cdn.simpleicons.org/snowflake/29B5E8" alt="Snowflake" class="simple-icon" /></a>
+                <a href="https://www.databricks.com/" target="_blank" rel="noopener" data-tooltip="Databricks"><img src="https://cdn.simpleicons.org/databricks/FF3621" alt="Databricks" class="simple-icon" /></a>
+                <a href="https://cloud.google.com/bigquery" target="_blank" rel="noopener" data-tooltip="BigQuery"><img src="https://cdn.simpleicons.org/googlebigquery/669DF6" alt="BigQuery" class="simple-icon" /></a>
+                <a href="https://aws.amazon.com/redshift/" target="_blank" rel="noopener" data-tooltip="AWS Redshift"><img src="https://cdn.simpleicons.org/amazonredshift/8C4FFF" alt="Redshift" class="simple-icon" /></a>
+                <a href="https://delta.io/" target="_blank" rel="noopener" data-tooltip="Delta Lake"><img src="https://cdn.simpleicons.org/delta/003366" alt="Delta Lake" class="simple-icon" /></a>
+                <a href="https://iceberg.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache Iceberg"><img src="https://cdn.simpleicons.org/apacheiceberg/2E7C81" alt="Iceberg" class="simple-icon" /></a>
+                <a href="https://hudi.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache Hudi"><img src="https://cdn.simpleicons.org/apachehudi/FF5A00" alt="Hudi" class="simple-icon" /></a>
+                <a href="https://trino.io/" target="_blank" rel="noopener" data-tooltip="Trino"><img src="https://cdn.simpleicons.org/trino/DD00A1" alt="Trino" class="simple-icon" /></a>
+            </div>
+            <!-- Row 11: BI & Data Visualization -->
+            <div class="tech-row">
+                <a href="https://powerbi.microsoft.com/" target="_blank" rel="noopener" data-tooltip="Power BI"><img src="https://cdn.simpleicons.org/powerbi/F2C811" alt="Power BI" class="simple-icon" /></a>
+                <a href="https://www.tableau.com/" target="_blank" rel="noopener" data-tooltip="Tableau"><img src="https://cdn.simpleicons.org/tableau/E97627" alt="Tableau" class="simple-icon" /></a>
+                <a href="https://looker.com/" target="_blank" rel="noopener" data-tooltip="Looker"><img src="https://cdn.simpleicons.org/looker/4285F4" alt="Looker" class="simple-icon" /></a>
+                <a href="https://superset.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache Superset"><img src="https://cdn.simpleicons.org/apachesuperset/20A6C9" alt="Superset" class="simple-icon" /></a>
+                <a href="https://metabase.com/" target="_blank" rel="noopener" data-tooltip="Metabase"><img src="https://cdn.simpleicons.org/metabase/509EE3" alt="Metabase" class="simple-icon" /></a>
+                <a href="https://d3js.org/" target="_blank" rel="noopener" data-tooltip="D3.js"><i class="devicon-d3js-plain colored"></i></a>
+                <a href="https://plotly.com/" target="_blank" rel="noopener" data-tooltip="Plotly"><img src="https://cdn.simpleicons.org/plotly/3F4F75" alt="Plotly" class="simple-icon" /></a>
+                <a href="https://www.r-project.org/" target="_blank" rel="noopener" data-tooltip="R"><i class="devicon-r-original colored"></i></a>
+            </div>
+            <!-- Row 12: Data Science & ML -->
+            <div class="tech-row">
+                <a href="https://jupyter.org/" target="_blank" rel="noopener" data-tooltip="Jupyter"><i class="devicon-jupyter-plain colored"></i></a>
+                <a href="https://pandas.pydata.org/" target="_blank" rel="noopener" data-tooltip="Pandas"><img src="https://cdn.simpleicons.org/pandas/150458" alt="Pandas" class="simple-icon" /></a>
+                <a href="https://numpy.org/" target="_blank" rel="noopener" data-tooltip="NumPy"><img src="https://cdn.simpleicons.org/numpy/013243" alt="NumPy" class="simple-icon" /></a>
+                <a href="https://scikit-learn.org/" target="_blank" rel="noopener" data-tooltip="Scikit-learn"><img src="https://cdn.simpleicons.org/scikitlearn/F7931E" alt="Scikit-learn" class="simple-icon" /></a>
+                <a href="https://keras.io/" target="_blank" rel="noopener" data-tooltip="Keras"><img src="https://cdn.simpleicons.org/keras/D00000" alt="Keras" class="simple-icon" /></a>
+                <a href="https://opencv.org/" target="_blank" rel="noopener" data-tooltip="OpenCV"><img src="https://cdn.simpleicons.org/opencv/5C3EE8" alt="OpenCV" class="simple-icon" /></a>
+                <a href="https://mlflow.org/" target="_blank" rel="noopener" data-tooltip="MLflow"><img src="https://cdn.simpleicons.org/mlflow/0194E2" alt="MLflow" class="simple-icon" /></a>
+                <a href="https://www.anaconda.com/" target="_blank" rel="noopener" data-tooltip="Anaconda"><i class="devicon-anaconda-original colored"></i></a>
+            </div>
+            <!-- Row 13: Streaming & Message Queues -->
+            <div class="tech-row">
+                <a href="https://www.rabbitmq.com/" target="_blank" rel="noopener" data-tooltip="RabbitMQ"><i class="devicon-rabbitmq-original colored"></i></a>
+                <a href="https://pulsar.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache Pulsar"><img src="https://cdn.simpleicons.org/apachepulsar/188FFF" alt="Pulsar" class="simple-icon" /></a>
+                <a href="https://aws.amazon.com/kinesis/" target="_blank" rel="noopener" data-tooltip="AWS Kinesis"><img src="https://cdn.simpleicons.org/amazonkinesis/FF9900" alt="Kinesis" class="simple-icon" /></a>
+                <a href="https://cloud.google.com/pubsub" target="_blank" rel="noopener" data-tooltip="Google Pub/Sub"><img src="https://cdn.simpleicons.org/googlepubsub/AECBFA" alt="Pub/Sub" class="simple-icon" /></a>
+                <a href="https://azure.microsoft.com/en-us/products/event-hubs/" target="_blank" rel="noopener" data-tooltip="Azure Event Hubs"><i class="devicon-azure-plain colored"></i></a>
+                <a href="https://www.confluent.io/" target="_blank" rel="noopener" data-tooltip="Confluent"><img src="https://cdn.simpleicons.org/confluent/000000" alt="Confluent" class="simple-icon" /></a>
+                <a href="https://zeromq.org/" target="_blank" rel="noopener" data-tooltip="ZeroMQ"><img src="https://cdn.simpleicons.org/zeromq/DF0000" alt="ZeroMQ" class="simple-icon" /></a>
+                <a href="https://grpc.io/" target="_blank" rel="noopener" data-tooltip="gRPC"><img src="https://cdn.simpleicons.org/grpc/4285F4" alt="gRPC" class="simple-icon" /></a>
+            </div>
+            <!-- Row 14: Security & Monitoring -->
+            <div class="tech-row">
+                <a href="https://www.vaultproject.io/" target="_blank" rel="noopener" data-tooltip="HashiCorp Vault"><img src="https://cdn.simpleicons.org/vault/FFEC6E" alt="Vault" class="simple-icon" /></a>
+                <a href="https://www.openssl.org/" target="_blank" rel="noopener" data-tooltip="OpenSSL"><img src="https://cdn.simpleicons.org/openssl/721412" alt="OpenSSL" class="simple-icon" /></a>
+                <a href="https://oauth.net/" target="_blank" rel="noopener" data-tooltip="OAuth"><img src="https://cdn.simpleicons.org/auth0/EB5424" alt="OAuth" class="simple-icon" /></a>
+                <a href="https://www.cloudflare.com/" target="_blank" rel="noopener" data-tooltip="Cloudflare"><img src="https://cdn.simpleicons.org/cloudflare/F38020" alt="Cloudflare" class="simple-icon" /></a>
+                <a href="https://www.splunk.com/" target="_blank" rel="noopener" data-tooltip="Splunk"><img src="https://cdn.simpleicons.org/splunk/000000" alt="Splunk" class="simple-icon" /></a>
+                <a href="https://www.datadoghq.com/" target="_blank" rel="noopener" data-tooltip="Datadog"><img src="https://cdn.simpleicons.org/datadog/632CA6" alt="Datadog" class="simple-icon" /></a>
+                <a href="https://newrelic.com/" target="_blank" rel="noopener" data-tooltip="New Relic"><img src="https://cdn.simpleicons.org/newrelic/1CE783" alt="New Relic" class="simple-icon" /></a>
+                <a href="https://grafana.com/" target="_blank" rel="noopener" data-tooltip="Grafana"><i class="devicon-grafana-original colored"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bimestres Section -->
+    <BimestresSection />
+
+    <!-- Quick Navigation Cards -->
+    <section class="quick-nav-section">
+        <div class="quick-nav-container">
+            <h2 data-aos="fade-up">Explora más</h2>
+            <div class="quick-nav-grid" data-aos="fade-up" data-aos-delay="100">
+                <a href={`${base}/stack`} class="quick-nav-card glass-card">
+                    <div class="nav-card-icon cyan">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>Stack Tecnológico</h3>
+                    <p>65+ tecnologías y herramientas de la industria</p>
+                    <span class="nav-card-arrow"><i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href={`${base}/arquitectura`} class="quick-nav-card glass-card">
+                    <div class="nav-card-icon purple">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <h3>Arquitectura & DevOps</h3>
+                    <p>Patrones, pipelines y metodologías ágiles</p>
+                    <span class="nav-card-arrow"><i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href={`${base}/recursos`} class="quick-nav-card glass-card">
+                    <div class="nav-card-icon orange">
+                        <i class="fas fa-book-reader"></i>
+                    </div>
+                    <h3>Recursos</h3>
+                    <p>Videos, herramientas AI, código y cursos</p>
+                    <span class="nav-card-arrow"><i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href={`${base}/proyectos`} class="quick-nav-card glass-card">
+                    <div class="nav-card-icon green">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Proyectos & Roadmap</h3>
+                    <p>Ruta de aprendizaje y proyectos para tu portafolio</p>
+                    <span class="nav-card-arrow"><i class="fas fa-arrow-right"></i></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Stats -->
+    <StatsSection />
+
+    <Footer />
+</Layout>
+
+<style>
+    .quick-nav-section {
+        padding: 4rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .quick-nav-container h2 {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        background: linear-gradient(135deg, #f8fafc, #94a3b8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .quick-nav-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .quick-nav-card {
+        padding: 1.5rem;
+        border-radius: 16px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .quick-nav-card:hover {
+        transform: translateY(-4px);
+    }
+
+    .quick-nav-card:hover .nav-card-arrow {
+        transform: translateX(4px);
+    }
+
+    .nav-card-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .nav-card-icon.cyan {
+        background: rgba(0, 212, 255, 0.2);
+        color: #00d4ff;
+    }
+
+    .nav-card-icon.purple {
+        background: rgba(124, 58, 237, 0.2);
+        color: #a78bfa;
+    }
+
+    .nav-card-icon.orange {
+        background: rgba(245, 158, 11, 0.2);
+        color: #f59e0b;
+    }
+
+    .nav-card-icon.green {
+        background: rgba(16, 185, 129, 0.2);
+        color: #10b981;
+    }
+
+    .quick-nav-card h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #f8fafc;
+        margin-bottom: 0.5rem;
+    }
+
+    .quick-nav-card p {
+        font-size: 0.85rem;
+        color: #94a3b8;
+        line-height: 1.5;
+    }
+
+    .nav-card-arrow {
+        position: absolute;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        color: #64748b;
+        transition: transform 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+        .quick-nav-container h2 {
+            font-size: 1.5rem;
+        }
+
+        .quick-nav-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    :global([data-theme="light"]) .quick-nav-container h2 {
+        background: linear-gradient(135deg, #1e293b, #475569);
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+
+    :global([data-theme="light"]) .quick-nav-card h3 {
+        color: #1e293b;
+    }
+
+    :global([data-theme="light"]) .quick-nav-card p {
+        color: #64748b;
+    }
+</style>
+
+<script>
+    // Console Easter Egg
+    console.log(`
+%c╔══════════════════════════════════════════════════════════╗
+%c║  ANALISTA PROGRAMADOR COMPUTACIONAL                     ║
+%c║  DuocUC - Escuela de Informática                        ║
+%c╠══════════════════════════════════════════════════════════╣
+%c║  🎓 5 niveles · 20 meses · 25+ asignaturas              ║
+%c║  💻 Full Stack · Cloud · Mobile · DevOps                ║
+%c║  🚀 { código limpio · buenas prácticas }                ║
+%c║  ⚡ Powered by Astro                                    ║
+%c╚══════════════════════════════════════════════════════════╝
+`,
+        'color: #00d4ff; font-weight: bold;',
+        'color: #00d4ff;',
+        'color: #94a3b8;',
+        'color: #00d4ff;',
+        'color: #7c3aed;',
+        'color: #7c3aed;',
+        'color: #f472b6;',
+        'color: #10b981;',
+        'color: #00d4ff; font-weight: bold;'
+    );
+</script>

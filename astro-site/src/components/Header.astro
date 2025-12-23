@@ -3,7 +3,7 @@ const base = import.meta.env.BASE_URL;
 const currentPath = Astro.url.pathname;
 
 // Determinar qué enlace está activo basado en la ruta actual
-const isHome = currentPath === base || currentPath === base + 'index.html' || currentPath.endsWith('/');
+const isHome = currentPath.includes('/inicio');
 const isStack = currentPath.includes('/stack');
 const isArquitectura = currentPath.includes('/arquitectura');
 const isRecursos = currentPath.includes('/recursos');
@@ -12,7 +12,7 @@ const isProyectos = currentPath.includes('/proyectos');
 
 <header class="header" transition:persist>
     <div class="header-content">
-        <a href={base} class="logo">
+        <a href={`${base}/inicio`} class="logo">
             <div class="logo-icon">
                 <i class="fas fa-code"></i>
             </div>
@@ -22,7 +22,7 @@ const isProyectos = currentPath.includes('/proyectos');
             </div>
         </a>
         <nav class="nav">
-            <a href={base} class={`nav-link ${isHome ? 'active' : ''}`}>Inicio</a>
+            <a href={`${base}/inicio`} class={`nav-link ${isHome ? 'active' : ''}`}>Inicio</a>
             <a href={`${base}/stack`} class={`nav-link ${isStack ? 'active' : ''}`}>Stack</a>
             <a href={`${base}/arquitectura`} class={`nav-link ${isArquitectura ? 'active' : ''}`}>Arquitectura</a>
             <a href={`${base}/recursos`} class={`nav-link ${isRecursos ? 'active' : ''}`}>Recursos</a>

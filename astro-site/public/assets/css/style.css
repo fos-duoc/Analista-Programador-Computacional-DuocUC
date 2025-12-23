@@ -809,6 +809,18 @@ body,
   transform: scale(1.1);
 }
 
+/* Simple Icons CDN images */
+.tech-row a .simple-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.tech-row a:hover .simple-icon {
+  transform: scale(1.1);
+}
+
 /* Light theme adjustments */
 [data-theme="light"] .tech-row a {
   background: rgba(255, 255, 255, 0.8);
@@ -832,6 +844,11 @@ body,
     font-size: 26px;
   }
 
+  .tech-row a .simple-icon {
+    width: 26px;
+    height: 26px;
+  }
+
   .tech-row {
     gap: 6px;
   }
@@ -845,6 +862,11 @@ body,
 
   .tech-row a i {
     font-size: 22px;
+  }
+
+  .tech-row a .simple-icon {
+    width: 22px;
+    height: 22px;
   }
 
   .tech-row {
