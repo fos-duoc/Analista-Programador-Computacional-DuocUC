@@ -54,27 +54,6 @@ const base = import.meta.env.BASE_URL;
             <div class="tech-orb orb-6"><i class="fas fa-fire"></i></div>
         </div>
 
-        <!-- Repo Platforms Bar -->
-        <div class="repo-platforms-bar" data-aos="fade-down" data-aos-delay="50">
-            <span class="repo-bar-label">Repositorios:</span>
-            <a href="https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC" target="_blank" rel="noopener" class="repo-platform-link" data-tooltip="GitHub">
-                <i class="fab fa-github"></i>
-                <span>GitHub</span>
-            </a>
-            <a href="https://gitlab.com/" target="_blank" rel="noopener" class="repo-platform-link" data-tooltip="GitLab">
-                <i class="fab fa-gitlab"></i>
-                <span>GitLab</span>
-            </a>
-            <a href="https://bitbucket.org/" target="_blank" rel="noopener" class="repo-platform-link" data-tooltip="BitBucket">
-                <i class="fab fa-bitbucket"></i>
-                <span>BitBucket</span>
-            </a>
-            <a href="https://dev.azure.com/" target="_blank" rel="noopener" class="repo-platform-link" data-tooltip="Azure DevOps">
-                <i class="fab fa-microsoft"></i>
-                <span>Azure DevOps</span>
-            </a>
-        </div>
-
         <!-- Hero Content -->
         <div class="hero-premium-content">
             <!-- Top Badges -->
@@ -509,95 +488,6 @@ const base = import.meta.env.BASE_URL;
     :global([data-theme="light"]) .quick-nav-card p {
         color: #64748b;
     }
-
-    /* Repo Platforms Bar */
-    .repo-platforms-bar {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-        padding: 0.75rem 1.5rem;
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 50px;
-        margin: 0 auto 1.5rem;
-        max-width: fit-content;
-        flex-wrap: wrap;
-    }
-
-    .repo-bar-label {
-        font-size: 0.8rem;
-        font-weight: 600;
-        color: #64748b;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-
-    .repo-platform-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-        padding: 0.4rem 0.8rem;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 8px;
-        text-decoration: none;
-        color: #94a3b8;
-        font-size: 0.8rem;
-        font-weight: 500;
-        transition: all 0.3s ease;
-    }
-
-    .repo-platform-link:hover {
-        background: rgba(0, 212, 255, 0.1);
-        border-color: rgba(0, 212, 255, 0.3);
-        color: #00d4ff;
-        transform: translateY(-2px);
-    }
-
-    .repo-platform-link i {
-        font-size: 1rem;
-    }
-
-    .repo-platform-link:nth-child(2) i { color: #f8fafc; } /* GitHub */
-    .repo-platform-link:nth-child(3) i { color: #FC6D26; } /* GitLab */
-    .repo-platform-link:nth-child(4) i { color: #0052CC; } /* BitBucket */
-    .repo-platform-link:nth-child(5) i { color: #0078D7; } /* Azure DevOps */
-
-    .repo-platform-link:hover i {
-        color: #00d4ff;
-    }
-
-    @media (max-width: 768px) {
-        .repo-platforms-bar {
-            flex-direction: column;
-            gap: 0.5rem;
-            padding: 1rem;
-        }
-
-        .repo-bar-label {
-            margin-bottom: 0.25rem;
-        }
-    }
-
-    :global([data-theme="light"]) .repo-platforms-bar {
-        background: rgba(0, 0, 0, 0.03);
-        border-color: rgba(0, 0, 0, 0.1);
-    }
-
-    :global([data-theme="light"]) .repo-platform-link {
-        background: rgba(0, 0, 0, 0.03);
-        border-color: rgba(0, 0, 0, 0.1);
-        color: #64748b;
-    }
-
-    :global([data-theme="light"]) .repo-platform-link:hover {
-        background: rgba(8, 145, 178, 0.1);
-        border-color: rgba(8, 145, 178, 0.3);
-        color: #0891b2;
-    }
-
-    :global([data-theme="light"]) .repo-platform-link:nth-child(2) i { color: #24292e; }
 </style>
 
 <script>

@@ -639,7 +639,6 @@ body,
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  color: var(--text-secondary);
   font-size: 1.1rem;
   transition: var(--transition);
   text-decoration: none;
@@ -647,46 +646,83 @@ body,
 
 .repo-icon-btn:hover {
   transform: translateY(-2px);
-  border-color: transparent;
 }
 
-/* GitHub */
+/* GitHub - Colores oficiales siempre visibles */
+.repo-icon-btn.github {
+  color: #f8fafc;
+  border-color: rgba(248, 250, 252, 0.2);
+}
+
 .repo-icon-btn.github:hover {
   background: #24292e;
   color: #ffffff;
+  border-color: #24292e;
   box-shadow: 0 4px 12px rgba(36, 41, 46, 0.4);
 }
 
-/* GitLab */
+/* GitLab - Naranja oficial */
+.repo-icon-btn.gitlab {
+  color: #FC6D26;
+  border-color: rgba(252, 109, 38, 0.3);
+}
+
 .repo-icon-btn.gitlab:hover {
   background: #fc6d26;
   color: #ffffff;
+  border-color: #fc6d26;
   box-shadow: 0 4px 12px rgba(252, 109, 38, 0.4);
 }
 
-/* BitBucket */
+/* BitBucket - Azul oficial */
+.repo-icon-btn.bitbucket {
+  color: #2684FF;
+  border-color: rgba(38, 132, 255, 0.3);
+}
+
 .repo-icon-btn.bitbucket:hover {
   background: #0052cc;
   color: #ffffff;
+  border-color: #0052cc;
   box-shadow: 0 4px 12px rgba(0, 82, 204, 0.4);
 }
 
-/* Azure DevOps */
+/* Azure DevOps - Azul Microsoft oficial */
+.repo-icon-btn.azure {
+  color: #0078D4;
+  border-color: rgba(0, 120, 212, 0.3);
+}
+
 .repo-icon-btn.azure:hover {
   background: #0078d4;
   color: #ffffff;
+  border-color: #0078d4;
   box-shadow: 0 4px 12px rgba(0, 120, 212, 0.4);
 }
 
 /* Light mode adjustments */
 [data-theme="light"] .repo-icon-btn {
-  background: rgba(0, 0, 0, 0.03);
-  color: var(--text-muted);
+  background: rgba(0, 0, 0, 0.02);
 }
 
-[data-theme="light"] .repo-icon-btn.github:hover {
-  background: #24292e;
-  color: #ffffff;
+[data-theme="light"] .repo-icon-btn.github {
+  color: #24292e;
+  border-color: rgba(36, 41, 46, 0.2);
+}
+
+[data-theme="light"] .repo-icon-btn.gitlab {
+  color: #E24329;
+  border-color: rgba(226, 67, 41, 0.25);
+}
+
+[data-theme="light"] .repo-icon-btn.bitbucket {
+  color: #0052CC;
+  border-color: rgba(0, 82, 204, 0.25);
+}
+
+[data-theme="light"] .repo-icon-btn.azure {
+  color: #0078D4;
+  border-color: rgba(0, 120, 212, 0.25);
 }
 
 /* ============================================
