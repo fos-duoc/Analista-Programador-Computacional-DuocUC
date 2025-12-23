@@ -3,106 +3,7 @@
 // Basado en GitHub Education y mejores prácticas de la industria
 
 const aiTools = [
-    {
-        name: "GitHub Copilot Pro",
-        icon: "fab fa-github",
-        badge: "GRATIS",
-        badgeColor: "success",
-        description: "Tu programador par con IA. Sugerencias de código en tiempo real directamente en tu editor.",
-        features: ["Autocompletado inteligente", "Contexto del proyecto", "Múltiples lenguajes"],
-        link: "https://github.com/features/copilot",
-        linkText: "Activar Copilot"
-    },
-    {
-        name: "GitHub Student Pack",
-        icon: "fas fa-graduation-cap",
-        badge: "100+ TOOLS",
-        badgeColor: "accent",
-        description: "Pack exclusivo con herramientas profesionales gratuitas para estudiantes verificados.",
-        features: ["JetBrains IDEs", "DigitalOcean $200", "Canva Pro", "Namecheap dominio"],
-        link: "https://education.github.com/pack",
-        linkText: "Obtener Pack"
-    },
-    {
-        name: "GitHub Certifications",
-        icon: "fas fa-certificate",
-        badge: "VOUCHER GRATIS",
-        badgeColor: "warning",
-        description: "Certifícate en GitHub Foundations o Copilot. Válido hasta Junio 2026.",
-        features: ["Foundations Cert", "Copilot Cert", "Reconocimiento global"],
-        link: "https://education.github.com/experiences/primer_copilot",
-        linkText: "Ver Certificaciones"
-    },
-    {
-        name: "Claude / ChatGPT",
-        icon: "fas fa-robot",
-        badge: "AI ASSISTANTS",
-        badgeColor: "purple",
-        description: "Asistentes de IA para resolver dudas, explicar código y aprender conceptos.",
-        features: ["Explicación de código", "Debugging asistido", "Generación de tests"],
-        link: "https://claude.ai",
-        linkText: "Probar Claude"
-    },
-    {
-        name: "Le Chat (Mistral AI)",
-        icon: "fas fa-comments",
-        badge: "ECONÓMICO",
-        badgeColor: "cyan",
-        description: "Asistente IA francés, potente y accesible. Ideal para estudiantes con presupuesto limitado.",
-        features: ["Código & debugging", "Muy económico", "Multilingüe", "API asequible"],
-        link: "https://chat.mistral.ai/chat",
-        linkText: "Probar Le Chat"
-    },
-    {
-        name: "DeepSeek",
-        icon: "fas fa-brain",
-        badge: "OPEN SOURCE",
-        badgeColor: "emerald",
-        description: "Modelo de IA chino de código abierto. Excelente para código y razonamiento matemático.",
-        features: ["Código avanzado", "Matemáticas", "Open Source", "API gratuita"],
-        link: "https://chat.deepseek.com/",
-        linkText: "Probar DeepSeek"
-    },
-    {
-        name: "DeepL Translate",
-        icon: "fas fa-language",
-        badge: "TRADUCCIÓN",
-        badgeColor: "blue",
-        description: "El mejor traductor con IA. Ideal para documentación técnica y papers académicos.",
-        features: ["Traducción precisa", "Contexto técnico", "Múltiples idiomas", "Docs & PDFs"],
-        link: "https://www.deepl.com/translator",
-        linkText: "Traducir Ahora"
-    },
-    {
-        name: "AntiGravity AI",
-        icon: "fas fa-rocket",
-        badge: "PRODUCTIVIDAD",
-        badgeColor: "orange",
-        description: "Asistente IA para productividad y automatización de tareas. Potencia tu flujo de trabajo.",
-        features: ["Automatización", "Notas inteligentes", "Integración apps", "Flujos de trabajo"],
-        link: "https://www.antigravity.ai/",
-        linkText: "Explorar"
-    },
-    {
-        name: "VS Code for the Web",
-        icon: "fas fa-globe",
-        badge: "NAVEGADOR",
-        badgeColor: "vscode",
-        description: "Visual Studio Code directamente en tu navegador. Sin instalación, desde cualquier lugar.",
-        features: ["Sin instalación", "GitHub integrado", "Extensiones", "Sincronización"],
-        link: "https://vscode.dev",
-        linkText: "Abrir Editor"
-    },
-    {
-        name: "Notion",
-        icon: "fas fa-sticky-note",
-        badge: "ALL-IN-ONE",
-        badgeColor: "notion",
-        description: "Workspace todo-en-uno para notas, proyectos, docs y wikis. Perfecto para organizar estudios.",
-        features: ["Notas & docs", "Bases de datos", "Colaboración", "Templates gratis"],
-        link: "https://www.notion.so/students",
-        linkText: "Obtener Gratis"
-    },
+    // 1. Notepad++
     {
         name: "Notepad++",
         icon: "fas fa-file-code",
@@ -113,6 +14,7 @@ const aiTools = [
         link: "https://notepad-plus-plus.org/",
         linkText: "Descargar"
     },
+    // 2. Flameshot
     {
         name: "Flameshot",
         icon: "fas fa-camera",
@@ -122,6 +24,116 @@ const aiTools = [
         features: ["Capturas editables", "Anotaciones", "Blur & flechas", "Multiplataforma"],
         link: "https://flameshot.org/",
         linkText: "Descargar"
+    },
+    // 3. PowerShell 7+
+    {
+        name: "PowerShell 7+",
+        icon: "fas fa-terminal",
+        badge: "TERMINAL",
+        badgeColor: "powershell",
+        description: "Shell moderno y multiplataforma de Microsoft. Automatiza tareas y scripts avanzados.",
+        features: ["Multiplataforma", "Scripts avanzados", "Azure integrado", "Cmdlets potentes"],
+        link: "https://learn.microsoft.com/en-us/powershell/",
+        linkText: "Instalar"
+    },
+    // 4. VS Code for the Web
+    {
+        name: "VS Code for the Web",
+        icon: "fas fa-globe",
+        badge: "NAVEGADOR",
+        badgeColor: "vscode",
+        description: "Visual Studio Code directamente en tu navegador. Sin instalación, desde cualquier lugar.",
+        features: ["Sin instalación", "GitHub integrado", "Extensiones", "Sincronización"],
+        link: "https://vscode.dev",
+        linkText: "Abrir Editor"
+    },
+    // 5. Google Colab
+    {
+        name: "Google Colab",
+        icon: "fas fa-flask",
+        badge: "NOTEBOOKS",
+        badgeColor: "colab",
+        description: "Jupyter Notebooks en la nube gratis. GPU incluida para Machine Learning y Data Science.",
+        features: ["GPU gratis", "Python & ML", "Colaboración", "Google Drive"],
+        link: "https://colab.research.google.com/",
+        linkText: "Abrir Colab"
+    },
+    // 6. AntiGravity AI
+    {
+        name: "AntiGravity AI",
+        icon: "fas fa-rocket",
+        badge: "PRODUCTIVIDAD",
+        badgeColor: "orange",
+        description: "Asistente IA para productividad y automatización de tareas. Potencia tu flujo de trabajo.",
+        features: ["Automatización", "Notas inteligentes", "Integración apps", "Flujos de trabajo"],
+        link: "https://www.antigravity.ai/",
+        linkText: "Explorar"
+    },
+    // 7. DeepL Translate
+    {
+        name: "DeepL Translate",
+        icon: "fas fa-language",
+        badge: "TRADUCCIÓN",
+        badgeColor: "blue",
+        description: "El mejor traductor con IA. Ideal para documentación técnica y papers académicos.",
+        features: ["Traducción precisa", "Contexto técnico", "Múltiples idiomas", "Docs & PDFs"],
+        link: "https://www.deepl.com/translator",
+        linkText: "Traducir Ahora"
+    },
+    // 8. DeepSeek
+    {
+        name: "DeepSeek",
+        icon: "fas fa-brain",
+        badge: "OPEN SOURCE",
+        badgeColor: "emerald",
+        description: "Modelo de IA chino de código abierto. Excelente para código y razonamiento matemático.",
+        features: ["Código avanzado", "Matemáticas", "Open Source", "API gratuita"],
+        link: "https://chat.deepseek.com/",
+        linkText: "Probar DeepSeek"
+    },
+    // 9. Claude
+    {
+        name: "Claude",
+        icon: "fas fa-robot",
+        badge: "AI ASSISTANT",
+        badgeColor: "purple",
+        description: "Asistente de IA de Anthropic para resolver dudas, explicar código y aprender conceptos.",
+        features: ["Explicación de código", "Debugging asistido", "Generación de tests", "Contexto largo"],
+        link: "https://claude.ai",
+        linkText: "Probar Claude"
+    },
+    // 10. Le Chat (Mistral AI)
+    {
+        name: "Le Chat (Mistral AI)",
+        icon: "fas fa-comments",
+        badge: "ECONÓMICO",
+        badgeColor: "cyan",
+        description: "Asistente IA francés, potente y accesible. Ideal para estudiantes con presupuesto limitado.",
+        features: ["Código & debugging", "Muy económico", "Multilingüe", "API asequible"],
+        link: "https://chat.mistral.ai/chat",
+        linkText: "Probar Le Chat"
+    },
+    // 11. GitHub Copilot Pro
+    {
+        name: "GitHub Copilot Pro",
+        icon: "fab fa-github",
+        badge: "GRATIS",
+        badgeColor: "success",
+        description: "Tu programador par con IA. Sugerencias de código en tiempo real directamente en tu editor.",
+        features: ["Autocompletado inteligente", "Contexto del proyecto", "Múltiples lenguajes"],
+        link: "https://github.com/features/copilot",
+        linkText: "Activar Copilot"
+    },
+    // 12. GitHub Student Pack
+    {
+        name: "GitHub Student Pack",
+        icon: "fas fa-graduation-cap",
+        badge: "100+ TOOLS",
+        badgeColor: "accent",
+        description: "Pack exclusivo con herramientas profesionales gratuitas para estudiantes verificados.",
+        features: ["JetBrains IDEs", "DigitalOcean $200", "Canva Pro", "Namecheap dominio"],
+        link: "https://education.github.com/pack",
+        linkText: "Obtener Pack"
     }
 ];
 
@@ -426,6 +438,18 @@ const bestPractices = [
         background: rgba(255, 87, 34, 0.2);
         color: #ff7043;
         border: 1px solid rgba(255, 87, 34, 0.3);
+    }
+
+    .ai-tool-badge.powershell {
+        background: rgba(1, 36, 86, 0.3);
+        color: #5391FE;
+        border: 1px solid rgba(83, 145, 254, 0.3);
+    }
+
+    .ai-tool-badge.colab {
+        background: rgba(249, 171, 0, 0.2);
+        color: #F9AB00;
+        border: 1px solid rgba(249, 171, 0, 0.3);
     }
 
     .ai-tool-description {

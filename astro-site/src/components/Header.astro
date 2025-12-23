@@ -87,6 +87,34 @@ const isProyectos = currentPath.includes('/proyectos');
             html.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
         });
+
+        // Update active nav link based on current path
+        updateActiveNavLink();
+    }
+
+    // Update active navigation link
+    function updateActiveNavLink() {
+        const currentPath = window.location.pathname;
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href');
+            if (href) {
+                // Check if current path matches or contains the link's path
+                if (currentPath.includes('/inicio') && href.includes('/inicio')) {
+                    link.classList.add('active');
+                } else if (currentPath.includes('/stack') && href.includes('/stack')) {
+                    link.classList.add('active');
+                } else if (currentPath.includes('/arquitectura') && href.includes('/arquitectura')) {
+                    link.classList.add('active');
+                } else if (currentPath.includes('/recursos') && href.includes('/recursos')) {
+                    link.classList.add('active');
+                } else if (currentPath.includes('/proyectos') && href.includes('/proyectos')) {
+                    link.classList.add('active');
+                }
+            }
+        });
     }
 
     // Run on initial page load

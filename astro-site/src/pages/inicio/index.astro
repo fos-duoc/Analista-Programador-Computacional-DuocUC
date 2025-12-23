@@ -54,6 +54,27 @@ const base = import.meta.env.BASE_URL;
             <div class="tech-orb orb-6"><i class="fas fa-fire"></i></div>
         </div>
 
+        <!-- Repo Platforms Bar -->
+        <div class="repo-platforms-bar" data-aos="fade-down" data-aos-delay="50">
+            <span class="repo-bar-label">Repositorios:</span>
+            <a href="https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC" target="_blank" rel="noopener" class="repo-platform-link" data-tooltip="GitHub">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+            </a>
+            <a href="https://gitlab.com/" target="_blank" rel="noopener" class="repo-platform-link" data-tooltip="GitLab">
+                <i class="fab fa-gitlab"></i>
+                <span>GitLab</span>
+            </a>
+            <a href="https://bitbucket.org/" target="_blank" rel="noopener" class="repo-platform-link" data-tooltip="BitBucket">
+                <i class="fab fa-bitbucket"></i>
+                <span>BitBucket</span>
+            </a>
+            <a href="https://dev.azure.com/" target="_blank" rel="noopener" class="repo-platform-link" data-tooltip="Azure DevOps">
+                <i class="fab fa-microsoft"></i>
+                <span>Azure DevOps</span>
+            </a>
+        </div>
+
         <!-- Hero Content -->
         <div class="hero-premium-content">
             <!-- Top Badges -->
@@ -259,8 +280,8 @@ const base = import.meta.env.BASE_URL;
                 <a href="https://spark.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache Spark"><i class="devicon-apachespark-original colored"></i></a>
                 <a href="https://hadoop.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache Hadoop"><i class="devicon-hadoop-plain colored"></i></a>
                 <a href="https://airflow.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache Airflow"><i class="devicon-apacheairflow-plain"></i></a>
-                <a href="https://flink.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache Flink"><img src="https://cdn.simpleicons.org/apacheflink/FF6B6B" alt="Flink" class="simple-icon" /></a>
-                <a href="https://beam.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache Beam"><img src="https://cdn.simpleicons.org/apachebeam/FFB347" alt="Beam" class="simple-icon" /></a>
+                <a href="https://flink.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache Flink"><img src="https://cdn.simpleicons.org/apacheflink/E6526F" alt="Flink" class="simple-icon" /></a>
+                <a href="https://beam.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache Beam"><img src="https://cdn.simpleicons.org/apachebeam/E5722E" alt="Beam" class="simple-icon" /></a>
                 <a href="https://nifi.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache NiFi"><img src="https://cdn.simpleicons.org/apachenifi/728E9B" alt="NiFi" class="simple-icon" /></a>
                 <a href="https://www.getdbt.com/" target="_blank" rel="noopener" data-tooltip="dbt"><img src="https://cdn.simpleicons.org/dbt/FF694B" alt="dbt" class="simple-icon" /></a>
                 <a href="https://www.prefect.io/" target="_blank" rel="noopener" data-tooltip="Prefect"><img src="https://cdn.simpleicons.org/prefect/42B4FF" alt="Prefect" class="simple-icon" /></a>
@@ -270,7 +291,7 @@ const base = import.meta.env.BASE_URL;
                 <a href="https://www.snowflake.com/" target="_blank" rel="noopener" data-tooltip="Snowflake"><img src="https://cdn.simpleicons.org/snowflake/29B5E8" alt="Snowflake" class="simple-icon" /></a>
                 <a href="https://www.databricks.com/" target="_blank" rel="noopener" data-tooltip="Databricks"><img src="https://cdn.simpleicons.org/databricks/FF3621" alt="Databricks" class="simple-icon" /></a>
                 <a href="https://cloud.google.com/bigquery" target="_blank" rel="noopener" data-tooltip="BigQuery"><img src="https://cdn.simpleicons.org/googlebigquery/669DF6" alt="BigQuery" class="simple-icon" /></a>
-                <a href="https://aws.amazon.com/redshift/" target="_blank" rel="noopener" data-tooltip="AWS Redshift"><img src="https://cdn.simpleicons.org/amazonredshift/8C4FFF" alt="Redshift" class="simple-icon" /></a>
+                <a href="https://aws.amazon.com/redshift/" target="_blank" rel="noopener" data-tooltip="AWS Redshift"><img src="https://cdn.simpleicons.org/amazonredshift/8C4FFF" alt="Redshift" class="simple-icon" onerror="this.onerror=null;this.src='https://skillicons.dev/icons?i=aws&theme=dark'" /></a>
                 <a href="https://delta.io/" target="_blank" rel="noopener" data-tooltip="Delta Lake"><img src="https://cdn.simpleicons.org/delta/66CCFF" alt="Delta Lake" class="simple-icon" /></a>
                 <a href="https://iceberg.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache Iceberg"><img src="https://cdn.simpleicons.org/apacheiceberg/4DD9D9" alt="Iceberg" class="simple-icon" /></a>
                 <a href="https://hudi.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache Hudi"><img src="https://cdn.simpleicons.org/apachehudi/FF5A00" alt="Hudi" class="simple-icon" /></a>
@@ -489,6 +510,95 @@ const base = import.meta.env.BASE_URL;
     :global([data-theme="light"]) .quick-nav-card p {
         color: #64748b;
     }
+
+    /* Repo Platforms Bar */
+    .repo-platforms-bar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        padding: 0.75rem 1.5rem;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 50px;
+        margin: 0 auto 1.5rem;
+        max-width: fit-content;
+        flex-wrap: wrap;
+    }
+
+    .repo-bar-label {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .repo-platform-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.4rem 0.8rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        text-decoration: none;
+        color: #94a3b8;
+        font-size: 0.8rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .repo-platform-link:hover {
+        background: rgba(0, 212, 255, 0.1);
+        border-color: rgba(0, 212, 255, 0.3);
+        color: #00d4ff;
+        transform: translateY(-2px);
+    }
+
+    .repo-platform-link i {
+        font-size: 1rem;
+    }
+
+    .repo-platform-link:nth-child(2) i { color: #f8fafc; } /* GitHub */
+    .repo-platform-link:nth-child(3) i { color: #FC6D26; } /* GitLab */
+    .repo-platform-link:nth-child(4) i { color: #0052CC; } /* BitBucket */
+    .repo-platform-link:nth-child(5) i { color: #0078D7; } /* Azure DevOps */
+
+    .repo-platform-link:hover i {
+        color: #00d4ff;
+    }
+
+    @media (max-width: 768px) {
+        .repo-platforms-bar {
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 1rem;
+        }
+
+        .repo-bar-label {
+            margin-bottom: 0.25rem;
+        }
+    }
+
+    :global([data-theme="light"]) .repo-platforms-bar {
+        background: rgba(0, 0, 0, 0.03);
+        border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    :global([data-theme="light"]) .repo-platform-link {
+        background: rgba(0, 0, 0, 0.03);
+        border-color: rgba(0, 0, 0, 0.1);
+        color: #64748b;
+    }
+
+    :global([data-theme="light"]) .repo-platform-link:hover {
+        background: rgba(8, 145, 178, 0.1);
+        border-color: rgba(8, 145, 178, 0.3);
+        color: #0891b2;
+    }
+
+    :global([data-theme="light"]) .repo-platform-link:nth-child(2) i { color: #24292e; }
 </style>
 
 <script>
