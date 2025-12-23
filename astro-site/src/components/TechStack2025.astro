@@ -1,19 +1,53 @@
 ---
-// Industry Tech Stack 2025 - Premium Dashboard with Interactive Features
-const topLanguages = [
-    { rank: 1, name: "JavaScript", icon: "https://media.giphy.com/media/ln7z2eWriiQAllfVcn/giphy.gif", stat: "62.3% SO", badge: "Most Used", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", class: "gold", barWidth: "100%", trend: "+2.1%", jobs: "850K+" },
-    { rank: 2, name: "Python", icon: "https://media.giphy.com/media/KAq5w47R9rmTuvWOWa/giphy.gif", stat: "51% SO · #1 GitHub", badge: "Most Popular", url: "https://www.python.org/", class: "silver", barWidth: "82%", trend: "+5.3%", jobs: "720K+" },
-    { rank: 3, name: "TypeScript", icon: "https://media.giphy.com/media/fsEaZldNC8A1PJ3mwp/giphy.gif", stat: "38.5% SO", badge: "Fastest Growing", url: "https://www.typescriptlang.org/", class: "bronze", barWidth: "62%", trend: "+8.2%", jobs: "480K+" }
-];
+// Industry Tech Stack 2025 - Premium Dashboard with Data Source Selector & Visual Podium
+// Option C + A: Compact dashboard + Visual podium with medals, tooltips, and trend badges
 
-const secondaryLanguages = [
-    { name: "Java", icon: "https://media.giphy.com/media/TfY3ORyNfVEvvr94jZ/giphy.gif", stat: "30.3% SO · #4 GH", url: "https://www.oracle.com/java/", trend: "-1.2%", category: "enterprise" },
-    { name: "C#", icon: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWIxNGUwZWZyZ2RiZzRlcWV0cGVtbzR4bTRjNnR0YWRlMXU1OWV2ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cNjQh8OuJrDkQaZjVH/giphy.gif", stat: "27.1% SO · #6 GH", url: "https://learn.microsoft.com/en-us/dotnet/csharp/", trend: "+0.8%", category: "enterprise" },
-    { name: "Go", icon: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHI2bHFnN3g2MXk5OGlmY2ljdXJ5cW9ybGZoNWxnZjNuZXJlMnB6byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/xTk9ZMytqqfijNEJmU/giphy.gif", stat: "13.5% SO · #8 GH", url: "https://go.dev/", trend: "+3.1%", category: "cloud" },
-    { name: "Rust", icon: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZGRiajF5a25jZGNqbGt1dHVuOWlpaTI0cHpidDI5czlncDVnMHZldyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/fwbzI2kV3Qrlpk3tUW/giphy.gif", stat: "12.6% SO · Most Admired", url: "https://www.rust-lang.org/", trend: "+4.5%", category: "systems" },
-    { name: "Kotlin", icon: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTFtNXJleXprN2N4dHU2bW54Ymp2aG5tNmhtdnQyNmphZnBqdnV4cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/eNAsjO55tPbgaor7ma/giphy.gif", stat: "9.4% SO · #10 GH", url: "https://kotlinlang.org/", trend: "+2.8%", category: "mobile" },
-    { name: "Swift", icon: "devicon-swift-plain colored", stat: "4.7% SO · iOS", url: "https://swift.org/", trend: "+1.2%", category: "mobile" }
-];
+// Data by source - allows switching between SO/GitHub/TIOBE
+const languagesBySource = {
+    stackoverflow: [
+        { rank: 1, name: "JavaScript", icon: "https://media.giphy.com/media/ln7z2eWriiQAllfVcn/giphy.gif", stat: "62.3%", desc: "Lenguaje web universal, frontend y backend con Node.js", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", medal: "gold", barWidth: "100%", trend: "up", trendValue: "+2.1%", jobs: "850K+", trendLabel: "En alza" },
+        { rank: 2, name: "Python", icon: "https://media.giphy.com/media/KAq5w47R9rmTuvWOWa/giphy.gif", stat: "51.0%", desc: "IA, Data Science, automatización y backend", url: "https://www.python.org/", medal: "silver", barWidth: "82%", trend: "up", trendValue: "+5.3%", jobs: "720K+", trendLabel: "En alza" },
+        { rank: 3, name: "TypeScript", icon: "https://media.giphy.com/media/fsEaZldNC8A1PJ3mwp/giphy.gif", stat: "38.5%", desc: "JavaScript con tipos, estándar en proyectos enterprise", url: "https://www.typescriptlang.org/", medal: "bronze", barWidth: "62%", trend: "hot", trendValue: "+8.2%", jobs: "480K+", trendLabel: "Explosivo" }
+    ],
+    github: [
+        { rank: 1, name: "Python", icon: "https://media.giphy.com/media/KAq5w47R9rmTuvWOWa/giphy.gif", stat: "#1", desc: "Más usado en repos públicos, ML y scripting", url: "https://www.python.org/", medal: "gold", barWidth: "100%", trend: "up", trendValue: "+12%", jobs: "720K+", trendLabel: "En alza" },
+        { rank: 2, name: "JavaScript", icon: "https://media.giphy.com/media/ln7z2eWriiQAllfVcn/giphy.gif", stat: "#2", desc: "Domina el ecosistema web y npm", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", medal: "silver", barWidth: "92%", trend: "stable", trendValue: "+0.5%", jobs: "850K+", trendLabel: "Estable" },
+        { rank: 3, name: "TypeScript", icon: "https://media.giphy.com/media/fsEaZldNC8A1PJ3mwp/giphy.gif", stat: "#3", desc: "Crecimiento más rápido en GitHub", url: "https://www.typescriptlang.org/", medal: "bronze", barWidth: "78%", trend: "hot", trendValue: "+37%", jobs: "480K+", trendLabel: "Explosivo" }
+    ],
+    tiobe: [
+        { rank: 1, name: "Python", icon: "https://media.giphy.com/media/KAq5w47R9rmTuvWOWa/giphy.gif", stat: "23.3%", desc: "Líder TIOBE desde 2021, educación y enterprise", url: "https://www.python.org/", medal: "gold", barWidth: "100%", trend: "up", trendValue: "+8.1%", jobs: "720K+", trendLabel: "En alza" },
+        { rank: 2, name: "C++", icon: "devicon-cplusplus-plain colored", stat: "10.4%", desc: "Sistemas, gaming, alta performance", url: "https://isocpp.org/", medal: "silver", barWidth: "45%", trend: "up", trendValue: "+1.2%", jobs: "280K+", trendLabel: "En alza" },
+        { rank: 3, name: "Java", icon: "https://media.giphy.com/media/TfY3ORyNfVEvvr94jZ/giphy.gif", stat: "10.2%", desc: "Enterprise, Android, sistemas bancarios", url: "https://www.oracle.com/java/", medal: "bronze", barWidth: "44%", trend: "down", trendValue: "-3.2%", jobs: "650K+", trendLabel: "Bajando" }
+    ]
+};
+
+const secondaryLangsBySource = {
+    stackoverflow: [
+        { name: "Java", icon: "https://media.giphy.com/media/TfY3ORyNfVEvvr94jZ/giphy.gif", stat: "30.3%", url: "https://www.oracle.com/java/", trend: "down", trendValue: "-1.2%", desc: "Enterprise y Android" },
+        { name: "C#", icon: "devicon-csharp-plain colored", stat: "27.1%", url: "https://learn.microsoft.com/en-us/dotnet/csharp/", trend: "stable", trendValue: "+0.8%", desc: "Gaming y .NET" },
+        { name: "Go", icon: "devicon-go-original-wordmark colored", stat: "13.5%", url: "https://go.dev/", trend: "up", trendValue: "+3.1%", desc: "Cloud y microservicios" },
+        { name: "Rust", icon: "devicon-rust-original", stat: "12.6%", url: "https://www.rust-lang.org/", trend: "hot", trendValue: "+4.5%", desc: "Sistemas seguros" },
+        { name: "Kotlin", icon: "devicon-kotlin-plain colored", stat: "9.4%", url: "https://kotlinlang.org/", trend: "up", trendValue: "+2.8%", desc: "Android moderno" }
+    ],
+    github: [
+        { name: "Java", icon: "https://media.giphy.com/media/TfY3ORyNfVEvvr94jZ/giphy.gif", stat: "#4", url: "https://www.oracle.com/java/", trend: "stable", trendValue: "-0.5%", desc: "Enterprise y Android" },
+        { name: "C++", icon: "devicon-cplusplus-plain colored", stat: "#5", url: "https://isocpp.org/", trend: "stable", trendValue: "+0.2%", desc: "Sistemas y gaming" },
+        { name: "C#", icon: "devicon-csharp-plain colored", stat: "#6", url: "https://learn.microsoft.com/en-us/dotnet/csharp/", trend: "up", trendValue: "+2.1%", desc: "Gaming y .NET" },
+        { name: "Go", icon: "devicon-go-original-wordmark colored", stat: "#8", url: "https://go.dev/", trend: "up", trendValue: "+5.3%", desc: "Cloud native" },
+        { name: "Rust", icon: "devicon-rust-original", stat: "#12", url: "https://www.rust-lang.org/", trend: "hot", trendValue: "+18%", desc: "Más admirado" }
+    ],
+    tiobe: [
+        { name: "C", icon: "devicon-c-plain colored", stat: "9.8%", url: "https://en.cppreference.com/w/c", trend: "down", trendValue: "-1.5%", desc: "Sistemas embebidos" },
+        { name: "JavaScript", icon: "devicon-javascript-plain colored", stat: "3.6%", url: "https://developer.mozilla.org/", trend: "stable", trendValue: "+0.1%", desc: "Web universal" },
+        { name: "Go", icon: "devicon-go-original-wordmark colored", stat: "2.2%", url: "https://go.dev/", trend: "up", trendValue: "+0.8%", desc: "Cloud y DevOps" },
+        { name: "SQL", icon: "devicon-azuresqldatabase-plain colored", stat: "1.9%", url: "https://www.iso.org/standard/76583.html", trend: "stable", trendValue: "+0.1%", desc: "Bases de datos" },
+        { name: "Rust", icon: "devicon-rust-original", stat: "1.5%", url: "https://www.rust-lang.org/", trend: "hot", trendValue: "+0.9%", desc: "Sistemas seguros" }
+    ]
+};
+
+// Default to Stack Overflow data
+const topLanguages = languagesBySource.stackoverflow;
+const secondaryLanguages = secondaryLangsBySource.stackoverflow;
 
 const techCategories = [
     {
@@ -132,7 +166,7 @@ const categoryFilters = techCategories.map(cat => ({ id: cat.id, title: cat.titl
 ---
 
 <section id="tech-stack-2025" class="tech-stack-section">
-    <!-- Premium Header with Search -->
+    <!-- Compact Premium Header -->
     <div class="tech-header-premium" data-aos="fade-up">
         <div class="header-main">
             <div class="header-icon-wrap">
@@ -141,29 +175,19 @@ const categoryFilters = techCategories.map(cat => ({ id: cat.id, title: cat.titl
             </div>
             <div class="header-text">
                 <h2>Stack Tecnológico <span class="gradient-text">2025</span></h2>
-                <p>70+ tecnologías que dominan la industria tech global</p>
+                <p>70+ tecnologías que dominan la industria</p>
             </div>
         </div>
 
-        <!-- Search Bar -->
+        <!-- Search Bar - Compact -->
         <div class="search-container">
             <i class="fas fa-search search-icon"></i>
             <input type="text" id="tech-search" placeholder="Buscar tecnología..." class="search-input" />
             <kbd class="search-kbd">⌘K</kbd>
         </div>
-
-        <!-- Data Sources -->
-        <div class="data-sources">
-            <a href="https://survey.stackoverflow.co/2024/" target="_blank" class="source-badge so">
-                <i class="fab fa-stack-overflow"></i> Stack Overflow 2024
-            </a>
-            <a href="https://github.blog/news-insights/octoverse/octoverse-2024/" target="_blank" class="source-badge gh">
-                <i class="fab fa-github"></i> Octoverse 2024
-            </a>
-        </div>
     </div>
 
-    <!-- Category Filters -->
+    <!-- Category Filters - Compact -->
     <div class="category-filters" data-aos="fade-up" data-aos-delay="50">
         <button class="filter-btn active" data-filter="all">
             <i class="fas fa-th-large"></i> Todas
@@ -178,48 +202,128 @@ const categoryFilters = techCategories.map(cat => ({ id: cat.id, title: cat.titl
     <!-- Main Dashboard -->
     <div class="tech-dashboard" data-aos="fade-up" data-aos-delay="100">
 
-        <!-- Top Languages Podium -->
+        <!-- Top Languages Podium - Option C + A -->
         <div class="languages-podium glass-card">
-            <div class="podium-header">
-                <h3><i class="fas fa-trophy"></i> Top Lenguajes 2025</h3>
-                <span class="live-badge"><span class="pulse"></span> Live Rankings</span>
+            <!-- Header with Data Source Selector -->
+            <div class="podium-header-row">
+                <div class="podium-title">
+                    <i class="fas fa-medal"></i>
+                    <h3>Top Lenguajes 2025</h3>
+                    <span class="live-dot"><span class="pulse-dot"></span></span>
+                </div>
+
+                <!-- Data Source Selector Tabs -->
+                <div class="source-selector">
+                    <button class="source-tab active" data-source="stackoverflow" title="Stack Overflow Developer Survey 2024">
+                        <i class="fab fa-stack-overflow"></i>
+                        <span>SO Survey</span>
+                    </button>
+                    <button class="source-tab" data-source="github" title="GitHub Octoverse 2024">
+                        <i class="fab fa-github"></i>
+                        <span>Octoverse</span>
+                    </button>
+                    <button class="source-tab" data-source="tiobe" title="TIOBE Index December 2024">
+                        <i class="fas fa-chart-line"></i>
+                        <span>TIOBE</span>
+                    </button>
+                </div>
             </div>
-            <div class="podium-grid">
-                {topLanguages.map(lang => (
-                    <a href={lang.url} target="_blank" rel="noopener" class={`podium-card ${lang.class}`}>
-                        <div class="rank-badge">#{lang.rank}</div>
-                        <div class="lang-avatar">
-                            <img src={lang.icon} alt={lang.name} loading="lazy" />
+
+            <!-- Visual Podium Grid -->
+            <div class="podium-visual">
+                {topLanguages.map((lang, idx) => (
+                    <a href={lang.url} target="_blank" rel="noopener"
+                       class={`podium-card-v2 medal-${lang.medal}`}
+                       data-source="stackoverflow"
+                       data-tooltip={lang.desc}
+                       style={idx === 0 ? 'order: 2' : idx === 1 ? 'order: 1' : 'order: 3'}>
+
+                        <!-- Medal Icon -->
+                        <div class="medal-icon">
+                            {lang.medal === 'gold' && <span class="medal gold">🥇</span>}
+                            {lang.medal === 'silver' && <span class="medal silver">🥈</span>}
+                            {lang.medal === 'bronze' && <span class="medal bronze">🥉</span>}
                         </div>
-                        <div class="lang-info">
-                            <span class="lang-name">{lang.name}</span>
-                            <span class="lang-stat">{lang.stat}</span>
-                            <div class="lang-meta">
-                                <span class="trend positive"><i class="fas fa-arrow-up"></i> {lang.trend}</span>
-                                <span class="jobs"><i class="fas fa-briefcase"></i> {lang.jobs}</span>
-                            </div>
+
+                        <!-- Avatar -->
+                        <div class="lang-avatar-v2">
+                            {lang.icon.startsWith('devicon') ? (
+                                <i class={lang.icon}></i>
+                            ) : (
+                                <img src={lang.icon} alt={lang.name} loading="lazy" />
+                            )}
                         </div>
-                        <span class="lang-badge-label">{lang.badge}</span>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style={`width: ${lang.barWidth}`}></div>
+
+                        <!-- Info -->
+                        <div class="lang-info-v2">
+                            <span class="lang-name-v2">{lang.name}</span>
+                            <span class="lang-stat-v2">{lang.stat}</span>
+                        </div>
+
+                        <!-- Trend Badge -->
+                        <div class={`trend-badge trend-${lang.trend}`}>
+                            {lang.trend === 'hot' && <><i class="fas fa-fire"></i> {lang.trendLabel}</>}
+                            {lang.trend === 'up' && <><i class="fas fa-arrow-up"></i> {lang.trendLabel}</>}
+                            {lang.trend === 'stable' && <><i class="fas fa-minus"></i> {lang.trendLabel}</>}
+                            {lang.trend === 'down' && <><i class="fas fa-arrow-down"></i> {lang.trendLabel}</>}
+                            <span class="trend-value">{lang.trendValue}</span>
+                        </div>
+
+                        <!-- Jobs Indicator -->
+                        <div class="jobs-badge">
+                            <i class="fas fa-briefcase"></i> {lang.jobs} empleos
+                        </div>
+
+                        <!-- Progress Bar -->
+                        <div class="progress-bar-v2">
+                            <div class="progress-fill-v2" style={`width: ${lang.barWidth}`}></div>
                         </div>
                     </a>
                 ))}
             </div>
 
-            <!-- Secondary Languages -->
-            <div class="secondary-langs">
-                {secondaryLanguages.map(lang => (
-                    <a href={lang.url} target="_blank" rel="noopener" class="lang-chip-mini">
-                        {lang.icon.startsWith('devicon') ? (
-                            <i class={lang.icon}></i>
-                        ) : (
-                            <img src={lang.icon} alt={lang.name} width="24" loading="lazy" />
-                        )}
-                        <span class="chip-name">{lang.name}</span>
-                        <span class="chip-trend">{lang.trend}</span>
-                    </a>
-                ))}
+            <!-- Secondary Languages - Compact with Tooltips -->
+            <div class="secondary-langs-v2">
+                <div class="secondary-header">
+                    <span class="secondary-label">También populares</span>
+                    <span class="secondary-count">+5 lenguajes</span>
+                </div>
+                <div class="secondary-grid">
+                    {secondaryLanguages.map(lang => (
+                        <a href={lang.url} target="_blank" rel="noopener"
+                           class="lang-chip-v2"
+                           data-source="stackoverflow"
+                           data-tooltip={lang.desc}>
+                            {lang.icon.startsWith('devicon') ? (
+                                <i class={lang.icon}></i>
+                            ) : (
+                                <img src={lang.icon} alt={lang.name} width="20" loading="lazy" />
+                            )}
+                            <span class="chip-name-v2">{lang.name}</span>
+                            <span class="chip-stat-v2">{lang.stat}</span>
+                            <span class={`chip-trend-v2 trend-${lang.trend}`}>
+                                {lang.trend === 'hot' && '🔥'}
+                                {lang.trend === 'up' && '↑'}
+                                {lang.trend === 'stable' && '→'}
+                                {lang.trend === 'down' && '↓'}
+                                {lang.trendValue}
+                            </span>
+                        </a>
+                    ))}
+                </div>
+            </div>
+
+            <!-- Source Attribution -->
+            <div class="source-footer">
+                <a href="https://survey.stackoverflow.co/2024/" target="_blank" class="source-link active" data-for="stackoverflow">
+                    <i class="fab fa-stack-overflow"></i> Stack Overflow Developer Survey 2024
+                </a>
+                <a href="https://github.blog/news-insights/octoverse/octoverse-2024/" target="_blank" class="source-link" data-for="github">
+                    <i class="fab fa-github"></i> GitHub Octoverse 2024
+                </a>
+                <a href="https://www.tiobe.com/tiobe-index/" target="_blank" class="source-link" data-for="tiobe">
+                    <i class="fas fa-chart-line"></i> TIOBE Index Dec 2024
+                </a>
             </div>
         </div>
 
@@ -284,10 +388,78 @@ const categoryFilters = techCategories.map(cat => ({ id: cat.id, title: cat.titl
 </section>
 
 <script is:inline>
+// Language data for source switching
+const langData = {
+    stackoverflow: {
+        top: [
+            { rank: 1, name: "JavaScript", icon: "https://media.giphy.com/media/ln7z2eWriiQAllfVcn/giphy.gif", stat: "62.3%", desc: "Lenguaje web universal, frontend y backend con Node.js", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", medal: "gold", barWidth: "100%", trend: "up", trendValue: "+2.1%", jobs: "850K+", trendLabel: "En alza" },
+            { rank: 2, name: "Python", icon: "https://media.giphy.com/media/KAq5w47R9rmTuvWOWa/giphy.gif", stat: "51.0%", desc: "IA, Data Science, automatización y backend", url: "https://www.python.org/", medal: "silver", barWidth: "82%", trend: "up", trendValue: "+5.3%", jobs: "720K+", trendLabel: "En alza" },
+            { rank: 3, name: "TypeScript", icon: "https://media.giphy.com/media/fsEaZldNC8A1PJ3mwp/giphy.gif", stat: "38.5%", desc: "JavaScript con tipos, estándar en proyectos enterprise", url: "https://www.typescriptlang.org/", medal: "bronze", barWidth: "62%", trend: "hot", trendValue: "+8.2%", jobs: "480K+", trendLabel: "Explosivo" }
+        ],
+        secondary: [
+            { name: "Java", icon: "https://media.giphy.com/media/TfY3ORyNfVEvvr94jZ/giphy.gif", stat: "30.3%", url: "https://www.oracle.com/java/", trend: "down", trendValue: "-1.2%", desc: "Enterprise y Android" },
+            { name: "C#", icon: "devicon-csharp-plain colored", stat: "27.1%", url: "https://learn.microsoft.com/en-us/dotnet/csharp/", trend: "stable", trendValue: "+0.8%", desc: "Gaming y .NET" },
+            { name: "Go", icon: "devicon-go-original-wordmark colored", stat: "13.5%", url: "https://go.dev/", trend: "up", trendValue: "+3.1%", desc: "Cloud y microservicios" },
+            { name: "Rust", icon: "devicon-rust-original", stat: "12.6%", url: "https://www.rust-lang.org/", trend: "hot", trendValue: "+4.5%", desc: "Sistemas seguros" },
+            { name: "Kotlin", icon: "devicon-kotlin-plain colored", stat: "9.4%", url: "https://kotlinlang.org/", trend: "up", trendValue: "+2.8%", desc: "Android moderno" }
+        ]
+    },
+    github: {
+        top: [
+            { rank: 1, name: "Python", icon: "https://media.giphy.com/media/KAq5w47R9rmTuvWOWa/giphy.gif", stat: "#1", desc: "Más usado en repos públicos, ML y scripting", url: "https://www.python.org/", medal: "gold", barWidth: "100%", trend: "up", trendValue: "+12%", jobs: "720K+", trendLabel: "En alza" },
+            { rank: 2, name: "JavaScript", icon: "https://media.giphy.com/media/ln7z2eWriiQAllfVcn/giphy.gif", stat: "#2", desc: "Domina el ecosistema web y npm", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", medal: "silver", barWidth: "92%", trend: "stable", trendValue: "+0.5%", jobs: "850K+", trendLabel: "Estable" },
+            { rank: 3, name: "TypeScript", icon: "https://media.giphy.com/media/fsEaZldNC8A1PJ3mwp/giphy.gif", stat: "#3", desc: "Crecimiento más rápido en GitHub", url: "https://www.typescriptlang.org/", medal: "bronze", barWidth: "78%", trend: "hot", trendValue: "+37%", jobs: "480K+", trendLabel: "Explosivo" }
+        ],
+        secondary: [
+            { name: "Java", icon: "https://media.giphy.com/media/TfY3ORyNfVEvvr94jZ/giphy.gif", stat: "#4", url: "https://www.oracle.com/java/", trend: "stable", trendValue: "-0.5%", desc: "Enterprise y Android" },
+            { name: "C++", icon: "devicon-cplusplus-plain colored", stat: "#5", url: "https://isocpp.org/", trend: "stable", trendValue: "+0.2%", desc: "Sistemas y gaming" },
+            { name: "C#", icon: "devicon-csharp-plain colored", stat: "#6", url: "https://learn.microsoft.com/en-us/dotnet/csharp/", trend: "up", trendValue: "+2.1%", desc: "Gaming y .NET" },
+            { name: "Go", icon: "devicon-go-original-wordmark colored", stat: "#8", url: "https://go.dev/", trend: "up", trendValue: "+5.3%", desc: "Cloud native" },
+            { name: "Rust", icon: "devicon-rust-original", stat: "#12", url: "https://www.rust-lang.org/", trend: "hot", trendValue: "+18%", desc: "Más admirado" }
+        ]
+    },
+    tiobe: {
+        top: [
+            { rank: 1, name: "Python", icon: "https://media.giphy.com/media/KAq5w47R9rmTuvWOWa/giphy.gif", stat: "23.3%", desc: "Líder TIOBE desde 2021, educación y enterprise", url: "https://www.python.org/", medal: "gold", barWidth: "100%", trend: "up", trendValue: "+8.1%", jobs: "720K+", trendLabel: "En alza" },
+            { rank: 2, name: "C++", icon: "devicon-cplusplus-plain colored", stat: "10.4%", desc: "Sistemas, gaming, alta performance", url: "https://isocpp.org/", medal: "silver", barWidth: "45%", trend: "up", trendValue: "+1.2%", jobs: "280K+", trendLabel: "En alza" },
+            { rank: 3, name: "Java", icon: "https://media.giphy.com/media/TfY3ORyNfVEvvr94jZ/giphy.gif", stat: "10.2%", desc: "Enterprise, Android, sistemas bancarios", url: "https://www.oracle.com/java/", medal: "bronze", barWidth: "44%", trend: "down", trendValue: "-3.2%", jobs: "650K+", trendLabel: "Bajando" }
+        ],
+        secondary: [
+            { name: "C", icon: "devicon-c-plain colored", stat: "9.8%", url: "https://en.cppreference.com/w/c", trend: "down", trendValue: "-1.5%", desc: "Sistemas embebidos" },
+            { name: "JavaScript", icon: "devicon-javascript-plain colored", stat: "3.6%", url: "https://developer.mozilla.org/", trend: "stable", trendValue: "+0.1%", desc: "Web universal" },
+            { name: "Go", icon: "devicon-go-original-wordmark colored", stat: "2.2%", url: "https://go.dev/", trend: "up", trendValue: "+0.8%", desc: "Cloud y DevOps" },
+            { name: "SQL", icon: "devicon-azuresqldatabase-plain colored", stat: "1.9%", url: "https://www.iso.org/standard/76583.html", trend: "stable", trendValue: "+0.1%", desc: "Bases de datos" },
+            { name: "Rust", icon: "devicon-rust-original", stat: "1.5%", url: "https://www.rust-lang.org/", trend: "hot", trendValue: "+0.9%", desc: "Sistemas seguros" }
+        ]
+    }
+};
+
 document.addEventListener('astro:page-load', initTechStack);
 document.addEventListener('DOMContentLoaded', initTechStack);
 
 function initTechStack() {
+    // Source Selector Tabs
+    const sourceTabs = document.querySelectorAll('.source-tab');
+    const sourceLinks = document.querySelectorAll('.source-link');
+
+    sourceTabs.forEach(tab => {
+        tab.onclick = () => {
+            const source = tab.dataset.source;
+
+            // Update active tab
+            sourceTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            // Update source links
+            sourceLinks.forEach(link => {
+                link.classList.toggle('active', link.dataset.for === source);
+            });
+
+            // Update podium cards
+            updatePodiumData(source);
+        };
+    });
+
     // Category Filters
     const filterBtns = document.querySelectorAll('.filter-btn');
     const categoryCards = document.querySelectorAll('.category-card');
@@ -314,7 +486,7 @@ function initTechStack() {
     if (searchInput) {
         searchInput.oninput = (e) => {
             const query = e.target.value.toLowerCase();
-            const techItems = document.querySelectorAll('.tech-item, .lang-chip-mini, .podium-card');
+            const techItems = document.querySelectorAll('.tech-item, .lang-chip-v2, .podium-card-v2');
 
             techItems.forEach(item => {
                 const text = item.textContent.toLowerCase();
@@ -341,6 +513,103 @@ function initTechStack() {
             }
         });
     }
+
+    // Tooltips
+    initTooltips();
+}
+
+function updatePodiumData(source) {
+    const data = langData[source];
+    if (!data) return;
+
+    const podiumGrid = document.querySelector('.podium-visual');
+    const secondaryGrid = document.querySelector('.secondary-grid');
+
+    if (podiumGrid) {
+        // Clear and rebuild podium
+        podiumGrid.innerHTML = data.top.map((lang, idx) => `
+            <a href="${lang.url}" target="_blank" rel="noopener"
+               class="podium-card-v2 medal-${lang.medal}"
+               data-source="${source}"
+               data-tooltip="${lang.desc}"
+               style="order: ${idx === 0 ? 2 : idx === 1 ? 1 : 3}">
+                <div class="medal-icon">
+                    ${lang.medal === 'gold' ? '<span class="medal gold">🥇</span>' : ''}
+                    ${lang.medal === 'silver' ? '<span class="medal silver">🥈</span>' : ''}
+                    ${lang.medal === 'bronze' ? '<span class="medal bronze">🥉</span>' : ''}
+                </div>
+                <div class="lang-avatar-v2">
+                    ${lang.icon.startsWith('devicon') ?
+                        `<i class="${lang.icon}"></i>` :
+                        `<img src="${lang.icon}" alt="${lang.name}" loading="lazy" />`
+                    }
+                </div>
+                <div class="lang-info-v2">
+                    <span class="lang-name-v2">${lang.name}</span>
+                    <span class="lang-stat-v2">${lang.stat}</span>
+                </div>
+                <div class="trend-badge trend-${lang.trend}">
+                    ${lang.trend === 'hot' ? '<i class="fas fa-fire"></i> ' + lang.trendLabel : ''}
+                    ${lang.trend === 'up' ? '<i class="fas fa-arrow-up"></i> ' + lang.trendLabel : ''}
+                    ${lang.trend === 'stable' ? '<i class="fas fa-minus"></i> ' + lang.trendLabel : ''}
+                    ${lang.trend === 'down' ? '<i class="fas fa-arrow-down"></i> ' + lang.trendLabel : ''}
+                    <span class="trend-value">${lang.trendValue}</span>
+                </div>
+                <div class="jobs-badge">
+                    <i class="fas fa-briefcase"></i> ${lang.jobs} empleos
+                </div>
+                <div class="progress-bar-v2">
+                    <div class="progress-fill-v2" style="width: ${lang.barWidth}"></div>
+                </div>
+            </a>
+        `).join('');
+    }
+
+    if (secondaryGrid) {
+        // Clear and rebuild secondary
+        secondaryGrid.innerHTML = data.secondary.map(lang => `
+            <a href="${lang.url}" target="_blank" rel="noopener"
+               class="lang-chip-v2"
+               data-source="${source}"
+               data-tooltip="${lang.desc}">
+                ${lang.icon.startsWith('devicon') ?
+                    `<i class="${lang.icon}"></i>` :
+                    `<img src="${lang.icon}" alt="${lang.name}" width="20" loading="lazy" />`
+                }
+                <span class="chip-name-v2">${lang.name}</span>
+                <span class="chip-stat-v2">${lang.stat}</span>
+                <span class="chip-trend-v2 trend-${lang.trend}">
+                    ${lang.trend === 'hot' ? '🔥' : lang.trend === 'up' ? '↑' : lang.trend === 'stable' ? '→' : '↓'}${lang.trendValue}
+                </span>
+            </a>
+        `).join('');
+    }
+
+    // Re-init tooltips
+    initTooltips();
+}
+
+function initTooltips() {
+    document.querySelectorAll('[data-tooltip]').forEach(el => {
+        el.onmouseenter = (e) => {
+            const tooltip = document.createElement('div');
+            tooltip.className = 'custom-tooltip';
+            tooltip.textContent = el.dataset.tooltip;
+            document.body.appendChild(tooltip);
+
+            const rect = el.getBoundingClientRect();
+            tooltip.style.left = rect.left + (rect.width / 2) - (tooltip.offsetWidth / 2) + 'px';
+            tooltip.style.top = rect.top - tooltip.offsetHeight - 8 + 'px';
+
+            el._tooltip = tooltip;
+        };
+        el.onmouseleave = () => {
+            if (el._tooltip) {
+                el._tooltip.remove();
+                el._tooltip = null;
+            }
+        };
+    });
 }
 </script>
 
@@ -535,47 +804,50 @@ function initTechStack() {
         color: #00d4ff;
     }
 
-    /* Languages Podium - Compact */
+    /* ========================================
+       Languages Podium V2 - Option C + A
+       Compact dashboard with selector & medals
+       ======================================== */
+
     .languages-podium {
         padding: 1rem 1.25rem;
         margin-bottom: 1.5rem;
     }
 
-    .podium-header {
+    /* Header Row with Title and Source Selector */
+    .podium-header-row {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 1rem;
+        flex-wrap: wrap;
+        gap: 0.75rem;
     }
 
-    .podium-header h3 {
+    .podium-title {
         display: flex;
         align-items: center;
         gap: 0.5rem;
+    }
+
+    .podium-title i {
+        color: #f59e0b;
+        font-size: 1rem;
+    }
+
+    .podium-title h3 {
         font-size: 1rem;
         font-weight: 700;
         color: var(--text-primary);
         margin: 0;
     }
 
-    .podium-header h3 i {
-        color: #f59e0b;
-        font-size: 0.9rem;
-    }
-
-    .live-badge {
-        display: inline-flex;
+    .live-dot {
+        display: flex;
         align-items: center;
-        gap: 0.375rem;
-        padding: 0.25rem 0.5rem;
-        background: rgba(16, 185, 129, 0.1);
-        border: 1px solid rgba(16, 185, 129, 0.3);
-        border-radius: 12px;
-        font-size: 0.65rem;
-        color: #10b981;
     }
 
-    .pulse {
+    .pulse-dot {
         width: 6px;
         height: 6px;
         background: #10b981;
@@ -585,127 +857,196 @@ function initTechStack() {
 
     @keyframes pulse {
         0%, 100% { opacity: 1; transform: scale(1); }
-        50% { opacity: 0.5; transform: scale(1.2); }
+        50% { opacity: 0.5; transform: scale(1.3); }
     }
 
-    .podium-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.75rem;
+    /* Source Selector Tabs */
+    .source-selector {
+        display: flex;
+        gap: 0.25rem;
+        background: rgba(0, 0, 0, 0.2);
+        padding: 0.2rem;
+        border-radius: 8px;
+    }
+
+    .source-tab {
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.35rem 0.6rem;
+        background: transparent;
+        border: none;
+        border-radius: 6px;
+        color: var(--text-muted);
+        font-size: 0.7rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .source-tab:hover {
+        color: var(--text-primary);
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .source-tab.active {
+        background: rgba(0, 212, 255, 0.15);
+        color: #00d4ff;
+    }
+
+    .source-tab i {
+        font-size: 0.85rem;
+    }
+
+    /* Visual Podium Grid - 3 columns with center elevated */
+    .podium-visual {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 0.5rem;
         margin-bottom: 1rem;
+        min-height: 180px;
     }
 
-    .podium-card {
+    /* Podium Card V2 */
+    .podium-card-v2 {
         position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 1rem 0.75rem 0.875rem;
+        padding: 0.75rem 0.6rem 0.6rem;
         background: rgba(255, 255, 255, 0.03);
         border: 1px solid var(--border-color);
         border-radius: 12px;
         text-decoration: none;
         transition: all 0.3s ease;
         overflow: hidden;
+        width: 130px;
+        flex-shrink: 0;
     }
 
-    .podium-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    .podium-card-v2:hover {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
     }
 
-    .podium-card.gold {
+    /* Medal-specific heights for podium effect */
+    .podium-card-v2.medal-gold {
         border-color: rgba(245, 158, 11, 0.5);
-        background: linear-gradient(180deg, rgba(245, 158, 11, 0.08), transparent);
+        background: linear-gradient(180deg, rgba(245, 158, 11, 0.12), rgba(245, 158, 11, 0.02));
+        padding-bottom: 1rem;
+        min-height: 175px;
     }
 
-    .podium-card.silver {
-        border-color: rgba(156, 163, 175, 0.5);
-        background: linear-gradient(180deg, rgba(156, 163, 175, 0.08), transparent);
+    .podium-card-v2.medal-silver {
+        border-color: rgba(192, 192, 192, 0.5);
+        background: linear-gradient(180deg, rgba(192, 192, 192, 0.1), rgba(192, 192, 192, 0.02));
+        min-height: 155px;
     }
 
-    .podium-card.bronze {
-        border-color: rgba(180, 83, 9, 0.5);
-        background: linear-gradient(180deg, rgba(180, 83, 9, 0.08), transparent);
+    .podium-card-v2.medal-bronze {
+        border-color: rgba(205, 127, 50, 0.5);
+        background: linear-gradient(180deg, rgba(205, 127, 50, 0.1), rgba(205, 127, 50, 0.02));
+        min-height: 140px;
     }
 
-    .rank-badge {
+    /* Medal Icon */
+    .medal-icon {
         position: absolute;
-        top: 0.5rem;
-        left: 0.5rem;
-        padding: 0.15rem 0.375rem;
-        background: rgba(0, 0, 0, 0.5);
-        border-radius: 4px;
-        font-size: 0.65rem;
-        font-weight: 700;
-        color: #f59e0b;
+        top: -2px;
+        right: 4px;
+        font-size: 1.25rem;
     }
 
-    .lang-avatar {
-        width: 44px;
-        height: 44px;
-        margin-bottom: 0.5rem;
+    /* Avatar V2 */
+    .lang-avatar-v2 {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 0.4rem;
     }
 
-    .lang-avatar img {
+    .lang-avatar-v2 img {
         width: 100%;
         height: 100%;
         object-fit: contain;
     }
 
-    .lang-info {
-        text-align: center;
+    .lang-avatar-v2 i {
+        font-size: 2.25rem;
     }
 
-    .lang-name {
+    /* Info V2 */
+    .lang-info-v2 {
+        text-align: center;
+        margin-bottom: 0.35rem;
+    }
+
+    .lang-name-v2 {
         display: block;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         font-weight: 700;
         color: var(--text-primary);
     }
 
-    .lang-stat {
+    .lang-stat-v2 {
         display: block;
-        font-size: 0.7rem;
-        color: var(--text-secondary);
-        margin: 0.125rem 0;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: #00d4ff;
     }
 
-    .lang-meta {
-        display: flex;
-        gap: 0.5rem;
-        justify-content: center;
-        margin-top: 0.25rem;
-    }
-
-    .trend, .jobs {
-        font-size: 0.65rem;
-        display: flex;
+    /* Trend Badge */
+    .trend-badge {
+        display: inline-flex;
         align-items: center;
-        gap: 0.15rem;
+        gap: 0.25rem;
+        padding: 0.2rem 0.5rem;
+        border-radius: 6px;
+        font-size: 0.6rem;
+        font-weight: 600;
+        margin-bottom: 0.3rem;
     }
 
-    .trend.positive {
+    .trend-badge.trend-hot {
+        background: rgba(239, 68, 68, 0.15);
+        color: #ef4444;
+    }
+
+    .trend-badge.trend-up {
+        background: rgba(16, 185, 129, 0.15);
         color: #10b981;
     }
 
-    .jobs {
+    .trend-badge.trend-stable {
+        background: rgba(148, 163, 184, 0.15);
+        color: #94a3b8;
+    }
+
+    .trend-badge.trend-down {
+        background: rgba(249, 115, 22, 0.15);
+        color: #f97316;
+    }
+
+    .trend-value {
+        font-size: 0.55rem;
+        opacity: 0.8;
+    }
+
+    /* Jobs Badge */
+    .jobs-badge {
+        font-size: 0.55rem;
         color: var(--text-muted);
+        display: flex;
+        align-items: center;
+        gap: 0.2rem;
     }
 
-    .lang-badge-label {
-        margin-top: 0.5rem;
-        padding: 0.15rem 0.5rem;
-        background: rgba(0, 212, 255, 0.1);
-        border: 1px solid rgba(0, 212, 255, 0.3);
-        border-radius: 8px;
-        font-size: 0.6rem;
-        font-weight: 600;
-        color: #00d4ff;
-        text-transform: uppercase;
+    .jobs-badge i {
+        font-size: 0.5rem;
     }
 
-    .progress-bar {
+    /* Progress Bar V2 */
+    .progress-bar-v2 {
         position: absolute;
         bottom: 0;
         left: 0;
@@ -714,56 +1055,145 @@ function initTechStack() {
         background: rgba(255, 255, 255, 0.1);
     }
 
-    .progress-fill {
+    .progress-fill-v2 {
         height: 100%;
         background: linear-gradient(90deg, #00d4ff, #7c3aed);
-        transition: width 1s ease;
+        transition: width 0.8s ease;
     }
 
-    /* Secondary Languages - Compact */
-    .secondary-langs {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.5rem;
+    /* Secondary Languages V2 */
+    .secondary-langs-v2 {
         padding-top: 0.75rem;
         border-top: 1px solid var(--border-color);
     }
 
-    .lang-chip-mini {
-        display: inline-flex;
+    .secondary-header {
+        display: flex;
+        justify-content: space-between;
         align-items: center;
-        gap: 0.375rem;
-        padding: 0.35rem 0.625rem;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        text-decoration: none;
-        transition: all 0.3s ease;
+        margin-bottom: 0.5rem;
     }
 
-    .lang-chip-mini:hover {
+    .secondary-label {
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+    }
+
+    .secondary-count {
+        font-size: 0.6rem;
+        color: var(--text-muted);
+        background: rgba(255, 255, 255, 0.05);
+        padding: 0.15rem 0.4rem;
+        border-radius: 4px;
+    }
+
+    .secondary-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        justify-content: center;
+    }
+
+    /* Lang Chip V2 */
+    .lang-chip-v2 {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.3rem 0.55rem;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+    }
+
+    .lang-chip-v2:hover {
         background: rgba(0, 212, 255, 0.1);
         border-color: rgba(0, 212, 255, 0.3);
         transform: translateY(-2px);
     }
 
-    .lang-chip-mini img,
-    .lang-chip-mini i {
-        width: 20px;
-        height: 20px;
-        font-size: 1.1rem;
+    .lang-chip-v2 img,
+    .lang-chip-v2 i {
+        width: 18px;
+        height: 18px;
+        font-size: 1rem;
     }
 
-    .chip-name {
-        font-size: 0.75rem;
+    .chip-name-v2 {
+        font-size: 0.7rem;
         font-weight: 600;
         color: var(--text-primary);
     }
 
-    .chip-trend {
+    .chip-stat-v2 {
         font-size: 0.6rem;
-        color: #10b981;
+        color: var(--text-secondary);
+        background: rgba(255, 255, 255, 0.08);
+        padding: 0.1rem 0.3rem;
+        border-radius: 3px;
+    }
+
+    .chip-trend-v2 {
+        font-size: 0.55rem;
+        font-weight: 500;
+    }
+
+    .chip-trend-v2.trend-hot { color: #ef4444; }
+    .chip-trend-v2.trend-up { color: #10b981; }
+    .chip-trend-v2.trend-stable { color: #94a3b8; }
+    .chip-trend-v2.trend-down { color: #f97316; }
+
+    /* Source Footer */
+    .source-footer {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 0.75rem;
+        padding-top: 0.75rem;
+        border-top: 1px solid var(--border-color);
+        flex-wrap: wrap;
+    }
+
+    .source-link {
+        font-size: 0.65rem;
+        color: var(--text-muted);
+        text-decoration: none;
+        display: none;
+        align-items: center;
+        gap: 0.3rem;
+        transition: color 0.2s ease;
+    }
+
+    .source-link.active {
+        display: inline-flex;
+        color: var(--text-secondary);
+    }
+
+    .source-link:hover {
+        color: #00d4ff;
+    }
+
+    /* Custom Tooltip */
+    .custom-tooltip {
+        position: fixed;
+        z-index: 9999;
+        padding: 0.5rem 0.75rem;
+        background: rgba(15, 23, 42, 0.95);
+        border: 1px solid rgba(0, 212, 255, 0.3);
+        border-radius: 8px;
+        color: #f1f5f9;
+        font-size: 0.75rem;
+        max-width: 200px;
+        text-align: center;
+        pointer-events: none;
+        animation: tooltipFade 0.2s ease;
+    }
+
+    @keyframes tooltipFade {
+        from { opacity: 0; transform: translateY(4px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 
     /* Categories Grid */
@@ -951,8 +1381,32 @@ function initTechStack() {
 
     /* Responsive */
     @media (max-width: 900px) {
-        .podium-grid {
-            grid-template-columns: 1fr;
+        .podium-visual {
+            flex-direction: column;
+            align-items: center;
+            min-height: auto;
+        }
+
+        .podium-card-v2 {
+            width: 100%;
+            max-width: 280px;
+            min-height: auto !important;
+        }
+
+        .podium-card-v2.medal-gold,
+        .podium-card-v2.medal-silver,
+        .podium-card-v2.medal-bronze {
+            order: unset !important;
+        }
+
+        .podium-header-row {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .source-selector {
+            width: 100%;
+            justify-content: center;
         }
 
         .categories-grid {
@@ -982,6 +1436,30 @@ function initTechStack() {
         .header-text h2 {
             font-size: 1.75rem;
         }
+
+        .source-tab span {
+            display: none;
+        }
+
+        .source-tab {
+            padding: 0.4rem 0.5rem;
+        }
+
+        .source-tab i {
+            font-size: 1rem;
+        }
+
+        .secondary-grid {
+            gap: 0.3rem;
+        }
+
+        .lang-chip-v2 {
+            padding: 0.25rem 0.4rem;
+        }
+
+        .chip-stat-v2 {
+            display: none;
+        }
     }
 
     /* Light Mode */
@@ -989,8 +1467,28 @@ function initTechStack() {
         background: rgba(0, 0, 0, 0.03);
     }
 
-    :global([data-theme="light"]) .podium-card {
+    :global([data-theme="light"]) .podium-card-v2 {
         background: rgba(0, 0, 0, 0.02);
+    }
+
+    :global([data-theme="light"]) .podium-card-v2.medal-gold {
+        background: linear-gradient(180deg, rgba(245, 158, 11, 0.08), rgba(245, 158, 11, 0.01));
+    }
+
+    :global([data-theme="light"]) .podium-card-v2.medal-silver {
+        background: linear-gradient(180deg, rgba(148, 163, 184, 0.1), rgba(148, 163, 184, 0.01));
+    }
+
+    :global([data-theme="light"]) .podium-card-v2.medal-bronze {
+        background: linear-gradient(180deg, rgba(205, 127, 50, 0.08), rgba(205, 127, 50, 0.01));
+    }
+
+    :global([data-theme="light"]) .source-selector {
+        background: rgba(0, 0, 0, 0.05);
+    }
+
+    :global([data-theme="light"]) .source-tab:hover {
+        background: rgba(0, 0, 0, 0.05);
     }
 
     :global([data-theme="light"]) .tech-item {
@@ -1001,11 +1499,18 @@ function initTechStack() {
         background: rgba(0, 212, 255, 0.08);
     }
 
-    :global([data-theme="light"]) .lang-chip-mini {
+    :global([data-theme="light"]) .lang-chip-v2 {
         background: rgba(0, 0, 0, 0.03);
     }
 
     :global([data-theme="light"]) .filter-btn {
         background: rgba(0, 0, 0, 0.03);
+    }
+
+    :global([data-theme="light"]) .custom-tooltip {
+        background: rgba(255, 255, 255, 0.98);
+        color: #1e293b;
+        border-color: rgba(0, 212, 255, 0.4);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 </style>
