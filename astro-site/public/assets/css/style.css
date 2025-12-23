@@ -852,6 +852,87 @@ body,
   }
 }
 
+/* Custom Tooltips for Tech Icons - Premium Style */
+.tech-row a {
+  position: relative;
+}
+
+.tech-row a[data-tooltip]::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px) scale(0.9);
+  padding: 0.6rem 1rem;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #ffffff;
+  font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  border-radius: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  pointer-events: none;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(0, 212, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.tech-row a[data-tooltip]::after {
+  content: '';
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  border: 7px solid transparent;
+  border-top-color: #0f172a;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.tech-row a[data-tooltip]:hover::before,
+.tech-row a[data-tooltip]:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+
+.tech-row a[data-tooltip]:hover::before {
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+
+/* Light mode tooltips */
+[data-theme="light"] .tech-row a[data-tooltip]::before {
+  background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+  color: #0f172a;
+  border-color: rgba(8, 145, 178, 0.3);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(8, 145, 178, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="light"] .tech-row a[data-tooltip]::after {
+  border-top-color: #ffffff;
+}
+
+/* Mobile tooltip adjustments */
+@media (max-width: 768px) {
+  .tech-row a[data-tooltip]::before {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.7rem;
+  }
+}
+
 /* Legacy support for individual icon links */
 .tech-icon-link {
   display: flex;
