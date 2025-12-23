@@ -2,12 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import LearningRoadmap from '../components/LearningRoadmap.astro';
-import CapstoneProjects from '../components/CapstoneProjects.astro';
-import WorkProjects from '../components/WorkProjects.astro';
+
+const base = import.meta.env.BASE_URL;
 ---
 
-<Layout title="Proyectos & Roadmap | DuocUC">
+<Layout title="Proyectos | DuocUC">
     <Header />
 
     <!-- Page Hero -->
@@ -15,109 +14,113 @@ import WorkProjects from '../components/WorkProjects.astro';
         <div class="hero-content">
             <div class="hero-badge">
                 <i class="fas fa-rocket"></i>
-                <span>Proyectos & Roadmap</span>
+                <span>Proyectos</span>
             </div>
             <h1>Proyectos para tu <span class="gradient-text">Carrera</span></h1>
             <p>Desde proyectos de estudio hasta tu portafolio profesional</p>
+        </div>
+    </section>
 
-            <!-- Tab Navigation -->
-            <div class="tab-navigation">
-                <button class="tab-btn active" data-tab="estudio">
+    <!-- Project Categories -->
+    <section class="projects-grid">
+        <div class="container">
+            <!-- Proyectos de Estudio -->
+            <a href={`${base}/proyectos-estudio`} class="project-card estudio" data-aos="fade-up">
+                <div class="card-icon">
                     <i class="fas fa-graduation-cap"></i>
-                    <span>Proyectos de Estudio</span>
-                    <small>Roadmap & Práctica</small>
-                </button>
-                <button class="tab-btn" data-tab="trabajo">
+                </div>
+                <div class="card-content">
+                    <h2>Proyectos de Estudio</h2>
+                    <p>Aprende construyendo proyectos alineados con tu malla curricular. Roadmap de aprendizaje desde principiante hasta avanzado.</p>
+                    <div class="card-features">
+                        <span><i class="fas fa-map"></i> Learning Roadmap</span>
+                        <span><i class="fas fa-tasks"></i> Capstone Projects</span>
+                        <span><i class="fas fa-layer-group"></i> Por niveles</span>
+                    </div>
+                    <div class="card-stats">
+                        <div class="stat">
+                            <span class="stat-value">5</span>
+                            <span class="stat-label">Fases</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">9+</span>
+                            <span class="stat-label">Proyectos</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">B01-B10</span>
+                            <span class="stat-label">Bimestres</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- Proyectos de Trabajo -->
+            <a href={`${base}/proyectos-trabajo`} class="project-card trabajo" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-icon">
                     <i class="fas fa-briefcase"></i>
-                    <span>Proyectos de Trabajo</span>
-                    <small>Portafolio Profesional</small>
-                </button>
+                </div>
+                <div class="card-content">
+                    <h2>Proyectos de Trabajo</h2>
+                    <p>Construye un portafolio profesional con proyectos reales que impresionen a empleadores y destaquen tus habilidades técnicas.</p>
+                    <div class="card-features">
+                        <span><i class="fab fa-react"></i> Frontend</span>
+                        <span><i class="fas fa-server"></i> Full-Stack</span>
+                        <span><i class="fas fa-database"></i> APIs & Data</span>
+                        <span><i class="fas fa-mobile-alt"></i> Mobile</span>
+                        <span><i class="fas fa-cogs"></i> DevOps</span>
+                    </div>
+                    <div class="card-stats">
+                        <div class="stat">
+                            <span class="stat-value">6</span>
+                            <span class="stat-label">Categorías</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">18+</span>
+                            <span class="stat-label">Proyectos</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">Pro</span>
+                            <span class="stat-label">Nivel</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="tips-section" data-aos="fade-up">
+        <div class="container">
+            <h3><i class="fas fa-lightbulb"></i> Consejos para tu Portafolio</h3>
+            <div class="tips-grid">
+                <div class="tip">
+                    <i class="fas fa-code-branch"></i>
+                    <span>Usa Git desde el día 1 - commits pequeños y descriptivos</span>
+                </div>
+                <div class="tip">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Escribe READMEs claros con screenshots y demos</span>
+                </div>
+                <div class="tip">
+                    <i class="fas fa-globe"></i>
+                    <span>Despliega tus proyectos - Vercel, Netlify, Railway</span>
+                </div>
+                <div class="tip">
+                    <i class="fas fa-vial"></i>
+                    <span>Incluye tests para demostrar buenas prácticas</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Tab Content: Proyectos de Estudio -->
-    <div id="tab-estudio" class="tab-content active">
-        <!-- Progress Indicator -->
-        <div class="progress-section">
-            <div class="progress-container">
-                <div class="progress-item">
-                    <div class="progress-icon beginner">
-                        <i class="fas fa-seedling"></i>
-                    </div>
-                    <span>Beginner</span>
-                </div>
-                <div class="progress-arrow">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
-                <div class="progress-item">
-                    <div class="progress-icon intermediate">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <span>Intermediate</span>
-                </div>
-                <div class="progress-arrow">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
-                <div class="progress-item">
-                    <div class="progress-icon advanced">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <span>Advanced</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Learning Roadmap -->
-        <LearningRoadmap />
-
-        <!-- Capstone Projects -->
-        <CapstoneProjects />
-    </div>
-
-    <!-- Tab Content: Proyectos de Trabajo -->
-    <div id="tab-trabajo" class="tab-content">
-        <WorkProjects />
-    </div>
-
     <Footer />
 </Layout>
-
-<script is:inline>
-document.addEventListener('astro:page-load', initProjectTabs);
-document.addEventListener('DOMContentLoaded', initProjectTabs);
-
-function initProjectTabs() {
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
-
-    tabBtns.forEach(btn => {
-        btn.onclick = () => {
-            const targetTab = btn.dataset.tab;
-
-            // Update active button
-            tabBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            // Update active content
-            tabContents.forEach(content => {
-                if (content.id === `tab-${targetTab}`) {
-                    content.classList.add('active');
-                    content.style.animation = 'fadeInTab 0.4s ease';
-                } else {
-                    content.classList.remove('active');
-                }
-            });
-
-            // Scroll to top of content
-            window.scrollTo({
-                top: document.querySelector('.page-hero').offsetHeight - 100,
-                behavior: 'smooth'
-            });
-        };
-    });
-}
-</script>
 
 <style>
     .page-hero {
@@ -164,159 +167,240 @@ function initProjectTabs() {
     .page-hero p {
         font-size: 1.25rem;
         color: #94a3b8;
-        margin-bottom: 2rem;
     }
 
-    /* Tab Navigation */
-    .tab-navigation {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin-top: 1rem;
+    /* Projects Grid */
+    .projects-grid {
+        padding: 3rem 2rem;
     }
 
-    .tab-btn {
+    .projects-grid .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+    }
+
+    /* Project Card */
+    .project-card {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 0.25rem;
-        padding: 1.25rem 2rem;
-        background: rgba(255, 255, 255, 0.03);
-        border: 2px solid var(--border-color);
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        text-decoration: none;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .project-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .project-card.estudio::before {
+        background: linear-gradient(90deg, #22c55e, #10b981);
+    }
+
+    .project-card.trabajo::before {
+        background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    }
+
+    .project-card:hover {
+        transform: translateY(-8px);
+        border-color: transparent;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-card:hover::before {
+        opacity: 1;
+    }
+
+    .card-icon {
+        width: 70px;
+        height: 70px;
         border-radius: 16px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        min-width: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
     }
 
-    .tab-btn i {
+    .project-card.estudio .card-icon {
+        background: rgba(34, 197, 94, 0.15);
+        color: #22c55e;
+    }
+
+    .project-card.trabajo .card-icon {
+        background: rgba(59, 130, 246, 0.15);
+        color: #3b82f6;
+    }
+
+    .card-content h2 {
         font-size: 1.5rem;
-        color: var(--text-muted);
-        margin-bottom: 0.25rem;
-        transition: all 0.3s ease;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.75rem;
     }
 
-    .tab-btn span {
+    .card-content p {
         font-size: 1rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 1.25rem;
+    }
+
+    .card-features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .card-features span {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.35rem 0.7rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 6px;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+    }
+
+    .card-features span i {
+        font-size: 0.8rem;
+    }
+
+    .card-stats {
+        display: flex;
+        gap: 2rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid var(--border-color);
+    }
+
+    .card-stats .stat {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+
+    .card-stats .stat-value {
+        font-size: 1.25rem;
         font-weight: 700;
         color: var(--text-primary);
     }
 
-    .tab-btn small {
+    .card-stats .stat-label {
         font-size: 0.75rem;
         color: var(--text-muted);
-        font-weight: 400;
     }
 
-    .tab-btn:hover {
-        background: rgba(255, 255, 255, 0.08);
-        border-color: rgba(255, 255, 255, 0.15);
-        transform: translateY(-2px);
+    .project-card.estudio:hover .stat-value {
+        color: #22c55e;
     }
 
-    .tab-btn:hover i {
-        color: var(--text-secondary);
+    .project-card.trabajo:hover .stat-value {
+        color: #3b82f6;
     }
 
-    .tab-btn.active {
-        background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(0, 212, 255, 0.15));
-        border-color: rgba(16, 185, 129, 0.5);
-    }
-
-    .tab-btn.active i {
-        color: #10b981;
-    }
-
-    .tab-btn.active span {
-        background: linear-gradient(135deg, #10b981, #00d4ff);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-
-    .tab-btn.active small {
-        color: var(--text-secondary);
-    }
-
-    /* Tab Content */
-    .tab-content {
-        display: none;
-    }
-
-    .tab-content.active {
-        display: block;
-    }
-
-    @keyframes fadeInTab {
-        from {
-            opacity: 0;
-            transform: translateY(10px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    /* Progress Section (for Study tab) */
-    .progress-section {
-        padding: 2rem;
-        display: flex;
-        justify-content: center;
-    }
-
-    .progress-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-        background: rgba(255, 255, 255, 0.02);
-        padding: 1.5rem 2.5rem;
-        border-radius: 16px;
-        border: 1px solid var(--border-color);
-    }
-
-    .progress-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    .progress-icon {
-        width: 60px;
-        height: 60px;
+    .card-arrow {
+        position: absolute;
+        bottom: 2rem;
+        right: 2rem;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
+        background: rgba(255, 255, 255, 0.05);
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.5rem;
+        color: var(--text-muted);
+        transition: all 0.3s ease;
     }
 
-    .progress-icon.beginner {
+    .project-card:hover .card-arrow {
+        transform: translateX(5px);
+    }
+
+    .project-card.estudio:hover .card-arrow {
         background: rgba(34, 197, 94, 0.2);
         color: #22c55e;
     }
 
-    .progress-icon.intermediate {
+    .project-card.trabajo:hover .card-arrow {
         background: rgba(59, 130, 246, 0.2);
         color: #3b82f6;
     }
 
-    .progress-icon.advanced {
-        background: rgba(168, 85, 247, 0.2);
-        color: #a855f7;
+    /* Tips Section */
+    .tips-section {
+        padding: 3rem 2rem;
     }
 
-    .progress-item span {
-        font-size: 0.8rem;
-        color: #94a3b8;
-        font-weight: 500;
+    .tips-section .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 2rem;
     }
 
-    .progress-arrow {
-        color: #64748b;
-        font-size: 1.25rem;
+    .tips-section h3 {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 1.5rem;
+    }
+
+    .tips-section h3 i {
+        color: #f59e0b;
+    }
+
+    .tips-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+
+    .tip {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 10px;
+        transition: all 0.2s ease;
+    }
+
+    .tip:hover {
+        background: rgba(255, 255, 255, 0.06);
+    }
+
+    .tip i {
+        font-size: 1rem;
+        color: #00d4ff;
+        margin-top: 0.1rem;
+    }
+
+    .tip span {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        line-height: 1.5;
     }
 
     /* Responsive */
@@ -325,37 +409,16 @@ function initProjectTabs() {
             font-size: 2rem;
         }
 
-        .tab-navigation {
-            flex-direction: column;
-            gap: 0.75rem;
+        .projects-grid .container {
+            grid-template-columns: 1fr;
         }
 
-        .tab-btn {
-            min-width: auto;
-            width: 100%;
-            padding: 1rem 1.5rem;
-            flex-direction: row;
-            justify-content: flex-start;
-            gap: 1rem;
+        .card-stats {
+            gap: 1.5rem;
         }
 
-        .tab-btn i {
-            margin-bottom: 0;
-        }
-
-        .tab-btn span {
-            font-size: 0.9rem;
-        }
-
-        .progress-container {
-            flex-wrap: wrap;
-            padding: 1rem;
-        }
-
-        .progress-icon {
-            width: 50px;
-            height: 50px;
-            font-size: 1.25rem;
+        .tips-grid {
+            grid-template-columns: 1fr;
         }
     }
 
@@ -366,24 +429,31 @@ function initProjectTabs() {
         background-clip: text;
     }
 
-    :global([data-theme="light"]) .page-hero p,
-    :global([data-theme="light"]) .progress-item span {
+    :global([data-theme="light"]) .page-hero p {
         color: #64748b;
     }
 
-    :global([data-theme="light"]) .tab-btn {
+    :global([data-theme="light"]) .project-card {
         background: rgba(0, 0, 0, 0.02);
     }
 
-    :global([data-theme="light"]) .tab-btn:hover {
+    :global([data-theme="light"]) .project-card:hover {
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    :global([data-theme="light"]) .card-features span {
+        background: rgba(0, 0, 0, 0.04);
+    }
+
+    :global([data-theme="light"]) .tips-section .container {
+        background: rgba(0, 0, 0, 0.02);
+    }
+
+    :global([data-theme="light"]) .tip {
+        background: rgba(0, 0, 0, 0.03);
+    }
+
+    :global([data-theme="light"]) .tip:hover {
         background: rgba(0, 0, 0, 0.05);
-    }
-
-    :global([data-theme="light"]) .tab-btn.active {
-        background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(8, 145, 178, 0.1));
-    }
-
-    :global([data-theme="light"]) .progress-container {
-        background: rgba(0, 0, 0, 0.02);
     }
 </style>
