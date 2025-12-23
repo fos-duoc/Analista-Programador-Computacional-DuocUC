@@ -7,6 +7,8 @@ import Recursos2025 from '../components/Recursos2025.astro';
 import YouTubeSection from '../components/YouTubeSection.astro';
 import NotionEmbed from '../components/NotionEmbed.astro';
 import CodeSnippets from '../components/CodeSnippets.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CertificationsSection from '../components/CertificationsSection.astro';
 ---
 
 <Layout title="Recursos de Aprendizaje | DuocUC">
@@ -42,6 +44,14 @@ import CodeSnippets from '../components/CodeSnippets.astro';
                     <i class="fas fa-graduation-cap"></i>
                     <span>Cursos</span>
                 </a>
+                <a href="#certifications" class="quick-nav">
+                    <i class="fas fa-award"></i>
+                    <span>Certificaciones</span>
+                </a>
+                <a href="#faq" class="quick-nav">
+                    <i class="fas fa-question-circle"></i>
+                    <span>FAQ</span>
+                </a>
             </div>
         </div>
     </section>
@@ -60,6 +70,12 @@ import CodeSnippets from '../components/CodeSnippets.astro';
 
     <!-- Recursos 2025 -->
     <Recursos2025 />
+
+    <!-- Certificaciones Recomendadas -->
+    <CertificationsSection />
+
+    <!-- FAQ Section -->
+    <FAQSection />
 
     <Footer />
 </Layout>

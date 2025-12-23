@@ -112,3 +112,73 @@ export const bimestresYear2: Bimestre[] = [
         ]
     }
 ];
+
+// Ingeniería en Desarrollo de Software (B11-B17)
+export const bimestresYear3: Bimestre[] = [
+    {
+        number: "11",
+        title: "Fullstack I & BD",
+        techIcons: ["react-original", "postgresql-plain"],
+        subjects: [
+            { icon: "react-original", name: "Desarrollo Fullstack I" },
+            { icon: "postgresql-plain", name: "BD Aplicada" }
+        ]
+    },
+    {
+        number: "12",
+        title: "Fullstack II & Cloud",
+        techIcons: ["nodejs-plain", "amazonwebservices-plain-wordmark"],
+        subjects: [
+            { icon: "nodejs-plain", name: "Desarrollo Fullstack II" },
+            { icon: "amazonwebservices-plain-wordmark", name: "Cloud Computing" }
+        ]
+    },
+    {
+        number: "13",
+        title: "Fullstack III & DevOps",
+        techIcons: ["typescript-plain", "docker-plain"],
+        subjects: [
+            { icon: "typescript-plain", name: "Desarrollo Fullstack III" },
+            { icon: "docker-plain", name: "DevOps" }
+        ]
+    },
+    {
+        number: "14",
+        title: "Mobile & Cloud Native",
+        techIcons: ["flutter-plain", "kubernetes-plain"],
+        subjects: [
+            { icon: "flutter-plain", name: "Desarrollo App Móviles" },
+            { icon: "kubernetes-plain", name: "Cloud Native I" }
+        ]
+    }
+];
+
+export const bimestresYear4: Bimestre[] = [
+    {
+        number: "15",
+        title: "Cloud Native II & Seguridad",
+        techIcons: ["amazonwebservices-plain-wordmark", "fas fa-shield-alt"],
+        subjects: [
+            { icon: "amazonwebservices-plain-wordmark", name: "Cloud Native II" },
+            { icon: "fas fa-shield-alt", iconType: "fontawesome", name: "Seguridad y Calidad" }
+        ]
+    },
+    {
+        number: "16",
+        title: "Gestión de Proyectos",
+        techIcons: ["jira-plain"],
+        subjects: [
+            { icon: "jira-plain", name: "Evaluación Proyectos SW" },
+            { icon: "fas fa-tasks", iconType: "fontawesome", name: "Gestión Proyectos SW" }
+        ]
+    },
+    {
+        number: "17",
+        title: "Ética & Título Ing.",
+        techIcons: [],
+        subjects: [
+            { icon: "fas fa-balance-scale", iconType: "fontawesome", name: "Ética Profesional" },
+            { icon: "fas fa-graduation-cap", iconType: "fontawesome", name: "Taller Aplicado SW" }
+        ]
+    }
+];
