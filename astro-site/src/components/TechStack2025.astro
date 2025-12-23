@@ -535,24 +535,24 @@ function initTechStack() {
         color: #00d4ff;
     }
 
-    /* Languages Podium */
+    /* Languages Podium - Compact */
     .languages-podium {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
+        padding: 1rem 1.25rem;
+        margin-bottom: 1.5rem;
     }
 
     .podium-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
     }
 
     .podium-header h3 {
         display: flex;
         align-items: center;
-        gap: 0.75rem;
-        font-size: 1.25rem;
+        gap: 0.5rem;
+        font-size: 1rem;
         font-weight: 700;
         color: var(--text-primary);
         margin: 0;
@@ -560,23 +560,24 @@ function initTechStack() {
 
     .podium-header h3 i {
         color: #f59e0b;
+        font-size: 0.9rem;
     }
 
     .live-badge {
         display: inline-flex;
         align-items: center;
-        gap: 0.5rem;
-        padding: 0.375rem 0.75rem;
+        gap: 0.375rem;
+        padding: 0.25rem 0.5rem;
         background: rgba(16, 185, 129, 0.1);
         border: 1px solid rgba(16, 185, 129, 0.3);
-        border-radius: 20px;
-        font-size: 0.75rem;
+        border-radius: 12px;
+        font-size: 0.65rem;
         color: #10b981;
     }
 
     .pulse {
-        width: 8px;
-        height: 8px;
+        width: 6px;
+        height: 6px;
         background: #10b981;
         border-radius: 50%;
         animation: pulse 2s infinite;
@@ -590,8 +591,8 @@ function initTechStack() {
     .podium-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
-        margin-bottom: 1.5rem;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
     }
 
     .podium-card {
@@ -599,51 +600,51 @@ function initTechStack() {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 1.5rem 1rem;
+        padding: 1rem 0.75rem 0.875rem;
         background: rgba(255, 255, 255, 0.03);
         border: 1px solid var(--border-color);
-        border-radius: 16px;
+        border-radius: 12px;
         text-decoration: none;
         transition: all 0.3s ease;
         overflow: hidden;
     }
 
     .podium-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
     }
 
     .podium-card.gold {
         border-color: rgba(245, 158, 11, 0.5);
-        background: linear-gradient(180deg, rgba(245, 158, 11, 0.1), transparent);
+        background: linear-gradient(180deg, rgba(245, 158, 11, 0.08), transparent);
     }
 
     .podium-card.silver {
         border-color: rgba(156, 163, 175, 0.5);
-        background: linear-gradient(180deg, rgba(156, 163, 175, 0.1), transparent);
+        background: linear-gradient(180deg, rgba(156, 163, 175, 0.08), transparent);
     }
 
     .podium-card.bronze {
         border-color: rgba(180, 83, 9, 0.5);
-        background: linear-gradient(180deg, rgba(180, 83, 9, 0.1), transparent);
+        background: linear-gradient(180deg, rgba(180, 83, 9, 0.08), transparent);
     }
 
     .rank-badge {
         position: absolute;
-        top: 0.75rem;
-        left: 0.75rem;
-        padding: 0.25rem 0.5rem;
+        top: 0.5rem;
+        left: 0.5rem;
+        padding: 0.15rem 0.375rem;
         background: rgba(0, 0, 0, 0.5);
-        border-radius: 6px;
-        font-size: 0.75rem;
+        border-radius: 4px;
+        font-size: 0.65rem;
         font-weight: 700;
         color: #f59e0b;
     }
 
     .lang-avatar {
-        width: 64px;
-        height: 64px;
-        margin-bottom: 1rem;
+        width: 44px;
+        height: 44px;
+        margin-bottom: 0.5rem;
     }
 
     .lang-avatar img {
@@ -658,30 +659,30 @@ function initTechStack() {
 
     .lang-name {
         display: block;
-        font-size: 1.1rem;
+        font-size: 0.9rem;
         font-weight: 700;
         color: var(--text-primary);
     }
 
     .lang-stat {
         display: block;
-        font-size: 0.85rem;
+        font-size: 0.7rem;
         color: var(--text-secondary);
-        margin: 0.25rem 0;
+        margin: 0.125rem 0;
     }
 
     .lang-meta {
         display: flex;
-        gap: 0.75rem;
+        gap: 0.5rem;
         justify-content: center;
-        margin-top: 0.5rem;
+        margin-top: 0.25rem;
     }
 
     .trend, .jobs {
-        font-size: 0.75rem;
+        font-size: 0.65rem;
         display: flex;
         align-items: center;
-        gap: 0.25rem;
+        gap: 0.15rem;
     }
 
     .trend.positive {
@@ -693,12 +694,12 @@ function initTechStack() {
     }
 
     .lang-badge-label {
-        margin-top: 0.75rem;
-        padding: 0.25rem 0.75rem;
+        margin-top: 0.5rem;
+        padding: 0.15rem 0.5rem;
         background: rgba(0, 212, 255, 0.1);
         border: 1px solid rgba(0, 212, 255, 0.3);
-        border-radius: 12px;
-        font-size: 0.7rem;
+        border-radius: 8px;
+        font-size: 0.6rem;
         font-weight: 600;
         color: #00d4ff;
         text-transform: uppercase;
@@ -709,7 +710,7 @@ function initTechStack() {
         bottom: 0;
         left: 0;
         right: 0;
-        height: 4px;
+        height: 3px;
         background: rgba(255, 255, 255, 0.1);
     }
 
@@ -719,24 +720,24 @@ function initTechStack() {
         transition: width 1s ease;
     }
 
-    /* Secondary Languages */
+    /* Secondary Languages - Compact */
     .secondary-langs {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 0.75rem;
-        padding-top: 1rem;
+        gap: 0.5rem;
+        padding-top: 0.75rem;
         border-top: 1px solid var(--border-color);
     }
 
     .lang-chip-mini {
         display: inline-flex;
         align-items: center;
-        gap: 0.5rem;
-        padding: 0.5rem 0.875rem;
+        gap: 0.375rem;
+        padding: 0.35rem 0.625rem;
         background: rgba(255, 255, 255, 0.05);
         border: 1px solid var(--border-color);
-        border-radius: 10px;
+        border-radius: 8px;
         text-decoration: none;
         transition: all 0.3s ease;
     }
@@ -749,19 +750,19 @@ function initTechStack() {
 
     .lang-chip-mini img,
     .lang-chip-mini i {
-        width: 24px;
-        height: 24px;
-        font-size: 1.25rem;
+        width: 20px;
+        height: 20px;
+        font-size: 1.1rem;
     }
 
     .chip-name {
-        font-size: 0.875rem;
+        font-size: 0.75rem;
         font-weight: 600;
         color: var(--text-primary);
     }
 
     .chip-trend {
-        font-size: 0.7rem;
+        font-size: 0.6rem;
         color: #10b981;
     }
 
