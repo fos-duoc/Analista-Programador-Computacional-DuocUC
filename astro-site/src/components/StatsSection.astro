@@ -1,7 +1,18 @@
 ---
-// GitHub Stats Section - Repository statistics
+// GitHub Stats Section - Repository statistics with premium design
 const repoBase = "https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC";
 const repoId = "fos-duoc/Analista-Programador-Computacional-DuocUC";
+const username = "fos-duoc";
+const repoName = "Analista-Programador-Computacional-DuocUC";
+
+// Languages data (based on repo content)
+const languages = [
+    { name: "HTML", percent: 45, color: "#e34c26" },
+    { name: "CSS", percent: 30, color: "#563d7c" },
+    { name: "JavaScript", percent: 15, color: "#f1e05a" },
+    { name: "Astro", percent: 8, color: "#ff5a03" },
+    { name: "Other", percent: 2, color: "#94a3b8" }
+];
 ---
 
 <section id="stats" class="stats-section">
@@ -17,30 +28,73 @@ const repoId = "fos-duoc/Analista-Programador-Computacional-DuocUC";
     <div class="stats-container" data-aos="fade-up" data-aos-delay="100">
         <!-- Badges Row - Centered -->
         <div class="stats-badges-center">
-            <img src={`https://img.shields.io/github/stars/${repoId}?style=for-the-badge&logo=github&logoColor=white&labelColor=0d1117&color=00d4ff`} alt="Stars"/>
-            <img src={`https://img.shields.io/github/forks/${repoId}?style=for-the-badge&logo=git&logoColor=white&labelColor=0d1117&color=7c3aed`} alt="Forks"/>
-            <img src={`https://img.shields.io/github/watchers/${repoId}?style=for-the-badge&logo=github&logoColor=white&labelColor=0d1117&color=f472b6`} alt="Watchers"/>
+            <img src={`https://img.shields.io/github/stars/${repoId}?style=for-the-badge&logo=github&logoColor=white&labelColor=0d1117&color=00d4ff`} alt="Stars" loading="lazy"/>
+            <img src={`https://img.shields.io/github/forks/${repoId}?style=for-the-badge&logo=git&logoColor=white&labelColor=0d1117&color=7c3aed`} alt="Forks" loading="lazy"/>
+            <img src={`https://img.shields.io/github/watchers/${repoId}?style=for-the-badge&logo=github&logoColor=white&labelColor=0d1117&color=f472b6`} alt="Watchers" loading="lazy"/>
         </div>
 
-        <!-- Cards Row - Centered -->
-        <div class="stats-cards-center">
-            <div class="stats-card-wrapper">
-                <img src={`https://github-readme-stats.vercel.app/api/pin/?username=fos-duoc&repo=Analista-Programador-Computacional-DuocUC&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=00d4ff&icon_color=7c3aed&text_color=94a3b8`} alt="Repo Card"/>
+        <!-- Premium Cards Row -->
+        <div class="stats-cards-premium">
+            <!-- Repo Card - Custom Design -->
+            <div class="repo-card-premium glass-card">
+                <div class="repo-card-header">
+                    <div class="repo-icon">
+                        <i class="fas fa-book-bookmark"></i>
+                    </div>
+                    <div class="repo-info">
+                        <span class="repo-owner">{username}</span>
+                        <h3 class="repo-name">{repoName}</h3>
+                    </div>
+                </div>
+                <p class="repo-description">
+                    📚 Materiales del programa Analista Programador Computacional - DuocUC Online 2025
+                </p>
+                <div class="repo-meta">
+                    <span class="repo-tag"><i class="fas fa-code-branch"></i> main</span>
+                    <span class="repo-tag"><i class="fas fa-star"></i> Stars</span>
+                    <span class="repo-tag"><i class="fas fa-code-fork"></i> Forks</span>
+                </div>
+                <a href={repoBase} target="_blank" class="repo-link">
+                    <i class="fab fa-github"></i> Ver en GitHub
+                </a>
             </div>
-            <div class="stats-card-wrapper">
-                <img src={`https://github-readme-stats.vercel.app/api/top-langs/?username=fos-duoc&repo=Analista-Programador-Computacional-DuocUC&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=00d4ff&text_color=94a3b8&langs_count=6`} alt="Top Languages"/>
+
+            <!-- Languages Card - Custom Design -->
+            <div class="languages-card-premium glass-card">
+                <div class="languages-header">
+                    <i class="fas fa-code"></i>
+                    <h3>Top Languages</h3>
+                </div>
+                <div class="languages-bar">
+                    {languages.map(lang => (
+                        <div
+                            class="lang-segment"
+                            style={`width: ${lang.percent}%; background: ${lang.color};`}
+                            data-tooltip={`${lang.name}: ${lang.percent}%`}
+                        ></div>
+                    ))}
+                </div>
+                <div class="languages-legend">
+                    {languages.map(lang => (
+                        <div class="lang-item">
+                            <span class="lang-dot" style={`background: ${lang.color};`}></span>
+                            <span class="lang-name">{lang.name}</span>
+                            <span class="lang-percent">{lang.percent}%</span>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
 
         <!-- Quick Stats - Horizontal Centered -->
         <div class="stats-quick-center">
             <div class="stat-item">
-                <span class="stat-number">10</span>
+                <span class="stat-number">17</span>
                 <span class="stat-label">Bimestres</span>
             </div>
             <div class="stat-divider"></div>
             <div class="stat-item">
-                <span class="stat-number">25+</span>
+                <span class="stat-number">30+</span>
                 <span class="stat-label">Asignaturas</span>
             </div>
             <div class="stat-divider"></div>
@@ -50,7 +104,7 @@ const repoId = "fos-duoc/Analista-Programador-Computacional-DuocUC";
             </div>
             <div class="stat-divider"></div>
             <div class="stat-item">
-                <span class="stat-number">50+</span>
+                <span class="stat-number">80+</span>
                 <span class="stat-label">Commits</span>
             </div>
         </div>
@@ -72,3 +126,242 @@ const repoId = "fos-duoc/Analista-Programador-Computacional-DuocUC";
         </div>
     </div>
 </section>
+
+<style>
+    /* Premium Repo Card */
+    .stats-cards-premium {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 1.5rem;
+        max-width: 800px;
+        margin: 2rem auto;
+    }
+
+    .repo-card-premium,
+    .languages-card-premium {
+        padding: 1.5rem;
+        border-radius: 16px;
+        background: rgba(18, 18, 26, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .repo-card-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .repo-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #00d4ff, #7c3aed);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .repo-icon i {
+        font-size: 1.25rem;
+        color: white;
+    }
+
+    .repo-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .repo-owner {
+        font-size: 0.75rem;
+        color: #64748b;
+        font-weight: 500;
+    }
+
+    .repo-name {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: #00d4ff;
+        margin: 0;
+        word-break: break-word;
+    }
+
+    .repo-description {
+        font-size: 0.85rem;
+        color: #94a3b8;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+    }
+
+    .repo-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .repo-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.35rem 0.75rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        font-size: 0.75rem;
+        color: #94a3b8;
+    }
+
+    .repo-tag i {
+        font-size: 0.7rem;
+        color: #00d4ff;
+    }
+
+    .repo-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 1.25rem;
+        background: rgba(0, 212, 255, 0.1);
+        border: 1px solid rgba(0, 212, 255, 0.3);
+        border-radius: 8px;
+        color: #00d4ff;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .repo-link:hover {
+        background: rgba(0, 212, 255, 0.2);
+        transform: translateY(-2px);
+    }
+
+    /* Languages Card */
+    .languages-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .languages-header i {
+        font-size: 1.1rem;
+        color: #00d4ff;
+    }
+
+    .languages-header h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #f8fafc;
+        margin: 0;
+    }
+
+    .languages-bar {
+        display: flex;
+        height: 10px;
+        border-radius: 5px;
+        overflow: hidden;
+        margin-bottom: 1.25rem;
+    }
+
+    .lang-segment {
+        height: 100%;
+        transition: opacity 0.3s ease;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .lang-segment:hover {
+        opacity: 0.8;
+    }
+
+    .languages-legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem 1.25rem;
+    }
+
+    .lang-item {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+    .lang-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+    }
+
+    .lang-name {
+        font-size: 0.8rem;
+        color: #94a3b8;
+    }
+
+    .lang-percent {
+        font-size: 0.75rem;
+        color: #64748b;
+        font-weight: 600;
+    }
+
+    /* Light mode */
+    :global([data-theme="light"]) .repo-card-premium,
+    :global([data-theme="light"]) .languages-card-premium {
+        background: rgba(255, 255, 255, 0.8);
+        border-color: rgba(0, 0, 0, 0.08);
+    }
+
+    :global([data-theme="light"]) .repo-owner {
+        color: #64748b;
+    }
+
+    :global([data-theme="light"]) .repo-name {
+        color: #0891b2;
+    }
+
+    :global([data-theme="light"]) .repo-description {
+        color: #475569;
+    }
+
+    :global([data-theme="light"]) .repo-tag {
+        background: rgba(0, 0, 0, 0.04);
+        color: #475569;
+    }
+
+    :global([data-theme="light"]) .repo-tag i {
+        color: #0891b2;
+    }
+
+    :global([data-theme="light"]) .repo-link {
+        background: rgba(8, 145, 178, 0.1);
+        border-color: rgba(8, 145, 178, 0.3);
+        color: #0891b2;
+    }
+
+    :global([data-theme="light"]) .languages-header i {
+        color: #0891b2;
+    }
+
+    :global([data-theme="light"]) .languages-header h3 {
+        color: #0f172a;
+    }
+
+    :global([data-theme="light"]) .lang-name {
+        color: #475569;
+    }
+
+    :global([data-theme="light"]) .lang-percent {
+        color: #64748b;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .stats-cards-premium {
+            grid-template-columns: 1fr;
+        }
+
+        .repo-name {
+            font-size: 0.85rem;
+        }
+    }
+</style>
