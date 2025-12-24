@@ -8,6 +8,10 @@ const isStack = currentPath.includes('/stack');
 const isArquitectura = currentPath.includes('/arquitectura');
 const isRecursos = currentPath.includes('/recursos');
 const isProyectos = currentPath.includes('/proyectos');
+const isTrayectorias = currentPath.includes('/trayectorias');
+const isPortafolio = currentPath.includes('/portafolio');
+const isLaboratorios = currentPath.includes('/laboratorios');
+const isComunidad = currentPath.includes('/comunidad');
 ---
 
 <header class="header" transition:persist>
@@ -32,6 +36,31 @@ const isProyectos = currentPath.includes('/proyectos');
                data-premium-tooltip="Recursos|Herramientas interactivas, videos educativos, certificaciones y más|Gantt,SQL Gen,Quizzes|navigation|fa-tools|HERRAMIENTAS">Recursos</a>
             <a href={`${base}/proyectos`} class={`nav-link ${isProyectos ? 'active' : ''}`}
                data-premium-tooltip="Proyectos|Roadmap de aprendizaje y proyectos para construir tu portafolio profesional|Estudio,Trabajo,Portfolio|navigation|fa-project-diagram|PROYECTOS">Proyectos</a>
+
+            <!-- Dropdown para más páginas -->
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-trigger">
+                    Más <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <a href={`${base}/trayectorias`} class={`dropdown-item ${isTrayectorias ? 'active' : ''}`}
+                       data-premium-tooltip="Career Paths|6 trayectorias profesionales con roadmaps, salarios y certificaciones|Full-Stack,DevOps,Data|navigation|fa-route|CARRERAS">
+                        <i class="fas fa-route"></i> Trayectorias
+                    </a>
+                    <a href={`${base}/portafolio`} class={`dropdown-item ${isPortafolio ? 'active' : ''}`}
+                       data-premium-tooltip="Portafolio Guiado|Guía paso a paso para construir un portafolio profesional impactante|5 Pasos,Checklist,Templates|navigation|fa-briefcase|PORTAFOLIO">
+                        <i class="fas fa-briefcase"></i> Portafolio
+                    </a>
+                    <a href={`${base}/laboratorios`} class={`dropdown-item ${isLaboratorios ? 'active' : ''}`}
+                       data-premium-tooltip="Laboratorios|Práctica de código con ejercicios interactivos y plataformas|Python,JS,SQL,Git|navigation|fa-flask|PRÁCTICA">
+                        <i class="fas fa-flask"></i> Laboratorios
+                    </a>
+                    <a href={`${base}/comunidad`} class={`dropdown-item ${isComunidad ? 'active' : ''}`}
+                       data-premium-tooltip="Comunidad|Networking con comunidades tech chilenas, eventos y mentoría|8 Comunidades,70K+ Miembros|navigation|fa-users|NETWORKING">
+                        <i class="fas fa-users"></i> Comunidad
+                    </a>
+                </div>
+            </div>
         </nav>
         <div class="header-actions">
             <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme"
