@@ -103,9 +103,9 @@
                 </div>
             </div>
 
-            <!-- DevOps & Data Certifications -->
+            <!-- DevOps & Containers -->
             <div class="cert-category">
-                <h3><i class="fas fa-server"></i> DevOps & Data</h3>
+                <h3><i class="fas fa-server"></i> DevOps & Containers</h3>
                 <div class="cert-cards">
                     <a href="https://www.docker.com/resources/docker-dca/" target="_blank" class="cert-card docker">
                         <div class="cert-logo">
@@ -133,9 +133,69 @@
                         </div>
                     </a>
 
-                    <a href="https://www.databricks.com/learn/certification" target="_blank" class="cert-card databricks">
+                    <a href="https://www.hashicorp.com/certifications/terraform-associate" target="_blank" class="cert-card terraform">
                         <div class="cert-logo">
-                            <i class="devicon-apachespark-original colored"></i>
+                            <i class="devicon-terraform-plain colored"></i>
+                        </div>
+                        <div class="cert-info">
+                            <span class="cert-name">Terraform Associate</span>
+                            <span class="cert-level">HashiCorp</span>
+                        </div>
+                        <div class="cert-meta">
+                            <span class="cert-badge">~$70 USD</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Data Engineering - Snowflake & Databricks -->
+            <div class="cert-category">
+                <h3><i class="fas fa-database"></i> Data Engineering & Analytics</h3>
+                <div class="cert-cards">
+                    <!-- Snowflake Certifications -->
+                    <a href="https://www.snowflake.com/certifications/snowpro-core-certification/" target="_blank" class="cert-card snowflake">
+                        <div class="cert-logo">
+                            <img src="https://cdn.simpleicons.org/snowflake/29B5E8" alt="Snowflake" class="simple-icon-cert" />
+                        </div>
+                        <div class="cert-info">
+                            <span class="cert-name">SnowPro Core</span>
+                            <span class="cert-level">Foundational</span>
+                        </div>
+                        <div class="cert-meta">
+                            <span class="cert-badge">~$175 USD</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.snowflake.com/certifications/snowpro-advanced-data-engineer/" target="_blank" class="cert-card snowflake">
+                        <div class="cert-logo">
+                            <img src="https://cdn.simpleicons.org/snowflake/29B5E8" alt="Snowflake" class="simple-icon-cert" />
+                        </div>
+                        <div class="cert-info">
+                            <span class="cert-name">SnowPro Data Engineer</span>
+                            <span class="cert-level">Advanced</span>
+                        </div>
+                        <div class="cert-meta">
+                            <span class="cert-badge">~$375 USD</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.snowflake.com/certifications/snowpro-advanced-architect/" target="_blank" class="cert-card snowflake">
+                        <div class="cert-logo">
+                            <img src="https://cdn.simpleicons.org/snowflake/29B5E8" alt="Snowflake" class="simple-icon-cert" />
+                        </div>
+                        <div class="cert-info">
+                            <span class="cert-name">SnowPro Architect</span>
+                            <span class="cert-level">Advanced</span>
+                        </div>
+                        <div class="cert-meta">
+                            <span class="cert-badge">~$375 USD</span>
+                        </div>
+                    </a>
+
+                    <!-- Databricks Certifications -->
+                    <a href="https://www.databricks.com/learn/certification/data-engineer-associate" target="_blank" class="cert-card databricks">
+                        <div class="cert-logo">
+                            <img src="https://cdn.simpleicons.org/databricks/FF3621" alt="Databricks" class="simple-icon-cert" />
                         </div>
                         <div class="cert-info">
                             <span class="cert-name">Databricks Data Engineer</span>
@@ -143,6 +203,32 @@
                         </div>
                         <div class="cert-meta">
                             <span class="cert-badge">~$200 USD</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.databricks.com/learn/certification/data-engineer-professional" target="_blank" class="cert-card databricks">
+                        <div class="cert-logo">
+                            <img src="https://cdn.simpleicons.org/databricks/FF3621" alt="Databricks" class="simple-icon-cert" />
+                        </div>
+                        <div class="cert-info">
+                            <span class="cert-name">Databricks Data Engineer</span>
+                            <span class="cert-level">Professional</span>
+                        </div>
+                        <div class="cert-meta">
+                            <span class="cert-badge">~$200 USD</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.databricks.com/learn/certification/generative-ai-engineer-associate" target="_blank" class="cert-card databricks">
+                        <div class="cert-logo">
+                            <img src="https://cdn.simpleicons.org/databricks/FF3621" alt="Databricks" class="simple-icon-cert" />
+                        </div>
+                        <div class="cert-info">
+                            <span class="cert-name">Databricks Gen AI Engineer</span>
+                            <span class="cert-level">Associate</span>
+                        </div>
+                        <div class="cert-meta">
+                            <span class="cert-badge hot">🔥 ~$200 USD</span>
                         </div>
                     </a>
                 </div>
@@ -307,7 +393,20 @@
     .cert-card.google .cert-logo { color: #4285f4; }
     .cert-card.freecodecamp .cert-logo { color: #61dafb; }
     .cert-card.databricks .cert-logo { color: #ff3621; }
+    .cert-card.snowflake .cert-logo { color: #29b5e8; }
+    .cert-card.terraform .cert-logo { color: #7b42bc; }
     .cert-card.atlassian .cert-logo { color: #0052cc; }
+
+    .simple-icon-cert {
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+    }
+
+    .cert-badge.hot {
+        background: rgba(239, 68, 68, 0.15);
+        color: #ef4444;
+    }
 
     .cert-info {
         flex: 1;
