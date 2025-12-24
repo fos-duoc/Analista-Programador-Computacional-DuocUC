@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import compress from '@playform/compress';
+import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,6 +14,13 @@ export default defineConfig({
     inlineStylesheets: 'auto'
   },
   integrations: [
+    icon({
+      include: {
+        mdi: ['*'],
+        'simple-icons': ['*'],
+        devicon: ['*']
+      }
+    }),
     sitemap(),
     compress({
       CSS: true,

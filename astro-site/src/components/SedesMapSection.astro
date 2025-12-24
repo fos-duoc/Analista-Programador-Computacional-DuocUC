@@ -1,0 +1,695 @@
+---
+// Sedes DuocUC con Escuela de Informática - Mapa Interactivo
+const sedes = [
+    {
+        name: "San Joaquín",
+        address: "Av. Vicuña Mackenna 4917",
+        comuna: "San Joaquín",
+        region: "Metropolitana",
+        lat: -33.4969,
+        lng: -70.6147,
+        carreras: ["Analista Programador", "Ing. Informática"],
+        modalidad: "Presencial & Online",
+        telefono: "+56 2 2353 6000",
+        horario: "Lun-Vie 8:00-22:00"
+    },
+    {
+        name: "Padre Alonso de Ovalle",
+        address: "Padre Alonso de Ovalle 1586",
+        comuna: "Santiago",
+        region: "Metropolitana",
+        lat: -33.4567,
+        lng: -70.6482,
+        carreras: ["Analista Programador", "Ing. Conectividad y Redes"],
+        modalidad: "Presencial",
+        telefono: "+56 2 2353 6000",
+        horario: "Lun-Vie 8:00-22:00"
+    },
+    {
+        name: "Plaza Vespucio",
+        address: "Av. Vicuña Mackenna Oriente 7860",
+        comuna: "La Florida",
+        region: "Metropolitana",
+        lat: -33.5209,
+        lng: -70.5982,
+        carreras: ["Analista Programador"],
+        modalidad: "Presencial & Online",
+        telefono: "+56 2 2353 6000",
+        horario: "Lun-Vie 8:00-22:00"
+    },
+    {
+        name: "Maipú",
+        address: "Av. Pajaritos 6085",
+        comuna: "Maipú",
+        region: "Metropolitana",
+        lat: -33.5167,
+        lng: -70.7500,
+        carreras: ["Analista Programador"],
+        modalidad: "Presencial",
+        telefono: "+56 2 2353 6000",
+        horario: "Lun-Vie 8:00-22:00"
+    },
+    {
+        name: "Viña del Mar",
+        address: "Av. Libertad 1390",
+        comuna: "Viña del Mar",
+        region: "Valparaíso",
+        lat: -33.0153,
+        lng: -71.5517,
+        carreras: ["Analista Programador", "Ing. Informática"],
+        modalidad: "Presencial",
+        telefono: "+56 32 245 4500",
+        horario: "Lun-Vie 8:00-22:00"
+    },
+    {
+        name: "Concepción",
+        address: "Paicaví 3280",
+        comuna: "Concepción",
+        region: "Biobío",
+        lat: -36.8270,
+        lng: -73.0503,
+        carreras: ["Analista Programador", "Ing. Informática"],
+        modalidad: "Presencial",
+        telefono: "+56 41 266 9600",
+        horario: "Lun-Vie 8:00-22:00"
+    },
+    {
+        name: "Puerto Montt",
+        address: "Ejercito 451",
+        comuna: "Puerto Montt",
+        region: "Los Lagos",
+        lat: -41.4693,
+        lng: -72.9424,
+        carreras: ["Analista Programador"],
+        modalidad: "Presencial",
+        telefono: "+56 65 248 2800",
+        horario: "Lun-Vie 8:00-22:00"
+    },
+    {
+        name: "Online",
+        address: "100% Virtual",
+        comuna: "Todo Chile",
+        region: "Nacional",
+        lat: -33.4489,
+        lng: -70.6693,
+        carreras: ["Analista Programador Computacional"],
+        modalidad: "Online 100%",
+        telefono: "+56 2 2353 6000",
+        horario: "24/7 Plataforma"
+    }
+];
+
+const regiones = [...new Set(sedes.map(s => s.region))];
+---
+
+<section id="sedes-duocuc" class="sedes-section">
+    <div class="sedes-header" data-aos="fade-up">
+        <div class="header-icon-wrap">
+            <i class="fas fa-map-marked-alt"></i>
+        </div>
+        <h2>Sedes <span class="gradient-text">DuocUC</span></h2>
+        <p>Encuentra tu sede más cercana con Escuela de Informática</p>
+
+        <div class="region-filters">
+            <button class="region-btn active" data-region="all">
+                <i class="fas fa-globe-americas"></i> Todas
+            </button>
+            {regiones.map(region => (
+                <button class="region-btn" data-region={region}>
+                    <i class="fas fa-map-pin"></i> {region}
+                </button>
+            ))}
+        </div>
+    </div>
+
+    <div class="sedes-container" data-aos="fade-up" data-aos-delay="100">
+        <!-- Mapa Leaflet -->
+        <div class="map-wrapper glass-card">
+            <div id="sedes-map" class="sedes-map"></div>
+            <div class="map-overlay">
+                <div class="map-legend">
+                    <span class="legend-item"><i class="fas fa-circle" style="color: #00d4ff;"></i> Presencial</span>
+                    <span class="legend-item"><i class="fas fa-circle" style="color: #10b981;"></i> Online</span>
+                    <span class="legend-item"><i class="fas fa-circle" style="color: #7c3aed;"></i> Híbrido</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lista de Sedes -->
+        <div class="sedes-list">
+            {sedes.map((sede, idx) => (
+                <div
+                    class={`sede-card glass-card ${sede.modalidad.includes('Online') && !sede.modalidad.includes('Presencial') ? 'online' : sede.modalidad.includes('&') ? 'hybrid' : 'presencial'}`}
+                    data-region={sede.region}
+                    data-lat={sede.lat}
+                    data-lng={sede.lng}
+                    data-aos="zoom-in"
+                    data-aos-delay={50 + idx * 30}
+                >
+                    <div class="sede-header">
+                        <div class="sede-icon">
+                            {sede.modalidad.includes('Online') && !sede.modalidad.includes('Presencial') ? (
+                                <i class="fas fa-laptop-house"></i>
+                            ) : (
+                                <i class="fas fa-building"></i>
+                            )}
+                        </div>
+                        <div class="sede-title">
+                            <h3>{sede.name}</h3>
+                            <span class="sede-comuna">{sede.comuna}, {sede.region}</span>
+                        </div>
+                        <span class={`modalidad-badge ${sede.modalidad.includes('Online') && !sede.modalidad.includes('Presencial') ? 'online' : sede.modalidad.includes('&') ? 'hybrid' : ''}`}>
+                            {sede.modalidad}
+                        </span>
+                    </div>
+
+                    <div class="sede-body">
+                        <div class="sede-info-row">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>{sede.address}</span>
+                        </div>
+                        <div class="sede-info-row">
+                            <i class="fas fa-clock"></i>
+                            <span>{sede.horario}</span>
+                        </div>
+                        <div class="sede-info-row">
+                            <i class="fas fa-phone"></i>
+                            <span>{sede.telefono}</span>
+                        </div>
+
+                        <div class="sede-carreras">
+                            <span class="carreras-label">Carreras disponibles:</span>
+                            <div class="carreras-tags">
+                                {sede.carreras.map(carrera => (
+                                    <span class="carrera-tag">{carrera}</span>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sede-footer">
+                        <a href={`https://www.google.com/maps?q=${sede.lat},${sede.lng}`} target="_blank" class="sede-btn directions">
+                            <i class="fas fa-directions"></i> Cómo llegar
+                        </a>
+                        <button class="sede-btn focus" data-lat={sede.lat} data-lng={sede.lng}>
+                            <i class="fas fa-crosshairs"></i> Ver en mapa
+                        </button>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+
+    <!-- Stats Row -->
+    <div class="sedes-stats" data-aos="fade-up" data-aos-delay="200">
+        <div class="stat-box">
+            <i class="fas fa-university"></i>
+            <span class="stat-number">{sedes.length - 1}</span>
+            <span class="stat-label">Sedes Presenciales</span>
+        </div>
+        <div class="stat-box">
+            <i class="fas fa-laptop"></i>
+            <span class="stat-number">1</span>
+            <span class="stat-label">Sede Online</span>
+        </div>
+        <div class="stat-box">
+            <i class="fas fa-map"></i>
+            <span class="stat-number">{regiones.length}</span>
+            <span class="stat-label">Regiones</span>
+        </div>
+        <div class="stat-box">
+            <i class="fas fa-graduation-cap"></i>
+            <span class="stat-number">2</span>
+            <span class="stat-label">Carreras TI</span>
+        </div>
+    </div>
+</section>
+
+<!-- Leaflet CSS & JS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script is:inline>
+const sedesData = [
+    { name: "San Joaquín", lat: -33.4969, lng: -70.6147, modalidad: "hybrid" },
+    { name: "Padre Alonso de Ovalle", lat: -33.4567, lng: -70.6482, modalidad: "presencial" },
+    { name: "Plaza Vespucio", lat: -33.5209, lng: -70.5982, modalidad: "hybrid" },
+    { name: "Maipú", lat: -33.5167, lng: -70.7500, modalidad: "presencial" },
+    { name: "Viña del Mar", lat: -33.0153, lng: -71.5517, modalidad: "presencial" },
+    { name: "Concepción", lat: -36.8270, lng: -73.0503, modalidad: "presencial" },
+    { name: "Puerto Montt", lat: -41.4693, lng: -72.9424, modalidad: "presencial" },
+    { name: "Online", lat: -33.4489, lng: -70.6693, modalidad: "online" }
+];
+
+let map = null;
+let markers = [];
+
+function initMap() {
+    const mapContainer = document.getElementById('sedes-map');
+    if (!mapContainer || map) return;
+
+    map = L.map('sedes-map').setView([-33.45, -70.65], 5);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; OpenStreetMap, &copy; CARTO',
+        maxZoom: 19
+    }).addTo(map);
+
+    sedesData.forEach(sede => {
+        const color = sede.modalidad === 'online' ? '#10b981' :
+                      sede.modalidad === 'hybrid' ? '#7c3aed' : '#00d4ff';
+
+        const icon = L.divIcon({
+            className: 'custom-marker',
+            html: `<div style="background: ${color}; width: 24px; height: 24px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.3);"></div>`,
+            iconSize: [24, 24],
+            iconAnchor: [12, 12]
+        });
+
+        const marker = L.marker([sede.lat, sede.lng], { icon })
+            .addTo(map)
+            .bindPopup(`<b>${sede.name}</b><br>DuocUC`);
+
+        markers.push({ marker, sede });
+    });
+
+    // Region filters
+    document.querySelectorAll('.region-btn').forEach(btn => {
+        btn.onclick = () => {
+            document.querySelectorAll('.region-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const region = btn.dataset.region;
+            document.querySelectorAll('.sede-card').forEach(card => {
+                if (region === 'all' || card.dataset.region === region) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        };
+    });
+
+    // Focus buttons
+    document.querySelectorAll('.sede-btn.focus').forEach(btn => {
+        btn.onclick = () => {
+            const lat = parseFloat(btn.dataset.lat);
+            const lng = parseFloat(btn.dataset.lng);
+            map.setView([lat, lng], 14);
+        };
+    });
+}
+
+document.addEventListener('DOMContentLoaded', initMap);
+document.addEventListener('astro:page-load', () => {
+    map = null;
+    markers = [];
+    initMap();
+});
+</script>
+
+<style>
+    .sedes-section {
+        padding: 4rem 2rem;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .sedes-header {
+        text-align: center;
+        margin-bottom: 2.5rem;
+    }
+
+    .header-icon-wrap {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(124, 58, 237, 0.2));
+        border-radius: 20px;
+        font-size: 2rem;
+        color: #00d4ff;
+    }
+
+    .sedes-header h2 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin: 0 0 0.5rem;
+    }
+
+    .gradient-text {
+        background: linear-gradient(135deg, #00d4ff, #7c3aed);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .sedes-header p {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+    }
+
+    .region-filters {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .region-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.625rem 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        color: var(--text-secondary);
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .region-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--text-primary);
+    }
+
+    .region-btn.active {
+        background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(124, 58, 237, 0.2));
+        border-color: rgba(0, 212, 255, 0.5);
+        color: #00d4ff;
+    }
+
+    .sedes-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .map-wrapper {
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+        min-height: 500px;
+    }
+
+    .sedes-map {
+        width: 100%;
+        height: 100%;
+        min-height: 500px;
+        border-radius: 16px;
+    }
+
+    .map-overlay {
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+        right: 1rem;
+        z-index: 1000;
+    }
+
+    .map-legend {
+        display: flex;
+        gap: 1rem;
+        padding: 0.75rem 1rem;
+        background: rgba(10, 10, 15, 0.9);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        font-size: 0.8rem;
+    }
+
+    .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        color: var(--text-secondary);
+    }
+
+    .legend-item i {
+        font-size: 0.6rem;
+    }
+
+    .sedes-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        max-height: 600px;
+        overflow-y: auto;
+        padding-right: 0.5rem;
+    }
+
+    .sede-card {
+        padding: 1.25rem;
+        border-radius: 16px;
+        transition: all 0.3s ease;
+    }
+
+    .sede-card:hover {
+        transform: translateX(8px);
+    }
+
+    .sede-card.online {
+        border-left: 4px solid #10b981;
+    }
+
+    .sede-card.hybrid {
+        border-left: 4px solid #7c3aed;
+    }
+
+    .sede-card.presencial {
+        border-left: 4px solid #00d4ff;
+    }
+
+    .sede-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .sede-icon {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 212, 255, 0.1);
+        border-radius: 12px;
+        color: #00d4ff;
+        font-size: 1.25rem;
+    }
+
+    .sede-card.online .sede-icon {
+        background: rgba(16, 185, 129, 0.1);
+        color: #10b981;
+    }
+
+    .sede-title {
+        flex: 1;
+    }
+
+    .sede-title h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin: 0 0 0.25rem;
+    }
+
+    .sede-comuna {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+    }
+
+    .modalidad-badge {
+        padding: 0.35rem 0.75rem;
+        background: rgba(0, 212, 255, 0.1);
+        border-radius: 20px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: #00d4ff;
+    }
+
+    .modalidad-badge.online {
+        background: rgba(16, 185, 129, 0.1);
+        color: #10b981;
+    }
+
+    .modalidad-badge.hybrid {
+        background: rgba(124, 58, 237, 0.1);
+        color: #7c3aed;
+    }
+
+    .sede-body {
+        margin-bottom: 1rem;
+    }
+
+    .sede-info-row {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        margin-bottom: 0.5rem;
+    }
+
+    .sede-info-row i {
+        width: 16px;
+        color: var(--text-muted);
+    }
+
+    .sede-carreras {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-color);
+    }
+
+    .carreras-label {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    .carreras-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+    }
+
+    .carrera-tag {
+        padding: 0.25rem 0.6rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 6px;
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+    }
+
+    .sede-footer {
+        display: flex;
+        gap: 0.75rem;
+    }
+
+    .sede-btn {
+        flex: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.625rem 1rem;
+        border-radius: 10px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+
+    .sede-btn.directions {
+        background: rgba(0, 212, 255, 0.1);
+        border: 1px solid rgba(0, 212, 255, 0.3);
+        color: #00d4ff;
+    }
+
+    .sede-btn.directions:hover {
+        background: rgba(0, 212, 255, 0.2);
+    }
+
+    .sede-btn.focus {
+        background: rgba(124, 58, 237, 0.1);
+        border: 1px solid rgba(124, 58, 237, 0.3);
+        color: #7c3aed;
+    }
+
+    .sede-btn.focus:hover {
+        background: rgba(124, 58, 237, 0.2);
+    }
+
+    .sedes-stats {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 16px;
+        flex-wrap: wrap;
+    }
+
+    .stat-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .stat-box i {
+        font-size: 1.5rem;
+        color: #00d4ff;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--text-primary);
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .sedes-container {
+            grid-template-columns: 1fr;
+        }
+
+        .map-wrapper {
+            min-height: 350px;
+        }
+
+        .sedes-map {
+            min-height: 350px;
+        }
+
+        .sedes-list {
+            max-height: none;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .sedes-header h2 {
+            font-size: 1.75rem;
+        }
+
+        .region-filters {
+            justify-content: flex-start;
+            overflow-x: auto;
+            flex-wrap: nowrap;
+            padding-bottom: 0.5rem;
+        }
+
+        .sedes-stats {
+            gap: 1.5rem;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+        }
+    }
+
+    /* Light Mode */
+    :global([data-theme="light"]) .map-legend {
+        background: rgba(255, 255, 255, 0.95);
+    }
+
+    :global([data-theme="light"]) .sede-card {
+        background: rgba(255, 255, 255, 0.8);
+    }
+
+    :global([data-theme="light"]) .carrera-tag {
+        background: rgba(0, 0, 0, 0.05);
+    }
+</style>

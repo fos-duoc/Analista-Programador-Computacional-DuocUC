@@ -9,6 +9,9 @@ import NotionEmbed from '../components/NotionEmbed.astro';
 import CodeSnippets from '../components/CodeSnippets.astro';
 import FAQSection from '../components/FAQSection.astro';
 import CertificationsSection from '../components/CertificationsSection.astro';
+import TerminalDemo from '../components/TerminalDemo.astro';
+import WebVitalsSection from '../components/WebVitalsSection.astro';
+import SedesMapSection from '../components/SedesMapSection.astro';
 ---
 
 <Layout title="Recursos de Aprendizaje | DuocUC">
@@ -52,6 +55,18 @@ import CertificationsSection from '../components/CertificationsSection.astro';
                     <i class="fas fa-question-circle"></i>
                     <span>FAQ</span>
                 </a>
+                <a href="#terminal-demo" class="quick-nav">
+                    <i class="fas fa-terminal"></i>
+                    <span>Terminal</span>
+                </a>
+                <a href="#web-vitals" class="quick-nav">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Performance</span>
+                </a>
+                <a href="#sedes-duocuc" class="quick-nav">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <span>Sedes</span>
+                </a>
             </div>
         </div>
     </section>
@@ -76,6 +91,15 @@ import CertificationsSection from '../components/CertificationsSection.astro';
 
     <!-- FAQ Section -->
     <FAQSection />
+
+    <!-- Terminal Demo -->
+    <TerminalDemo />
+
+    <!-- Web Vitals Dashboard -->
+    <WebVitalsSection />
+
+    <!-- Sedes DuocUC Map -->
+    <SedesMapSection />
 
     <Footer />
 </Layout>

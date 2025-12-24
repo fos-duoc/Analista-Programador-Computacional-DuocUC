@@ -10,8 +10,13 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.6.0",
+    "@iconify-json/devicon": "^1.2.55",
+    "@iconify-json/mdi": "^1.2.3",
+    "@iconify-json/simple-icons": "^1.2.63",
     "@playform/compress": "^0.2.0",
     "astro": "^5.16.6",
-    "astro-compress": "^2.3.8"
+    "astro-compress": "^2.3.8",
+    "astro-icon": "^1.1.5",
+    "astro-seo": "^0.8.4"
   }
 }
