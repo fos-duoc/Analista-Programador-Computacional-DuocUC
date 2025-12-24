@@ -185,11 +185,6 @@ const careerTips = [
                         <h3>{career.title}</h3>
                         <p class="career-description">{career.description}</p>
 
-                        <div class="salary-range">
-                            <i class="fas fa-coins"></i>
-                            <span>{career.salary}</span>
-                        </div>
-
                         <div class="skills-preview">
                             <h4>Skills Clave</h4>
                             <div class="skill-tags">
@@ -246,6 +241,14 @@ const careerTips = [
                                     {career.companies.map(company => (
                                         <span class="company-badge">{company}</span>
                                     ))}
+                                </div>
+                            </div>
+
+                            <div class="salary-section">
+                                <h4><i class="fas fa-coins"></i> Rango Salarial en Chile</h4>
+                                <div class="salary-range">
+                                    <span class="salary-value">{career.salary}</span>
+                                    <span class="salary-note">Mensual bruto, según experiencia</span>
                                 </div>
                             </div>
                         </div>
@@ -476,25 +479,45 @@ const careerTips = [
         margin-bottom: 1rem;
     }
 
-    .salary-range {
+    /* Salary Section - al final del roadmap */
+    .salary-section {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    .salary-section h4 {
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        background: rgba(16, 185, 129, 0.1);
-        border: 1px solid rgba(16, 185, 129, 0.2);
-        padding: 0.5rem 0.75rem;
-        border-radius: 8px;
-        margin-bottom: 1rem;
-    }
-
-    .salary-range i {
-        color: #10b981;
-    }
-
-    .salary-range span {
-        color: #10b981;
-        font-weight: 600;
+        color: #f8fafc;
         font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .salary-section h4 i {
+        color: #10b981;
+    }
+
+    .salary-range {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05));
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1rem 1.25rem;
+        border-radius: 12px;
+    }
+
+    .salary-value {
+        color: #10b981;
+        font-weight: 700;
+        font-size: 1.1rem;
+    }
+
+    .salary-note {
+        color: #64748b;
+        font-size: 0.8rem;
     }
 
     .skills-preview h4 {
@@ -915,6 +938,19 @@ const careerTips = [
         background: rgba(0, 0, 0, 0.05);
         border-color: rgba(0, 0, 0, 0.1);
         color: #1e293b;
+    }
+
+    :global([data-theme="light"]) .salary-section h4 {
+        color: #1e293b;
+    }
+
+    :global([data-theme="light"]) .salary-range {
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.02));
+        border-color: rgba(16, 185, 129, 0.2);
+    }
+
+    :global([data-theme="light"]) .salary-value {
+        color: #059669;
     }
 
     /* Responsive */
