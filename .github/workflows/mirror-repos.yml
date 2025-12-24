@@ -60,7 +60,7 @@ jobs:
         env:
           BITBUCKET_TOKEN: ${{ secrets.BITBUCKET_TOKEN }}
         run: |
-          git remote add bitbucket https://x-token-auth:${BITBUCKET_TOKEN}@bitbucket.org/fos-duoc/analista-programador-computacional-duocuc.git || true
-          git remote set-url bitbucket https://x-token-auth:${BITBUCKET_TOKEN}@bitbucket.org/fos-duoc/analista-programador-computacional-duocuc.git
+          git remote add bitbucket https://fos-duoc:${BITBUCKET_TOKEN}@bitbucket.org/fos-duoc/analista-programador-computacional-duocuc.git || true
+          git remote set-url bitbucket https://fos-duoc:${BITBUCKET_TOKEN}@bitbucket.org/fos-duoc/analista-programador-computacional-duocuc.git
           git push bitbucket --all --force
           git push bitbucket --tags --force
