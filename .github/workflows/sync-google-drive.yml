@@ -40,10 +40,8 @@ jobs:
           cat > ~/.config/rclone/rclone.conf << EOF
           [gdrive]
           type = drive
-          client_id = ${{ secrets.GOOGLE_CLIENT_ID }}
-          client_secret = ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          scope = drive
           token = ${{ secrets.GOOGLE_RCLONE_TOKEN }}
-          team_drive =
           EOF
 
       - name: Create sync directory

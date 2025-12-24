@@ -138,13 +138,13 @@ q) Quit config
 
 2. Click **Settings** → **Secrets and variables** → **Actions**
 
-3. Click **"New repository secret"** y agrega estos 3 secrets:
+3. Click **"New repository secret"** y agrega este secret:
 
 | Nombre del Secret | Valor |
 |-------------------|-------|
-| `GOOGLE_CLIENT_ID` | Tu Client ID de Google Cloud |
-| `GOOGLE_CLIENT_SECRET` | Tu Client Secret de Google Cloud |
-| `GOOGLE_RCLONE_TOKEN` | El token completo del archivo rclone.conf |
+| `GOOGLE_RCLONE_TOKEN` | El token completo del archivo rclone.conf (el JSON que empieza con `{"access_token":...}`) |
+
+> **Nota:** No necesitas `GOOGLE_CLIENT_ID` ni `GOOGLE_CLIENT_SECRET` porque usamos las credenciales integradas de rclone.
 
 ---
 
