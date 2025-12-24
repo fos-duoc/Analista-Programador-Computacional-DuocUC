@@ -142,8 +142,71 @@ const isComunidad = currentPath.includes('/comunidad');
             themeToggle.onclick = toggleTheme;
         }
 
+        // Dropdown menu with delay
+        initDropdownMenu();
+
         // Update active nav link
         updateActiveNavLink();
+    }
+
+    // Initialize dropdown with delay behavior
+    function initDropdownMenu() {
+        const dropdown = document.querySelector('.nav-dropdown');
+        const trigger = document.querySelector('.dropdown-trigger');
+        const menu = document.querySelector('.dropdown-menu');
+
+        if (!dropdown || !trigger || !menu) return;
+
+        let closeTimeout = null;
+        const CLOSE_DELAY = 400; // ms antes de cerrar
+
+        // Abrir al hacer hover en el trigger
+        trigger.onmouseenter = () => {
+            if (closeTimeout) {
+                clearTimeout(closeTimeout);
+                closeTimeout = null;
+            }
+            dropdown.classList.add('open');
+        };
+
+        // También abrir al hacer click
+        trigger.onclick = (e) => {
+            e.preventDefault();
+            if (closeTimeout) {
+                clearTimeout(closeTimeout);
+                closeTimeout = null;
+            }
+            dropdown.classList.toggle('open');
+        };
+
+        // Mantener abierto mientras el mouse está en el menú
+        menu.onmouseenter = () => {
+            if (closeTimeout) {
+                clearTimeout(closeTimeout);
+                closeTimeout = null;
+            }
+        };
+
+        // Cerrar con delay cuando sale del dropdown
+        dropdown.onmouseleave = () => {
+            closeTimeout = setTimeout(() => {
+                dropdown.classList.remove('open');
+            }, CLOSE_DELAY);
+        };
+
+        // Cerrar al hacer click fuera
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('open');
+            }
+        });
+
+        // Cerrar con Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                dropdown.classList.remove('open');
+            }
+        });
     }
 
     // Update active navigation link
