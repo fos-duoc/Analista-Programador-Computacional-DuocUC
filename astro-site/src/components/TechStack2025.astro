@@ -2,6 +2,198 @@
 // Industry Tech Stack 2025 - Premium Dashboard with Data Source Selector & Visual Podium
 // Option C + A: Compact dashboard + Visual podium with medals, tooltips, and trend badges
 
+// Metadata de tecnologías: creadores, año, objetivo principal
+const techMetadata: Record<string, { creator: string; year: string; objective: string; features?: string[] }> = {
+    // Lenguajes
+    "JavaScript": { creator: "Brendan Eich (Netscape)", year: "1995", objective: "Lenguaje de scripting para navegadores web, ahora también backend", features: ["Event-driven", "Prototype-based", "Multi-paradigm"] },
+    "Python": { creator: "Guido van Rossum", year: "1991", objective: "Lenguaje de alto nivel enfocado en legibilidad y simplicidad", features: ["Sintaxis clara", "Tipado dinámico", "Multiplataforma"] },
+    "TypeScript": { creator: "Microsoft (Anders Hejlsberg)", year: "2012", objective: "Superset de JavaScript con tipado estático opcional", features: ["Type safety", "IntelliSense", "Refactoring"] },
+    "Java": { creator: "James Gosling (Sun Microsystems)", year: "1995", objective: "Write Once, Run Anywhere - aplicaciones empresariales", features: ["JVM", "OOP", "Garbage Collection"] },
+    "C#": { creator: "Microsoft (Anders Hejlsberg)", year: "2000", objective: "Lenguaje moderno para plataforma .NET", features: ["Type-safe", "LINQ", "Async/await"] },
+    "Go": { creator: "Google (Rob Pike, Ken Thompson)", year: "2009", objective: "Simplicidad y eficiencia para sistemas concurrentes", features: ["Goroutines", "Fast compilation", "Static typing"] },
+    "Rust": { creator: "Mozilla (Graydon Hoare)", year: "2010", objective: "Seguridad de memoria sin garbage collector", features: ["Ownership", "Zero-cost abstractions", "Thread safety"] },
+    "Kotlin": { creator: "JetBrains", year: "2011", objective: "Java moderno con sintaxis concisa", features: ["Null safety", "Coroutines", "Interop Java"] },
+    "Swift": { creator: "Apple (Chris Lattner)", year: "2014", objective: "Lenguaje seguro y rápido para ecosistema Apple", features: ["Type inference", "Optionals", "ARC"] },
+    "PHP": { creator: "Rasmus Lerdorf", year: "1994", objective: "Desarrollo web del lado del servidor", features: ["Server-side", "WordPress", "Laravel"] },
+    "C++": { creator: "Bjarne Stroustrup", year: "1983", objective: "Extensión de C con programación orientada a objetos", features: ["OOP", "Templates", "Low-level access"] },
+    "C": { creator: "Dennis Ritchie (Bell Labs)", year: "1972", objective: "Lenguaje de sistemas para Unix", features: ["Low-level", "Portable", "Efficient"] },
+    "SQL": { creator: "IBM (Donald Chamberlin)", year: "1974", objective: "Lenguaje estándar para bases de datos relacionales", features: ["Declarative", "CRUD", "Joins"] },
+
+    // Bases de Datos
+    "PostgreSQL": { creator: "UC Berkeley", year: "1996", objective: "Base de datos relacional avanzada y extensible", features: ["ACID", "JSON support", "Extensions"] },
+    "MySQL": { creator: "MySQL AB (Monty Widenius)", year: "1995", objective: "Base de datos relacional rápida y confiable", features: ["Replication", "InnoDB", "Open source"] },
+    "MongoDB": { creator: "MongoDB Inc.", year: "2009", objective: "Base de datos NoSQL orientada a documentos", features: ["Schema-less", "Horizontal scaling", "JSON-like"] },
+    "Redis": { creator: "Salvatore Sanfilippo", year: "2009", objective: "Store in-memory de alta velocidad", features: ["Key-value", "Pub/Sub", "Caching"] },
+    "SQLite": { creator: "D. Richard Hipp", year: "2000", objective: "Base de datos embebida sin servidor", features: ["Serverless", "Zero-config", "Self-contained"] },
+    "Elasticsearch": { creator: "Elastic NV (Shay Banon)", year: "2010", objective: "Motor de búsqueda y análisis distribuido", features: ["Full-text search", "RESTful", "Real-time"] },
+    "Oracle": { creator: "Oracle Corporation (Larry Ellison)", year: "1979", objective: "Base de datos empresarial líder", features: ["RAC", "PL/SQL", "Enterprise features"] },
+    "MariaDB": { creator: "MariaDB Foundation (Monty Widenius)", year: "2009", objective: "Fork de MySQL con mejoras de comunidad", features: ["MySQL compatible", "Galera Cluster", "Open source"] },
+    "Cassandra": { creator: "Facebook, ahora Apache", year: "2008", objective: "Base de datos distribuida para alta disponibilidad", features: ["Wide-column", "No SPOF", "Linear scaling"] },
+    "Neo4j": { creator: "Neo4j Inc.", year: "2007", objective: "Base de datos de grafos nativa", features: ["Cypher query", "Graph algorithms", "ACID"] },
+
+    // Cloud & Hosting
+    "AWS": { creator: "Amazon", year: "2006", objective: "Plataforma cloud líder con 200+ servicios", features: ["EC2", "S3", "Lambda"] },
+    "Azure": { creator: "Microsoft", year: "2010", objective: "Cloud para empresas con integración Microsoft", features: ["Active Directory", "DevOps", "Hybrid cloud"] },
+    "GCP": { creator: "Google", year: "2008", objective: "Cloud optimizado para ML y Big Data", features: ["BigQuery", "Kubernetes Engine", "AI Platform"] },
+    "Vercel": { creator: "Vercel (Guillermo Rauch)", year: "2015", objective: "Plataforma para despliegue de frontends", features: ["Edge functions", "Preview deploys", "Next.js native"] },
+    "DigitalOcean": { creator: "Ben Uretsky, Moisey Uretsky", year: "2011", objective: "Cloud simple para desarrolladores", features: ["Droplets", "App Platform", "Managed DBs"] },
+    "Cloudflare": { creator: "Matthew Prince, Lee Holloway", year: "2010", objective: "CDN, seguridad y edge computing", features: ["Workers", "DDoS protection", "Zero Trust"] },
+    "Netlify": { creator: "Netlify (Mathias Biilmann)", year: "2014", objective: "Hosting JAMstack con CI/CD integrado", features: ["Git deploys", "Serverless functions", "Forms"] },
+    "Heroku": { creator: "Salesforce", year: "2007", objective: "PaaS para despliegue rápido de apps", features: ["Dynos", "Add-ons", "Git deploy"] },
+    "Render": { creator: "Render (Anurag Goel)", year: "2018", objective: "Cloud moderno para desarrolladores", features: ["Auto-deploy", "Private services", "Managed SSL"] },
+
+    // Data Engineering
+    "Spark": { creator: "UC Berkeley (Matei Zaharia)", year: "2014", objective: "Procesamiento de datos a gran escala", features: ["In-memory", "DataFrame API", "MLlib"] },
+    "Airflow": { creator: "Airbnb, ahora Apache", year: "2015", objective: "Orquestación de pipelines de datos", features: ["DAGs", "Operators", "Scheduling"] },
+    "Kafka": { creator: "LinkedIn, ahora Apache", year: "2011", objective: "Streaming de eventos distribuido", features: ["Pub/Sub", "Partitioning", "Durability"] },
+    "dbt": { creator: "dbt Labs (Tristan Handy)", year: "2016", objective: "Transformación de datos con SQL y versionado", features: ["Modular SQL", "Testing", "Documentation"] },
+    "Snowflake": { creator: "Snowflake Inc.", year: "2012", objective: "Data warehouse cloud-native", features: ["Separation compute/storage", "Multi-cloud", "Zero-copy cloning"] },
+    "Databricks": { creator: "Databricks (Ali Ghodsi)", year: "2013", objective: "Plataforma unificada de analytics", features: ["Lakehouse", "Delta Lake", "MLflow"] },
+    "Flink": { creator: "TU Berlin, ahora Apache", year: "2014", objective: "Stream processing con estado", features: ["Event time", "Exactly-once", "Checkpointing"] },
+    "Hadoop": { creator: "Yahoo!, ahora Apache", year: "2006", objective: "Framework para procesamiento distribuido", features: ["HDFS", "MapReduce", "YARN"] },
+    "Prefect": { creator: "Prefect Technologies", year: "2018", objective: "Orquestación moderna de workflows", features: ["Pythonic", "Cloud-native", "Observability"] },
+    "Dagster": { creator: "Dagster Labs", year: "2018", objective: "Orquestación basada en assets de datos", features: ["Software-defined assets", "Type system", "Observability"] },
+
+    // DevOps & Infra
+    "Docker": { creator: "Docker Inc. (Solomon Hykes)", year: "2013", objective: "Contenerización de aplicaciones", features: ["Containers", "Images", "Docker Compose"] },
+    "Kubernetes": { creator: "Google (Borg heritage)", year: "2014", objective: "Orquestación de contenedores a escala", features: ["Pods", "Services", "Auto-scaling"] },
+    "Terraform": { creator: "HashiCorp (Mitchell Hashimoto)", year: "2014", objective: "Infrastructure as Code multi-cloud", features: ["HCL", "State management", "Providers"] },
+    "GitHub Actions": { creator: "GitHub (Microsoft)", year: "2019", objective: "CI/CD integrado en GitHub", features: ["YAML workflows", "Marketplace", "Matrix builds"] },
+    "ArgoCD": { creator: "Intuit, ahora CNCF", year: "2018", objective: "GitOps para Kubernetes", features: ["Declarative", "Multi-cluster", "Sync waves"] },
+    "Prometheus": { creator: "SoundCloud, ahora CNCF", year: "2012", objective: "Monitoreo y alertas para sistemas", features: ["Time-series", "PromQL", "Pull model"] },
+    "Grafana": { creator: "Grafana Labs (Torkel Ödegaard)", year: "2014", objective: "Visualización de métricas y logs", features: ["Dashboards", "Alerting", "Plugins"] },
+    "Ansible": { creator: "Red Hat (Michael DeHaan)", year: "2012", objective: "Automatización de configuración", features: ["Agentless", "YAML playbooks", "Idempotent"] },
+    "Jenkins": { creator: "Kohsuke Kawaguchi", year: "2011", objective: "Servidor de automatización CI/CD", features: ["Plugins", "Pipeline as code", "Distributed builds"] },
+    "Nginx": { creator: "Igor Sysoev", year: "2004", objective: "Web server y reverse proxy de alto rendimiento", features: ["Event-driven", "Load balancing", "Caching"] },
+
+    // Backend & APIs
+    "Node.js": { creator: "OpenJS Foundation (Ryan Dahl)", year: "2009", objective: "JavaScript runtime para servidores", features: ["V8 engine", "npm ecosystem", "Non-blocking I/O"] },
+    "Spring Boot": { creator: "VMware (Pivotal)", year: "2014", objective: "Framework Java para microservicios", features: ["Auto-config", "Embedded server", "Actuator"] },
+    "FastAPI": { creator: "Sebastián Ramírez", year: "2018", objective: "API Python moderna con async y tipos", features: ["Auto docs", "Pydantic", "Async support"] },
+    ".NET Core": { creator: "Microsoft", year: "2016", objective: "Plataforma cross-platform para C#", features: ["Cross-platform", "High performance", "Open source"] },
+    "Django": { creator: "Django Software Foundation", year: "2005", objective: "Framework web Python full-stack", features: ["ORM", "Admin panel", "Batteries included"] },
+    "NestJS": { creator: "Kamil Myśliwiec", year: "2017", objective: "Framework Node.js para aplicaciones enterprise", features: ["TypeScript", "Modules", "DI"] },
+    "Express": { creator: "TJ Holowaychuk", year: "2010", objective: "Framework web minimalista para Node.js", features: ["Middleware", "Routing", "Template engines"] },
+    "Flask": { creator: "Armin Ronacher (Pallets)", year: "2010", objective: "Microframework Python flexible", features: ["Minimal", "Extensible", "Jinja2"] },
+    "Laravel": { creator: "Taylor Otwell", year: "2011", objective: "Framework PHP elegante y expresivo", features: ["Eloquent ORM", "Blade templates", "Artisan CLI"] },
+    "GraphQL": { creator: "Facebook (Lee Byron)", year: "2015", objective: "Query language para APIs", features: ["Single endpoint", "Type system", "Introspection"] },
+
+    // Frontend & UI
+    "React": { creator: "Facebook (Jordan Walke)", year: "2013", objective: "Librería para interfaces de usuario", features: ["Virtual DOM", "JSX", "Hooks"] },
+    "Vue.js": { creator: "Evan You", year: "2014", objective: "Framework progresivo para UI", features: ["Reactive", "Composition API", "SFC"] },
+    "Next.js": { creator: "Vercel (Guillermo Rauch)", year: "2016", objective: "Framework React con SSR/SSG", features: ["File-based routing", "API routes", "App Router"] },
+    "Angular": { creator: "Google", year: "2016", objective: "Framework completo para SPAs enterprise", features: ["TypeScript", "RxJS", "CLI"] },
+    "Tailwind": { creator: "Adam Wathan", year: "2017", objective: "Framework CSS utility-first", features: ["Utility classes", "JIT", "Responsive"] },
+    "Svelte": { creator: "Rich Harris", year: "2016", objective: "Compilador que genera JS vanilla", features: ["No runtime", "Reactive", "Compact"] },
+    "Astro": { creator: "Astro (Fred K. Schott)", year: "2021", objective: "Framework para sitios de contenido", features: ["Islands", "Zero JS default", "Multi-framework"] },
+    "Nuxt": { creator: "Nuxt Labs (Sébastien Chopin)", year: "2016", objective: "Framework Vue.js con SSR", features: ["File-based routing", "Auto imports", "Modules"] },
+    "Remix": { creator: "Remix (Ryan Florence, Michael Jackson)", year: "2021", objective: "Framework React basado en web standards", features: ["Nested routes", "Loader/Action", "Progressive enhancement"] },
+    "Vite": { creator: "Evan You", year: "2020", objective: "Build tool ultrarrápido para desarrollo", features: ["ESM native", "HMR", "Rollup"] },
+
+    // Testing & QA
+    "Jest": { creator: "Facebook", year: "2014", objective: "Framework de testing para JavaScript", features: ["Snapshot testing", "Mocking", "Coverage"] },
+    "Pytest": { creator: "Holger Krekel", year: "2004", objective: "Framework de testing para Python", features: ["Fixtures", "Parametrize", "Plugins"] },
+    "Playwright": { creator: "Microsoft", year: "2020", objective: "Automatización de browsers moderna", features: ["Multi-browser", "Auto-wait", "Tracing"] },
+    "Cypress": { creator: "Cypress.io", year: "2015", objective: "Testing E2E para aplicaciones web", features: ["Time travel", "Real-time reloads", "Screenshots"] },
+    "Postman": { creator: "Postman Inc.", year: "2012", objective: "Plataforma para desarrollo de APIs", features: ["Collections", "Environments", "Mock servers"] },
+    "Selenium": { creator: "ThoughtWorks (Jason Huggins)", year: "2004", objective: "Automatización de navegadores web", features: ["WebDriver", "Multi-browser", "Grid"] },
+    "Vitest": { creator: "Vitest Team (Anthony Fu)", year: "2021", objective: "Framework de testing para Vite", features: ["Vite-native", "Jest compatible", "Fast"] },
+    "JUnit": { creator: "Kent Beck, Erich Gamma", year: "1997", objective: "Framework de testing para Java", features: ["Annotations", "Assertions", "Test runners"] },
+    "Mocha": { creator: "TJ Holowaychuk", year: "2011", objective: "Framework de testing para Node.js", features: ["Flexible", "Async", "Reporters"] },
+    "K6": { creator: "Grafana Labs", year: "2017", objective: "Testing de carga moderno", features: ["JavaScript DSL", "Cloud", "Metrics"] },
+
+    // Version Control
+    "Git": { creator: "Linus Torvalds", year: "2005", objective: "Sistema de control de versiones distribuido", features: ["Branching", "Distributed", "Speed"] },
+    "GitHub": { creator: "GitHub Inc. (Tom Preston-Werner)", year: "2008", objective: "Plataforma de desarrollo colaborativo", features: ["PRs", "Actions", "Copilot"] },
+    "GitLab": { creator: "GitLab Inc. (Sid Sijbrandij)", year: "2011", objective: "DevSecOps platform todo-en-uno", features: ["CI/CD", "Security", "DevOps"] },
+    "Bitbucket": { creator: "Atlassian", year: "2008", objective: "Hosting de Git con integración Jira", features: ["Pipelines", "Jira integration", "Code review"] },
+    "Azure DevOps": { creator: "Microsoft", year: "2018", objective: "Suite completa de DevOps", features: ["Boards", "Repos", "Pipelines"] },
+    "Gitea": { creator: "Gitea Community", year: "2016", objective: "Git server self-hosted ligero", features: ["Lightweight", "Self-hosted", "Open source"] },
+
+    // Mobile & Cross-Platform
+    "React Native": { creator: "Facebook", year: "2015", objective: "Apps nativas con JavaScript/React", features: ["Native components", "Hot reload", "Cross-platform"] },
+    "Flutter": { creator: "Google", year: "2017", objective: "UI toolkit para apps multiplataforma", features: ["Dart", "Hot reload", "Custom rendering"] },
+    "Expo": { creator: "Expo Inc.", year: "2015", objective: "Plataforma para desarrollo React Native", features: ["SDK", "OTA updates", "EAS Build"] },
+    "Ionic": { creator: "Ionic (Max Lynch)", year: "2013", objective: "Framework para apps híbridas", features: ["Web components", "Capacitor", "Cross-platform"] },
+    "Xamarin": { creator: "Microsoft (Mono)", year: "2011", objective: "Desarrollo móvil con C# y .NET", features: [".NET", "Native APIs", "Shared code"] },
+    "Capacitor": { creator: "Ionic", year: "2019", objective: "Runtime para apps web como nativas", features: ["Web to native", "Plugins", "PWA"] },
+
+    // AI & Machine Learning
+    "TensorFlow": { creator: "Google Brain", year: "2015", objective: "Framework de machine learning end-to-end", features: ["TF.js", "TF Lite", "Keras"] },
+    "PyTorch": { creator: "Facebook AI Research", year: "2016", objective: "Framework ML para investigación y producción", features: ["Dynamic graphs", "Pythonic", "CUDA"] },
+    "scikit-learn": { creator: "INRIA (David Cournapeau)", year: "2007", objective: "Librería de ML clásico para Python", features: ["Algorithms", "Preprocessing", "Model selection"] },
+    "OpenAI API": { creator: "OpenAI", year: "2020", objective: "APIs para modelos GPT y DALL-E", features: ["GPT-4", "Embeddings", "Fine-tuning"] },
+    "Hugging Face": { creator: "Hugging Face", year: "2016", objective: "Hub de modelos y datasets de ML", features: ["Transformers", "Datasets", "Spaces"] },
+    "LangChain": { creator: "LangChain Inc. (Harrison Chase)", year: "2022", objective: "Framework para aplicaciones con LLMs", features: ["Chains", "Agents", "RAG"] },
+    "Pandas": { creator: "Wes McKinney", year: "2008", objective: "Análisis y manipulación de datos", features: ["DataFrame", "Time series", "I/O tools"] },
+    "NumPy": { creator: "Travis Oliphant", year: "2005", objective: "Computación numérica eficiente", features: ["Arrays", "Broadcasting", "Linear algebra"] },
+    "Jupyter": { creator: "Project Jupyter (Fernando Pérez)", year: "2014", objective: "Notebooks interactivos para data science", features: ["Notebooks", "Kernels", "Widgets"] },
+    "MLflow": { creator: "Databricks", year: "2018", objective: "Plataforma para ciclo de vida de ML", features: ["Tracking", "Models", "Registry"] },
+
+    // BI & Visualization
+    "Power BI": { creator: "Microsoft", year: "2014", objective: "Business Intelligence y reportes", features: ["DAX", "Dataflows", "Paginated reports"] },
+    "Tableau": { creator: "Tableau Software (Christian Chabot)", year: "2003", objective: "Visualización de datos interactiva", features: ["VizQL", "Dashboard", "Data blending"] },
+    "Looker": { creator: "Google (Lloyd Tabb)", year: "2012", objective: "BI moderno con LookML", features: ["Semantic layer", "Embedded", "Explore"] },
+    "Metabase": { creator: "Metabase Inc.", year: "2015", objective: "BI open source fácil de usar", features: ["Questions", "Dashboards", "Embedding"] },
+    "Apache Superset": { creator: "Airbnb, ahora Apache", year: "2015", objective: "BI open source para exploración", features: ["Charts", "SQL Lab", "Dashboards"] },
+    "D3.js": { creator: "Mike Bostock", year: "2011", objective: "Visualizaciones personalizadas con JavaScript", features: ["Data binding", "SVG", "Transitions"] },
+    "Plotly": { creator: "Plotly Inc.", year: "2012", objective: "Gráficos interactivos para Python/JS", features: ["Interactive", "Dash", "Jupyter"] },
+
+    // Cloud Data Warehouses
+    "BigQuery": { creator: "Google", year: "2010", objective: "Data warehouse serverless de Google", features: ["Serverless", "ML built-in", "BI Engine"] },
+    "Redshift": { creator: "Amazon", year: "2012", objective: "Data warehouse de AWS", features: ["Columnar", "Spectrum", "RA3 nodes"] },
+    "Azure Synapse": { creator: "Microsoft", year: "2019", objective: "Analytics unificado de Azure", features: ["SQL pools", "Spark", "Data integration"] },
+    "Firebolt": { creator: "Firebolt", year: "2019", objective: "Data warehouse ultra-rápido", features: ["F3 engine", "Indexes", "Sparse indexes"] },
+    "ClickHouse": { creator: "Yandex", year: "2016", objective: "OLAP database de alto rendimiento", features: ["Columnar", "Compression", "Real-time"] },
+    "Dremio": { creator: "Dremio", year: "2015", objective: "Lakehouse con SQL engine", features: ["Data lakehouse", "Reflections", "Iceberg"] },
+    "StarRocks": { creator: "StarRocks Inc.", year: "2021", objective: "OLAP para analytics en tiempo real", features: ["MPP", "Vectorized", "Real-time"] },
+    "DuckDB": { creator: "CWI Amsterdam", year: "2019", objective: "Base de datos analítica embebida", features: ["In-process", "Columnar", "Parquet native"] },
+
+    // Terminal & CLI Tools
+    "Oh My Zsh": { creator: "Robby Russell", year: "2009", objective: "Framework para configuración de Zsh", features: ["Themes", "Plugins", "Community"] },
+    "Starship": { creator: "Starship Contributors", year: "2019", objective: "Prompt de terminal cross-shell", features: ["Fast", "Customizable", "Cross-shell"] },
+    "tmux": { creator: "Nicholas Marriott", year: "2007", objective: "Multiplexor de terminal", features: ["Sessions", "Windows", "Panes"] },
+    "Neovim": { creator: "Neovim Community", year: "2014", objective: "Editor de texto extensible basado en Vim", features: ["Lua config", "LSP", "Async"] },
+    "Warp": { creator: "Warp (Zach Lloyd)", year: "2022", objective: "Terminal moderna con AI", features: ["AI command", "Blocks", "Workflows"] },
+    "lazygit": { creator: "Jesse Duffield", year: "2018", objective: "TUI simple para Git", features: ["Interactive", "Keyboard-driven", "Visual diff"] },
+    "fzf": { creator: "Junegunn Choi", year: "2013", objective: "Fuzzy finder de línea de comandos", features: ["Fast", "Portable", "Vim integration"] },
+
+    // AI/LLM & Gen AI
+    "ChatGPT": { creator: "OpenAI", year: "2022", objective: "Chatbot conversacional con GPT-4", features: ["Conversations", "Plugins", "Vision"] },
+    "Claude": { creator: "Anthropic", year: "2023", objective: "Asistente AI seguro y útil", features: ["Constitutional AI", "Long context", "Artifacts"] },
+    "Gemini": { creator: "Google DeepMind", year: "2023", objective: "Modelo multimodal de Google", features: ["Multimodal", "Long context", "Code"] },
+    "GitHub Copilot": { creator: "GitHub + OpenAI", year: "2021", objective: "Asistente de programación con AI", features: ["Code completion", "Chat", "CLI"] },
+    "Cursor": { creator: "Cursor Inc.", year: "2023", objective: "IDE con AI integrado", features: ["AI-native", "Codebase aware", "Multi-file edits"] },
+    "Ollama": { creator: "Ollama", year: "2023", objective: "Ejecutar LLMs localmente", features: ["Local LLMs", "Easy setup", "API"] },
+    "Perplexity": { creator: "Perplexity AI", year: "2022", objective: "Motor de búsqueda con AI", features: ["Citations", "Follow-ups", "Pro Search"] },
+    "Midjourney": { creator: "Midjourney Inc.", year: "2022", objective: "Generación de imágenes con AI", features: ["Discord-based", "V6", "Style tuning"] },
+    "DeepSeek": { creator: "DeepSeek AI", year: "2024", objective: "Modelos open-source de alto rendimiento", features: ["Open weights", "Code focus", "Math"] },
+    "Llama": { creator: "Meta AI", year: "2023", objective: "LLM open source de Meta", features: ["Open weights", "Fine-tuning", "Research"] },
+
+    // Integration & iPaaS
+    "MuleSoft": { creator: "Salesforce (Ross Mason)", year: "2006", objective: "Plataforma de integración empresarial", features: ["Anypoint Platform", "API-led", "Connectors"] },
+    "Apache Camel": { creator: "Apache (James Strachan)", year: "2007", objective: "Framework de integración basado en patrones", features: ["EIPs", "DSL", "Components"] },
+    "Dell Boomi": { creator: "Dell Technologies", year: "2007", objective: "iPaaS para integración cloud", features: ["Low-code", "AtomSphere", "MDM"] },
+    "Workato": { creator: "Workato (Vijay Tella)", year: "2013", objective: "Automatización empresarial inteligente", features: ["Recipes", "Workbots", "AI-powered"] },
+    "Talend": { creator: "Talend (Bertrand Diard)", year: "2005", objective: "Integración y calidad de datos", features: ["Data integration", "Quality", "Governance"] },
+    "Informatica": { creator: "Informatica (Sohaib Abbasi)", year: "1993", objective: "Gestión de datos empresarial", features: ["IDMC", "Data quality", "MDM"] },
+    "SnapLogic": { creator: "SnapLogic (Gaurav Dhillon)", year: "2010", objective: "iPaaS con AI generativa", features: ["Snaps", "SnapGPT", "Low-code"] },
+    "Celigo": { creator: "Celigo", year: "2011", objective: "iPaaS para conectar SaaS", features: ["Pre-built integrations", "Error management", "Monitoring"] },
+    "Tray.io": { creator: "Tray.io (Rich Waldron)", year: "2012", objective: "Automatización low-code empresarial", features: ["Visual builder", "Universal connector", "AI"] },
+    "Kong": { creator: "Kong Inc. (Marco Palladino)", year: "2015", objective: "API Gateway y service mesh", features: ["Plugins", "Multi-cloud", "Security"] },
+
+    // Automation & RPA
+    "n8n": { creator: "n8n GmbH (Jan Oberhauser)", year: "2019", objective: "Automatización workflow open source", features: ["Self-hosted", "Fair-code", "500+ integrations"] },
+    "UiPath": { creator: "UiPath (Daniel Dines)", year: "2005", objective: "Plataforma RPA empresarial", features: ["Studio", "Orchestrator", "AI Center"] },
+    "Zapier": { creator: "Zapier (Wade Foster)", year: "2011", objective: "Automatización de apps web", features: ["Zaps", "6000+ apps", "Multi-step"] },
+    "Make": { creator: "Make (Ondrej Gazda)", year: "2012", objective: "Automatización visual de workflows", features: ["Scenarios", "Visual builder", "Complex logic"] },
+    "Automation Anywhere": { creator: "Automation Anywhere (Mihir Shukla)", year: "2003", objective: "RPA con AI", features: ["IQ Bot", "Bot Store", "CoE"] },
+    "Power Automate": { creator: "Microsoft", year: "2016", objective: "Automatización en ecosistema Microsoft", features: ["Flows", "Desktop flows", "Copilot"] },
+    "Blue Prism": { creator: "Blue Prism (Alastair Bathgate)", year: "2001", objective: "RPA empresarial seguro", features: ["Digital workers", "Control room", "Enterprise-grade"] },
+    "Temporal": { creator: "Temporal (Maxim Fateev)", year: "2019", objective: "Orquestación de workflows duraderos", features: ["Durable execution", "Polyglot", "Open source"] },
+    "Activepieces": { creator: "Activepieces", year: "2022", objective: "Automatización open source moderna", features: ["Self-hosted", "Type-safe", "Builder UI"] },
+};
+
 // Data by source - allows switching between SO/GitHub/TIOBE
 const languagesBySource = {
     stackoverflow: [
@@ -420,11 +612,16 @@ const categoryFilters = techCategories.map(cat => ({ id: cat.id, title: cat.titl
 
             <!-- Visual Podium Grid -->
             <div class="podium-visual">
-                {topLanguages.map((lang, idx) => (
+                {topLanguages.map((lang, idx) => {
+                    const meta = techMetadata[lang.name];
+                    const tooltipData = meta ?
+                        `${lang.name}|${meta.objective}|${meta.features?.join(', ') || ''}|tool|fas fa-trophy|${meta.creator} (${meta.year})` :
+                        `${lang.name}|${lang.desc}||tool|fas fa-code|`;
+                    return (
                     <a href={lang.url} target="_blank" rel="noopener"
                        class={`podium-card-v2 medal-${lang.medal}`}
                        data-source="stackoverflow"
-                       data-tooltip={lang.desc}
+                       data-premium-tooltip={tooltipData}
                        style={idx === 0 ? 'order: 2' : idx === 1 ? 'order: 1' : 'order: 3'}>
 
                         <!-- Medal Icon -->
@@ -468,7 +665,7 @@ const categoryFilters = techCategories.map(cat => ({ id: cat.id, title: cat.titl
                             <div class="progress-fill-v2" style={`width: ${lang.barWidth}`}></div>
                         </div>
                     </a>
-                ))}
+                )})}
             </div>
 
             <!-- Secondary Languages - Compact with Tooltips -->
@@ -478,11 +675,16 @@ const categoryFilters = techCategories.map(cat => ({ id: cat.id, title: cat.titl
                     <span class="secondary-count">+5 lenguajes</span>
                 </div>
                 <div class="secondary-grid">
-                    {secondaryLanguages.map(lang => (
+                    {secondaryLanguages.map(lang => {
+                        const meta = techMetadata[lang.name];
+                        const tooltipData = meta ?
+                            `${lang.name}|${meta.objective}|${meta.features?.join(', ') || ''}|tool|fas fa-code|${meta.creator} (${meta.year})` :
+                            `${lang.name}|${lang.desc}||tool|fas fa-code|`;
+                        return (
                         <a href={lang.url} target="_blank" rel="noopener"
                            class="lang-chip-v2"
                            data-source="stackoverflow"
-                           data-tooltip={lang.desc}>
+                           data-premium-tooltip={tooltipData}>
                             {lang.icon.startsWith('devicon') ? (
                                 <i class={lang.icon}></i>
                             ) : (
@@ -498,7 +700,7 @@ const categoryFilters = techCategories.map(cat => ({ id: cat.id, title: cat.titl
                                 {lang.trendValue}
                             </span>
                         </a>
-                    ))}
+                    )})}
                 </div>
             </div>
 
@@ -526,8 +728,15 @@ const categoryFilters = techCategories.map(cat => ({ id: cat.id, title: cat.titl
                         <span class="cat-count">{category.items.length}</span>
                     </div>
                     <div class="category-items">
-                        {category.items.map(item => (
-                            <a href={item.url} target="_blank" rel="noopener" class={`tech-item ${item.hot ? 'hot' : ''}`}>
+                        {category.items.map(item => {
+                            const meta = techMetadata[item.name];
+                            const tooltipData = meta ?
+                                `${item.name}|${meta.objective}|${meta.features?.join(', ') || ''}|tool|fas fa-${item.hot ? 'fire' : 'code'}|${meta.creator} (${meta.year})` :
+                                `${item.name}|${item.desc}||tool|fas fa-code|`;
+                            return (
+                            <a href={item.url} target="_blank" rel="noopener"
+                               class={`tech-item ${item.hot ? 'hot' : ''}`}
+                               data-premium-tooltip={tooltipData}>
                                 {item.icon.startsWith('img:') ? (
                                     <img src={item.icon.replace('img:', '')} alt={item.name} class="tech-icon-img" width="32" height="32" loading="lazy" />
                                 ) : (
@@ -542,7 +751,7 @@ const categoryFilters = techCategories.map(cat => ({ id: cat.id, title: cat.titl
                                     <span class="tech-stat-value">{item.stat}</span>
                                 </div>
                             </a>
-                        ))}
+                        )})}
                     </div>
                 </div>
             ))}
@@ -581,6 +790,21 @@ const categoryFilters = techCategories.map(cat => ({ id: cat.id, title: cat.titl
 </section>
 
 <script is:inline>
+// Tech metadata for premium tooltips
+const techMeta = {
+    "JavaScript": { creator: "Brendan Eich (Netscape)", year: "1995", objective: "Lenguaje de scripting para navegadores web, ahora también backend", features: ["Event-driven", "Prototype-based", "Multi-paradigm"] },
+    "Python": { creator: "Guido van Rossum", year: "1991", objective: "Lenguaje de alto nivel enfocado en legibilidad y simplicidad", features: ["Sintaxis clara", "Tipado dinámico", "Multiplataforma"] },
+    "TypeScript": { creator: "Microsoft (Anders Hejlsberg)", year: "2012", objective: "Superset de JavaScript con tipado estático opcional", features: ["Type safety", "IntelliSense", "Refactoring"] },
+    "Java": { creator: "James Gosling (Sun Microsystems)", year: "1995", objective: "Write Once, Run Anywhere - aplicaciones empresariales", features: ["JVM", "OOP", "Garbage Collection"] },
+    "C#": { creator: "Microsoft (Anders Hejlsberg)", year: "2000", objective: "Lenguaje moderno para plataforma .NET", features: ["Type-safe", "LINQ", "Async/await"] },
+    "Go": { creator: "Google (Rob Pike, Ken Thompson)", year: "2009", objective: "Simplicidad y eficiencia para sistemas concurrentes", features: ["Goroutines", "Fast compilation", "Static typing"] },
+    "Rust": { creator: "Mozilla (Graydon Hoare)", year: "2010", objective: "Seguridad de memoria sin garbage collector", features: ["Ownership", "Zero-cost abstractions", "Thread safety"] },
+    "Kotlin": { creator: "JetBrains", year: "2011", objective: "Java moderno con sintaxis concisa", features: ["Null safety", "Coroutines", "Interop Java"] },
+    "C++": { creator: "Bjarne Stroustrup", year: "1983", objective: "Extensión de C con programación orientada a objetos", features: ["OOP", "Templates", "Low-level access"] },
+    "C": { creator: "Dennis Ritchie (Bell Labs)", year: "1972", objective: "Lenguaje de sistemas para Unix", features: ["Low-level", "Portable", "Efficient"] },
+    "SQL": { creator: "IBM (Donald Chamberlin)", year: "1974", objective: "Lenguaje estándar para bases de datos relacionales", features: ["Declarative", "CRUD", "Joins"] },
+};
+
 // Language data for source switching
 const langData = {
     stackoverflow: {
@@ -718,13 +942,22 @@ function updatePodiumData(source) {
     const podiumGrid = document.querySelector('.podium-visual');
     const secondaryGrid = document.querySelector('.secondary-grid');
 
+    // Helper function to build premium tooltip string
+    function buildTooltip(name, desc) {
+        const meta = techMeta[name];
+        if (meta) {
+            return `${name}|${meta.objective}|${meta.features?.join(', ') || ''}|tool|fas fa-trophy|${meta.creator} (${meta.year})`;
+        }
+        return `${name}|${desc}||tool|fas fa-code|`;
+    }
+
     if (podiumGrid) {
         // Clear and rebuild podium
         podiumGrid.innerHTML = data.top.map((lang, idx) => `
             <a href="${lang.url}" target="_blank" rel="noopener"
                class="podium-card-v2 medal-${lang.medal}"
                data-source="${source}"
-               data-tooltip="${lang.desc}"
+               data-premium-tooltip="${buildTooltip(lang.name, lang.desc)}"
                style="order: ${idx === 0 ? 2 : idx === 1 ? 1 : 3}">
                 <div class="medal-icon">
                     ${lang.medal === 'gold' ? '<span class="medal gold">🥇</span>' : ''}
@@ -764,7 +997,7 @@ function updatePodiumData(source) {
             <a href="${lang.url}" target="_blank" rel="noopener"
                class="lang-chip-v2"
                data-source="${source}"
-               data-tooltip="${lang.desc}">
+               data-premium-tooltip="${buildTooltip(lang.name, lang.desc)}">
                 ${lang.icon.startsWith('devicon') ?
                     `<i class="${lang.icon}"></i>` :
                     `<img src="${lang.icon}" alt="${lang.name}" width="20" loading="lazy" />`
@@ -778,8 +1011,10 @@ function updatePodiumData(source) {
         `).join('');
     }
 
-    // Re-init tooltips
-    initTooltips();
+    // Re-init premium tooltips
+    if (typeof initPremiumTooltips === 'function') {
+        initPremiumTooltips();
+    }
 }
 
 function initTooltips() {
