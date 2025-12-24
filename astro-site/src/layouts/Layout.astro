@@ -129,6 +129,14 @@ const BUILD_VERSION = Date.now().toString(36);
     <link rel="icon" href="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg">
 </head>
 <body>
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress" class="scroll-progress-bar"></div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top-btn" aria-label="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
     <slot />
 
     <script is:inline src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -421,6 +429,63 @@ const BUILD_VERSION = Date.now().toString(36);
 
         document.addEventListener('DOMContentLoaded', initTooltipSystem);
         document.addEventListener('astro:page-load', initTooltipSystem);
+
+        // ============================================
+        // SCROLL PROGRESS BAR & BACK TO TOP
+        // ============================================
+
+        function initScrollFeatures() {
+            const progressBar = document.getElementById('scroll-progress');
+            const backToTopBtn = document.getElementById('back-to-top');
+
+            if (!progressBar || !backToTopBtn) return;
+
+            // Scroll progress calculation
+            function updateScrollProgress() {
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+
+                progressBar.style.width = scrollPercent + '%';
+
+                // Show/hide back to top button
+                if (scrollTop > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            }
+
+            // Throttled scroll handler for performance
+            let ticking = false;
+            function onScroll() {
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        updateScrollProgress();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }
+
+            // Back to top click handler
+            backToTopBtn.onclick = function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            };
+
+            // Bind scroll event
+            window.removeEventListener('scroll', onScroll);
+            window.addEventListener('scroll', onScroll, { passive: true });
+
+            // Initial update
+            updateScrollProgress();
+        }
+
+        document.addEventListener('DOMContentLoaded', initScrollFeatures);
+        document.addEventListener('astro:page-load', initScrollFeatures);
     </script>
 </body>
 </html>
