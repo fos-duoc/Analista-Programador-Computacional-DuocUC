@@ -52,11 +52,20 @@ const isProyectos = currentPath.includes('/proyectos');
 </header>
 
 <script is:inline>
-    // Initialize on page load and after view transitions
+    // Theme toggle function - globally accessible
+    function toggleTheme() {
+        const html = document.documentElement;
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        console.log('Theme toggled to:', newTheme);
+    }
+
+    // Initialize header functionality
     function initHeader() {
         const header = document.querySelector('.header');
         const themeToggle = document.getElementById('theme-toggle');
-        const html = document.documentElement;
 
         // Header scroll effect
         function handleScroll() {
@@ -67,12 +76,14 @@ const isProyectos = currentPath.includes('/proyectos');
             }
         }
 
+        // Remove old listener and add new one
+        window.removeEventListener('scroll', handleScroll);
         window.addEventListener('scroll', handleScroll);
-        handleScroll(); // Initial check
+        handleScroll();
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.onclick = function(e) {
                 e.preventDefault();
                 const href = this.getAttribute('href');
                 if (href && href !== '#') {
@@ -84,21 +95,15 @@ const isProyectos = currentPath.includes('/proyectos');
                         });
                     }
                 }
-            });
+            };
         });
 
-        // Theme Toggle - Persist across pages
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        html.setAttribute('data-theme', savedTheme);
+        // Theme Toggle - Use onclick to avoid duplicate listeners
+        if (themeToggle) {
+            themeToggle.onclick = toggleTheme;
+        }
 
-        themeToggle?.addEventListener('click', () => {
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-        });
-
-        // Update active nav link based on current path
+        // Update active nav link
         updateActiveNavLink();
     }
 
@@ -111,7 +116,6 @@ const isProyectos = currentPath.includes('/proyectos');
             link.classList.remove('active');
             const href = link.getAttribute('href');
             if (href) {
-                // Check if current path matches or contains the link's path
                 if (currentPath.includes('/inicio') && href.includes('/inicio')) {
                     link.classList.add('active');
                 } else if (currentPath.includes('/stack') && href.includes('/stack')) {
@@ -128,7 +132,11 @@ const isProyectos = currentPath.includes('/proyectos');
     }
 
     // Run on initial page load
-    document.addEventListener('DOMContentLoaded', initHeader);
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initHeader);
+    } else {
+        initHeader();
+    }
 
     // Run after Astro view transitions
     document.addEventListener('astro:page-load', initHeader);

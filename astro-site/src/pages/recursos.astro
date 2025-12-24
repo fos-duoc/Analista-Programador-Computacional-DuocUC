@@ -12,6 +12,7 @@ import CertificationsSection from '../components/CertificationsSection.astro';
 import TerminalDemo from '../components/TerminalDemo.astro';
 import WebVitalsSection from '../components/WebVitalsSection.astro';
 import SedesMapSection from '../components/SedesMapSection.astro';
+import ProfessionalProjectsSection from '../components/ProfessionalProjectsSection.astro';
 ---
 
 <Layout title="Recursos de Aprendizaje | DuocUC">
@@ -67,6 +68,10 @@ import SedesMapSection from '../components/SedesMapSection.astro';
                     <i class="fas fa-map-marked-alt"></i>
                     <span>Sedes</span>
                 </a>
+                <a href="#professional-projects" class="quick-nav">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Proyectos Pro</span>
+                </a>
             </div>
         </div>
     </section>
@@ -100,6 +105,9 @@ import SedesMapSection from '../components/SedesMapSection.astro';
 
     <!-- Sedes DuocUC Map -->
     <SedesMapSection />
+
+    <!-- Proyectos Profesionales -->
+    <ProfessionalProjectsSection />
 
     <Footer />
 </Layout>
