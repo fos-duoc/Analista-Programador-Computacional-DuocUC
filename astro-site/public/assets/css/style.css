@@ -11644,3 +11644,473 @@ section {
   background: var(--bg-card) !important;
   border-color: rgba(0, 0, 0, 0.1) !important;
 }
+
+/* ============================================
+   LIGHT MODE - Terminal Demo Section
+   ============================================ */
+[data-theme="light"] .terminal-section {
+  background: transparent;
+}
+
+[data-theme="light"] .terminal-header h2 {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .terminal-header p {
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .header-icon-wrap {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(8, 145, 178, 0.1));
+}
+
+[data-theme="light"] .terminal-tab {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: var(--border-color);
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .terminal-tab:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .terminal-tab.active {
+  color: white;
+}
+
+[data-theme="light"] .terminal-window {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+}
+
+[data-theme="light"] .terminal-titlebar {
+  background: rgba(0, 0, 0, 0.03);
+  border-bottom-color: var(--border-color);
+}
+
+[data-theme="light"] .terminal-title {
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .action-btn {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: var(--border-color);
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .action-btn:hover {
+  background: rgba(0, 0, 0, 0.08);
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .quick-ref-section h3 {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .ref-card {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+[data-theme="light"] .ref-card h4 {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .ref-card li {
+  color: var(--text-secondary);
+  border-bottom-color: var(--border-color);
+}
+
+[data-theme="light"] .ref-card code {
+  background: rgba(8, 145, 178, 0.1);
+  color: var(--accent-primary);
+}
+
+/* ============================================
+   LIGHT MODE - Web Vitals Section
+   ============================================ */
+[data-theme="light"] .vitals-section {
+  background: transparent;
+}
+
+[data-theme="light"] .vitals-header h2 {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .vitals-header p {
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .score-ring .score-bg {
+  stroke: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .vital-card {
+  background: var(--bg-card);
+  border-color: var(--border-color);
+}
+
+[data-theme="light"] .vital-name {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .vital-full {
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .vital-value {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .vital-target {
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .vital-desc {
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .progress-bar {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .progress-label {
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .tech-stack-section h3,
+[data-theme="light"] .optimizations-section h3 {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .tech-name {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .tech-version {
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .tech-desc {
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .opt-title {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .opt-desc {
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .cta-content h4 {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .cta-content p {
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   LIGHT MODE - Sedes Map Section
+   ============================================ */
+[data-theme="light"] .sedes-section {
+  background: transparent;
+}
+
+[data-theme="light"] .sedes-header h2 {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .sedes-header p {
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .region-btn {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: var(--border-color);
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .region-btn:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .region-btn.active {
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.15), rgba(124, 58, 237, 0.15));
+  border-color: rgba(8, 145, 178, 0.4);
+  color: var(--accent-primary);
+}
+
+[data-theme="light"] .map-wrapper {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+}
+
+[data-theme="light"] .sede-title h3 {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .sede-comuna {
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .sede-info-row {
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .sede-info-row i {
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .sede-carreras {
+  border-top-color: var(--border-color);
+}
+
+[data-theme="light"] .carreras-label {
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .sedes-stats {
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid var(--border-color);
+}
+
+[data-theme="light"] .stat-number {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .stat-label {
+  color: var(--text-muted);
+}
+
+/* ============================================
+   LIGHT MODE - FAQ Section
+   ============================================ */
+[data-theme="light"] .faq-section {
+  background: transparent;
+}
+
+[data-theme="light"] .faq-header h2 {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .faq-header p {
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .faq-item {
+  background: var(--bg-card);
+  border-color: var(--border-color);
+}
+
+[data-theme="light"] .faq-question {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .faq-answer {
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   LIGHT MODE - Certifications Section
+   ============================================ */
+[data-theme="light"] .cert-section {
+  background: transparent;
+}
+
+[data-theme="light"] .cert-header h2 {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .cert-header p {
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .cert-category h3 {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .cert-card {
+  background: var(--bg-card);
+  border-color: var(--border-color);
+}
+
+[data-theme="light"] .cert-card:hover {
+  background: var(--bg-secondary);
+}
+
+[data-theme="light"] .cert-name {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .cert-issuer {
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   LIGHT MODE - YouTube Section
+   ============================================ */
+[data-theme="light"] .youtube-section {
+  background: transparent;
+}
+
+[data-theme="light"] .youtube-header h2 {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .youtube-header p {
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .video-card {
+  background: var(--bg-card);
+  border-color: var(--border-color);
+}
+
+[data-theme="light"] .video-title {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .video-channel {
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   LIGHT MODE - Code Snippets Section
+   ============================================ */
+[data-theme="light"] .code-section {
+  background: transparent;
+}
+
+[data-theme="light"] .code-header h2 {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .code-header p {
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .code-tab {
+  background: rgba(0, 0, 0, 0.03);
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .code-tab.active {
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+/* ============================================
+   LIGHT MODE - Notion Embed Section
+   ============================================ */
+[data-theme="light"] .notion-section {
+  background: transparent;
+}
+
+[data-theme="light"] .notion-header h2 {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .notion-header p {
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .notion-card {
+  background: var(--bg-card);
+  border-color: var(--border-color);
+}
+
+/* ============================================
+   LIGHT MODE - Work Projects Section
+   ============================================ */
+[data-theme="light"] .work-projects-section {
+  background: transparent;
+}
+
+[data-theme="light"] .work-header h2 {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .work-header p {
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .category-btn {
+  background: rgba(0, 0, 0, 0.03);
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .category-btn.active {
+  background: var(--accent-primary);
+  color: white;
+}
+
+[data-theme="light"] .project-work-card {
+  background: var(--bg-card);
+  border-color: var(--border-color);
+}
+
+[data-theme="light"] .project-work-title {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .project-work-desc {
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   LIGHT MODE - Quick Nav Cards (recursos page)
+   ============================================ */
+[data-theme="light"] .quick-nav {
+  background: rgba(0, 0, 0, 0.02);
+  border-color: var(--border-color);
+}
+
+[data-theme="light"] .quick-nav:hover {
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+[data-theme="light"] .quick-nav span {
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   LIGHT MODE - Global Glass Card Improvements
+   ============================================ */
+[data-theme="light"] .glass-card {
+  background: var(--bg-glass) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-color: var(--border-color) !important;
+  box-shadow: var(--shadow-sm);
+}
+
+[data-theme="light"] .glass-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* ============================================
+   LIGHT MODE - Leaflet Map Override
+   ============================================ */
+[data-theme="light"] .leaflet-tile-pane {
+  filter: brightness(1.1) contrast(0.95) saturate(0.9);
+}
+
+[data-theme="light"] .custom-marker div {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* ============================================
+   LIGHT MODE - Gradient Text Fix
+   ============================================ */
+[data-theme="light"] .gradient-text {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

@@ -250,10 +250,30 @@ function initMap() {
 
     map = L.map('sedes-map').setView([-33.45, -70.65], 5);
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    // Choose tiles based on current theme
+    const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+    const tileUrl = isDark
+        ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
+        : 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
+
+    const tileLayer = L.tileLayer(tileUrl, {
         attribution: '&copy; OpenStreetMap, &copy; CARTO',
         maxZoom: 19
     }).addTo(map);
+
+    // Listen for theme changes and update tiles
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.attributeName === 'data-theme') {
+                const newIsDark = document.documentElement.getAttribute('data-theme') !== 'light';
+                const newTileUrl = newIsDark
+                    ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
+                    : 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
+                tileLayer.setUrl(newTileUrl);
+            }
+        });
+    });
+    observer.observe(document.documentElement, { attributes: true });
 
     sedesData.forEach(sede => {
         const color = sede.modalidad === 'online' ? '#10b981' :
