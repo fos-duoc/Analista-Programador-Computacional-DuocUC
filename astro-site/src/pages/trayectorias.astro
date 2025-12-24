@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
 const base = import.meta.env.BASE_URL;
 
 // Career paths con roadmaps detallados
@@ -111,6 +112,78 @@ const careerPaths = [
         ],
         certifications: ['AWS Solutions Architect Pro', 'GCP Professional Cloud Architect', 'Azure Solutions Architect'],
         companies: ['Accenture', 'Deloitte', 'AWS', 'Google', 'Microsoft']
+    },
+    {
+        id: 'game-dev',
+        title: 'Game Developer',
+        icon: 'fas fa-gamepad',
+        color: '#ef4444',
+        salary: '$1.000.000 - $3.500.000 CLP',
+        demand: 'Media',
+        description: 'Crea videojuegos para PC, consolas y móviles usando motores de juego y programación de gráficos.',
+        skills: ['C#/C++', 'Unity/Unreal', 'Física y Matemáticas', '3D Modeling', 'Game Design', 'Shaders'],
+        roadmap: [
+            { phase: 'Fundamentos', duration: '4-6 meses', topics: ['C# o C++ profundo', 'Matemáticas para juegos (vectores, matrices)', 'Lógica de programación'] },
+            { phase: 'Motor de Juego', duration: '6-8 meses', topics: ['Unity o Unreal Engine', 'Física y colisiones', 'Animaciones', 'UI/UX para juegos'] },
+            { phase: 'Especialización', duration: '4-6 meses', topics: ['Shaders y gráficos', 'Networking para multiplayer', 'Optimización de rendimiento', 'Audio y efectos'] },
+            { phase: 'Publicación', duration: '2-4 meses', topics: ['Game design documents', 'Testing y QA', 'Publicación en stores', 'Marketing indie'] }
+        ],
+        certifications: ['Unity Certified Developer', 'Unreal Engine Developer', 'Coursera Game Design'],
+        companies: ['Behaviour Chile', 'ACE Team', 'Wanako Games', 'Freelance/Indie']
+    },
+    {
+        id: 'data-analyst',
+        title: 'Data Analyst',
+        icon: 'fas fa-chart-bar',
+        color: '#f97316',
+        salary: '$1.000.000 - $2.800.000 CLP',
+        demand: 'Muy Alta',
+        description: 'Analiza datos para generar insights de negocio, crear reportes y dashboards para toma de decisiones.',
+        skills: ['SQL', 'Excel Avanzado', 'Python/R', 'Power BI/Tableau', 'Estadística', 'Storytelling'],
+        roadmap: [
+            { phase: 'Fundamentos', duration: '2-4 meses', topics: ['Excel avanzado (pivots, macros)', 'SQL básico a intermedio', 'Estadística descriptiva'] },
+            { phase: 'Análisis', duration: '3-5 meses', topics: ['SQL avanzado', 'Python para análisis (Pandas)', 'Limpieza de datos', 'Estadística inferencial'] },
+            { phase: 'Visualización', duration: '3-4 meses', topics: ['Power BI o Tableau', 'Data storytelling', 'Dashboards interactivos', 'KPIs y métricas'] },
+            { phase: 'Negocio', duration: '2-3 meses', topics: ['Entendimiento del negocio', 'Presentaciones ejecutivas', 'A/B testing', 'Forecasting básico'] }
+        ],
+        certifications: ['Google Data Analytics', 'Microsoft Power BI', 'Tableau Desktop Specialist', 'IBM Data Analyst'],
+        companies: ['Banco de Chile', 'Falabella', 'Cencosud', 'Latam Airlines', 'SMU']
+    },
+    {
+        id: 'data-governance',
+        title: 'Data Governance Specialist',
+        icon: 'fas fa-shield-alt',
+        color: '#14b8a6',
+        salary: '$2.000.000 - $5.000.000 CLP',
+        demand: 'Alta',
+        description: 'Establece políticas de datos, asegura calidad, privacidad y cumplimiento regulatorio en organizaciones.',
+        skills: ['Data Quality', 'Metadata Management', 'Privacy (GDPR)', 'Data Cataloging', 'Master Data', 'Compliance'],
+        roadmap: [
+            { phase: 'Fundamentos', duration: '3-4 meses', topics: ['Conceptos de Data Governance', 'Frameworks (DAMA-DMBOK)', 'SQL y modelado de datos', 'Roles y responsabilidades'] },
+            { phase: 'Calidad de Datos', duration: '4-5 meses', topics: ['Data quality dimensions', 'Data profiling', 'Herramientas (Great Expectations, Soda)', 'Data lineage'] },
+            { phase: 'Privacidad y Compliance', duration: '3-4 meses', topics: ['GDPR, CCPA, Ley de Datos Chile', 'Data classification', 'PII y datos sensibles', 'Auditoría de datos'] },
+            { phase: 'Herramientas', duration: '3-4 meses', topics: ['Data catalogs (Atlan, Collibra)', 'Master Data Management', 'Metadata management', 'Data stewardship'] }
+        ],
+        certifications: ['CDMP - Data Management Professional', 'DGSP - Data Governance Specialist', 'OneTrust Privacy Professional'],
+        companies: ['Banco Santander', 'BCI', 'AFP Habitat', 'Entel', 'Telefónica']
+    },
+    {
+        id: 'cloud-dw',
+        title: 'Cloud DW Developer & DBA',
+        icon: 'fas fa-warehouse',
+        color: '#6366f1',
+        salary: '$2.200.000 - $5.500.000 CLP',
+        demand: 'Alta',
+        description: 'Diseña, desarrolla y administra data warehouses en la nube, optimizando rendimiento y costos.',
+        skills: ['Snowflake/BigQuery/Redshift', 'SQL Avanzado', 'dbt', 'Data Modeling', 'Performance Tuning', 'Cost Management'],
+        roadmap: [
+            { phase: 'Fundamentos SQL', duration: '3-4 meses', topics: ['SQL avanzado (window functions, CTEs)', 'Modelado dimensional', 'Star/Snowflake schema', 'Slowly Changing Dimensions'] },
+            { phase: 'Cloud DW', duration: '5-7 meses', topics: ['Snowflake o BigQuery o Redshift', 'Arquitectura cloud DW', 'Clustering y partitioning', 'Materialized views'] },
+            { phase: 'Transformación', duration: '4-5 meses', topics: ['dbt (data build tool)', 'ELT patterns', 'Data quality en DW', 'Orquestación con Airflow'] },
+            { phase: 'Administración', duration: '3-4 meses', topics: ['Performance tuning', 'Cost optimization', 'Seguridad y RBAC', 'Monitoring y alertas'] }
+        ],
+        certifications: ['Snowflake SnowPro Core', 'Snowflake Data Engineer', 'Google BigQuery Specialist', 'AWS Redshift Specialty'],
+        companies: ['Walmart Chile', 'Falabella', 'Banco de Chile', 'Latam', 'Cencosud']
     }
 ];
 
@@ -132,6 +205,7 @@ const careerTips = [
 ---
 
 <Layout title="Career Paths - Trayectorias Profesionales TI">
+    <Header />
     <main class="career-page">
         <!-- Hero Section -->
         <section class="career-hero">
@@ -146,15 +220,15 @@ const careerTips = [
                 </p>
                 <div class="hero-stats">
                     <div class="stat">
-                        <span class="stat-number">6</span>
+                        <span class="stat-number">10</span>
                         <span class="stat-label">Carreras</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number">24</span>
+                        <span class="stat-number">40</span>
                         <span class="stat-label">Roadmaps</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number">30+</span>
+                        <span class="stat-number">40+</span>
                         <span class="stat-label">Certificaciones</span>
                     </div>
                 </div>
