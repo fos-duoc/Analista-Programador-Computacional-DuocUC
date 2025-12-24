@@ -1,7 +1,7 @@
 # GitHub Action para sincronizar repositorio a múltiples plataformas
 # Mirrors: GitLab, Azure DevOps, BitBucket
 
-name: Mirror to GitLab & Azure DevOps
+name: Mirror to GitLab, Azure DevOps & BitBucket
 
 on:
   push:
@@ -47,20 +47,20 @@ jobs:
           git push azure --all --force
           git push azure --tags --force
 
-  # BitBucket deshabilitado temporalmente - requiere configuración adicional
-  # mirror-to-bitbucket:
-  #   name: Mirror to BitBucket
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v4
-  #       with:
-  #         fetch-depth: 0
-  #
-  #     - name: Push to BitBucket
-  #       env:
-  #         BITBUCKET_TOKEN: ${{ secrets.BITBUCKET_TOKEN }}
-  #       run: |
-  #         git remote add bitbucket https://x-token-auth:${BITBUCKET_TOKEN}@bitbucket.org/fos-duoc/analista-programador-computacional-duocuc.git || true
-  #         git push bitbucket --all --force
-  #         git push bitbucket --tags --force
+  mirror-to-bitbucket:
+    name: Mirror to BitBucket
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push to BitBucket
+        env:
+          BITBUCKET_TOKEN: ${{ secrets.BITBUCKET_TOKEN }}
+        run: |
+          git remote add bitbucket https://x-token-auth:${BITBUCKET_TOKEN}@bitbucket.org/fos-duoc/analista-programador-computacional-duocuc.git || true
+          git remote set-url bitbucket https://x-token-auth:${BITBUCKET_TOKEN}@bitbucket.org/fos-duoc/analista-programador-computacional-duocuc.git
+          git push bitbucket --all --force
+          git push bitbucket --tags --force
