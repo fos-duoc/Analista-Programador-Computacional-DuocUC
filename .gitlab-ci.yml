@@ -1,0 +1,21 @@
+# GitLab CI/CD para desplegar GitLab Pages
+# Mirror del sitio de GitHub Pages
+
+image: alpine:latest
+
+pages:
+  stage: deploy
+  script:
+    - echo "Deploying to GitLab Pages..."
+    - mkdir -p public
+    - cp -r docs/* public/
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_COMMIT_BRANCH == "claude/organize-course-materials-eliPw"
+
+# Variables de configuración
+variables:
+  GIT_DEPTH: 1

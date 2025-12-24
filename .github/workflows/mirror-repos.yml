@@ -1,0 +1,65 @@
+# GitHub Action para sincronizar repositorio a múltiples plataformas
+# Mirrors: GitLab, Azure DevOps, BitBucket
+
+name: Mirror to GitLab & Azure DevOps
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - 'claude/**'
+  workflow_dispatch:  # Permite ejecutar manualmente
+
+jobs:
+  mirror-to-gitlab:
+    name: Mirror to GitLab
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history para mirror completo
+
+      - name: Push to GitLab
+        env:
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+        run: |
+          git remote add gitlab https://oauth2:${GITLAB_TOKEN}@gitlab.com/fos-duoc/analista-programador-computacional-duocuc.git || true
+          git push gitlab --all --force
+          git push gitlab --tags --force
+
+  mirror-to-azure:
+    name: Mirror to Azure DevOps
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push to Azure DevOps
+        env:
+          AZURE_DEVOPS_PAT: ${{ secrets.AZURE_DEVOPS_PAT }}
+        run: |
+          git remote add azure https://${AZURE_DEVOPS_PAT}@dev.azure.com/fuonate/fos-duoc/_git/fos-duoc || true
+          git push azure --all --force
+          git push azure --tags --force
+
+  # BitBucket deshabilitado temporalmente - requiere configuración adicional
+  # mirror-to-bitbucket:
+  #   name: Mirror to BitBucket
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
+  #       with:
+  #         fetch-depth: 0
+  #
+  #     - name: Push to BitBucket
+  #       env:
+  #         BITBUCKET_TOKEN: ${{ secrets.BITBUCKET_TOKEN }}
+  #       run: |
+  #         git remote add bitbucket https://x-token-auth:${BITBUCKET_TOKEN}@bitbucket.org/fos-duoc/analista-programador-computacional-duocuc.git || true
+  #         git push bitbucket --all --force
+  #         git push bitbucket --tags --force
