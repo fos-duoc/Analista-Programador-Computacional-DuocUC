@@ -175,6 +175,252 @@ const BUILD_VERSION = Date.now().toString(36);
         document.addEventListener('DOMContentLoaded', initAOS);
         document.addEventListener('astro:page-load', initAOS);
         document.addEventListener('astro:after-swap', initAOS);
+
+        // ============================================
+        // PREMIUM TOOLTIP SYSTEM - Global JavaScript
+        // ============================================
+
+        class PremiumTooltip {
+            constructor() {
+                this.tooltip = null;
+                this.currentTarget = null;
+                this.hideTimeout = null;
+                this.showTimeout = null;
+                this.init();
+            }
+
+            init() {
+                this.createTooltipElement();
+                this.bindEvents();
+            }
+
+            createTooltipElement() {
+                // Remove existing tooltip if any
+                const existing = document.getElementById('premium-tooltip-container');
+                if (existing) existing.remove();
+
+                this.tooltip = document.createElement('div');
+                this.tooltip.id = 'premium-tooltip-container';
+                this.tooltip.className = 'premium-tooltip';
+                this.tooltip.innerHTML = `
+                    <div class="tooltip-card">
+                        <div class="tooltip-header">
+                            <div class="tooltip-icon"><i class="fas fa-info"></i></div>
+                            <div class="tooltip-title-block">
+                                <h4 class="tooltip-title"></h4>
+                                <span class="tooltip-category"></span>
+                            </div>
+                        </div>
+                        <div class="tooltip-body">
+                            <p class="tooltip-description"></p>
+                        </div>
+                        <div class="tooltip-features"></div>
+                        <div class="tooltip-footer">
+                            <span class="tooltip-hint"><i class="fas fa-mouse-pointer"></i> Click para interactuar</span>
+                            <span class="tooltip-shortcut"></span>
+                        </div>
+                        <div class="tooltip-arrow"></div>
+                    </div>
+                `;
+                document.body.appendChild(this.tooltip);
+            }
+
+            bindEvents() {
+                // Use event delegation for better performance
+                document.addEventListener('mouseenter', (e) => {
+                    const target = e.target.closest('[data-premium-tooltip]');
+                    if (target) this.handleMouseEnter(target);
+                }, true);
+
+                document.addEventListener('mouseleave', (e) => {
+                    const target = e.target.closest('[data-premium-tooltip]');
+                    if (target) this.handleMouseLeave();
+                }, true);
+
+                // Handle scroll and resize
+                window.addEventListener('scroll', () => this.hide(), { passive: true });
+                window.addEventListener('resize', () => this.hide(), { passive: true });
+
+                // Re-init on View Transitions
+                document.addEventListener('astro:page-load', () => this.createTooltipElement());
+            }
+
+            handleMouseEnter(target) {
+                clearTimeout(this.hideTimeout);
+                clearTimeout(this.showTimeout);
+
+                this.currentTarget = target;
+
+                // Small delay to prevent flickering on quick mouse movements
+                this.showTimeout = setTimeout(() => {
+                    this.show(target);
+                }, 150);
+            }
+
+            handleMouseLeave() {
+                clearTimeout(this.showTimeout);
+                this.hideTimeout = setTimeout(() => this.hide(), 100);
+            }
+
+            show(target) {
+                const data = this.parseTooltipData(target);
+                if (!data.title && !data.description) return;
+
+                this.updateContent(data);
+                this.updateType(data.type);
+                this.position(target);
+                this.tooltip.classList.add('visible');
+            }
+
+            hide() {
+                this.tooltip.classList.remove('visible');
+                this.currentTarget = null;
+            }
+
+            parseTooltipData(target) {
+                const raw = target.dataset.premiumTooltip;
+
+                // Support both JSON format and simple string
+                if (raw.startsWith('{')) {
+                    try {
+                        return JSON.parse(raw);
+                    } catch (e) {
+                        return { title: raw };
+                    }
+                }
+
+                // Simple format: "title|description|features|type|icon|category"
+                const parts = raw.split('|');
+                return {
+                    title: parts[0] || '',
+                    description: parts[1] || '',
+                    features: parts[2] ? parts[2].split(',') : [],
+                    type: parts[3] || '',
+                    icon: parts[4] || 'fa-info',
+                    category: parts[5] || ''
+                };
+            }
+
+            updateContent(data) {
+                const card = this.tooltip.querySelector('.tooltip-card');
+                const icon = this.tooltip.querySelector('.tooltip-icon i');
+                const title = this.tooltip.querySelector('.tooltip-title');
+                const category = this.tooltip.querySelector('.tooltip-category');
+                const description = this.tooltip.querySelector('.tooltip-description');
+                const features = this.tooltip.querySelector('.tooltip-features');
+                const footer = this.tooltip.querySelector('.tooltip-footer');
+                const shortcut = this.tooltip.querySelector('.tooltip-shortcut');
+
+                // Icon
+                icon.className = 'fas ' + (data.icon || 'fa-info');
+
+                // Title
+                title.textContent = data.title || '';
+
+                // Category
+                category.textContent = data.category || '';
+                category.style.display = data.category ? 'block' : 'none';
+
+                // Description
+                description.textContent = data.description || '';
+                description.parentElement.style.display = data.description ? 'block' : 'none';
+
+                // Features
+                if (data.features && data.features.length > 0) {
+                    features.innerHTML = data.features.map(f =>
+                        `<span class="tooltip-feature"><i class="fas fa-check"></i>${f.trim()}</span>`
+                    ).join('');
+                    features.style.display = 'flex';
+                } else {
+                    features.style.display = 'none';
+                }
+
+                // Shortcut
+                if (data.shortcut) {
+                    shortcut.innerHTML = data.shortcut.split('+').map(k =>
+                        `<span class="tooltip-key">${k.trim()}</span>`
+                    ).join('<span style="color:#64748b;font-size:0.6rem;">+</span>');
+                    shortcut.style.display = 'flex';
+                } else {
+                    shortcut.style.display = 'none';
+                }
+
+                // Footer visibility
+                footer.style.display = (data.shortcut || data.hint !== false) ? 'flex' : 'none';
+            }
+
+            updateType(type) {
+                const card = this.tooltip.querySelector('.tooltip-card');
+                card.className = 'tooltip-card';
+                if (type) {
+                    card.classList.add('type-' + type);
+                }
+            }
+
+            position(target) {
+                const rect = target.getBoundingClientRect();
+                const tooltipRect = this.tooltip.getBoundingClientRect();
+                const viewportWidth = window.innerWidth;
+                const viewportHeight = window.innerHeight;
+                const margin = 12;
+
+                // Remove all arrow classes
+                this.tooltip.classList.remove('arrow-top', 'arrow-bottom', 'arrow-left', 'arrow-right');
+
+                let top, left;
+
+                // Default: position below
+                top = rect.bottom + margin;
+                left = rect.left + (rect.width / 2) - (tooltipRect.width / 2);
+
+                // Check if tooltip goes below viewport
+                if (top + tooltipRect.height > viewportHeight - margin) {
+                    // Position above
+                    top = rect.top - tooltipRect.height - margin;
+                    this.tooltip.classList.add('arrow-bottom');
+                } else {
+                    this.tooltip.classList.add('arrow-top');
+                }
+
+                // Check horizontal bounds
+                if (left < margin) {
+                    left = margin;
+                } else if (left + tooltipRect.width > viewportWidth - margin) {
+                    left = viewportWidth - tooltipRect.width - margin;
+                }
+
+                // If still doesn't fit, try positioning to the side
+                if (top < margin) {
+                    top = rect.top + (rect.height / 2) - (tooltipRect.height / 2);
+                    left = rect.right + margin;
+                    this.tooltip.classList.remove('arrow-top', 'arrow-bottom');
+
+                    if (left + tooltipRect.width > viewportWidth - margin) {
+                        left = rect.left - tooltipRect.width - margin;
+                        this.tooltip.classList.add('arrow-right');
+                    } else {
+                        this.tooltip.classList.add('arrow-left');
+                    }
+                }
+
+                this.tooltip.style.top = top + 'px';
+                this.tooltip.style.left = left + 'px';
+            }
+        }
+
+        // Initialize tooltip system
+        let tooltipSystem = null;
+
+        function initTooltipSystem() {
+            if (!tooltipSystem) {
+                tooltipSystem = new PremiumTooltip();
+            } else {
+                tooltipSystem.createTooltipElement();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initTooltipSystem);
+        document.addEventListener('astro:page-load', initTooltipSystem);
     </script>
 </body>
 </html>

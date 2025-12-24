@@ -15,7 +15,7 @@
             </div>
             <div class="template-badge">
                 <i class="fas fa-layer-group"></i>
-                <span>4 Templates</span>
+                <span>7 Templates</span>
             </div>
         </div>
 
@@ -50,6 +50,18 @@
                                 <i class="fas fa-briefcase"></i>
                                 Práctica Profesional (8 semanas)
                             </button>
+                            <button class="template-option" data-template="bimester">
+                                <i class="fas fa-calendar-alt"></i>
+                                Bimestre Académico (8 semanas)
+                            </button>
+                            <button class="template-option" data-template="semester">
+                                <i class="fas fa-calendar"></i>
+                                Semestre Académico (18 semanas)
+                            </button>
+                            <button class="template-option" data-template="annual">
+                                <i class="fas fa-calendar-check"></i>
+                                Plan Anual (12 meses)
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -58,6 +70,9 @@
                         <button class="view-btn" data-view="Day">Día</button>
                         <button class="view-btn active" data-view="Week">Semana</button>
                         <button class="view-btn" data-view="Month">Mes</button>
+                        <button class="view-btn" data-view="Quarter">Trimestre</button>
+                        <button class="view-btn" data-view="Half Day">Semestre</button>
+                        <button class="view-btn" data-view="Year">Año</button>
                     </div>
                 </div>
                 <div class="toolbar-right">
@@ -204,6 +219,39 @@
                 { name: 'Proyecto Asignado - Fase 3', days: 10, progress: 0 },
                 { name: 'Documentación', days: 5, progress: 0 },
                 { name: 'Presentación Final', days: 3, progress: 0 }
+            ]
+        },
+        'bimester': {
+            name: 'Bimestre Académico',
+            tasks: [
+                { name: 'Semana 1-2: Introducción', days: 14, progress: 0 },
+                { name: 'Semana 3: Experiencia 1', days: 7, progress: 0 },
+                { name: 'Evaluación Exp. 1', days: 3, progress: 0 },
+                { name: 'Semana 4-5: Experiencia 2', days: 14, progress: 0 },
+                { name: 'Evaluación Exp. 2', days: 3, progress: 0 },
+                { name: 'Semana 6-7: Experiencia 3', days: 14, progress: 0 },
+                { name: 'Evaluación Exp. 3', days: 3, progress: 0 },
+                { name: 'Semana 8: Examen Final', days: 5, progress: 0 }
+            ]
+        },
+        'semester': {
+            name: 'Semestre Académico',
+            tasks: [
+                { name: 'Bimestre 1 - Fundamentos', days: 56, progress: 0 },
+                { name: 'Evaluación Bimestre 1', days: 7, progress: 0 },
+                { name: 'Bimestre 2 - Desarrollo', days: 56, progress: 0 },
+                { name: 'Evaluación Bimestre 2', days: 7, progress: 0 },
+                { name: 'Proyecto Integrador', days: 21, progress: 0 },
+                { name: 'Exámenes Finales', days: 14, progress: 0 }
+            ]
+        },
+        'annual': {
+            name: 'Plan Anual',
+            tasks: [
+                { name: 'Q1: Planificación y Setup', days: 90, progress: 0 },
+                { name: 'Q2: Desarrollo Fase 1', days: 91, progress: 0 },
+                { name: 'Q3: Desarrollo Fase 2', days: 92, progress: 0 },
+                { name: 'Q4: Testing y Deploy', days: 92, progress: 0 }
             ]
         }
     };
@@ -713,20 +761,24 @@
     /* View Switcher */
     .view-switcher {
         display: flex;
+        flex-wrap: wrap;
+        gap: 0.25rem;
         background: rgba(255, 255, 255, 0.05);
         border-radius: 10px;
         padding: 0.25rem;
+        justify-content: center;
     }
 
     .view-btn {
-        padding: 0.5rem 1rem;
+        padding: 0.4rem 0.75rem;
         background: transparent;
         border: none;
         border-radius: 8px;
         color: #64748b;
-        font-size: 0.85rem;
+        font-size: 0.75rem;
         cursor: pointer;
         transition: all 0.2s;
+        white-space: nowrap;
     }
 
     .view-btn:hover {

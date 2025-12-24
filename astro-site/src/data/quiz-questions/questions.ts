@@ -2,7 +2,7 @@
 
 export interface Question {
     id: string;
-    category: 'javascript' | 'python' | 'sql' | 'java' | 'aws' | 'docker';
+    category: 'javascript' | 'python' | 'sql' | 'java' | 'aws' | 'docker' | 'snowflake' | 'databricks' | 'linux' | 'hardware';
     certification: string;
     difficulty: 'beginner' | 'intermediate' | 'advanced';
     question: string;
@@ -703,6 +703,742 @@ print(func(2))`,
         ],
         correctAnswer: 2,
         explanation: 'Las imágenes se almacenan localmente en el sistema de archivos del Docker daemon. Docker Hub es un registro remoto opcional.'
+    },
+
+    // Java Questions
+    {
+        id: 'java-001',
+        category: 'java',
+        certification: 'Oracle Java SE',
+        difficulty: 'beginner',
+        question: '¿Cuál es la diferencia entre == y .equals() en Java?',
+        options: [
+            'No hay diferencia',
+            '== compara referencias, .equals() compara contenido',
+            '.equals() es más rápido',
+            '== solo funciona con primitivos'
+        ],
+        correctAnswer: 1,
+        explanation: '== compara referencias de objetos (si apuntan al mismo objeto en memoria), mientras que .equals() compara el contenido de los objetos.'
+    },
+    {
+        id: 'java-002',
+        category: 'java',
+        certification: 'Oracle Java SE',
+        difficulty: 'beginner',
+        question: '¿Qué es el JVM?',
+        options: [
+            'Java Virtual Machine - ejecuta bytecode Java',
+            'Java Version Manager',
+            'Java Visual Monitor',
+            'Java Variable Memory'
+        ],
+        correctAnswer: 0,
+        explanation: 'JVM (Java Virtual Machine) es la máquina virtual que ejecuta bytecode Java, permitiendo la portabilidad "Write Once, Run Anywhere".'
+    },
+    {
+        id: 'java-003',
+        category: 'java',
+        certification: 'Oracle Java SE',
+        difficulty: 'intermediate',
+        question: '¿Cuál es la diferencia entre ArrayList y LinkedList?',
+        options: [
+            'No hay diferencia',
+            'ArrayList usa array dinámico, LinkedList usa nodos enlazados',
+            'LinkedList es más rápido para todo',
+            'ArrayList no permite duplicados'
+        ],
+        correctAnswer: 1,
+        explanation: 'ArrayList usa un array redimensionable (rápido para acceso por índice), LinkedList usa nodos doblemente enlazados (rápido para inserciones/eliminaciones).'
+    },
+    {
+        id: 'java-004',
+        category: 'java',
+        certification: 'Oracle Java SE',
+        difficulty: 'intermediate',
+        question: '¿Qué es un Stream en Java 8+?',
+        options: [
+            'Un tipo de archivo',
+            'Una secuencia de elementos que soporta operaciones funcionales',
+            'Una conexión de red',
+            'Un tipo de thread'
+        ],
+        correctAnswer: 1,
+        explanation: 'Los Streams permiten procesar colecciones de forma declarativa con operaciones como filter, map, reduce.'
+    },
+    {
+        id: 'java-005',
+        category: 'java',
+        certification: 'Oracle Java SE',
+        difficulty: 'beginner',
+        question: '¿Qué modificador hace que una variable no pueda ser modificada?',
+        options: ['static', 'final', 'const', 'immutable'],
+        correctAnswer: 1,
+        explanation: 'final hace que una variable no pueda ser reasignada. Para objetos, la referencia es final pero el objeto puede ser mutado.'
+    },
+    {
+        id: 'java-006',
+        category: 'java',
+        certification: 'Oracle Java SE',
+        difficulty: 'intermediate',
+        question: '¿Qué es la herencia en Java?',
+        options: [
+            'Crear copias de objetos',
+            'Mecanismo donde una clase adquiere propiedades de otra',
+            'Compartir variables entre métodos',
+            'Un tipo de polimorfismo'
+        ],
+        correctAnswer: 1,
+        explanation: 'La herencia permite que una clase (subclase) herede atributos y métodos de otra (superclase) usando extends.'
+    },
+    {
+        id: 'java-007',
+        category: 'java',
+        certification: 'Oracle Java SE',
+        difficulty: 'advanced',
+        question: '¿Qué es el Garbage Collector?',
+        options: [
+            'Un depurador de código',
+            'El mecanismo que libera memoria de objetos no referenciados',
+            'Un optimizador de código',
+            'Un gestor de dependencias'
+        ],
+        correctAnswer: 1,
+        explanation: 'El Garbage Collector libera automáticamente la memoria ocupada por objetos que ya no tienen referencias, evitando memory leaks.'
+    },
+    {
+        id: 'java-008',
+        category: 'java',
+        certification: 'Oracle Java SE',
+        difficulty: 'intermediate',
+        question: '¿Qué es una interfaz en Java?',
+        options: [
+            'Un tipo de clase',
+            'Un contrato que define métodos que una clase debe implementar',
+            'Una clase con solo atributos',
+            'Un tipo de herencia múltiple'
+        ],
+        correctAnswer: 1,
+        explanation: 'Una interfaz define un contrato de métodos (y desde Java 8, puede tener default methods). Las clases implementan interfaces con implements.'
+    },
+    {
+        id: 'java-009',
+        category: 'java',
+        certification: 'Oracle Java SE',
+        difficulty: 'advanced',
+        question: '¿Qué es synchronized en Java?',
+        options: [
+            'Un tipo de variable',
+            'Mecanismo para controlar acceso concurrente a recursos',
+            'Una forma de ordenar colecciones',
+            'Un modificador de clase'
+        ],
+        correctAnswer: 1,
+        explanation: 'synchronized asegura que solo un thread a la vez pueda acceder a un bloque o método, previniendo condiciones de carrera.'
+    },
+    {
+        id: 'java-010',
+        category: 'java',
+        certification: 'Oracle Java SE',
+        difficulty: 'beginner',
+        question: '¿Cuál es el punto de entrada de una aplicación Java?',
+        code: 'public static void main(String[] args)',
+        options: [
+            'El constructor de la clase',
+            'El método main con la firma correcta',
+            'Cualquier método público',
+            'El método start()'
+        ],
+        correctAnswer: 1,
+        explanation: 'El método main(String[] args) es el punto de entrada. Debe ser public, static, void y recibir un array de String.'
+    },
+
+    // Snowflake Questions
+    {
+        id: 'snow-001',
+        category: 'snowflake',
+        certification: 'SnowPro Core',
+        difficulty: 'beginner',
+        question: '¿Qué tipo de arquitectura usa Snowflake?',
+        options: [
+            'Shared-disk',
+            'Shared-nothing',
+            'Multi-cluster shared data',
+            'Monolítica'
+        ],
+        correctAnswer: 2,
+        explanation: 'Snowflake usa una arquitectura única de "multi-cluster shared data" que separa storage, compute y servicios en capas independientes.'
+    },
+    {
+        id: 'snow-002',
+        category: 'snowflake',
+        certification: 'SnowPro Core',
+        difficulty: 'beginner',
+        question: '¿Qué es un Virtual Warehouse en Snowflake?',
+        options: [
+            'Un tipo de base de datos',
+            'Un clúster de recursos de cómputo para queries',
+            'Un almacén de datos físico',
+            'Una conexión de red'
+        ],
+        correctAnswer: 1,
+        explanation: 'Un Virtual Warehouse es un clúster de recursos de cómputo (CPU, memoria, SSD) que ejecuta queries. Se puede escalar independientemente.'
+    },
+    {
+        id: 'snow-003',
+        category: 'snowflake',
+        certification: 'SnowPro Core',
+        difficulty: 'intermediate',
+        question: '¿Qué es Time Travel en Snowflake?',
+        options: [
+            'Una función de fecha',
+            'Capacidad de acceder a datos históricos hasta 90 días',
+            'Un tipo de backup',
+            'Un método de replicación'
+        ],
+        correctAnswer: 1,
+        explanation: 'Time Travel permite acceder a datos históricos (antes de cambios/eliminaciones) hasta 90 días en Enterprise Edition.'
+    },
+    {
+        id: 'snow-004',
+        category: 'snowflake',
+        certification: 'SnowPro Core',
+        difficulty: 'intermediate',
+        question: '¿Qué es Zero-Copy Cloning?',
+        options: [
+            'Eliminar duplicados',
+            'Crear copias de tablas/schemas sin duplicar datos físicos',
+            'Un tipo de compresión',
+            'Una técnica de ETL'
+        ],
+        correctAnswer: 1,
+        explanation: 'Zero-Copy Cloning crea copias lógicas instantáneas sin duplicar storage. Los datos se comparten hasta que se modifican.'
+    },
+    {
+        id: 'snow-005',
+        category: 'snowflake',
+        certification: 'SnowPro Core',
+        difficulty: 'beginner',
+        question: '¿En qué nube(s) está disponible Snowflake?',
+        options: [
+            'Solo AWS',
+            'AWS y Azure',
+            'AWS, Azure y GCP',
+            'Solo nube privada'
+        ],
+        correctAnswer: 2,
+        explanation: 'Snowflake está disponible en AWS, Microsoft Azure y Google Cloud Platform, permitiendo multi-cloud.'
+    },
+    {
+        id: 'snow-006',
+        category: 'snowflake',
+        certification: 'SnowPro Core',
+        difficulty: 'intermediate',
+        question: '¿Qué es un Stage en Snowflake?',
+        options: [
+            'Un paso en un pipeline',
+            'Una ubicación para staging de archivos antes de cargar',
+            'Un tipo de warehouse',
+            'Una fase de procesamiento'
+        ],
+        correctAnswer: 1,
+        explanation: 'Un Stage es una ubicación (interna o externa) donde se almacenan archivos para cargarlos en tablas usando COPY INTO.'
+    },
+    {
+        id: 'snow-007',
+        category: 'snowflake',
+        certification: 'SnowPro Core',
+        difficulty: 'advanced',
+        question: '¿Qué es Snowpipe?',
+        options: [
+            'Una conexión de red',
+            'Servicio de carga continua de datos en near-real-time',
+            'Un tipo de warehouse',
+            'Una herramienta de BI'
+        ],
+        correctAnswer: 1,
+        explanation: 'Snowpipe carga datos automáticamente cuando nuevos archivos llegan al stage, usando un modelo serverless.'
+    },
+    {
+        id: 'snow-008',
+        category: 'snowflake',
+        certification: 'SnowPro Core',
+        difficulty: 'intermediate',
+        question: '¿Cómo se mide el cómputo en Snowflake?',
+        options: [
+            'Por GB almacenado',
+            'Por créditos consumidos por segundo',
+            'Por número de queries',
+            'Tarifa fija mensual'
+        ],
+        correctAnswer: 1,
+        explanation: 'Snowflake cobra por créditos basados en el tamaño del warehouse y tiempo de ejecución (por segundo, mínimo 60s).'
+    },
+    {
+        id: 'snow-009',
+        category: 'snowflake',
+        certification: 'SnowPro Core',
+        difficulty: 'advanced',
+        question: '¿Qué es Fail-safe en Snowflake?',
+        options: [
+            'Un backup manual',
+            'Período de 7 días de recuperación de desastres después de Time Travel',
+            'Un tipo de replicación',
+            'Una configuración de seguridad'
+        ],
+        correctAnswer: 1,
+        explanation: 'Fail-safe proporciona 7 días adicionales de protección de datos después de Time Travel, solo accesible por soporte de Snowflake.'
+    },
+    {
+        id: 'snow-010',
+        category: 'snowflake',
+        certification: 'SnowPro Core',
+        difficulty: 'beginner',
+        question: '¿Qué lenguaje SQL usa Snowflake?',
+        options: [
+            'MySQL',
+            'T-SQL',
+            'ANSI SQL con extensiones propias',
+            'PL/SQL'
+        ],
+        correctAnswer: 2,
+        explanation: 'Snowflake soporta ANSI SQL estándar con extensiones propias para funcionalidades específicas de la plataforma.'
+    },
+
+    // Databricks Questions
+    {
+        id: 'dbx-001',
+        category: 'databricks',
+        certification: 'Databricks Certified',
+        difficulty: 'beginner',
+        question: '¿Qué es Apache Spark?',
+        options: [
+            'Una base de datos',
+            'Un motor de procesamiento distribuido de datos',
+            'Un lenguaje de programación',
+            'Un servicio de cloud'
+        ],
+        correctAnswer: 1,
+        explanation: 'Apache Spark es un motor de procesamiento distribuido para Big Data, soportando batch, streaming, ML y SQL.'
+    },
+    {
+        id: 'dbx-002',
+        category: 'databricks',
+        certification: 'Databricks Certified',
+        difficulty: 'beginner',
+        question: '¿Qué es un DataFrame en Spark?',
+        options: [
+            'Un archivo CSV',
+            'Una colección distribuida de datos organizados en columnas',
+            'Un tipo de gráfico',
+            'Una base de datos'
+        ],
+        correctAnswer: 1,
+        explanation: 'Un DataFrame es una colección distribuida de datos organizada en columnas con nombre, similar a una tabla SQL o pandas DataFrame.'
+    },
+    {
+        id: 'dbx-003',
+        category: 'databricks',
+        certification: 'Databricks Certified',
+        difficulty: 'intermediate',
+        question: '¿Qué es Delta Lake?',
+        options: [
+            'Un lago físico',
+            'Capa de almacenamiento que añade ACID transactions a data lakes',
+            'Un tipo de database',
+            'Un servicio de AWS'
+        ],
+        correctAnswer: 1,
+        explanation: 'Delta Lake es una capa open-source sobre data lakes que proporciona transacciones ACID, time travel y schema enforcement.'
+    },
+    {
+        id: 'dbx-004',
+        category: 'databricks',
+        certification: 'Databricks Certified',
+        difficulty: 'intermediate',
+        question: '¿Cuál es la diferencia entre transformations y actions en Spark?',
+        options: [
+            'No hay diferencia',
+            'Transformations son lazy, actions ejecutan el DAG',
+            'Actions son más rápidas',
+            'Transformations modifican datos permanentemente'
+        ],
+        correctAnswer: 1,
+        explanation: 'Las transformations son lazy (no ejecutan hasta que se necesitan). Las actions (collect, count, write) disparan la ejecución del plan.'
+    },
+    {
+        id: 'dbx-005',
+        category: 'databricks',
+        certification: 'Databricks Certified',
+        difficulty: 'beginner',
+        question: '¿Qué es un Notebook en Databricks?',
+        options: [
+            'Una laptop',
+            'Un documento interactivo para código, visualizaciones y texto',
+            'Un tipo de cluster',
+            'Un archivo de configuración'
+        ],
+        correctAnswer: 1,
+        explanation: 'Los Notebooks son documentos interactivos que combinan código (Python, Scala, SQL, R), visualizaciones y markdown.'
+    },
+    {
+        id: 'dbx-006',
+        category: 'databricks',
+        certification: 'Databricks Certified',
+        difficulty: 'intermediate',
+        question: '¿Qué es un Cluster en Databricks?',
+        options: [
+            'Un grupo de bases de datos',
+            'Un conjunto de recursos de cómputo para ejecutar workloads',
+            'Una colección de notebooks',
+            'Un tipo de archivo'
+        ],
+        correctAnswer: 1,
+        explanation: 'Un Cluster es un conjunto de VMs que ejecutan Spark. Puede ser all-purpose (interactivo) o job cluster (para trabajos).'
+    },
+    {
+        id: 'dbx-007',
+        category: 'databricks',
+        certification: 'Databricks Certified',
+        difficulty: 'advanced',
+        question: '¿Qué es Unity Catalog?',
+        options: [
+            'Un catálogo de productos',
+            'Solución de gobernanza unificada para datos y AI',
+            'Un tipo de storage',
+            'Una herramienta de BI'
+        ],
+        correctAnswer: 1,
+        explanation: 'Unity Catalog proporciona gobernanza centralizada, lineage, control de acceso y descubrimiento de datos en toda la plataforma.'
+    },
+    {
+        id: 'dbx-008',
+        category: 'databricks',
+        certification: 'Databricks Certified',
+        difficulty: 'intermediate',
+        question: '¿Qué arquitectura promueve Databricks?',
+        options: [
+            'Data Warehouse tradicional',
+            'Lakehouse - combina data lake y data warehouse',
+            'Data Mart',
+            'OLTP'
+        ],
+        correctAnswer: 1,
+        explanation: 'La arquitectura Lakehouse combina la flexibilidad de data lakes con las capacidades ACID y rendimiento de data warehouses.'
+    },
+    {
+        id: 'dbx-009',
+        category: 'databricks',
+        certification: 'Databricks Certified',
+        difficulty: 'advanced',
+        question: '¿Qué es MLflow?',
+        options: [
+            'Un lenguaje de ML',
+            'Plataforma open-source para gestionar el ciclo de vida de ML',
+            'Un tipo de modelo',
+            'Una base de datos'
+        ],
+        correctAnswer: 1,
+        explanation: 'MLflow gestiona experimentos, empaquetado de modelos, deploy y registro de modelos a lo largo del ciclo de vida ML.'
+    },
+    {
+        id: 'dbx-010',
+        category: 'databricks',
+        certification: 'Databricks Certified',
+        difficulty: 'intermediate',
+        question: '¿Qué es Photon?',
+        options: [
+            'Un tipo de luz',
+            'Motor de ejecución nativo vectorizado para acelerar queries',
+            'Una herramienta de visualización',
+            'Un tipo de cluster'
+        ],
+        correctAnswer: 1,
+        explanation: 'Photon es el motor de ejecución C++ de Databricks que acelera queries SQL y DataFrame hasta 12x sobre Spark estándar.'
+    },
+
+    // Linux/CLI Questions
+    {
+        id: 'linux-001',
+        category: 'linux',
+        certification: 'Linux+/LPIC',
+        difficulty: 'beginner',
+        question: '¿Qué comando lista archivos y directorios?',
+        options: ['dir', 'ls', 'list', 'show'],
+        correctAnswer: 1,
+        explanation: 'ls (list) muestra archivos y directorios. Opciones comunes: ls -la (todos los archivos con detalles), ls -lh (tamaños legibles).'
+    },
+    {
+        id: 'linux-002',
+        category: 'linux',
+        certification: 'Linux+/LPIC',
+        difficulty: 'beginner',
+        question: '¿Qué hace el comando chmod 755 archivo?',
+        options: [
+            'Elimina el archivo',
+            'Da permisos rwx al owner, rx a group y others',
+            'Comprime el archivo',
+            'Lo hace ejecutable solo para root'
+        ],
+        correctAnswer: 1,
+        explanation: '755 significa: owner (7=rwx), group (5=r-x), others (5=r-x). Común para scripts ejecutables.'
+    },
+    {
+        id: 'linux-003',
+        category: 'linux',
+        certification: 'Linux+/LPIC',
+        difficulty: 'intermediate',
+        question: '¿Qué hace el operador | (pipe)?',
+        options: [
+            'Concatena archivos',
+            'Redirige la salida de un comando como entrada de otro',
+            'Crea un archivo',
+            'Ejecuta comandos en paralelo'
+        ],
+        correctAnswer: 1,
+        explanation: 'El pipe conecta stdout de un comando con stdin del siguiente, permitiendo encadenar comandos: ls | grep txt'
+    },
+    {
+        id: 'linux-004',
+        category: 'linux',
+        certification: 'Linux+/LPIC',
+        difficulty: 'beginner',
+        question: '¿Qué comando muestra el directorio actual?',
+        options: ['cd', 'pwd', 'dir', 'where'],
+        correctAnswer: 1,
+        explanation: 'pwd (print working directory) muestra la ruta completa del directorio actual.'
+    },
+    {
+        id: 'linux-005',
+        category: 'linux',
+        certification: 'Linux+/LPIC',
+        difficulty: 'intermediate',
+        question: '¿Qué hace grep?',
+        options: [
+            'Comprime archivos',
+            'Busca patrones de texto en archivos',
+            'Lista procesos',
+            'Copia archivos'
+        ],
+        correctAnswer: 1,
+        explanation: 'grep busca líneas que coincidan con un patrón. Ejemplo: grep "error" log.txt | grep -i (case insensitive).'
+    },
+    {
+        id: 'linux-006',
+        category: 'linux',
+        certification: 'Linux+/LPIC',
+        difficulty: 'intermediate',
+        question: '¿Qué hace el comando sudo?',
+        options: [
+            'Cambia de usuario',
+            'Ejecuta comandos con privilegios de superusuario',
+            'Apaga el sistema',
+            'Lista usuarios'
+        ],
+        correctAnswer: 1,
+        explanation: 'sudo (superuser do) ejecuta comandos como root u otro usuario con privilegios elevados.'
+    },
+    {
+        id: 'linux-007',
+        category: 'linux',
+        certification: 'Linux+/LPIC',
+        difficulty: 'advanced',
+        question: '¿Qué es un proceso zombie?',
+        options: [
+            'Un virus',
+            'Un proceso terminado que aún tiene entrada en la tabla de procesos',
+            'Un proceso que consume mucha CPU',
+            'Un proceso en background'
+        ],
+        correctAnswer: 1,
+        explanation: 'Un proceso zombie ha terminado pero su padre no ha recogido su exit status con wait(). Aparece como Z en ps.'
+    },
+    {
+        id: 'linux-008',
+        category: 'linux',
+        certification: 'Linux+/LPIC',
+        difficulty: 'intermediate',
+        question: '¿Qué hace crontab?',
+        options: [
+            'Lista archivos',
+            'Programa tareas para ejecutar en horarios específicos',
+            'Muestra el calendario',
+            'Gestiona usuarios'
+        ],
+        correctAnswer: 1,
+        explanation: 'crontab permite programar tareas (cron jobs) para ejecutarse automáticamente en horarios definidos.'
+    },
+    {
+        id: 'linux-009',
+        category: 'linux',
+        certification: 'Linux+/LPIC',
+        difficulty: 'beginner',
+        question: '¿Qué comando crea un directorio?',
+        options: ['md', 'mkdir', 'create', 'newdir'],
+        correctAnswer: 1,
+        explanation: 'mkdir (make directory) crea directorios. mkdir -p crea directorios anidados.'
+    },
+    {
+        id: 'linux-010',
+        category: 'linux',
+        certification: 'Linux+/LPIC',
+        difficulty: 'advanced',
+        question: '¿Qué es un inode?',
+        options: [
+            'Un tipo de archivo',
+            'Estructura de datos que almacena metadatos de un archivo',
+            'Una partición',
+            'Un tipo de permiso'
+        ],
+        correctAnswer: 1,
+        explanation: 'Un inode contiene metadatos del archivo (permisos, propietario, timestamps, ubicación de bloques) excepto el nombre.'
+    },
+
+    // Hardware Questions
+    {
+        id: 'hw-001',
+        category: 'hardware',
+        certification: 'CompTIA A+',
+        difficulty: 'beginner',
+        question: '¿Qué es la RAM?',
+        options: [
+            'Almacenamiento permanente',
+            'Memoria volátil de acceso rápido para datos en uso',
+            'El procesador',
+            'La tarjeta gráfica'
+        ],
+        correctAnswer: 1,
+        explanation: 'RAM (Random Access Memory) es memoria volátil que almacena datos e instrucciones que el CPU necesita acceder rápidamente.'
+    },
+    {
+        id: 'hw-002',
+        category: 'hardware',
+        certification: 'CompTIA A+',
+        difficulty: 'beginner',
+        question: '¿Qué hace la CPU?',
+        options: [
+            'Almacena datos',
+            'Ejecuta instrucciones y procesa datos',
+            'Muestra gráficos',
+            'Conecta a internet'
+        ],
+        correctAnswer: 1,
+        explanation: 'La CPU (Central Processing Unit) es el cerebro del computador, ejecutando instrucciones y realizando cálculos.'
+    },
+    {
+        id: 'hw-003',
+        category: 'hardware',
+        certification: 'CompTIA A+',
+        difficulty: 'intermediate',
+        question: '¿Cuál es la diferencia entre SSD y HDD?',
+        options: [
+            'SSD usa memoria flash, HDD usa discos magnéticos',
+            'HDD es más rápido',
+            'SSD tiene más capacidad',
+            'No hay diferencia significativa'
+        ],
+        correctAnswer: 0,
+        explanation: 'SSD usa chips de memoria flash (más rápido, sin partes móviles). HDD usa platos magnéticos giratorios (más capacidad por $).'
+    },
+    {
+        id: 'hw-004',
+        category: 'hardware',
+        certification: 'CompTIA A+',
+        difficulty: 'beginner',
+        question: '¿Qué es la motherboard?',
+        options: [
+            'Un tipo de memoria',
+            'La placa principal que conecta todos los componentes',
+            'El sistema operativo',
+            'Un tipo de procesador'
+        ],
+        correctAnswer: 1,
+        explanation: 'La motherboard (placa base) es el PCB principal que interconecta CPU, RAM, storage, GPU y demás componentes.'
+    },
+    {
+        id: 'hw-005',
+        category: 'hardware',
+        certification: 'CompTIA A+',
+        difficulty: 'intermediate',
+        question: '¿Qué es la GPU?',
+        options: [
+            'General Processing Unit',
+            'Graphics Processing Unit - procesador especializado en gráficos',
+            'Global Power Unit',
+            'Un tipo de memoria'
+        ],
+        correctAnswer: 1,
+        explanation: 'La GPU procesa gráficos y cálculos paralelos. Usado para gaming, rendering, ML y procesamiento de video.'
+    },
+    {
+        id: 'hw-006',
+        category: 'hardware',
+        certification: 'CompTIA A+',
+        difficulty: 'intermediate',
+        question: '¿Qué es PCIe?',
+        options: [
+            'Un tipo de procesador',
+            'Bus de alta velocidad para conectar componentes como GPU y NVMe',
+            'Un tipo de cable',
+            'Un sistema operativo'
+        ],
+        correctAnswer: 1,
+        explanation: 'PCIe (Peripheral Component Interconnect Express) es el bus estándar para conectar GPUs, SSDs NVMe, tarjetas de red, etc.'
+    },
+    {
+        id: 'hw-007',
+        category: 'hardware',
+        certification: 'CompTIA A+',
+        difficulty: 'advanced',
+        question: '¿Qué es ECC RAM?',
+        options: [
+            'RAM más rápida',
+            'RAM con corrección de errores para servidores',
+            'RAM para gaming',
+            'RAM de bajo consumo'
+        ],
+        correctAnswer: 1,
+        explanation: 'ECC (Error-Correcting Code) RAM detecta y corrige errores de memoria, esencial en servidores y workstations.'
+    },
+    {
+        id: 'hw-008',
+        category: 'hardware',
+        certification: 'CompTIA A+',
+        difficulty: 'beginner',
+        question: '¿Qué es la BIOS/UEFI?',
+        options: [
+            'Un tipo de memoria',
+            'Firmware que inicializa hardware antes de cargar el SO',
+            'El sistema operativo',
+            'Un programa de antivirus'
+        ],
+        correctAnswer: 1,
+        explanation: 'BIOS/UEFI es firmware en la motherboard que inicializa hardware, ejecuta POST y carga el bootloader del SO.'
+    },
+    {
+        id: 'hw-009',
+        category: 'hardware',
+        certification: 'CompTIA A+',
+        difficulty: 'intermediate',
+        question: '¿Cuántos pines tiene DDR4 DIMM?',
+        options: ['184', '240', '288', '260'],
+        correctAnswer: 2,
+        explanation: 'DDR4 DIMM (desktop) tiene 288 pines. DDR4 SO-DIMM (laptop) tiene 260 pines.'
+    },
+    {
+        id: 'hw-010',
+        category: 'hardware',
+        certification: 'CompTIA A+',
+        difficulty: 'advanced',
+        question: '¿Qué es RAID 5?',
+        options: [
+            'Mirroring de discos',
+            'Striping con paridad distribuida para tolerancia a fallos',
+            'Solo striping sin redundancia',
+            'Backup automático'
+        ],
+        correctAnswer: 1,
+        explanation: 'RAID 5 distribuye datos y paridad entre 3+ discos. Tolera el fallo de 1 disco manteniendo rendimiento y capacidad.'
     }
 ];
 
@@ -725,6 +1461,12 @@ export const categories = {
         color: '#00758f',
         certifications: ['SQL Fundamentals', 'Oracle SQL']
     },
+    java: {
+        name: 'Java',
+        icon: 'fab fa-java',
+        color: '#007396',
+        certifications: ['Oracle Java SE', 'Spring Professional']
+    },
     aws: {
         name: 'AWS',
         icon: 'fab fa-aws',
@@ -736,6 +1478,30 @@ export const categories = {
         icon: 'fab fa-docker',
         color: '#2496ed',
         certifications: ['Docker Certified Associate']
+    },
+    snowflake: {
+        name: 'Snowflake',
+        icon: 'fas fa-snowflake',
+        color: '#29b5e8',
+        certifications: ['SnowPro Core', 'SnowPro Advanced']
+    },
+    databricks: {
+        name: 'Databricks',
+        icon: 'fas fa-cubes',
+        color: '#ff3621',
+        certifications: ['Data Engineer Associate', 'Data Engineer Professional']
+    },
+    linux: {
+        name: 'Linux/CLI',
+        icon: 'fab fa-linux',
+        color: '#fcc624',
+        certifications: ['CompTIA Linux+', 'LPIC-1']
+    },
+    hardware: {
+        name: 'Hardware',
+        icon: 'fas fa-microchip',
+        color: '#6b7280',
+        certifications: ['CompTIA A+', 'CompTIA Server+']
     }
 };
 

@@ -22,28 +22,38 @@ const isProyectos = currentPath.includes('/proyectos');
             </div>
         </a>
         <nav class="nav">
-            <a href={`${base}/inicio`} class={`nav-link ${isHome ? 'active' : ''}`}>Inicio</a>
-            <a href={`${base}/stack`} class={`nav-link ${isStack ? 'active' : ''}`}>Stack</a>
-            <a href={`${base}/arquitectura`} class={`nav-link ${isArquitectura ? 'active' : ''}`}>Arquitectura</a>
-            <a href={`${base}/recursos`} class={`nav-link ${isRecursos ? 'active' : ''}`}>Recursos</a>
-            <a href={`${base}/proyectos`} class={`nav-link ${isProyectos ? 'active' : ''}`}>Proyectos</a>
+            <a href={`${base}/inicio`} class={`nav-link ${isHome ? 'active' : ''}`}
+               data-premium-tooltip="Inicio|Dashboard principal con Plan de Estudios y visión general de la carrera|17 Bimestres,2 Carreras,Stats|navigation|fa-home|NAVEGACIÓN">Inicio</a>
+            <a href={`${base}/stack`} class={`nav-link ${isStack ? 'active' : ''}`}
+               data-premium-tooltip="Stack Tecnológico|150+ tecnologías con rankings de Stack Overflow y GitHub Octoverse 2024|Cloud DW,Terminal CLI,AI/LLM|navigation|fa-layer-group|TECNOLOGÍAS">Stack</a>
+            <a href={`${base}/arquitectura`} class={`nav-link ${isArquitectura ? 'active' : ''}`}
+               data-premium-tooltip="Arquitectura|Patrones de diseño, pipelines de datos, metodologías ágiles y DevOps|Clean Arch,Scrum,CI/CD|navigation|fa-sitemap|ARQUITECTURA">Arquitectura</a>
+            <a href={`${base}/recursos`} class={`nav-link ${isRecursos ? 'active' : ''}`}
+               data-premium-tooltip="Recursos|Herramientas interactivas, videos educativos, certificaciones y más|Gantt,SQL Gen,Quizzes|navigation|fa-tools|HERRAMIENTAS">Recursos</a>
+            <a href={`${base}/proyectos`} class={`nav-link ${isProyectos ? 'active' : ''}`}
+               data-premium-tooltip="Proyectos|Roadmap de aprendizaje y proyectos para construir tu portafolio profesional|Estudio,Trabajo,Portfolio|navigation|fa-project-diagram|PROYECTOS">Proyectos</a>
         </nav>
         <div class="header-actions">
-            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" title="Cambiar tema">
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme"
+                    data-premium-tooltip="Cambiar Tema|Alternar entre modo oscuro y claro para mejor experiencia visual||feature|fa-adjust|PREFERENCIAS">
                 <i class="fas fa-moon" id="theme-icon-dark"></i>
                 <i class="fas fa-sun" id="theme-icon-light"></i>
             </button>
             <div class="repo-icons">
-                <a href="https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC" target="_blank" class="repo-icon-btn github" title="GitHub">
+                <a href="https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC" target="_blank" class="repo-icon-btn github"
+                   data-premium-tooltip="GitHub|Repositorio principal del proyecto con todos los materiales del curso|Código,Issues,PRs|info|fa-code-branch|REPOSITORIO">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://gitlab.com/" target="_blank" class="repo-icon-btn gitlab" title="GitLab">
+                <a href="https://gitlab.com/" target="_blank" class="repo-icon-btn gitlab"
+                   data-premium-tooltip="GitLab|Mirror del repositorio en GitLab con CI/CD integrado|CI/CD,Pipelines|info|fa-code-merge|REPOSITORIO">
                     <i class="fab fa-gitlab"></i>
                 </a>
-                <a href="https://bitbucket.org/" target="_blank" class="repo-icon-btn bitbucket" title="BitBucket">
+                <a href="https://bitbucket.org/" target="_blank" class="repo-icon-btn bitbucket"
+                   data-premium-tooltip="BitBucket|Mirror en Atlassian BitBucket para integración con Jira|Atlassian,Jira|info|fa-code|REPOSITORIO">
                     <i class="fab fa-bitbucket"></i>
                 </a>
-                <a href="https://dev.azure.com/" target="_blank" class="repo-icon-btn azure" title="Azure DevOps">
+                <a href="https://dev.azure.com/" target="_blank" class="repo-icon-btn azure"
+                   data-premium-tooltip="Azure DevOps|Mirror en Microsoft Azure DevOps para pipelines enterprise|Pipelines,Boards|info|fa-cloud|REPOSITORIO">
                     <i class="fab fa-microsoft"></i>
                 </a>
             </div>
