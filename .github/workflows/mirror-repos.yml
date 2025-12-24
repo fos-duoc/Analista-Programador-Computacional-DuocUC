@@ -42,9 +42,10 @@ jobs:
         env:
           AZURE_DEVOPS_PAT: ${{ secrets.AZURE_DEVOPS_PAT }}
         run: |
-          git -c http.extraHeader="Authorization: Basic $(echo -n ":${AZURE_DEVOPS_PAT}" | base64)" remote add azure https://dev.azure.com/fuonate/fos-duoc/_git/fos-duoc || true
-          git -c http.extraHeader="Authorization: Basic $(echo -n ":${AZURE_DEVOPS_PAT}" | base64)" push azure --all --force
-          git -c http.extraHeader="Authorization: Basic $(echo -n ":${AZURE_DEVOPS_PAT}" | base64)" push azure --tags --force
+          git remote add azure https://user:${AZURE_DEVOPS_PAT}@dev.azure.com/fuonate/fos-duoc/_git/fos-duoc || true
+          git remote set-url azure https://user:${AZURE_DEVOPS_PAT}@dev.azure.com/fuonate/fos-duoc/_git/fos-duoc
+          git push azure --all --force
+          git push azure --tags --force
 
   # BitBucket deshabilitado temporalmente - requiere configuración adicional
   # mirror-to-bitbucket:
