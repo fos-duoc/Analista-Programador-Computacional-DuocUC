@@ -157,166 +157,139 @@ const base = import.meta.env.BASE_URL;
     <!-- Plan de Estudios - Visual Overview -->
     <PlanEstudiosHero />
 
-    <!-- Tech Badges Grid - Con links a páginas oficiales -->
-    <section class="tech-icons-section">
-        <div class="tech-icons-grid" data-aos="zoom-in" data-aos-delay="100">
-            <!-- Row 1: Core Languages -->
-            <div class="tech-row">
-                <a href="https://www.oracle.com/java/" target="_blank" rel="noopener" data-tooltip="Java"><i class="devicon-java-plain colored"></i></a>
-                <a href="https://www.python.org/" target="_blank" rel="noopener" data-tooltip="Python"><i class="devicon-python-plain colored"></i></a>
-                <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener" data-tooltip="TypeScript"><i class="devicon-typescript-plain colored"></i></a>
-                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener" data-tooltip="JavaScript"><i class="devicon-javascript-plain colored"></i></a>
-                <a href="https://go.dev/" target="_blank" rel="noopener" data-tooltip="Go"><i class="devicon-go-original-wordmark colored"></i></a>
-                <a href="https://www.rust-lang.org/" target="_blank" rel="noopener" data-tooltip="Rust"><i class="devicon-rust-original"></i></a>
-                <a href="https://kotlinlang.org/" target="_blank" rel="noopener" data-tooltip="Kotlin"><i class="devicon-kotlin-plain colored"></i></a>
-                <a href="https://www.swift.org/" target="_blank" rel="noopener" data-tooltip="Swift"><i class="devicon-swift-plain colored"></i></a>
-                <a href="https://isocpp.org/" target="_blank" rel="noopener" data-tooltip="C++"><i class="devicon-cplusplus-plain colored"></i></a>
-                <a href="https://docs.microsoft.com/en-us/dotnet/csharp/" target="_blank" rel="noopener" data-tooltip="C#"><i class="devicon-csharp-plain colored"></i></a>
+    <!-- Tech Ecosystem - Hexagonal Grid Design -->
+    <section class="tech-ecosystem-section" data-aos="fade-up">
+        <div class="tech-ecosystem-container">
+            <!-- Header -->
+            <div class="ecosystem-header">
+                <span class="ecosystem-badge"><i class="fas fa-cubes"></i> Ecosistema Tecnológico</span>
+                <h2>Stack de <span class="gradient-text">Desarrollo Moderno</span></h2>
+                <p>65+ tecnologías organizadas por especialidad</p>
             </div>
-            <!-- Row 2: Backend Frameworks -->
-            <div class="tech-row">
-                <a href="https://spring.io/" target="_blank" rel="noopener" data-tooltip="Spring"><i class="devicon-spring-original colored"></i></a>
-                <a href="https://nodejs.org/" target="_blank" rel="noopener" data-tooltip="Node.js"><i class="devicon-nodejs-plain colored"></i></a>
-                <a href="https://dotnet.microsoft.com/" target="_blank" rel="noopener" data-tooltip=".NET"><i class="devicon-dotnetcore-plain colored"></i></a>
-                <a href="https://www.djangoproject.com/" target="_blank" rel="noopener" data-tooltip="Django"><i class="devicon-django-plain colored"></i></a>
-                <a href="https://fastapi.tiangolo.com/" target="_blank" rel="noopener" data-tooltip="FastAPI"><i class="devicon-fastapi-plain colored"></i></a>
-                <a href="https://flask.palletsprojects.com/" target="_blank" rel="noopener" data-tooltip="Flask"><i class="devicon-flask-original"></i></a>
-                <a href="https://expressjs.com/" target="_blank" rel="noopener" data-tooltip="Express"><i class="devicon-express-original"></i></a>
-                <a href="https://nestjs.com/" target="_blank" rel="noopener" data-tooltip="NestJS"><i class="devicon-nestjs-original colored"></i></a>
-                <a href="https://graphql.org/" target="_blank" rel="noopener" data-tooltip="GraphQL"><i class="devicon-graphql-plain colored"></i></a>
+
+            <!-- Hexagonal Grid Layout -->
+            <div class="hex-grid-container">
+                <!-- Center Hub - Core -->
+                <div class="hex-cluster center-cluster">
+                    <div class="cluster-label"><i class="fas fa-code"></i> Lenguajes</div>
+                    <div class="hex-group">
+                        <a href="https://www.python.org/" target="_blank" class="hex-item python"><i class="devicon-python-plain colored"></i><span>Python</span></a>
+                        <a href="https://www.oracle.com/java/" target="_blank" class="hex-item java"><i class="devicon-java-plain colored"></i><span>Java</span></a>
+                        <a href="https://www.typescriptlang.org/" target="_blank" class="hex-item typescript"><i class="devicon-typescript-plain colored"></i><span>TypeScript</span></a>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" class="hex-item javascript"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></a>
+                        <a href="https://go.dev/" target="_blank" class="hex-item go"><i class="devicon-go-original-wordmark colored"></i><span>Go</span></a>
+                        <a href="https://docs.microsoft.com/en-us/dotnet/csharp/" target="_blank" class="hex-item csharp"><i class="devicon-csharp-plain colored"></i><span>C#</span></a>
+                    </div>
+                </div>
+
+                <!-- Top Left - Frontend -->
+                <div class="hex-cluster top-left-cluster">
+                    <div class="cluster-label"><i class="fas fa-palette"></i> Frontend</div>
+                    <div class="hex-group">
+                        <a href="https://react.dev/" target="_blank" class="hex-item react"><i class="devicon-react-original colored"></i><span>React</span></a>
+                        <a href="https://vuejs.org/" target="_blank" class="hex-item vue"><i class="devicon-vuejs-plain colored"></i><span>Vue</span></a>
+                        <a href="https://angular.io/" target="_blank" class="hex-item angular"><i class="devicon-angularjs-plain colored"></i><span>Angular</span></a>
+                        <a href="https://nextjs.org/" target="_blank" class="hex-item nextjs"><i class="devicon-nextjs-plain"></i><span>Next.js</span></a>
+                        <a href="https://tailwindcss.com/" target="_blank" class="hex-item tailwind"><i class="devicon-tailwindcss-original colored"></i><span>Tailwind</span></a>
+                    </div>
+                </div>
+
+                <!-- Top Right - Backend -->
+                <div class="hex-cluster top-right-cluster">
+                    <div class="cluster-label"><i class="fas fa-server"></i> Backend</div>
+                    <div class="hex-group">
+                        <a href="https://spring.io/" target="_blank" class="hex-item spring"><i class="devicon-spring-original colored"></i><span>Spring</span></a>
+                        <a href="https://nodejs.org/" target="_blank" class="hex-item nodejs"><i class="devicon-nodejs-plain colored"></i><span>Node.js</span></a>
+                        <a href="https://fastapi.tiangolo.com/" target="_blank" class="hex-item fastapi"><i class="devicon-fastapi-plain colored"></i><span>FastAPI</span></a>
+                        <a href="https://www.djangoproject.com/" target="_blank" class="hex-item django"><i class="devicon-django-plain"></i><span>Django</span></a>
+                        <a href="https://nestjs.com/" target="_blank" class="hex-item nestjs"><i class="devicon-nestjs-original colored"></i><span>NestJS</span></a>
+                    </div>
+                </div>
+
+                <!-- Left - Databases -->
+                <div class="hex-cluster left-cluster">
+                    <div class="cluster-label"><i class="fas fa-database"></i> Databases</div>
+                    <div class="hex-group">
+                        <a href="https://www.postgresql.org/" target="_blank" class="hex-item postgres"><i class="devicon-postgresql-plain colored"></i><span>PostgreSQL</span></a>
+                        <a href="https://www.mongodb.com/" target="_blank" class="hex-item mongodb"><i class="devicon-mongodb-plain colored"></i><span>MongoDB</span></a>
+                        <a href="https://redis.io/" target="_blank" class="hex-item redis"><i class="devicon-redis-plain colored"></i><span>Redis</span></a>
+                        <a href="https://www.mysql.com/" target="_blank" class="hex-item mysql"><i class="devicon-mysql-original colored"></i><span>MySQL</span></a>
+                        <a href="https://kafka.apache.org/" target="_blank" class="hex-item kafka"><i class="devicon-apachekafka-original"></i><span>Kafka</span></a>
+                    </div>
+                </div>
+
+                <!-- Right - Cloud -->
+                <div class="hex-cluster right-cluster">
+                    <div class="cluster-label"><i class="fas fa-cloud"></i> Cloud</div>
+                    <div class="hex-group">
+                        <a href="https://aws.amazon.com/" target="_blank" class="hex-item aws"><i class="devicon-amazonwebservices-plain-wordmark colored"></i><span>AWS</span></a>
+                        <a href="https://azure.microsoft.com/" target="_blank" class="hex-item azure"><i class="devicon-azure-plain colored"></i><span>Azure</span></a>
+                        <a href="https://cloud.google.com/" target="_blank" class="hex-item gcp"><i class="devicon-googlecloud-plain colored"></i><span>GCP</span></a>
+                        <a href="https://vercel.com/" target="_blank" class="hex-item vercel"><i class="devicon-vercel-original"></i><span>Vercel</span></a>
+                    </div>
+                </div>
+
+                <!-- Bottom Left - DevOps -->
+                <div class="hex-cluster bottom-left-cluster">
+                    <div class="cluster-label"><i class="fas fa-infinity"></i> DevOps</div>
+                    <div class="hex-group">
+                        <a href="https://www.docker.com/" target="_blank" class="hex-item docker"><i class="devicon-docker-plain colored"></i><span>Docker</span></a>
+                        <a href="https://kubernetes.io/" target="_blank" class="hex-item k8s"><i class="devicon-kubernetes-plain colored"></i><span>K8s</span></a>
+                        <a href="https://www.terraform.io/" target="_blank" class="hex-item terraform"><i class="devicon-terraform-plain colored"></i><span>Terraform</span></a>
+                        <a href="https://github.com/features/actions" target="_blank" class="hex-item actions"><i class="devicon-githubactions-plain colored"></i><span>Actions</span></a>
+                        <a href="https://git-scm.com/" target="_blank" class="hex-item git"><i class="devicon-git-plain colored"></i><span>Git</span></a>
+                    </div>
+                </div>
+
+                <!-- Bottom Right - Data Engineering -->
+                <div class="hex-cluster bottom-right-cluster">
+                    <div class="cluster-label"><i class="fas fa-chart-line"></i> Data</div>
+                    <div class="hex-group">
+                        <a href="https://spark.apache.org/" target="_blank" class="hex-item spark"><i class="devicon-apachespark-original colored"></i><span>Spark</span></a>
+                        <a href="https://airflow.apache.org/" target="_blank" class="hex-item airflow"><i class="devicon-apacheairflow-plain"></i><span>Airflow</span></a>
+                        <a href="https://www.snowflake.com/" target="_blank" class="hex-item snowflake"><img src="https://cdn.simpleicons.org/snowflake/29B5E8" alt="Snowflake" /><span>Snowflake</span></a>
+                        <a href="https://www.getdbt.com/" target="_blank" class="hex-item dbt"><img src="https://cdn.simpleicons.org/dbt/FF694B" alt="dbt" /><span>dbt</span></a>
+                        <a href="https://powerbi.microsoft.com/" target="_blank" class="hex-item powerbi"><img src="https://cdn.simpleicons.org/powerbi/F2C811" alt="Power BI" /><span>Power BI</span></a>
+                    </div>
+                </div>
+
+                <!-- Bottom - Tools & AI -->
+                <div class="hex-cluster bottom-cluster">
+                    <div class="cluster-label"><i class="fas fa-robot"></i> AI & Tools</div>
+                    <div class="hex-group">
+                        <a href="https://pytorch.org/" target="_blank" class="hex-item pytorch"><i class="devicon-pytorch-original colored"></i><span>PyTorch</span></a>
+                        <a href="https://www.tensorflow.org/" target="_blank" class="hex-item tensorflow"><i class="devicon-tensorflow-original colored"></i><span>TensorFlow</span></a>
+                        <a href="https://jupyter.org/" target="_blank" class="hex-item jupyter"><i class="devicon-jupyter-plain colored"></i><span>Jupyter</span></a>
+                        <a href="https://code.visualstudio.com/" target="_blank" class="hex-item vscode"><i class="devicon-vscode-plain colored"></i><span>VS Code</span></a>
+                        <a href="https://www.postman.com/" target="_blank" class="hex-item postman"><i class="devicon-postman-plain colored"></i><span>Postman</span></a>
+                    </div>
+                </div>
+
+                <!-- Connection Lines SVG -->
+                <svg class="hex-connections" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet">
+                    <defs>
+                        <linearGradient id="lineGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.3" />
+                            <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:0.5" />
+                            <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0.3" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Connection paths between clusters -->
+                    <path class="connection-line" d="M400,300 L200,150" stroke="url(#lineGradient1)" />
+                    <path class="connection-line" d="M400,300 L600,150" stroke="url(#lineGradient1)" />
+                    <path class="connection-line" d="M400,300 L150,300" stroke="url(#lineGradient1)" />
+                    <path class="connection-line" d="M400,300 L650,300" stroke="url(#lineGradient1)" />
+                    <path class="connection-line" d="M400,300 L200,450" stroke="url(#lineGradient1)" />
+                    <path class="connection-line" d="M400,300 L600,450" stroke="url(#lineGradient1)" />
+                    <path class="connection-line" d="M400,300 L400,520" stroke="url(#lineGradient1)" />
+                </svg>
             </div>
-            <!-- Row 3: Frontend Frameworks -->
-            <div class="tech-row">
-                <a href="https://react.dev/" target="_blank" rel="noopener" data-tooltip="React"><i class="devicon-react-original colored"></i></a>
-                <a href="https://angular.io/" target="_blank" rel="noopener" data-tooltip="Angular"><i class="devicon-angularjs-plain colored"></i></a>
-                <a href="https://vuejs.org/" target="_blank" rel="noopener" data-tooltip="Vue.js"><i class="devicon-vuejs-plain colored"></i></a>
-                <a href="https://nextjs.org/" target="_blank" rel="noopener" data-tooltip="Next.js"><i class="devicon-nextjs-plain"></i></a>
-                <a href="https://tailwindcss.com/" target="_blank" rel="noopener" data-tooltip="Tailwind CSS"><i class="devicon-tailwindcss-original colored"></i></a>
-                <a href="https://sass-lang.com/" target="_blank" rel="noopener" data-tooltip="Sass"><i class="devicon-sass-original colored"></i></a>
-                <a href="https://webpack.js.org/" target="_blank" rel="noopener" data-tooltip="Webpack"><i class="devicon-webpack-plain colored"></i></a>
-                <a href="https://vitejs.dev/" target="_blank" rel="noopener" data-tooltip="Vite"><i class="devicon-vitejs-plain colored"></i></a>
-            </div>
-            <!-- Row 4: Databases -->
-            <div class="tech-row">
-                <a href="https://www.postgresql.org/" target="_blank" rel="noopener" data-tooltip="PostgreSQL"><i class="devicon-postgresql-plain colored"></i></a>
-                <a href="https://www.mysql.com/" target="_blank" rel="noopener" data-tooltip="MySQL"><i class="devicon-mysql-original colored"></i></a>
-                <a href="https://www.mongodb.com/" target="_blank" rel="noopener" data-tooltip="MongoDB"><i class="devicon-mongodb-plain colored"></i></a>
-                <a href="https://redis.io/" target="_blank" rel="noopener" data-tooltip="Redis"><i class="devicon-redis-plain colored"></i></a>
-                <a href="https://www.elastic.co/" target="_blank" rel="noopener" data-tooltip="Elasticsearch"><i class="devicon-elasticsearch-plain colored"></i></a>
-                <a href="https://kafka.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache Kafka"><i class="devicon-apachekafka-original"></i></a>
-                <a href="https://www.oracle.com/database/" target="_blank" rel="noopener" data-tooltip="Oracle"><i class="devicon-oracle-original colored"></i></a>
-            </div>
-            <!-- Row 5: Cloud & DevOps -->
-            <div class="tech-row">
-                <a href="https://aws.amazon.com/" target="_blank" rel="noopener" data-tooltip="AWS"><i class="devicon-amazonwebservices-plain-wordmark colored"></i></a>
-                <a href="https://azure.microsoft.com/" target="_blank" rel="noopener" data-tooltip="Azure"><i class="devicon-azure-plain colored"></i></a>
-                <a href="https://cloud.google.com/" target="_blank" rel="noopener" data-tooltip="Google Cloud"><i class="devicon-googlecloud-plain colored"></i></a>
-                <a href="https://www.docker.com/" target="_blank" rel="noopener" data-tooltip="Docker"><i class="devicon-docker-plain colored"></i></a>
-                <a href="https://kubernetes.io/" target="_blank" rel="noopener" data-tooltip="Kubernetes"><i class="devicon-kubernetes-plain colored"></i></a>
-                <a href="https://www.terraform.io/" target="_blank" rel="noopener" data-tooltip="Terraform"><i class="devicon-terraform-plain colored"></i></a>
-                <a href="https://www.ansible.com/" target="_blank" rel="noopener" data-tooltip="Ansible"><i class="devicon-ansible-plain"></i></a>
-                <a href="https://www.jenkins.io/" target="_blank" rel="noopener" data-tooltip="Jenkins"><i class="devicon-jenkins-plain colored"></i></a>
-                <a href="https://github.com/features/actions" target="_blank" rel="noopener" data-tooltip="GitHub Actions"><i class="devicon-githubactions-plain colored"></i></a>
-            </div>
-            <!-- Row 6: DevOps & Infrastructure -->
-            <div class="tech-row">
-                <a href="https://www.linux.org/" target="_blank" rel="noopener" data-tooltip="Linux"><i class="devicon-linux-plain"></i></a>
-                <a href="https://nginx.org/" target="_blank" rel="noopener" data-tooltip="Nginx"><i class="devicon-nginx-original colored"></i></a>
-                <a href="https://git-scm.com/" target="_blank" rel="noopener" data-tooltip="Git"><i class="devicon-git-plain colored"></i></a>
-                <a href="https://github.com/" target="_blank" rel="noopener" data-tooltip="GitHub"><i class="devicon-github-original"></i></a>
-                <a href="https://gitlab.com/" target="_blank" rel="noopener" data-tooltip="GitLab"><i class="devicon-gitlab-plain colored"></i></a>
-                <a href="https://vercel.com/" target="_blank" rel="noopener" data-tooltip="Vercel"><i class="devicon-vercel-original"></i></a>
-                <a href="https://gradle.org/" target="_blank" rel="noopener" data-tooltip="Gradle"><i class="devicon-gradle-original colored"></i></a>
-                <a href="https://maven.apache.org/" target="_blank" rel="noopener" data-tooltip="Maven"><i class="devicon-maven-plain colored"></i></a>
-                <a href="https://www.npmjs.com/" target="_blank" rel="noopener" data-tooltip="npm"><i class="devicon-npm-original-wordmark colored"></i></a>
-            </div>
-            <!-- Row 7: Testing, Monitoring & ML -->
-            <div class="tech-row">
-                <a href="https://grafana.com/" target="_blank" rel="noopener" data-tooltip="Grafana"><i class="devicon-grafana-plain colored"></i></a>
-                <a href="https://prometheus.io/" target="_blank" rel="noopener" data-tooltip="Prometheus"><i class="devicon-prometheus-original colored"></i></a>
-                <a href="https://jestjs.io/" target="_blank" rel="noopener" data-tooltip="Jest"><i class="devicon-jest-plain colored"></i></a>
-                <a href="https://www.selenium.dev/" target="_blank" rel="noopener" data-tooltip="Selenium"><i class="devicon-selenium-original colored"></i></a>
-                <a href="https://pytorch.org/" target="_blank" rel="noopener" data-tooltip="PyTorch"><i class="devicon-pytorch-original colored"></i></a>
-                <a href="https://www.tensorflow.org/" target="_blank" rel="noopener" data-tooltip="TensorFlow"><i class="devicon-tensorflow-original colored"></i></a>
-                <a href="https://www.figma.com/" target="_blank" rel="noopener" data-tooltip="Figma"><i class="devicon-figma-plain colored"></i></a>
-                <a href="https://www.postman.com/" target="_blank" rel="noopener" data-tooltip="Postman"><i class="devicon-postman-plain colored"></i></a>
-            </div>
-            <!-- Row 8: IDEs & Editors -->
-            <div class="tech-row">
-                <a href="https://code.visualstudio.com/" target="_blank" rel="noopener" data-tooltip="VS Code"><i class="devicon-vscode-plain colored"></i></a>
-                <a href="https://www.jetbrains.com/idea/" target="_blank" rel="noopener" data-tooltip="IntelliJ IDEA"><i class="devicon-intellij-plain colored"></i></a>
-                <a href="https://www.jetbrains.com/pycharm/" target="_blank" rel="noopener" data-tooltip="PyCharm"><i class="devicon-pycharm-plain colored"></i></a>
-                <a href="https://www.jetbrains.com/datagrip/" target="_blank" rel="noopener" data-tooltip="DataGrip"><i class="devicon-datagrip-plain colored"></i></a>
-                <a href="https://neovim.io/" target="_blank" rel="noopener" data-tooltip="Neovim"><i class="devicon-neovim-plain colored"></i></a>
-                <a href="https://visualstudio.microsoft.com/" target="_blank" rel="noopener" data-tooltip="Visual Studio"><i class="devicon-visualstudio-plain colored"></i></a>
-                <a href="https://www.gnu.org/software/bash/" target="_blank" rel="noopener" data-tooltip="Bash"><i class="devicon-bash-plain"></i></a>
-                <a href="https://www.rstudio.com/" target="_blank" rel="noopener" data-tooltip="RStudio"><i class="devicon-rstudio-plain colored"></i></a>
-            </div>
-            <!-- Row 9: Data Engineering & Big Data -->
-            <div class="tech-row">
-                <a href="https://spark.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache Spark"><i class="devicon-apachespark-original colored"></i></a>
-                <a href="https://hadoop.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache Hadoop"><i class="devicon-hadoop-plain colored"></i></a>
-                <a href="https://airflow.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache Airflow"><i class="devicon-apacheairflow-plain"></i></a>
-                <a href="https://flink.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache Flink"><img src="https://cdn.simpleicons.org/apacheflink/E6526F" alt="Flink" class="simple-icon" /></a>
-                <a href="https://beam.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache Beam"><img src="https://cdn.simpleicons.org/apachebeam/E5722E" alt="Beam" class="simple-icon" /></a>
-                <a href="https://nifi.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache NiFi"><img src="https://cdn.simpleicons.org/apachenifi/728E9B" alt="NiFi" class="simple-icon" /></a>
-                <a href="https://www.getdbt.com/" target="_blank" rel="noopener" data-tooltip="dbt"><img src="https://cdn.simpleicons.org/dbt/FF694B" alt="dbt" class="simple-icon" /></a>
-                <a href="https://www.prefect.io/" target="_blank" rel="noopener" data-tooltip="Prefect"><img src="https://cdn.simpleicons.org/prefect/42B4FF" alt="Prefect" class="simple-icon" /></a>
-            </div>
-            <!-- Row 10: Data Warehouses & Lakehouse -->
-            <div class="tech-row">
-                <a href="https://www.snowflake.com/" target="_blank" rel="noopener" data-tooltip="Snowflake"><img src="https://cdn.simpleicons.org/snowflake/29B5E8" alt="Snowflake" class="simple-icon" /></a>
-                <a href="https://www.databricks.com/" target="_blank" rel="noopener" data-tooltip="Databricks"><img src="https://cdn.simpleicons.org/databricks/FF3621" alt="Databricks" class="simple-icon" /></a>
-                <a href="https://cloud.google.com/bigquery" target="_blank" rel="noopener" data-tooltip="BigQuery"><img src="https://cdn.simpleicons.org/googlebigquery/669DF6" alt="BigQuery" class="simple-icon" /></a>
-                <a href="https://aws.amazon.com/redshift/" target="_blank" rel="noopener" data-tooltip="AWS Redshift"><img src="https://cdn.simpleicons.org/amazonredshift/8C4FFF" alt="Redshift" class="simple-icon" onerror="this.onerror=null;this.src='https://skillicons.dev/icons?i=aws&theme=dark'" /></a>
-                <a href="https://delta.io/" target="_blank" rel="noopener" data-tooltip="Delta Lake"><img src="https://cdn.simpleicons.org/delta/66CCFF" alt="Delta Lake" class="simple-icon" /></a>
-                <a href="https://iceberg.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache Iceberg"><img src="https://cdn.simpleicons.org/apacheiceberg/4DD9D9" alt="Iceberg" class="simple-icon" /></a>
-                <a href="https://hudi.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache Hudi"><img src="https://cdn.simpleicons.org/apachehudi/FF5A00" alt="Hudi" class="simple-icon" /></a>
-                <a href="https://trino.io/" target="_blank" rel="noopener" data-tooltip="Trino"><img src="https://cdn.simpleicons.org/trino/DD00A1" alt="Trino" class="simple-icon" /></a>
-            </div>
-            <!-- Row 11: BI & Data Visualization -->
-            <div class="tech-row">
-                <a href="https://powerbi.microsoft.com/" target="_blank" rel="noopener" data-tooltip="Power BI"><img src="https://cdn.simpleicons.org/powerbi/F2C811" alt="Power BI" class="simple-icon" /></a>
-                <a href="https://www.tableau.com/" target="_blank" rel="noopener" data-tooltip="Tableau"><img src="https://cdn.simpleicons.org/tableau/E97627" alt="Tableau" class="simple-icon" /></a>
-                <a href="https://looker.com/" target="_blank" rel="noopener" data-tooltip="Looker"><img src="https://cdn.simpleicons.org/looker/4285F4" alt="Looker" class="simple-icon" /></a>
-                <a href="https://superset.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache Superset"><img src="https://cdn.simpleicons.org/apachesuperset/3FC4B9" alt="Superset" class="simple-icon" /></a>
-                <a href="https://metabase.com/" target="_blank" rel="noopener" data-tooltip="Metabase"><img src="https://cdn.simpleicons.org/metabase/509EE3" alt="Metabase" class="simple-icon" /></a>
-                <a href="https://d3js.org/" target="_blank" rel="noopener" data-tooltip="D3.js"><i class="devicon-d3js-plain colored"></i></a>
-                <a href="https://plotly.com/" target="_blank" rel="noopener" data-tooltip="Plotly"><img src="https://cdn.simpleicons.org/plotly/6B9BFF" alt="Plotly" class="simple-icon" /></a>
-                <a href="https://www.r-project.org/" target="_blank" rel="noopener" data-tooltip="R"><img src="https://cdn.simpleicons.org/r/276DC3" alt="R" class="simple-icon" /></a>
-            </div>
-            <!-- Row 12: Data Science & ML -->
-            <div class="tech-row">
-                <a href="https://jupyter.org/" target="_blank" rel="noopener" data-tooltip="Jupyter"><i class="devicon-jupyter-plain colored"></i></a>
-                <a href="https://pandas.pydata.org/" target="_blank" rel="noopener" data-tooltip="Pandas"><img src="https://cdn.simpleicons.org/pandas/E0689F" alt="Pandas" class="simple-icon" /></a>
-                <a href="https://numpy.org/" target="_blank" rel="noopener" data-tooltip="NumPy"><img src="https://cdn.simpleicons.org/numpy/4D77CF" alt="NumPy" class="simple-icon" /></a>
-                <a href="https://scikit-learn.org/" target="_blank" rel="noopener" data-tooltip="Scikit-learn"><img src="https://cdn.simpleicons.org/scikitlearn/F7931E" alt="Scikit-learn" class="simple-icon" /></a>
-                <a href="https://keras.io/" target="_blank" rel="noopener" data-tooltip="Keras"><img src="https://cdn.simpleicons.org/keras/D00000" alt="Keras" class="simple-icon" /></a>
-                <a href="https://opencv.org/" target="_blank" rel="noopener" data-tooltip="OpenCV"><img src="https://cdn.simpleicons.org/opencv/5C3EE8" alt="OpenCV" class="simple-icon" /></a>
-                <a href="https://mlflow.org/" target="_blank" rel="noopener" data-tooltip="MLflow"><img src="https://cdn.simpleicons.org/mlflow/0194E2" alt="MLflow" class="simple-icon" /></a>
-                <a href="https://www.anaconda.com/" target="_blank" rel="noopener" data-tooltip="Anaconda"><i class="devicon-anaconda-original colored"></i></a>
-            </div>
-            <!-- Row 13: Streaming & Message Queues -->
-            <div class="tech-row">
-                <a href="https://www.rabbitmq.com/" target="_blank" rel="noopener" data-tooltip="RabbitMQ"><i class="devicon-rabbitmq-original colored"></i></a>
-                <a href="https://pulsar.apache.org/" target="_blank" rel="noopener" data-tooltip="Apache Pulsar"><img src="https://cdn.simpleicons.org/apachepulsar/5DB4FF" alt="Pulsar" class="simple-icon" /></a>
-                <a href="https://aws.amazon.com/kinesis/" target="_blank" rel="noopener" data-tooltip="AWS Kinesis"><img src="https://cdn.simpleicons.org/amazonkinesis/FF9900" alt="Kinesis" class="simple-icon" /></a>
-                <a href="https://cloud.google.com/pubsub" target="_blank" rel="noopener" data-tooltip="Google Pub/Sub"><img src="https://cdn.simpleicons.org/googlepubsub/AECBFA" alt="Pub/Sub" class="simple-icon" /></a>
-                <a href="https://azure.microsoft.com/en-us/products/event-hubs/" target="_blank" rel="noopener" data-tooltip="Azure Event Hubs"><i class="devicon-azure-plain colored"></i></a>
-                <a href="https://www.confluent.io/" target="_blank" rel="noopener" data-tooltip="Confluent"><img src="https://cdn.simpleicons.org/confluent/FFFFFF" alt="Confluent" class="simple-icon" /></a>
-                <a href="https://zeromq.org/" target="_blank" rel="noopener" data-tooltip="ZeroMQ"><img src="https://cdn.simpleicons.org/zeromq/DF0000" alt="ZeroMQ" class="simple-icon" /></a>
-                <a href="https://grpc.io/" target="_blank" rel="noopener" data-tooltip="gRPC"><img src="https://cdn.simpleicons.org/grpc/4285F4" alt="gRPC" class="simple-icon" /></a>
-            </div>
-            <!-- Row 14: Security & Monitoring -->
-            <div class="tech-row">
-                <a href="https://www.vaultproject.io/" target="_blank" rel="noopener" data-tooltip="HashiCorp Vault"><img src="https://cdn.simpleicons.org/vault/FFEC6E" alt="Vault" class="simple-icon" /></a>
-                <a href="https://www.openssl.org/" target="_blank" rel="noopener" data-tooltip="OpenSSL"><img src="https://cdn.simpleicons.org/openssl/CC9966" alt="OpenSSL" class="simple-icon" /></a>
-                <a href="https://oauth.net/" target="_blank" rel="noopener" data-tooltip="OAuth"><img src="https://cdn.simpleicons.org/auth0/EB5424" alt="OAuth" class="simple-icon" /></a>
-                <a href="https://www.cloudflare.com/" target="_blank" rel="noopener" data-tooltip="Cloudflare"><img src="https://cdn.simpleicons.org/cloudflare/F38020" alt="Cloudflare" class="simple-icon" /></a>
-                <a href="https://www.splunk.com/" target="_blank" rel="noopener" data-tooltip="Splunk"><img src="https://cdn.simpleicons.org/splunk/65A637" alt="Splunk" class="simple-icon" /></a>
-                <a href="https://www.datadoghq.com/" target="_blank" rel="noopener" data-tooltip="Datadog"><img src="https://cdn.simpleicons.org/datadog/632CA6" alt="Datadog" class="simple-icon" /></a>
-                <a href="https://newrelic.com/" target="_blank" rel="noopener" data-tooltip="New Relic"><img src="https://cdn.simpleicons.org/newrelic/1CE783" alt="New Relic" class="simple-icon" /></a>
-                <a href="https://grafana.com/" target="_blank" rel="noopener" data-tooltip="Grafana"><i class="devicon-grafana-original colored"></i></a>
+
+            <!-- Footer Stats -->
+            <div class="ecosystem-footer">
+                <div class="eco-stat"><span class="eco-stat-value">65+</span><span class="eco-stat-label">Tecnologías</span></div>
+                <div class="eco-stat"><span class="eco-stat-value">8</span><span class="eco-stat-label">Categorías</span></div>
+                <div class="eco-stat"><span class="eco-stat-value">100%</span><span class="eco-stat-label">Industria</span></div>
             </div>
         </div>
     </section>
