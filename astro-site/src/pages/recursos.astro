@@ -13,6 +13,11 @@ import TerminalDemo from '../components/TerminalDemo.astro';
 import WebVitalsSection from '../components/WebVitalsSection.astro';
 import SedesMapSection from '../components/SedesMapSection.astro';
 import ProfessionalProjectsSection from '../components/ProfessionalProjectsSection.astro';
+// Interactive Tools
+import PasswordGeneratorSection from '../components/tools/PasswordGeneratorSection.astro';
+import SQLQueryGeneratorSection from '../components/tools/SQLQueryGeneratorSection.astro';
+import QuizGeneratorSection from '../components/tools/QuizGeneratorSection.astro';
+import GanttGeneratorSection from '../components/tools/GanttGeneratorSection.astro';
 ---
 
 <Layout title="Recursos de Aprendizaje | DuocUC">
@@ -28,6 +33,24 @@ import ProfessionalProjectsSection from '../components/ProfessionalProjectsSecti
             <h1>Recursos de Aprendizaje</h1>
             <p>Herramientas, videos, documentación y código para potenciar tu aprendizaje</p>
             <div class="hero-cards">
+                <!-- Generadores Interactivos -->
+                <a href="#gantt-generator" class="quick-nav featured">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>Gantt</span>
+                </a>
+                <a href="#sql-generator" class="quick-nav featured">
+                    <i class="fas fa-database"></i>
+                    <span>SQL Builder</span>
+                </a>
+                <a href="#password-generator" class="quick-nav featured">
+                    <i class="fas fa-key"></i>
+                    <span>Passwords</span>
+                </a>
+                <a href="#quiz-generator" class="quick-nav featured">
+                    <i class="fas fa-clipboard-check"></i>
+                    <span>Quiz</span>
+                </a>
+                <!-- Recursos existentes -->
                 <a href="#ai-tools" class="quick-nav">
                     <i class="fas fa-robot"></i>
                     <span>AI Tools</span>
@@ -76,6 +99,20 @@ import ProfessionalProjectsSection from '../components/ProfessionalProjectsSecti
         </div>
     </section>
 
+    <!-- HERRAMIENTAS INTERACTIVAS -->
+    <!-- Gantt Chart Generator -->
+    <GanttGeneratorSection />
+
+    <!-- SQL Query Generator -->
+    <SQLQueryGeneratorSection />
+
+    <!-- Password Generator -->
+    <PasswordGeneratorSection />
+
+    <!-- Quiz/Test Generator -->
+    <QuizGeneratorSection />
+
+    <!-- RECURSOS DE APRENDIZAJE -->
     <!-- AI Tools Section -->
     <AIToolsSection />
 
@@ -177,6 +214,21 @@ import ProfessionalProjectsSection from '../components/ProfessionalProjectsSecti
         background: rgba(245, 158, 11, 0.1);
         border-color: rgba(245, 158, 11, 0.3);
         transform: translateY(-4px);
+    }
+
+    .quick-nav.featured {
+        background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(139, 92, 246, 0.1));
+        border-color: rgba(0, 212, 255, 0.3);
+    }
+
+    .quick-nav.featured:hover {
+        background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(139, 92, 246, 0.2));
+        border-color: rgba(0, 212, 255, 0.5);
+        box-shadow: 0 4px 20px rgba(0, 212, 255, 0.2);
+    }
+
+    .quick-nav.featured i {
+        color: #00d4ff;
     }
 
     .quick-nav i {
