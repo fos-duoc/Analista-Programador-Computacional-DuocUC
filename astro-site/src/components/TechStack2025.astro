@@ -1360,6 +1360,7 @@ function initTooltips() {
     }
 
     .tech-item {
+        position: relative;
         display: flex;
         align-items: center;
         gap: 0.75rem;
@@ -1369,6 +1370,7 @@ function initTooltips() {
         border-radius: 10px;
         text-decoration: none;
         transition: all 0.2s ease;
+        overflow: hidden;
     }
 
     .tech-item:hover {
@@ -1378,8 +1380,21 @@ function initTooltips() {
     }
 
     .tech-item.hot {
-        background: rgba(239, 68, 68, 0.05);
-        border-color: rgba(239, 68, 68, 0.1);
+        background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(249, 115, 22, 0.05));
+        border-color: rgba(239, 68, 68, 0.2);
+        box-shadow: 0 2px 8px rgba(239, 68, 68, 0.1);
+    }
+
+    .tech-item.hot::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #ef4444, #f97316);
+        border-radius: 4px 4px 0 0;
+        opacity: 0.8;
     }
 
     .tech-item i {
@@ -1409,8 +1424,13 @@ function initTooltips() {
     }
 
     .item-desc {
-        font-size: 0.75rem;
+        font-size: 0.72rem;
         color: var(--text-muted);
+        background: rgba(255, 255, 255, 0.05);
+        padding: 0.15rem 0.4rem;
+        border-radius: 4px;
+        display: inline-block;
+        width: fit-content;
     }
 
     .item-stat {
@@ -1424,12 +1444,22 @@ function initTooltips() {
     }
 
     .stat-value {
-        font-size: 0.8rem;
-        font-weight: 600;
-        color: var(--text-secondary);
-        background: rgba(255, 255, 255, 0.1);
-        padding: 0.2rem 0.5rem;
-        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: #00d4ff;
+        background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(139, 92, 246, 0.15));
+        padding: 0.3rem 0.65rem;
+        border-radius: 8px;
+        border: 1px solid rgba(0, 212, 255, 0.25);
+        text-shadow: 0 0 8px rgba(0, 212, 255, 0.3);
+        font-family: 'Space Grotesk', monospace;
+    }
+
+    .tech-item.hot .stat-value {
+        color: #f97316;
+        background: linear-gradient(135deg, rgba(249, 115, 22, 0.15), rgba(239, 68, 68, 0.15));
+        border-color: rgba(249, 115, 22, 0.3);
+        text-shadow: 0 0 8px rgba(249, 115, 22, 0.3);
     }
 
     /* Dashboard Footer */
@@ -1622,5 +1652,28 @@ function initTooltips() {
         color: #1e293b;
         border-color: rgba(0, 212, 255, 0.4);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    :global([data-theme="light"]) .stat-value {
+        color: #0891b2;
+        background: linear-gradient(135deg, rgba(0, 212, 255, 0.12), rgba(139, 92, 246, 0.08));
+        border-color: rgba(0, 212, 255, 0.3);
+        text-shadow: none;
+    }
+
+    :global([data-theme="light"]) .tech-item.hot .stat-value {
+        color: #ea580c;
+        background: linear-gradient(135deg, rgba(249, 115, 22, 0.12), rgba(239, 68, 68, 0.08));
+        border-color: rgba(249, 115, 22, 0.3);
+    }
+
+    :global([data-theme="light"]) .item-desc {
+        background: rgba(0, 0, 0, 0.04);
+        color: #64748b;
+    }
+
+    :global([data-theme="light"]) .tech-item.hot {
+        background: linear-gradient(135deg, rgba(239, 68, 68, 0.06), rgba(249, 115, 22, 0.04));
+        border-color: rgba(239, 68, 68, 0.15);
     }
 </style>
