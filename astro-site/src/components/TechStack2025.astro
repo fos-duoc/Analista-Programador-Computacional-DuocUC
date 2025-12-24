@@ -10,9 +10,9 @@ const languagesBySource = {
         { rank: 3, name: "TypeScript", icon: "https://media.giphy.com/media/fsEaZldNC8A1PJ3mwp/giphy.gif", stat: "38.5%", desc: "JavaScript con tipos, estándar en proyectos enterprise", url: "https://www.typescriptlang.org/", medal: "bronze", barWidth: "62%", trend: "hot", trendValue: "+8.2%", jobs: "480K+", trendLabel: "Explosivo" }
     ],
     github: [
-        { rank: 1, name: "Python", icon: "https://media.giphy.com/media/KAq5w47R9rmTuvWOWa/giphy.gif", stat: "#1", desc: "Más usado en repos públicos, ML y scripting", url: "https://www.python.org/", medal: "gold", barWidth: "100%", trend: "up", trendValue: "+12%", jobs: "720K+", trendLabel: "En alza" },
-        { rank: 2, name: "JavaScript", icon: "https://media.giphy.com/media/ln7z2eWriiQAllfVcn/giphy.gif", stat: "#2", desc: "Domina el ecosistema web y npm", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", medal: "silver", barWidth: "92%", trend: "stable", trendValue: "+0.5%", jobs: "850K+", trendLabel: "Estable" },
-        { rank: 3, name: "TypeScript", icon: "https://media.giphy.com/media/fsEaZldNC8A1PJ3mwp/giphy.gif", stat: "#3", desc: "Crecimiento más rápido en GitHub", url: "https://www.typescriptlang.org/", medal: "bronze", barWidth: "78%", trend: "hot", trendValue: "+37%", jobs: "480K+", trendLabel: "Explosivo" }
+        { rank: 1, name: "Python", icon: "https://media.giphy.com/media/KAq5w47R9rmTuvWOWa/giphy.gif", stat: "22.5%", desc: "Más usado en repos públicos, ML y scripting", url: "https://www.python.org/", medal: "gold", barWidth: "100%", trend: "up", trendValue: "+12%", jobs: "720K+", trendLabel: "En alza" },
+        { rank: 2, name: "JavaScript", icon: "https://media.giphy.com/media/ln7z2eWriiQAllfVcn/giphy.gif", stat: "18.8%", desc: "Domina el ecosistema web y npm", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", medal: "silver", barWidth: "84%", trend: "stable", trendValue: "+0.5%", jobs: "850K+", trendLabel: "Estable" },
+        { rank: 3, name: "TypeScript", icon: "https://media.giphy.com/media/fsEaZldNC8A1PJ3mwp/giphy.gif", stat: "12.1%", desc: "Crecimiento más rápido en GitHub", url: "https://www.typescriptlang.org/", medal: "bronze", barWidth: "54%", trend: "hot", trendValue: "+37%", jobs: "480K+", trendLabel: "Explosivo" }
     ],
     tiobe: [
         { rank: 1, name: "Python", icon: "https://media.giphy.com/media/KAq5w47R9rmTuvWOWa/giphy.gif", stat: "23.3%", desc: "Líder TIOBE desde 2021, educación y enterprise", url: "https://www.python.org/", medal: "gold", barWidth: "100%", trend: "up", trendValue: "+8.1%", jobs: "720K+", trendLabel: "En alza" },
@@ -30,11 +30,11 @@ const secondaryLangsBySource = {
         { name: "Kotlin", icon: "devicon-kotlin-plain colored", stat: "9.4%", url: "https://kotlinlang.org/", trend: "up", trendValue: "+2.8%", desc: "Android moderno" }
     ],
     github: [
-        { name: "Java", icon: "https://media.giphy.com/media/TfY3ORyNfVEvvr94jZ/giphy.gif", stat: "#4", url: "https://www.oracle.com/java/", trend: "stable", trendValue: "-0.5%", desc: "Enterprise y Android" },
-        { name: "C++", icon: "devicon-cplusplus-plain colored", stat: "#5", url: "https://isocpp.org/", trend: "stable", trendValue: "+0.2%", desc: "Sistemas y gaming" },
-        { name: "C#", icon: "devicon-csharp-plain colored", stat: "#6", url: "https://learn.microsoft.com/en-us/dotnet/csharp/", trend: "up", trendValue: "+2.1%", desc: "Gaming y .NET" },
-        { name: "Go", icon: "devicon-go-original-wordmark colored", stat: "#8", url: "https://go.dev/", trend: "up", trendValue: "+5.3%", desc: "Cloud native" },
-        { name: "Rust", icon: "devicon-rust-original", stat: "#12", url: "https://www.rust-lang.org/", trend: "hot", trendValue: "+18%", desc: "Más admirado" }
+        { name: "Java", icon: "https://media.giphy.com/media/TfY3ORyNfVEvvr94jZ/giphy.gif", stat: "8.5%", url: "https://www.oracle.com/java/", trend: "stable", trendValue: "-0.5%", desc: "Enterprise y Android" },
+        { name: "C++", icon: "devicon-cplusplus-plain colored", stat: "6.7%", url: "https://isocpp.org/", trend: "stable", trendValue: "+0.2%", desc: "Sistemas y gaming" },
+        { name: "C#", icon: "devicon-csharp-plain colored", stat: "5.9%", url: "https://learn.microsoft.com/en-us/dotnet/csharp/", trend: "up", trendValue: "+2.1%", desc: "Gaming y .NET" },
+        { name: "Go", icon: "devicon-go-original-wordmark colored", stat: "4.2%", url: "https://go.dev/", trend: "up", trendValue: "+5.3%", desc: "Cloud native" },
+        { name: "Rust", icon: "devicon-rust-original", stat: "2.8%", url: "https://www.rust-lang.org/", trend: "hot", trendValue: "+18%", desc: "Más admirado" }
     ],
     tiobe: [
         { name: "C", icon: "devicon-c-plain colored", stat: "9.8%", url: "https://en.cppreference.com/w/c", trend: "down", trendValue: "-1.5%", desc: "Sistemas embebidos" },
@@ -509,16 +509,16 @@ const langData = {
     },
     github: {
         top: [
-            { rank: 1, name: "Python", icon: "https://media.giphy.com/media/KAq5w47R9rmTuvWOWa/giphy.gif", stat: "#1", desc: "Más usado en repos públicos, ML y scripting", url: "https://www.python.org/", medal: "gold", barWidth: "100%", trend: "up", trendValue: "+12%", jobs: "720K+", trendLabel: "En alza" },
-            { rank: 2, name: "JavaScript", icon: "https://media.giphy.com/media/ln7z2eWriiQAllfVcn/giphy.gif", stat: "#2", desc: "Domina el ecosistema web y npm", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", medal: "silver", barWidth: "92%", trend: "stable", trendValue: "+0.5%", jobs: "850K+", trendLabel: "Estable" },
-            { rank: 3, name: "TypeScript", icon: "https://media.giphy.com/media/fsEaZldNC8A1PJ3mwp/giphy.gif", stat: "#3", desc: "Crecimiento más rápido en GitHub", url: "https://www.typescriptlang.org/", medal: "bronze", barWidth: "78%", trend: "hot", trendValue: "+37%", jobs: "480K+", trendLabel: "Explosivo" }
+            { rank: 1, name: "Python", icon: "https://media.giphy.com/media/KAq5w47R9rmTuvWOWa/giphy.gif", stat: "22.5%", desc: "Más usado en repos públicos, ML y scripting", url: "https://www.python.org/", medal: "gold", barWidth: "100%", trend: "up", trendValue: "+12%", jobs: "720K+", trendLabel: "En alza" },
+            { rank: 2, name: "JavaScript", icon: "https://media.giphy.com/media/ln7z2eWriiQAllfVcn/giphy.gif", stat: "18.8%", desc: "Domina el ecosistema web y npm", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", medal: "silver", barWidth: "84%", trend: "stable", trendValue: "+0.5%", jobs: "850K+", trendLabel: "Estable" },
+            { rank: 3, name: "TypeScript", icon: "https://media.giphy.com/media/fsEaZldNC8A1PJ3mwp/giphy.gif", stat: "12.1%", desc: "Crecimiento más rápido en GitHub", url: "https://www.typescriptlang.org/", medal: "bronze", barWidth: "54%", trend: "hot", trendValue: "+37%", jobs: "480K+", trendLabel: "Explosivo" }
         ],
         secondary: [
-            { name: "Java", icon: "https://media.giphy.com/media/TfY3ORyNfVEvvr94jZ/giphy.gif", stat: "#4", url: "https://www.oracle.com/java/", trend: "stable", trendValue: "-0.5%", desc: "Enterprise y Android" },
-            { name: "C++", icon: "devicon-cplusplus-plain colored", stat: "#5", url: "https://isocpp.org/", trend: "stable", trendValue: "+0.2%", desc: "Sistemas y gaming" },
-            { name: "C#", icon: "devicon-csharp-plain colored", stat: "#6", url: "https://learn.microsoft.com/en-us/dotnet/csharp/", trend: "up", trendValue: "+2.1%", desc: "Gaming y .NET" },
-            { name: "Go", icon: "devicon-go-original-wordmark colored", stat: "#8", url: "https://go.dev/", trend: "up", trendValue: "+5.3%", desc: "Cloud native" },
-            { name: "Rust", icon: "devicon-rust-original", stat: "#12", url: "https://www.rust-lang.org/", trend: "hot", trendValue: "+18%", desc: "Más admirado" }
+            { name: "Java", icon: "https://media.giphy.com/media/TfY3ORyNfVEvvr94jZ/giphy.gif", stat: "8.5%", url: "https://www.oracle.com/java/", trend: "stable", trendValue: "-0.5%", desc: "Enterprise y Android" },
+            { name: "C++", icon: "devicon-cplusplus-plain colored", stat: "6.7%", url: "https://isocpp.org/", trend: "stable", trendValue: "+0.2%", desc: "Sistemas y gaming" },
+            { name: "C#", icon: "devicon-csharp-plain colored", stat: "5.9%", url: "https://learn.microsoft.com/en-us/dotnet/csharp/", trend: "up", trendValue: "+2.1%", desc: "Gaming y .NET" },
+            { name: "Go", icon: "devicon-go-original-wordmark colored", stat: "4.2%", url: "https://go.dev/", trend: "up", trendValue: "+5.3%", desc: "Cloud native" },
+            { name: "Rust", icon: "devicon-rust-original", stat: "2.8%", url: "https://www.rust-lang.org/", trend: "hot", trendValue: "+18%", desc: "Más admirado" }
         ]
     },
     tiobe: {
