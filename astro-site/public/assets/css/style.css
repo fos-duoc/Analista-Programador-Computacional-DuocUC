@@ -6459,6 +6459,30 @@ section {
   text-shadow: 0 0 10px rgba(124, 58, 237, 0.5) !important;
 }
 
+/* Architecture mode active state */
+.mode-btn.active[data-mode="architecture"] {
+  background: linear-gradient(145deg, rgba(16, 185, 129, 0.15), rgba(52, 211, 153, 0.1)) !important;
+  border-color: #10b981 !important;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.2) !important;
+}
+
+.mode-btn.active[data-mode="architecture"] i {
+  color: #10b981 !important;
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.5) !important;
+}
+
+/* Governance mode active state */
+.mode-btn.active[data-mode="governance"] {
+  background: linear-gradient(145deg, rgba(245, 158, 11, 0.15), rgba(251, 191, 36, 0.1)) !important;
+  border-color: #f59e0b !important;
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.2) !important;
+}
+
+.mode-btn.active[data-mode="governance"] i {
+  color: #f59e0b !important;
+  text-shadow: 0 0 10px rgba(245, 158, 11, 0.5) !important;
+}
+
 /* Pipeline Mode Display Toggle */
 .pipeline-mode {
   display: none !important;
