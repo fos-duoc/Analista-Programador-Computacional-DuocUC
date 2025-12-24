@@ -1,0 +1,110 @@
+name: Sync Google Drive to Repository
+
+on:
+  # Ejecutar cada 6 horas
+  schedule:
+    - cron: '0 */6 * * *'
+
+  # Permitir ejecución manual
+  workflow_dispatch:
+    inputs:
+      folder:
+        description: 'Carpeta específica de Drive a sincronizar (dejar vacío para todas)'
+        required: false
+        default: ''
+
+env:
+  # Carpeta raíz en Google Drive donde están tus materiales
+  DRIVE_FOLDER: 'DuocUC-Materiales'
+  # Carpeta destino en el repo
+  REPO_FOLDER: '_Google-Drive-Sync'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install rclone
+        run: |
+          curl https://rclone.org/install.sh | sudo bash
+
+      - name: Configure rclone
+        run: |
+          mkdir -p ~/.config/rclone
+          cat > ~/.config/rclone/rclone.conf << EOF
+          [gdrive]
+          type = drive
+          client_id = ${{ secrets.GOOGLE_CLIENT_ID }}
+          client_secret = ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          token = ${{ secrets.GOOGLE_RCLONE_TOKEN }}
+          team_drive =
+          EOF
+
+      - name: Create sync directory
+        run: mkdir -p "${{ env.REPO_FOLDER }}"
+
+      - name: Sync from Google Drive
+        run: |
+          FOLDER="${{ github.event.inputs.folder || env.DRIVE_FOLDER }}"
+          echo "Syncing from Google Drive: $FOLDER"
+
+          # Usar copy para traer archivos nuevos/modificados
+          # --exclude para ignorar archivos temporales
+          rclone copy "gdrive:$FOLDER" "${{ env.REPO_FOLDER }}" \
+            --exclude "*.tmp" \
+            --exclude "~*" \
+            --exclude ".~*" \
+            --exclude "*.lnk" \
+            --progress \
+            --verbose \
+            --stats 30s
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git add -A
+          if git diff --staged --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "No changes detected"
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "Changes detected:"
+            git diff --staged --stat
+          fi
+
+      - name: Commit and push changes
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "GitHub Action - Drive Sync"
+          git config user.email "action@github.com"
+
+          # Contar archivos nuevos/modificados
+          FILES_CHANGED=$(git diff --staged --numstat | wc -l)
+
+          git commit -m "sync: actualizar materiales desde Google Drive
+
+          - $FILES_CHANGED archivos sincronizados
+          - Fecha: $(date -u +"%Y-%m-%d %H:%M UTC")
+
+          🤖 Sincronización automática desde Google Drive"
+
+          git push
+
+      - name: Summary
+        run: |
+          echo "## 📁 Sincronización completada" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ steps.changes.outputs.has_changes }}" == "true" ]; then
+            echo "✅ Cambios detectados y subidos al repositorio" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "ℹ️ No se detectaron cambios nuevos" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Carpeta sincronizada:** \`${{ env.DRIVE_FOLDER }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "**Destino:** \`${{ env.REPO_FOLDER }}\`" >> $GITHUB_STEP_SUMMARY
