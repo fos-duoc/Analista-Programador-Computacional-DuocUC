@@ -449,7 +449,7 @@ const categoryFilters = techCategories.map(cat => ({ id: cat.id, title: cat.titl
                                 </div>
                                 <div class="item-stat">
                                     {item.hot && <span class="hot-badge">🔥</span>}
-                                    <span class="stat-value">{item.stat}</span>
+                                    <span class="tech-stat-value">{item.stat}</span>
                                 </div>
                             </a>
                         ))}
@@ -1443,21 +1443,26 @@ function initTooltips() {
         font-size: 0.875rem;
     }
 
-    .stat-value {
-        font-size: 0.85rem;
-        font-weight: 700;
-        color: #00d4ff;
-        background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(139, 92, 246, 0.15));
+    .tech-stat-value {
+        font-size: 0.85rem !important;
+        font-weight: 700 !important;
+        color: #00d4ff !important;
+        -webkit-text-fill-color: #00d4ff !important;
+        background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(139, 92, 246, 0.15)) !important;
+        -webkit-background-clip: padding-box !important;
+        background-clip: padding-box !important;
         padding: 0.3rem 0.65rem;
         border-radius: 8px;
         border: 1px solid rgba(0, 212, 255, 0.25);
         text-shadow: 0 0 8px rgba(0, 212, 255, 0.3);
         font-family: 'Space Grotesk', monospace;
+        display: inline-block;
     }
 
-    .tech-item.hot .stat-value {
-        color: #f97316;
-        background: linear-gradient(135deg, rgba(249, 115, 22, 0.15), rgba(239, 68, 68, 0.15));
+    .tech-item.hot .tech-stat-value {
+        color: #f97316 !important;
+        -webkit-text-fill-color: #f97316 !important;
+        background: linear-gradient(135deg, rgba(249, 115, 22, 0.15), rgba(239, 68, 68, 0.15)) !important;
         border-color: rgba(249, 115, 22, 0.3);
         text-shadow: 0 0 8px rgba(249, 115, 22, 0.3);
     }
@@ -1654,16 +1659,18 @@ function initTooltips() {
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
-    :global([data-theme="light"]) .stat-value {
-        color: #0891b2;
-        background: linear-gradient(135deg, rgba(0, 212, 255, 0.12), rgba(139, 92, 246, 0.08));
+    :global([data-theme="light"]) .tech-stat-value {
+        color: #0891b2 !important;
+        -webkit-text-fill-color: #0891b2 !important;
+        background: linear-gradient(135deg, rgba(0, 212, 255, 0.12), rgba(139, 92, 246, 0.08)) !important;
         border-color: rgba(0, 212, 255, 0.3);
         text-shadow: none;
     }
 
-    :global([data-theme="light"]) .tech-item.hot .stat-value {
-        color: #ea580c;
-        background: linear-gradient(135deg, rgba(249, 115, 22, 0.12), rgba(239, 68, 68, 0.08));
+    :global([data-theme="light"]) .tech-item.hot .tech-stat-value {
+        color: #ea580c !important;
+        -webkit-text-fill-color: #ea580c !important;
+        background: linear-gradient(135deg, rgba(249, 115, 22, 0.12), rgba(239, 68, 68, 0.08)) !important;
         border-color: rgba(249, 115, 22, 0.3);
     }
 
