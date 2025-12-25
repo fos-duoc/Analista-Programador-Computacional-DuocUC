@@ -478,11 +478,6 @@ const BUILD_VERSION = Date.now().toString(36);
 
             if (!progressBar) return;
 
-            // Reset display on navigation (View Transitions)
-            if (scrollToBottomBtn) {
-                scrollToBottomBtn.style.display = '';
-            }
-
             // Update progress bar and go-to-footer button visibility
             function updateScroll() {
                 const scrollTop = window.scrollY;
@@ -523,13 +518,11 @@ const BUILD_VERSION = Date.now().toString(36);
                 };
             }
 
-            // Scroll to footer click - hide button and scroll
+            // Scroll to footer click - scroll to footer (button will hide/show based on scroll position)
             if (scrollToBottomBtn) {
                 scrollToBottomBtn.onclick = () => {
-                    // Hide this button permanently until page reload/navigation
-                    scrollToBottomBtn.classList.remove('visible');
-                    scrollToBottomBtn.style.display = 'none';
-
+                    // Just scroll - the button visibility is controlled by scroll position
+                    // It will naturally hide when near bottom and reappear when scrolling up
                     const footer = document.querySelector('footer') || document.querySelector('.footer-compact');
                     const target = footer
                         ? footer.getBoundingClientRect().top + window.scrollY
