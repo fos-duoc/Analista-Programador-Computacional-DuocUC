@@ -488,32 +488,54 @@ const BUILD_VERSION = Date.now().toString(36);
 
                 progressBar.style.width = scrollPercent + '%';
 
-                // Thresholds for button visibility
-                const minScrollToShowButtons = 100;  // Don't show any button until scrolled 100px
-                const showDownAfter = 100;           // Show ↓ after 100px scroll
-                const showUpAfter = 400;             // Show ↑ after 400px scroll
+                // Thresholds for button visibility (percentage-based for better UX)
+                const showDownAfterPx = 150;         // Show ↓ after 150px scroll
+                const showUpAfterPercent = 25;       // Show ↑ after 25% of page scrolled
+                const hideDownAfterPercent = 20;     // Hide ↓ after 20% of page scrolled
                 const nearBottom = scrollPercent > 85; // Near bottom of page
 
+                // Calculate if we should show ↑ button (25% of page OR 600px, whichever comes first)
+                const showUpThreshold = Math.min(docHeight * 0.25, 600);
+                const shouldShowUp = scrollTop >= showUpThreshold;
+
                 // Jump to Footer button (↓):
-                // - NOT visible at absolute top (scrollTop < minScrollToShowButtons)
-                // - Visible after small scroll (100-400px)
+                // - NOT visible at absolute top (scrollTop < showDownAfterPx)
+                // - Visible from 150px until 20% of page OR when ↑ appears
                 // - Hidden when near bottom (already at footer)
                 if (scrollToBottomBtn) {
-                    if (scrollTop >= showDownAfter && scrollTop < showUpAfter && !nearBottom) {
+                    const shouldShowDown = scrollTop >= showDownAfterPx &&
+                                           scrollPercent < hideDownAfterPercent &&
+                                           !shouldShowUp &&
+                                           !nearBottom;
+
+                    if (shouldShowDown) {
                         scrollToBottomBtn.classList.add('visible');
-                    } else {
-                        scrollToBottomBtn.classList.remove('visible');
+                        scrollToBottomBtn.classList.remove('hiding');
+                    } else if (scrollToBottomBtn.classList.contains('visible')) {
+                        // Add hiding class for exit animation before removing visible
+                        scrollToBottomBtn.classList.add('hiding');
+                        setTimeout(() => {
+                            if (!shouldShowDown) {
+                                scrollToBottomBtn.classList.remove('visible', 'hiding');
+                            }
+                        }, 350);
                     }
                 }
 
                 // Back to Top button (↑):
                 // - NOT visible at top
-                // - Visible after significant scroll (400px+)
+                // - Visible after 25% scroll or 600px (whichever is less)
                 if (backToTopBtn) {
-                    if (scrollTop >= showUpAfter) {
+                    if (shouldShowUp) {
                         backToTopBtn.classList.add('visible');
-                    } else {
-                        backToTopBtn.classList.remove('visible');
+                        backToTopBtn.classList.remove('hiding');
+                    } else if (backToTopBtn.classList.contains('visible')) {
+                        backToTopBtn.classList.add('hiding');
+                        setTimeout(() => {
+                            if (!shouldShowUp) {
+                                backToTopBtn.classList.remove('visible', 'hiding');
+                            }
+                        }, 350);
                     }
                 }
             }
