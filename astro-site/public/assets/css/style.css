@@ -8255,6 +8255,1173 @@ section {
   color: #475569 !important;
 }
 
+/* ============================================
+   ARCHITECTURE PAGE - COMPREHENSIVE LIGHT MODE
+   Updated: December 2025
+   ============================================ */
+
+/* Architecture Section Header */
+[data-theme="light"] .arch-section-header {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.9) 100%) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .arch-section-header h2 {
+  color: #0f172a !important;
+  background: linear-gradient(135deg, #0891b2 0%, #7c3aed 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+[data-theme="light"] .arch-section-header p {
+  color: #475569 !important;
+}
+
+/* Metric Badges */
+[data-theme="light"] .metric-badge,
+[data-theme="light"] .arch-metric-badge {
+  background: rgba(8, 145, 178, 0.1) !important;
+  border-color: rgba(8, 145, 178, 0.3) !important;
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .metric-badge.uptime,
+[data-theme="light"] .arch-metric-badge.uptime {
+  background: rgba(16, 185, 129, 0.1) !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+  color: #059669 !important;
+}
+
+[data-theme="light"] .metric-badge.latency {
+  background: rgba(245, 158, 11, 0.1) !important;
+  border-color: rgba(245, 158, 11, 0.3) !important;
+  color: #d97706 !important;
+}
+
+[data-theme="light"] .metric-badge.scale {
+  background: rgba(124, 58, 237, 0.1) !important;
+  border-color: rgba(124, 58, 237, 0.3) !important;
+  color: #7c3aed !important;
+}
+
+/* ============================================
+   MICROSERVICES DIAGRAM - Light Mode
+   ============================================ */
+[data-theme="light"] .ms-layer {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .ms-layer-label {
+  color: #0f172a !important;
+  background: rgba(8, 145, 178, 0.1) !important;
+  border-color: rgba(8, 145, 178, 0.3) !important;
+}
+
+[data-theme="light"] .client-item {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #334155 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-theme="light"] .client-item i {
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .ms-gateway-lg {
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.1) 0%, rgba(255, 255, 255, 0.95) 100%) !important;
+  border-color: rgba(8, 145, 178, 0.3) !important;
+  color: #0f172a !important;
+  box-shadow: 0 4px 12px rgba(8, 145, 178, 0.1) !important;
+}
+
+[data-theme="light"] .ms-gateway-lg i {
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .ms-service-lg {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-theme="light"] .ms-service-lg:hover {
+  border-color: rgba(8, 145, 178, 0.4) !important;
+  box-shadow: 0 4px 16px rgba(8, 145, 178, 0.15) !important;
+}
+
+[data-theme="light"] .ms-service-lg i {
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .ms-tag-lg {
+  background: rgba(8, 145, 178, 0.1) !important;
+  color: #0891b2 !important;
+  border-color: rgba(8, 145, 178, 0.2) !important;
+}
+
+[data-theme="light"] .ms-db-lg {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(255, 255, 255, 0.95) 100%) !important;
+  border-color: rgba(124, 58, 237, 0.3) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .ms-db-lg i {
+  color: #7c3aed !important;
+}
+
+/* ============================================
+   CI/CD PIPELINE - Light Mode
+   ============================================ */
+[data-theme="light"] .pipeline-stage-lg {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-theme="light"] .pipeline-stage-lg.code {
+  border-left: 3px solid #6366f1 !important;
+}
+
+[data-theme="light"] .pipeline-stage-lg.code i {
+  color: #6366f1 !important;
+}
+
+[data-theme="light"] .pipeline-stage-lg.build {
+  border-left: 3px solid #f59e0b !important;
+}
+
+[data-theme="light"] .pipeline-stage-lg.build i {
+  color: #f59e0b !important;
+}
+
+[data-theme="light"] .pipeline-stage-lg.test {
+  border-left: 3px solid #10b981 !important;
+}
+
+[data-theme="light"] .pipeline-stage-lg.test i {
+  color: #10b981 !important;
+}
+
+[data-theme="light"] .pipeline-stage-lg.security {
+  border-left: 3px solid #ef4444 !important;
+}
+
+[data-theme="light"] .pipeline-stage-lg.security i {
+  color: #ef4444 !important;
+}
+
+[data-theme="light"] .pipeline-stage-lg.deploy {
+  border-left: 3px solid #0891b2 !important;
+}
+
+[data-theme="light"] .pipeline-stage-lg.deploy i {
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .pipeline-arrow {
+  color: #94a3b8 !important;
+}
+
+[data-theme="light"] .tool-tag-lg {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #475569 !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ============================================
+   CLEAN ARCHITECTURE - Light Mode
+   ============================================ */
+[data-theme="light"] .clean-diagram-lg {
+  background: rgba(255, 255, 255, 0.9) !important;
+}
+
+[data-theme="light"] .clean-ring-lg {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .clean-ring-lg.entities {
+  background: rgba(245, 158, 11, 0.12) !important;
+  border-color: rgba(245, 158, 11, 0.4) !important;
+  color: #d97706 !important;
+}
+
+[data-theme="light"] .clean-ring-lg.usecases {
+  background: rgba(239, 68, 68, 0.12) !important;
+  border-color: rgba(239, 68, 68, 0.4) !important;
+  color: #dc2626 !important;
+}
+
+[data-theme="light"] .clean-ring-lg.adapters {
+  background: rgba(16, 185, 129, 0.12) !important;
+  border-color: rgba(16, 185, 129, 0.4) !important;
+  color: #059669 !important;
+}
+
+[data-theme="light"] .clean-ring-lg.frameworks {
+  background: rgba(99, 102, 241, 0.12) !important;
+  border-color: rgba(99, 102, 241, 0.4) !important;
+  color: #4f46e5 !important;
+}
+
+[data-theme="light"] .clean-label-lg {
+  color: inherit !important;
+  font-weight: 600 !important;
+}
+
+/* ============================================
+   MEDALLION ARCHITECTURE - Light Mode
+   ============================================ */
+[data-theme="light"] .medal-diagram-lg {
+  background: rgba(255, 255, 255, 0.9) !important;
+}
+
+[data-theme="light"] .medal-layer-lg {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-theme="light"] .medal-layer-lg.bronze {
+  border-left: 4px solid #cd7c32 !important;
+  background: linear-gradient(135deg, rgba(205, 124, 50, 0.08) 0%, rgba(255, 255, 255, 0.95) 100%) !important;
+}
+
+[data-theme="light"] .medal-layer-lg.bronze i {
+  color: #cd7c32 !important;
+}
+
+[data-theme="light"] .medal-layer-lg.silver {
+  border-left: 4px solid #94a3b8 !important;
+  background: linear-gradient(135deg, rgba(148, 163, 184, 0.08) 0%, rgba(255, 255, 255, 0.95) 100%) !important;
+}
+
+[data-theme="light"] .medal-layer-lg.silver i {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .medal-layer-lg.gold {
+  border-left: 4px solid #f59e0b !important;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(255, 255, 255, 0.95) 100%) !important;
+}
+
+[data-theme="light"] .medal-layer-lg.gold i {
+  color: #f59e0b !important;
+}
+
+[data-theme="light"] .medal-arrow {
+  color: #94a3b8 !important;
+}
+
+[data-theme="light"] .medal-tag-lg {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #475569 !important;
+}
+
+/* ============================================
+   LAKEHOUSE ARCHITECTURE - Light Mode
+   ============================================ */
+[data-theme="light"] .lake-diagram-lg {
+  background: rgba(255, 255, 255, 0.9) !important;
+}
+
+[data-theme="light"] .lake-comp-lg {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-theme="light"] .lake-comp-lg.storage {
+  border-left: 3px solid #0891b2 !important;
+}
+
+[data-theme="light"] .lake-comp-lg.storage i {
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .lake-comp-lg.metadata {
+  border-left: 3px solid #7c3aed !important;
+}
+
+[data-theme="light"] .lake-comp-lg.metadata i {
+  color: #7c3aed !important;
+}
+
+[data-theme="light"] .lake-comp-lg.engine {
+  border-left: 3px solid #f59e0b !important;
+}
+
+[data-theme="light"] .lake-comp-lg.engine i {
+  color: #f59e0b !important;
+}
+
+[data-theme="light"] .lake-comp-lg.governance {
+  border-left: 3px solid #10b981 !important;
+}
+
+[data-theme="light"] .lake-comp-lg.governance i {
+  color: #10b981 !important;
+}
+
+[data-theme="light"] .lake-feature-lg {
+  background: rgba(0, 0, 0, 0.04) !important;
+  color: #475569 !important;
+}
+
+/* ============================================
+   DATA GOVERNANCE CARD - Light Mode
+   ============================================ */
+[data-theme="light"] .gov-pillar-lg {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .gov-pillar-lg i {
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .gov-metric-lg {
+  background: rgba(16, 185, 129, 0.1) !important;
+  color: #059669 !important;
+}
+
+/* ============================================
+   DATA PIPELINE PREMIUM - Light Mode
+   ============================================ */
+[data-theme="light"] .pipeline-premium-container {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.9) 100%) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .pipeline-premium-header h2 {
+  color: #0f172a !important;
+  background: linear-gradient(135deg, #0891b2 0%, #7c3aed 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+[data-theme="light"] .pipeline-premium-header p {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .pipeline-mode-selector {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .mode-btn {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #475569 !important;
+}
+
+[data-theme="light"] .mode-btn:hover {
+  background: rgba(8, 145, 178, 0.1) !important;
+  border-color: rgba(8, 145, 178, 0.3) !important;
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .mode-btn.active {
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.15) 0%, rgba(124, 58, 237, 0.1) 100%) !important;
+  border-color: rgba(8, 145, 178, 0.4) !important;
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .pipeline-stage-card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-theme="light"] .pipeline-stage-card:hover {
+  border-color: rgba(8, 145, 178, 0.4) !important;
+  box-shadow: 0 4px 20px rgba(8, 145, 178, 0.12) !important;
+}
+
+[data-theme="light"] .stage-number {
+  background: linear-gradient(135deg, #0891b2 0%, #7c3aed 100%) !important;
+  color: white !important;
+}
+
+[data-theme="light"] .stage-icon-premium {
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.15) 0%, rgba(124, 58, 237, 0.1) 100%) !important;
+}
+
+[data-theme="light"] .stage-icon-premium i {
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .tech-mini {
+  background: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #475569 !important;
+}
+
+[data-theme="light"] .tech-mini:hover {
+  background: rgba(8, 145, 178, 0.1) !important;
+  border-color: rgba(8, 145, 178, 0.3) !important;
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .layer-card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .layer-card i {
+  color: #0891b2 !important;
+}
+
+/* ============================================
+   SCRUM FRAMEWORK PREMIUM - Light Mode
+   ============================================ */
+[data-theme="light"] .scrum-premium-container {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.9) 100%) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .scrum-premium-header h2 {
+  color: #0f172a !important;
+  background: linear-gradient(135deg, #0891b2 0%, #7c3aed 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+[data-theme="light"] .scrum-premium-header p {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .sprint-cycle-visual {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .event-card-premium {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-theme="light"] .event-card-premium:hover {
+  border-color: rgba(8, 145, 178, 0.4) !important;
+  box-shadow: 0 4px 20px rgba(8, 145, 178, 0.12) !important;
+}
+
+[data-theme="light"] .event-number {
+  background: linear-gradient(135deg, #0891b2 0%, #7c3aed 100%) !important;
+  color: white !important;
+}
+
+[data-theme="light"] .event-icon-premium {
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.15) 0%, rgba(124, 58, 237, 0.1) 100%) !important;
+}
+
+[data-theme="light"] .event-icon-premium i {
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .event-meta {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .bottom-layers {
+  background: rgba(248, 250, 252, 0.8) !important;
+  border-top-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .layer-title {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .role-card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-theme="light"] .role-card.po {
+  border-left: 3px solid #f59e0b !important;
+}
+
+[data-theme="light"] .role-card.po i {
+  color: #f59e0b !important;
+}
+
+[data-theme="light"] .role-card.sm {
+  border-left: 3px solid #0891b2 !important;
+}
+
+[data-theme="light"] .role-card.sm i {
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .role-card.dev {
+  border-left: 3px solid #7c3aed !important;
+}
+
+[data-theme="light"] .role-card.dev i {
+  color: #7c3aed !important;
+}
+
+/* ============================================
+   DATA VISUALIZATION SECTION - Light Mode
+   ============================================ */
+[data-theme="light"] .viz-premium-container {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.9) 100%) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .viz-premium-header h3 {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .viz-premium-header p {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .platform-card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .platform-card:hover {
+  border-color: rgba(8, 145, 178, 0.4) !important;
+}
+
+[data-theme="light"] .viz-type-card,
+[data-theme="light"] .viz-type-card-large {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .viz-type-card:hover,
+[data-theme="light"] .viz-type-card-large:hover {
+  border-color: rgba(8, 145, 178, 0.4) !important;
+  box-shadow: 0 4px 16px rgba(8, 145, 178, 0.1) !important;
+}
+
+[data-theme="light"] .viz-category-header {
+  color: #0f172a !important;
+  border-bottom-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .complexity-badge {
+  background: rgba(0, 0, 0, 0.06) !important;
+  color: #475569 !important;
+}
+
+[data-theme="light"] .complexity-badge.basic {
+  background: rgba(16, 185, 129, 0.12) !important;
+  color: #059669 !important;
+}
+
+[data-theme="light"] .complexity-badge.intermediate {
+  background: rgba(8, 145, 178, 0.12) !important;
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .complexity-badge.advanced {
+  background: rgba(124, 58, 237, 0.12) !important;
+  color: #7c3aed !important;
+}
+
+[data-theme="light"] .workflow-stage {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .dashboard-preview {
+  background: rgba(248, 250, 252, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .dashboard-tab {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #475569 !important;
+}
+
+[data-theme="light"] .dashboard-tab.active {
+  background: rgba(8, 145, 178, 0.1) !important;
+  border-color: rgba(8, 145, 178, 0.3) !important;
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .dashboard-panel {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .kpi-widget {
+  background: rgba(248, 250, 252, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .chart-placeholder {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  color: #64748b !important;
+}
+
+/* ============================================
+   DATA INGESTION SECTION - Light Mode
+   ============================================ */
+[data-theme="light"] .ingestion-premium-container {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.9) 100%) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .ingestion-premium-header h3 {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .source-category {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .source-category:hover {
+  border-color: rgba(8, 145, 178, 0.4) !important;
+}
+
+[data-theme="light"] .etl-elt-compare {
+  background: rgba(248, 250, 252, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .compare-card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .tool-card-ing {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .medallion-visual {
+  background: rgba(248, 250, 252, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .medallion-stage {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .medallion-stage.bronze {
+  border-left: 4px solid #cd7c32 !important;
+}
+
+[data-theme="light"] .medallion-stage.silver {
+  border-left: 4px solid #94a3b8 !important;
+}
+
+[data-theme="light"] .medallion-stage.gold {
+  border-left: 4px solid #f59e0b !important;
+}
+
+/* ============================================
+   DATA ORCHESTRATION SECTION - Light Mode
+   ============================================ */
+[data-theme="light"] .orch-premium-container {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.9) 100%) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .orch-premium-header h3 {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .orch-platform-card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .orch-platform-card:hover {
+  border-color: rgba(8, 145, 178, 0.4) !important;
+}
+
+[data-theme="light"] .orch-rank {
+  background: linear-gradient(135deg, #0891b2 0%, #7c3aed 100%) !important;
+  color: white !important;
+}
+
+[data-theme="light"] .dag-visualization {
+  background: rgba(248, 250, 252, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .dag-node {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .dag-node.active {
+  border-color: rgba(16, 185, 129, 0.5) !important;
+  background: rgba(16, 185, 129, 0.08) !important;
+}
+
+[data-theme="light"] .scheduling-pattern {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+}
+
+/* ============================================
+   DATA GOVERNANCE FRAMEWORK - Light Mode
+   ============================================ */
+[data-theme="light"] .gov-premium-container {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.9) 100%) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .gov-premium-header h3 {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .compliance-badge {
+  background: rgba(16, 185, 129, 0.1) !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+  color: #059669 !important;
+}
+
+[data-theme="light"] .dama-wheel {
+  background: rgba(248, 250, 252, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .dama-center {
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.15) 0%, rgba(124, 58, 237, 0.1) 100%) !important;
+  border-color: rgba(8, 145, 178, 0.3) !important;
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .dama-node {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .dama-node:hover {
+  border-color: rgba(8, 145, 178, 0.4) !important;
+  box-shadow: 0 4px 16px rgba(8, 145, 178, 0.1) !important;
+}
+
+[data-theme="light"] .pillar-card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .pillar-card:hover {
+  border-color: rgba(8, 145, 178, 0.4) !important;
+}
+
+[data-theme="light"] .lifecycle-stage {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .role-raci-card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .raci-badge {
+  background: rgba(8, 145, 178, 0.12) !important;
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .classification-level {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .classification-level.public {
+  border-left: 4px solid #10b981 !important;
+}
+
+[data-theme="light"] .classification-level.internal {
+  border-left: 4px solid #0891b2 !important;
+}
+
+[data-theme="light"] .classification-level.confidential {
+  border-left: 4px solid #f59e0b !important;
+}
+
+[data-theme="light"] .classification-level.pii {
+  border-left: 4px solid #ef4444 !important;
+}
+
+[data-theme="light"] .maturity-bar {
+  background: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .maturity-progress {
+  background: linear-gradient(90deg, #0891b2 0%, #7c3aed 100%) !important;
+}
+
+[data-theme="light"] .maturity-level {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #475569 !important;
+}
+
+[data-theme="light"] .maturity-level.current {
+  background: rgba(8, 145, 178, 0.12) !important;
+  border-color: rgba(8, 145, 178, 0.4) !important;
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .gov-dashboard-footer {
+  background: rgba(248, 250, 252, 0.9) !important;
+  border-top-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .metric-circle-container {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .metric-label {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .metric-value-text {
+  color: #0f172a !important;
+}
+
+/* ============================================
+   PIPELINE ARCHITECTURE DIAGRAM - Light Mode
+   ============================================ */
+[data-theme="light"] .arch-diagram-container {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.9) 100%) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .arch-diagram-header h3 {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .live-indicator {
+  background: rgba(16, 185, 129, 0.12) !important;
+  color: #059669 !important;
+}
+
+[data-theme="light"] .arch-layer {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .layer-header {
+  color: #0f172a !important;
+  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .source-card,
+[data-theme="light"] .tool-card,
+[data-theme="light"] .serving-card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .source-card:hover,
+[data-theme="light"] .tool-card:hover,
+[data-theme="light"] .serving-card:hover {
+  border-color: rgba(8, 145, 178, 0.4) !important;
+}
+
+[data-theme="light"] .medallion-flow {
+  background: rgba(248, 250, 252, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .medallion-badge {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .medallion-badge.bronze {
+  border-left: 4px solid #cd7c32 !important;
+}
+
+[data-theme="light"] .medallion-badge.silver {
+  border-left: 4px solid #94a3b8 !important;
+}
+
+[data-theme="light"] .medallion-badge.gold {
+  border-left: 4px solid #f59e0b !important;
+}
+
+[data-theme="light"] .orchestration-bar {
+  background: rgba(248, 250, 252, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+}
+
+/* ============================================
+   ARCHITECTURE ICONS - Theme Adaptive
+   ============================================ */
+.arch-main-icon {
+  font-size: 2.5rem;
+  color: #00d9ff;
+}
+
+.arch-card-icon {
+  font-size: 1.8rem;
+}
+
+.arch-card-icon.cyan {
+  color: #00d9ff;
+}
+
+.arch-card-icon.purple {
+  color: #a855f7;
+}
+
+.arch-card-icon.amber {
+  color: #f59e0b;
+}
+
+.arch-card-icon.green {
+  color: #10b981;
+}
+
+.arch-card-icon.red {
+  color: #ef4444;
+}
+
+/* Light mode - slightly darker colors for better contrast */
+[data-theme="light"] .arch-main-icon {
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .arch-card-icon.cyan {
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .arch-card-icon.purple {
+  color: #7c3aed !important;
+}
+
+[data-theme="light"] .arch-card-icon.amber {
+  color: #d97706 !important;
+}
+
+[data-theme="light"] .arch-card-icon.green {
+  color: #059669 !important;
+}
+
+[data-theme="light"] .arch-card-icon.red {
+  color: #dc2626 !important;
+}
+
+/* ============================================
+   ARCHITECTURE SECTION TITLE - Light Mode
+   ============================================ */
+[data-theme="light"] .arch-section-title {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .arch-section-subtitle {
+  color: #475569 !important;
+}
+
+/* Architecture Badge */
+[data-theme="light"] .arch-badge {
+  background: rgba(8, 145, 178, 0.12) !important;
+  color: #0891b2 !important;
+  border-color: rgba(8, 145, 178, 0.3) !important;
+}
+
+[data-theme="light"] .arch-badge.governance {
+  background: rgba(239, 68, 68, 0.12) !important;
+  color: #dc2626 !important;
+  border-color: rgba(239, 68, 68, 0.3) !important;
+}
+
+/* Architecture Header */
+[data-theme="light"] .arch-header-lg span {
+  color: #0f172a !important;
+}
+
+/* Tips Section */
+[data-theme="light"] .arch-tips {
+  background: rgba(248, 250, 252, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .tip-header {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .tip-header i {
+  color: #f59e0b !important;
+}
+
+[data-theme="light"] .tip-item {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .tip-item i {
+  color: #10b981 !important;
+}
+
+/* Governance Pillars */
+[data-theme="light"] .gov-pillar {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .gov-pillar-header {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .gov-pillar-header.catalog i {
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .gov-pillar-header.quality i {
+  color: #10b981 !important;
+}
+
+[data-theme="light"] .gov-pillar-header.security i {
+  color: #ef4444 !important;
+}
+
+[data-theme="light"] .gov-pillar-header.observability i {
+  color: #f59e0b !important;
+}
+
+[data-theme="light"] .gov-pillar-content {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .gov-tool {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .gov-tool i {
+  color: #94a3b8 !important;
+}
+
+[data-theme="light"] .gov-tool-link {
+  background: rgba(8, 145, 178, 0.1) !important;
+  color: #0891b2 !important;
+  border-color: rgba(8, 145, 178, 0.2) !important;
+}
+
+[data-theme="light"] .gov-tool-link:hover {
+  background: rgba(8, 145, 178, 0.2) !important;
+}
+
+[data-theme="light"] .governance-metric {
+  background: rgba(239, 68, 68, 0.1) !important;
+  color: #dc2626 !important;
+  border-color: rgba(239, 68, 68, 0.2) !important;
+}
+
+/* Pipeline Tools */
+[data-theme="light"] .tool-tag {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #475569 !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .tool-tag i {
+  color: #64748b !important;
+}
+
+/* Pipeline Connector */
+[data-theme="light"] .pipeline-connector {
+  color: #94a3b8 !important;
+}
+
+/* Lakehouse Components */
+[data-theme="light"] .lake-comp-lg {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .lake-comp-lg.bi i {
+  color: #7c3aed !important;
+}
+
+[data-theme="light"] .lake-comp-lg.ml i {
+  color: #f59e0b !important;
+}
+
+[data-theme="light"] .lake-comp-lg.sql i {
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .lake-comp-lg.delta i {
+  color: #10b981 !important;
+}
+
+[data-theme="light"] .lake-comp-lg.storage i {
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .lake-arrow-lg {
+  color: #94a3b8 !important;
+}
+
+/* Clean Architecture Rings - Additional Light Mode */
+[data-theme="light"] .clean-circle {
+  background: rgba(248, 250, 252, 0.9) !important;
+}
+
+[data-theme="light"] .ring-label {
+  color: inherit !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="light"] .clean-ring-lg small {
+  color: inherit !important;
+  opacity: 0.8;
+}
+
+/* MS Arrow */
+[data-theme="light"] .ms-arrow-down {
+  color: #94a3b8 !important;
+}
+
+[data-theme="light"] .ms-arrow-down i {
+  color: #94a3b8 !important;
+}
+
 /* Tech Stack 2025 - Light */
 [data-theme="light"] .tech-stack-2025 {
   background: rgba(255, 255, 255, 0.85) !important;
