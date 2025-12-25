@@ -478,10 +478,7 @@ const BUILD_VERSION = Date.now().toString(36);
 
             if (!progressBar) return;
 
-            // Flag to track if footer button was clicked (hide until 30% scroll up)
-            let footerBtnWasClicked = false;
-
-            // Update progress bar and go-to-footer button visibility
+            // Update progress bar only (buttons are always visible via CSS)
             function updateScroll() {
                 const scrollTop = window.scrollY;
                 const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -489,29 +486,6 @@ const BUILD_VERSION = Date.now().toString(36);
 
                 // Update progress bar
                 progressBar.style.width = scrollPercent + '%';
-
-                // Show "go to footer" button logic:
-                // - Appears after 8% scroll (early) with entrance animation
-                // - Disappears near footer (>90%) with exit animation
-                // - Reappears when scrolling back up to <50%
-                if (scrollToBottomBtn) {
-                    // Reset the clicked flag when user scrolls up past 50%
-                    if (footerBtnWasClicked && scrollPercent < 50) {
-                        footerBtnWasClicked = false;
-                    }
-
-                    const shouldShow = scrollPercent > 8 && scrollPercent < 90 && !footerBtnWasClicked;
-                    const isVisible = scrollToBottomBtn.classList.contains('visible');
-
-                    // Simple toggle - CSS handles the animation via transitions
-                    if (shouldShow && !isVisible) {
-                        scrollToBottomBtn.classList.add('visible');
-                    } else if (!shouldShow && isVisible) {
-                        scrollToBottomBtn.classList.remove('visible');
-                    }
-                }
-
-                // Note: Back to top button is ALWAYS visible via CSS - no JS needed
             }
 
             // Throttled scroll handler
@@ -533,14 +507,9 @@ const BUILD_VERSION = Date.now().toString(36);
                 };
             }
 
-            // Scroll to footer click - hide button and scroll
+            // Scroll to footer click - simple smooth scroll
             if (scrollToBottomBtn) {
                 scrollToBottomBtn.onclick = () => {
-                    // Set flag to keep button hidden until user scrolls up 30%
-                    footerBtnWasClicked = true;
-                    scrollToBottomBtn.classList.remove('visible');
-
-                    // Scroll to footer
                     const footer = document.querySelector('footer') || document.querySelector('.footer-compact');
                     const target = footer
                         ? footer.getBoundingClientRect().top + window.scrollY

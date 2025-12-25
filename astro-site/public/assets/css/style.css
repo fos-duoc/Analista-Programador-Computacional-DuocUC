@@ -13654,69 +13654,18 @@ section {
   transition: background 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-/* Scroll Down Button (↓) - TOP RIGHT */
+/* Scroll Down Button (↓) - TOP RIGHT - ALWAYS VISIBLE */
 .scroll-down-btn {
   top: 6rem;
   background: linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(124, 58, 237, 0.2) 100%);
   border-color: rgba(0, 212, 255, 0.4);
   color: #00d4ff;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 212, 255, 0.15);
-  /* Hidden by default - with blur for materialize effect */
-  opacity: 0;
-  transform: translateX(60px) scale(0.3) rotate(15deg);
-  filter: blur(8px);
-  pointer-events: none;
-  /* Transition only for hover effects (not for appear animation) */
-  transition: background 0.2s ease, border-color 0.2s ease;
-}
-
-/* Visible state - Slow fade-in materialize animation */
-.scroll-down-btn.visible {
+  /* Always visible - like back-to-top */
   opacity: 1;
-  transform: translateX(0) scale(1);
-  filter: blur(0);
+  transform: scale(1);
   pointer-events: auto;
-  /* Slow, gradual fade-in animation (1.8 seconds) */
-  animation: materializeIn 1.8s ease-out forwards;
-}
-
-/* Hidden state (when removing .visible) - faster exit */
-.scroll-down-btn:not(.visible) {
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out, filter 0.4s ease-out;
-}
-
-/* Materialize Animation - Gradual fade-in with subtle slide */
-@keyframes materializeIn {
-  0% {
-    opacity: 0;
-    transform: translateX(25px) scale(0.85);
-    filter: blur(4px);
-  }
-  20% {
-    opacity: 0.15;
-    transform: translateX(20px) scale(0.88);
-    filter: blur(3px);
-  }
-  40% {
-    opacity: 0.35;
-    transform: translateX(14px) scale(0.92);
-    filter: blur(2px);
-  }
-  60% {
-    opacity: 0.6;
-    transform: translateX(8px) scale(0.96);
-    filter: blur(1px);
-  }
-  80% {
-    opacity: 0.85;
-    transform: translateX(3px) scale(0.99);
-    filter: blur(0);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-    filter: blur(0);
-  }
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.2s ease, border-color 0.2s ease;
 }
 
 /* Scroll Up Button (↑) - BOTTOM RIGHT - Always Visible */
@@ -13732,14 +13681,12 @@ section {
   pointer-events: auto;
 }
 
-/* Hover effects - smooth transition after animation completes */
-.scroll-down-btn.visible:hover {
+/* Hover effects */
+.scroll-down-btn:hover {
   background: linear-gradient(135deg, rgba(0, 212, 255, 0.35) 0%, rgba(124, 58, 237, 0.35) 100%);
   border-color: rgba(0, 212, 255, 0.7);
-  transform: translateX(0) scale(1.1) rotate(0deg);
-  filter: blur(0);
+  transform: scale(1.1);
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 212, 255, 0.4);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.2s ease, border-color 0.2s ease;
 }
 
 .scroll-up-btn:hover {
@@ -13750,8 +13697,8 @@ section {
 }
 
 /* Active state */
-.scroll-down-btn.visible:active {
-  transform: translateX(0) scale(0.95);
+.scroll-down-btn:active {
+  transform: scale(0.95);
 }
 
 .scroll-up-btn:active {
