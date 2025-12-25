@@ -21941,3 +21941,406 @@ main,
     min-width: auto;
   }
 }
+/* ============================================
+   DATA PIPELINE - AGGRESSIVE LIGHT MODE FIX
+   Updated: December 2025
+   Fixes: Contrast, arrows, badges, typography
+   ============================================ */
+
+/* ===== STAGE ARROWS - CRITICAL FIX ===== */
+[data-theme="light"] .stage-arrow,
+[data-theme="light"] .flow-arrow {
+  color: #1e293b !important;
+  opacity: 1 !important;
+}
+
+[data-theme="light"] .stage-arrow i,
+[data-theme="light"] .flow-arrow i {
+  color: #334155 !important;
+  font-size: 1.2rem !important;
+}
+
+/* ===== STAT PILLS (Latencia, events/s, etc.) - CRITICAL FIX ===== */
+[data-theme="light"] .stat-pill {
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.15) 0%, rgba(124, 58, 237, 0.1) 100%) !important;
+  border: 1px solid rgba(8, 145, 178, 0.35) !important;
+  color: #0f172a !important;
+  font-weight: 600 !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 20px !important;
+}
+
+[data-theme="light"] .stat-pill i {
+  color: #0891b2 !important;
+}
+
+/* ===== PIPELINE MODE HEADER ===== */
+[data-theme="light"] .pipeline-mode-header {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.95) 100%) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .pipeline-mode-header h3 {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="light"] .pipeline-mode-header.realtime h3 {
+  background: linear-gradient(135deg, #ea580c 0%, #f59e0b 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+[data-theme="light"] .pipeline-mode-header.batch h3 {
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* ===== STAGE CARDS - HIGH CONTRAST ===== */
+[data-theme="light"] .pipeline-stage-card {
+  background: #ffffff !important;
+  border: 2px solid rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] .pipeline-stage-card:hover {
+  border-color: #0891b2 !important;
+  box-shadow: 0 8px 30px rgba(8, 145, 178, 0.15) !important;
+}
+
+[data-theme="light"] .stage-title {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+  font-size: 1.25rem !important;
+}
+
+[data-theme="light"] .stage-desc {
+  color: #475569 !important;
+  font-weight: 500 !important;
+}
+
+[data-theme="light"] .stage-name {
+  color: #0f172a !important;
+  font-weight: 600 !important;
+}
+
+/* ===== STAGE ICON PREMIUM ===== */
+[data-theme="light"] .stage-icon-premium {
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.2) 0%, rgba(124, 58, 237, 0.15) 100%) !important;
+  border: 2px solid rgba(8, 145, 178, 0.3) !important;
+}
+
+[data-theme="light"] .stage-icon-premium i {
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .stage-icon-premium.extract i { color: #0891b2 !important; }
+[data-theme="light"] .stage-icon-premium.transform i { color: #7c3aed !important; }
+[data-theme="light"] .stage-icon-premium.load i { color: #059669 !important; }
+[data-theme="light"] .stage-icon-premium.serve i { color: #ea580c !important; }
+
+/* ===== TECH CHIPS - HIGH VISIBILITY ===== */
+[data-theme="light"] .tech-mini,
+[data-theme="light"] .tech-chip {
+  background: rgba(248, 250, 252, 0.95) !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  color: #1e293b !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="light"] .tech-mini:hover,
+[data-theme="light"] .tech-chip:hover {
+  background: rgba(8, 145, 178, 0.12) !important;
+  border-color: #0891b2 !important;
+  color: #0891b2 !important;
+}
+
+/* ===== ORCHESTRATION CARDS ===== */
+[data-theme="light"] .orch-platform-card {
+  background: #ffffff !important;
+  border: 2px solid rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .orch-platform-card:hover {
+  border-color: #0891b2 !important;
+  box-shadow: 0 8px 30px rgba(8, 145, 178, 0.12) !important;
+}
+
+[data-theme="light"] .orch-platform-card .platform-info h5 {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="light"] .orch-platform-card .platform-vendor {
+  color: #475569 !important;
+  font-weight: 500 !important;
+}
+
+[data-theme="light"] .orch-platform-card .platform-desc {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .orch-platform-card .platform-badge {
+  font-weight: 700 !important;
+  border-width: 2px !important;
+}
+
+[data-theme="light"] .orch-platform-card .platform-badge.leader {
+  background: rgba(1, 124, 238, 0.15) !important;
+  border-color: rgba(1, 124, 238, 0.5) !important;
+  color: #0369a1 !important;
+}
+
+[data-theme="light"] .orch-platform-card .platform-badge.modern {
+  background: rgba(79, 68, 214, 0.15) !important;
+  border-color: rgba(79, 68, 214, 0.5) !important;
+  color: #5b21b6 !important;
+}
+
+[data-theme="light"] .orch-platform-card .platform-rank {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.25) 0%, rgba(245, 158, 11, 0.2) 100%) !important;
+  border: 2px solid rgba(251, 191, 36, 0.6) !important;
+  color: #b45309 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="light"] .orch-platform-card .feature-item {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .orch-platform-card .feature-item i {
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .orch-platform-card .use-case {
+  background: rgba(0, 0, 0, 0.06) !important;
+  color: #475569 !important;
+  font-weight: 500 !important;
+}
+
+[data-theme="light"] .orch-platform-card .platform-link {
+  color: #0891b2 !important;
+  font-weight: 600 !important;
+}
+
+/* ===== ORCHESTRATION HEADER ===== */
+[data-theme="light"] .orch-premium-header h3,
+[data-theme="light"] .orch-diagram-premium h3 {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="light"] .orch-stat .stat-num,
+[data-theme="light"] .orch-stat .stat-value {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="light"] .orch-stat.success .stat-num {
+  color: #059669 !important;
+}
+
+/* ===== ORCHESTRATION ICON BOX ===== */
+[data-theme="light"] .orch-icon-box,
+[data-theme="light"] .orch-icon-animated {
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.15) 0%, rgba(124, 58, 237, 0.1) 100%) !important;
+  border: 2px solid rgba(8, 145, 178, 0.25) !important;
+}
+
+[data-theme="light"] .orch-icon-box i,
+[data-theme="light"] .orch-icon-animated i {
+  color: #0891b2 !important;
+}
+
+/* ===== ORCHESTRATION TABS ===== */
+[data-theme="light"] .orch-tab {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  color: #475569 !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="light"] .orch-tab.active,
+[data-theme="light"] .orch-tab:hover {
+  background: rgba(8, 145, 178, 0.12) !important;
+  border-color: #0891b2 !important;
+  color: #0891b2 !important;
+}
+
+/* ===== PLATFORM LOGO ===== */
+[data-theme="light"] .platform-logo {
+  background: rgba(248, 250, 252, 0.95) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ===== MODE BADGES ===== */
+[data-theme="light"] .mode-badge {
+  font-weight: 700 !important;
+  border-width: 2px !important;
+}
+
+[data-theme="light"] .mode-badge.realtime {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(249, 115, 22, 0.15) 100%) !important;
+  border-color: rgba(245, 158, 11, 0.5) !important;
+  color: #b45309 !important;
+}
+
+[data-theme="light"] .mode-badge.batch {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(139, 92, 246, 0.15) 100%) !important;
+  border-color: rgba(124, 58, 237, 0.5) !important;
+  color: #6d28d9 !important;
+}
+
+/* ===== STAGE NUMBER ===== */
+[data-theme="light"] .stage-number {
+  background: linear-gradient(135deg, #0891b2 0%, #7c3aed 100%) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 8px rgba(8, 145, 178, 0.3) !important;
+}
+
+/* ===== VIZ PLATFORM CARDS ===== */
+[data-theme="light"] .viz-platform-card {
+  background: #ffffff !important;
+  border: 2px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .viz-platform-card h4 {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="light"] .viz-platform-card .platform-features span {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .viz-platform-card .platform-features i {
+  color: #0891b2 !important;
+}
+
+/* ===== VIZ TYPE CARDS ===== */
+[data-theme="light"] .viz-type-card,
+[data-theme="light"] .viz-type-card-large {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .viz-type-card span,
+[data-theme="light"] .viz-type-card-large span {
+  color: #0f172a !important;
+  font-weight: 500 !important;
+}
+
+[data-theme="light"] .complexity-badge.basic {
+  background: rgba(16, 185, 129, 0.15) !important;
+  color: #059669 !important;
+}
+
+[data-theme="light"] .complexity-badge.intermediate {
+  background: rgba(8, 145, 178, 0.15) !important;
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .complexity-badge.advanced {
+  background: rgba(124, 58, 237, 0.15) !important;
+  color: #7c3aed !important;
+}
+
+/* ===== DASHBOARD STRUCTURE ===== */
+[data-theme="light"] .dashboard-demo {
+  background: #ffffff !important;
+  border: 2px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .dash-header h4 {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .dash-tab.active {
+  color: #0891b2 !important;
+  border-bottom-color: #0891b2 !important;
+}
+
+[data-theme="light"] .dash-widget {
+  background: rgba(248, 250, 252, 0.95) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .widget-title {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .kpi-value {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+
+/* ===== ORCHESTRATION CARDS - LIGHT MODE PREMIUM FIX ===== */
+/* Fix for ::before gradient bar visibility */
+[data-theme="light"] .orch-platform-card::before {
+  background: linear-gradient(90deg, #0891b2, #7c3aed) !important;
+  opacity: 1 !important;
+  height: 4px !important;
+}
+
+[data-theme="light"] .orch-platform-card.airflow::before {
+  background: linear-gradient(90deg, #017cee, #0ea5e9) !important;
+}
+
+[data-theme="light"] .orch-platform-card.dagster::before {
+  background: linear-gradient(90deg, #4f44d6, #7c3aed) !important;
+}
+
+[data-theme="light"] .orch-platform-card.prefect::before {
+  background: linear-gradient(90deg, #024dfd, #38bdf8) !important;
+}
+
+/* Platform logo enhancement for light mode */
+[data-theme="light"] .orch-platform-card .platform-logo {
+  background: linear-gradient(145deg, #f8fafc, #ffffff) !important;
+  border: 2px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-theme="light"] .orch-platform-card .platform-logo img {
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1)) !important;
+}
+
+/* Platform footer link styling */
+[data-theme="light"] .orch-platform-card .platform-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Use cases chips */
+[data-theme="light"] .orch-platform-card .use-case {
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.08) 0%, rgba(124, 58, 237, 0.06) 100%) !important;
+  border: 1px solid rgba(8, 145, 178, 0.2) !important;
+  color: #0f172a !important;
+  font-weight: 600 !important;
+}
+
+/* Feature items with specific platform colors */
+[data-theme="light"] .orch-platform-card.airflow .feature-item i {
+  color: #017cee !important;
+}
+
+[data-theme="light"] .orch-platform-card.dagster .feature-item i {
+  color: #4f44d6 !important;
+}
+
+[data-theme="light"] .orch-platform-card.prefect .feature-item i {
+  color: #024dfd !important;
+}
+
+/* Platform badge light mode improvements */
+[data-theme="light"] .orch-platform-card .platform-badge.flexible {
+  background: rgba(2, 77, 253, 0.12) !important;
+  border: 2px solid rgba(2, 77, 253, 0.4) !important;
+  color: #1d4ed8 !important;
+}
