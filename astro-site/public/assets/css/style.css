@@ -13413,12 +13413,19 @@ section {
     0 0 30px rgba(124, 58, 237, 0.1);
 }
 
-/* Visible states - using transitions only (no conflicting animations) */
+/* Visible states - smooth fade in with longer duration */
 .scroll-down-btn.visible {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
   transform: translateX(0) scale(1);
+  transition:
+    opacity 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+    visibility 0.5s ease,
+    transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .scroll-up-btn.visible {
@@ -13426,6 +13433,13 @@ section {
   visibility: visible;
   pointer-events: auto;
   transform: translateY(0) scale(1);
+  transition:
+    opacity 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+    visibility 0.5s ease,
+    transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 /* Not visible states - fade out smoothly */
@@ -13433,14 +13447,41 @@ section {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translateX(20px) scale(0.85);
+  transform: translateX(30px) scale(0.7);
+  transition:
+    opacity 0.35s ease-out,
+    visibility 0.35s ease-out,
+    transform 0.35s ease-out;
 }
 
 .scroll-up-btn:not(.visible) {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translateY(20px) scale(0.85);
+  transform: translateY(30px) scale(0.7);
+  transition:
+    opacity 0.35s ease-out,
+    visibility 0.35s ease-out,
+    transform 0.35s ease-out;
+}
+
+/* Fading out state - prevents any visibility updates during click animation */
+.scroll-nav-btn.fading-out {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transition:
+    opacity 0.35s ease-out,
+    visibility 0.35s ease-out,
+    transform 0.35s ease-out !important;
+}
+
+.scroll-down-btn.fading-out {
+  transform: translateX(30px) scale(0.7) !important;
+}
+
+.scroll-up-btn.fading-out {
+  transform: translateY(30px) scale(0.7) !important;
 }
 
 /* Hover effects */

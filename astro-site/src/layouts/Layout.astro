@@ -486,13 +486,14 @@ const BUILD_VERSION = Date.now().toString(36);
 
             if (!progressBar) return;
 
-            // Flag to prevent button flickering during programmatic scroll
-            let isScrolling = false;
+            // State management
+            let isAnimating = false;
+            let scrollListenerActive = true;
 
             // Scroll progress calculation and button visibility
             function updateScrollProgress() {
-                // Don't update visibility during programmatic scroll
-                if (isScrolling) return;
+                // Don't update visibility during programmatic scroll animation
+                if (isAnimating) return;
 
                 const scrollTop = window.scrollY;
                 const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -501,36 +502,41 @@ const BUILD_VERSION = Date.now().toString(36);
                 progressBar.style.width = scrollPercent + '%';
 
                 // Thresholds for button visibility
-                const showDownAfterPx = 150;         // Show ↓ after 150px scroll
-                const hideDownAfterPercent = 20;     // Hide ↓ after 20% of page scrolled
-                const nearBottom = scrollPercent > 85; // Near bottom of page
+                const showDownAfterPx = 150;
+                const hideDownAfterPercent = 20;
+                const nearBottom = scrollPercent > 85;
 
-                // Calculate if we should show ↑ button (25% of page OR 600px, whichever comes first)
                 const showUpThreshold = Math.min(docHeight * 0.25, 600);
                 const shouldShowUp = scrollTop >= showUpThreshold;
 
-                // Jump to Footer button (↓):
-                // - Visible from 150px until 20% of page OR when ↑ appears
-                // - Hidden when near bottom (already at footer)
-                if (scrollToBottomBtn) {
+                // Jump to Footer button (↓)
+                if (scrollToBottomBtn && !scrollToBottomBtn.classList.contains('fading-out')) {
                     const shouldShowDown = scrollTop >= showDownAfterPx &&
                                            scrollPercent < hideDownAfterPercent &&
                                            !shouldShowUp &&
                                            !nearBottom;
 
-                    scrollToBottomBtn.classList.toggle('visible', shouldShowDown);
+                    if (shouldShowDown && !scrollToBottomBtn.classList.contains('visible')) {
+                        scrollToBottomBtn.classList.add('visible');
+                    } else if (!shouldShowDown && scrollToBottomBtn.classList.contains('visible')) {
+                        scrollToBottomBtn.classList.remove('visible');
+                    }
                 }
 
-                // Back to Top button (↑):
-                // - Visible after 25% scroll or 600px (whichever is less)
-                if (backToTopBtn) {
-                    backToTopBtn.classList.toggle('visible', shouldShowUp);
+                // Back to Top button (↑)
+                if (backToTopBtn && !backToTopBtn.classList.contains('fading-out')) {
+                    if (shouldShowUp && !backToTopBtn.classList.contains('visible')) {
+                        backToTopBtn.classList.add('visible');
+                    } else if (!shouldShowUp && backToTopBtn.classList.contains('visible')) {
+                        backToTopBtn.classList.remove('visible');
+                    }
                 }
             }
 
-            // Throttled scroll handler for performance
+            // Throttled scroll handler
             let ticking = false;
             function onScroll() {
+                if (!scrollListenerActive || isAnimating) return;
                 if (!ticking) {
                     window.requestAnimationFrame(() => {
                         updateScrollProgress();
@@ -542,20 +548,13 @@ const BUILD_VERSION = Date.now().toString(36);
 
             // ========================================
             // SOPHISTICATED SCROLL ANIMATION
-            // Custom easing with adaptive duration
             // ========================================
 
-            // Easing functions for smooth, natural motion
             const easings = {
-                // Starts fast, ends slow (recommended for scroll)
                 easeOutCubic: t => 1 - Math.pow(1 - t, 3),
-                // Starts slow, ends fast
                 easeInCubic: t => t * t * t,
-                // Slow start and end, fast middle
                 easeInOutCubic: t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2,
-                // Extra smooth - exponential
                 easeOutExpo: t => t === 1 ? 1 : 1 - Math.pow(2, -10 * t),
-                // Gentle bounce at end
                 easeOutBack: t => {
                     const c1 = 1.70158;
                     const c3 = c1 + 1;
@@ -563,37 +562,32 @@ const BUILD_VERSION = Date.now().toString(36);
                 }
             };
 
-            /**
-             * Smooth scroll with custom easing and adaptive duration
-             * @param {number} targetY - Target scroll position
-             * @param {object} options - Configuration options
-             */
+            let currentAnimationId = null;
+
             function smoothScrollTo(targetY, options = {}) {
                 const {
                     easing = 'easeOutCubic',
                     minDuration = 400,
                     maxDuration = 1200,
-                    onStart = null,
                     onComplete = null
                 } = options;
+
+                // Cancel any existing animation
+                if (currentAnimationId) {
+                    cancelAnimationFrame(currentAnimationId);
+                    currentAnimationId = null;
+                }
 
                 const startY = window.scrollY;
                 const distance = targetY - startY;
                 const absDistance = Math.abs(distance);
 
-                // Adaptive duration: longer for bigger distances
-                // Base: 400ms minimum, scales up to 1200ms for full page
                 const docHeight = document.documentElement.scrollHeight - window.innerHeight;
                 const distanceRatio = absDistance / Math.max(docHeight, 1);
                 const duration = Math.min(maxDuration, Math.max(minDuration, minDuration + (maxDuration - minDuration) * distanceRatio));
 
                 const easingFn = easings[easing] || easings.easeOutCubic;
                 let startTime = null;
-                let animationId = null;
-
-                // Lock updates before starting
-                isScrolling = true;
-                if (onStart) onStart();
 
                 function animate(currentTime) {
                     if (!startTime) startTime = currentTime;
@@ -604,19 +598,48 @@ const BUILD_VERSION = Date.now().toString(36);
                     window.scrollTo(0, startY + (distance * easedProgress));
 
                     if (progress < 1) {
-                        animationId = requestAnimationFrame(animate);
+                        currentAnimationId = requestAnimationFrame(animate);
                     } else {
-                        // Animation complete
-                        isScrolling = false;
-                        if (onComplete) onComplete();
-                        // Update visibility after scroll completes
-                        setTimeout(updateScrollProgress, 50);
+                        currentAnimationId = null;
+                        // Animation complete - re-enable everything after a delay
+                        setTimeout(() => {
+                            isAnimating = false;
+                            scrollListenerActive = true;
+                            // Remove fading-out class
+                            if (backToTopBtn) backToTopBtn.classList.remove('fading-out');
+                            if (scrollToBottomBtn) scrollToBottomBtn.classList.remove('fading-out');
+                            if (onComplete) onComplete();
+                            // Update visibility based on final position
+                            updateScrollProgress();
+                        }, 100);
                     }
                 }
 
-                // Cancel any existing animation
-                if (animationId) cancelAnimationFrame(animationId);
-                animationId = requestAnimationFrame(animate);
+                currentAnimationId = requestAnimationFrame(animate);
+            }
+
+            /**
+             * Fade out buttons with smooth transition before scrolling
+             */
+            function fadeOutAndScroll(targetY, options = {}) {
+                // IMMEDIATELY disable everything
+                isAnimating = true;
+                scrollListenerActive = false;
+
+                // Add fading-out class to both buttons (triggers CSS fade)
+                if (backToTopBtn) {
+                    backToTopBtn.classList.add('fading-out');
+                    backToTopBtn.classList.remove('visible');
+                }
+                if (scrollToBottomBtn) {
+                    scrollToBottomBtn.classList.add('fading-out');
+                    scrollToBottomBtn.classList.remove('visible');
+                }
+
+                // Wait for fade out animation, then scroll
+                setTimeout(() => {
+                    smoothScrollTo(targetY, options);
+                }, 350); // Match CSS transition duration
             }
 
             // Back to top click handler
@@ -625,22 +648,10 @@ const BUILD_VERSION = Date.now().toString(36);
                     e.preventDefault();
                     e.stopPropagation();
 
-                    // IMMEDIATELY lock scroll updates to prevent any flicker
-                    isScrolling = true;
+                    if (isAnimating) return; // Prevent double-clicks
 
-                    // Hide both buttons instantly
-                    backToTopBtn.classList.remove('visible');
-                    if (scrollToBottomBtn) scrollToBottomBtn.classList.remove('visible');
-
-                    // Use requestAnimationFrame to ensure CSS transition starts first
-                    requestAnimationFrame(() => {
-                        smoothScrollTo(0, {
-                            easing: 'easeOutExpo',
-                            onComplete: () => {
-                                // Ensure button stays hidden at top
-                                backToTopBtn.classList.remove('visible');
-                            }
-                        });
+                    fadeOutAndScroll(0, {
+                        easing: 'easeOutExpo'
                     });
                 };
             }
@@ -651,28 +662,21 @@ const BUILD_VERSION = Date.now().toString(36);
                     e.preventDefault();
                     e.stopPropagation();
 
-                    // IMMEDIATELY lock scroll updates to prevent any flicker
-                    isScrolling = true;
+                    if (isAnimating) return; // Prevent double-clicks
 
-                    // Hide both buttons instantly
-                    scrollToBottomBtn.classList.remove('visible');
-                    if (backToTopBtn) backToTopBtn.classList.remove('visible');
-
-                    // Find the footer element
                     const footer = document.querySelector('footer') || document.querySelector('.footer-compact');
                     const targetY = footer
                         ? footer.getBoundingClientRect().top + window.scrollY
                         : document.documentElement.scrollHeight - window.innerHeight;
 
-                    // Use requestAnimationFrame to ensure CSS transition starts first
-                    requestAnimationFrame(() => {
-                        smoothScrollTo(targetY, {
-                            easing: 'easeOutCubic',
-                            onComplete: () => {
-                                // Show back to top after reaching bottom
-                                if (backToTopBtn) backToTopBtn.classList.add('visible');
+                    fadeOutAndScroll(targetY, {
+                        easing: 'easeOutCubic',
+                        onComplete: () => {
+                            // Show back to top after reaching bottom
+                            if (backToTopBtn) {
+                                backToTopBtn.classList.add('visible');
                             }
-                        });
+                        }
                     });
                 };
             }
