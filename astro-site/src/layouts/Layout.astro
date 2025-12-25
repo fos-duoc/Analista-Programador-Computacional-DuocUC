@@ -491,16 +491,19 @@ const BUILD_VERSION = Date.now().toString(36);
                 progressBar.style.width = scrollPercent + '%';
 
                 // Show "go to footer" button logic:
-                // - Must be scrolled past 15% of the page
-                // - If button was clicked, must scroll up to < 50% to reappear to reappear
+                // - Appears after 10% scroll
+                // - Disappears near footer (>85%) OR after click
+                // - Reappears when scrolling back up to <50%
                 if (scrollToBottomBtn) {
-                    // Reset the clicked flag when user scrolls up past 50% (halfway up)
+                    // Reset the clicked flag when user scrolls up past 50%
                     if (footerBtnWasClicked && scrollPercent < 50) {
                         footerBtnWasClicked = false;
                     }
 
-                    // Show button only if not in "hidden after click" state
-                    if (scrollPercent > 15 && !footerBtnWasClicked) {
+                    // Show button: between 10% and 85% scroll, and not after click
+                    const shouldShow = scrollPercent > 10 && scrollPercent < 85 && !footerBtnWasClicked;
+                    
+                    if (shouldShow) {
                         scrollToBottomBtn.classList.add('visible');
                     } else {
                         scrollToBottomBtn.classList.remove('visible');

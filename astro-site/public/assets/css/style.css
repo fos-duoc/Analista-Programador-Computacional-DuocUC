@@ -13654,30 +13654,38 @@ section {
   transition: background 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-/* Scroll Down Button (↓) - TOP RIGHT - Sophisticated Slide-in Animation */
+/* Scroll Down Button (↓) - TOP RIGHT - Sophisticated Asymmetric Animation */
 .scroll-down-btn {
   top: 6rem;
   background: linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(124, 58, 237, 0.2) 100%);
   border-color: rgba(0, 212, 255, 0.4);
   color: #00d4ff;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 212, 255, 0.15);
-  /* Initial hidden state - SOPHISTICATED SLOW ANIMATION */
+  /* Hidden state - exits quickly upward-right */
   opacity: 0;
-  transform: translateX(120px) scale(0.4) rotate(20deg);
+  transform: translateX(80px) translateY(-40px) scale(0.3) rotate(-15deg);
   pointer-events: none;
+  /* EXIT animation: faster (0.5s), elegant ease-in */
   transition:
-    opacity 1.2s cubic-bezier(0.22, 1.0, 0.36, 1),
-    transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.5s cubic-bezier(0.4, 0, 1, 1),
+    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
     background 0.2s ease,
     box-shadow 0.2s ease,
     border-color 0.2s ease;
 }
 
-/* Go-to-footer visible state - smooth slide-in from right with bounce */
+/* Go-to-footer visible state - slow elegant entrance with bounce */
 .scroll-down-btn.visible {
   opacity: 1;
-  transform: translateX(0) scale(1) rotate(0deg);
+  transform: translateX(0) translateY(0) scale(1) rotate(0deg);
   pointer-events: auto;
+  /* ENTRY animation: slow (1.2s), bouncy */
+  transition:
+    opacity 1.2s cubic-bezier(0.22, 1.0, 0.36, 1),
+    transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
 /* Scroll Up Button (↑) - BOTTOM RIGHT - Always Visible */
