@@ -13134,18 +13134,14 @@ section {
    ============================================ */
 
 /* Base styles for both buttons */
-.scroll-nav-btn {
-  position: fixed;
-  right: 2rem;
-  width: 48px;
-  height: 48px;
+.scroll-nav-btn { position: fixed; right: 2rem; width: 38px; height: 38px;
   border-radius: 50%;
   border: 1px solid transparent;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -13159,10 +13155,106 @@ section {
     box-shadow 0.25s ease;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  overflow: hidden;
+  overflow: visible;
   /* Maximum z-index to always be on top of everything */
   z-index: 2147483647;
   isolation: isolate;
+}
+
+/* Icon wrapper with floating animation */
+.scroll-btn-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.scroll-btn-icon i {
+  font-size: 0.9rem;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 4px currentColor);
+}
+
+/* Pulse ring animation behind the button */
+.scroll-btn-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.scroll-btn-pulse::before,
+.scroll-btn-pulse::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  opacity: 0;
+}
+
+/* Pulse animation for down button */
+.scroll-down-btn .scroll-btn-pulse::before {
+  border: 2px solid rgba(0, 212, 255, 0.5);
+  animation: pulseRing 2s ease-out infinite;
+}
+
+.scroll-down-btn .scroll-btn-pulse::after {
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  animation: pulseRing 2s ease-out infinite 0.5s;
+}
+
+/* Pulse animation for up button */
+.scroll-up-btn .scroll-btn-pulse::before {
+  border: 2px solid rgba(124, 58, 237, 0.5);
+  animation: pulseRing 2s ease-out infinite;
+}
+
+.scroll-up-btn .scroll-btn-pulse::after {
+  border: 2px solid rgba(236, 72, 153, 0.3);
+  animation: pulseRing 2s ease-out infinite 0.5s;
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  70% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* Floating animation for icon when button is visible */
+.scroll-down-btn.visible .scroll-btn-icon i {
+  animation: floatDown 1.5s ease-in-out infinite;
+}
+
+.scroll-up-btn.visible .scroll-btn-icon i {
+  animation: floatUp 1.5s ease-in-out infinite;
+}
+
+@keyframes floatDown {
+  0%, 100% { transform: translateY(-2px); }
+  50% { transform: translateY(3px); }
+}
+
+@keyframes floatUp {
+  0%, 100% { transform: translateY(2px); }
+  50% { transform: translateY(-3px); }
 }
 
 /* Scroll Down Button (↓) - TOP RIGHT */
@@ -13323,6 +13415,27 @@ section {
     0 0 40px rgba(124, 58, 237, 0.15);
 }
 
+/* Light mode - Pulse animations */
+[data-theme="light"] .scroll-down-btn .scroll-btn-pulse::before {
+  border-color: rgba(8, 145, 178, 0.5);
+}
+
+[data-theme="light"] .scroll-down-btn .scroll-btn-pulse::after {
+  border-color: rgba(8, 145, 178, 0.3);
+}
+
+[data-theme="light"] .scroll-up-btn .scroll-btn-pulse::before {
+  border-color: rgba(124, 58, 237, 0.5);
+}
+
+[data-theme="light"] .scroll-up-btn .scroll-btn-pulse::after {
+  border-color: rgba(219, 39, 119, 0.3);
+}
+
+[data-theme="light"] .scroll-btn-icon i {
+  filter: drop-shadow(0 0 3px currentColor);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .scroll-down-btn {
@@ -13336,9 +13449,9 @@ section {
   }
 
   .scroll-nav-btn {
-    width: 44px;
-    height: 44px;
-    font-size: 1rem;
+    width: 34px;
+    height: 34px;
+    font-size: 0.85rem;
   }
 }
 

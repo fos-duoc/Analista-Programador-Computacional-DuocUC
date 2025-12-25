@@ -136,13 +136,19 @@ const BUILD_VERSION = Date.now().toString(36);
     <!-- Jump to Footer - Top Right (appears after small scroll) -->
     <button id="scroll-to-bottom" class="scroll-nav-btn scroll-down-btn" aria-label="Ir al footer"
             data-premium-tooltip="Ir al Footer|Scroll suave al final de la página||feature|fa-arrow-down|NAVEGACIÓN">
-        <i class="fas fa-chevron-down"></i>
+        <span class="scroll-btn-icon">
+            <i class="fas fa-angles-down"></i>
+        </span>
+        <span class="scroll-btn-pulse"></span>
     </button>
 
     <!-- Back to Top - Bottom Right (appears after significant scroll) -->
     <button id="back-to-top" class="scroll-nav-btn scroll-up-btn" aria-label="Volver arriba"
             data-premium-tooltip="Volver Arriba|Scroll suave al inicio de la página||feature|fa-arrow-up|NAVEGACIÓN">
-        <i class="fas fa-chevron-up"></i>
+        <span class="scroll-btn-icon">
+            <i class="fas fa-angles-up"></i>
+        </span>
+        <span class="scroll-btn-pulse"></span>
     </button>
 
     <!-- Toast Notifications Container -->
@@ -480,8 +486,15 @@ const BUILD_VERSION = Date.now().toString(36);
 
             if (!progressBar) return;
 
+            // Flag to prevent button flickering during programmatic scroll
+            let isScrolling = false;
+            let scrollTimeout = null;
+
             // Scroll progress calculation and button visibility
             function updateScrollProgress() {
+                // Don't update visibility during programmatic scroll
+                if (isScrolling) return;
+
                 const scrollTop = window.scrollY;
                 const docHeight = document.documentElement.scrollHeight - window.innerHeight;
                 const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
@@ -516,6 +529,16 @@ const BUILD_VERSION = Date.now().toString(36);
                 }
             }
 
+            // Helper to lock visibility during programmatic scroll
+            function lockScrollUpdates(duration = 800) {
+                isScrolling = true;
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    isScrolling = false;
+                    updateScrollProgress(); // Update after scroll completes
+                }, duration);
+            }
+
             // Throttled scroll handler for performance
             let ticking = false;
             function onScroll() {
@@ -531,6 +554,10 @@ const BUILD_VERSION = Date.now().toString(36);
             // Back to top click handler
             if (backToTopBtn) {
                 backToTopBtn.onclick = function() {
+                    // Hide button immediately and lock updates during scroll
+                    backToTopBtn.classList.remove('visible');
+                    lockScrollUpdates(1000);
+
                     window.scrollTo({
                         top: 0,
                         behavior: 'smooth'
@@ -541,6 +568,10 @@ const BUILD_VERSION = Date.now().toString(36);
             // Scroll to bottom click handler
             if (scrollToBottomBtn) {
                 scrollToBottomBtn.onclick = function() {
+                    // Hide button immediately and lock updates during scroll
+                    scrollToBottomBtn.classList.remove('visible');
+                    lockScrollUpdates(1000);
+
                     // Find the footer element
                     const footer = document.querySelector('footer') || document.querySelector('.footer-compact');
                     if (footer) {
