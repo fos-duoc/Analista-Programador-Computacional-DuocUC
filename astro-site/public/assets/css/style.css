@@ -13370,23 +13370,18 @@ section {
   }
 }
 
-/* Floating animation for icon when button is visible */
-.scroll-down-btn.visible .scroll-btn-icon i {
-  animation: floatDown 1.5s ease-in-out infinite;
+/* Simple hover animation for icons - no continuous animation to avoid repaints */
+.scroll-down-btn .scroll-btn-icon i,
+.scroll-up-btn .scroll-btn-icon i {
+  transition: transform 0.3s ease;
 }
 
-.scroll-up-btn.visible .scroll-btn-icon i {
-  animation: floatUp 1.5s ease-in-out infinite;
+.scroll-down-btn:hover .scroll-btn-icon i {
+  transform: translateY(2px);
 }
 
-@keyframes floatDown {
-  0%, 100% { transform: translateY(-2px); }
-  50% { transform: translateY(3px); }
-}
-
-@keyframes floatUp {
-  0%, 100% { transform: translateY(2px); }
-  50% { transform: translateY(-3px); }
+.scroll-up-btn:hover .scroll-btn-icon i {
+  transform: translateY(-2px);
 }
 
 /* Scroll Down Button (↓) - TOP RIGHT */
@@ -13484,55 +13479,30 @@ section {
   transform: translateY(30px) scale(0.7) !important;
 }
 
-/* Hover effects */
-.scroll-down-btn:hover {
+/* Hover effects - only when visible, don't change transform to avoid conflicts */
+.scroll-down-btn.visible:hover {
   background: linear-gradient(135deg, rgba(0, 212, 255, 0.3) 0%, rgba(124, 58, 237, 0.3) 100%);
   border-color: rgba(0, 212, 255, 0.6);
-  transform: translateX(-3px) scale(1.08);
   box-shadow:
     0 8px 30px rgba(0, 0, 0, 0.4),
     0 0 50px rgba(0, 212, 255, 0.25);
 }
 
-.scroll-up-btn:hover {
+.scroll-up-btn.visible:hover {
   background: linear-gradient(135deg, rgba(124, 58, 237, 0.3) 0%, rgba(236, 72, 153, 0.3) 100%);
   border-color: rgba(124, 58, 237, 0.6);
-  transform: translateY(-3px) scale(1.08);
   box-shadow:
     0 8px 30px rgba(0, 0, 0, 0.4),
     0 0 50px rgba(124, 58, 237, 0.25);
 }
 
-/* Active state */
-.scroll-down-btn:active {
-  transform: translateX(-1px) scale(1);
+/* Active state - only when visible */
+.scroll-down-btn.visible:active {
+  opacity: 0.8;
 }
 
-.scroll-up-btn:active {
-  transform: translateY(-1px) scale(1);
-}
-
-/* Icon animations */
-.scroll-nav-btn i {
-  transition: transform 0.2s ease;
-}
-
-.scroll-down-btn:hover i {
-  animation: bounceDown 0.6s ease-in-out infinite;
-}
-
-.scroll-up-btn:hover i {
-  animation: bounceUp 0.6s ease-in-out infinite;
-}
-
-@keyframes bounceDown {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(4px); }
-}
-
-@keyframes bounceUp {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+.scroll-up-btn.visible:active {
+  opacity: 0.8;
 }
 
 /* Ripple effect on click */
