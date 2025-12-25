@@ -9004,13 +9004,16 @@ section {
   font-size: 1.1rem;
 }
 
-/* Hexagonal Grid Container */
+/* Hexagonal Grid Container - With Container Queries for sidebar responsiveness */
 .hex-grid-container {
   position: relative;
   min-height: 700px;
   display: flex;
   justify-content: center;
   align-items: center;
+  /* Container Query context for responsive clusters */
+  container-type: inline-size;
+  container-name: hex-ecosystem;
 }
 
 /* Hex Cluster - Base Styles */
@@ -9280,6 +9283,7 @@ section {
 }
 
 /* Responsive - Tech Ecosystem */
+/* Fallback for browsers without Container Query support */
 @media (max-width: 1024px) {
   .hex-grid-container {
     min-height: 800px;
@@ -9326,6 +9330,50 @@ section {
   .bottom-cluster {
     bottom: 5%;
   }
+
+  /* IDEs cluster - adjust position to prevent overlap with center */
+  .top-cluster {
+    top: -5%;
+  }
+}
+
+/* Medium viewport fallback - switch to grid when sidebar reduces space */
+@media (max-width: 900px) {
+  .hex-grid-container {
+    min-height: auto !important;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .hex-cluster {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+  }
+
+  .hex-connections {
+    display: none !important;
+  }
+
+  .hex-group {
+    max-width: 100%;
+  }
+
+  /* Reorder clusters for logical flow */
+  .top-cluster { order: 0; }
+  .center-cluster { order: 1; grid-column: 1 / -1; }
+  .top-left-cluster { order: 2; }
+  .top-right-cluster { order: 3; }
+  .left-cluster { order: 4; }
+  .right-cluster { order: 5; }
+  .bottom-left-cluster { order: 6; }
+  .bottom-right-cluster { order: 7; }
+  .bottom-cluster { order: 8; }
 }
 
 @media (max-width: 768px) {
@@ -9379,6 +9427,90 @@ section {
 
   .eco-stat-value {
     font-size: 1.5rem;
+  }
+}
+
+/* ============================================
+   CONTAINER QUERIES - Responds to container size, not viewport
+   This handles browser sidebar resizing (Brave, Edge, etc.)
+   ============================================ */
+
+/* Medium container - reorganize clusters */
+@container hex-ecosystem (max-width: 900px) {
+  .hex-cluster {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+  }
+
+  .hex-grid-container {
+    min-height: auto !important;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .hex-connections {
+    display: none !important;
+  }
+
+  .hex-group {
+    max-width: 100%;
+  }
+
+  /* Reorder clusters with grid-row to maintain logical grouping */
+  .top-cluster {
+    grid-column: 1 / -1;
+    order: 0;
+  }
+
+  .center-cluster {
+    grid-column: 1 / -1;
+    order: 1;
+  }
+}
+
+/* Small container - stack vertically */
+@container hex-ecosystem (max-width: 600px) {
+  .hex-grid-container {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hex-cluster {
+    width: 100%;
+  }
+
+  .hex-item {
+    width: 50px;
+    height: 50px;
+  }
+
+  .hex-item i {
+    font-size: 1.1rem;
+  }
+
+  .hex-item span {
+    font-size: 0.55rem;
+  }
+
+  .cluster-label {
+    font-size: 0.75rem;
+  }
+}
+
+/* Large container - ensure proper spacing */
+@container hex-ecosystem (min-width: 1100px) {
+  .hex-grid-container {
+    min-height: 750px;
+  }
+
+  .hex-item {
+    width: 65px;
+    height: 65px;
   }
 }
 
