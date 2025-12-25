@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
 const base = import.meta.env.BASE_URL;
 
 // Comunidades tech en Chile
@@ -138,6 +139,7 @@ const mentorshipResources = [
 ---
 
 <Layout title="Comunidad - Networking Tech Chile">
+    <Header />
     <main class="community-page">
         <!-- Hero Section -->
         <section class="community-hero">

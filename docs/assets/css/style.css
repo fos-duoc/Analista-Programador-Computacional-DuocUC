@@ -9007,7 +9007,7 @@ section {
 /* Hexagonal Grid Container */
 .hex-grid-container {
   position: relative;
-  min-height: 600px;
+  min-height: 700px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9160,6 +9160,26 @@ section {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.top-cluster {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.top-cluster .cluster-label {
+  color: #10b981;
+}
+
+.top-cluster .hex-item {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05));
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.top-cluster .hex-item:hover {
+  border-color: rgba(16, 185, 129, 0.6);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.2);
 }
 
 /* Connection Lines SVG */

@@ -169,6 +169,25 @@ const base = import.meta.env.BASE_URL;
 
             <!-- Hexagonal Grid Layout -->
             <div class="hex-grid-container">
+                <!-- Top - IDEs & Editors -->
+                <div class="hex-cluster top-cluster">
+                    <div class="cluster-label"><i class="fas fa-laptop-code"></i> IDEs</div>
+                    <div class="hex-group">
+                        <a href="https://code.visualstudio.com/" target="_blank" class="hex-item vscode-ide"
+                           data-premium-tooltip="VS Code|Editor de código más popular del mundo con extensiones|Extensions,Git,Terminal,IntelliSense|tool|fa-code|Microsoft (2015)"><i class="devicon-vscode-plain colored"></i><span>VS Code</span></a>
+                        <a href="https://www.jetbrains.com/idea/" target="_blank" class="hex-item intellij"
+                           data-premium-tooltip="IntelliJ IDEA|IDE profesional para Java, Kotlin y desarrollo enterprise|Refactoring,Debugging,Git|tool|fa-java|JetBrains (2001)"><i class="devicon-intellij-plain colored"></i><span>IntelliJ</span></a>
+                        <a href="https://www.jetbrains.com/pycharm/" target="_blank" class="hex-item pycharm"
+                           data-premium-tooltip="PyCharm|IDE especializado para Python con soporte científico|Python,Django,Data Science|tool|fa-python|JetBrains (2010)"><i class="devicon-pycharm-plain colored"></i><span>PyCharm</span></a>
+                        <a href="https://visualstudio.microsoft.com/" target="_blank" class="hex-item vs"
+                           data-premium-tooltip="Visual Studio|IDE completo de Microsoft para .NET y C++|.NET,C#,C++,Azure|tool|fa-microsoft|Microsoft (1997)"><i class="devicon-visualstudio-plain colored"></i><span>Visual Studio</span></a>
+                        <a href="https://www.jetbrains.com/webstorm/" target="_blank" class="hex-item webstorm"
+                           data-premium-tooltip="WebStorm|IDE profesional para JavaScript y TypeScript|React,Angular,Vue,Node.js|tool|fa-js|JetBrains (2010)"><i class="devicon-webstorm-plain colored"></i><span>WebStorm</span></a>
+                        <a href="https://www.sublimetext.com/" target="_blank" class="hex-item sublime"
+                           data-premium-tooltip="Sublime Text|Editor de texto rápido y ligero|Multi-cursor,Plugins,Speed|tool|fa-file-code|Sublime HQ (2008)"><i class="devicon-sublime-text-plain colored" style="color: #FF9800;"></i><span>Sublime</span></a>
+                    </div>
+                </div>
+
                 <!-- Center Hub - Core -->
                 <div class="hex-cluster center-cluster">
                     <div class="cluster-label"><i class="fas fa-code"></i> Lenguajes</div>
@@ -315,6 +334,7 @@ const base = import.meta.env.BASE_URL;
                         </linearGradient>
                     </defs>
                     <!-- Connection paths between clusters -->
+                    <path class="connection-line" d="M400,300 L400,80" stroke="url(#lineGradient1)" />
                     <path class="connection-line" d="M400,300 L200,150" stroke="url(#lineGradient1)" />
                     <path class="connection-line" d="M400,300 L600,150" stroke="url(#lineGradient1)" />
                     <path class="connection-line" d="M400,300 L150,300" stroke="url(#lineGradient1)" />
@@ -327,8 +347,8 @@ const base = import.meta.env.BASE_URL;
 
             <!-- Footer Stats -->
             <div class="ecosystem-footer">
-                <div class="eco-stat"><span class="eco-stat-value">65+</span><span class="eco-stat-label">Tecnologías</span></div>
-                <div class="eco-stat"><span class="eco-stat-value">8</span><span class="eco-stat-label">Categorías</span></div>
+                <div class="eco-stat"><span class="eco-stat-value">70+</span><span class="eco-stat-label">Tecnologías</span></div>
+                <div class="eco-stat"><span class="eco-stat-value">9</span><span class="eco-stat-label">Categorías</span></div>
                 <div class="eco-stat"><span class="eco-stat-value">100%</span><span class="eco-stat-label">Industria</span></div>
             </div>
         </div>
