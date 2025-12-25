@@ -13661,13 +13661,13 @@ section {
   border-color: rgba(0, 212, 255, 0.4);
   color: #00d4ff;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 212, 255, 0.15);
-  /* Initial hidden state */
+  /* Initial hidden state - SOPHISTICATED SLOW ANIMATION */
   opacity: 0;
-  transform: translateX(60px) scale(0.7);
+  transform: translateX(120px) scale(0.4) rotate(20deg);
   pointer-events: none;
   transition:
-    opacity 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
-    transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 1.2s cubic-bezier(0.22, 1.0, 0.36, 1),
+    transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1),
     background 0.2s ease,
     box-shadow 0.2s ease,
     border-color 0.2s ease;
@@ -13676,7 +13676,7 @@ section {
 /* Go-to-footer visible state - smooth slide-in from right with bounce */
 .scroll-down-btn.visible {
   opacity: 1;
-  transform: translateX(0) scale(1);
+  transform: translateX(0) scale(1) rotate(0deg);
   pointer-events: auto;
 }
 
