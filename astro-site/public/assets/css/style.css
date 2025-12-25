@@ -13638,7 +13638,7 @@ section {
 /* Base styles for both buttons */
 .scroll-nav-btn {
   position: fixed;
-  right: 1.5rem;
+  right: 0.5rem;
   width: 34px;
   height: 34px;
   border-radius: 50%;
@@ -13674,18 +13674,32 @@ section {
     border-color 0.2s ease;
 }
 
-/* Go-to-footer visible state - slow elegant entrance with bounce */
+/* Go-to-footer visible state - dramatic entrance animation */
 .scroll-down-btn.visible {
   opacity: 1;
   transform: translateX(0) translateY(0) scale(1) rotate(0deg);
   pointer-events: auto;
-  /* ENTRY animation: slow (1.2s), bouncy */
-  transition:
-    opacity 1.2s cubic-bezier(0.22, 1.0, 0.36, 1),
-    transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1),
-    background 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease;
+  /* Use keyframe animation for dramatic entrance */
+  animation: scrollBtnEnter 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Keyframe animation for dramatic button entrance */
+@keyframes scrollBtnEnter {
+  0% {
+    opacity: 0;
+    transform: translateX(100px) scale(0.2) rotate(45deg);
+  }
+  40% {
+    opacity: 0.8;
+    transform: translateX(-10px) scale(1.15) rotate(-5deg);
+  }
+  70% {
+    transform: translateX(5px) scale(0.95) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1) rotate(0deg);
+  }
 }
 
 /* Scroll Up Button (↑) - BOTTOM RIGHT - Always Visible */
@@ -13798,7 +13812,7 @@ body.sidebar-open .scroll-nav-btn {
   body.has-sidebar .scroll-nav-btn,
   body.sidebar-open .scroll-nav-btn,
   .has-sidebar .scroll-nav-btn {
-    right: 1.5rem;
+    right: 0.5rem;
   }
 }
 
@@ -14223,7 +14237,7 @@ main,
 .toast-container {
   position: fixed;
   top: 1.5rem;
-  right: 1.5rem;
+  right: 0.5rem;
   z-index: 99998;
   display: flex;
   flex-direction: column;
