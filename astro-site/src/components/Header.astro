@@ -25,7 +25,21 @@ const isComunidad = currentPath.includes('/comunidad');
                 <span class="logo-sub">Escuela de Informática</span>
             </div>
         </a>
-        <nav class="nav">
+
+        <!-- Hamburger Menu Button (Mobile) -->
+        <button
+            class="mobile-menu-toggle"
+            id="mobile-menu-toggle"
+            aria-label="Abrir menú de navegación"
+            aria-expanded="false"
+            aria-controls="mobile-nav"
+        >
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+
+        <nav class="nav" id="main-nav">
             <a href={`${base}/inicio`} class={`nav-link ${isHome ? 'active' : ''}`}
                data-premium-tooltip="Inicio|Dashboard principal con Plan de Estudios y visión general de la carrera|17 Bimestres,2 Carreras,Stats|navigation|fa-home|NAVEGACIÓN">Inicio</a>
             <a href={`${base}/stack`} class={`nav-link ${isStack ? 'active' : ''}`}
@@ -88,6 +102,69 @@ const isComunidad = currentPath.includes('/comunidad');
             </div>
         </div>
     </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Navegación móvil">
+        <div class="mobile-nav-content">
+            <div class="mobile-nav-header">
+                <span class="mobile-nav-title">Navegación</span>
+                <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Cerrar menú">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="mobile-nav-links">
+                <a href={`${base}/inicio`} class={`mobile-nav-link ${isHome ? 'active' : ''}`}>
+                    <i class="fas fa-home"></i> Inicio
+                </a>
+                <a href={`${base}/stack`} class={`mobile-nav-link ${isStack ? 'active' : ''}`}>
+                    <i class="fas fa-layer-group"></i> Stack
+                </a>
+                <a href={`${base}/arquitectura`} class={`mobile-nav-link ${isArquitectura ? 'active' : ''}`}>
+                    <i class="fas fa-sitemap"></i> Arquitectura
+                </a>
+                <a href={`${base}/recursos`} class={`mobile-nav-link ${isRecursos ? 'active' : ''}`}>
+                    <i class="fas fa-tools"></i> Recursos
+                </a>
+                <a href={`${base}/proyectos`} class={`mobile-nav-link ${isProyectos ? 'active' : ''}`}>
+                    <i class="fas fa-project-diagram"></i> Proyectos
+                </a>
+
+                <div class="mobile-nav-divider"></div>
+                <span class="mobile-nav-section-title">Más secciones</span>
+
+                <a href={`${base}/trayectorias`} class={`mobile-nav-link ${isTrayectorias ? 'active' : ''}`}>
+                    <i class="fas fa-route"></i> Trayectorias
+                </a>
+                <a href={`${base}/portafolio`} class={`mobile-nav-link ${isPortafolio ? 'active' : ''}`}>
+                    <i class="fas fa-briefcase"></i> Portafolio
+                </a>
+                <a href={`${base}/laboratorios`} class={`mobile-nav-link ${isLaboratorios ? 'active' : ''}`}>
+                    <i class="fas fa-flask"></i> Laboratorios
+                </a>
+                <a href={`${base}/comunidad`} class={`mobile-nav-link ${isComunidad ? 'active' : ''}`}>
+                    <i class="fas fa-users"></i> Comunidad
+                </a>
+            </div>
+            <div class="mobile-nav-footer">
+                <div class="mobile-nav-repos">
+                    <a href="https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC" target="_blank" class="mobile-repo-icon github">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://gitlab.com/" target="_blank" class="mobile-repo-icon gitlab">
+                        <i class="fab fa-gitlab"></i>
+                    </a>
+                    <a href="https://bitbucket.org/" target="_blank" class="mobile-repo-icon bitbucket">
+                        <i class="fab fa-bitbucket"></i>
+                    </a>
+                    <a href="https://dev.azure.com/" target="_blank" class="mobile-repo-icon azure">
+                        <i class="fab fa-microsoft"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
 </header>
 
 <script is:inline>
@@ -142,11 +219,82 @@ const isComunidad = currentPath.includes('/comunidad');
             themeToggle.onclick = toggleTheme;
         }
 
+        // Mobile Menu
+        initMobileMenu();
+
         // Dropdown menu with delay
         initDropdownMenu();
 
         // Update active nav link
         updateActiveNavLink();
+    }
+
+    // Initialize Mobile Menu
+    function initMobileMenu() {
+        const menuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileNav = document.getElementById('mobile-nav');
+        const mobileNavClose = document.getElementById('mobile-nav-close');
+        const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        if (!menuToggle || !mobileNav) return;
+
+        function openMobileMenu() {
+            mobileNav.classList.add('open');
+            mobileNavOverlay?.classList.add('visible');
+            menuToggle.classList.add('active');
+            menuToggle.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden'; // Prevent scroll
+        }
+
+        function closeMobileMenu() {
+            mobileNav.classList.remove('open');
+            mobileNavOverlay?.classList.remove('visible');
+            menuToggle.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = ''; // Restore scroll
+        }
+
+        // Toggle menu on hamburger click
+        menuToggle.onclick = (e) => {
+            e.preventDefault();
+            if (mobileNav.classList.contains('open')) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        };
+
+        // Close on X button
+        if (mobileNavClose) {
+            mobileNavClose.onclick = closeMobileMenu;
+        }
+
+        // Close on overlay click
+        if (mobileNavOverlay) {
+            mobileNavOverlay.onclick = closeMobileMenu;
+        }
+
+        // Close on link click
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                closeMobileMenu();
+            });
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Close on resize to desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1024 && mobileNav.classList.contains('open')) {
+                closeMobileMenu();
+            }
+        });
     }
 
     // Initialize dropdown with delay behavior

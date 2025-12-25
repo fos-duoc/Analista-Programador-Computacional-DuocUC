@@ -839,6 +839,302 @@ body,
 }
 
 /* ============================================
+   MOBILE NAVIGATION
+   Based on MDN Web Docs and web.dev best practices
+   ============================================ */
+
+/* Mobile Menu Toggle Button (Hamburger) */
+.mobile-menu-toggle {
+  display: none; /* Hidden on desktop */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition);
+  gap: 5px;
+  z-index: 1002;
+}
+
+.mobile-menu-toggle:hover {
+  background: rgba(0, 212, 255, 0.15);
+  border-color: var(--accent-primary);
+}
+
+.mobile-menu-toggle:focus {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+.hamburger-line {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hamburger Animation - X when active */
+.mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile Navigation Drawer */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: min(320px, 85vw);
+  height: 100vh;
+  height: 100dvh; /* Dynamic viewport height for mobile browsers */
+  background: var(--bg-secondary);
+  border-left: 1px solid var(--border-color);
+  z-index: 1001;
+  overflow-y: auto;
+  transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-nav.open {
+  right: 0;
+}
+
+.mobile-nav-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 1.5rem;
+}
+
+.mobile-nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1rem;
+}
+
+.mobile-nav-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.mobile-nav-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.mobile-nav-close:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.875rem 1rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.mobile-nav-link:hover {
+  background: rgba(0, 212, 255, 0.1);
+  color: var(--accent-primary);
+}
+
+.mobile-nav-link.active {
+  background: rgba(0, 212, 255, 0.15);
+  color: var(--accent-primary);
+}
+
+.mobile-nav-link i {
+  font-size: 1rem;
+  width: 24px;
+  text-align: center;
+}
+
+.mobile-nav-divider {
+  height: 1px;
+  background: var(--border-color);
+  margin: 1rem 0;
+}
+
+.mobile-nav-section-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  padding: 0 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.mobile-nav-footer {
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+  margin-top: auto;
+}
+
+.mobile-nav-repos {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.mobile-repo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.mobile-repo-icon.github {
+  color: #f8fafc;
+}
+.mobile-repo-icon.github:hover {
+  background: #24292e;
+  border-color: #24292e;
+}
+
+.mobile-repo-icon.gitlab {
+  color: #FC6D26;
+}
+.mobile-repo-icon.gitlab:hover {
+  background: #fc6d26;
+  color: white;
+  border-color: #fc6d26;
+}
+
+.mobile-repo-icon.bitbucket {
+  color: #2684FF;
+}
+.mobile-repo-icon.bitbucket:hover {
+  background: #0052cc;
+  color: white;
+  border-color: #0052cc;
+}
+
+.mobile-repo-icon.azure {
+  color: #0078D4;
+}
+.mobile-repo-icon.azure:hover {
+  background: #0078d4;
+  color: white;
+  border-color: #0078d4;
+}
+
+/* Mobile Nav Overlay */
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.mobile-nav-overlay.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Light Mode Mobile Nav */
+[data-theme="light"] .mobile-menu-toggle {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+[data-theme="light"] .mobile-menu-toggle:hover {
+  background: rgba(0, 212, 255, 0.1);
+}
+
+[data-theme="light"] .hamburger-line {
+  background: var(--text-primary);
+}
+
+[data-theme="light"] .mobile-nav {
+  background: #ffffff;
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .mobile-nav-close:hover {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+[data-theme="light"] .mobile-nav-link:hover {
+  background: rgba(0, 212, 255, 0.08);
+  color: #0891b2;
+}
+
+[data-theme="light"] .mobile-nav-link.active {
+  background: rgba(0, 212, 255, 0.12);
+  color: #0891b2;
+}
+
+[data-theme="light"] .mobile-repo-icon {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+[data-theme="light"] .mobile-repo-icon.github {
+  color: #24292e;
+}
+
+[data-theme="light"] .mobile-nav-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
    BUTTONS
    ============================================ */
 .btn {
@@ -5417,7 +5713,17 @@ section {
     grid-template-columns: 1fr;
   }
 
+  /* Hide desktop nav, show mobile hamburger */
   .nav {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  /* Hide repo icons on tablet (they're in mobile drawer) */
+  .repo-icons {
     display: none;
   }
 }
@@ -5463,8 +5769,15 @@ section {
     padding: 0.75rem 1rem;
   }
 
-  .logo span {
+  /* Hide logo text on small screens, keep icon */
+  .logo-text {
     display: none;
+  }
+
+  /* Smaller hamburger on very small screens */
+  .mobile-menu-toggle {
+    width: 40px;
+    height: 40px;
   }
 
   .hero {
@@ -6392,23 +6705,26 @@ section {
 /* ==================== PIPELINE MODE SELECTOR ==================== */
 .pipeline-mode-selector {
   display: flex !important;
-  gap: 1rem !important;
+  flex-wrap: wrap !important; /* Allow wrapping on smaller screens */
+  gap: 0.75rem !important;
   justify-content: center !important;
   margin-top: 2rem !important;
+  padding: 0 1rem !important;
 }
 
 .mode-btn {
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
-  gap: 0.3rem !important;
-  padding: 1rem 2rem !important;
+  gap: 0.25rem !important;
+  padding: 0.75rem 1.25rem !important;
   background: rgba(30, 30, 45, 0.6) !important;
   border: 2px solid rgba(148, 163, 184, 0.2) !important;
-  border-radius: 12px !important;
+  border-radius: 10px !important;
   cursor: pointer !important;
   transition: all 0.3s ease !important;
-  min-width: 180px !important;
+  min-width: 130px !important; /* Reduced from 180px */
+  flex: 0 1 auto !important; /* Allow shrinking */
 }
 
 .mode-btn i {
@@ -6579,15 +6895,69 @@ section {
   animation-duration: 4s !important;
 }
 
-/* Responsive Mode Selector */
+/* Responsive Mode Selector - Tablet */
+@media (max-width: 1024px) {
+  .pipeline-mode-selector {
+    gap: 0.5rem !important;
+  }
+  .mode-btn {
+    min-width: 110px !important;
+    padding: 0.6rem 0.9rem !important;
+  }
+  .mode-btn i {
+    font-size: 1.25rem !important;
+  }
+  .mode-btn span {
+    font-size: 0.8rem !important;
+  }
+  .mode-btn small {
+    font-size: 0.65rem !important;
+  }
+}
+
+/* Responsive Mode Selector - Mobile Landscape */
+@media (max-width: 768px) {
+  .pipeline-mode-selector {
+    gap: 0.4rem !important;
+  }
+  .mode-btn {
+    min-width: 95px !important;
+    padding: 0.5rem 0.75rem !important;
+  }
+  .mode-btn span {
+    font-size: 0.7rem !important;
+  }
+  .mode-btn small {
+    display: none !important; /* Hide subtext on smaller screens */
+  }
+}
+
+/* Responsive Mode Selector - Mobile Portrait */
 @media (max-width: 500px) {
   .pipeline-mode-selector {
     flex-direction: column !important;
     align-items: center !important;
+    gap: 0.5rem !important;
   }
   .mode-btn {
     width: 100% !important;
-    max-width: 250px !important;
+    max-width: 280px !important;
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    gap: 0.75rem !important;
+    padding: 0.75rem 1rem !important;
+  }
+  .mode-btn i {
+    font-size: 1.25rem !important;
+    width: 30px !important;
+    text-align: center !important;
+  }
+  .mode-btn span {
+    font-size: 0.9rem !important;
+  }
+  .mode-btn small {
+    display: block !important; /* Show again in vertical layout */
+    margin-left: auto !important;
   }
   .pipeline-mode-header {
     flex-direction: column !important;
