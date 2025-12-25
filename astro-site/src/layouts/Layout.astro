@@ -478,6 +478,11 @@ const BUILD_VERSION = Date.now().toString(36);
 
             if (!progressBar) return;
 
+            // Reset display on navigation (View Transitions)
+            if (scrollToBottomBtn) {
+                scrollToBottomBtn.style.display = '';
+            }
+
             // Update progress bar and button visibility
             function updateScroll() {
                 const scrollTop = window.scrollY;
@@ -521,9 +526,13 @@ const BUILD_VERSION = Date.now().toString(36);
                 };
             }
 
-            // Scroll to footer click - simple smooth scroll
+            // Scroll to footer click - hide button and scroll
             if (scrollToBottomBtn) {
                 scrollToBottomBtn.onclick = () => {
+                    // Hide this button permanently until page reload/navigation
+                    scrollToBottomBtn.classList.remove('visible');
+                    scrollToBottomBtn.style.display = 'none';
+
                     const footer = document.querySelector('footer') || document.querySelector('.footer-compact');
                     const target = footer
                         ? footer.getBoundingClientRect().top + window.scrollY

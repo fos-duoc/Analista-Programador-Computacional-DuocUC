@@ -13268,16 +13268,16 @@ section {
 /* Base styles for both buttons */
 .scroll-nav-btn {
   position: fixed;
-  right: 2rem;
-  width: 42px;
-  height: 42px;
+  right: 1.5rem;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   border: 1px solid transparent;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  font-size: 0.8rem;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   z-index: 9999;
@@ -13370,13 +13370,13 @@ section {
     right: 1rem;
   }
   .scroll-up-btn {
-    bottom: 1.5rem;
+    bottom: 1.25rem;
     right: 1rem;
   }
   .scroll-nav-btn {
-    width: 38px;
-    height: 38px;
-    font-size: 0.9rem;
+    width: 32px;
+    height: 32px;
+    font-size: 0.75rem;
   }
 }
 
