@@ -621,25 +621,40 @@ const BUILD_VERSION = Date.now().toString(36);
 
             // Back to top click handler
             if (backToTopBtn) {
-                backToTopBtn.onclick = function() {
-                    // Hide button immediately
+                backToTopBtn.onclick = function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    // IMMEDIATELY lock scroll updates to prevent any flicker
+                    isScrolling = true;
+
+                    // Hide both buttons instantly
                     backToTopBtn.classList.remove('visible');
                     if (scrollToBottomBtn) scrollToBottomBtn.classList.remove('visible');
 
-                    smoothScrollTo(0, {
-                        easing: 'easeOutExpo',
-                        onComplete: () => {
-                            // Ensure button stays hidden at top
-                            backToTopBtn.classList.remove('visible');
-                        }
+                    // Use requestAnimationFrame to ensure CSS transition starts first
+                    requestAnimationFrame(() => {
+                        smoothScrollTo(0, {
+                            easing: 'easeOutExpo',
+                            onComplete: () => {
+                                // Ensure button stays hidden at top
+                                backToTopBtn.classList.remove('visible');
+                            }
+                        });
                     });
                 };
             }
 
             // Scroll to bottom click handler
             if (scrollToBottomBtn) {
-                scrollToBottomBtn.onclick = function() {
-                    // Hide button immediately
+                scrollToBottomBtn.onclick = function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    // IMMEDIATELY lock scroll updates to prevent any flicker
+                    isScrolling = true;
+
+                    // Hide both buttons instantly
                     scrollToBottomBtn.classList.remove('visible');
                     if (backToTopBtn) backToTopBtn.classList.remove('visible');
 
@@ -649,12 +664,15 @@ const BUILD_VERSION = Date.now().toString(36);
                         ? footer.getBoundingClientRect().top + window.scrollY
                         : document.documentElement.scrollHeight - window.innerHeight;
 
-                    smoothScrollTo(targetY, {
-                        easing: 'easeOutCubic',
-                        onComplete: () => {
-                            // Show back to top after reaching bottom
-                            if (backToTopBtn) backToTopBtn.classList.add('visible');
-                        }
+                    // Use requestAnimationFrame to ensure CSS transition starts first
+                    requestAnimationFrame(() => {
+                        smoothScrollTo(targetY, {
+                            easing: 'easeOutCubic',
+                            onComplete: () => {
+                                // Show back to top after reaching bottom
+                                if (backToTopBtn) backToTopBtn.classList.add('visible');
+                            }
+                        });
                     });
                 };
             }
