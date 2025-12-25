@@ -22344,3 +22344,354 @@ main,
   border: 2px solid rgba(2, 77, 253, 0.4) !important;
   color: #1d4ed8 !important;
 }
+
+/* ============================================
+   DATA PIPELINE - LIGHT MODE PREMIUM FIX
+   Comprehensive styling for sophisticated light theme
+   ============================================ */
+
+/* ===== MAIN PIPELINE SECTION ===== */
+[data-theme="light"] .pipeline-section {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%) !important;
+}
+
+/* ===== PIPELINE HERO HEADER ===== */
+[data-theme="light"] .pipeline-hero-header {
+  background: transparent !important;
+}
+
+[data-theme="light"] .pipeline-icon-glow {
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.15) 0%, rgba(124, 58, 237, 0.12) 100%) !important;
+  border: 2px solid rgba(8, 145, 178, 0.25) !important;
+  box-shadow:
+    0 8px 32px rgba(8, 145, 178, 0.15),
+    inset 0 0 20px rgba(8, 145, 178, 0.05) !important;
+}
+
+[data-theme="light"] .pipeline-icon-glow i {
+  color: #0891b2 !important;
+  text-shadow: 0 2px 8px rgba(8, 145, 178, 0.3) !important;
+}
+
+[data-theme="light"] .pipeline-main-title {
+  color: #0f172a !important;
+  text-shadow: none !important;
+}
+
+[data-theme="light"] .pipeline-main-title .gradient-text {
+  background: linear-gradient(135deg, #0891b2 0%, #7c3aed 50%, #ec4899 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+[data-theme="light"] .pipeline-tagline {
+  color: #475569 !important;
+  font-weight: 500 !important;
+}
+
+/* ===== MODE SELECTOR BUTTONS ===== */
+[data-theme="light"] .pipeline-mode-selector {
+  background: linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(241, 245, 249, 0.9) 100%) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+  padding: 0.75rem !important;
+  border-radius: 16px !important;
+}
+
+[data-theme="light"] .mode-btn {
+  background: #ffffff !important;
+  border: 1.5px solid rgba(0, 0, 0, 0.1) !important;
+  color: #334155 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="light"] .mode-btn:hover {
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.08) 0%, rgba(124, 58, 237, 0.06) 100%) !important;
+  border-color: rgba(8, 145, 178, 0.3) !important;
+  color: #0891b2 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 16px rgba(8, 145, 178, 0.12) !important;
+}
+
+[data-theme="light"] .mode-btn.active {
+  background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%) !important;
+  border-color: #0891b2 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 20px rgba(8, 145, 178, 0.3) !important;
+}
+
+[data-theme="light"] .mode-btn.active i {
+  color: #ffffff !important;
+}
+
+[data-theme="light"] .mode-btn i {
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .mode-btn small {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .mode-btn.active small {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* ===== PIPELINE DIAGRAM PREMIUM (THE DARK BOX FIX) ===== */
+[data-theme="light"] .pipeline-diagram-premium {
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.06),
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+}
+
+[data-theme="light"] .pipeline-diagram-premium::before {
+  background: linear-gradient(90deg, transparent, rgba(8, 145, 178, 0.03), transparent) !important;
+}
+
+/* ===== PIPELINE MODE HEADERS (REALTIME/BATCH) ===== */
+[data-theme="light"] .pipeline-mode-header {
+  background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%) !important;
+  border: 1.5px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+  border-radius: 16px !important;
+}
+
+[data-theme="light"] .pipeline-mode-header.realtime {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(249, 115, 22, 0.04) 100%) !important;
+  border-color: rgba(245, 158, 11, 0.25) !important;
+}
+
+[data-theme="light"] .pipeline-mode-header.batch {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.08) 0%, rgba(139, 92, 246, 0.04) 100%) !important;
+  border-color: rgba(124, 58, 237, 0.25) !important;
+}
+
+[data-theme="light"] .mode-indicator {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .mode-indicator span {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="light"] .pipeline-mode-header.realtime .mode-indicator i {
+  color: #ea580c !important;
+}
+
+[data-theme="light"] .pipeline-mode-header.batch .mode-indicator i {
+  color: #7c3aed !important;
+}
+
+/* ===== STAT PILLS ===== */
+[data-theme="light"] .stat-pill {
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.12) 0%, rgba(124, 58, 237, 0.08) 100%) !important;
+  border: 1.5px solid rgba(8, 145, 178, 0.25) !important;
+  color: #0f172a !important;
+  font-weight: 600 !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 20px !important;
+  box-shadow: 0 2px 8px rgba(8, 145, 178, 0.08) !important;
+}
+
+[data-theme="light"] .stat-pill i {
+  color: #0891b2 !important;
+}
+
+/* ===== STAGE CARDS PREMIUM ===== */
+[data-theme="light"] .pipeline-stage-card {
+  background: #ffffff !important;
+  border: 2px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.06),
+    0 1px 3px rgba(0, 0, 0, 0.04) !important;
+  border-radius: 16px !important;
+}
+
+[data-theme="light"] .pipeline-stage-card:hover {
+  border-color: #0891b2 !important;
+  box-shadow:
+    0 8px 32px rgba(8, 145, 178, 0.15),
+    0 2px 8px rgba(8, 145, 178, 0.08) !important;
+  transform: translateY(-4px) !important;
+}
+
+[data-theme="light"] .stage-number {
+  background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%) !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  box-shadow: 0 3px 10px rgba(8, 145, 178, 0.3) !important;
+}
+
+[data-theme="light"] .stage-icon-premium {
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.12) 0%, rgba(124, 58, 237, 0.08) 100%) !important;
+  border: 2px solid rgba(8, 145, 178, 0.2) !important;
+}
+
+[data-theme="light"] .stage-icon-premium.extract {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(6, 182, 212, 0.1) 100%) !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+}
+
+[data-theme="light"] .stage-icon-premium.extract i {
+  color: #059669 !important;
+}
+
+[data-theme="light"] .stage-icon-premium.transform {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(249, 115, 22, 0.1) 100%) !important;
+  border-color: rgba(245, 158, 11, 0.3) !important;
+}
+
+[data-theme="light"] .stage-icon-premium.transform i {
+  color: #d97706 !important;
+}
+
+[data-theme="light"] .stage-icon-premium.load {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%) !important;
+  border-color: rgba(124, 58, 237, 0.3) !important;
+}
+
+[data-theme="light"] .stage-icon-premium.load i {
+  color: #7c3aed !important;
+}
+
+[data-theme="light"] .stage-icon-premium.serve {
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.15) 0%, rgba(6, 182, 212, 0.1) 100%) !important;
+  border-color: rgba(8, 145, 178, 0.3) !important;
+}
+
+[data-theme="light"] .stage-icon-premium.serve i {
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .stage-title {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+  font-size: 1.15rem !important;
+}
+
+[data-theme="light"] .stage-desc {
+  color: #475569 !important;
+  font-weight: 500 !important;
+}
+
+/* ===== STAGE ARROWS ===== */
+[data-theme="light"] .stage-arrow {
+  color: #0891b2 !important;
+  opacity: 1 !important;
+}
+
+[data-theme="light"] .stage-arrow i {
+  color: #0891b2 !important;
+  font-size: 1.5rem !important;
+  text-shadow: 0 2px 4px rgba(8, 145, 178, 0.2) !important;
+}
+
+/* ===== TECH MINI CHIPS ===== */
+[data-theme="light"] .tech-mini {
+  background: linear-gradient(135deg, rgba(248, 250, 252, 0.9) 0%, #ffffff 100%) !important;
+  border: 1.5px solid rgba(0, 0, 0, 0.1) !important;
+  color: #334155 !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="light"] .tech-mini:hover {
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.1) 0%, rgba(124, 58, 237, 0.08) 100%) !important;
+  border-color: rgba(8, 145, 178, 0.3) !important;
+  color: #0891b2 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(8, 145, 178, 0.15) !important;
+}
+
+[data-theme="light"] .tech-mini i {
+  color: #0891b2 !important;
+}
+
+/* ===== CONNECTION LINES ===== */
+[data-theme="light"] .pipeline-connection-line {
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(8, 145, 178, 0.15) 20%,
+    rgba(8, 145, 178, 0.25) 50%,
+    rgba(124, 58, 237, 0.15) 80%,
+    transparent 100%) !important;
+}
+
+[data-theme="light"] .data-flow-animation {
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(8, 145, 178, 0.6),
+    rgba(124, 58, 237, 0.5),
+    transparent) !important;
+}
+
+/* ===== PIPELINE STAGES GRID ===== */
+[data-theme="light"] .pipeline-stages-grid {
+  background: transparent !important;
+}
+
+/* ===== FLOW ARROWS ===== */
+[data-theme="light"] .flow-arrow,
+[data-theme="light"] .pipeline-arrow {
+  color: #0891b2 !important;
+  opacity: 1 !important;
+}
+
+/* ===== MODE BADGES ===== */
+[data-theme="light"] .mode-badge {
+  font-weight: 700 !important;
+  border-width: 2px !important;
+}
+
+[data-theme="light"] .mode-badge.realtime {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(249, 115, 22, 0.1) 100%) !important;
+  border-color: rgba(245, 158, 11, 0.4) !important;
+  color: #b45309 !important;
+}
+
+[data-theme="light"] .mode-badge.batch {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%) !important;
+  border-color: rgba(124, 58, 237, 0.4) !important;
+  color: #6d28d9 !important;
+}
+
+/* ===== STAGE TECH STACK ===== */
+[data-theme="light"] .stage-tech-stack {
+  background: rgba(248, 250, 252, 0.5) !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.06) !important;
+  padding-top: 0.75rem !important;
+  margin-top: 0.75rem !important;
+}
+
+/* ===== ALL TEXT ELEMENTS CONTRAST FIX ===== */
+[data-theme="light"] .pipeline-section h2,
+[data-theme="light"] .pipeline-section h3,
+[data-theme="light"] .pipeline-section h4 {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .pipeline-section p,
+[data-theme="light"] .pipeline-section span:not(.gradient-text) {
+  color: #334155 !important;
+}
+
+/* ===== CONTAINER RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  [data-theme="light"] .pipeline-mode-selector {
+    padding: 0.5rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  [data-theme="light"] .pipeline-diagram-premium {
+    padding: 1.5rem 1rem !important;
+    border-radius: 16px !important;
+  }
+
+  [data-theme="light"] .pipeline-mode-header {
+    padding: 1rem !important;
+  }
+}
