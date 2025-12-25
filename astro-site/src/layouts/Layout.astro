@@ -478,6 +478,9 @@ const BUILD_VERSION = Date.now().toString(36);
 
             if (!progressBar) return;
 
+            // Flag to track if footer button was clicked (hide until 30% scroll up)
+            let footerBtnWasClicked = false;
+
             // Update progress bar and go-to-footer button visibility
             function updateScroll() {
                 const scrollTop = window.scrollY;
@@ -487,9 +490,17 @@ const BUILD_VERSION = Date.now().toString(36);
                 // Update progress bar
                 progressBar.style.width = scrollPercent + '%';
 
-                // Show "go to footer" button after 200px scroll (with smooth animation)
+                // Show "go to footer" button logic:
+                // - Must be scrolled past 200px from top
+                // - If button was clicked, must scroll up to < 70% (30% up from bottom) to reappear
                 if (scrollToBottomBtn) {
-                    if (scrollTop > 200) {
+                    // Reset the clicked flag when user scrolls up past 70%
+                    if (footerBtnWasClicked && scrollPercent < 70) {
+                        footerBtnWasClicked = false;
+                    }
+
+                    // Show button only if not in "hidden after click" state
+                    if (scrollTop > 200 && !footerBtnWasClicked) {
                         scrollToBottomBtn.classList.add('visible');
                     } else {
                         scrollToBottomBtn.classList.remove('visible');
@@ -518,11 +529,14 @@ const BUILD_VERSION = Date.now().toString(36);
                 };
             }
 
-            // Scroll to footer click - scroll to footer (button will hide/show based on scroll position)
+            // Scroll to footer click - hide button and scroll
             if (scrollToBottomBtn) {
                 scrollToBottomBtn.onclick = () => {
-                    // Just scroll - the button visibility is controlled by scroll position
-                    // It will naturally hide when near bottom and reappear when scrolling up
+                    // Set flag to keep button hidden until user scrolls up 30%
+                    footerBtnWasClicked = true;
+                    scrollToBottomBtn.classList.remove('visible');
+
+                    // Scroll to footer
                     const footer = document.querySelector('footer') || document.querySelector('.footer-compact');
                     const target = footer
                         ? footer.getBoundingClientRect().top + window.scrollY
