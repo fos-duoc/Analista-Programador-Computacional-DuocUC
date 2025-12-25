@@ -9422,6 +9422,279 @@ section {
   color: #94a3b8 !important;
 }
 
+/* =====================================================
+   ARCHITECTURE SELECTOR - INTERACTIVE TABS
+   ===================================================== */
+
+/* Section Hint Text */
+.arch-section-hint {
+  text-align: center;
+  color: rgba(148, 163, 184, 0.8);
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.arch-section-hint i {
+  color: #00d9ff;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Selector Grid */
+.arch-selector-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 0.5rem;
+}
+
+@media (max-width: 1200px) {
+  .arch-selector-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .arch-selector-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .arch-selector-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Selector Card Button */
+.arch-selector-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 1rem;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.arch-selector-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, transparent);
+  transition: background 0.3s ease;
+}
+
+.arch-selector-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 217, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 217, 255, 0.15);
+}
+
+.arch-selector-card:hover::before {
+  background: linear-gradient(90deg, #00d9ff, #a855f7);
+}
+
+/* Active State */
+.arch-selector-card.active {
+  background: rgba(0, 217, 255, 0.1);
+  border-color: #00d9ff;
+  box-shadow: 0 8px 32px rgba(0, 217, 255, 0.25),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.arch-selector-card.active::before {
+  background: linear-gradient(90deg, #00d9ff, #a855f7, #ec4899);
+}
+
+/* Selector Icon */
+.arch-selector-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.arch-selector-icon.cyan {
+  background: rgba(0, 217, 255, 0.15);
+  color: #00d9ff;
+}
+
+.arch-selector-icon.purple {
+  background: rgba(168, 85, 247, 0.15);
+  color: #a855f7;
+}
+
+.arch-selector-icon.amber {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+}
+
+.arch-selector-icon.green {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+.arch-selector-icon.red {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.arch-selector-card:hover .arch-selector-icon,
+.arch-selector-card.active .arch-selector-icon {
+  transform: scale(1.1);
+}
+
+/* Selector Name */
+.arch-selector-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #f8fafc;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.arch-selector-card.active .arch-selector-name {
+  color: #00d9ff;
+}
+
+/* Selector Tag */
+.arch-selector-tag {
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(148, 163, 184, 0.7);
+  padding: 0.25rem 0.75rem;
+  background: rgba(148, 163, 184, 0.1);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.arch-selector-card.active .arch-selector-tag {
+  background: rgba(0, 217, 255, 0.2);
+  color: #00d9ff;
+}
+
+/* Detail Container */
+.arch-detail-container {
+  position: relative;
+  min-height: 400px;
+}
+
+/* Detail Panel */
+.arch-detail-panel {
+  display: none;
+  animation: fadeSlideIn 0.4s ease-out;
+}
+
+.arch-detail-panel.active {
+  display: block;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================================================
+   ARCHITECTURE SELECTOR - LIGHT MODE
+   ===================================================== */
+
+[data-theme="light"] .arch-section-hint {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .arch-section-hint i {
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .arch-selector-card {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .arch-selector-card:hover {
+  border-color: rgba(8, 145, 178, 0.4) !important;
+  box-shadow: 0 8px 24px rgba(8, 145, 178, 0.15) !important;
+}
+
+[data-theme="light"] .arch-selector-card.active {
+  background: rgba(8, 145, 178, 0.08) !important;
+  border-color: #0891b2 !important;
+  box-shadow: 0 8px 24px rgba(8, 145, 178, 0.2) !important;
+}
+
+[data-theme="light"] .arch-selector-card.active::before {
+  background: linear-gradient(90deg, #0891b2, #7c3aed, #db2777) !important;
+}
+
+[data-theme="light"] .arch-selector-icon.cyan {
+  background: rgba(8, 145, 178, 0.12) !important;
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .arch-selector-icon.purple {
+  background: rgba(124, 58, 237, 0.12) !important;
+  color: #7c3aed !important;
+}
+
+[data-theme="light"] .arch-selector-icon.amber {
+  background: rgba(217, 119, 6, 0.12) !important;
+  color: #d97706 !important;
+}
+
+[data-theme="light"] .arch-selector-icon.green {
+  background: rgba(5, 150, 105, 0.12) !important;
+  color: #059669 !important;
+}
+
+[data-theme="light"] .arch-selector-icon.red {
+  background: rgba(220, 38, 38, 0.12) !important;
+  color: #dc2626 !important;
+}
+
+[data-theme="light"] .arch-selector-name {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .arch-selector-card.active .arch-selector-name {
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .arch-selector-tag {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #64748b !important;
+}
+
+[data-theme="light"] .arch-selector-card.active .arch-selector-tag {
+  background: rgba(8, 145, 178, 0.15) !important;
+  color: #0891b2 !important;
+}
+
 /* Tech Stack 2025 - Light */
 [data-theme="light"] .tech-stack-2025 {
   background: rgba(255, 255, 255, 0.85) !important;

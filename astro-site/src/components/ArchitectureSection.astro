@@ -1,5 +1,6 @@
 ---
-// Architecture & DevOps Section - Microservices, CI/CD, Clean, Medallion, Lakehouse
+// Architecture & DevOps Section - Interactive Selectable Cards
+// Redesign with tabs/selector pattern for better UX
 ---
 
 <div class="architecture-devops-container">
@@ -11,348 +12,440 @@
         <div class="arch-section-content">
             <h3 class="arch-section-title">Arquitectura & <span class="gradient-text">DevOps</span></h3>
             <p class="arch-section-subtitle">Patrones de diseño, pipelines y mejores prácticas de la industria</p>
+            <p class="arch-section-hint"><i class="fas fa-hand-pointer"></i> Selecciona una arquitectura para ver detalles</p>
         </div>
     </div>
 
-    <!-- Architecture Cards Row 1 -->
-    <div class="arch-cards-row-expanded" data-aos="fade-up" data-aos-delay="700">
-        <!-- Microservices -->
-        <div class="arch-card-xl glass-card microservices">
-            <div class="arch-header-lg">
-                <div class="arch-icon-gif">
-                    <i class="fas fa-cubes arch-card-icon cyan"></i>
-                </div>
-                <span>Microservices Architecture</span>
-                <span class="arch-badge">Distributed</span>
+    <!-- Architecture Selector - Clickable Cards -->
+    <div class="arch-selector-grid" data-aos="fade-up" data-aos-delay="700">
+        <button class="arch-selector-card active" data-arch="microservices">
+            <div class="arch-selector-icon cyan">
+                <i class="fas fa-cubes"></i>
             </div>
-            <div class="arch-metrics">
-                <span class="metric-badge uptime"><i class="fas fa-check-circle"></i> 99.99% Uptime</span>
-                <span class="metric-badge latency"><i class="fas fa-bolt"></i> &lt;50ms Latency</span>
-                <span class="metric-badge scale"><i class="fas fa-layer-group"></i> Auto-Scale</span>
+            <span class="arch-selector-name">Microservices</span>
+            <span class="arch-selector-tag">Distributed</span>
+        </button>
+        <button class="arch-selector-card" data-arch="cicd">
+            <div class="arch-selector-icon cyan">
+                <i class="fab fa-github"></i>
             </div>
-            <div class="microservices-diagram-lg">
-                <div class="ms-layer client">
-                    <span class="layer-label">Client</span>
-                    <div class="ms-clients">
-                        <span class="client-item"><i class="fas fa-globe"></i> Web</span>
-                        <span class="client-item"><i class="fas fa-mobile-alt"></i> Mobile</span>
-                        <span class="client-item"><i class="fas fa-robot"></i> API</span>
-                    </div>
-                </div>
-                <div class="ms-arrow-down"><i class="fas fa-arrow-down"></i></div>
-                <div class="ms-gateway-lg">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>API Gateway</span>
-                    <small>Load Balancer · Auth · Rate Limit · Circuit Breaker</small>
-                </div>
-                <div class="ms-arrow-down"><i class="fas fa-arrow-down"></i></div>
-                <div class="ms-services-lg">
-                    <div class="ms-service-lg"><i class="fas fa-user"></i><span>Users</span><small>JWT</small></div>
-                    <div class="ms-service-lg"><i class="fas fa-box"></i><span>Products</span><small>CQRS</small></div>
-                    <div class="ms-service-lg"><i class="fas fa-shopping-cart"></i><span>Orders</span><small>Saga</small></div>
-                    <div class="ms-service-lg"><i class="fas fa-credit-card"></i><span>Payments</span><small>Events</small></div>
-                    <div class="ms-service-lg"><i class="fas fa-bell"></i><span>Notify</span><small>Pub/Sub</small></div>
-                    <div class="ms-service-lg"><i class="fas fa-search"></i><span>Search</span><small>ES</small></div>
-                </div>
-                <div class="ms-infra-lg">
-                    <span class="ms-tag-lg docker"><i class="devicon-docker-plain"></i> Docker</span>
-                    <span class="ms-tag-lg k8s"><i class="devicon-kubernetes-plain"></i> K8s</span>
-                    <span class="ms-tag-lg kafka"><i class="fas fa-stream"></i> Kafka</span>
-                    <span class="ms-tag-lg redis"><i class="devicon-redis-plain"></i> Redis</span>
-                </div>
+            <span class="arch-selector-name">CI/CD Pipeline</span>
+            <span class="arch-selector-tag">DevOps</span>
+        </button>
+        <button class="arch-selector-card" data-arch="clean">
+            <div class="arch-selector-icon purple">
+                <i class="fas fa-layer-group"></i>
             </div>
-            <div class="arch-tips">
-                <div class="tip-header"><i class="fas fa-lightbulb"></i> Best Practices</div>
-                <div class="tips-grid">
-                    <span class="tip-item"><i class="fas fa-check"></i> Un servicio = una responsabilidad</span>
-                    <span class="tip-item"><i class="fas fa-check"></i> Comunicación asíncrona</span>
-                    <span class="tip-item"><i class="fas fa-check"></i> Database per service</span>
-                    <span class="tip-item"><i class="fas fa-check"></i> Circuit Breaker</span>
-                </div>
+            <span class="arch-selector-name">Clean Architecture</span>
+            <span class="arch-selector-tag">SOLID</span>
+        </button>
+        <button class="arch-selector-card" data-arch="medallion">
+            <div class="arch-selector-icon amber">
+                <i class="fas fa-medal"></i>
             </div>
-        </div>
-
-        <!-- CI/CD Pipeline -->
-        <div class="arch-card-xl glass-card cicd">
-            <div class="arch-header-lg">
-                <div class="arch-icon-gif">
-                    <i class="fab fa-github arch-card-icon cyan"></i>
-                </div>
-                <span>CI/CD Pipeline</span>
-                <span class="arch-badge">DevOps</span>
+            <span class="arch-selector-name">Medallion</span>
+            <span class="arch-selector-tag">Data Lake</span>
+        </button>
+        <button class="arch-selector-card" data-arch="lakehouse">
+            <div class="arch-selector-icon green">
+                <i class="fas fa-warehouse"></i>
             </div>
-            <div class="arch-metrics">
-                <span class="metric-badge uptime"><i class="fas fa-rocket"></i> 15 deploys/day</span>
-                <span class="metric-badge latency"><i class="fas fa-clock"></i> 8min build</span>
-                <span class="metric-badge scale"><i class="fas fa-shield-alt"></i> 95% coverage</span>
+            <span class="arch-selector-name">Lakehouse</span>
+            <span class="arch-selector-tag">Unified</span>
+        </button>
+        <button class="arch-selector-card" data-arch="governance">
+            <div class="arch-selector-icon red">
+                <i class="fas fa-shield-alt"></i>
             </div>
-            <div class="cicd-pipeline-lg">
-                <div class="pipeline-row">
-                    <div class="pipeline-stage-lg code"><i class="fas fa-code-branch"></i><span>Code</span><small>Git Push</small></div>
-                    <div class="pipeline-connector"><i class="fas fa-chevron-right"></i></div>
-                    <div class="pipeline-stage-lg build"><i class="fas fa-hammer"></i><span>Build</span><small>Maven</small></div>
-                    <div class="pipeline-connector"><i class="fas fa-chevron-right"></i></div>
-                    <div class="pipeline-stage-lg test"><i class="fas fa-vial"></i><span>Test</span><small>Unit</small></div>
-                    <div class="pipeline-connector"><i class="fas fa-chevron-right"></i></div>
-                    <div class="pipeline-stage-lg security"><i class="fas fa-shield-virus"></i><span>Security</span><small>SAST</small></div>
-                    <div class="pipeline-connector"><i class="fas fa-chevron-right"></i></div>
-                    <div class="pipeline-stage-lg deploy"><i class="fas fa-rocket"></i><span>Deploy</span><small>Blue/Green</small></div>
-                </div>
-                <div class="pipeline-tools">
-                    <span class="tool-tag"><i class="devicon-github-original"></i> Actions</span>
-                    <span class="tool-tag"><i class="devicon-jenkins-plain"></i> Jenkins</span>
-                    <span class="tool-tag"><i class="fas fa-ship"></i> ArgoCD</span>
-                    <span class="tool-tag"><i class="devicon-terraform-plain"></i> Terraform</span>
-                </div>
-            </div>
-            <div class="arch-tips">
-                <div class="tip-header"><i class="fas fa-lightbulb"></i> Best Practices</div>
-                <div class="tips-grid">
-                    <span class="tip-item"><i class="fas fa-check"></i> Commits pequeños y frecuentes</span>
-                    <span class="tip-item"><i class="fas fa-check"></i> Tests automatizados</span>
-                    <span class="tip-item"><i class="fas fa-check"></i> Rollback automático</span>
-                    <span class="tip-item"><i class="fas fa-check"></i> Infrastructure as Code</span>
-                </div>
-            </div>
-        </div>
+            <span class="arch-selector-name">Data Governance</span>
+            <span class="arch-selector-tag">Compliance</span>
+        </button>
     </div>
 
-    <!-- Architecture Cards Row 2 -->
-    <div class="arch-cards-row-expanded" data-aos="fade-up" data-aos-delay="800">
-        <!-- Clean Architecture -->
-        <div class="arch-card-xl glass-card clean-arch">
-            <div class="arch-header-lg">
-                <div class="arch-icon-gif">
-                    <i class="fas fa-layer-group arch-card-icon purple"></i>
+    <!-- Architecture Detail Panels -->
+    <div class="arch-detail-container" data-aos="fade-up" data-aos-delay="800">
+
+        <!-- Microservices Panel -->
+        <div class="arch-detail-panel active" id="panel-microservices">
+            <div class="arch-card-xl glass-card microservices">
+                <div class="arch-header-lg">
+                    <div class="arch-icon-gif">
+                        <i class="fas fa-cubes arch-card-icon cyan"></i>
+                    </div>
+                    <span>Microservices Architecture</span>
+                    <span class="arch-badge">Distributed</span>
                 </div>
-                <span>Clean Architecture</span>
-                <span class="arch-badge">SOLID</span>
-            </div>
-            <div class="arch-metrics">
-                <span class="metric-badge uptime"><i class="fas fa-code"></i> Testable</span>
-                <span class="metric-badge latency"><i class="fas fa-plug"></i> Decoupled</span>
-                <span class="metric-badge scale"><i class="fas fa-sync"></i> Maintainable</span>
-            </div>
-            <div class="clean-layers-lg">
-                <div class="clean-circle">
-                    <div class="clean-ring-lg entities">
-                        <span class="ring-label">Entities</span>
-                        <small>Domain Models</small>
+                <div class="arch-metrics">
+                    <span class="metric-badge uptime"><i class="fas fa-check-circle"></i> 99.99% Uptime</span>
+                    <span class="metric-badge latency"><i class="fas fa-bolt"></i> &lt;50ms Latency</span>
+                    <span class="metric-badge scale"><i class="fas fa-layer-group"></i> Auto-Scale</span>
+                </div>
+                <div class="microservices-diagram-lg">
+                    <div class="ms-layer client">
+                        <span class="layer-label">Client</span>
+                        <div class="ms-clients">
+                            <span class="client-item"><i class="fas fa-globe"></i> Web</span>
+                            <span class="client-item"><i class="fas fa-mobile-alt"></i> Mobile</span>
+                            <span class="client-item"><i class="fas fa-robot"></i> API</span>
+                        </div>
                     </div>
-                    <div class="clean-ring-lg usecases">
-                        <span class="ring-label">Use Cases</span>
-                        <small>Application Services</small>
+                    <div class="ms-arrow-down"><i class="fas fa-arrow-down"></i></div>
+                    <div class="ms-gateway-lg">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>API Gateway</span>
+                        <small>Load Balancer · Auth · Rate Limit · Circuit Breaker</small>
                     </div>
-                    <div class="clean-ring-lg adapters">
-                        <span class="ring-label">Adapters</span>
-                        <small>Controllers · Gateways</small>
+                    <div class="ms-arrow-down"><i class="fas fa-arrow-down"></i></div>
+                    <div class="ms-services-lg">
+                        <div class="ms-service-lg"><i class="fas fa-user"></i><span>Users</span><small>JWT</small></div>
+                        <div class="ms-service-lg"><i class="fas fa-box"></i><span>Products</span><small>CQRS</small></div>
+                        <div class="ms-service-lg"><i class="fas fa-shopping-cart"></i><span>Orders</span><small>Saga</small></div>
+                        <div class="ms-service-lg"><i class="fas fa-credit-card"></i><span>Payments</span><small>Events</small></div>
+                        <div class="ms-service-lg"><i class="fas fa-bell"></i><span>Notify</span><small>Pub/Sub</small></div>
+                        <div class="ms-service-lg"><i class="fas fa-search"></i><span>Search</span><small>ES</small></div>
                     </div>
-                    <div class="clean-ring-lg frameworks">
-                        <span class="ring-label">Frameworks</span>
-                        <small>Spring · JPA · REST</small>
+                    <div class="ms-infra-lg">
+                        <span class="ms-tag-lg docker"><i class="devicon-docker-plain"></i> Docker</span>
+                        <span class="ms-tag-lg k8s"><i class="devicon-kubernetes-plain"></i> K8s</span>
+                        <span class="ms-tag-lg kafka"><i class="fas fa-stream"></i> Kafka</span>
+                        <span class="ms-tag-lg redis"><i class="devicon-redis-plain"></i> Redis</span>
                     </div>
                 </div>
-            </div>
-            <div class="arch-tips">
-                <div class="tip-header"><i class="fas fa-lightbulb"></i> SOLID Principles</div>
-                <div class="tips-grid">
-                    <span class="tip-item"><i class="fas fa-s"></i> Single Responsibility</span>
-                    <span class="tip-item"><i class="fas fa-o"></i> Open/Closed</span>
-                    <span class="tip-item"><i class="fas fa-l"></i> Liskov Substitution</span>
-                    <span class="tip-item"><i class="fas fa-i"></i> Interface Segregation</span>
-                    <span class="tip-item"><i class="fas fa-d"></i> Dependency Inversion</span>
+                <div class="arch-tips">
+                    <div class="tip-header"><i class="fas fa-lightbulb"></i> Best Practices</div>
+                    <div class="tips-grid">
+                        <span class="tip-item"><i class="fas fa-check"></i> Un servicio = una responsabilidad</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> Comunicación asíncrona</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> Database per service</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> Circuit Breaker</span>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Medallion Architecture -->
-        <div class="arch-card-xl glass-card medallion">
-            <div class="arch-header-lg">
-                <div class="arch-icon-gif">
-                    <i class="fas fa-medal arch-card-icon amber"></i>
+        <!-- CI/CD Panel -->
+        <div class="arch-detail-panel" id="panel-cicd">
+            <div class="arch-card-xl glass-card cicd">
+                <div class="arch-header-lg">
+                    <div class="arch-icon-gif">
+                        <i class="fab fa-github arch-card-icon cyan"></i>
+                    </div>
+                    <span>CI/CD Pipeline</span>
+                    <span class="arch-badge">DevOps</span>
                 </div>
-                <span>Medallion Architecture</span>
-                <span class="arch-badge">Data Lake</span>
-            </div>
-            <div class="arch-metrics">
-                <span class="metric-badge uptime"><i class="fas fa-database"></i> PB Scale</span>
-                <span class="metric-badge latency"><i class="fas fa-tachometer-alt"></i> Near Real-time</span>
-                <span class="metric-badge scale"><i class="fas fa-chart-line"></i> BI Ready</span>
-            </div>
-            <div class="medallion-layers-lg">
-                <div class="medal-layer-lg gold">
-                    <div class="medal-icon"><i class="fas fa-gem"></i></div>
-                    <div class="medal-info">
-                        <span class="medal-title">Gold Layer</span>
-                        <span class="medal-desc">Business Aggregates</span>
+                <div class="arch-metrics">
+                    <span class="metric-badge uptime"><i class="fas fa-rocket"></i> 15 deploys/day</span>
+                    <span class="metric-badge latency"><i class="fas fa-clock"></i> 8min build</span>
+                    <span class="metric-badge scale"><i class="fas fa-shield-alt"></i> 95% coverage</span>
+                </div>
+                <div class="cicd-pipeline-lg">
+                    <div class="pipeline-row">
+                        <div class="pipeline-stage-lg code"><i class="fas fa-code-branch"></i><span>Code</span><small>Git Push</small></div>
+                        <div class="pipeline-connector"><i class="fas fa-chevron-right"></i></div>
+                        <div class="pipeline-stage-lg build"><i class="fas fa-hammer"></i><span>Build</span><small>Maven</small></div>
+                        <div class="pipeline-connector"><i class="fas fa-chevron-right"></i></div>
+                        <div class="pipeline-stage-lg test"><i class="fas fa-vial"></i><span>Test</span><small>Unit</small></div>
+                        <div class="pipeline-connector"><i class="fas fa-chevron-right"></i></div>
+                        <div class="pipeline-stage-lg security"><i class="fas fa-shield-virus"></i><span>Security</span><small>SAST</small></div>
+                        <div class="pipeline-connector"><i class="fas fa-chevron-right"></i></div>
+                        <div class="pipeline-stage-lg deploy"><i class="fas fa-rocket"></i><span>Deploy</span><small>Blue/Green</small></div>
+                    </div>
+                    <div class="pipeline-tools">
+                        <span class="tool-tag"><i class="devicon-github-original"></i> Actions</span>
+                        <span class="tool-tag"><i class="devicon-jenkins-plain"></i> Jenkins</span>
+                        <span class="tool-tag"><i class="fas fa-ship"></i> ArgoCD</span>
+                        <span class="tool-tag"><i class="devicon-terraform-plain"></i> Terraform</span>
                     </div>
                 </div>
-                <div class="medal-arrow"><i class="fas fa-arrow-up"></i> Transform</div>
-                <div class="medal-layer-lg silver">
-                    <div class="medal-icon"><i class="fas fa-filter"></i></div>
-                    <div class="medal-info">
-                        <span class="medal-title">Silver Layer</span>
-                        <span class="medal-desc">Cleaned & Conformed</span>
+                <div class="arch-tips">
+                    <div class="tip-header"><i class="fas fa-lightbulb"></i> Best Practices</div>
+                    <div class="tips-grid">
+                        <span class="tip-item"><i class="fas fa-check"></i> Commits pequeños y frecuentes</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> Tests automatizados</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> Rollback automático</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> Infrastructure as Code</span>
                     </div>
-                </div>
-                <div class="medal-arrow"><i class="fas fa-arrow-up"></i> Clean</div>
-                <div class="medal-layer-lg bronze">
-                    <div class="medal-icon"><i class="fas fa-database"></i></div>
-                    <div class="medal-info">
-                        <span class="medal-title">Bronze Layer</span>
-                        <span class="medal-desc">Raw Ingestion</span>
-                    </div>
-                </div>
-            </div>
-            <div class="arch-tips">
-                <div class="tip-header"><i class="fas fa-lightbulb"></i> Best Practices</div>
-                <div class="tips-grid">
-                    <span class="tip-item"><i class="fas fa-check"></i> Inmutabilidad en Bronze</span>
-                    <span class="tip-item"><i class="fas fa-check"></i> Schema evolution</span>
-                    <span class="tip-item"><i class="fas fa-check"></i> Particionamiento</span>
-                    <span class="tip-item"><i class="fas fa-check"></i> Data quality checks</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Architecture Cards Row 3 -->
-    <div class="arch-cards-row-expanded" data-aos="fade-up" data-aos-delay="900">
-        <!-- Lakehouse Architecture -->
-        <div class="arch-card-xl glass-card lakehouse">
-            <div class="arch-header-lg">
-                <div class="arch-icon-gif">
-                    <i class="fas fa-warehouse arch-card-icon green"></i>
-                </div>
-                <span>Lakehouse Architecture</span>
-                <span class="arch-badge">Unified</span>
-            </div>
-            <div class="arch-metrics">
-                <span class="metric-badge uptime"><i class="fas fa-atom"></i> ACID</span>
-                <span class="metric-badge latency"><i class="fas fa-history"></i> Time Travel</span>
-                <span class="metric-badge scale"><i class="fas fa-coins"></i> Cost Efficient</span>
-            </div>
-            <div class="lakehouse-diagram-lg">
-                <div class="lake-consumers">
-                    <div class="lake-comp-lg bi"><i class="fas fa-chart-pie"></i><span>BI & Reports</span></div>
-                    <div class="lake-comp-lg ml"><i class="fas fa-brain"></i><span>ML & AI</span></div>
-                    <div class="lake-comp-lg sql"><i class="fas fa-terminal"></i><span>SQL Analytics</span></div>
-                </div>
-                <div class="lake-arrow-lg"><i class="fas fa-arrows-alt-v"></i></div>
-                <div class="lake-comp-lg delta">
-                    <i class="fas fa-table"></i>
-                    <span>Delta Lake / Iceberg / Hudi</span>
-                </div>
-                <div class="lake-arrow-lg"><i class="fas fa-arrows-alt-v"></i></div>
-                <div class="lake-comp-lg storage">
-                    <i class="fas fa-cloud"></i>
-                    <span>Cloud Object Storage (S3/GCS/ADLS)</span>
-                </div>
-            </div>
-            <div class="arch-tips">
-                <div class="tip-header"><i class="fas fa-lightbulb"></i> Key Benefits</div>
-                <div class="tips-grid">
-                    <span class="tip-item"><i class="fas fa-check"></i> Costo de Lake + ACID de DW</span>
-                    <span class="tip-item"><i class="fas fa-check"></i> Streaming + Batch unificado</span>
-                    <span class="tip-item"><i class="fas fa-check"></i> BI y ML sobre mismos datos</span>
-                    <span class="tip-item"><i class="fas fa-check"></i> Open formats (Parquet)</span>
                 </div>
             </div>
         </div>
 
-        <!-- Data Governance -->
-        <div class="arch-card-xl glass-card data-governance">
-            <div class="arch-header-lg">
-                <div class="arch-icon-gif">
-                    <i class="fas fa-shield-alt arch-card-icon red"></i>
+        <!-- Clean Architecture Panel -->
+        <div class="arch-detail-panel" id="panel-clean">
+            <div class="arch-card-xl glass-card clean-arch">
+                <div class="arch-header-lg">
+                    <div class="arch-icon-gif">
+                        <i class="fas fa-layer-group arch-card-icon purple"></i>
+                    </div>
+                    <span>Clean Architecture</span>
+                    <span class="arch-badge">SOLID</span>
                 </div>
-                <span>Data Governance</span>
-                <span class="arch-badge governance">Compliance</span>
-            </div>
-            <div class="arch-metrics">
-                <span class="metric-badge governance-metric"><i class="fas fa-shield-alt"></i> GDPR/CCPA</span>
-                <span class="metric-badge governance-metric"><i class="fas fa-fingerprint"></i> PII Protected</span>
-                <span class="metric-badge governance-metric"><i class="fas fa-clipboard-check"></i> Auditable</span>
-            </div>
-            <div class="governance-framework">
-                <!-- Data Catalog -->
-                <div class="gov-pillar">
-                    <div class="gov-pillar-header catalog">
-                        <i class="fas fa-book-open"></i>
-                        <span>Data Catalog</span>
-                    </div>
-                    <div class="gov-pillar-content">
-                        <span class="gov-tool"><i class="fas fa-search"></i> Discovery</span>
-                        <span class="gov-tool"><i class="fas fa-tags"></i> Metadata</span>
-                        <span class="gov-tool"><i class="fas fa-project-diagram"></i> Lineage</span>
-                    </div>
-                    <div class="gov-tools-row">
-                        <a href="https://www.collibra.com/" target="_blank" rel="noopener" title="Collibra" class="gov-tool-link">Collibra</a>
-                        <a href="https://atlan.com/" target="_blank" rel="noopener" title="Atlan" class="gov-tool-link">Atlan</a>
-                        <a href="https://datahubproject.io/" target="_blank" rel="noopener" title="DataHub" class="gov-tool-link">DataHub</a>
-                    </div>
+                <div class="arch-metrics">
+                    <span class="metric-badge uptime"><i class="fas fa-code"></i> Testable</span>
+                    <span class="metric-badge latency"><i class="fas fa-plug"></i> Decoupled</span>
+                    <span class="metric-badge scale"><i class="fas fa-sync"></i> Maintainable</span>
                 </div>
-                <!-- Data Quality -->
-                <div class="gov-pillar">
-                    <div class="gov-pillar-header quality">
-                        <i class="fas fa-check-double"></i>
-                        <span>Data Quality</span>
-                    </div>
-                    <div class="gov-pillar-content">
-                        <span class="gov-tool"><i class="fas fa-ruler"></i> Validation</span>
-                        <span class="gov-tool"><i class="fas fa-chart-bar"></i> Profiling</span>
-                        <span class="gov-tool"><i class="fas fa-bell"></i> Anomaly</span>
-                    </div>
-                    <div class="gov-tools-row">
-                        <a href="https://greatexpectations.io/" target="_blank" rel="noopener" title="Great Expectations" class="gov-tool-link">GX</a>
-                        <a href="https://www.soda.io/" target="_blank" rel="noopener" title="Soda" class="gov-tool-link">Soda</a>
-                        <a href="https://www.montecarlodata.com/" target="_blank" rel="noopener" title="Monte Carlo" class="gov-tool-link">Monte Carlo</a>
+                <div class="clean-layers-lg">
+                    <div class="clean-circle">
+                        <div class="clean-ring-lg entities">
+                            <span class="ring-label">Entities</span>
+                            <small>Domain Models</small>
+                        </div>
+                        <div class="clean-ring-lg usecases">
+                            <span class="ring-label">Use Cases</span>
+                            <small>Application Services</small>
+                        </div>
+                        <div class="clean-ring-lg adapters">
+                            <span class="ring-label">Adapters</span>
+                            <small>Controllers · Gateways</small>
+                        </div>
+                        <div class="clean-ring-lg frameworks">
+                            <span class="ring-label">Frameworks</span>
+                            <small>Spring · JPA · REST</small>
+                        </div>
                     </div>
                 </div>
-                <!-- Data Security -->
-                <div class="gov-pillar">
-                    <div class="gov-pillar-header security">
-                        <i class="fas fa-lock"></i>
-                        <span>Data Security</span>
-                    </div>
-                    <div class="gov-pillar-content">
-                        <span class="gov-tool"><i class="fas fa-user-shield"></i> RBAC</span>
-                        <span class="gov-tool"><i class="fas fa-mask"></i> Masking</span>
-                        <span class="gov-tool"><i class="fas fa-key"></i> Encryption</span>
-                    </div>
-                    <div class="gov-tools-row">
-                        <a href="https://privacera.com/" target="_blank" rel="noopener" title="Privacera" class="gov-tool-link">Privacera</a>
-                        <a href="https://immuta.com/" target="_blank" rel="noopener" title="Immuta" class="gov-tool-link">Immuta</a>
-                        <a href="https://www.hashicorp.com/products/vault" target="_blank" rel="noopener" title="Vault" class="gov-tool-link">Vault</a>
-                    </div>
-                </div>
-                <!-- Data Observability -->
-                <div class="gov-pillar">
-                    <div class="gov-pillar-header observability">
-                        <i class="fas fa-eye"></i>
-                        <span>Observability</span>
-                    </div>
-                    <div class="gov-pillar-content">
-                        <span class="gov-tool"><i class="fas fa-heartbeat"></i> Health</span>
-                        <span class="gov-tool"><i class="fas fa-stream"></i> Freshness</span>
-                        <span class="gov-tool"><i class="fas fa-exclamation-triangle"></i> Alerts</span>
-                    </div>
-                    <div class="gov-tools-row">
-                        <a href="https://www.montecarlodata.com/" target="_blank" rel="noopener" title="Monte Carlo" class="gov-tool-link">Monte Carlo</a>
-                        <a href="https://www.bigeye.com/" target="_blank" rel="noopener" title="Bigeye" class="gov-tool-link">Bigeye</a>
-                        <a href="https://www.acceldata.io/" target="_blank" rel="noopener" title="Acceldata" class="gov-tool-link">Acceldata</a>
+                <div class="arch-tips">
+                    <div class="tip-header"><i class="fas fa-lightbulb"></i> SOLID Principles</div>
+                    <div class="tips-grid">
+                        <span class="tip-item"><i class="fas fa-s"></i> Single Responsibility</span>
+                        <span class="tip-item"><i class="fas fa-o"></i> Open/Closed</span>
+                        <span class="tip-item"><i class="fas fa-l"></i> Liskov Substitution</span>
+                        <span class="tip-item"><i class="fas fa-i"></i> Interface Segregation</span>
+                        <span class="tip-item"><i class="fas fa-d"></i> Dependency Inversion</span>
                     </div>
                 </div>
             </div>
-            <div class="arch-tips">
-                <div class="tip-header"><i class="fas fa-lightbulb"></i> Governance Framework</div>
-                <div class="tips-grid">
-                    <span class="tip-item"><i class="fas fa-check"></i> Data Stewardship</span>
-                    <span class="tip-item"><i class="fas fa-check"></i> Data Classification</span>
-                    <span class="tip-item"><i class="fas fa-check"></i> Retention Policies</span>
-                    <span class="tip-item"><i class="fas fa-check"></i> Access Controls</span>
+        </div>
+
+        <!-- Medallion Panel -->
+        <div class="arch-detail-panel" id="panel-medallion">
+            <div class="arch-card-xl glass-card medallion">
+                <div class="arch-header-lg">
+                    <div class="arch-icon-gif">
+                        <i class="fas fa-medal arch-card-icon amber"></i>
+                    </div>
+                    <span>Medallion Architecture</span>
+                    <span class="arch-badge">Data Lake</span>
+                </div>
+                <div class="arch-metrics">
+                    <span class="metric-badge uptime"><i class="fas fa-database"></i> PB Scale</span>
+                    <span class="metric-badge latency"><i class="fas fa-tachometer-alt"></i> Near Real-time</span>
+                    <span class="metric-badge scale"><i class="fas fa-chart-line"></i> BI Ready</span>
+                </div>
+                <div class="medallion-layers-lg">
+                    <div class="medal-layer-lg gold">
+                        <div class="medal-icon"><i class="fas fa-gem"></i></div>
+                        <div class="medal-info">
+                            <span class="medal-title">Gold Layer</span>
+                            <span class="medal-desc">Business Aggregates</span>
+                        </div>
+                    </div>
+                    <div class="medal-arrow"><i class="fas fa-arrow-up"></i> Transform</div>
+                    <div class="medal-layer-lg silver">
+                        <div class="medal-icon"><i class="fas fa-filter"></i></div>
+                        <div class="medal-info">
+                            <span class="medal-title">Silver Layer</span>
+                            <span class="medal-desc">Cleaned & Conformed</span>
+                        </div>
+                    </div>
+                    <div class="medal-arrow"><i class="fas fa-arrow-up"></i> Clean</div>
+                    <div class="medal-layer-lg bronze">
+                        <div class="medal-icon"><i class="fas fa-database"></i></div>
+                        <div class="medal-info">
+                            <span class="medal-title">Bronze Layer</span>
+                            <span class="medal-desc">Raw Ingestion</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="arch-tips">
+                    <div class="tip-header"><i class="fas fa-lightbulb"></i> Best Practices</div>
+                    <div class="tips-grid">
+                        <span class="tip-item"><i class="fas fa-check"></i> Inmutabilidad en Bronze</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> Schema evolution</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> Particionamiento</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> Data quality checks</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lakehouse Panel -->
+        <div class="arch-detail-panel" id="panel-lakehouse">
+            <div class="arch-card-xl glass-card lakehouse">
+                <div class="arch-header-lg">
+                    <div class="arch-icon-gif">
+                        <i class="fas fa-warehouse arch-card-icon green"></i>
+                    </div>
+                    <span>Lakehouse Architecture</span>
+                    <span class="arch-badge">Unified</span>
+                </div>
+                <div class="arch-metrics">
+                    <span class="metric-badge uptime"><i class="fas fa-atom"></i> ACID</span>
+                    <span class="metric-badge latency"><i class="fas fa-history"></i> Time Travel</span>
+                    <span class="metric-badge scale"><i class="fas fa-coins"></i> Cost Efficient</span>
+                </div>
+                <div class="lakehouse-diagram-lg">
+                    <div class="lake-consumers">
+                        <div class="lake-comp-lg bi"><i class="fas fa-chart-pie"></i><span>BI & Reports</span></div>
+                        <div class="lake-comp-lg ml"><i class="fas fa-brain"></i><span>ML & AI</span></div>
+                        <div class="lake-comp-lg sql"><i class="fas fa-terminal"></i><span>SQL Analytics</span></div>
+                    </div>
+                    <div class="lake-arrow-lg"><i class="fas fa-arrows-alt-v"></i></div>
+                    <div class="lake-comp-lg delta">
+                        <i class="fas fa-table"></i>
+                        <span>Delta Lake / Iceberg / Hudi</span>
+                    </div>
+                    <div class="lake-arrow-lg"><i class="fas fa-arrows-alt-v"></i></div>
+                    <div class="lake-comp-lg storage">
+                        <i class="fas fa-cloud"></i>
+                        <span>Cloud Object Storage (S3/GCS/ADLS)</span>
+                    </div>
+                </div>
+                <div class="arch-tips">
+                    <div class="tip-header"><i class="fas fa-lightbulb"></i> Key Benefits</div>
+                    <div class="tips-grid">
+                        <span class="tip-item"><i class="fas fa-check"></i> Costo de Lake + ACID de DW</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> Streaming + Batch unificado</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> BI y ML sobre mismos datos</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> Open formats (Parquet)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Governance Panel -->
+        <div class="arch-detail-panel" id="panel-governance">
+            <div class="arch-card-xl glass-card data-governance">
+                <div class="arch-header-lg">
+                    <div class="arch-icon-gif">
+                        <i class="fas fa-shield-alt arch-card-icon red"></i>
+                    </div>
+                    <span>Data Governance</span>
+                    <span class="arch-badge governance">Compliance</span>
+                </div>
+                <div class="arch-metrics">
+                    <span class="metric-badge governance-metric"><i class="fas fa-shield-alt"></i> GDPR/CCPA</span>
+                    <span class="metric-badge governance-metric"><i class="fas fa-fingerprint"></i> PII Protected</span>
+                    <span class="metric-badge governance-metric"><i class="fas fa-clipboard-check"></i> Auditable</span>
+                </div>
+                <div class="governance-framework">
+                    <!-- Data Catalog -->
+                    <div class="gov-pillar">
+                        <div class="gov-pillar-header catalog">
+                            <i class="fas fa-book-open"></i>
+                            <span>Data Catalog</span>
+                        </div>
+                        <div class="gov-pillar-content">
+                            <span class="gov-tool"><i class="fas fa-search"></i> Discovery</span>
+                            <span class="gov-tool"><i class="fas fa-tags"></i> Metadata</span>
+                            <span class="gov-tool"><i class="fas fa-project-diagram"></i> Lineage</span>
+                        </div>
+                        <div class="gov-tools-row">
+                            <a href="https://www.collibra.com/" target="_blank" rel="noopener" title="Collibra" class="gov-tool-link">Collibra</a>
+                            <a href="https://atlan.com/" target="_blank" rel="noopener" title="Atlan" class="gov-tool-link">Atlan</a>
+                            <a href="https://datahubproject.io/" target="_blank" rel="noopener" title="DataHub" class="gov-tool-link">DataHub</a>
+                        </div>
+                    </div>
+                    <!-- Data Quality -->
+                    <div class="gov-pillar">
+                        <div class="gov-pillar-header quality">
+                            <i class="fas fa-check-double"></i>
+                            <span>Data Quality</span>
+                        </div>
+                        <div class="gov-pillar-content">
+                            <span class="gov-tool"><i class="fas fa-ruler"></i> Validation</span>
+                            <span class="gov-tool"><i class="fas fa-chart-bar"></i> Profiling</span>
+                            <span class="gov-tool"><i class="fas fa-bell"></i> Anomaly</span>
+                        </div>
+                        <div class="gov-tools-row">
+                            <a href="https://greatexpectations.io/" target="_blank" rel="noopener" title="Great Expectations" class="gov-tool-link">GX</a>
+                            <a href="https://www.soda.io/" target="_blank" rel="noopener" title="Soda" class="gov-tool-link">Soda</a>
+                            <a href="https://www.montecarlodata.com/" target="_blank" rel="noopener" title="Monte Carlo" class="gov-tool-link">Monte Carlo</a>
+                        </div>
+                    </div>
+                    <!-- Data Security -->
+                    <div class="gov-pillar">
+                        <div class="gov-pillar-header security">
+                            <i class="fas fa-lock"></i>
+                            <span>Data Security</span>
+                        </div>
+                        <div class="gov-pillar-content">
+                            <span class="gov-tool"><i class="fas fa-user-shield"></i> RBAC</span>
+                            <span class="gov-tool"><i class="fas fa-mask"></i> Masking</span>
+                            <span class="gov-tool"><i class="fas fa-key"></i> Encryption</span>
+                        </div>
+                        <div class="gov-tools-row">
+                            <a href="https://privacera.com/" target="_blank" rel="noopener" title="Privacera" class="gov-tool-link">Privacera</a>
+                            <a href="https://immuta.com/" target="_blank" rel="noopener" title="Immuta" class="gov-tool-link">Immuta</a>
+                            <a href="https://www.hashicorp.com/products/vault" target="_blank" rel="noopener" title="Vault" class="gov-tool-link">Vault</a>
+                        </div>
+                    </div>
+                    <!-- Data Observability -->
+                    <div class="gov-pillar">
+                        <div class="gov-pillar-header observability">
+                            <i class="fas fa-eye"></i>
+                            <span>Observability</span>
+                        </div>
+                        <div class="gov-pillar-content">
+                            <span class="gov-tool"><i class="fas fa-heartbeat"></i> Health</span>
+                            <span class="gov-tool"><i class="fas fa-stream"></i> Freshness</span>
+                            <span class="gov-tool"><i class="fas fa-exclamation-triangle"></i> Alerts</span>
+                        </div>
+                        <div class="gov-tools-row">
+                            <a href="https://www.montecarlodata.com/" target="_blank" rel="noopener" title="Monte Carlo" class="gov-tool-link">Monte Carlo</a>
+                            <a href="https://www.bigeye.com/" target="_blank" rel="noopener" title="Bigeye" class="gov-tool-link">Bigeye</a>
+                            <a href="https://www.acceldata.io/" target="_blank" rel="noopener" title="Acceldata" class="gov-tool-link">Acceldata</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="arch-tips">
+                    <div class="tip-header"><i class="fas fa-lightbulb"></i> Governance Framework</div>
+                    <div class="tips-grid">
+                        <span class="tip-item"><i class="fas fa-check"></i> Data Stewardship</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> Data Classification</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> Retention Policies</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> Access Controls</span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script is:inline>
+    function initArchitectureSelector() {
+        const selectorCards = document.querySelectorAll('.arch-selector-card');
+        const detailPanels = document.querySelectorAll('.arch-detail-panel');
+
+        if (!selectorCards.length || !detailPanels.length) return;
+
+        selectorCards.forEach(card => {
+            card.onclick = function() {
+                const archType = this.getAttribute('data-arch');
+
+                // Update active selector
+                selectorCards.forEach(c => c.classList.remove('active'));
+                this.classList.add('active');
+
+                // Update visible panel with animation
+                detailPanels.forEach(panel => {
+                    if (panel.id === `panel-${archType}`) {
+                        panel.classList.add('active');
+                    } else {
+                        panel.classList.remove('active');
+                    }
+                });
+            };
+        });
+    }
+
+    // Initialize on page load
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initArchitectureSelector);
+    } else {
+        initArchitectureSelector();
+    }
+
+    // Re-initialize on Astro view transitions
+    document.addEventListener('astro:page-load', initArchitectureSelector);
+</script>
