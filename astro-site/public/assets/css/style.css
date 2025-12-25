@@ -13148,18 +13148,21 @@ section {
   font-size: 1.1rem;
   opacity: 0;
   visibility: hidden;
-  /* Sophisticated easing for premium feel */
+  pointer-events: none;
+  /* Smooth transitions for fade in/out */
   transition:
-    opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-    visibility 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
-    background 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+    opacity 0.4s ease-out,
+    visibility 0.4s ease-out,
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   overflow: hidden;
-  z-index: 9999;
+  /* Maximum z-index to always be on top of everything */
+  z-index: 2147483647;
+  isolation: isolate;
 }
 
 /* Scroll Down Button (↓) - TOP RIGHT */
@@ -13186,73 +13189,34 @@ section {
     0 0 30px rgba(124, 58, 237, 0.1);
 }
 
-/* Visible states - different animations for each position */
+/* Visible states - using transitions only (no conflicting animations) */
 .scroll-down-btn.visible {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
   transform: translateX(0) scale(1);
-  animation: fadeSlideInRight 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 .scroll-up-btn.visible {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
   transform: translateY(0) scale(1);
-  animation: fadeSlideInUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-/* Hiding states - smooth exit animations */
-.scroll-down-btn.hiding {
-  animation: fadeSlideOutRight 0.35s cubic-bezier(0.4, 0, 1, 1) forwards;
+/* Not visible states - fade out smoothly */
+.scroll-down-btn:not(.visible) {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(20px) scale(0.85);
 }
 
-.scroll-up-btn.hiding {
-  animation: fadeSlideOutDown 0.35s cubic-bezier(0.4, 0, 1, 1) forwards;
-}
-
-/* Entry/Exit animations */
-@keyframes fadeSlideInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(30px) scale(0.7);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
-}
-
-@keyframes fadeSlideInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px) scale(0.7);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes fadeSlideOutRight {
-  0% {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(30px) scale(0.7);
-  }
-}
-
-@keyframes fadeSlideOutDown {
-  0% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(30px) scale(0.7);
-  }
+.scroll-up-btn:not(.visible) {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(20px) scale(0.85);
 }
 
 /* Hover effects */
@@ -13494,12 +13458,7 @@ main,
 
   .scroll-down-btn.visible,
   .scroll-up-btn.visible {
-    animation: none !important;
-  }
-
-  .scroll-down-btn.hiding,
-  .scroll-up-btn.hiding {
-    animation: none !important;
+    transition: none !important;
   }
 }
 

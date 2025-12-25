@@ -488,9 +488,8 @@ const BUILD_VERSION = Date.now().toString(36);
 
                 progressBar.style.width = scrollPercent + '%';
 
-                // Thresholds for button visibility (percentage-based for better UX)
+                // Thresholds for button visibility
                 const showDownAfterPx = 150;         // Show ↓ after 150px scroll
-                const showUpAfterPercent = 25;       // Show ↑ after 25% of page scrolled
                 const hideDownAfterPercent = 20;     // Hide ↓ after 20% of page scrolled
                 const nearBottom = scrollPercent > 85; // Near bottom of page
 
@@ -499,7 +498,6 @@ const BUILD_VERSION = Date.now().toString(36);
                 const shouldShowUp = scrollTop >= showUpThreshold;
 
                 // Jump to Footer button (↓):
-                // - NOT visible at absolute top (scrollTop < showDownAfterPx)
                 // - Visible from 150px until 20% of page OR when ↑ appears
                 // - Hidden when near bottom (already at footer)
                 if (scrollToBottomBtn) {
@@ -508,35 +506,13 @@ const BUILD_VERSION = Date.now().toString(36);
                                            !shouldShowUp &&
                                            !nearBottom;
 
-                    if (shouldShowDown) {
-                        scrollToBottomBtn.classList.add('visible');
-                        scrollToBottomBtn.classList.remove('hiding');
-                    } else if (scrollToBottomBtn.classList.contains('visible')) {
-                        // Add hiding class for exit animation before removing visible
-                        scrollToBottomBtn.classList.add('hiding');
-                        setTimeout(() => {
-                            if (!shouldShowDown) {
-                                scrollToBottomBtn.classList.remove('visible', 'hiding');
-                            }
-                        }, 350);
-                    }
+                    scrollToBottomBtn.classList.toggle('visible', shouldShowDown);
                 }
 
                 // Back to Top button (↑):
-                // - NOT visible at top
                 // - Visible after 25% scroll or 600px (whichever is less)
                 if (backToTopBtn) {
-                    if (shouldShowUp) {
-                        backToTopBtn.classList.add('visible');
-                        backToTopBtn.classList.remove('hiding');
-                    } else if (backToTopBtn.classList.contains('visible')) {
-                        backToTopBtn.classList.add('hiding');
-                        setTimeout(() => {
-                            if (!shouldShowUp) {
-                                backToTopBtn.classList.remove('visible', 'hiding');
-                            }
-                        }, 350);
-                    }
+                    backToTopBtn.classList.toggle('visible', shouldShowUp);
                 }
             }
 
