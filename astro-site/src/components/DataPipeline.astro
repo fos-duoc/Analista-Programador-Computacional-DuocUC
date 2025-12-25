@@ -36,6 +36,21 @@
                 <span>Data Governance</span>
                 <small>Framework</small>
             </button>
+            <button class="mode-btn" data-mode="visualization" id="btn-visualization">
+                <i class="fas fa-chart-pie"></i>
+                <span>Data Visualization</span>
+                <small>BI & Reporting</small>
+            </button>
+            <button class="mode-btn" data-mode="ingestion" id="btn-ingestion">
+                <i class="fas fa-cloud-download-alt"></i>
+                <span>Data Ingestion</span>
+                <small>Movement</small>
+            </button>
+            <button class="mode-btn" data-mode="orchestration" id="btn-orchestration">
+                <i class="fas fa-tasks"></i>
+                <span>Data Orchestration</span>
+                <small>Workflows</small>
+            </button>
         </div>
     </div>
 
@@ -1310,6 +1325,1052 @@ default_args = &#123;
                 </div>
             </div>
         </div>
+
+        <!-- ==================== DATA VISUALIZATION & REPORTING ==================== -->
+        <div id="pipeline-visualization" class="pipeline-diagram-premium pipeline-mode">
+            <div class="viz-diagram-premium glass-card">
+
+                <!-- ===== VIZ HEADER ===== -->
+                <div class="viz-premium-header">
+                    <div class="viz-title-section">
+                        <div class="viz-icon-animated">
+                            <i class="fas fa-chart-pie"></i>
+                            <div class="viz-rings">
+                                <span class="ring ring-1"></span>
+                                <span class="ring ring-2"></span>
+                            </div>
+                        </div>
+                        <div class="viz-title-text">
+                            <div class="viz-badge-row">
+                                <span class="viz-badge bi">
+                                    <i class="fas fa-chart-bar"></i> Business Intelligence
+                                </span>
+                                <span class="viz-badge reporting">
+                                    <i class="fas fa-file-alt"></i> Reporting
+                                </span>
+                                <span class="viz-badge self-service">
+                                    <i class="fas fa-users"></i> Self-Service
+                                </span>
+                            </div>
+                            <h3>Data Visualization & Reporting</h3>
+                            <span class="viz-subtitle">Transforma datos en insights accionables para toda la organización</span>
+                        </div>
+                    </div>
+                    <div class="viz-stats-row">
+                        <div class="viz-stat">
+                            <span class="stat-num">4</span>
+                            <span class="stat-label">Plataformas</span>
+                        </div>
+                        <div class="viz-stat">
+                            <span class="stat-num">100+</span>
+                            <span class="stat-label">Visualizaciones</span>
+                        </div>
+                        <div class="viz-stat">
+                            <span class="stat-num">24/7</span>
+                            <span class="stat-label">Dashboards</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== VISUALIZATION PLATFORMS ===== -->
+                <div class="viz-platforms-section">
+                    <div class="section-header-v2">
+                        <div class="header-icon"><i class="fas fa-th-large"></i></div>
+                        <div class="header-text">
+                            <h4>Plataformas de Visualización</h4>
+                            <span>Las herramientas líderes de BI y Analytics</span>
+                        </div>
+                    </div>
+
+                    <div class="viz-platforms-grid">
+                        <!-- Power BI -->
+                        <div class="viz-platform-card powerbi">
+                            <div class="platform-header">
+                                <div class="platform-logo">
+                                    <img src="https://cdn.simpleicons.org/powerbi/F2C811" alt="Power BI" width="48">
+                                </div>
+                                <div class="platform-info">
+                                    <h5>Power BI</h5>
+                                    <span class="platform-vendor">Microsoft</span>
+                                </div>
+                                <div class="platform-badge enterprise">Enterprise</div>
+                            </div>
+                            <p class="platform-desc">Plataforma de analytics de Microsoft con integración nativa a Azure y Microsoft 365</p>
+                            <div class="platform-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-magic"></i>
+                                    <span>DAX & Power Query</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-robot"></i>
+                                    <span>Copilot AI</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-plug"></i>
+                                    <span>100+ Conectores</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span>Mobile App</span>
+                                </div>
+                            </div>
+                            <div class="platform-components">
+                                <span class="component">Desktop</span>
+                                <span class="component">Service</span>
+                                <span class="component">Mobile</span>
+                                <span class="component">Embedded</span>
+                            </div>
+                            <div class="platform-footer">
+                                <a href="https://powerbi.microsoft.com/" target="_blank" class="platform-link">
+                                    <i class="fas fa-external-link-alt"></i> Documentación
+                                </a>
+                                <span class="platform-use-case">Enterprise BI</span>
+                            </div>
+                        </div>
+
+                        <!-- Tableau -->
+                        <div class="viz-platform-card tableau">
+                            <div class="platform-header">
+                                <div class="platform-logo">
+                                    <img src="https://cdn.simpleicons.org/tableau/E97627" alt="Tableau" width="48">
+                                </div>
+                                <div class="platform-info">
+                                    <h5>Tableau</h5>
+                                    <span class="platform-vendor">Salesforce</span>
+                                </div>
+                                <div class="platform-badge leader">Market Leader</div>
+                            </div>
+                            <p class="platform-desc">Líder en visualización analítica con VizQL y exploración de datos intuitiva</p>
+                            <div class="platform-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-brain"></i>
+                                    <span>Tableau Pulse</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-comment-dots"></i>
+                                    <span>Ask Data (NLP)</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-project-diagram"></i>
+                                    <span>VizQL</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-cloud"></i>
+                                    <span>Tableau Cloud</span>
+                                </div>
+                            </div>
+                            <div class="platform-components">
+                                <span class="component">Desktop</span>
+                                <span class="component">Server</span>
+                                <span class="component">Cloud</span>
+                                <span class="component">Prep</span>
+                            </div>
+                            <div class="platform-footer">
+                                <a href="https://www.tableau.com/products/tableau" target="_blank" class="platform-link">
+                                    <i class="fas fa-external-link-alt"></i> Documentación
+                                </a>
+                                <span class="platform-use-case">Visual Analytics</span>
+                            </div>
+                        </div>
+
+                        <!-- Looker -->
+                        <div class="viz-platform-card looker">
+                            <div class="platform-header">
+                                <div class="platform-logo">
+                                    <img src="https://cdn.simpleicons.org/looker/4285F4" alt="Looker" width="48">
+                                </div>
+                                <div class="platform-info">
+                                    <h5>Looker</h5>
+                                    <span class="platform-vendor">Google Cloud</span>
+                                </div>
+                                <div class="platform-badge semantic">Semantic Layer</div>
+                            </div>
+                            <p class="platform-desc">BI moderno con LookML para definir métricas consistentes en toda la organización</p>
+                            <div class="platform-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-code"></i>
+                                    <span>LookML</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-search"></i>
+                                    <span>Explores</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-puzzle-piece"></i>
+                                    <span>Embedded SDK</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-bell"></i>
+                                    <span>Alerts</span>
+                                </div>
+                            </div>
+                            <div class="platform-components">
+                                <span class="component">Looker</span>
+                                <span class="component">Studio</span>
+                                <span class="component">API</span>
+                                <span class="component">Embed</span>
+                            </div>
+                            <div class="platform-footer">
+                                <a href="https://cloud.google.com/looker" target="_blank" class="platform-link">
+                                    <i class="fas fa-external-link-alt"></i> Documentación
+                                </a>
+                                <span class="platform-use-case">Data Modeling</span>
+                            </div>
+                        </div>
+
+                        <!-- Streamlit -->
+                        <div class="viz-platform-card streamlit">
+                            <div class="platform-header">
+                                <div class="platform-logo">
+                                    <img src="https://cdn.simpleicons.org/streamlit/FF4B4B" alt="Streamlit" width="48">
+                                </div>
+                                <div class="platform-info">
+                                    <h5>Streamlit</h5>
+                                    <span class="platform-vendor">Snowflake</span>
+                                </div>
+                                <div class="platform-badge python">Python-First</div>
+                            </div>
+                            <p class="platform-desc">Framework open-source para crear data apps interactivas con Python puro</p>
+                            <div class="platform-features">
+                                <div class="feature-item">
+                                    <i class="fab fa-python"></i>
+                                    <span>Pure Python</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-sliders-h"></i>
+                                    <span>Widgets</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-rocket"></i>
+                                    <span>Hot Reload</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Community Cloud</span>
+                                </div>
+                            </div>
+                            <div class="platform-components">
+                                <span class="component">Core</span>
+                                <span class="component">Components</span>
+                                <span class="component">Cloud</span>
+                                <span class="component">Snowflake</span>
+                            </div>
+                            <div class="platform-footer">
+                                <a href="https://streamlit.io/" target="_blank" class="platform-link">
+                                    <i class="fas fa-external-link-alt"></i> Documentación
+                                </a>
+                                <span class="platform-use-case">Data Apps</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== VISUALIZATION TYPES ===== -->
+                <div class="viz-types-section">
+                    <div class="section-header-v2">
+                        <div class="header-icon"><i class="fas fa-chart-area"></i></div>
+                        <div class="header-text">
+                            <h4>Tipos de Visualización</h4>
+                            <span>Elige la visualización correcta para tus datos</span>
+                        </div>
+                    </div>
+
+                    <div class="viz-types-grid">
+                        <div class="viz-type-card">
+                            <div class="type-icon"><i class="fas fa-chart-bar"></i></div>
+                            <span class="type-name">Bar Charts</span>
+                            <span class="type-use">Comparaciones</span>
+                        </div>
+                        <div class="viz-type-card">
+                            <div class="type-icon"><i class="fas fa-chart-line"></i></div>
+                            <span class="type-name">Line Charts</span>
+                            <span class="type-use">Tendencias</span>
+                        </div>
+                        <div class="viz-type-card">
+                            <div class="type-icon"><i class="fas fa-chart-pie"></i></div>
+                            <span class="type-name">Pie Charts</span>
+                            <span class="type-use">Proporciones</span>
+                        </div>
+                        <div class="viz-type-card">
+                            <div class="type-icon"><i class="fas fa-th"></i></div>
+                            <span class="type-name">Heat Maps</span>
+                            <span class="type-use">Densidad</span>
+                        </div>
+                        <div class="viz-type-card">
+                            <div class="type-icon"><i class="fas fa-braille"></i></div>
+                            <span class="type-name">Scatter Plots</span>
+                            <span class="type-use">Correlaciones</span>
+                        </div>
+                        <div class="viz-type-card">
+                            <div class="type-icon"><i class="fas fa-map-marked-alt"></i></div>
+                            <span class="type-name">Maps</span>
+                            <span class="type-use">Geoespacial</span>
+                        </div>
+                        <div class="viz-type-card">
+                            <div class="type-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <span class="type-name">Gauges</span>
+                            <span class="type-use">KPIs</span>
+                        </div>
+                        <div class="viz-type-card">
+                            <div class="type-icon"><i class="fas fa-table"></i></div>
+                            <span class="type-name">Tables</span>
+                            <span class="type-use">Detalle</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== REPORTING WORKFLOW ===== -->
+                <div class="viz-workflow-section">
+                    <div class="section-header-v2">
+                        <div class="header-icon"><i class="fas fa-stream"></i></div>
+                        <div class="header-text">
+                            <h4>Flujo de Reporting</h4>
+                            <span>Del dato crudo al insight accionable</span>
+                        </div>
+                    </div>
+
+                    <div class="viz-workflow-flow">
+                        <div class="workflow-stage">
+                            <div class="stage-icon-viz"><i class="fas fa-database"></i></div>
+                            <span class="stage-name">Data Source</span>
+                            <span class="stage-detail">DW / Lake</span>
+                        </div>
+                        <div class="workflow-arrow"><i class="fas fa-chevron-right"></i></div>
+                        <div class="workflow-stage">
+                            <div class="stage-icon-viz"><i class="fas fa-layer-group"></i></div>
+                            <span class="stage-name">Semantic Layer</span>
+                            <span class="stage-detail">Métricas</span>
+                        </div>
+                        <div class="workflow-arrow"><i class="fas fa-chevron-right"></i></div>
+                        <div class="workflow-stage">
+                            <div class="stage-icon-viz"><i class="fas fa-chart-bar"></i></div>
+                            <span class="stage-name">Visualization</span>
+                            <span class="stage-detail">Dashboards</span>
+                        </div>
+                        <div class="workflow-arrow"><i class="fas fa-chevron-right"></i></div>
+                        <div class="workflow-stage">
+                            <div class="stage-icon-viz"><i class="fas fa-users"></i></div>
+                            <span class="stage-name">Consumption</span>
+                            <span class="stage-detail">Self-Service</span>
+                        </div>
+                        <div class="workflow-arrow"><i class="fas fa-chevron-right"></i></div>
+                        <div class="workflow-stage">
+                            <div class="stage-icon-viz"><i class="fas fa-lightbulb"></i></div>
+                            <span class="stage-name">Action</span>
+                            <span class="stage-detail">Decisiones</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== VIZ FOOTER ===== -->
+                <div class="viz-dashboard-footer">
+                    <div class="viz-metrics-row">
+                        <div class="viz-metric">
+                            <i class="fas fa-eye"></i>
+                            <span class="metric-value">5.2K</span>
+                            <span class="metric-label">Views/Day</span>
+                        </div>
+                        <div class="viz-metric">
+                            <i class="fas fa-users"></i>
+                            <span class="metric-value">340</span>
+                            <span class="metric-label">Active Users</span>
+                        </div>
+                        <div class="viz-metric">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span class="metric-value">48</span>
+                            <span class="metric-label">Dashboards</span>
+                        </div>
+                        <div class="viz-metric">
+                            <i class="fas fa-bell"></i>
+                            <span class="metric-value">125</span>
+                            <span class="metric-label">Alerts Active</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== DATA INGESTION PIPELINE ==================== -->
+        <div id="pipeline-ingestion" class="pipeline-diagram-premium pipeline-mode">
+            <div class="ingestion-diagram-premium glass-card">
+
+                <!-- ===== INGESTION HEADER ===== -->
+                <div class="ingestion-premium-header">
+                    <div class="ingestion-title-section">
+                        <div class="ingestion-icon-animated">
+                            <i class="fas fa-cloud-download-alt"></i>
+                            <div class="download-animation">
+                                <span class="data-particle p1"></span>
+                                <span class="data-particle p2"></span>
+                                <span class="data-particle p3"></span>
+                            </div>
+                        </div>
+                        <div class="ingestion-title-text">
+                            <div class="ingestion-badge-row">
+                                <span class="ingestion-badge etl">
+                                    <i class="fas fa-cogs"></i> ETL
+                                </span>
+                                <span class="ingestion-badge elt">
+                                    <i class="fas fa-database"></i> ELT
+                                </span>
+                                <span class="ingestion-badge streaming">
+                                    <i class="fas fa-bolt"></i> Streaming
+                                </span>
+                            </div>
+                            <h3>Data Ingestion Pipeline</h3>
+                            <span class="ingestion-subtitle">Extracción y movimiento de datos desde múltiples fuentes hacia el Data Warehouse</span>
+                        </div>
+                    </div>
+                    <div class="ingestion-stats-row">
+                        <div class="ingestion-stat">
+                            <span class="stat-num">20+</span>
+                            <span class="stat-label">APIs</span>
+                        </div>
+                        <div class="ingestion-stat">
+                            <span class="stat-num">50TB</span>
+                            <span class="stat-label">Daily Volume</span>
+                        </div>
+                        <div class="ingestion-stat">
+                            <span class="stat-num">99.9%</span>
+                            <span class="stat-label">Uptime</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== DATA SOURCES ===== -->
+                <div class="ingestion-sources-section">
+                    <div class="section-header-v2">
+                        <div class="header-icon"><i class="fas fa-plug"></i></div>
+                        <div class="header-text">
+                            <h4>Data Sources</h4>
+                            <span>Orígenes de datos para extracción</span>
+                        </div>
+                    </div>
+
+                    <div class="sources-grid">
+                        <div class="source-category">
+                            <h5><i class="fas fa-server"></i> Databases</h5>
+                            <div class="source-items">
+                                <a href="https://www.postgresql.org/" target="_blank" class="source-chip">
+                                    <i class="devicon-postgresql-plain"></i> PostgreSQL
+                                </a>
+                                <a href="https://www.mysql.com/" target="_blank" class="source-chip">
+                                    <i class="devicon-mysql-plain"></i> MySQL
+                                </a>
+                                <a href="https://www.oracle.com/database/" target="_blank" class="source-chip">
+                                    <i class="devicon-oracle-original"></i> Oracle
+                                </a>
+                                <a href="https://www.microsoft.com/sql-server" target="_blank" class="source-chip">
+                                    <i class="devicon-microsoftsqlserver-plain"></i> SQL Server
+                                </a>
+                            </div>
+                        </div>
+                        <div class="source-category">
+                            <h5><i class="fas fa-cloud"></i> SaaS & APIs</h5>
+                            <div class="source-items">
+                                <a href="https://www.salesforce.com/" target="_blank" class="source-chip">
+                                    <i class="devicon-salesforce-plain"></i> Salesforce
+                                </a>
+                                <a href="https://hubspot.com/" target="_blank" class="source-chip">
+                                    <i class="fas fa-hubspot"></i> HubSpot
+                                </a>
+                                <a href="https://stripe.com/" target="_blank" class="source-chip">
+                                    <img src="https://cdn.simpleicons.org/stripe/635BFF" alt="Stripe" width="14"> Stripe
+                                </a>
+                                <a href="https://shopify.com/" target="_blank" class="source-chip">
+                                    <img src="https://cdn.simpleicons.org/shopify/7AB55C" alt="Shopify" width="14"> Shopify
+                                </a>
+                            </div>
+                        </div>
+                        <div class="source-category">
+                            <h5><i class="fas fa-file-alt"></i> Files & Storage</h5>
+                            <div class="source-items">
+                                <a href="https://aws.amazon.com/s3/" target="_blank" class="source-chip">
+                                    <i class="devicon-amazonwebservices-plain-wordmark"></i> S3
+                                </a>
+                                <a href="https://azure.microsoft.com/services/storage/blobs/" target="_blank" class="source-chip">
+                                    <i class="devicon-azure-plain"></i> Blob Storage
+                                </a>
+                                <a href="https://cloud.google.com/storage" target="_blank" class="source-chip">
+                                    <i class="devicon-googlecloud-plain"></i> GCS
+                                </a>
+                                <span class="source-chip">
+                                    <i class="fas fa-file-csv"></i> CSV/JSON
+                                </span>
+                            </div>
+                        </div>
+                        <div class="source-category">
+                            <h5><i class="fas fa-stream"></i> Streaming</h5>
+                            <div class="source-items">
+                                <a href="https://kafka.apache.org/" target="_blank" class="source-chip">
+                                    <i class="devicon-apachekafka-original"></i> Kafka
+                                </a>
+                                <a href="https://aws.amazon.com/kinesis/" target="_blank" class="source-chip">
+                                    <i class="devicon-amazonwebservices-plain-wordmark"></i> Kinesis
+                                </a>
+                                <a href="https://cloud.google.com/pubsub" target="_blank" class="source-chip">
+                                    <i class="devicon-googlecloud-plain"></i> Pub/Sub
+                                </a>
+                                <a href="https://azure.microsoft.com/services/event-hubs/" target="_blank" class="source-chip">
+                                    <i class="devicon-azure-plain"></i> Event Hubs
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== ETL vs ELT COMPARISON ===== -->
+                <div class="ingestion-comparison-section">
+                    <div class="section-header-v2">
+                        <div class="header-icon"><i class="fas fa-balance-scale"></i></div>
+                        <div class="header-text">
+                            <h4>ETL vs ELT</h4>
+                            <span>Patrones de integración de datos</span>
+                        </div>
+                    </div>
+
+                    <div class="etl-elt-comparison">
+                        <div class="comparison-card etl">
+                            <div class="comparison-header">
+                                <h5><i class="fas fa-cogs"></i> ETL</h5>
+                                <span class="pattern-desc">Extract → Transform → Load</span>
+                            </div>
+                            <div class="comparison-flow">
+                                <div class="flow-step source">
+                                    <i class="fas fa-database"></i>
+                                    <span>Source</span>
+                                </div>
+                                <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                                <div class="flow-step transform highlight">
+                                    <i class="fas fa-cogs"></i>
+                                    <span>Transform</span>
+                                </div>
+                                <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                                <div class="flow-step target">
+                                    <i class="fas fa-warehouse"></i>
+                                    <span>DW</span>
+                                </div>
+                            </div>
+                            <ul class="comparison-features">
+                                <li><i class="fas fa-check"></i> Transformación antes de cargar</li>
+                                <li><i class="fas fa-check"></i> Menor storage en destino</li>
+                                <li><i class="fas fa-check"></i> Datos ya limpios al llegar</li>
+                            </ul>
+                            <div class="comparison-tools">
+                                <span>Tools:</span>
+                                <a href="https://www.informatica.com/" target="_blank">Informatica</a>
+                                <a href="https://www.talend.com/" target="_blank">Talend</a>
+                                <a href="https://www.ssis.com/" target="_blank">SSIS</a>
+                            </div>
+                        </div>
+
+                        <div class="comparison-vs">VS</div>
+
+                        <div class="comparison-card elt">
+                            <div class="comparison-header">
+                                <h5><i class="fas fa-database"></i> ELT</h5>
+                                <span class="pattern-desc">Extract → Load → Transform</span>
+                            </div>
+                            <div class="comparison-flow">
+                                <div class="flow-step source">
+                                    <i class="fas fa-database"></i>
+                                    <span>Source</span>
+                                </div>
+                                <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                                <div class="flow-step target">
+                                    <i class="fas fa-warehouse"></i>
+                                    <span>DW</span>
+                                </div>
+                                <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                                <div class="flow-step transform highlight">
+                                    <i class="fas fa-cogs"></i>
+                                    <span>Transform</span>
+                                </div>
+                            </div>
+                            <ul class="comparison-features">
+                                <li><i class="fas fa-check"></i> Usa poder del Cloud DW</li>
+                                <li><i class="fas fa-check"></i> Raw data disponible</li>
+                                <li><i class="fas fa-check"></i> Más flexible y moderno</li>
+                            </ul>
+                            <div class="comparison-tools">
+                                <span>Tools:</span>
+                                <a href="https://fivetran.com/" target="_blank">Fivetran</a>
+                                <a href="https://airbyte.com/" target="_blank">Airbyte</a>
+                                <a href="https://www.getdbt.com/" target="_blank">dbt</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== INGESTION TOOLS ===== -->
+                <div class="ingestion-tools-section">
+                    <div class="section-header-v2">
+                        <div class="header-icon"><i class="fas fa-wrench"></i></div>
+                        <div class="header-text">
+                            <h4>Herramientas de Ingesta</h4>
+                            <span>Plataformas para mover datos</span>
+                        </div>
+                    </div>
+
+                    <div class="ingestion-tools-grid">
+                        <a href="https://fivetran.com/" target="_blank" class="tool-card fivetran">
+                            <img src="https://cdn.simpleicons.org/fivetran/0073FF" alt="Fivetran" width="32">
+                            <span class="tool-name">Fivetran</span>
+                            <span class="tool-type">Managed ELT</span>
+                        </a>
+                        <a href="https://airbyte.com/" target="_blank" class="tool-card airbyte">
+                            <img src="https://cdn.simpleicons.org/airbyte/615EFF" alt="Airbyte" width="32">
+                            <span class="tool-name">Airbyte</span>
+                            <span class="tool-type">Open Source</span>
+                        </a>
+                        <a href="https://stitch.com/" target="_blank" class="tool-card stitch">
+                            <img src="https://cdn.simpleicons.org/stitch/FFCC00" alt="Stitch" width="32">
+                            <span class="tool-name">Stitch</span>
+                            <span class="tool-type">Simple ETL</span>
+                        </a>
+                        <a href="https://azure.microsoft.com/services/data-factory/" target="_blank" class="tool-card adf">
+                            <i class="devicon-azure-plain" style="font-size: 32px; color: #0078D4;"></i>
+                            <span class="tool-name">Azure Data Factory</span>
+                            <span class="tool-type">Enterprise</span>
+                        </a>
+                        <a href="https://aws.amazon.com/glue/" target="_blank" class="tool-card glue">
+                            <i class="devicon-amazonwebservices-plain-wordmark" style="font-size: 32px; color: #FF9900;"></i>
+                            <span class="tool-name">AWS Glue</span>
+                            <span class="tool-type">Serverless ETL</span>
+                        </a>
+                        <a href="https://www.getdbt.com/" target="_blank" class="tool-card dbt">
+                            <img src="https://cdn.simpleicons.org/dbt/FF694B" alt="dbt" width="32">
+                            <span class="tool-name">dbt</span>
+                            <span class="tool-type">Transform</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ===== MEDALLION ARCHITECTURE ===== -->
+                <div class="ingestion-medallion-section">
+                    <div class="section-header-v2">
+                        <div class="header-icon"><i class="fas fa-medal"></i></div>
+                        <div class="header-text">
+                            <h4>Medallion Architecture</h4>
+                            <span>Capas de datos: Bronze → Silver → Gold</span>
+                        </div>
+                    </div>
+
+                    <div class="medallion-flow">
+                        <div class="medallion-layer bronze">
+                            <div class="layer-medal"><i class="fas fa-medal"></i></div>
+                            <h5>Bronze</h5>
+                            <span class="layer-desc">Raw Data</span>
+                            <ul class="layer-details">
+                                <li>Datos crudos sin procesar</li>
+                                <li>Schema-on-read</li>
+                                <li>Histórico completo</li>
+                            </ul>
+                            <span class="layer-format">Parquet / Delta</span>
+                        </div>
+                        <div class="medallion-arrow"><i class="fas fa-chevron-right"></i></div>
+                        <div class="medallion-layer silver">
+                            <div class="layer-medal"><i class="fas fa-medal"></i></div>
+                            <h5>Silver</h5>
+                            <span class="layer-desc">Cleaned Data</span>
+                            <ul class="layer-details">
+                                <li>Validación y limpieza</li>
+                                <li>Tipos de datos correctos</li>
+                                <li>Deduplicación</li>
+                            </ul>
+                            <span class="layer-format">Delta Lake</span>
+                        </div>
+                        <div class="medallion-arrow"><i class="fas fa-chevron-right"></i></div>
+                        <div class="medallion-layer gold">
+                            <div class="layer-medal"><i class="fas fa-medal"></i></div>
+                            <h5>Gold</h5>
+                            <span class="layer-desc">Business-Ready</span>
+                            <ul class="layer-details">
+                                <li>Agregaciones y métricas</li>
+                                <li>Modelos dimensionales</li>
+                                <li>Listo para BI</li>
+                            </ul>
+                            <span class="layer-format">Curated Tables</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== INGESTION FOOTER ===== -->
+                <div class="ingestion-dashboard-footer">
+                    <div class="ingestion-metrics-row">
+                        <div class="ingestion-metric">
+                            <i class="fas fa-plug"></i>
+                            <span class="metric-value">24</span>
+                            <span class="metric-label">Connectors</span>
+                        </div>
+                        <div class="ingestion-metric">
+                            <i class="fas fa-sync"></i>
+                            <span class="metric-value">156</span>
+                            <span class="metric-label">Syncs/Day</span>
+                        </div>
+                        <div class="ingestion-metric">
+                            <i class="fas fa-check-circle"></i>
+                            <span class="metric-value">99.8%</span>
+                            <span class="metric-label">Success Rate</span>
+                        </div>
+                        <div class="ingestion-metric">
+                            <i class="fas fa-clock"></i>
+                            <span class="metric-value">15min</span>
+                            <span class="metric-label">Avg Latency</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== DATA ORCHESTRATION ==================== -->
+        <div id="pipeline-orchestration" class="pipeline-diagram-premium pipeline-mode">
+            <div class="orch-diagram-premium glass-card">
+
+                <!-- ===== ORCHESTRATION HEADER ===== -->
+                <div class="orch-premium-header">
+                    <div class="orch-title-section">
+                        <div class="orch-icon-animated">
+                            <i class="fas fa-tasks"></i>
+                            <div class="orch-pulse">
+                                <span class="pulse-ring"></span>
+                                <span class="pulse-ring"></span>
+                            </div>
+                        </div>
+                        <div class="orch-title-text">
+                            <div class="orch-badge-row">
+                                <span class="orch-badge dag">
+                                    <i class="fas fa-project-diagram"></i> DAGs
+                                </span>
+                                <span class="orch-badge workflow">
+                                    <i class="fas fa-sitemap"></i> Workflows
+                                </span>
+                                <span class="orch-badge scheduling">
+                                    <i class="fas fa-clock"></i> Scheduling
+                                </span>
+                            </div>
+                            <h3>Data Orchestration</h3>
+                            <span class="orch-subtitle">Coordinación y automatización de workflows de datos complejos</span>
+                        </div>
+                    </div>
+                    <div class="orch-stats-row">
+                        <div class="orch-stat">
+                            <span class="stat-num">156</span>
+                            <span class="stat-label">DAGs</span>
+                        </div>
+                        <div class="orch-stat">
+                            <span class="stat-num">12K</span>
+                            <span class="stat-label">Tasks/Day</span>
+                        </div>
+                        <div class="orch-stat">
+                            <span class="stat-num">99.8%</span>
+                            <span class="stat-label">Success</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== ORCHESTRATION PLATFORMS ===== -->
+                <div class="orch-platforms-section">
+                    <div class="section-header-v2">
+                        <div class="header-icon"><i class="fas fa-th-large"></i></div>
+                        <div class="header-text">
+                            <h4>Plataformas de Orquestación</h4>
+                            <span>Los 3 líderes del ecosistema 2024</span>
+                        </div>
+                    </div>
+
+                    <div class="orch-platforms-grid">
+                        <!-- Apache Airflow -->
+                        <div class="orch-platform-card airflow">
+                            <div class="platform-rank">#1</div>
+                            <div class="platform-header">
+                                <div class="platform-logo">
+                                    <i class="devicon-apacheairflow-plain" style="font-size: 48px;"></i>
+                                </div>
+                                <div class="platform-info">
+                                    <h5>Apache Airflow</h5>
+                                    <span class="platform-vendor">Apache Foundation</span>
+                                </div>
+                                <div class="platform-badge leader">320M Downloads</div>
+                            </div>
+                            <p class="platform-desc">El estándar de la industria para orquestación de workflows de datos, nacido en Airbnb</p>
+                            <div class="platform-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-project-diagram"></i>
+                                    <span>DAGs en Python</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-puzzle-piece"></i>
+                                    <span>1000+ Operators</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-eye"></i>
+                                    <span>Web UI</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Comunidad Masiva</span>
+                                </div>
+                            </div>
+                            <div class="platform-use-cases">
+                                <span class="use-case">ETL Pipelines</span>
+                                <span class="use-case">ML Workflows</span>
+                                <span class="use-case">Data Ops</span>
+                            </div>
+                            <div class="platform-footer">
+                                <a href="https://airflow.apache.org/" target="_blank" class="platform-link">
+                                    <i class="fas fa-external-link-alt"></i> airflow.apache.org
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Dagster -->
+                        <div class="orch-platform-card dagster">
+                            <div class="platform-rank">#2</div>
+                            <div class="platform-header">
+                                <div class="platform-logo">
+                                    <img src="https://cdn.simpleicons.org/dagster/4F44D6" alt="Dagster" width="48">
+                                </div>
+                                <div class="platform-info">
+                                    <h5>Dagster</h5>
+                                    <span class="platform-vendor">Elementl</span>
+                                </div>
+                                <div class="platform-badge modern">Asset-Centric</div>
+                            </div>
+                            <p class="platform-desc">Orquestador moderno centrado en assets, no en tareas. Diseñado para el ciclo de vida completo</p>
+                            <div class="platform-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-cubes"></i>
+                                    <span>Software-Defined Assets</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-double"></i>
+                                    <span>Type System</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-vial"></i>
+                                    <span>Testing Built-in</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-eye"></i>
+                                    <span>Dagit UI</span>
+                                </div>
+                            </div>
+                            <div class="platform-use-cases">
+                                <span class="use-case">Data Assets</span>
+                                <span class="use-case">dbt Integration</span>
+                                <span class="use-case">ML Pipelines</span>
+                            </div>
+                            <div class="platform-footer">
+                                <a href="https://dagster.io/" target="_blank" class="platform-link">
+                                    <i class="fas fa-external-link-alt"></i> dagster.io
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Prefect -->
+                        <div class="orch-platform-card prefect">
+                            <div class="platform-rank">#3</div>
+                            <div class="platform-header">
+                                <div class="platform-logo">
+                                    <img src="https://cdn.simpleicons.org/prefect/024DFD" alt="Prefect" width="48">
+                                </div>
+                                <div class="platform-info">
+                                    <h5>Prefect</h5>
+                                    <span class="platform-vendor">Prefect Technologies</span>
+                                </div>
+                                <div class="platform-badge flexible">Pythonic</div>
+                            </div>
+                            <p class="platform-desc">Orquestación simple y flexible con decoradores Python. Filosofía de "ingeniería negativa"</p>
+                            <div class="platform-features">
+                                <div class="feature-item">
+                                    <i class="fab fa-python"></i>
+                                    <span>Pure Python</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-magic"></i>
+                                    <span>Decorators</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-cloud"></i>
+                                    <span>Prefect Cloud</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-sync"></i>
+                                    <span>Async Native</span>
+                                </div>
+                            </div>
+                            <div class="platform-use-cases">
+                                <span class="use-case">Dynamic Workflows</span>
+                                <span class="use-case">API Pipelines</span>
+                                <span class="use-case">Rapid Dev</span>
+                            </div>
+                            <div class="platform-footer">
+                                <a href="https://www.prefect.io/" target="_blank" class="platform-link">
+                                    <i class="fas fa-external-link-alt"></i> prefect.io
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== DAG EXAMPLE ===== -->
+                <div class="orch-dag-section">
+                    <div class="section-header-v2">
+                        <div class="header-icon"><i class="fas fa-project-diagram"></i></div>
+                        <div class="header-text">
+                            <h4>DAG Example</h4>
+                            <span>Directed Acyclic Graph - Flujo de tareas</span>
+                        </div>
+                    </div>
+
+                    <div class="dag-visualization">
+                        <div class="dag-row">
+                            <div class="dag-node start">
+                                <i class="fas fa-play-circle"></i>
+                                <span>Start</span>
+                            </div>
+                        </div>
+                        <div class="dag-connections">
+                            <svg class="dag-svg" viewBox="0 0 400 60">
+                                <path d="M200,0 L100,50" stroke="url(#dagGradient)" stroke-width="2" fill="none" class="dag-line"/>
+                                <path d="M200,0 L200,50" stroke="url(#dagGradient)" stroke-width="2" fill="none" class="dag-line"/>
+                                <path d="M200,0 L300,50" stroke="url(#dagGradient)" stroke-width="2" fill="none" class="dag-line"/>
+                                <defs>
+                                    <linearGradient id="dagGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#22d3ee"/>
+                                        <stop offset="100%" stop-color="#a855f7"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="dag-row parallel">
+                            <div class="dag-node extract">
+                                <i class="fas fa-database"></i>
+                                <span>Extract API</span>
+                            </div>
+                            <div class="dag-node extract">
+                                <i class="fas fa-file-alt"></i>
+                                <span>Extract Files</span>
+                            </div>
+                            <div class="dag-node extract">
+                                <i class="fas fa-stream"></i>
+                                <span>Extract Stream</span>
+                            </div>
+                        </div>
+                        <div class="dag-connections">
+                            <svg class="dag-svg" viewBox="0 0 400 60">
+                                <path d="M100,10 L200,50" stroke="url(#dagGradient)" stroke-width="2" fill="none" class="dag-line"/>
+                                <path d="M200,10 L200,50" stroke="url(#dagGradient)" stroke-width="2" fill="none" class="dag-line"/>
+                                <path d="M300,10 L200,50" stroke="url(#dagGradient)" stroke-width="2" fill="none" class="dag-line"/>
+                            </svg>
+                        </div>
+                        <div class="dag-row">
+                            <div class="dag-node transform">
+                                <i class="fas fa-cogs"></i>
+                                <span>Transform</span>
+                            </div>
+                        </div>
+                        <div class="dag-connections single">
+                            <svg class="dag-svg" viewBox="0 0 400 60">
+                                <path d="M200,10 L200,50" stroke="url(#dagGradient)" stroke-width="2" fill="none" class="dag-line"/>
+                            </svg>
+                        </div>
+                        <div class="dag-row">
+                            <div class="dag-node load">
+                                <i class="fas fa-warehouse"></i>
+                                <span>Load DW</span>
+                            </div>
+                        </div>
+                        <div class="dag-connections">
+                            <svg class="dag-svg" viewBox="0 0 400 60">
+                                <path d="M200,10 L150,50" stroke="url(#dagGradient)" stroke-width="2" fill="none" class="dag-line"/>
+                                <path d="M200,10 L250,50" stroke="url(#dagGradient)" stroke-width="2" fill="none" class="dag-line"/>
+                            </svg>
+                        </div>
+                        <div class="dag-row parallel">
+                            <div class="dag-node notify">
+                                <i class="fas fa-bell"></i>
+                                <span>Notify</span>
+                            </div>
+                            <div class="dag-node quality">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Quality Check</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== SCHEDULING PATTERNS ===== -->
+                <div class="orch-scheduling-section">
+                    <div class="section-header-v2">
+                        <div class="header-icon"><i class="fas fa-clock"></i></div>
+                        <div class="header-text">
+                            <h4>Scheduling Patterns</h4>
+                            <span>Patrones de ejecución de workflows</span>
+                        </div>
+                    </div>
+
+                    <div class="scheduling-grid">
+                        <div class="schedule-card">
+                            <div class="schedule-icon"><i class="fas fa-redo"></i></div>
+                            <h5>Cron-based</h5>
+                            <code>0 */2 * * *</code>
+                            <span class="schedule-desc">Cada 2 horas</span>
+                        </div>
+                        <div class="schedule-card">
+                            <div class="schedule-icon"><i class="fas fa-bolt"></i></div>
+                            <h5>Event-driven</h5>
+                            <code>on: file_arrival</code>
+                            <span class="schedule-desc">Trigger por evento</span>
+                        </div>
+                        <div class="schedule-card">
+                            <div class="schedule-icon"><i class="fas fa-link"></i></div>
+                            <h5>Data-aware</h5>
+                            <code>@asset_updated</code>
+                            <span class="schedule-desc">Cuando el asset cambia</span>
+                        </div>
+                        <div class="schedule-card">
+                            <div class="schedule-icon"><i class="fas fa-hand-pointer"></i></div>
+                            <h5>Manual</h5>
+                            <code>trigger_dag()</code>
+                            <span class="schedule-desc">Ejecución manual</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== ORCHESTRATION FOOTER ===== -->
+                <div class="orch-dashboard-footer">
+                    <div class="orch-metrics-row">
+                        <div class="orch-metric success">
+                            <i class="fas fa-check-circle"></i>
+                            <span class="metric-value">2,340</span>
+                            <span class="metric-label">Successful</span>
+                        </div>
+                        <div class="orch-metric running">
+                            <i class="fas fa-spinner"></i>
+                            <span class="metric-value">12</span>
+                            <span class="metric-label">Running</span>
+                        </div>
+                        <div class="orch-metric failed">
+                            <i class="fas fa-times-circle"></i>
+                            <span class="metric-value">3</span>
+                            <span class="metric-label">Failed</span>
+                        </div>
+                        <div class="orch-metric queued">
+                            <i class="fas fa-clock"></i>
+                            <span class="metric-value">28</span>
+                            <span class="metric-label">Queued</span>
+                        </div>
+                    </div>
+                    <div class="orch-status-bar">
+                        <span class="status-indicator healthy"></span>
+                        <span>Orchestration cluster healthy</span>
+                        <span class="last-check">Last run: 2 min ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -1343,6 +2404,9 @@ default_args = &#123;
         var btnBatch = document.getElementById('btn-batch');
         var btnArchitecture = document.getElementById('btn-architecture');
         var btnGovernance = document.getElementById('btn-governance');
+        var btnVisualization = document.getElementById('btn-visualization');
+        var btnIngestion = document.getElementById('btn-ingestion');
+        var btnOrchestration = document.getElementById('btn-orchestration');
 
         if (btnRealtime) {
             btnRealtime.onclick = function() { switchPipelineMode('realtime'); };
@@ -1355,6 +2419,15 @@ default_args = &#123;
         }
         if (btnGovernance) {
             btnGovernance.onclick = function() { switchPipelineMode('governance'); };
+        }
+        if (btnVisualization) {
+            btnVisualization.onclick = function() { switchPipelineMode('visualization'); };
+        }
+        if (btnIngestion) {
+            btnIngestion.onclick = function() { switchPipelineMode('ingestion'); };
+        }
+        if (btnOrchestration) {
+            btnOrchestration.onclick = function() { switchPipelineMode('orchestration'); };
         }
     }
 
