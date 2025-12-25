@@ -1384,10 +1384,11 @@ default_args = &#123;
 
                     <div class="viz-platforms-grid">
                         <!-- Power BI -->
-                        <div class="viz-platform-card powerbi">
+                        <div class="viz-platform-card powerbi"
+                             data-premium-tooltip="Power BI|Plataforma de analytics de Microsoft con DAX, Power Query y Copilot AI|100+ Conectores,Mobile App,Embedded|tool|fa-chart-bar|MICROSOFT">
                             <div class="platform-header">
                                 <div class="platform-logo">
-                                    <img src="https://cdn.simpleicons.org/powerbi/F2C811" alt="Power BI" width="48">
+                                    <i class="fas fa-chart-bar" style="font-size: 2.5rem; color: #F2C811;"></i>
                                 </div>
                                 <div class="platform-info">
                                     <h5>Power BI</h5>
@@ -1429,10 +1430,11 @@ default_args = &#123;
                         </div>
 
                         <!-- Tableau -->
-                        <div class="viz-platform-card tableau">
+                        <div class="viz-platform-card tableau"
+                             data-premium-tooltip="Tableau|Líder en visualización analítica con VizQL, Tableau Pulse y exploración intuitiva|Ask Data NLP,VizQL,Cloud|tool|fa-chart-area|SALESFORCE">
                             <div class="platform-header">
                                 <div class="platform-logo">
-                                    <img src="https://cdn.simpleicons.org/tableau/E97627" alt="Tableau" width="48">
+                                    <i class="fas fa-chart-area" style="font-size: 2.5rem; color: #E97627;"></i>
                                 </div>
                                 <div class="platform-info">
                                     <h5>Tableau</h5>
@@ -1474,10 +1476,11 @@ default_args = &#123;
                         </div>
 
                         <!-- Looker -->
-                        <div class="viz-platform-card looker">
+                        <div class="viz-platform-card looker"
+                             data-premium-tooltip="Looker|BI moderno con LookML para definir métricas consistentes en toda la organización|LookML,Explores,Embedded SDK|tool|fa-search|GOOGLE CLOUD">
                             <div class="platform-header">
                                 <div class="platform-logo">
-                                    <img src="https://cdn.simpleicons.org/looker/4285F4" alt="Looker" width="48">
+                                    <i class="fas fa-search" style="font-size: 2.5rem; color: #4285F4;"></i>
                                 </div>
                                 <div class="platform-info">
                                     <h5>Looker</h5>
@@ -1519,10 +1522,11 @@ default_args = &#123;
                         </div>
 
                         <!-- Streamlit -->
-                        <div class="viz-platform-card streamlit">
+                        <div class="viz-platform-card streamlit"
+                             data-premium-tooltip="Streamlit|Framework open-source para crear data apps interactivas con Python puro|Pure Python,Widgets,Hot Reload|tool|fa-rocket|SNOWFLAKE">
                             <div class="platform-header">
                                 <div class="platform-logo">
-                                    <img src="https://cdn.simpleicons.org/streamlit/FF4B4B" alt="Streamlit" width="48">
+                                    <i class="fab fa-python" style="font-size: 2.5rem; color: #FF4B4B;"></i>
                                 </div>
                                 <div class="platform-info">
                                     <h5>Streamlit</h5>
@@ -1578,30 +1582,38 @@ default_args = &#123;
                     <!-- Categoría: Comparación -->
                     <div class="viz-category">
                         <h5 class="category-title"><i class="fas fa-balance-scale"></i> Comparación</h5>
-                        <div class="viz-types-grid">
-                            <div class="viz-type-card" data-complexity="basic">
-                                <div class="type-icon bar"><i class="fas fa-chart-bar"></i></div>
-                                <span class="type-name">Bar Chart</span>
-                                <span class="type-desc">Compara valores entre categorías discretas</span>
-                                <div class="type-examples">Ventas por región, Top productos</div>
+                        <div class="viz-types-grid-large">
+                            <div class="viz-type-card-large" data-complexity="basic"
+                                 data-premium-tooltip="Bar Chart|Compara valores entre categorías discretas horizontalmente|Ventas por región,Top productos,Comparación de métricas|info|fa-chart-bar|BÁSICO">
+                                <div class="type-icon-large bar"><i class="fas fa-chart-bar"></i></div>
+                                <span class="type-name-large">Bar Chart</span>
+                                <span class="type-desc-large">Compara valores entre categorías discretas</span>
+                                <div class="type-examples-large">Ventas por región, Top productos</div>
+                                <span class="complexity-badge basic">Básico</span>
                             </div>
-                            <div class="viz-type-card" data-complexity="basic">
-                                <div class="type-icon column"><i class="fas fa-chart-column"></i></div>
-                                <span class="type-name">Column Chart</span>
-                                <span class="type-desc">Comparación vertical de valores</span>
-                                <div class="type-examples">Revenue mensual, Usuarios activos</div>
+                            <div class="viz-type-card-large" data-complexity="basic"
+                                 data-premium-tooltip="Column Chart|Comparación vertical de valores, ideal para series temporales|Revenue mensual,Usuarios activos,Tendencias|info|fa-chart-column|BÁSICO">
+                                <div class="type-icon-large column"><i class="fas fa-chart-column"></i></div>
+                                <span class="type-name-large">Column Chart</span>
+                                <span class="type-desc-large">Comparación vertical de valores</span>
+                                <div class="type-examples-large">Revenue mensual, Usuarios activos</div>
+                                <span class="complexity-badge basic">Básico</span>
                             </div>
-                            <div class="viz-type-card" data-complexity="intermediate">
-                                <div class="type-icon stacked"><i class="fas fa-layer-group"></i></div>
-                                <span class="type-name">Stacked Bar</span>
-                                <span class="type-desc">Composición dentro de categorías</span>
-                                <div class="type-examples">Mix de productos, Market share</div>
+                            <div class="viz-type-card-large" data-complexity="intermediate"
+                                 data-premium-tooltip="Stacked Bar|Muestra composición dentro de cada categoría apilando segmentos|Mix de productos,Market share,Budget allocation|info|fa-layer-group|INTERMEDIO">
+                                <div class="type-icon-large stacked"><i class="fas fa-layer-group"></i></div>
+                                <span class="type-name-large">Stacked Bar</span>
+                                <span class="type-desc-large">Composición dentro de categorías</span>
+                                <div class="type-examples-large">Mix de productos, Market share</div>
+                                <span class="complexity-badge intermediate">Intermedio</span>
                             </div>
-                            <div class="viz-type-card" data-complexity="advanced">
-                                <div class="type-icon waterfall"><i class="fas fa-water"></i></div>
-                                <span class="type-name">Waterfall</span>
-                                <span class="type-desc">Muestra incrementos/decrementos acumulativos</span>
-                                <div class="type-examples">P&L breakdown, Cash flow</div>
+                            <div class="viz-type-card-large" data-complexity="advanced"
+                                 data-premium-tooltip="Waterfall Chart|Muestra incrementos y decrementos acumulativos desde un valor inicial|P&L breakdown,Cash flow,Variance analysis|info|fa-water|AVANZADO">
+                                <div class="type-icon-large waterfall"><i class="fas fa-water"></i></div>
+                                <span class="type-name-large">Waterfall</span>
+                                <span class="type-desc-large">Muestra incrementos/decrementos acumulativos</span>
+                                <div class="type-examples-large">P&L breakdown, Cash flow</div>
+                                <span class="complexity-badge advanced">Avanzado</span>
                             </div>
                         </div>
                     </div>
@@ -1609,30 +1621,38 @@ default_args = &#123;
                     <!-- Categoría: Tendencias -->
                     <div class="viz-category">
                         <h5 class="category-title"><i class="fas fa-chart-line"></i> Tendencias en el Tiempo</h5>
-                        <div class="viz-types-grid">
-                            <div class="viz-type-card" data-complexity="basic">
-                                <div class="type-icon line"><i class="fas fa-chart-line"></i></div>
-                                <span class="type-name">Line Chart</span>
-                                <span class="type-desc">Evolución continua de métricas</span>
-                                <div class="type-examples">Tendencia ventas, Stock prices</div>
+                        <div class="viz-types-grid-large">
+                            <div class="viz-type-card-large" data-complexity="basic"
+                                 data-premium-tooltip="Line Chart|Muestra evolución continua de métricas a lo largo del tiempo|Tendencia ventas,Stock prices,User growth|info|fa-chart-line|BÁSICO">
+                                <div class="type-icon-large line"><i class="fas fa-chart-line"></i></div>
+                                <span class="type-name-large">Line Chart</span>
+                                <span class="type-desc-large">Evolución continua de métricas</span>
+                                <div class="type-examples-large">Tendencia ventas, Stock prices</div>
+                                <span class="complexity-badge basic">Básico</span>
                             </div>
-                            <div class="viz-type-card" data-complexity="intermediate">
-                                <div class="type-icon area"><i class="fas fa-chart-area"></i></div>
-                                <span class="type-name">Area Chart</span>
-                                <span class="type-desc">Magnitud acumulada en el tiempo</span>
-                                <div class="type-examples">Revenue acumulado, Traffic</div>
+                            <div class="viz-type-card-large" data-complexity="intermediate"
+                                 data-premium-tooltip="Area Chart|Representa magnitud acumulada en el tiempo con área sombreada|Revenue acumulado,Traffic,Stacked trends|info|fa-chart-area|INTERMEDIO">
+                                <div class="type-icon-large area"><i class="fas fa-chart-area"></i></div>
+                                <span class="type-name-large">Area Chart</span>
+                                <span class="type-desc-large">Magnitud acumulada en el tiempo</span>
+                                <div class="type-examples-large">Revenue acumulado, Traffic</div>
+                                <span class="complexity-badge intermediate">Intermedio</span>
                             </div>
-                            <div class="viz-type-card" data-complexity="advanced">
-                                <div class="type-icon sparkline"><i class="fas fa-wave-square"></i></div>
-                                <span class="type-name">Sparklines</span>
-                                <span class="type-desc">Mini-gráficos inline en tablas</span>
-                                <div class="type-examples">KPIs en cards, Tablas de stock</div>
+                            <div class="viz-type-card-large" data-complexity="advanced"
+                                 data-premium-tooltip="Sparklines|Mini-gráficos inline para mostrar tendencias compactas en tablas|KPIs en cards,Tablas de stock,Dashboards|info|fa-wave-square|AVANZADO">
+                                <div class="type-icon-large sparkline"><i class="fas fa-wave-square"></i></div>
+                                <span class="type-name-large">Sparklines</span>
+                                <span class="type-desc-large">Mini-gráficos inline en tablas</span>
+                                <div class="type-examples-large">KPIs en cards, Tablas de stock</div>
+                                <span class="complexity-badge advanced">Avanzado</span>
                             </div>
-                            <div class="viz-type-card" data-complexity="advanced">
-                                <div class="type-icon candlestick"><i class="fas fa-signal"></i></div>
-                                <span class="type-name">Candlestick</span>
-                                <span class="type-desc">Open-High-Low-Close para trading</span>
-                                <div class="type-examples">Stock trading, Crypto analysis</div>
+                            <div class="viz-type-card-large" data-complexity="advanced"
+                                 data-premium-tooltip="Candlestick|Muestra Open-High-Low-Close para análisis de trading financiero|Stock trading,Crypto analysis,Forex|info|fa-signal|AVANZADO">
+                                <div class="type-icon-large candlestick"><i class="fas fa-signal"></i></div>
+                                <span class="type-name-large">Candlestick</span>
+                                <span class="type-desc-large">Open-High-Low-Close para trading</span>
+                                <div class="type-examples-large">Stock trading, Crypto analysis</div>
+                                <span class="complexity-badge advanced">Avanzado</span>
                             </div>
                         </div>
                     </div>
@@ -1640,30 +1660,38 @@ default_args = &#123;
                     <!-- Categoría: Distribución y Relaciones -->
                     <div class="viz-category">
                         <h5 class="category-title"><i class="fas fa-project-diagram"></i> Distribución y Relaciones</h5>
-                        <div class="viz-types-grid">
-                            <div class="viz-type-card" data-complexity="intermediate">
-                                <div class="type-icon scatter"><i class="fas fa-braille"></i></div>
-                                <span class="type-name">Scatter Plot</span>
-                                <span class="type-desc">Correlación entre dos variables</span>
-                                <div class="type-examples">Precio vs Demanda, Age vs Income</div>
+                        <div class="viz-types-grid-large">
+                            <div class="viz-type-card-large" data-complexity="intermediate"
+                                 data-premium-tooltip="Scatter Plot|Visualiza correlación y relación entre dos variables numéricas con puntos|Precio vs Demanda,Edad vs Ingresos,Análisis bivariado|info|fa-braille|INTERMEDIO">
+                                <div class="type-icon-large scatter"><i class="fas fa-braille"></i></div>
+                                <span class="type-name-large">Scatter Plot</span>
+                                <span class="type-desc-large">Correlación entre dos variables</span>
+                                <div class="type-examples-large">Precio vs Demanda, Age vs Income</div>
+                                <span class="complexity-badge intermediate">Intermedio</span>
                             </div>
-                            <div class="viz-type-card" data-complexity="advanced">
-                                <div class="type-icon bubble"><i class="fas fa-circle"></i></div>
-                                <span class="type-name">Bubble Chart</span>
-                                <span class="type-desc">3 variables: X, Y, y tamaño</span>
-                                <div class="type-examples">Market analysis, Risk matrix</div>
+                            <div class="viz-type-card-large" data-complexity="advanced"
+                                 data-premium-tooltip="Bubble Chart|Representa 3 variables: posición X, Y y tamaño del círculo|Análisis de mercado,Matriz de riesgo,Portfolio analysis|info|fa-circle|AVANZADO">
+                                <div class="type-icon-large bubble"><i class="fas fa-circle"></i></div>
+                                <span class="type-name-large">Bubble Chart</span>
+                                <span class="type-desc-large">3 variables: X, Y, y tamaño</span>
+                                <div class="type-examples-large">Market analysis, Risk matrix</div>
+                                <span class="complexity-badge advanced">Avanzado</span>
                             </div>
-                            <div class="viz-type-card" data-complexity="advanced">
-                                <div class="type-icon heatmap"><i class="fas fa-th"></i></div>
-                                <span class="type-name">Heat Map</span>
-                                <span class="type-desc">Densidad de datos en matriz</span>
-                                <div class="type-examples">Correlation matrix, Usage patterns</div>
+                            <div class="viz-type-card-large" data-complexity="advanced"
+                                 data-premium-tooltip="Heat Map|Muestra densidad o intensidad de datos en formato matriz con colores|Matriz de correlación,Patrones de uso,Análisis temporal|info|fa-th|AVANZADO">
+                                <div class="type-icon-large heatmap"><i class="fas fa-th"></i></div>
+                                <span class="type-name-large">Heat Map</span>
+                                <span class="type-desc-large">Densidad de datos en matriz</span>
+                                <div class="type-examples-large">Correlation matrix, Usage patterns</div>
+                                <span class="complexity-badge advanced">Avanzado</span>
                             </div>
-                            <div class="viz-type-card" data-complexity="advanced">
-                                <div class="type-icon treemap"><i class="fas fa-th-large"></i></div>
-                                <span class="type-name">Treemap</span>
-                                <span class="type-desc">Jerarquías con proporciones</span>
-                                <div class="type-examples">Disk usage, Budget allocation</div>
+                            <div class="viz-type-card-large" data-complexity="advanced"
+                                 data-premium-tooltip="Treemap|Representa jerarquías y proporciones usando rectángulos anidados|Uso de disco,Asignación de presupuesto,Estructura organizacional|info|fa-th-large|AVANZADO">
+                                <div class="type-icon-large treemap"><i class="fas fa-th-large"></i></div>
+                                <span class="type-name-large">Treemap</span>
+                                <span class="type-desc-large">Jerarquías con proporciones</span>
+                                <div class="type-examples-large">Disk usage, Budget allocation</div>
+                                <span class="complexity-badge advanced">Avanzado</span>
                             </div>
                         </div>
                     </div>
@@ -1671,30 +1699,38 @@ default_args = &#123;
                     <!-- Categoría: Composición y Proporciones -->
                     <div class="viz-category">
                         <h5 class="category-title"><i class="fas fa-chart-pie"></i> Composición</h5>
-                        <div class="viz-types-grid">
-                            <div class="viz-type-card" data-complexity="basic">
-                                <div class="type-icon pie"><i class="fas fa-chart-pie"></i></div>
-                                <span class="type-name">Pie Chart</span>
-                                <span class="type-desc">Partes de un todo (máx 5-7 slices)</span>
-                                <div class="type-examples">Market share, Budget split</div>
+                        <div class="viz-types-grid-large">
+                            <div class="viz-type-card-large" data-complexity="basic"
+                                 data-premium-tooltip="Pie Chart|Muestra partes de un todo como sectores circulares. Máximo 5-7 categorías|Cuota de mercado,División de presupuesto,Distribución de ventas|info|fa-chart-pie|BÁSICO">
+                                <div class="type-icon-large pie"><i class="fas fa-chart-pie"></i></div>
+                                <span class="type-name-large">Pie Chart</span>
+                                <span class="type-desc-large">Partes de un todo (máx 5-7 slices)</span>
+                                <div class="type-examples-large">Market share, Budget split</div>
+                                <span class="complexity-badge basic">Básico</span>
                             </div>
-                            <div class="viz-type-card" data-complexity="intermediate">
-                                <div class="type-icon donut"><i class="far fa-circle"></i></div>
-                                <span class="type-name">Donut Chart</span>
-                                <span class="type-desc">Pie con KPI central</span>
-                                <div class="type-examples">Completion rate, Goal progress</div>
+                            <div class="viz-type-card-large" data-complexity="intermediate"
+                                 data-premium-tooltip="Donut Chart|Pie chart con centro vacío para mostrar KPI o métrica principal|Tasa de completación,Progreso de objetivos,Score total|info|fa-circle|INTERMEDIO">
+                                <div class="type-icon-large donut"><i class="far fa-circle"></i></div>
+                                <span class="type-name-large">Donut Chart</span>
+                                <span class="type-desc-large">Pie con KPI central</span>
+                                <div class="type-examples-large">Completion rate, Goal progress</div>
+                                <span class="complexity-badge intermediate">Intermedio</span>
                             </div>
-                            <div class="viz-type-card" data-complexity="advanced">
-                                <div class="type-icon sunburst"><i class="fas fa-sun"></i></div>
-                                <span class="type-name">Sunburst</span>
-                                <span class="type-desc">Composición jerárquica multi-nivel</span>
-                                <div class="type-examples">Org breakdown, File system</div>
+                            <div class="viz-type-card-large" data-complexity="advanced"
+                                 data-premium-tooltip="Sunburst|Composición jerárquica en múltiples niveles concéntricos|Estructura organizacional,Sistema de archivos,Taxonomías|info|fa-sun|AVANZADO">
+                                <div class="type-icon-large sunburst"><i class="fas fa-sun"></i></div>
+                                <span class="type-name-large">Sunburst</span>
+                                <span class="type-desc-large">Composición jerárquica multi-nivel</span>
+                                <div class="type-examples-large">Org breakdown, File system</div>
+                                <span class="complexity-badge advanced">Avanzado</span>
                             </div>
-                            <div class="viz-type-card" data-complexity="advanced">
-                                <div class="type-icon sankey"><i class="fas fa-random"></i></div>
-                                <span class="type-name">Sankey Diagram</span>
-                                <span class="type-desc">Flujos y transferencias</span>
-                                <div class="type-examples">User journey, Energy flow</div>
+                            <div class="viz-type-card-large" data-complexity="advanced"
+                                 data-premium-tooltip="Sankey Diagram|Visualiza flujos y transferencias entre nodos con ancho proporcional|Customer journey,Flujo de energía,Conversiones|info|fa-random|AVANZADO">
+                                <div class="type-icon-large sankey"><i class="fas fa-random"></i></div>
+                                <span class="type-name-large">Sankey Diagram</span>
+                                <span class="type-desc-large">Flujos y transferencias</span>
+                                <div class="type-examples-large">User journey, Energy flow</div>
+                                <span class="complexity-badge advanced">Avanzado</span>
                             </div>
                         </div>
                     </div>
@@ -1702,30 +1738,38 @@ default_args = &#123;
                     <!-- Categoría: KPIs y Métricas -->
                     <div class="viz-category">
                         <h5 class="category-title"><i class="fas fa-tachometer-alt"></i> KPIs y Métricas</h5>
-                        <div class="viz-types-grid">
-                            <div class="viz-type-card" data-complexity="basic">
-                                <div class="type-icon kpi"><i class="fas fa-hashtag"></i></div>
-                                <span class="type-name">KPI Card</span>
-                                <span class="type-desc">Número grande con contexto</span>
-                                <div class="type-examples">Revenue actual, Total users</div>
+                        <div class="viz-types-grid-large">
+                            <div class="viz-type-card-large" data-complexity="basic"
+                                 data-premium-tooltip="KPI Card|Número grande prominente con contexto y comparación temporal|Revenue actual,Total usuarios,Métricas principales|info|fa-hashtag|BÁSICO">
+                                <div class="type-icon-large kpi"><i class="fas fa-hashtag"></i></div>
+                                <span class="type-name-large">KPI Card</span>
+                                <span class="type-desc-large">Número grande con contexto</span>
+                                <div class="type-examples-large">Revenue actual, Total users</div>
+                                <span class="complexity-badge basic">Básico</span>
                             </div>
-                            <div class="viz-type-card" data-complexity="intermediate">
-                                <div class="type-icon gauge"><i class="fas fa-tachometer-alt"></i></div>
-                                <span class="type-name">Gauge</span>
-                                <span class="type-desc">Progreso hacia un objetivo</span>
-                                <div class="type-examples">SLA %, Quota attainment</div>
+                            <div class="viz-type-card-large" data-complexity="intermediate"
+                                 data-premium-tooltip="Gauge|Indicador circular o semicircular que muestra progreso hacia un objetivo|SLA %,Cuota de ventas,Performance score|info|fa-tachometer-alt|INTERMEDIO">
+                                <div class="type-icon-large gauge"><i class="fas fa-tachometer-alt"></i></div>
+                                <span class="type-name-large">Gauge</span>
+                                <span class="type-desc-large">Progreso hacia un objetivo</span>
+                                <div class="type-examples-large">SLA %, Quota attainment</div>
+                                <span class="complexity-badge intermediate">Intermedio</span>
                             </div>
-                            <div class="viz-type-card" data-complexity="intermediate">
-                                <div class="type-icon bullet"><i class="fas fa-grip-lines"></i></div>
-                                <span class="type-name">Bullet Chart</span>
-                                <span class="type-desc">Actual vs Target compacto</span>
-                                <div class="type-examples">Sales vs Goal, Performance</div>
+                            <div class="viz-type-card-large" data-complexity="intermediate"
+                                 data-premium-tooltip="Bullet Chart|Compara valor actual vs objetivo en formato compacto horizontal|Ventas vs Meta,Performance review,Budget tracking|info|fa-grip-lines|INTERMEDIO">
+                                <div class="type-icon-large bullet"><i class="fas fa-grip-lines"></i></div>
+                                <span class="type-name-large">Bullet Chart</span>
+                                <span class="type-desc-large">Actual vs Target compacto</span>
+                                <div class="type-examples-large">Sales vs Goal, Performance</div>
+                                <span class="complexity-badge intermediate">Intermedio</span>
                             </div>
-                            <div class="viz-type-card" data-complexity="basic">
-                                <div class="type-icon progress"><i class="fas fa-battery-half"></i></div>
-                                <span class="type-name">Progress Bar</span>
-                                <span class="type-desc">Avance porcentual simple</span>
-                                <div class="type-examples">Project status, Loading</div>
+                            <div class="viz-type-card-large" data-complexity="basic"
+                                 data-premium-tooltip="Progress Bar|Barra horizontal simple que muestra avance porcentual|Estado del proyecto,Loading,Completación de tareas|info|fa-battery-half|BÁSICO">
+                                <div class="type-icon-large progress"><i class="fas fa-battery-half"></i></div>
+                                <span class="type-name-large">Progress Bar</span>
+                                <span class="type-desc-large">Avance porcentual simple</span>
+                                <div class="type-examples-large">Project status, Loading</div>
+                                <span class="complexity-badge basic">Básico</span>
                             </div>
                         </div>
                     </div>
@@ -1733,30 +1777,38 @@ default_args = &#123;
                     <!-- Categoría: Geoespacial y Tablas -->
                     <div class="viz-category">
                         <h5 class="category-title"><i class="fas fa-globe"></i> Geoespacial y Datos Detallados</h5>
-                        <div class="viz-types-grid">
-                            <div class="viz-type-card" data-complexity="intermediate">
-                                <div class="type-icon map"><i class="fas fa-map-marked-alt"></i></div>
-                                <span class="type-name">Choropleth Map</span>
-                                <span class="type-desc">Regiones coloreadas por valor</span>
-                                <div class="type-examples">Sales by country, Demographics</div>
+                        <div class="viz-types-grid-large">
+                            <div class="viz-type-card-large" data-complexity="intermediate"
+                                 data-premium-tooltip="Choropleth Map|Mapa con regiones coloreadas según valor de una métrica|Ventas por país,Demografía,Análisis regional|info|fa-map-marked-alt|INTERMEDIO">
+                                <div class="type-icon-large map"><i class="fas fa-map-marked-alt"></i></div>
+                                <span class="type-name-large">Choropleth Map</span>
+                                <span class="type-desc-large">Regiones coloreadas por valor</span>
+                                <div class="type-examples-large">Sales by country, Demographics</div>
+                                <span class="complexity-badge intermediate">Intermedio</span>
                             </div>
-                            <div class="viz-type-card" data-complexity="advanced">
-                                <div class="type-icon bubble-map"><i class="fas fa-map-pin"></i></div>
-                                <span class="type-name">Bubble Map</span>
-                                <span class="type-desc">Puntos geográficos con magnitud</span>
-                                <div class="type-examples">Store locations, Event density</div>
+                            <div class="viz-type-card-large" data-complexity="advanced"
+                                 data-premium-tooltip="Bubble Map|Mapa con puntos cuyo tamaño representa magnitud del dato|Ubicación de tiendas,Densidad de eventos,Distribución geográfica|info|fa-map-pin|AVANZADO">
+                                <div class="type-icon-large bubble-map"><i class="fas fa-map-pin"></i></div>
+                                <span class="type-name-large">Bubble Map</span>
+                                <span class="type-desc-large">Puntos geográficos con magnitud</span>
+                                <div class="type-examples-large">Store locations, Event density</div>
+                                <span class="complexity-badge advanced">Avanzado</span>
                             </div>
-                            <div class="viz-type-card" data-complexity="basic">
-                                <div class="type-icon table"><i class="fas fa-table"></i></div>
-                                <span class="type-name">Data Table</span>
-                                <span class="type-desc">Detalle granular con ordenamiento</span>
-                                <div class="type-examples">Transaction list, Inventory</div>
+                            <div class="viz-type-card-large" data-complexity="basic"
+                                 data-premium-tooltip="Data Table|Tabla con detalle granular, ordenamiento y filtros interactivos|Lista de transacciones,Inventario,Reportes detallados|info|fa-table|BÁSICO">
+                                <div class="type-icon-large table"><i class="fas fa-table"></i></div>
+                                <span class="type-name-large">Data Table</span>
+                                <span class="type-desc-large">Detalle granular con ordenamiento</span>
+                                <div class="type-examples-large">Transaction list, Inventory</div>
+                                <span class="complexity-badge basic">Básico</span>
                             </div>
-                            <div class="viz-type-card" data-complexity="intermediate">
-                                <div class="type-icon matrix"><i class="fas fa-border-all"></i></div>
-                                <span class="type-name">Matrix/Pivot</span>
-                                <span class="type-desc">Tabla multidimensional dinámica</span>
-                                <div class="type-examples">Sales by region/product, Reports</div>
+                            <div class="viz-type-card-large" data-complexity="intermediate"
+                                 data-premium-tooltip="Matrix/Pivot|Tabla multidimensional con filas y columnas dinámicas|Ventas por región/producto,Análisis cruzado,Reportes financieros|info|fa-border-all|INTERMEDIO">
+                                <div class="type-icon-large matrix"><i class="fas fa-border-all"></i></div>
+                                <span class="type-name-large">Matrix/Pivot</span>
+                                <span class="type-desc-large">Tabla multidimensional dinámica</span>
+                                <div class="type-examples-large">Sales by region/product, Reports</div>
+                                <span class="complexity-badge intermediate">Intermedio</span>
                             </div>
                         </div>
                     </div>
@@ -1794,25 +1846,31 @@ default_args = &#123;
 
                             <!-- Dashboard Tabs -->
                             <div class="dashboard-tabs">
-                                <button class="dash-tab active" data-tab="overview">
+                                <button class="dash-tab active" data-tab="overview"
+                                        data-premium-tooltip="Overview Dashboard|Vista ejecutiva con KPIs principales y métricas de rendimiento general|Revenue,Orders,Conversion|info|fa-home|DASHBOARD">
                                     <i class="fas fa-home"></i> Overview
                                 </button>
-                                <button class="dash-tab" data-tab="regional">
+                                <button class="dash-tab" data-tab="regional"
+                                        data-premium-tooltip="Regional Dashboard|Análisis geográfico de ventas por país, estado y ciudad|Mapas,Comparativas,Drill-down|info|fa-globe-americas|DASHBOARD">
                                     <i class="fas fa-globe-americas"></i> Regional
                                 </button>
-                                <button class="dash-tab" data-tab="products">
+                                <button class="dash-tab" data-tab="products"
+                                        data-premium-tooltip="Products Dashboard|Performance de productos, categorías y análisis de inventario|Top Products,Categories,Stock|info|fa-box|DASHBOARD">
                                     <i class="fas fa-box"></i> Products
                                 </button>
-                                <button class="dash-tab" data-tab="trends">
+                                <button class="dash-tab" data-tab="trends"
+                                        data-premium-tooltip="Trends Dashboard|Análisis temporal con YoY, MoM y forecasting predictivo|Seasonality,Growth,Forecast|info|fa-chart-line|DASHBOARD">
                                     <i class="fas fa-chart-line"></i> Trends
                                 </button>
-                                <button class="dash-tab add-tab">
+                                <button class="dash-tab add-tab"
+                                        data-premium-tooltip="Agregar Dashboard|Crear un nuevo dashboard personalizado en este workbook||tool|fa-plus|ACCIÓN">
                                     <i class="fas fa-plus"></i>
                                 </button>
                             </div>
 
-                            <!-- Dashboard Content Preview -->
-                            <div class="dashboard-preview">
+                            <!-- Dashboard Content Panels -->
+                            <!-- OVERVIEW TAB -->
+                            <div class="dashboard-preview dashboard-panel active" data-panel="overview">
                                 <div class="dash-toolbar">
                                     <div class="toolbar-left">
                                         <span class="dash-title">Executive Overview</span>
@@ -1828,10 +1886,7 @@ default_args = &#123;
                                         <button class="toolbar-btn"><i class="fas fa-sync-alt"></i></button>
                                     </div>
                                 </div>
-
-                                <!-- Dashboard Grid -->
                                 <div class="dash-grid">
-                                    <!-- KPI Row -->
                                     <div class="dash-widget kpi-widget">
                                         <div class="kpi-card">
                                             <span class="kpi-label">Total Revenue</span>
@@ -1860,8 +1915,6 @@ default_args = &#123;
                                             <span class="kpi-trend up"><i class="fas fa-arrow-up"></i> 0.5%</span>
                                         </div>
                                     </div>
-
-                                    <!-- Chart Placeholders -->
                                     <div class="dash-widget chart-widget wide">
                                         <div class="widget-header">
                                             <span class="widget-title">Revenue Trend</span>
@@ -1902,10 +1955,260 @@ default_args = &#123;
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="dash-footer">
                                     <span class="last-refresh"><i class="fas fa-sync-alt"></i> Auto-refresh: 5 min</span>
                                     <span class="data-source">Data source: Snowflake DW</span>
+                                </div>
+                            </div>
+
+                            <!-- REGIONAL TAB -->
+                            <div class="dashboard-preview dashboard-panel" data-panel="regional">
+                                <div class="dash-toolbar">
+                                    <div class="toolbar-left">
+                                        <span class="dash-title">Regional Analysis</span>
+                                        <span class="dash-subtitle">Geographic performance breakdown</span>
+                                    </div>
+                                    <div class="toolbar-right">
+                                        <div class="filter-pills">
+                                            <span class="filter-pill"><i class="fas fa-calendar"></i> YTD 2025</span>
+                                            <span class="filter-pill active"><i class="fas fa-globe"></i> Americas</span>
+                                        </div>
+                                        <button class="toolbar-btn"><i class="fas fa-expand"></i></button>
+                                    </div>
+                                </div>
+                                <div class="dash-grid">
+                                    <div class="dash-widget kpi-widget">
+                                        <div class="kpi-card">
+                                            <span class="kpi-label">LATAM Revenue</span>
+                                            <span class="kpi-value">$1.8M</span>
+                                            <span class="kpi-trend up"><i class="fas fa-arrow-up"></i> 18.3%</span>
+                                        </div>
+                                    </div>
+                                    <div class="dash-widget kpi-widget">
+                                        <div class="kpi-card">
+                                            <span class="kpi-label">NA Revenue</span>
+                                            <span class="kpi-value">$2.1M</span>
+                                            <span class="kpi-trend up"><i class="fas fa-arrow-up"></i> 9.7%</span>
+                                        </div>
+                                    </div>
+                                    <div class="dash-widget kpi-widget">
+                                        <div class="kpi-card">
+                                            <span class="kpi-label">Active Countries</span>
+                                            <span class="kpi-value">28</span>
+                                            <span class="kpi-trend up"><i class="fas fa-arrow-up"></i> +4</span>
+                                        </div>
+                                    </div>
+                                    <div class="dash-widget kpi-widget">
+                                        <div class="kpi-card">
+                                            <span class="kpi-label">Top Region</span>
+                                            <span class="kpi-value">Chile</span>
+                                            <span class="kpi-trend up"><i class="fas fa-flag"></i> #1</span>
+                                        </div>
+                                    </div>
+                                    <div class="dash-widget chart-widget wide">
+                                        <div class="widget-header">
+                                            <span class="widget-title"><i class="fas fa-map-marked-alt"></i> Sales by Country</span>
+                                            <button class="widget-menu"><i class="fas fa-ellipsis-h"></i></button>
+                                        </div>
+                                        <div class="chart-placeholder map-chart">
+                                            <div class="map-placeholder-visual">
+                                                <i class="fas fa-globe-americas"></i>
+                                                <span>Choropleth Map</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dash-widget chart-widget">
+                                        <div class="widget-header">
+                                            <span class="widget-title">Region Comparison</span>
+                                            <button class="widget-menu"><i class="fas fa-ellipsis-h"></i></button>
+                                        </div>
+                                        <div class="chart-placeholder bar-chart horizontal">
+                                            <div class="bar-row"><span>Chile</span><div class="bar" style="width: 95%"></div></div>
+                                            <div class="bar-row"><span>Brasil</span><div class="bar" style="width: 72%"></div></div>
+                                            <div class="bar-row"><span>México</span><div class="bar" style="width: 68%"></div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dash-footer">
+                                    <span class="last-refresh"><i class="fas fa-sync-alt"></i> Updated: 1h ago</span>
+                                    <span class="data-source">Data source: BigQuery</span>
+                                </div>
+                            </div>
+
+                            <!-- PRODUCTS TAB -->
+                            <div class="dashboard-preview dashboard-panel" data-panel="products">
+                                <div class="dash-toolbar">
+                                    <div class="toolbar-left">
+                                        <span class="dash-title">Product Performance</span>
+                                        <span class="dash-subtitle">SKU analysis and inventory</span>
+                                    </div>
+                                    <div class="toolbar-right">
+                                        <div class="filter-pills">
+                                            <span class="filter-pill"><i class="fas fa-calendar"></i> Q4 2024</span>
+                                            <span class="filter-pill"><i class="fas fa-tags"></i> All Categories</span>
+                                        </div>
+                                        <button class="toolbar-btn"><i class="fas fa-expand"></i></button>
+                                    </div>
+                                </div>
+                                <div class="dash-grid">
+                                    <div class="dash-widget kpi-widget">
+                                        <div class="kpi-card">
+                                            <span class="kpi-label">Active SKUs</span>
+                                            <span class="kpi-value">2,847</span>
+                                            <span class="kpi-trend up"><i class="fas fa-arrow-up"></i> +156</span>
+                                        </div>
+                                    </div>
+                                    <div class="dash-widget kpi-widget">
+                                        <div class="kpi-card">
+                                            <span class="kpi-label">Top Category</span>
+                                            <span class="kpi-value">Electronics</span>
+                                            <span class="kpi-trend up"><i class="fas fa-star"></i> 34%</span>
+                                        </div>
+                                    </div>
+                                    <div class="dash-widget kpi-widget">
+                                        <div class="kpi-card">
+                                            <span class="kpi-label">Avg Rating</span>
+                                            <span class="kpi-value">4.6★</span>
+                                            <span class="kpi-trend up"><i class="fas fa-arrow-up"></i> 0.2</span>
+                                        </div>
+                                    </div>
+                                    <div class="dash-widget kpi-widget">
+                                        <div class="kpi-card">
+                                            <span class="kpi-label">Low Stock</span>
+                                            <span class="kpi-value">23</span>
+                                            <span class="kpi-trend down"><i class="fas fa-exclamation-triangle"></i> Alert</span>
+                                        </div>
+                                    </div>
+                                    <div class="dash-widget chart-widget">
+                                        <div class="widget-header">
+                                            <span class="widget-title"><i class="fas fa-trophy"></i> Top 5 Products</span>
+                                            <button class="widget-menu"><i class="fas fa-ellipsis-h"></i></button>
+                                        </div>
+                                        <div class="chart-placeholder bar-chart">
+                                            <div class="bar-item"><span>MacBook Pro</span><div class="bar" style="width: 95%"></div><span class="bar-val">$890K</span></div>
+                                            <div class="bar-item"><span>iPhone 15</span><div class="bar" style="width: 82%"></div><span class="bar-val">$720K</span></div>
+                                            <div class="bar-item"><span>AirPods Pro</span><div class="bar" style="width: 65%"></div><span class="bar-val">$540K</span></div>
+                                            <div class="bar-item"><span>iPad Air</span><div class="bar" style="width: 58%"></div><span class="bar-val">$480K</span></div>
+                                            <div class="bar-item"><span>Apple Watch</span><div class="bar" style="width: 45%"></div><span class="bar-val">$380K</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="dash-widget chart-widget">
+                                        <div class="widget-header">
+                                            <span class="widget-title"><i class="fas fa-chart-pie"></i> Category Mix</span>
+                                            <button class="widget-menu"><i class="fas fa-ellipsis-h"></i></button>
+                                        </div>
+                                        <div class="chart-placeholder pie-chart">
+                                            <div class="pie-visual products"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dash-footer">
+                                    <span class="last-refresh"><i class="fas fa-sync-alt"></i> Updated: 30m ago</span>
+                                    <span class="data-source">Data source: Databricks</span>
+                                </div>
+                            </div>
+
+                            <!-- TRENDS TAB -->
+                            <div class="dashboard-preview dashboard-panel" data-panel="trends">
+                                <div class="dash-toolbar">
+                                    <div class="toolbar-left">
+                                        <span class="dash-title">Trends & Forecasting</span>
+                                        <span class="dash-subtitle">Historical analysis and predictions</span>
+                                    </div>
+                                    <div class="toolbar-right">
+                                        <div class="filter-pills">
+                                            <span class="filter-pill"><i class="fas fa-calendar"></i> 2023-2025</span>
+                                            <span class="filter-pill"><i class="fas fa-robot"></i> ML Forecast</span>
+                                        </div>
+                                        <button class="toolbar-btn"><i class="fas fa-expand"></i></button>
+                                    </div>
+                                </div>
+                                <div class="dash-grid">
+                                    <div class="dash-widget kpi-widget">
+                                        <div class="kpi-card">
+                                            <span class="kpi-label">YoY Growth</span>
+                                            <span class="kpi-value">+24.5%</span>
+                                            <span class="kpi-trend up"><i class="fas fa-rocket"></i> Strong</span>
+                                        </div>
+                                    </div>
+                                    <div class="dash-widget kpi-widget">
+                                        <div class="kpi-card">
+                                            <span class="kpi-label">Q1 2025 Forecast</span>
+                                            <span class="kpi-value">$5.8M</span>
+                                            <span class="kpi-trend up"><i class="fas fa-chart-line"></i> +38%</span>
+                                        </div>
+                                    </div>
+                                    <div class="dash-widget kpi-widget">
+                                        <div class="kpi-card">
+                                            <span class="kpi-label">Peak Season</span>
+                                            <span class="kpi-value">Nov-Dec</span>
+                                            <span class="kpi-trend up"><i class="fas fa-snowflake"></i> +65%</span>
+                                        </div>
+                                    </div>
+                                    <div class="dash-widget kpi-widget">
+                                        <div class="kpi-card">
+                                            <span class="kpi-label">Model Accuracy</span>
+                                            <span class="kpi-value">94.2%</span>
+                                            <span class="kpi-trend up"><i class="fas fa-bullseye"></i> High</span>
+                                        </div>
+                                    </div>
+                                    <div class="dash-widget chart-widget wide">
+                                        <div class="widget-header">
+                                            <span class="widget-title"><i class="fas fa-chart-area"></i> Revenue Trend with Forecast</span>
+                                            <button class="widget-menu"><i class="fas fa-ellipsis-h"></i></button>
+                                        </div>
+                                        <div class="chart-placeholder line-chart forecast">
+                                            <svg viewBox="0 0 400 100" preserveAspectRatio="none">
+                                                <!-- Historical data -->
+                                                <path d="M0,90 C30,85 60,75 90,70 C120,65 150,55 180,45 C210,40 240,35 270,30"
+                                                      fill="none" stroke="#22d3ee" stroke-width="2"/>
+                                                <!-- Forecast (dashed) -->
+                                                <path d="M270,30 C300,25 330,18 360,12 C380,8 400,5 400,5"
+                                                      fill="none" stroke="#a855f7" stroke-width="2" stroke-dasharray="5,3"/>
+                                                <!-- Confidence interval -->
+                                                <path d="M270,35 C300,32 330,28 360,22 C380,18 400,15 400,15 L400,0 L270,25 Z"
+                                                      fill="rgba(168,85,247,0.1)"/>
+                                            </svg>
+                                            <div class="forecast-legend">
+                                                <span class="legend-item"><span class="dot actual"></span> Actual</span>
+                                                <span class="legend-item"><span class="dot forecast"></span> Forecast</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dash-widget chart-widget">
+                                        <div class="widget-header">
+                                            <span class="widget-title"><i class="fas fa-calendar-alt"></i> Seasonality</span>
+                                            <button class="widget-menu"><i class="fas fa-ellipsis-h"></i></button>
+                                        </div>
+                                        <div class="chart-placeholder heatmap-chart">
+                                            <div class="heatmap-grid">
+                                                <div class="heatmap-row">
+                                                    <span class="month">Jan</span><span class="cell low"></span>
+                                                    <span class="month">Feb</span><span class="cell low"></span>
+                                                    <span class="month">Mar</span><span class="cell med"></span>
+                                                </div>
+                                                <div class="heatmap-row">
+                                                    <span class="month">Apr</span><span class="cell med"></span>
+                                                    <span class="month">May</span><span class="cell med"></span>
+                                                    <span class="month">Jun</span><span class="cell high"></span>
+                                                </div>
+                                                <div class="heatmap-row">
+                                                    <span class="month">Jul</span><span class="cell med"></span>
+                                                    <span class="month">Aug</span><span class="cell low"></span>
+                                                    <span class="month">Sep</span><span class="cell med"></span>
+                                                </div>
+                                                <div class="heatmap-row">
+                                                    <span class="month">Oct</span><span class="cell high"></span>
+                                                    <span class="month">Nov</span><span class="cell very-high"></span>
+                                                    <span class="month">Dec</span><span class="cell very-high"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dash-footer">
+                                    <span class="last-refresh"><i class="fas fa-brain"></i> ML Model: Prophet + XGBoost</span>
+                                    <span class="data-source">Data source: Databricks ML</span>
                                 </div>
                             </div>
                         </div>
@@ -2767,4 +3070,44 @@ default_args = &#123;
     // Add event listeners for both initial load and Astro View Transitions
     document.addEventListener('DOMContentLoaded', initPipelineButtons);
     document.addEventListener('astro:page-load', initPipelineButtons);
+
+    // ===== Dashboard Tab Switcher =====
+    function switchDashboardTab(tabName) {
+        // Update tabs - remove active from all, add to clicked
+        var tabs = document.querySelectorAll('.dash-tab');
+        tabs.forEach(function(tab) {
+            tab.classList.remove('active');
+            if (tab.dataset.tab === tabName) {
+                tab.classList.add('active');
+            }
+        });
+
+        // Update panels - hide all, show selected
+        var panels = document.querySelectorAll('.dashboard-panel');
+        panels.forEach(function(panel) {
+            panel.classList.remove('active');
+        });
+
+        var targetPanel = document.querySelector('.dashboard-panel[data-panel="' + tabName + '"]');
+        if (targetPanel) {
+            targetPanel.classList.add('active');
+        }
+    }
+
+    // Initialize dashboard tabs
+    function initDashboardTabs() {
+        var dashTabs = document.querySelectorAll('.dash-tab[data-tab]');
+        dashTabs.forEach(function(tab) {
+            tab.onclick = function() {
+                var tabName = this.dataset.tab;
+                if (tabName) {
+                    switchDashboardTab(tabName);
+                }
+            };
+        });
+    }
+
+    // Add event listeners for dashboard tabs
+    document.addEventListener('DOMContentLoaded', initDashboardTabs);
+    document.addEventListener('astro:page-load', initDashboardTabs);
 </script>

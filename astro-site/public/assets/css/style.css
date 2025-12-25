@@ -17687,6 +17687,376 @@ section {
 }
 
 /* ============================================
+   LARGE VISUALIZATION TYPE CARDS (24 Types)
+   ============================================ */
+
+.viz-types-grid-large {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  padding: 0.5rem 0;
+}
+
+.viz-type-card-large {
+  position: relative;
+  background: linear-gradient(145deg, rgba(30, 30, 50, 0.7), rgba(20, 20, 35, 0.9));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.viz-type-card-large::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #22d3ee, #a855f7, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.viz-type-card-large:hover {
+  transform: translateY(-5px);
+  border-color: rgba(34, 211, 238, 0.4);
+  box-shadow: 0 12px 35px rgba(34, 211, 238, 0.15);
+}
+
+.viz-type-card-large:hover::before {
+  opacity: 1;
+}
+
+/* Icon container */
+.type-icon-large {
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.type-icon-large i {
+  color: #f8fafc;
+}
+
+/* Complexity-based icon colors */
+.viz-type-card-large[data-complexity="basic"] .type-icon-large {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(16, 185, 129, 0.1));
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.viz-type-card-large[data-complexity="basic"] .type-icon-large i {
+  color: #10b981;
+}
+
+.viz-type-card-large[data-complexity="intermediate"] .type-icon-large {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.25), rgba(59, 130, 246, 0.1));
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+.viz-type-card-large[data-complexity="intermediate"] .type-icon-large i {
+  color: #3b82f6;
+}
+
+.viz-type-card-large[data-complexity="advanced"] .type-icon-large {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(168, 85, 247, 0.1));
+  border-color: rgba(168, 85, 247, 0.4);
+}
+
+.viz-type-card-large[data-complexity="advanced"] .type-icon-large i {
+  color: #a855f7;
+}
+
+.type-name-large {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #f8fafc;
+  line-height: 1.2;
+}
+
+.type-desc-large {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  line-height: 1.4;
+}
+
+.type-examples-large {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-style: italic;
+  padding-top: 0.5rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+  width: 100%;
+}
+
+/* Complexity Badge */
+.complexity-badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.complexity-badge.basic {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.complexity-badge.intermediate {
+  background: rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.complexity-badge.advanced {
+  background: rgba(168, 85, 247, 0.15);
+  color: #a855f7;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+/* ============================================
+   DASHBOARD PANEL VISIBILITY
+   ============================================ */
+
+.dashboard-panel {
+  display: none;
+}
+
+.dashboard-panel.active {
+  display: block;
+  animation: fadeInPanel 0.3s ease;
+}
+
+@keyframes fadeInPanel {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Additional dashboard styles for new tabs */
+.map-chart {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-placeholder-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: #64748b;
+}
+
+.map-placeholder-visual i {
+  font-size: 2.5rem;
+  color: #22d3ee;
+}
+
+.bar-chart.horizontal .bar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.bar-chart.horizontal .bar-row span {
+  width: 50px;
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.bar-chart .bar-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.bar-chart .bar-item span:first-child {
+  width: 80px;
+  font-size: 0.7rem;
+  color: #94a3b8;
+  text-align: right;
+}
+
+.bar-chart .bar-item .bar-val {
+  font-size: 0.7rem;
+  color: #22d3ee;
+  font-weight: 600;
+}
+
+/* Forecast chart styles */
+.line-chart.forecast {
+  position: relative;
+}
+
+.forecast-legend {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 0.75rem;
+}
+
+.forecast-legend .legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  color: #94a3b8;
+}
+
+.forecast-legend .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.forecast-legend .dot.actual {
+  background: #22d3ee;
+}
+
+.forecast-legend .dot.forecast {
+  background: #a855f7;
+}
+
+/* Heatmap styles */
+.heatmap-chart {
+  padding: 0.5rem;
+}
+
+.heatmap-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.heatmap-row {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+}
+
+.heatmap-row .month {
+  width: 28px;
+  font-size: 0.6rem;
+  color: #64748b;
+  text-align: right;
+}
+
+.heatmap-row .cell {
+  width: 24px;
+  height: 20px;
+  border-radius: 3px;
+}
+
+.heatmap-row .cell.low {
+  background: rgba(34, 211, 238, 0.2);
+}
+
+.heatmap-row .cell.med {
+  background: rgba(34, 211, 238, 0.4);
+}
+
+.heatmap-row .cell.high {
+  background: rgba(168, 85, 247, 0.5);
+}
+
+.heatmap-row .cell.very-high {
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+}
+
+/* Light mode for large viz cards */
+[data-theme="light"] .viz-type-card-large {
+  background: linear-gradient(145deg, #ffffff, #f8fafc);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .viz-type-card-large:hover {
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .type-name-large {
+  color: #1e293b;
+}
+
+[data-theme="light"] .type-desc-large {
+  color: #64748b;
+}
+
+[data-theme="light"] .type-examples-large {
+  color: #94a3b8;
+  border-top-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .complexity-badge.basic {
+  background: rgba(16, 185, 129, 0.1);
+}
+
+[data-theme="light"] .complexity-badge.intermediate {
+  background: rgba(59, 130, 246, 0.1);
+}
+
+[data-theme="light"] .complexity-badge.advanced {
+  background: rgba(168, 85, 247, 0.1);
+}
+
+/* Responsive for viz cards large */
+@media (max-width: 1200px) {
+  .viz-types-grid-large {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .viz-types-grid-large {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .viz-type-card-large {
+    padding: 1.25rem;
+  }
+
+  .type-icon-large {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .viz-types-grid-large {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
    DASHBOARD & WORKBOOK STRUCTURE STYLES
    ============================================ */
 
