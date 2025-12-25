@@ -13128,9 +13128,183 @@ section {
 }
 
 /* ============================================
-   BACK TO TOP BUTTON
+   SCROLL NAVIGATION BUTTONS (FAB)
+   Dual buttons: ↑ Back to Top & ↓ Go to Footer
    ============================================ */
 
+.scroll-nav-buttons {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  z-index: 9999;
+}
+
+.scroll-nav-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.8);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Scroll Down Button - Cyan/Purple gradient */
+.scroll-down-btn {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.15) 0%, rgba(124, 58, 237, 0.15) 100%);
+  border-color: rgba(0, 212, 255, 0.3);
+  color: #00d4ff;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(0, 212, 255, 0.1);
+}
+
+/* Scroll Up Button - Purple/Pink gradient */
+.scroll-up-btn {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.15) 0%, rgba(236, 72, 153, 0.15) 100%);
+  border-color: rgba(124, 58, 237, 0.3);
+  color: #a78bfa;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(124, 58, 237, 0.1);
+}
+
+/* Visible state */
+.scroll-nav-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+/* Hover effects */
+.scroll-down-btn:hover {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.3) 0%, rgba(124, 58, 237, 0.3) 100%);
+  border-color: rgba(0, 212, 255, 0.6);
+  transform: translateY(-3px) scale(1.08);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.4),
+    0 0 50px rgba(0, 212, 255, 0.25);
+}
+
+.scroll-up-btn:hover {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.3) 0%, rgba(236, 72, 153, 0.3) 100%);
+  border-color: rgba(124, 58, 237, 0.6);
+  transform: translateY(-3px) scale(1.08);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.4),
+    0 0 50px rgba(124, 58, 237, 0.25);
+}
+
+/* Active state */
+.scroll-nav-btn:active {
+  transform: translateY(-1px) scale(1);
+}
+
+/* Icon animations */
+.scroll-nav-btn i {
+  transition: transform 0.2s ease;
+}
+
+.scroll-down-btn:hover i {
+  animation: bounceDown 0.6s ease-in-out infinite;
+}
+
+.scroll-up-btn:hover i {
+  animation: bounceUp 0.6s ease-in-out infinite;
+}
+
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+@keyframes bounceUp {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Ripple effect on click */
+.scroll-nav-btn::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.scroll-nav-btn:active::after {
+  transform: scale(2);
+  opacity: 0;
+}
+
+/* Light mode */
+[data-theme="light"] .scroll-down-btn {
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.12) 0%, rgba(124, 58, 237, 0.12) 100%);
+  border-color: rgba(8, 145, 178, 0.35);
+  color: #0891b2;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.1),
+    0 0 30px rgba(8, 145, 178, 0.08);
+}
+
+[data-theme="light"] .scroll-up-btn {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.12) 0%, rgba(219, 39, 119, 0.12) 100%);
+  border-color: rgba(124, 58, 237, 0.35);
+  color: #7c3aed;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.1),
+    0 0 30px rgba(124, 58, 237, 0.08);
+}
+
+[data-theme="light"] .scroll-down-btn:hover {
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.22) 0%, rgba(124, 58, 237, 0.22) 100%);
+  border-color: rgba(8, 145, 178, 0.55);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.15),
+    0 0 40px rgba(8, 145, 178, 0.15);
+}
+
+[data-theme="light"] .scroll-up-btn:hover {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.22) 0%, rgba(219, 39, 119, 0.22) 100%);
+  border-color: rgba(124, 58, 237, 0.55);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.15),
+    0 0 40px rgba(124, 58, 237, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .scroll-nav-buttons {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    gap: 0.6rem;
+  }
+
+  .scroll-nav-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 1rem;
+  }
+}
+
+/* Legacy support - keep back-to-top-btn working for old references */
 .back-to-top-btn {
   position: fixed;
   bottom: 2rem;
@@ -13162,56 +13336,6 @@ section {
   opacity: 1;
   visibility: visible;
   transform: translateY(0) scale(1);
-}
-
-.back-to-top-btn:hover {
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.25) 0%, rgba(124, 58, 237, 0.25) 100%);
-  border-color: rgba(0, 212, 255, 0.5);
-  transform: translateY(-3px) scale(1.05);
-  box-shadow:
-    0 8px 30px rgba(0, 0, 0, 0.4),
-    0 0 40px rgba(0, 212, 255, 0.2);
-}
-
-.back-to-top-btn:active {
-  transform: translateY(-1px) scale(1);
-}
-
-.back-to-top-btn i {
-  transition: transform 0.2s ease;
-}
-
-.back-to-top-btn:hover i {
-  transform: translateY(-2px);
-}
-
-/* Light mode */
-[data-theme="light"] .back-to-top-btn {
-  background: linear-gradient(135deg, rgba(8, 145, 178, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%);
-  border-color: rgba(8, 145, 178, 0.3);
-  color: #0891b2;
-  box-shadow:
-    0 4px 20px rgba(0, 0, 0, 0.1),
-    0 0 30px rgba(8, 145, 178, 0.05);
-}
-
-[data-theme="light"] .back-to-top-btn:hover {
-  background: linear-gradient(135deg, rgba(8, 145, 178, 0.2) 0%, rgba(124, 58, 237, 0.2) 100%);
-  border-color: rgba(8, 145, 178, 0.5);
-  box-shadow:
-    0 8px 30px rgba(0, 0, 0, 0.15),
-    0 0 40px rgba(8, 145, 178, 0.1);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .back-to-top-btn {
-    bottom: 1.5rem;
-    right: 1.5rem;
-    width: 44px;
-    height: 44px;
-    font-size: 1rem;
-  }
 }
 
 /* ============================================

@@ -132,10 +132,17 @@ const BUILD_VERSION = Date.now().toString(36);
     <!-- Scroll Progress Bar -->
     <div id="scroll-progress" class="scroll-progress-bar"></div>
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="back-to-top-btn" aria-label="Volver arriba">
-        <i class="fas fa-chevron-up"></i>
-    </button>
+    <!-- Scroll Navigation Buttons (FAB - Floating Action Buttons) -->
+    <div class="scroll-nav-buttons">
+        <button id="scroll-to-bottom" class="scroll-nav-btn scroll-down-btn" aria-label="Ir al footer"
+                data-premium-tooltip="Ir al Footer|Scroll suave al final de la página||feature|fa-arrow-down|NAVEGACIÓN">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <button id="back-to-top" class="scroll-nav-btn scroll-up-btn" aria-label="Volver arriba"
+                data-premium-tooltip="Volver Arriba|Scroll suave al inicio de la página||feature|fa-arrow-up|NAVEGACIÓN">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+    </div>
 
     <!-- Toast Notifications Container -->
     <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
@@ -462,16 +469,17 @@ const BUILD_VERSION = Date.now().toString(36);
         document.addEventListener('astro:page-load', initTooltipSystem);
 
         // ============================================
-        // SCROLL PROGRESS BAR & BACK TO TOP
+        // SCROLL PROGRESS BAR & SCROLL NAVIGATION
         // ============================================
 
         function initScrollFeatures() {
             const progressBar = document.getElementById('scroll-progress');
             const backToTopBtn = document.getElementById('back-to-top');
+            const scrollToBottomBtn = document.getElementById('scroll-to-bottom');
 
-            if (!progressBar || !backToTopBtn) return;
+            if (!progressBar) return;
 
-            // Scroll progress calculation
+            // Scroll progress calculation and button visibility
             function updateScrollProgress() {
                 const scrollTop = window.scrollY;
                 const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -479,11 +487,27 @@ const BUILD_VERSION = Date.now().toString(36);
 
                 progressBar.style.width = scrollPercent + '%';
 
-                // Show/hide back to top button
-                if (scrollTop > 300) {
-                    backToTopBtn.classList.add('visible');
-                } else {
-                    backToTopBtn.classList.remove('visible');
+                // Determine which button to show based on scroll position
+                const showDownThreshold = 300;  // Show "down" button when near top
+                const showUpThreshold = 300;    // Show "up" button when scrolled down
+                const nearBottom = scrollPercent > 90; // Near bottom of page
+
+                // Scroll Down button: visible when near top, hidden when scrolled down or near bottom
+                if (scrollToBottomBtn) {
+                    if (scrollTop < showDownThreshold && !nearBottom) {
+                        scrollToBottomBtn.classList.add('visible');
+                    } else {
+                        scrollToBottomBtn.classList.remove('visible');
+                    }
+                }
+
+                // Scroll Up button: visible when scrolled down past threshold
+                if (backToTopBtn) {
+                    if (scrollTop > showUpThreshold) {
+                        backToTopBtn.classList.add('visible');
+                    } else {
+                        backToTopBtn.classList.remove('visible');
+                    }
                 }
             }
 
@@ -500,12 +524,31 @@ const BUILD_VERSION = Date.now().toString(36);
             }
 
             // Back to top click handler
-            backToTopBtn.onclick = function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            };
+            if (backToTopBtn) {
+                backToTopBtn.onclick = function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                };
+            }
+
+            // Scroll to bottom click handler
+            if (scrollToBottomBtn) {
+                scrollToBottomBtn.onclick = function() {
+                    // Find the footer element
+                    const footer = document.querySelector('footer') || document.querySelector('.footer-compact');
+                    if (footer) {
+                        footer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else {
+                        // Fallback: scroll to bottom of page
+                        window.scrollTo({
+                            top: document.documentElement.scrollHeight,
+                            behavior: 'smooth'
+                        });
+                    }
+                };
+            }
 
             // Bind scroll event
             window.removeEventListener('scroll', onScroll);
