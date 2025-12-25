@@ -502,21 +502,12 @@ const BUILD_VERSION = Date.now().toString(36);
 
                     const shouldShow = scrollPercent > 8 && scrollPercent < 90 && !footerBtnWasClicked;
                     const isVisible = scrollToBottomBtn.classList.contains('visible');
-                    const isHiding = scrollToBottomBtn.classList.contains('hiding');
-                    
-                    if (shouldShow && !isVisible && !isHiding) {
-                        // SHOW: Remove hiding, force reflow to restart animation (MDN recommended)
-                        scrollToBottomBtn.classList.remove('hiding');
-                        void scrollToBottomBtn.offsetWidth; // Force reflow - MDN trick
+
+                    // Simple toggle - CSS handles the animation via transitions
+                    if (shouldShow && !isVisible) {
                         scrollToBottomBtn.classList.add('visible');
-                    } else if (!shouldShow && isVisible && !isHiding) {
-                        // HIDE: Use exit animation
+                    } else if (!shouldShow && isVisible) {
                         scrollToBottomBtn.classList.remove('visible');
-                        scrollToBottomBtn.classList.add('hiding');
-                        // Remove hiding class after animation completes
-                        setTimeout(() => {
-                            scrollToBottomBtn.classList.remove('hiding');
-                        }, 400); // Match animation duration
                     }
                 }
 

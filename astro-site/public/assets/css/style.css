@@ -13654,69 +13654,26 @@ section {
   transition: background 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-/* Scroll Down Button (↓) - TOP RIGHT - Animated Entrance */
+/* Scroll Down Button (↓) - TOP RIGHT */
 .scroll-down-btn {
   top: 6rem;
   background: linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(124, 58, 237, 0.2) 100%);
   border-color: rgba(0, 212, 255, 0.4);
   color: #00d4ff;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 212, 255, 0.15);
-  /* Hidden state - starts off-screen */
+  /* Hidden by default */
   opacity: 0;
-  transform: translateX(100px) scale(0.2) rotate(45deg);
+  transform: translateX(50px) scale(0.5);
   pointer-events: none;
-  visibility: hidden;
-  /* Only transition non-animated properties */
-  transition: background 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  /* Simple transition for show/hide */
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Visible state - triggers entrance animation */
+/* Visible state - simple and reliable */
 .scroll-down-btn.visible {
-  visibility: visible;
+  opacity: 1;
+  transform: translateX(0) scale(1);
   pointer-events: auto;
-  /* Animation handles opacity and transform - no transition conflict */
-  animation: scrollBtnEnter 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
-
-/* Hidden state - exit animation */
-.scroll-down-btn.hiding {
-  animation: scrollBtnExit 0.4s ease-in forwards;
-}
-
-/* Dramatic entrance animation */
-@keyframes scrollBtnEnter {
-  0% {
-    opacity: 0;
-    transform: translateX(100px) scale(0.2) rotate(45deg);
-    visibility: visible;
-  }
-  30% {
-    opacity: 0.9;
-    transform: translateX(-15px) scale(1.2) rotate(-8deg);
-  }
-  60% {
-    transform: translateX(8px) scale(0.9) rotate(4deg);
-  }
-  80% {
-    transform: translateX(-3px) scale(1.05) rotate(-1deg);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0) scale(1) rotate(0deg);
-  }
-}
-
-/* Quick exit animation */
-@keyframes scrollBtnExit {
-  0% {
-    opacity: 1;
-    transform: translateX(0) scale(1) rotate(0deg);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(60px) translateY(-30px) scale(0.3) rotate(-20deg);
-    visibility: hidden;
-  }
 }
 
 /* Scroll Up Button (↑) - BOTTOM RIGHT - Always Visible */
