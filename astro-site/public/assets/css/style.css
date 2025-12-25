@@ -13129,20 +13129,14 @@ section {
 
 /* ============================================
    SCROLL NAVIGATION BUTTONS (FAB)
-   Dual buttons: ↑ Back to Top & ↓ Go to Footer
+   ↓ Jump to Footer = TOP RIGHT (appears after small scroll)
+   ↑ Back to Top = BOTTOM RIGHT (appears after significant scroll)
    ============================================ */
 
-.scroll-nav-buttons {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  z-index: 9999;
-}
-
+/* Base styles for both buttons */
 .scroll-nav-btn {
+  position: fixed;
+  right: 2rem;
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -13154,16 +13148,17 @@ section {
   font-size: 1.1rem;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(20px) scale(0.8);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  position: relative;
   overflow: hidden;
+  z-index: 9999;
 }
 
-/* Scroll Down Button - Cyan/Purple gradient */
+/* Scroll Down Button (↓) - TOP RIGHT */
 .scroll-down-btn {
+  top: 6rem; /* Below header */
+  transform: translateX(20px) scale(0.8);
   background: linear-gradient(135deg, rgba(0, 212, 255, 0.15) 0%, rgba(124, 58, 237, 0.15) 100%);
   border-color: rgba(0, 212, 255, 0.3);
   color: #00d4ff;
@@ -13172,8 +13167,10 @@ section {
     0 0 30px rgba(0, 212, 255, 0.1);
 }
 
-/* Scroll Up Button - Purple/Pink gradient */
+/* Scroll Up Button (↑) - BOTTOM RIGHT */
 .scroll-up-btn {
+  bottom: 2rem;
+  transform: translateY(20px) scale(0.8);
   background: linear-gradient(135deg, rgba(124, 58, 237, 0.15) 0%, rgba(236, 72, 153, 0.15) 100%);
   border-color: rgba(124, 58, 237, 0.3);
   color: #a78bfa;
@@ -13182,8 +13179,14 @@ section {
     0 0 30px rgba(124, 58, 237, 0.1);
 }
 
-/* Visible state */
-.scroll-nav-btn.visible {
+/* Visible states - different animations for each position */
+.scroll-down-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0) scale(1);
+}
+
+.scroll-up-btn.visible {
   opacity: 1;
   visibility: visible;
   transform: translateY(0) scale(1);
@@ -13193,7 +13196,7 @@ section {
 .scroll-down-btn:hover {
   background: linear-gradient(135deg, rgba(0, 212, 255, 0.3) 0%, rgba(124, 58, 237, 0.3) 100%);
   border-color: rgba(0, 212, 255, 0.6);
-  transform: translateY(-3px) scale(1.08);
+  transform: translateX(-3px) scale(1.08);
   box-shadow:
     0 8px 30px rgba(0, 0, 0, 0.4),
     0 0 50px rgba(0, 212, 255, 0.25);
@@ -13209,7 +13212,11 @@ section {
 }
 
 /* Active state */
-.scroll-nav-btn:active {
+.scroll-down-btn:active {
+  transform: translateX(-1px) scale(1);
+}
+
+.scroll-up-btn:active {
   transform: translateY(-1px) scale(1);
 }
 
@@ -13291,10 +13298,14 @@ section {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .scroll-nav-buttons {
+  .scroll-down-btn {
+    top: 5rem;
+    right: 1.5rem;
+  }
+
+  .scroll-up-btn {
     bottom: 1.5rem;
     right: 1.5rem;
-    gap: 0.6rem;
   }
 
   .scroll-nav-btn {

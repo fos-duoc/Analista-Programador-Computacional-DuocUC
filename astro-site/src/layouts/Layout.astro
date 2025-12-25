@@ -133,16 +133,17 @@ const BUILD_VERSION = Date.now().toString(36);
     <div id="scroll-progress" class="scroll-progress-bar"></div>
 
     <!-- Scroll Navigation Buttons (FAB - Floating Action Buttons) -->
-    <div class="scroll-nav-buttons">
-        <button id="scroll-to-bottom" class="scroll-nav-btn scroll-down-btn" aria-label="Ir al footer"
-                data-premium-tooltip="Ir al Footer|Scroll suave al final de la página||feature|fa-arrow-down|NAVEGACIÓN">
-            <i class="fas fa-chevron-down"></i>
-        </button>
-        <button id="back-to-top" class="scroll-nav-btn scroll-up-btn" aria-label="Volver arriba"
-                data-premium-tooltip="Volver Arriba|Scroll suave al inicio de la página||feature|fa-arrow-up|NAVEGACIÓN">
-            <i class="fas fa-chevron-up"></i>
-        </button>
-    </div>
+    <!-- Jump to Footer - Top Right (appears after small scroll) -->
+    <button id="scroll-to-bottom" class="scroll-nav-btn scroll-down-btn" aria-label="Ir al footer"
+            data-premium-tooltip="Ir al Footer|Scroll suave al final de la página||feature|fa-arrow-down|NAVEGACIÓN">
+        <i class="fas fa-chevron-down"></i>
+    </button>
+
+    <!-- Back to Top - Bottom Right (appears after significant scroll) -->
+    <button id="back-to-top" class="scroll-nav-btn scroll-up-btn" aria-label="Volver arriba"
+            data-premium-tooltip="Volver Arriba|Scroll suave al inicio de la página||feature|fa-arrow-up|NAVEGACIÓN">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
     <!-- Toast Notifications Container -->
     <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
@@ -487,23 +488,29 @@ const BUILD_VERSION = Date.now().toString(36);
 
                 progressBar.style.width = scrollPercent + '%';
 
-                // Determine which button to show based on scroll position
-                const showDownThreshold = 300;  // Show "down" button when near top
-                const showUpThreshold = 300;    // Show "up" button when scrolled down
-                const nearBottom = scrollPercent > 90; // Near bottom of page
+                // Thresholds for button visibility
+                const minScrollToShowButtons = 100;  // Don't show any button until scrolled 100px
+                const showDownAfter = 100;           // Show ↓ after 100px scroll
+                const showUpAfter = 400;             // Show ↑ after 400px scroll
+                const nearBottom = scrollPercent > 85; // Near bottom of page
 
-                // Scroll Down button: visible when near top, hidden when scrolled down or near bottom
+                // Jump to Footer button (↓):
+                // - NOT visible at absolute top (scrollTop < minScrollToShowButtons)
+                // - Visible after small scroll (100-400px)
+                // - Hidden when near bottom (already at footer)
                 if (scrollToBottomBtn) {
-                    if (scrollTop < showDownThreshold && !nearBottom) {
+                    if (scrollTop >= showDownAfter && scrollTop < showUpAfter && !nearBottom) {
                         scrollToBottomBtn.classList.add('visible');
                     } else {
                         scrollToBottomBtn.classList.remove('visible');
                     }
                 }
 
-                // Scroll Up button: visible when scrolled down past threshold
+                // Back to Top button (↑):
+                // - NOT visible at top
+                // - Visible after significant scroll (400px+)
                 if (backToTopBtn) {
-                    if (scrollTop > showUpThreshold) {
+                    if (scrollTop >= showUpAfter) {
                         backToTopBtn.classList.add('visible');
                     } else {
                         backToTopBtn.classList.remove('visible');
