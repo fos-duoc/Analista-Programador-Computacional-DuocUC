@@ -132,23 +132,15 @@ const BUILD_VERSION = Date.now().toString(36);
     <!-- Scroll Progress Bar -->
     <div id="scroll-progress" class="scroll-progress-bar"></div>
 
-    <!-- Scroll Navigation Buttons (FAB - Floating Action Buttons) -->
-    <!-- Jump to Footer - Top Right (appears after small scroll) -->
-    <button id="scroll-to-bottom" class="scroll-nav-btn scroll-down-btn" aria-label="Ir al footer"
-            data-premium-tooltip="Ir al Footer|Scroll suave al final de la página||feature|fa-arrow-down|NAVEGACIÓN">
-        <span class="scroll-btn-icon">
-            <i class="fas fa-angles-down"></i>
-        </span>
-        <span class="scroll-btn-pulse"></span>
+    <!-- Scroll Navigation Buttons (Static FAB) -->
+    <!-- Jump to Footer - Top Right (appears after some scroll) -->
+    <button id="scroll-to-bottom" class="scroll-nav-btn scroll-down-btn" aria-label="Ir al footer">
+        <i class="fas fa-angles-down"></i>
     </button>
 
-    <!-- Back to Top - Bottom Right (appears after significant scroll) -->
-    <button id="back-to-top" class="scroll-nav-btn scroll-up-btn" aria-label="Volver arriba"
-            data-premium-tooltip="Volver Arriba|Scroll suave al inicio de la página||feature|fa-arrow-up|NAVEGACIÓN">
-        <span class="scroll-btn-icon">
-            <i class="fas fa-angles-up"></i>
-        </span>
-        <span class="scroll-btn-pulse"></span>
+    <!-- Back to Top - Bottom Right (always visible) -->
+    <button id="back-to-top" class="scroll-nav-btn scroll-up-btn" aria-label="Volver arriba">
+        <i class="fas fa-angles-up"></i>
     </button>
 
     <!-- Toast Notifications Container -->
@@ -476,7 +468,7 @@ const BUILD_VERSION = Date.now().toString(36);
         document.addEventListener('astro:page-load', initTooltipSystem);
 
         // ============================================
-        // SCROLL PROGRESS BAR & SCROLL NAVIGATION
+        // SCROLL PROGRESS BAR & SCROLL NAVIGATION (STATIC)
         // ============================================
 
         function initScrollFeatures() {
@@ -486,207 +478,62 @@ const BUILD_VERSION = Date.now().toString(36);
 
             if (!progressBar) return;
 
-            // State management
-            let isAnimating = false;
-            let scrollListenerActive = true;
-
-            // Scroll progress calculation and button visibility
-            function updateScrollProgress() {
-                // Don't update visibility during programmatic scroll animation
-                if (isAnimating) return;
-
+            // Update progress bar and button visibility
+            function updateScroll() {
                 const scrollTop = window.scrollY;
                 const docHeight = document.documentElement.scrollHeight - window.innerHeight;
                 const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
 
+                // Update progress bar
                 progressBar.style.width = scrollPercent + '%';
 
-                // Thresholds for button visibility
-                const showDownAfterPx = 150;
-                const hideDownAfterPercent = 20;
-                const nearBottom = scrollPercent > 85;
-
-                const showUpThreshold = Math.min(docHeight * 0.25, 600);
-                const shouldShowUp = scrollTop >= showUpThreshold;
-
-                // Jump to Footer button (↓)
-                if (scrollToBottomBtn && !scrollToBottomBtn.classList.contains('fading-out')) {
-                    const shouldShowDown = scrollTop >= showDownAfterPx &&
-                                           scrollPercent < hideDownAfterPercent &&
-                                           !shouldShowUp &&
-                                           !nearBottom;
-
-                    if (shouldShowDown && !scrollToBottomBtn.classList.contains('visible')) {
+                // Show "go to footer" button after 200px scroll
+                if (scrollToBottomBtn) {
+                    if (scrollTop > 200) {
                         scrollToBottomBtn.classList.add('visible');
-                    } else if (!shouldShowDown && scrollToBottomBtn.classList.contains('visible')) {
+                    } else {
                         scrollToBottomBtn.classList.remove('visible');
                     }
                 }
 
-                // Back to Top button (↑)
-                if (backToTopBtn && !backToTopBtn.classList.contains('fading-out')) {
-                    if (shouldShowUp && !backToTopBtn.classList.contains('visible')) {
-                        backToTopBtn.classList.add('visible');
-                    } else if (!shouldShowUp && backToTopBtn.classList.contains('visible')) {
-                        backToTopBtn.classList.remove('visible');
-                    }
+                // Back to top is always visible (static at bottom right)
+                if (backToTopBtn && !backToTopBtn.classList.contains('visible')) {
+                    backToTopBtn.classList.add('visible');
                 }
             }
 
             // Throttled scroll handler
             let ticking = false;
-            function onScroll() {
-                if (!scrollListenerActive || isAnimating) return;
+            window.addEventListener('scroll', () => {
                 if (!ticking) {
                     window.requestAnimationFrame(() => {
-                        updateScrollProgress();
+                        updateScroll();
                         ticking = false;
                     });
                     ticking = true;
                 }
-            }
+            }, { passive: true });
 
-            // ========================================
-            // SOPHISTICATED SCROLL ANIMATION
-            // ========================================
-
-            const easings = {
-                easeOutCubic: t => 1 - Math.pow(1 - t, 3),
-                easeInCubic: t => t * t * t,
-                easeInOutCubic: t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2,
-                easeOutExpo: t => t === 1 ? 1 : 1 - Math.pow(2, -10 * t),
-                easeOutBack: t => {
-                    const c1 = 1.70158;
-                    const c3 = c1 + 1;
-                    return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
-                }
-            };
-
-            let currentAnimationId = null;
-
-            function smoothScrollTo(targetY, options = {}) {
-                const {
-                    easing = 'easeOutCubic',
-                    minDuration = 400,
-                    maxDuration = 1200,
-                    onComplete = null
-                } = options;
-
-                // Cancel any existing animation
-                if (currentAnimationId) {
-                    cancelAnimationFrame(currentAnimationId);
-                    currentAnimationId = null;
-                }
-
-                const startY = window.scrollY;
-                const distance = targetY - startY;
-                const absDistance = Math.abs(distance);
-
-                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-                const distanceRatio = absDistance / Math.max(docHeight, 1);
-                const duration = Math.min(maxDuration, Math.max(minDuration, minDuration + (maxDuration - minDuration) * distanceRatio));
-
-                const easingFn = easings[easing] || easings.easeOutCubic;
-                let startTime = null;
-
-                function animate(currentTime) {
-                    if (!startTime) startTime = currentTime;
-                    const elapsed = currentTime - startTime;
-                    const progress = Math.min(elapsed / duration, 1);
-                    const easedProgress = easingFn(progress);
-
-                    window.scrollTo(0, startY + (distance * easedProgress));
-
-                    if (progress < 1) {
-                        currentAnimationId = requestAnimationFrame(animate);
-                    } else {
-                        currentAnimationId = null;
-                        // Animation complete - re-enable everything after a delay
-                        setTimeout(() => {
-                            isAnimating = false;
-                            scrollListenerActive = true;
-                            // Remove fading-out class
-                            if (backToTopBtn) backToTopBtn.classList.remove('fading-out');
-                            if (scrollToBottomBtn) scrollToBottomBtn.classList.remove('fading-out');
-                            if (onComplete) onComplete();
-                            // Update visibility based on final position
-                            updateScrollProgress();
-                        }, 100);
-                    }
-                }
-
-                currentAnimationId = requestAnimationFrame(animate);
-            }
-
-            /**
-             * Fade out buttons with smooth transition before scrolling
-             */
-            function fadeOutAndScroll(targetY, options = {}) {
-                // IMMEDIATELY disable everything
-                isAnimating = true;
-                scrollListenerActive = false;
-
-                // Add fading-out class to both buttons (triggers CSS fade)
-                if (backToTopBtn) {
-                    backToTopBtn.classList.add('fading-out');
-                    backToTopBtn.classList.remove('visible');
-                }
-                if (scrollToBottomBtn) {
-                    scrollToBottomBtn.classList.add('fading-out');
-                    scrollToBottomBtn.classList.remove('visible');
-                }
-
-                // Wait for fade out animation, then scroll
-                setTimeout(() => {
-                    smoothScrollTo(targetY, options);
-                }, 350); // Match CSS transition duration
-            }
-
-            // Back to top click handler
+            // Back to top click - simple smooth scroll
             if (backToTopBtn) {
-                backToTopBtn.onclick = function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-
-                    if (isAnimating) return; // Prevent double-clicks
-
-                    fadeOutAndScroll(0, {
-                        easing: 'easeOutExpo'
-                    });
+                backToTopBtn.onclick = () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                 };
             }
 
-            // Scroll to bottom click handler
+            // Scroll to footer click - simple smooth scroll
             if (scrollToBottomBtn) {
-                scrollToBottomBtn.onclick = function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-
-                    if (isAnimating) return; // Prevent double-clicks
-
+                scrollToBottomBtn.onclick = () => {
                     const footer = document.querySelector('footer') || document.querySelector('.footer-compact');
-                    const targetY = footer
+                    const target = footer
                         ? footer.getBoundingClientRect().top + window.scrollY
-                        : document.documentElement.scrollHeight - window.innerHeight;
-
-                    fadeOutAndScroll(targetY, {
-                        easing: 'easeOutCubic',
-                        onComplete: () => {
-                            // Show back to top after reaching bottom
-                            if (backToTopBtn) {
-                                backToTopBtn.classList.add('visible');
-                            }
-                        }
-                    });
+                        : document.documentElement.scrollHeight;
+                    window.scrollTo({ top: target, behavior: 'smooth' });
                 };
             }
-
-            // Bind scroll event
-            window.removeEventListener('scroll', onScroll);
-            window.addEventListener('scroll', onScroll, { passive: true });
 
             // Initial update
-            updateScrollProgress();
+            updateScroll();
         }
 
         document.addEventListener('DOMContentLoaded', initScrollFeatures);
