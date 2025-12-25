@@ -478,7 +478,7 @@ const BUILD_VERSION = Date.now().toString(36);
 
             if (!progressBar) return;
 
-            // Update progress bar only (buttons are always visible via CSS)
+            // Update progress bar and hide go-to-footer at bottom
             function updateScroll() {
                 const scrollTop = window.scrollY;
                 const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -486,6 +486,15 @@ const BUILD_VERSION = Date.now().toString(36);
 
                 // Update progress bar
                 progressBar.style.width = scrollPercent + '%';
+
+                // Hide go-to-footer button when at bottom (>= 95%)
+                if (scrollToBottomBtn) {
+                    if (scrollPercent >= 95) {
+                        scrollToBottomBtn.classList.add('hidden');
+                    } else {
+                        scrollToBottomBtn.classList.remove('hidden');
+                    }
+                }
             }
 
             // Throttled scroll handler

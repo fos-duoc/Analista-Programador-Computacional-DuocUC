@@ -1444,7 +1444,7 @@ body,
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-color);
   border-radius: 50px;
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   font-weight: 500;
   color: var(--text-secondary);
 }
@@ -1690,7 +1690,7 @@ body,
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   color: #ffffff;
   font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   font-weight: 500;
   letter-spacing: 0.02em;
   white-space: nowrap;
@@ -1771,7 +1771,7 @@ body,
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   color: #ffffff;
   font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   font-weight: 500;
   letter-spacing: 0.02em;
   white-space: nowrap;
@@ -2674,7 +2674,7 @@ body,
 
 .arch-header i {
   color: var(--accent-primary);
-  font-size: 0.8rem;
+  font-size: 0.65rem;
 }
 
 /* Medallion Architecture */
@@ -3797,7 +3797,7 @@ body,
 }
 
 .medal-desc {
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   color: var(--text-secondary);
 }
 
@@ -4620,7 +4620,7 @@ body,
 }
 
 .event-lg span {
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   font-weight: 700;
 }
 
@@ -5139,7 +5139,7 @@ section {
   background: var(--bg-tertiary);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   color: var(--text-secondary);
   transition: var(--transition-fast);
 }
@@ -5351,7 +5351,7 @@ section {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   color: var(--text-muted);
 }
 
@@ -5457,7 +5457,7 @@ section {
 }
 
 .resource-info p {
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   color: var(--text-muted);
   margin: 0;
   line-height: 1.4;
@@ -5491,7 +5491,7 @@ section {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   font-weight: 600;
   color: var(--text-muted);
   white-space: nowrap;
@@ -5516,7 +5516,7 @@ section {
   background: rgba(102, 126, 234, 0.1);
   border: 1px solid rgba(102, 126, 234, 0.2);
   border-radius: 8px;
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   font-weight: 500;
   color: var(--text-secondary);
   text-decoration: none;
@@ -6491,7 +6491,7 @@ section {
 }
 
 .stage-desc {
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   color: var(--text-muted);
   margin: 0.25rem 0 0;
 }
@@ -7033,7 +7033,7 @@ section {
 .code-block pre {
   margin: 0;
   font-family: 'JetBrains Mono', 'Fira Code', monospace;
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   line-height: 1.6;
 }
 
@@ -7620,7 +7620,7 @@ section {
   gap: 0.4rem;
   padding: 0.5rem 1rem;
   border-radius: 20px;
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   font-weight: 600;
 }
 
@@ -9163,7 +9163,7 @@ section {
 .stat-premium .stat-label {
   display: block;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   color: #64748b;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -9398,7 +9398,7 @@ section {
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   font-weight: 600;
   color: var(--text-muted);
   text-transform: uppercase;
@@ -10224,7 +10224,7 @@ section {
 }
 
 .source-node span {
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   font-weight: 600;
   color: var(--text-primary);
 }
@@ -10578,7 +10578,7 @@ section {
 }
 
 .viz-box span {
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   font-weight: 600;
   color: var(--text-primary);
 }
@@ -10621,7 +10621,7 @@ section {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   color: #10b981;
 }
 
@@ -11022,7 +11022,7 @@ section {
 }
 
 .class-desc {
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   color: var(--text-secondary);
   margin-bottom: 0.5rem;
 }
@@ -13639,15 +13639,15 @@ section {
 .scroll-nav-btn {
   position: fixed;
   right: 0.5rem;
-  width: 34px;
-  height: 34px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   border: 1px solid transparent;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   z-index: 9999;
@@ -13668,6 +13668,11 @@ section {
   transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.2s ease, border-color 0.2s ease;
 }
 
+/* Hide go-to-footer when at bottom of page */
+.scroll-down-btn.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
 /* Scroll Up Button (↑) - BOTTOM RIGHT - Always Visible */
 .scroll-up-btn {
   bottom: 2rem;
@@ -14291,7 +14296,7 @@ main,
 }
 
 .toast-message {
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   color: rgba(226, 232, 240, 0.8);
   line-height: 1.4;
 }
@@ -14958,7 +14963,7 @@ main,
 }
 
 .section-header-v2 .header-text span {
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   color: #64748b;
 }
 
@@ -15409,7 +15414,7 @@ main,
 
 .lifecycle-stage .stage-name {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   font-weight: 600;
   color: #f8fafc;
 }
@@ -15421,7 +15426,7 @@ main,
 
 .lifecycle-arrow {
   color: #475569;
-  font-size: 0.8rem;
+  font-size: 0.65rem;
 }
 
 .lifecycle-stage:hover {
@@ -15611,7 +15616,7 @@ main,
 
 .class-name-v2 {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   font-weight: 700;
   color: #f8fafc;
   flex: 1;
@@ -15708,7 +15713,7 @@ main,
 
 .maturity-level .level-name {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   font-weight: 600;
   color: #f8fafc;
 }
@@ -15829,7 +15834,7 @@ main,
   justify-content: center;
   align-items: center;
   gap: 0.75rem;
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   color: #94a3b8;
 }
 
@@ -15971,7 +15976,7 @@ main,
   }
 
   .ka-node i {
-    font-size: 0.8rem;
+    font-size: 0.65rem;
   }
 
   .ka-node .ka-label {
@@ -16006,7 +16011,7 @@ main,
   }
 
   .metric-value-ring {
-    font-size: 0.8rem;
+    font-size: 0.65rem;
   }
 }
 
@@ -16497,7 +16502,7 @@ main,
 }
 
 .viz-platform-card .platform-desc {
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   color: #94a3b8;
   line-height: 1.5;
   margin-bottom: 1rem;
@@ -16667,7 +16672,7 @@ main,
 }
 
 .workflow-stage .stage-name {
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   font-weight: 600;
   color: #f8fafc;
 }
@@ -16942,7 +16947,7 @@ main,
 
 .source-chip i,
 .source-chip img {
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   opacity: 0.8;
 }
 
@@ -17002,7 +17007,7 @@ main,
 .comparison-card.elt .comparison-header h5 i { color: #8b5cf6; }
 
 .pattern-desc {
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   color: #64748b;
 }
 
@@ -17070,7 +17075,7 @@ main,
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   color: #94a3b8;
   padding: 0.35rem 0;
 }
@@ -17110,7 +17115,7 @@ main,
   height: 40px;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 50%;
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   font-weight: 700;
   color: #64748b;
   flex-shrink: 0;
@@ -17152,7 +17157,7 @@ main,
 }
 
 .tool-card .tool-name {
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   font-weight: 600;
   color: #f8fafc;
 }
@@ -17533,7 +17538,7 @@ main,
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   font-weight: 700;
   background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(251, 191, 36, 0.1));
   border: 2px solid rgba(255, 215, 0, 0.4);
@@ -17605,7 +17610,7 @@ main,
 }
 
 .orch-platform-card .platform-desc {
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   color: #94a3b8;
   line-height: 1.5;
   margin-bottom: 1rem;
@@ -17885,7 +17890,7 @@ main,
   background: rgba(16, 185, 129, 0.08);
   border: 1px solid rgba(16, 185, 129, 0.2);
   border-radius: 10px;
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   color: #94a3b8;
 }
 
@@ -18344,7 +18349,7 @@ main,
 }
 
 .viz-type-card .type-desc {
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   color: #94a3b8;
   line-height: 1.4;
 }
@@ -19010,7 +19015,7 @@ main,
 }
 
 .widget-title {
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   font-weight: 600;
   color: #f8fafc;
 }
@@ -19143,7 +19148,7 @@ main,
 }
 
 .structure-content p {
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   color: #94a3b8;
   line-height: 1.5;
   margin: 0 0 0.5rem;
