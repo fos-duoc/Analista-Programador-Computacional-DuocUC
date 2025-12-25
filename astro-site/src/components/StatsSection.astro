@@ -16,34 +16,34 @@ const languages = [
 
 // Quick stats
 const quickStats = [
-    { value: "17", label: "Bimestres", icon: "fa-calendar-alt", color: "#00d4ff" },
-    { value: "30+", label: "Asignaturas", icon: "fa-book", color: "#7c3aed" },
-    { value: "100+", label: "Archivos", icon: "fa-file-code", color: "#f472b6" },
-    { value: "150+", label: "Commits", icon: "fa-code-commit", color: "#10b981" }
+    { value: "17", label: "Bimestres", icon: "fa-calendar-alt", color: "#00d4ff", tooltip: "Bimestres|17 bimestres académicos cubriendo 2 carreras completas|APC: 10,IDS: 7|info|fa-calendar-alt|ESTRUCTURA" },
+    { value: "30+", label: "Asignaturas", icon: "fa-book", color: "#7c3aed", tooltip: "Asignaturas|Más de 30 asignaturas con materiales y recursos|Programación,Datos,Cloud|info|fa-book|CONTENIDO" },
+    { value: "100+", label: "Archivos", icon: "fa-file-code", color: "#f472b6", tooltip: "Archivos|Más de 100 archivos entre código, documentos y recursos|HTML,CSS,JS,Astro|info|fa-file-code|REPOSITORIO" },
+    { value: "150+", label: "Commits", icon: "fa-code-commit", color: "#10b981", tooltip: "Commits|Historial de más de 150 commits de desarrollo|Features,Fixes,Docs|info|fa-code-commit|ACTIVIDAD" }
 ];
 
 // Contribution metrics (circular progress)
 const metrics = [
-    { value: 92, label: "Completado", color: "#10b981", gradientEnd: "#34d399" },
-    { value: 85, label: "Documentado", color: "#00d4ff", gradientEnd: "#38bdf8" },
-    { value: 78, label: "Tested", color: "#7c3aed", gradientEnd: "#a78bfa" }
+    { value: 92, label: "Completado", color: "#10b981", gradientEnd: "#34d399", tooltip: "Progreso Completado|92% del contenido del programa está disponible|Apuntes,Código,Recursos|info|fa-check-circle|PROGRESO" },
+    { value: 85, label: "Documentado", color: "#00d4ff", gradientEnd: "#38bdf8", tooltip: "Documentación|85% del código tiene documentación y comentarios|READMEs,Comentarios,Guías|info|fa-file-alt|CALIDAD" },
+    { value: 78, label: "Tested", color: "#7c3aed", gradientEnd: "#a78bfa", tooltip: "Testing|78% del código tiene pruebas o validaciones|Unit Tests,Validation|info|fa-vial|CALIDAD" }
 ];
 
 // Tech stack used in repo
 const techStack = [
-    { name: "Astro", icon: "devicon-astro-plain", color: "#ff5a03" },
-    { name: "HTML5", icon: "devicon-html5-plain", color: "#e34c26" },
-    { name: "CSS3", icon: "devicon-css3-plain", color: "#264de4" },
-    { name: "JavaScript", icon: "devicon-javascript-plain", color: "#f1e05a" },
-    { name: "TypeScript", icon: "devicon-typescript-plain", color: "#3178c6" },
-    { name: "Git", icon: "devicon-git-plain", color: "#f05032" }
+    { name: "Astro", icon: "devicon-astro-plain", color: "#ff5a03", tooltip: "Astro|Framework moderno para sitios de contenido|Islands,Zero JS,Multi-framework|tool|fa-rocket|Astro (2021)" },
+    { name: "HTML5", icon: "devicon-html5-plain", color: "#e34c26", tooltip: "HTML5|Lenguaje de marcado para estructura web|Semántico,Accesible,SEO|tool|fa-code|W3C (2014)" },
+    { name: "CSS3", icon: "devicon-css3-plain", color: "#264de4", tooltip: "CSS3|Estilos y diseño visual del sitio|Flexbox,Grid,Animaciones|tool|fa-paint-brush|W3C (2011)" },
+    { name: "JavaScript", icon: "devicon-javascript-plain", color: "#f1e05a", tooltip: "JavaScript|Interactividad y lógica del frontend|ES6+,DOM,Async|tool|fa-js|Brendan Eich (1995)" },
+    { name: "TypeScript", icon: "devicon-typescript-plain", color: "#3178c6", tooltip: "TypeScript|JavaScript con tipado estático|Types,Interfaces,Strict|tool|fa-code|Microsoft (2012)" },
+    { name: "Git", icon: "devicon-git-plain", color: "#f05032", tooltip: "Git|Control de versiones distribuido|Branches,Commits,History|tool|fa-code-branch|Linus Torvalds (2005)" }
 ];
 
 // CI/CD Status
 const cicdStatus = [
-    { name: "Build", status: "passing", icon: "fa-hammer" },
-    { name: "Deploy", status: "active", icon: "fa-rocket" },
-    { name: "Pages", status: "live", icon: "fa-globe" }
+    { name: "Build", status: "passing", icon: "fa-hammer", tooltip: "Build Status|El proceso de compilación está pasando correctamente|Astro Build,npm|info|fa-hammer|CI/CD" },
+    { name: "Deploy", status: "active", icon: "fa-rocket", tooltip: "Deploy Status|Despliegue automático activo en cada push a main|GitHub Actions,Auto|info|fa-rocket|CI/CD" },
+    { name: "Pages", status: "live", icon: "fa-globe", tooltip: "GitHub Pages|El sitio está en vivo y accesible públicamente|fos-duoc.github.io|info|fa-globe|HOSTING" }
 ];
 ---
 
@@ -152,7 +152,8 @@ const cicdStatus = [
             <!-- Quick Stats Grid -->
             <div class="quick-stats-grid">
                 {quickStats.map((stat, i) => (
-                    <div class="quick-stat-card glass-card" style={`--accent: ${stat.color}; --delay: ${i * 0.1}s;`}>
+                    <div class="quick-stat-card glass-card" style={`--accent: ${stat.color}; --delay: ${i * 0.1}s;`}
+                         data-premium-tooltip={stat.tooltip}>
                         <div class="stat-icon-ring" style={`--color: ${stat.color};`}>
                             <i class={`fas ${stat.icon}`}></i>
                         </div>
@@ -172,7 +173,7 @@ const cicdStatus = [
                 </div>
                 <div class="metrics-circles">
                     {metrics.map(metric => (
-                        <div class="metric-circle-wrapper">
+                        <div class="metric-circle-wrapper" data-premium-tooltip={metric.tooltip}>
                             <svg class="metric-circle" viewBox="0 0 100 100">
                                 <defs>
                                     <linearGradient id={`gradient-${metric.label}`} x1="0%" y1="0%" x2="100%" y2="100%">
@@ -237,7 +238,8 @@ const cicdStatus = [
                 </div>
                 <div class="techstack-grid">
                     {techStack.map((tech, i) => (
-                        <div class="tech-item-mini" style={`--delay: ${i * 0.05}s;`}>
+                        <div class="tech-item-mini" style={`--delay: ${i * 0.05}s;`}
+                             data-premium-tooltip={tech.tooltip}>
                             <i class={`${tech.icon} colored`} style={`color: ${tech.color};`}></i>
                             <span>{tech.name}</span>
                         </div>
@@ -253,7 +255,7 @@ const cicdStatus = [
                 </div>
                 <div class="cicd-items">
                     {cicdStatus.map(item => (
-                        <div class={`cicd-item ${item.status}`}>
+                        <div class={`cicd-item ${item.status}`} data-premium-tooltip={item.tooltip}>
                             <i class={`fas ${item.icon}`}></i>
                             <span class="cicd-name">{item.name}</span>
                             <span class={`cicd-status-badge ${item.status}`}>
@@ -273,27 +275,33 @@ const cicdStatus = [
                     <h3>Quick Links</h3>
                 </div>
                 <div class="quicklinks-grid">
-                    <a href={`${repoBase}/issues`} target="_blank" class="quicklink-item">
+                    <a href={`${repoBase}/issues`} target="_blank" class="quicklink-item"
+                       data-premium-tooltip="Issues|Reporta bugs o solicita nuevas funcionalidades|Bug Reports,Features|info|fa-bug|GITHUB">
                         <i class="fas fa-bug"></i>
                         <span>Issues</span>
                     </a>
-                    <a href={`${repoBase}/pulls`} target="_blank" class="quicklink-item">
+                    <a href={`${repoBase}/pulls`} target="_blank" class="quicklink-item"
+                       data-premium-tooltip="Pull Requests|Contribuciones y cambios propuestos al repositorio|Reviews,Merges|info|fa-code-branch|GITHUB">
                         <i class="fas fa-code-branch"></i>
                         <span>PRs</span>
                     </a>
-                    <a href={`${repoBase}/graphs/contributors`} target="_blank" class="quicklink-item">
+                    <a href={`${repoBase}/graphs/contributors`} target="_blank" class="quicklink-item"
+                       data-premium-tooltip="Contributors|Personas que han contribuido al proyecto|Commits,Code|info|fa-users|GITHUB">
                         <i class="fas fa-users"></i>
                         <span>Contributors</span>
                     </a>
-                    <a href={`${repoBase}/commits`} target="_blank" class="quicklink-item">
+                    <a href={`${repoBase}/commits`} target="_blank" class="quicklink-item"
+                       data-premium-tooltip="History|Historial completo de commits del repositorio|Timeline,Changes|info|fa-history|GITHUB">
                         <i class="fas fa-history"></i>
                         <span>History</span>
                     </a>
-                    <a href={`${repoBase}/network`} target="_blank" class="quicklink-item">
+                    <a href={`${repoBase}/network`} target="_blank" class="quicklink-item"
+                       data-premium-tooltip="Network|Grafo de forks y branches del repositorio|Forks,Branches|info|fa-project-diagram|GITHUB">
                         <i class="fas fa-project-diagram"></i>
                         <span>Network</span>
                     </a>
-                    <a href={`${repoBase}/wiki`} target="_blank" class="quicklink-item">
+                    <a href={`${repoBase}/wiki`} target="_blank" class="quicklink-item"
+                       data-premium-tooltip="Wiki|Documentación y guías del proyecto|Docs,Guides|info|fa-book|GITHUB">
                         <i class="fas fa-book"></i>
                         <span>Wiki</span>
                     </a>
