@@ -13,6 +13,7 @@ import TerminalDemo from '../components/TerminalDemo.astro';
 import WebVitalsSection from '../components/WebVitalsSection.astro';
 import SedesMapSection from '../components/SedesMapSection.astro';
 import ProfessionalProjectsSection from '../components/ProfessionalProjectsSection.astro';
+import ProgressIndicators from '../components/ProgressIndicators.astro';
 // Interactive Tools
 import PasswordGeneratorSection from '../components/tools/PasswordGeneratorSection.astro';
 import SQLQueryGeneratorSection from '../components/tools/SQLQueryGeneratorSection.astro';
@@ -110,6 +111,11 @@ import GanttGeneratorSection from '../components/tools/GanttGeneratorSection.ast
                     <i class="fas fa-briefcase"></i>
                     <span>Proyectos Pro</span>
                 </a>
+                <a href="#progress-indicators" class="quick-nav"
+                   data-premium-tooltip="Progress Indicators|Indicadores de progreso lineales, circulares y de pasos|Linear,Circular,Step|feature|fa-chart-line|UI">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Progress</span>
+                </a>
             </div>
         </div>
     </section>
@@ -160,6 +166,9 @@ import GanttGeneratorSection from '../components/tools/GanttGeneratorSection.ast
 
     <!-- Proyectos Profesionales -->
     <ProfessionalProjectsSection />
+
+    <!-- Progress Indicators -->
+    <ProgressIndicators />
 
     <Footer />
 </Layout>
