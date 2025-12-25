@@ -491,8 +491,8 @@ const BUILD_VERSION = Date.now().toString(36);
                 progressBar.style.width = scrollPercent + '%';
 
                 // Show "go to footer" button logic:
-                // - Appears after 8% scroll (early)
-                // - Disappears near footer (>90%) OR after click
+                // - Appears after 8% scroll (early) with entrance animation
+                // - Disappears near footer (>90%) with exit animation
                 // - Reappears when scrolling back up to <50%
                 if (scrollToBottomBtn) {
                     // Reset the clicked flag when user scrolls up past 50%
@@ -500,13 +500,23 @@ const BUILD_VERSION = Date.now().toString(36);
                         footerBtnWasClicked = false;
                     }
 
-                    // Show button: between 8% and 90% scroll, and not after click
                     const shouldShow = scrollPercent > 8 && scrollPercent < 90 && !footerBtnWasClicked;
+                    const isVisible = scrollToBottomBtn.classList.contains('visible');
+                    const isHiding = scrollToBottomBtn.classList.contains('hiding');
                     
-                    if (shouldShow) {
+                    if (shouldShow && !isVisible && !isHiding) {
+                        // SHOW: Remove hiding, force reflow to restart animation (MDN recommended)
+                        scrollToBottomBtn.classList.remove('hiding');
+                        void scrollToBottomBtn.offsetWidth; // Force reflow - MDN trick
                         scrollToBottomBtn.classList.add('visible');
-                    } else {
+                    } else if (!shouldShow && isVisible && !isHiding) {
+                        // HIDE: Use exit animation
                         scrollToBottomBtn.classList.remove('visible');
+                        scrollToBottomBtn.classList.add('hiding');
+                        // Remove hiding class after animation completes
+                        setTimeout(() => {
+                            scrollToBottomBtn.classList.remove('hiding');
+                        }, 400); // Match animation duration
                     }
                 }
 

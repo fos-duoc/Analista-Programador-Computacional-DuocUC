@@ -13654,51 +13654,68 @@ section {
   transition: background 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-/* Scroll Down Button (↓) - TOP RIGHT - Sophisticated Asymmetric Animation */
+/* Scroll Down Button (↓) - TOP RIGHT - Animated Entrance */
 .scroll-down-btn {
   top: 6rem;
   background: linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(124, 58, 237, 0.2) 100%);
   border-color: rgba(0, 212, 255, 0.4);
   color: #00d4ff;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 212, 255, 0.15);
-  /* Hidden state - exits quickly upward-right */
+  /* Hidden state - starts off-screen */
   opacity: 0;
-  transform: translateX(80px) translateY(-40px) scale(0.3) rotate(-15deg);
+  transform: translateX(100px) scale(0.2) rotate(45deg);
   pointer-events: none;
-  /* EXIT animation: faster (0.5s), elegant ease-in */
-  transition:
-    opacity 0.5s cubic-bezier(0.4, 0, 1, 1),
-    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-    background 0.2s ease,
-    box-shadow 0.2s ease,
-    border-color 0.2s ease;
+  visibility: hidden;
+  /* Only transition non-animated properties */
+  transition: background 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-/* Go-to-footer visible state - dramatic entrance animation */
+/* Visible state - triggers entrance animation */
 .scroll-down-btn.visible {
-  opacity: 1;
-  transform: translateX(0) translateY(0) scale(1) rotate(0deg);
+  visibility: visible;
   pointer-events: auto;
-  /* Use keyframe animation for dramatic entrance */
-  animation: scrollBtnEnter 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  /* Animation handles opacity and transform - no transition conflict */
+  animation: scrollBtnEnter 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-/* Keyframe animation for dramatic button entrance */
+/* Hidden state - exit animation */
+.scroll-down-btn.hiding {
+  animation: scrollBtnExit 0.4s ease-in forwards;
+}
+
+/* Dramatic entrance animation */
 @keyframes scrollBtnEnter {
   0% {
     opacity: 0;
     transform: translateX(100px) scale(0.2) rotate(45deg);
+    visibility: visible;
   }
-  40% {
-    opacity: 0.8;
-    transform: translateX(-10px) scale(1.15) rotate(-5deg);
+  30% {
+    opacity: 0.9;
+    transform: translateX(-15px) scale(1.2) rotate(-8deg);
   }
-  70% {
-    transform: translateX(5px) scale(0.95) rotate(2deg);
+  60% {
+    transform: translateX(8px) scale(0.9) rotate(4deg);
+  }
+  80% {
+    transform: translateX(-3px) scale(1.05) rotate(-1deg);
   }
   100% {
     opacity: 1;
     transform: translateX(0) scale(1) rotate(0deg);
+  }
+}
+
+/* Quick exit animation */
+@keyframes scrollBtnExit {
+  0% {
+    opacity: 1;
+    transform: translateX(0) scale(1) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(60px) translateY(-30px) scale(0.3) rotate(-20deg);
+    visibility: hidden;
   }
 }
 
