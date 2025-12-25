@@ -483,7 +483,7 @@ const BUILD_VERSION = Date.now().toString(36);
                 scrollToBottomBtn.style.display = '';
             }
 
-            // Update progress bar and button visibility
+            // Update progress bar and go-to-footer button visibility
             function updateScroll() {
                 const scrollTop = window.scrollY;
                 const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -492,7 +492,7 @@ const BUILD_VERSION = Date.now().toString(36);
                 // Update progress bar
                 progressBar.style.width = scrollPercent + '%';
 
-                // Show "go to footer" button after 200px scroll
+                // Show "go to footer" button after 200px scroll (with smooth animation)
                 if (scrollToBottomBtn) {
                     if (scrollTop > 200) {
                         scrollToBottomBtn.classList.add('visible');
@@ -501,10 +501,7 @@ const BUILD_VERSION = Date.now().toString(36);
                     }
                 }
 
-                // Back to top is always visible (static at bottom right)
-                if (backToTopBtn && !backToTopBtn.classList.contains('visible')) {
-                    backToTopBtn.classList.add('visible');
-                }
+                // Note: Back to top button is ALWAYS visible via CSS - no JS needed
             }
 
             // Throttled scroll handler
