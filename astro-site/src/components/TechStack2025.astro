@@ -376,7 +376,7 @@ const techCategories = [
             { name: "GitLab", icon: "devicon-gitlab-plain colored", stat: "30M+", desc: "DevSecOps", url: "https://gitlab.com/" },
             { name: "Bitbucket", icon: "devicon-bitbucket-original colored", stat: "10M+", desc: "Atlassian", url: "https://bitbucket.org/" },
             { name: "Azure DevOps", icon: "devicon-azuredevops-plain colored", stat: "7M+", desc: "MS DevOps", url: "https://azure.microsoft.com/en-us/products/devops" },
-            { name: "Gitea", icon: "devicon-gitea-plain colored", stat: "1.5M+", desc: "Self-Hosted", url: "https://about.gitea.com/" }
+            { name: "Gitea", icon: "img:https://cdn.simpleicons.org/gitea/609926", stat: "1.5M+", desc: "Self-Hosted", url: "https://about.gitea.com/" }
         ]
     },
     {
@@ -431,7 +431,7 @@ const techCategories = [
             { name: "Tableau", icon: "img:https://cdn.simpleicons.org/tableau/E97627", stat: "17.8%", desc: "Enterprise BI", url: "https://www.tableau.com/" },
             { name: "Grafana", icon: "devicon-grafana-original colored", stat: "28%", desc: "Observability", url: "https://grafana.com/", hot: true },
             { name: "Metabase", icon: "img:https://cdn.simpleicons.org/metabase/509EE3", stat: "+95%", desc: "Open Source BI", url: "https://www.metabase.com/", hot: true },
-            { name: "Apache Superset", icon: "devicon-apachesuperset-plain colored", stat: "+75%", desc: "Modern BI", url: "https://superset.apache.org/" },
+            { name: "Apache Superset", icon: "img:https://cdn.simpleicons.org/apachesuperset/3FC4B9", stat: "+75%", desc: "Modern BI", url: "https://superset.apache.org/" },
             { name: "D3.js", icon: "devicon-d3js-original colored", stat: "15%", desc: "Custom Viz", url: "https://d3js.org/" }
         ]
     },
@@ -469,7 +469,7 @@ const techCategories = [
         icon: "fas fa-robot",
         color: "#a855f7",
         items: [
-            { name: "ChatGPT", icon: "devicon-openai-plain", stat: "68%", desc: "OpenAI GPT-4o", url: "https://chat.openai.com/", hot: true },
+            { name: "ChatGPT", icon: "img:https://cdn.simpleicons.org/openai/412991", stat: "68%", desc: "OpenAI GPT-4o", url: "https://chat.openai.com/", hot: true },
             { name: "Claude", icon: "img:https://cdn.simpleicons.org/anthropic/D4A27F", stat: "45%", desc: "Anthropic", url: "https://claude.ai/", hot: true },
             { name: "GitHub Copilot", icon: "devicon-github-original", stat: "52%", desc: "AI Pair Prog", url: "https://github.com/features/copilot", hot: true },
             { name: "Cursor", icon: "img:https://cdn.simpleicons.org/cursor/00D4FF", stat: "+450%", desc: "AI IDE", url: "https://cursor.sh/", hot: true },
@@ -488,7 +488,7 @@ const techCategories = [
             { name: "Workato", icon: "img:https://cdn.simpleicons.org/workato/FF5C35", stat: "+120%", desc: "Enterprise Auto", url: "https://www.workato.com/", hot: true },
             { name: "Informatica", icon: "img:https://cdn.simpleicons.org/informatica/FF4D00", stat: "25%", desc: "Data Mgmt", url: "https://www.informatica.com/" },
             { name: "Kong", icon: "img:https://cdn.simpleicons.org/kong/00BFA5", stat: "+110%", desc: "API Gateway", url: "https://konghq.com/", hot: true },
-            { name: "Apache Camel", icon: "devicon-apachecamel-plain colored", stat: "22%", desc: "Integration Routes", url: "https://camel.apache.org/" }
+            { name: "Apache Camel", icon: "img:https://cdn.simpleicons.org/apachecamel/F6BB42", stat: "22%", desc: "Integration Routes", url: "https://camel.apache.org/" }
         ]
     },
     {
@@ -1021,10 +1021,7 @@ function updatePodiumData(source) {
                     <span class="lang-stat-v2">${lang.stat}</span>
                 </div>
                 <div class="trend-badge trend-${lang.trend}">
-                    ${lang.trend === 'hot' ? '<i class="fas fa-fire"></i> ' + lang.trendLabel : ''}
-                    ${lang.trend === 'up' ? '<i class="fas fa-arrow-up"></i> ' + lang.trendLabel : ''}
-                    ${lang.trend === 'stable' ? '<i class="fas fa-minus"></i> ' + lang.trendLabel : ''}
-                    ${lang.trend === 'down' ? '<i class="fas fa-arrow-down"></i> ' + lang.trendLabel : ''}
+                    <i class="fas ${lang.trend === 'hot' ? 'fa-fire' : lang.trend === 'up' ? 'fa-arrow-up' : lang.trend === 'down' ? 'fa-arrow-down' : 'fa-minus'}"></i> ${lang.trendLabel}
                     <span class="trend-value">${lang.trendValue}</span>
                 </div>
                 <div class="jobs-badge">
