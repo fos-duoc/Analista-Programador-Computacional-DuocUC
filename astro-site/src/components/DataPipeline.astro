@@ -17,61 +17,61 @@
         <!-- Mode Selector Buttons -->
         <div class="pipeline-mode-selector">
             <button class="mode-btn active" data-mode="realtime" id="btn-realtime"
-                    data-premium-tooltip="Real-time Streaming|Process events as they arrive with sub-second latency. Technologies: Kafka, Flink, Spark Streaming.|Latency < 1s,Event-driven,Streaming|feature|fa-bolt|Streaming">
+                    data-premium-tooltip="Real-time Streaming|Procesa eventos conforme llegan con latencia sub-segundo. Tecnologías: Kafka, Flink, Spark Streaming.|Latency < 1s,Event-driven,Streaming|feature|fa-bolt|Streaming">
                 <i class="fas fa-bolt"></i>
                 <span>Real-time Streaming</span>
                 <small>Latency &lt; 1s</small>
             </button>
             <button class="mode-btn" data-mode="batch" id="btn-batch"
-                    data-premium-tooltip="Batch Processing|Process large volumes of historical data in scheduled intervals. Technologies: Spark, Hadoop, dbt.|High Volume,Scheduled Jobs,Parallel|feature|fa-layer-group|Processing">
+                    data-premium-tooltip="Batch Processing|Procesa grandes volúmenes de datos históricos en intervalos programados. Tecnologías: Spark, Hadoop, dbt.|High Volume,Scheduled Jobs,Parallel|feature|fa-layer-group|Processing">
                 <i class="fas fa-layer-group"></i>
                 <span>Batch Processing</span>
                 <small>High Volume</small>
             </button>
             <button class="mode-btn" data-mode="architecture" id="btn-architecture"
-                    data-premium-tooltip="Pipeline Architecture|End-to-end data flow diagram from sources through processing to serving layer.|E2E Diagram,Visual Flow,Medallion|feature|fa-stream|Architecture">
+                    data-premium-tooltip="Pipeline Architecture|Diagrama de flujo de datos de principio a fin, desde fuentes hasta capa de servicio.|E2E Diagram,Visual Flow,Medallion|feature|fa-stream|Architecture">
                 <i class="fas fa-stream"></i>
                 <span>Pipeline Architecture</span>
                 <small>E2E Diagram</small>
             </button>
             <button class="mode-btn" data-mode="governance" id="btn-governance"
-                    data-premium-tooltip="Data Governance|DAMA-DMBOK framework covering data quality, security, privacy, and regulatory compliance.|DAMA-DMBOK,Compliance,Data Quality|feature|fa-shield-alt|Governance">
+                    data-premium-tooltip="Data Governance|Framework DAMA-DMBOK cubriendo calidad de datos, seguridad, privacidad y cumplimiento regulatorio.|DAMA-DMBOK,Compliance,Data Quality|feature|fa-shield-alt|Governance">
                 <i class="fas fa-shield-alt"></i>
                 <span>Data Governance</span>
                 <small>DAMA Framework</small>
             </button>
             <button class="mode-btn" data-mode="visualization" id="btn-visualization"
-                    data-premium-tooltip="Data Visualization|Business Intelligence dashboards and reporting. Tools: Power BI, Tableau, Looker, Grafana.|BI Dashboards,Charts,Reports|feature|fa-chart-pie|Visualization">
+                    data-premium-tooltip="Data Visualization|Dashboards de Business Intelligence y reportes. Herramientas: Power BI, Tableau, Looker, Grafana.|BI Dashboards,Charts,Reports|feature|fa-chart-pie|Visualization">
                 <i class="fas fa-chart-pie"></i>
                 <span>Data Visualization</span>
                 <small>BI & Dashboards</small>
             </button>
             <button class="mode-btn" data-mode="ingestion" id="btn-ingestion"
-                    data-premium-tooltip="Data Ingestion|Data movement and integration patterns. Tools: Fivetran, Airbyte, Debezium CDC, Custom APIs.|ETL/ELT,CDC,Data Movement|feature|fa-cloud-download-alt|Ingestion">
+                    data-premium-tooltip="Data Ingestion|Patrones de movimiento e integración de datos. Herramientas: Fivetran, Airbyte, Debezium CDC, APIs Custom.|ETL/ELT,CDC,Data Movement|feature|fa-cloud-download-alt|Ingestion">
                 <i class="fas fa-cloud-download-alt"></i>
                 <span>Data Ingestion</span>
                 <small>ETL & CDC</small>
             </button>
             <button class="mode-btn" data-mode="orchestration" id="btn-orchestration"
-                    data-premium-tooltip="Data Orchestration|Workflow automation, scheduling and dependency management. Tools: Apache Airflow, Prefect, Dagster.|DAGs,Workflows,Scheduling|feature|fa-tasks|Orchestration">
+                    data-premium-tooltip="Data Orchestration|Automatización de flujos de trabajo, programación y gestión de dependencias. Herramientas: Apache Airflow, Prefect, Dagster.|DAGs,Workflows,Scheduling|feature|fa-tasks|Orchestration">
                 <i class="fas fa-tasks"></i>
                 <span>Data Orchestration</span>
                 <small>DAGs & Workflows</small>
             </button>
             <button class="mode-btn" data-mode="patterns" id="btn-patterns"
-                    data-premium-tooltip="Design Patterns|Proven data architecture patterns. Medallion Architecture, CDC, SCD Types, Data Mesh, Data Vault 2.0, CQRS.|Medallion,CDC,SCD,Data Mesh|feature|fa-cubes|Patterns">
+                    data-premium-tooltip="Design Patterns|Patrones de arquitectura de datos probados. Medallion Architecture, CDC, Tipos SCD, Data Mesh, Data Vault 2.0, CQRS.|Medallion,CDC,SCD,Data Mesh|feature|fa-cubes|Patterns">
                 <i class="fas fa-cubes"></i>
                 <span>Design Patterns</span>
                 <small>Medallion, CDC, SCD</small>
             </button>
             <button class="mode-btn" data-mode="processing" id="btn-processing"
-                    data-premium-tooltip="Processing Architectures|Data processing paradigms and strategies. Lambda, Kappa, Delta architectures. ETL vs ELT comparison. Streaming patterns.|Lambda,Kappa,Delta,ETL vs ELT|feature|fa-microchip|Architectures">
+                    data-premium-tooltip="Processing Architectures|Paradigmas y estrategias de procesamiento de datos. Arquitecturas Lambda, Kappa, Delta. Comparación ETL vs ELT. Patrones de Streaming.|Lambda,Kappa,Delta,ETL vs ELT|feature|fa-microchip|Architectures">
                 <i class="fas fa-microchip"></i>
                 <span>Processing Architectures</span>
                 <small>Lambda, Kappa, Delta</small>
             </button>
             <button class="mode-btn" data-mode="storage" id="btn-storage"
-                    data-premium-tooltip="Storage Platforms|Modern data storage solutions. Data Lake, Warehouse, Lakehouse comparison. Star/Snowflake Schema. Delta Lake, Iceberg, Hudi.|Lakehouse,Star Schema,Iceberg|feature|fa-database|Storage">
+                    data-premium-tooltip="Storage Platforms|Soluciones modernas de almacenamiento de datos. Comparación Data Lake, Warehouse, Lakehouse. Star/Snowflake Schema. Delta Lake, Iceberg, Hudi.|Lakehouse,Star Schema,Iceberg|feature|fa-database|Storage">
                 <i class="fas fa-database"></i>
                 <span>Storage Platforms</span>
                 <small>Lakehouse, Star Schema</small>
@@ -112,7 +112,7 @@
                     </div>
                     <div class="stage-content">
                         <h4 class="stage-title">Ingest</h4>
-                        <p class="stage-desc">Event Streaming</p>
+                        <p class="stage-desc">Flujo de Eventosing</p>
                     </div>
                     <div class="stage-tech-stack">
                         <a href="https://kafka.apache.org/" target="_blank" class="tech-mini"><i class="devicon-apachekafka-original"></i> Kafka</a>
@@ -131,7 +131,7 @@
                     </div>
                     <div class="stage-content">
                         <h4 class="stage-title">Process</h4>
-                        <p class="stage-desc">Stream Processing</p>
+                        <p class="stage-desc">Procesamiento de Streams</p>
                     </div>
                     <div class="stage-tech-stack">
                         <a href="https://flink.apache.org/" target="_blank" class="tech-mini"><i class="fas fa-water"></i> Flink</a>
@@ -260,7 +260,7 @@
                     </div>
                     <div class="stage-content">
                         <h4 class="stage-title">Extract</h4>
-                        <p class="stage-desc">Data Sources</p>
+                        <p class="stage-desc">Fuente de Datoss</p>
                     </div>
                     <div class="stage-tech-stack">
                         <a href="https://www.postgresql.org/" target="_blank" class="tech-mini"><i class="devicon-postgresql-plain colored"></i> PostgreSQL</a>
@@ -472,7 +472,7 @@ default_args = &#123;
 
                 <!-- Main Architecture Flow -->
                 <div class="arch-flow-container">
-                    <!-- Layer 1: Data Sources -->
+                    <!-- Layer 1: Fuente de Datoss -->
                     <div class="arch-layer sources">
                         <div class="layer-header-premium">
                             <div class="layer-number">01</div>
@@ -504,7 +504,7 @@ default_args = &#123;
                             <a href="https://kafka.apache.org/" target="_blank" class="source-card-premium events">
                                 <div class="source-icon"><i class="devicon-apachekafka-original"></i></div>
                                 <div class="source-info">
-                                    <span class="source-name">Event Streams</span>
+                                    <span class="source-name">Flujo de Eventoss</span>
                                     <span class="source-detail">Kafka, Kinesis</span>
                                 </div>
                                 <div class="source-rate">2.1M/min</div>
@@ -673,7 +673,7 @@ default_args = &#123;
                             <a href="https://flink.apache.org/" target="_blank" class="engine-card-premium">
                                 <div class="engine-icon"><i class="fas fa-water"></i></div>
                                 <div class="engine-name">Apache Flink</div>
-                                <div class="engine-use">Stream Processing</div>
+                                <div class="engine-use">Procesamiento de Streams</div>
                                 <div class="engine-metric"><i class="fas fa-bolt"></i> Real-time</div>
                             </a>
                         </div>
@@ -2254,7 +2254,7 @@ default_args = &#123;
                     <div class="viz-workflow-flow">
                         <div class="workflow-stage">
                             <div class="stage-icon-viz"><i class="fas fa-database"></i></div>
-                            <span class="stage-name">Data Source</span>
+                            <span class="stage-name">Fuente de Datos</span>
                             <span class="stage-detail">DW / Lake</span>
                         </div>
                         <div class="workflow-arrow"><i class="fas fa-chevron-right"></i></div>
@@ -2364,7 +2364,7 @@ default_args = &#123;
                     <div class="section-header-v2">
                         <div class="header-icon"><i class="fas fa-plug"></i></div>
                         <div class="header-text">
-                            <h4>Data Sources</h4>
+                            <h4>Fuente de Datoss</h4>
                             <span>Orígenes de datos para extracción</span>
                         </div>
                     </div>
@@ -3004,7 +3004,7 @@ default_args = &#123;
                     </div>
                     <div class="patterns-title-text">
                         <h3>Design <span class="gradient-text">Patterns</span></h3>
-                        <p>Proven architectures for scalable data pipelines</p>
+                        <p>Arquitecturas probadas para pipelines de datos escalables</p>
                     </div>
                 </div>
                 <div class="patterns-badges">
@@ -3023,7 +3023,7 @@ default_args = &#123;
                     <div class="pattern-icon medallion"><i class="fas fa-medal"></i></div>
                     <div class="pattern-info">
                         <h4>Medallion Architecture</h4>
-                        <p>Multi-layer data organization pattern for Data Lakehouses</p>
+                        <p>Patrón de organización de datos multicapa para Data Lakehouses</p>
                     </div>
                     <div class="pattern-source">
                         <a href="https://learn.microsoft.com/en-us/azure/databricks/lakehouse/medallion" target="_blank" class="source-link">
@@ -3040,12 +3040,12 @@ default_args = &#123;
                         <div class="layer-medal"><i class="fas fa-database"></i></div>
                         <div class="layer-content">
                             <h5>Bronze <span class="layer-aka">(Raw)</span></h5>
-                            <p>Raw data without transformation</p>
+                            <p>Datos crudos sin transformación</p>
                             <ul class="layer-features">
-                                <li><i class="fas fa-check"></i> Exact copy from source</li>
-                                <li><i class="fas fa-check"></i> No validation</li>
-                                <li><i class="fas fa-check"></i> Append-only</li>
-                                <li><i class="fas fa-check"></i> Full history</li>
+                                <li><i class="fas fa-check"></i> Copia exacta de la fuente</li>
+                                <li><i class="fas fa-check"></i> Sin validación</li>
+                                <li><i class="fas fa-check"></i> Solo agregar</li>
+                                <li><i class="fas fa-check"></i> Historial completo</li>
                             </ul>
                             <div class="layer-tech">
                                 <span class="tech-chip"><i class="fas fa-file-alt"></i> Parquet</span>
@@ -3060,12 +3060,12 @@ default_args = &#123;
                         <div class="layer-medal"><i class="fas fa-filter"></i></div>
                         <div class="layer-content">
                             <h5>Silver <span class="layer-aka">(Validated)</span></h5>
-                            <p>Cleaned and conformed data</p>
+                            <p>Datos limpios y conformados</p>
                             <ul class="layer-features">
-                                <li><i class="fas fa-check"></i> Deduplication</li>
-                                <li><i class="fas fa-check"></i> Schema validation</li>
-                                <li><i class="fas fa-check"></i> Data Quality checks</li>
-                                <li><i class="fas fa-check"></i> Basic joins</li>
+                                <li><i class="fas fa-check"></i> Deduplicación</li>
+                                <li><i class="fas fa-check"></i> Validación de esquema</li>
+                                <li><i class="fas fa-check"></i> Verificaciones de calidad de datos</li>
+                                <li><i class="fas fa-check"></i> Joins básicos</li>
                             </ul>
                             <div class="layer-tech">
                                 <span class="tech-chip"><i class="fas fa-table"></i> Delta Lake</span>
@@ -3080,12 +3080,12 @@ default_args = &#123;
                         <div class="layer-medal"><i class="fas fa-star"></i></div>
                         <div class="layer-content">
                             <h5>Gold <span class="layer-aka">(Curated)</span></h5>
-                            <p>Analytics-ready data</p>
+                            <p>Datos listos para análisis</p>
                             <ul class="layer-features">
-                                <li><i class="fas fa-check"></i> Business aggregations</li>
-                                <li><i class="fas fa-check"></i> KPIs & metrics</li>
-                                <li><i class="fas fa-check"></i> Feature stores</li>
-                                <li><i class="fas fa-check"></i> Semantic models</li>
+                                <li><i class="fas fa-check"></i> Agregaciones de negocio</li>
+                                <li><i class="fas fa-check"></i> KPIs y métricas</li>
+                                <li><i class="fas fa-check"></i> Almacenes de características</li>
+                                <li><i class="fas fa-check"></i> Modelos semánticos</li>
                             </ul>
                             <div class="layer-tech">
                                 <span class="tech-chip"><i class="fas fa-chart-bar"></i> BI Ready</span>
@@ -3102,7 +3102,7 @@ default_args = &#123;
                     <div class="pattern-icon cdc"><i class="fas fa-exchange-alt"></i></div>
                     <div class="pattern-info">
                         <h4>Change Data Capture (CDC)</h4>
-                        <p>Track and capture database changes in real-time for downstream systems</p>
+                        <p>Rastrea y captura cambios de base de datos en tiempo real para sistemas downstream</p>
                     </div>
                     <div class="pattern-source">
                         <a href="https://debezium.io/documentation/reference/stable/index.html" target="_blank" class="source-link">
@@ -3123,20 +3123,20 @@ default_args = &#123;
                         </div>
                         <div class="cdc-log">
                             <i class="fas fa-file-alt"></i>
-                            <span>Transaction Log</span>
+                            <span>Log de Transacciones</span>
                         </div>
                     </div>
                     <div class="cdc-arrow"><i class="fas fa-arrow-right"></i></div>
                     <div class="cdc-connector">
                         <img src="https://cdn.simpleicons.org/apachekafka/231F20" alt="Debezium" width="32" height="32" style="filter: invert(1);">
                         <span>Debezium</span>
-                        <small>CDC Connector</small>
+                        <small>Conector CDC</small>
                     </div>
                     <div class="cdc-arrow"><i class="fas fa-arrow-right"></i></div>
                     <div class="cdc-stream">
                         <i class="fas fa-stream"></i>
                         <span>Kafka Topics</span>
-                        <small>Event Stream</small>
+                        <small>Flujo de Eventos</small>
                     </div>
                     <div class="cdc-arrow"><i class="fas fa-arrow-right"></i></div>
                     <div class="cdc-targets">
@@ -3153,7 +3153,7 @@ default_args = &#123;
                     <div class="pattern-icon mesh"><i class="fas fa-project-diagram"></i></div>
                     <div class="pattern-info">
                         <h4>Data Mesh</h4>
-                        <p>Decentralized data ownership with domain-oriented architecture</p>
+                        <p>Propiedad descentralizada de datos con arquitectura orientada a dominios</p>
                     </div>
                     <div class="pattern-source">
                         <a href="https://martinfowler.com/articles/data-mesh-principles.html" target="_blank" class="source-link">
@@ -3169,22 +3169,22 @@ default_args = &#123;
                     <div class="mesh-principle">
                         <div class="principle-icon"><i class="fas fa-sitemap"></i></div>
                         <h5>Domain Ownership</h5>
-                        <p>Teams own their data end-to-end</p>
+                        <p>Los equipos son dueños de sus datos de principio a fin</p>
                     </div>
                     <div class="mesh-principle">
                         <div class="principle-icon"><i class="fas fa-box-open"></i></div>
                         <h5>Data as a Product</h5>
-                        <p>Treat data with product thinking</p>
+                        <p>Tratar datos con pensamiento de producto</p>
                     </div>
                     <div class="mesh-principle">
                         <div class="principle-icon"><i class="fas fa-server"></i></div>
                         <h5>Self-serve Platform</h5>
-                        <p>Infrastructure as a platform</p>
+                        <p>Infraestructura como plataforma</p>
                     </div>
                     <div class="mesh-principle">
                         <div class="principle-icon"><i class="fas fa-balance-scale"></i></div>
                         <h5>Federated Governance</h5>
-                        <p>Decentralized with standards</p>
+                        <p>Descentralizado con estándares</p>
                     </div>
                 </div>
             </div>
@@ -3195,7 +3195,7 @@ default_args = &#123;
                     <div class="pattern-icon fabric"><i class="fas fa-network-wired"></i></div>
                     <div class="pattern-info">
                         <h4>Data Fabric</h4>
-                        <p>Unified data integration using active metadata and AI/ML</p>
+                        <p>Integración de datos unificada usando metadatos activos e IA/ML</p>
                     </div>
                     <div class="pattern-source">
                         <a href="https://www.gartner.com/en/data-analytics/topics/data-fabric" target="_blank" class="source-link">
@@ -3206,7 +3206,7 @@ default_args = &#123;
 
                 <div class="fabric-components">
                     <div class="fabric-layer">
-                        <h5><i class="fas fa-brain"></i> Knowledge Layer</h5>
+                        <h5><i class="fas fa-brain"></i> Capa de Conocimiento</h5>
                         <div class="fabric-items">
                             <span>Knowledge Graph</span>
                             <span>Active Metadata</span>
@@ -3214,7 +3214,7 @@ default_args = &#123;
                         </div>
                     </div>
                     <div class="fabric-layer">
-                        <h5><i class="fas fa-plug"></i> Integration Layer</h5>
+                        <h5><i class="fas fa-plug"></i> Capa de Integración</h5>
                         <div class="fabric-items">
                             <span>Data Virtualization</span>
                             <span>API Management</span>
@@ -3222,7 +3222,7 @@ default_args = &#123;
                         </div>
                     </div>
                     <div class="fabric-layer">
-                        <h5><i class="fas fa-shield-alt"></i> Governance Layer</h5>
+                        <h5><i class="fas fa-shield-alt"></i> Capa de Gobernanza</h5>
                         <div class="fabric-items">
                             <span>Data Catalog</span>
                             <span>Lineage</span>
@@ -3234,11 +3234,11 @@ default_args = &#123;
                 <div class="fabric-stats">
                     <div class="fabric-stat">
                         <span class="stat-value">30%</span>
-                        <span class="stat-label">Faster integration design</span>
+                        <span class="stat-label">Diseño de integración más rápido</span>
                     </div>
                     <div class="fabric-stat">
                         <span class="stat-value">70%</span>
-                        <span class="stat-label">Less maintenance</span>
+                        <span class="stat-label">Menos mantenimiento</span>
                     </div>
                 </div>
             </div>
@@ -3249,7 +3249,7 @@ default_args = &#123;
                     <div class="pattern-icon cqrs"><i class="fas fa-code-branch"></i></div>
                     <div class="pattern-info">
                         <h4>CQRS + Event Sourcing</h4>
-                        <p>Separate read and write models for scalable event-driven systems</p>
+                        <p>Modelos separados de lectura y escritura para sistemas escalables orientados a eventos</p>
                     </div>
                     <div class="pattern-source">
                         <a href="https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs" target="_blank" class="source-link">
@@ -3263,11 +3263,11 @@ default_args = &#123;
 
                 <div class="cqrs-diagram">
                     <div class="cqrs-side write">
-                        <h5><i class="fas fa-pen"></i> Command Side (Write)</h5>
+                        <h5><i class="fas fa-pen"></i> Lado de Comandos (Escritura)</h5>
                         <div class="cqrs-flow">
                             <div class="cqrs-item">Command</div>
                             <div class="cqrs-arrow"><i class="fas fa-arrow-down"></i></div>
-                            <div class="cqrs-item">Domain Logic</div>
+                            <div class="cqrs-item">Lógica de Dominio</div>
                             <div class="cqrs-arrow"><i class="fas fa-arrow-down"></i></div>
                             <div class="cqrs-item">Event Store</div>
                         </div>
@@ -3277,9 +3277,9 @@ default_args = &#123;
                         <span>Events</span>
                     </div>
                     <div class="cqrs-side read">
-                        <h5><i class="fas fa-search"></i> Query Side (Read)</h5>
+                        <h5><i class="fas fa-search"></i> Lado de Consultas (Lectura)</h5>
                         <div class="cqrs-flow">
-                            <div class="cqrs-item">Read Model</div>
+                            <div class="cqrs-item">Modelo de Lectura</div>
                             <div class="cqrs-arrow"><i class="fas fa-arrow-up"></i></div>
                             <div class="cqrs-item">Projections</div>
                             <div class="cqrs-arrow"><i class="fas fa-arrow-up"></i></div>
@@ -3295,7 +3295,7 @@ default_args = &#123;
                     <div class="pattern-icon scd"><i class="fas fa-history"></i></div>
                     <div class="pattern-info">
                         <h4>Slowly Changing Dimensions (SCD)</h4>
-                        <p>Strategies for tracking historical changes in dimension tables</p>
+                        <p>Estrategias para rastrear cambios históricos en tablas de dimensión</p>
                     </div>
                     <div class="pattern-source">
                         <a href="https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/" target="_blank" class="source-link">
@@ -3307,26 +3307,26 @@ default_args = &#123;
                 <div class="scd-types-grid">
                     <div class="scd-type">
                         <div class="scd-number">Type 0</div>
-                        <h5>Retain Original</h5>
-                        <p>Never update original value</p>
+                        <h5>Retener Original</h5>
+                        <p>Nunca actualizar valor original</p>
                         <code>-- No UPDATE allowed</code>
                     </div>
                     <div class="scd-type">
                         <div class="scd-number">Type 1</div>
-                        <h5>Overwrite</h5>
-                        <p>Replace with new value</p>
+                        <h5>Sobrescribir</h5>
+                        <p>Reemplazar con nuevo valor</p>
                         <code>UPDATE dim SET name = 'New'</code>
                     </div>
                     <div class="scd-type highlighted">
                         <div class="scd-number">Type 2</div>
-                        <h5>Add New Row</h5>
-                        <p>Maintain full history</p>
+                        <h5>Agregar Nueva Fila</h5>
+                        <p>Mantener historial completo</p>
                         <code>INSERT + valid_from/to</code>
                     </div>
                     <div class="scd-type">
                         <div class="scd-number">Type 3</div>
-                        <h5>Add New Column</h5>
-                        <p>Store previous + current</p>
+                        <h5>Agregar Nueva Columna</h5>
+                        <p>Almacenar anterior + actual</p>
                         <code>current_val, previous_val</code>
                     </div>
                 </div>
@@ -3338,7 +3338,7 @@ default_args = &#123;
                     <div class="pattern-icon vault"><i class="fas fa-vault"></i></div>
                     <div class="pattern-info">
                         <h4>Data Vault 2.0</h4>
-                        <p>Agile, scalable data warehouse modeling methodology</p>
+                        <p>Metodología ágil y escalable de modelado de data warehouse</p>
                     </div>
                     <div class="pattern-source">
                         <a href="https://datavaultalliance.com/" target="_blank" class="source-link">
@@ -3351,19 +3351,19 @@ default_args = &#123;
                     <div class="vault-component hub">
                         <div class="vault-icon"><i class="fas fa-circle"></i></div>
                         <h5>Hubs</h5>
-                        <p>Business keys (unique identifiers)</p>
+                        <p>Claves de negocio (identificadores únicos)</p>
                     </div>
                     <div class="vault-connector"></div>
                     <div class="vault-component link">
                         <div class="vault-icon"><i class="fas fa-link"></i></div>
                         <h5>Links</h5>
-                        <p>Relationships between hubs</p>
+                        <p>Relaciones entre hubs</p>
                     </div>
                     <div class="vault-connector"></div>
                     <div class="vault-component satellite">
                         <div class="vault-icon"><i class="fas fa-satellite"></i></div>
                         <h5>Satellites</h5>
-                        <p>Descriptive attributes + history</p>
+                        <p>Atributos descriptivos + historial</p>
                     </div>
                 </div>
             </div>
@@ -3379,7 +3379,7 @@ default_args = &#123;
                     </div>
                     <div class="processing-title-text">
                         <h3>Processing <span class="gradient-text">Architectures</span></h3>
-                        <p>Scalable patterns for modern data processing</p>
+                        <p>Patrones escalables para procesamiento moderno de datos</p>
                     </div>
                 </div>
                 <div class="processing-badges">
@@ -3397,7 +3397,7 @@ default_args = &#123;
                     <div class="arch-icon lambda"><i class="fas fa-layer-group"></i></div>
                     <div class="arch-info">
                         <h4>Lambda Architecture</h4>
-                        <p>Parallel batch and streaming processing for accurate, low-latency results</p>
+                        <p>Procesamiento paralelo batch y streaming para resultados precisos y de baja latencia</p>
                     </div>
                     <div class="arch-source">
                         <a href="http://lambda-architecture.net/" target="_blank" class="source-link">
@@ -3410,7 +3410,7 @@ default_args = &#123;
                     <div class="lambda-source">
                         <div class="lambda-node source">
                             <i class="fas fa-database"></i>
-                            <span>Data Source</span>
+                            <span>Fuente de Datos</span>
                         </div>
                     </div>
 
@@ -3418,7 +3418,7 @@ default_args = &#123;
                         <div class="lambda-layer batch">
                             <div class="layer-label"><i class="fas fa-layer-group"></i> Batch Layer</div>
                             <div class="layer-description">
-                                <p>Processes all historical data</p>
+                                <p>Procesa todos los datos históricos</p>
                                 <div class="layer-techs">
                                     <span class="tech-pill"><i class="devicon-apachespark-original"></i> Spark</span>
                                     <span class="tech-pill"><i class="devicon-hadoop-original"></i> Hadoop</span>
@@ -3426,14 +3426,14 @@ default_args = &#123;
                             </div>
                             <div class="layer-output">
                                 <i class="fas fa-database"></i>
-                                <span>Batch Views</span>
+                                <span>Vistas Batch</span>
                             </div>
                         </div>
 
                         <div class="lambda-layer speed">
                             <div class="layer-label"><i class="fas fa-bolt"></i> Speed Layer</div>
                             <div class="layer-description">
-                                <p>Processes recent data in real-time</p>
+                                <p>Procesa datos recientes en tiempo real</p>
                                 <div class="layer-techs">
                                     <span class="tech-pill"><i class="devicon-apachekafka-original"></i> Kafka</span>
                                     <span class="tech-pill"><i class="fas fa-water"></i> Flink</span>
@@ -3441,7 +3441,7 @@ default_args = &#123;
                             </div>
                             <div class="layer-output">
                                 <i class="fas fa-clock"></i>
-                                <span>Real-time Views</span>
+                                <span>Vistas en Tiempo Real</span>
                             </div>
                         </div>
                     </div>
@@ -3450,26 +3450,26 @@ default_args = &#123;
                         <div class="lambda-node serving">
                             <i class="fas fa-server"></i>
                             <span>Serving Layer</span>
-                            <small>Merge batch + real-time</small>
+                            <small>Combina batch + tiempo real</small>
                         </div>
                     </div>
                 </div>
 
                 <div class="arch-pros-cons">
                     <div class="pros">
-                        <h5><i class="fas fa-plus-circle"></i> Advantages</h5>
+                        <h5><i class="fas fa-plus-circle"></i> Ventajas</h5>
                         <ul>
-                            <li>Accurate results (batch) + low latency (speed)</li>
-                            <li>Fault tolerant</li>
-                            <li>Easy reprocessing</li>
+                            <li>Resultados precisos (batch) + baja latencia (speed)</li>
+                            <li>Tolerante a fallos</li>
+                            <li>Fácil reprocesamiento</li>
                         </ul>
                     </div>
                     <div class="cons">
-                        <h5><i class="fas fa-minus-circle"></i> Disadvantages</h5>
+                        <h5><i class="fas fa-minus-circle"></i> Desventajas</h5>
                         <ul>
-                            <li>Complexity of maintaining 2 pipelines</li>
-                            <li>Duplicated code</li>
-                            <li>Higher operational cost</li>
+                            <li>Complejidad de mantener 2 pipelines</li>
+                            <li>Código duplicado</li>
+                            <li>Mayor costo operacional</li>
                         </ul>
                     </div>
                 </div>
@@ -3481,7 +3481,7 @@ default_args = &#123;
                     <div class="arch-icon kappa"><i class="fas fa-stream"></i></div>
                     <div class="arch-info">
                         <h4>Kappa Architecture</h4>
-                        <p>Simplified Lambda using only streaming for all data processing</p>
+                        <p>Lambda simplificado usando solo streaming para todo el procesamiento</p>
                     </div>
                     <div class="arch-source">
                         <a href="https://www.oreilly.com/radar/questioning-the-lambda-architecture/" target="_blank" class="source-link">
@@ -3494,13 +3494,13 @@ default_args = &#123;
                     <div class="kappa-flow">
                         <div class="kappa-node source">
                             <i class="fas fa-database"></i>
-                            <span>Data Source</span>
+                            <span>Fuente de Datos</span>
                         </div>
                         <div class="kappa-arrow"><i class="fas fa-arrow-right"></i></div>
                         <div class="kappa-node stream">
                             <i class="fas fa-water"></i>
-                            <span>Stream Processing</span>
-                            <small>Single pipeline</small>
+                            <span>Procesamiento de Streams</span>
+                            <small>Pipeline único</small>
                         </div>
                         <div class="kappa-arrow"><i class="fas fa-arrow-right"></i></div>
                         <div class="kappa-node serving">
@@ -3509,9 +3509,9 @@ default_args = &#123;
                         </div>
                     </div>
                     <div class="kappa-features">
-                        <div class="feature-chip"><i class="fas fa-code"></i> Single codebase</div>
-                        <div class="feature-chip"><i class="fas fa-sync"></i> Reprocess via replay</div>
-                        <div class="feature-chip"><i class="fas fa-clock"></i> Real-time first</div>
+                        <div class="feature-chip"><i class="fas fa-code"></i> Código único</div>
+                        <div class="feature-chip"><i class="fas fa-sync"></i> Reprocesa via replay</div>
+                        <div class="feature-chip"><i class="fas fa-clock"></i> Tiempo real primero</div>
                     </div>
                 </div>
             </div>
@@ -3522,7 +3522,7 @@ default_args = &#123;
                     <div class="arch-icon delta"><i class="fas fa-triangle-exclamation"></i></div>
                     <div class="arch-info">
                         <h4>Delta Architecture</h4>
-                        <p>Unified batch and streaming on Delta Lake with ACID transactions</p>
+                        <p>Batch y streaming unificado en Delta Lake con transacciones ACID</p>
                     </div>
                     <div class="arch-source">
                         <a href="https://delta.io/" target="_blank" class="source-link">
@@ -3535,22 +3535,22 @@ default_args = &#123;
                     <div class="delta-feature">
                         <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
                         <h5>ACID Transactions</h5>
-                        <p>Transactional guarantees on data lakes</p>
+                        <p>Garantías transaccionales en data lakes</p>
                     </div>
                     <div class="delta-feature">
                         <div class="feature-icon"><i class="fas fa-history"></i></div>
                         <h5>Time Travel</h5>
-                        <p>Query previous versions of data</p>
+                        <p>Consultar versiones anteriores de datos</p>
                     </div>
                     <div class="delta-feature">
                         <div class="feature-icon"><i class="fas fa-code-merge"></i></div>
                         <h5>Unified Batch & Streaming</h5>
-                        <p>Same format for both paradigms</p>
+                        <p>Mismo formato para ambos paradigmas</p>
                     </div>
                     <div class="delta-feature">
                         <div class="feature-icon"><i class="fas fa-tachometer-alt"></i></div>
                         <h5>Schema Enforcement</h5>
-                        <p>Automatic schema validation</p>
+                        <p>Validación automática de esquema</p>
                     </div>
                 </div>
             </div>
@@ -3561,7 +3561,7 @@ default_args = &#123;
                     <div class="arch-icon etl-elt"><i class="fas fa-exchange-alt"></i></div>
                     <div class="arch-info">
                         <h4>ETL vs ELT</h4>
-                        <p>Two fundamental approaches to data integration and transformation</p>
+                        <p>Dos enfoques fundamentales para integración y transformación de datos</p>
                     </div>
                     <div class="arch-source">
                         <a href="https://docs.getdbt.com/terms/elt" target="_blank" class="source-link">
@@ -3593,8 +3593,8 @@ default_args = &#123;
                             </div>
                         </div>
                         <ul class="comparison-details">
-                            <li><i class="fas fa-server"></i> Transform happens in staging server</li>
-                            <li><i class="fas fa-clock"></i> Traditional, slower approach</li>
+                            <li><i class="fas fa-server"></i> La transformación ocurre en servidor staging</li>
+                            <li><i class="fas fa-clock"></i> Enfoque tradicional, más lento</li>
                             <li><i class="fas fa-tools"></i> SSIS, Informatica, Talend</li>
                         </ul>
                     </div>
@@ -3626,8 +3626,8 @@ default_args = &#123;
                             </div>
                         </div>
                         <ul class="comparison-details">
-                            <li><i class="fas fa-bolt"></i> Transform in destination (scalable)</li>
-                            <li><i class="fas fa-rocket"></i> Faster, leverages DW compute</li>
+                            <li><i class="fas fa-bolt"></i> Transformación en destino (escalable)</li>
+                            <li><i class="fas fa-rocket"></i> Más rápido, aprovecha el cómputo del DW</li>
                             <li><i class="fas fa-tools"></i> dbt, Fivetran, Airbyte, Stitch</li>
                         </ul>
                     </div>
@@ -3640,7 +3640,7 @@ default_args = &#123;
                     <div class="arch-icon streaming"><i class="fas fa-broadcast-tower"></i></div>
                     <div class="arch-info">
                         <h4>Streaming Patterns</h4>
-                        <p>Real-time data processing strategies for continuous data flows</p>
+                        <p>Estrategias de procesamiento en tiempo real para flujos de datos continuos</p>
                     </div>
                     <div class="arch-source">
                         <a href="https://kafka.apache.org/documentation/streams/" target="_blank" class="source-link">
@@ -3653,27 +3653,27 @@ default_args = &#123;
                     <div class="streaming-pattern">
                         <div class="pattern-icon"><i class="fas fa-window-maximize"></i></div>
                         <h5>Windowing</h5>
-                        <p>Tumbling, Sliding, Session windows for time-based aggregations</p>
+                        <p>Ventanas Tumbling, Sliding, Session para agregaciones basadas en tiempo</p>
                     </div>
                     <div class="streaming-pattern">
                         <div class="pattern-icon"><i class="fas fa-water"></i></div>
                         <h5>Watermarks</h5>
-                        <p>Handle late-arriving data with event-time processing</p>
+                        <p>Manejo de datos tardíos con procesamiento de tiempo de evento</p>
                     </div>
                     <div class="streaming-pattern">
                         <div class="pattern-icon"><i class="fas fa-check-double"></i></div>
                         <h5>Exactly-Once</h5>
-                        <p>Guarantee each event is processed exactly once</p>
+                        <p>Garantiza que cada evento se procese exactamente una vez</p>
                     </div>
                     <div class="streaming-pattern">
                         <div class="pattern-icon"><i class="fas fa-compress-arrows-alt"></i></div>
                         <h5>Backpressure</h5>
-                        <p>Control flow when consumers can't keep up</p>
+                        <p>Control de flujo cuando los consumidores no pueden seguir el ritmo</p>
                     </div>
                 </div>
 
                 <div class="streaming-engines">
-                    <span class="engine-label">Popular Engines:</span>
+                    <span class="engine-label">Motores Populares:</span>
                     <a href="https://kafka.apache.org/" target="_blank" class="engine-chip">
                         <i class="devicon-apachekafka-original"></i> Kafka
                     </a>
@@ -3700,7 +3700,7 @@ default_args = &#123;
                     </div>
                     <div class="storage-title-text">
                         <h3>Storage <span class="gradient-text">Platforms</span></h3>
-                        <p>Modern data architecture comparison and dimensional modeling</p>
+                        <p>Comparación de arquitecturas de datos modernas y modelado dimensional</p>
                     </div>
                 </div>
                 <div class="storage-badges">
@@ -3720,24 +3720,24 @@ default_args = &#123;
                         <h4>Data Lake</h4>
                     </div>
                     <div class="platform-description">
-                        <p>Centralized repository for storing raw data at scale</p>
+                        <p>Repositorio centralizado para almacenar datos crudos a escala</p>
                     </div>
                     <div class="platform-characteristics">
                         <div class="char-item">
                             <i class="fas fa-file-alt"></i>
-                            <span>Any format (JSON, CSV, Parquet, Avro)</span>
+                            <span>Cualquier formato (JSON, CSV, Parquet, Avro)</span>
                         </div>
                         <div class="char-item">
                             <i class="fas fa-dollar-sign"></i>
-                            <span>Low storage cost</span>
+                            <span>Bajo costo de almacenamiento</span>
                         </div>
                         <div class="char-item">
                             <i class="fas fa-expand-arrows-alt"></i>
-                            <span>Highly scalable</span>
+                            <span>Altamente escalable</span>
                         </div>
                         <div class="char-item warning">
                             <i class="fas fa-exclamation-triangle"></i>
-                            <span>No ACID guarantees</span>
+                            <span>Sin garantías ACID</span>
                         </div>
                     </div>
                     <div class="platform-techs">
@@ -3759,24 +3759,24 @@ default_args = &#123;
                         <h4>Data Warehouse</h4>
                     </div>
                     <div class="platform-description">
-                        <p>Structured storage optimized for analytics and BI</p>
+                        <p>Almacenamiento estructurado optimizado para analytics y BI</p>
                     </div>
                     <div class="platform-characteristics">
                         <div class="char-item">
                             <i class="fas fa-table"></i>
-                            <span>Schema-on-write (predefined structure)</span>
+                            <span>Schema-on-write (estructura predefinida)</span>
                         </div>
                         <div class="char-item">
                             <i class="fas fa-shield-alt"></i>
-                            <span>Full ACID compliance</span>
+                            <span>Cumplimiento ACID completo</span>
                         </div>
                         <div class="char-item">
                             <i class="fas fa-tachometer-alt"></i>
-                            <span>Optimized queries</span>
+                            <span>Consultas optimizadas</span>
                         </div>
                         <div class="char-item warning">
                             <i class="fas fa-exclamation-triangle"></i>
-                            <span>Higher cost per TB</span>
+                            <span>Mayor costo por TB</span>
                         </div>
                     </div>
                     <div class="platform-techs">
@@ -3796,10 +3796,10 @@ default_args = &#123;
                     <div class="platform-header">
                         <div class="platform-icon"><i class="fas fa-home"></i></div>
                         <h4>Data Lakehouse</h4>
-                        <span class="recommended-badge"><i class="fas fa-star"></i> Recommended</span>
+                        <span class="recommended-badge"><i class="fas fa-star"></i> Recomendado</span>
                     </div>
                     <div class="platform-description">
-                        <p>Combines Data Lake flexibility with Data Warehouse capabilities</p>
+                        <p>Combina la flexibilidad del Data Lake con las capacidades del Data Warehouse</p>
                     </div>
                     <div class="platform-characteristics">
                         <div class="char-item">
@@ -3812,7 +3812,7 @@ default_args = &#123;
                         </div>
                         <div class="char-item">
                             <i class="fas fa-history"></i>
-                            <span>Time travel and versioning</span>
+                            <span>Viaje en el tiempo y versionado</span>
                         </div>
                         <div class="char-item">
                             <i class="fas fa-code-merge"></i>
@@ -3834,7 +3834,7 @@ default_args = &#123;
             <div class="table-formats-section">
                 <div class="formats-header">
                     <h4><i class="fas fa-layer-group"></i> Open Table Formats</h4>
-                    <p>Open formats that enable Lakehouse functionality on Data Lakes</p>
+                    <p>Formatos abiertos que habilitan funcionalidad Lakehouse en Data Lakes</p>
                 </div>
 
                 <div class="formats-grid">
@@ -3845,9 +3845,9 @@ default_args = &#123;
                         <h5>Delta Lake</h5>
                         <p class="format-origin">Databricks</p>
                         <ul class="format-features">
-                            <li>ACID transactions</li>
-                            <li>Schema evolution</li>
-                            <li>Time travel</li>
+                            <li>Transacciones ACID</li>
+                            <li>Evolución de esquema</li>
+                            <li>Viaje en el tiempo</li>
                             <li>Z-ordering</li>
                         </ul>
                         <a href="https://delta.io/" target="_blank" class="format-link">delta.io</a>
@@ -3860,10 +3860,10 @@ default_args = &#123;
                         <h5>Apache Iceberg</h5>
                         <p class="format-origin">Netflix → Apache</p>
                         <ul class="format-features">
-                            <li>Hidden partitioning</li>
-                            <li>Catalog integration</li>
-                            <li>Time travel</li>
-                            <li>Vendor neutral</li>
+                            <li>Particionamiento oculto</li>
+                            <li>Integración con catálogo</li>
+                            <li>Viaje en el tiempo</li>
+                            <li>Neutral de proveedor</li>
                         </ul>
                         <a href="https://iceberg.apache.org/" target="_blank" class="format-link">iceberg.apache.org</a>
                     </div>
@@ -3875,10 +3875,10 @@ default_args = &#123;
                         <h5>Apache Hudi</h5>
                         <p class="format-origin">Uber → Apache</p>
                         <ul class="format-features">
-                            <li>Optimized upserts</li>
-                            <li>Incremental queries</li>
-                            <li>Record-level changes</li>
-                            <li>CDC support</li>
+                            <li>Upserts optimizados</li>
+                            <li>Consultas incrementales</li>
+                            <li>Cambios a nivel de registro</li>
+                            <li>Soporte CDC</li>
                         </ul>
                         <a href="https://hudi.apache.org/" target="_blank" class="format-link">hudi.apache.org</a>
                     </div>
@@ -3889,7 +3889,7 @@ default_args = &#123;
             <div class="dimensional-modeling-section">
                 <div class="modeling-header">
                     <h4><i class="fas fa-cubes"></i> Dimensional Modeling</h4>
-                    <p>Classic data warehouse design patterns by Ralph Kimball</p>
+                    <p>Patrones clásicos de diseño de data warehouse por Ralph Kimball</p>
                     <div class="modeling-source">
                         <a href="https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/" target="_blank" class="source-link">
                             <i class="fas fa-book"></i> Kimball Group
@@ -3902,13 +3902,13 @@ default_args = &#123;
                         <div class="schema-header">
                             <div class="schema-icon"><i class="fas fa-star"></i></div>
                             <h5>Star Schema</h5>
-                            <span class="schema-badge popular"><i class="fas fa-fire"></i> Most Popular</span>
+                            <span class="schema-badge popular"><i class="fas fa-fire"></i> Más Popular</span>
                         </div>
                         <div class="schema-diagram">
                             <div class="fact-table">
                                 <i class="fas fa-table"></i>
                                 <span>Fact Table</span>
-                                <small>Sales, Orders, Transactions</small>
+                                <small>Ventas, Órdenes, Transacciones</small>
                             </div>
                             <div class="dim-connections star-connections">
                                 <div class="dim-table"><i class="fas fa-calendar"></i> dim_date</div>
@@ -3918,10 +3918,10 @@ default_args = &#123;
                             </div>
                         </div>
                         <ul class="schema-features">
-                            <li><i class="fas fa-check"></i> Simple queries (fewer JOINs)</li>
-                            <li><i class="fas fa-check"></i> Better query performance</li>
-                            <li><i class="fas fa-check"></i> Denormalized dimensions</li>
-                            <li><i class="fas fa-exclamation-triangle"></i> Data redundancy</li>
+                            <li><i class="fas fa-check"></i> Consultas simples (menos JOINs)</li>
+                            <li><i class="fas fa-check"></i> Mejor rendimiento de consultas</li>
+                            <li><i class="fas fa-check"></i> Dimensiones desnormalizadas</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> Redundancia de datos</li>
                         </ul>
                     </div>
 
@@ -3933,13 +3933,13 @@ default_args = &#123;
                         <div class="schema-header">
                             <div class="schema-icon"><i class="fas fa-snowflake"></i></div>
                             <h5>Snowflake Schema</h5>
-                            <span class="schema-badge normalized"><i class="fas fa-compress-alt"></i> Normalized</span>
+                            <span class="schema-badge normalized"><i class="fas fa-compress-alt"></i> Normalizado</span>
                         </div>
                         <div class="schema-diagram">
                             <div class="fact-table">
                                 <i class="fas fa-table"></i>
                                 <span>Fact Table</span>
-                                <small>Sales, Orders, Transactions</small>
+                                <small>Ventas, Órdenes, Transacciones</small>
                             </div>
                             <div class="dim-connections snowflake-connections">
                                 <div class="dim-branch">
@@ -3954,10 +3954,10 @@ default_args = &#123;
                             </div>
                         </div>
                         <ul class="schema-features">
-                            <li><i class="fas fa-check"></i> Less data redundancy</li>
-                            <li><i class="fas fa-check"></i> Normalized dimensions</li>
-                            <li><i class="fas fa-check"></i> Easier maintenance</li>
-                            <li><i class="fas fa-exclamation-triangle"></i> More complex queries</li>
+                            <li><i class="fas fa-check"></i> Menos redundancia de datos</li>
+                            <li><i class="fas fa-check"></i> Normalizado dimensions</li>
+                            <li><i class="fas fa-check"></i> Mantenimiento más fácil</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> Consultas más complejas</li>
                         </ul>
                     </div>
                 </div>
@@ -3965,7 +3965,7 @@ default_args = &#123;
                 <div class="modeling-tips">
                     <div class="tip">
                         <i class="fas fa-lightbulb"></i>
-                        <span><strong>Tip:</strong> Star Schema is preferred for most BI/analytics workloads due to simpler queries and better performance with modern columnar databases.</span>
+                        <span><strong>Consejo:</strong> Star Schema es preferido para la mayoría de cargas BI/analytics debido a consultas más simples y mejor rendimiento con bases de datos columnares modernas.</span>
                     </div>
                 </div>
             </div>
