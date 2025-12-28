@@ -19669,6 +19669,41 @@ main,
   text-shadow: 0 0 10px rgba(14, 165, 233, 0.5) !important;
 }
 
+/* Design Patterns mode active state - Teal */
+.mode-btn.active[data-mode="patterns"] {
+  background: linear-gradient(145deg, rgba(20, 184, 166, 0.15), rgba(45, 212, 191, 0.1)) !important;
+  border-color: #14b8a6 !important;
+  box-shadow: 0 0 20px rgba(20, 184, 166, 0.2) !important;
+}
+
+.mode-btn.active[data-mode="patterns"] i {
+  color: #14b8a6 !important;
+  text-shadow: 0 0 10px rgba(20, 184, 166, 0.5) !important;
+}
+
+/* Processing Architectures mode active state - Indigo */
+.mode-btn.active[data-mode="processing"] {
+  background: linear-gradient(145deg, rgba(99, 102, 241, 0.15), rgba(129, 140, 248, 0.1)) !important;
+  border-color: #6366f1 !important;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.2) !important;
+}
+
+.mode-btn.active[data-mode="processing"] i {
+  color: #6366f1 !important;
+  text-shadow: 0 0 10px rgba(99, 102, 241, 0.5) !important;
+}
+
+/* Storage Platforms mode active state - Rose */
+.mode-btn.active[data-mode="storage"] {
+  background: linear-gradient(145deg, rgba(244, 63, 94, 0.15), rgba(251, 113, 133, 0.1)) !important;
+  border-color: #f43f5e !important;
+  box-shadow: 0 0 20px rgba(244, 63, 94, 0.2) !important;
+}
+
+.mode-btn.active[data-mode="storage"] i {
+  color: #f43f5e !important;
+  text-shadow: 0 0 10px rgba(244, 63, 94, 0.5) !important;
+}
 /* ===== VIZ PREMIUM HEADER ===== */
 .viz-premium-header {
   display: flex;
@@ -25290,6 +25325,57 @@ main,
 
 [data-theme="light"] .mode-btn.active small {
   color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Light mode - Specific active states for each mode */
+[data-theme="light"] .mode-btn.active[data-mode="realtime"] {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+  border-color: #f59e0b !important;
+}
+
+[data-theme="light"] .mode-btn.active[data-mode="batch"] {
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%) !important;
+  border-color: #7c3aed !important;
+}
+
+[data-theme="light"] .mode-btn.active[data-mode="architecture"] {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+  border-color: #10b981 !important;
+}
+
+[data-theme="light"] .mode-btn.active[data-mode="governance"] {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+  border-color: #f59e0b !important;
+}
+
+[data-theme="light"] .mode-btn.active[data-mode="visualization"] {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+  border-color: #3b82f6 !important;
+}
+
+[data-theme="light"] .mode-btn.active[data-mode="ingestion"] {
+  background: linear-gradient(135deg, #ec4899 0%, #db2777 100%) !important;
+  border-color: #ec4899 !important;
+}
+
+[data-theme="light"] .mode-btn.active[data-mode="orchestration"] {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%) !important;
+  border-color: #0ea5e9 !important;
+}
+
+[data-theme="light"] .mode-btn.active[data-mode="patterns"] {
+  background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%) !important;
+  border-color: #14b8a6 !important;
+}
+
+[data-theme="light"] .mode-btn.active[data-mode="processing"] {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%) !important;
+  border-color: #6366f1 !important;
+}
+
+[data-theme="light"] .mode-btn.active[data-mode="storage"] {
+  background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%) !important;
+  border-color: #f43f5e !important;
 }
 
 /* ===== PIPELINE DIAGRAM PREMIUM (THE DARK BOX FIX) ===== */
