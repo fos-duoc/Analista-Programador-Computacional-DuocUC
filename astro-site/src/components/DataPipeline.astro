@@ -51,6 +51,21 @@
                 <span>Data Orchestration</span>
                 <small>Workflows</small>
             </button>
+            <button class="mode-btn" data-mode="patterns" id="btn-patterns">
+                <i class="fas fa-cubes"></i>
+                <span>Patrones de Diseño</span>
+                <small>Medallion, SCD</small>
+            </button>
+            <button class="mode-btn" data-mode="processing" id="btn-processing">
+                <i class="fas fa-microchip"></i>
+                <span>Arquitecturas</span>
+                <small>Lambda, Kappa</small>
+            </button>
+            <button class="mode-btn" data-mode="storage" id="btn-storage">
+                <i class="fas fa-database"></i>
+                <span>Almacenamiento</span>
+                <small>Lakehouse</small>
+            </button>
         </div>
     </div>
 
@@ -2968,6 +2983,566 @@ default_args = &#123;
                 </div>
             </div>
         </div>
+
+        <!-- ==================== PATRONES DE DISEÑO ==================== -->
+        <div id="pipeline-patterns" class="pipeline-diagram-premium pipeline-mode">
+            <!-- Patterns Header -->
+            <div class="patterns-premium-header">
+                <div class="patterns-title-wrap">
+                    <div class="patterns-icon-glow">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                    <div class="patterns-title-text">
+                        <h3>Patrones de Diseño <span class="gradient-text">Data Engineering</span></h3>
+                        <p>Arquitecturas probadas para pipelines de datos escalables</p>
+                    </div>
+                </div>
+                <div class="patterns-badges">
+                    <span class="pattern-badge"><i class="fas fa-layer-group"></i> Medallion</span>
+                    <span class="pattern-badge"><i class="fas fa-history"></i> SCD</span>
+                    <span class="pattern-badge"><i class="fas fa-code-branch"></i> Event Sourcing</span>
+                </div>
+            </div>
+
+            <!-- Medallion Architecture -->
+            <div class="pattern-section">
+                <div class="pattern-header">
+                    <div class="pattern-icon medallion"><i class="fas fa-medal"></i></div>
+                    <div class="pattern-info">
+                        <h4>Medallion Architecture</h4>
+                        <p>Patrón de capas para organizar datos en un Data Lakehouse</p>
+                    </div>
+                    <div class="pattern-source">
+                        <a href="https://learn.microsoft.com/en-us/azure/databricks/lakehouse/medallion" target="_blank" class="source-link">
+                            <i class="fab fa-microsoft"></i> Microsoft Learn
+                        </a>
+                        <a href="https://www.databricks.com/glossary/medallion-architecture" target="_blank" class="source-link">
+                            <img src="https://cdn.simpleicons.org/databricks/FF3621" alt="Databricks" width="14" height="14"> Databricks
+                        </a>
+                    </div>
+                </div>
+
+                <div class="medallion-layers">
+                    <div class="medallion-layer bronze">
+                        <div class="layer-medal"><i class="fas fa-database"></i></div>
+                        <div class="layer-content">
+                            <h5>Bronze <span class="layer-aka">(Raw)</span></h5>
+                            <p>Datos crudos sin transformar</p>
+                            <ul class="layer-features">
+                                <li><i class="fas fa-check"></i> Copia exacta de la fuente</li>
+                                <li><i class="fas fa-check"></i> Sin validación</li>
+                                <li><i class="fas fa-check"></i> Append-only</li>
+                                <li><i class="fas fa-check"></i> Historial completo</li>
+                            </ul>
+                            <div class="layer-tech">
+                                <span class="tech-chip"><i class="fas fa-file-alt"></i> Parquet</span>
+                                <span class="tech-chip"><i class="fas fa-clock"></i> Timestamp</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layer-arrow"><i class="fas fa-arrow-right"></i></div>
+
+                    <div class="medallion-layer silver">
+                        <div class="layer-medal"><i class="fas fa-filter"></i></div>
+                        <div class="layer-content">
+                            <h5>Silver <span class="layer-aka">(Validated)</span></h5>
+                            <p>Datos limpios y conformados</p>
+                            <ul class="layer-features">
+                                <li><i class="fas fa-check"></i> Deduplicación</li>
+                                <li><i class="fas fa-check"></i> Validación de schema</li>
+                                <li><i class="fas fa-check"></i> Data Quality checks</li>
+                                <li><i class="fas fa-check"></i> Joins básicos</li>
+                            </ul>
+                            <div class="layer-tech">
+                                <span class="tech-chip"><i class="fas fa-table"></i> Delta Lake</span>
+                                <span class="tech-chip"><i class="fas fa-shield-alt"></i> ACID</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layer-arrow"><i class="fas fa-arrow-right"></i></div>
+
+                    <div class="medallion-layer gold">
+                        <div class="layer-medal"><i class="fas fa-star"></i></div>
+                        <div class="layer-content">
+                            <h5>Gold <span class="layer-aka">(Curated)</span></h5>
+                            <p>Datos listos para consumo</p>
+                            <ul class="layer-features">
+                                <li><i class="fas fa-check"></i> Business-level aggregations</li>
+                                <li><i class="fas fa-check"></i> KPIs y métricas</li>
+                                <li><i class="fas fa-check"></i> Feature stores</li>
+                                <li><i class="fas fa-check"></i> Semantic models</li>
+                            </ul>
+                            <div class="layer-tech">
+                                <span class="tech-chip"><i class="fas fa-chart-bar"></i> BI Ready</span>
+                                <span class="tech-chip"><i class="fas fa-brain"></i> ML Ready</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SCD Patterns -->
+            <div class="pattern-section">
+                <div class="pattern-header">
+                    <div class="pattern-icon scd"><i class="fas fa-history"></i></div>
+                    <div class="pattern-info">
+                        <h4>Slowly Changing Dimensions (SCD)</h4>
+                        <p>Estrategias para manejar cambios históricos en dimensiones</p>
+                    </div>
+                    <div class="pattern-source">
+                        <a href="https://en.wikipedia.org/wiki/Slowly_changing_dimension" target="_blank" class="source-link">
+                            <i class="fab fa-wikipedia-w"></i> Wikipedia
+                        </a>
+                    </div>
+                </div>
+
+                <div class="scd-types-grid">
+                    <div class="scd-type">
+                        <div class="scd-number">Type 0</div>
+                        <h5>Retain Original</h5>
+                        <p>Nunca actualiza el valor original</p>
+                        <code>-- No UPDATE permitido</code>
+                    </div>
+                    <div class="scd-type">
+                        <div class="scd-number">Type 1</div>
+                        <h5>Overwrite</h5>
+                        <p>Sobrescribe con el nuevo valor</p>
+                        <code>UPDATE dim SET name = 'New'</code>
+                    </div>
+                    <div class="scd-type highlighted">
+                        <div class="scd-number">Type 2</div>
+                        <h5>Add New Row</h5>
+                        <p>Mantiene historial completo</p>
+                        <code>INSERT + valid_from/to</code>
+                    </div>
+                    <div class="scd-type">
+                        <div class="scd-number">Type 3</div>
+                        <h5>Add New Column</h5>
+                        <p>Guarda valor anterior y actual</p>
+                        <code>current_value, previous_value</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event Sourcing Pattern -->
+            <div class="pattern-section">
+                <div class="pattern-header">
+                    <div class="pattern-icon event"><i class="fas fa-stream"></i></div>
+                    <div class="pattern-info">
+                        <h4>Event Sourcing</h4>
+                        <p>Almacenar todos los cambios como eventos inmutables</p>
+                    </div>
+                </div>
+
+                <div class="event-sourcing-flow">
+                    <div class="es-step">
+                        <div class="es-icon"><i class="fas fa-pencil-alt"></i></div>
+                        <span>Command</span>
+                    </div>
+                    <div class="es-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="es-step">
+                        <div class="es-icon"><i class="fas fa-bolt"></i></div>
+                        <span>Event</span>
+                    </div>
+                    <div class="es-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="es-step">
+                        <div class="es-icon"><i class="fas fa-database"></i></div>
+                        <span>Event Store</span>
+                    </div>
+                    <div class="es-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="es-step">
+                        <div class="es-icon"><i class="fas fa-sync"></i></div>
+                        <span>Projection</span>
+                    </div>
+                    <div class="es-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="es-step">
+                        <div class="es-icon"><i class="fas fa-eye"></i></div>
+                        <span>Read Model</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== ARQUITECTURAS DE PROCESAMIENTO ==================== -->
+        <div id="pipeline-processing" class="pipeline-diagram-premium pipeline-mode">
+            <!-- Processing Header -->
+            <div class="processing-premium-header">
+                <div class="processing-title-wrap">
+                    <div class="processing-icon-glow">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="processing-title-text">
+                        <h3>Arquitecturas de <span class="gradient-text">Procesamiento</span></h3>
+                        <p>Patrones para procesar datos a escala</p>
+                    </div>
+                </div>
+                <div class="processing-badges">
+                    <span class="arch-badge lambda"><i class="fas fa-layer-group"></i> Lambda</span>
+                    <span class="arch-badge kappa"><i class="fas fa-stream"></i> Kappa</span>
+                    <span class="arch-badge delta"><i class="fas fa-database"></i> Delta</span>
+                </div>
+            </div>
+
+            <!-- Lambda Architecture -->
+            <div class="arch-section">
+                <div class="arch-header">
+                    <div class="arch-icon lambda"><i class="fas fa-layer-group"></i></div>
+                    <div class="arch-info">
+                        <h4>Lambda Architecture</h4>
+                        <p>Procesamiento batch y streaming en paralelo para resultados precisos y de baja latencia</p>
+                    </div>
+                    <div class="arch-source">
+                        <a href="http://lambda-architecture.net/" target="_blank" class="source-link">
+                            <i class="fas fa-external-link-alt"></i> lambda-architecture.net
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lambda-diagram">
+                    <div class="lambda-source">
+                        <div class="lambda-node source">
+                            <i class="fas fa-database"></i>
+                            <span>Data Source</span>
+                        </div>
+                    </div>
+
+                    <div class="lambda-layers">
+                        <div class="lambda-layer batch">
+                            <div class="layer-label"><i class="fas fa-layer-group"></i> Batch Layer</div>
+                            <div class="layer-description">
+                                <p>Procesa todos los datos históricos</p>
+                                <div class="layer-techs">
+                                    <span class="tech-pill"><i class="devicon-apachespark-original"></i> Spark</span>
+                                    <span class="tech-pill"><i class="devicon-hadoop-original"></i> Hadoop</span>
+                                </div>
+                            </div>
+                            <div class="layer-output">
+                                <i class="fas fa-database"></i>
+                                <span>Batch Views</span>
+                            </div>
+                        </div>
+
+                        <div class="lambda-layer speed">
+                            <div class="layer-label"><i class="fas fa-bolt"></i> Speed Layer</div>
+                            <div class="layer-description">
+                                <p>Procesa datos recientes en real-time</p>
+                                <div class="layer-techs">
+                                    <span class="tech-pill"><i class="devicon-apachekafka-original"></i> Kafka</span>
+                                    <span class="tech-pill"><i class="fas fa-water"></i> Flink</span>
+                                </div>
+                            </div>
+                            <div class="layer-output">
+                                <i class="fas fa-clock"></i>
+                                <span>Real-time Views</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lambda-serving">
+                        <div class="lambda-node serving">
+                            <i class="fas fa-server"></i>
+                            <span>Serving Layer</span>
+                            <small>Merge batch + real-time</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arch-pros-cons">
+                    <div class="pros">
+                        <h5><i class="fas fa-plus-circle"></i> Ventajas</h5>
+                        <ul>
+                            <li>Resultados precisos (batch) + baja latencia (speed)</li>
+                            <li>Tolerante a fallos</li>
+                            <li>Reprocesamiento fácil</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h5><i class="fas fa-minus-circle"></i> Desventajas</h5>
+                        <ul>
+                            <li>Complejidad de mantener 2 pipelines</li>
+                            <li>Código duplicado</li>
+                            <li>Mayor costo operacional</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kappa Architecture -->
+            <div class="arch-section">
+                <div class="arch-header">
+                    <div class="arch-icon kappa"><i class="fas fa-stream"></i></div>
+                    <div class="arch-info">
+                        <h4>Kappa Architecture</h4>
+                        <p>Simplificación de Lambda usando solo streaming para todos los datos</p>
+                    </div>
+                    <div class="arch-source">
+                        <a href="https://www.oreilly.com/radar/questioning-the-lambda-architecture/" target="_blank" class="source-link">
+                            <i class="fab fa-oreilly"></i> O'Reilly
+                        </a>
+                    </div>
+                </div>
+
+                <div class="kappa-diagram">
+                    <div class="kappa-flow">
+                        <div class="kappa-node source">
+                            <i class="fas fa-database"></i>
+                            <span>Data Source</span>
+                        </div>
+                        <div class="kappa-arrow"><i class="fas fa-arrow-right"></i></div>
+                        <div class="kappa-node stream">
+                            <i class="fas fa-water"></i>
+                            <span>Stream Processing</span>
+                            <small>Single pipeline</small>
+                        </div>
+                        <div class="kappa-arrow"><i class="fas fa-arrow-right"></i></div>
+                        <div class="kappa-node serving">
+                            <i class="fas fa-server"></i>
+                            <span>Serving Layer</span>
+                        </div>
+                    </div>
+                    <div class="kappa-features">
+                        <div class="feature-chip"><i class="fas fa-code"></i> Un solo código</div>
+                        <div class="feature-chip"><i class="fas fa-sync"></i> Reproceso via replay</div>
+                        <div class="feature-chip"><i class="fas fa-clock"></i> Real-time first</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Delta Architecture -->
+            <div class="arch-section">
+                <div class="arch-header">
+                    <div class="arch-icon delta"><i class="fas fa-triangle-exclamation"></i></div>
+                    <div class="arch-info">
+                        <h4>Delta Architecture</h4>
+                        <p>Unificación de batch y streaming sobre Delta Lake con transacciones ACID</p>
+                    </div>
+                    <div class="arch-source">
+                        <a href="https://delta.io/" target="_blank" class="source-link">
+                            <img src="https://cdn.simpleicons.org/delta/003366" alt="Delta" width="14" height="14"> delta.io
+                        </a>
+                    </div>
+                </div>
+
+                <div class="delta-features-grid">
+                    <div class="delta-feature">
+                        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h5>ACID Transactions</h5>
+                        <p>Garantías transaccionales sobre data lakes</p>
+                    </div>
+                    <div class="delta-feature">
+                        <div class="feature-icon"><i class="fas fa-history"></i></div>
+                        <h5>Time Travel</h5>
+                        <p>Consultar versiones anteriores de los datos</p>
+                    </div>
+                    <div class="delta-feature">
+                        <div class="feature-icon"><i class="fas fa-code-merge"></i></div>
+                        <h5>Unified Batch & Streaming</h5>
+                        <p>Mismo formato para ambos paradigmas</p>
+                    </div>
+                    <div class="delta-feature">
+                        <div class="feature-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <h5>Schema Enforcement</h5>
+                        <p>Validación automática de schema</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== PLATAFORMAS DE ALMACENAMIENTO ==================== -->
+        <div id="pipeline-storage" class="pipeline-diagram-premium pipeline-mode">
+            <!-- Storage Header -->
+            <div class="storage-premium-header">
+                <div class="storage-title-wrap">
+                    <div class="storage-icon-glow">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="storage-title-text">
+                        <h3>Plataformas de <span class="gradient-text">Almacenamiento</span></h3>
+                        <p>Comparativa de arquitecturas de datos modernas</p>
+                    </div>
+                </div>
+                <div class="storage-badges">
+                    <span class="storage-badge lake"><i class="fas fa-water"></i> Data Lake</span>
+                    <span class="storage-badge warehouse"><i class="fas fa-warehouse"></i> Data Warehouse</span>
+                    <span class="storage-badge lakehouse"><i class="fas fa-home"></i> Lakehouse</span>
+                </div>
+            </div>
+
+            <!-- Platform Comparison -->
+            <div class="storage-comparison">
+                <div class="storage-platform lake">
+                    <div class="platform-header">
+                        <div class="platform-icon"><i class="fas fa-water"></i></div>
+                        <h4>Data Lake</h4>
+                    </div>
+                    <div class="platform-description">
+                        <p>Repositorio centralizado para almacenar datos en formato raw</p>
+                    </div>
+                    <div class="platform-characteristics">
+                        <div class="char-item">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Cualquier formato (JSON, CSV, Parquet, Avro)</span>
+                        </div>
+                        <div class="char-item">
+                            <i class="fas fa-dollar-sign"></i>
+                            <span>Bajo costo de almacenamiento</span>
+                        </div>
+                        <div class="char-item">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                            <span>Altamente escalable</span>
+                        </div>
+                        <div class="char-item warning">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span>Sin garantías ACID</span>
+                        </div>
+                    </div>
+                    <div class="platform-techs">
+                        <a href="https://aws.amazon.com/s3/" target="_blank" class="tech-link">
+                            <i class="devicon-amazonwebservices-plain-wordmark"></i> S3
+                        </a>
+                        <a href="https://azure.microsoft.com/en-us/products/storage/data-lake-storage/" target="_blank" class="tech-link">
+                            <i class="devicon-azure-original"></i> ADLS
+                        </a>
+                        <a href="https://cloud.google.com/storage" target="_blank" class="tech-link">
+                            <i class="devicon-googlecloud-original"></i> GCS
+                        </a>
+                    </div>
+                </div>
+
+                <div class="storage-platform warehouse">
+                    <div class="platform-header">
+                        <div class="platform-icon"><i class="fas fa-warehouse"></i></div>
+                        <h4>Data Warehouse</h4>
+                    </div>
+                    <div class="platform-description">
+                        <p>Almacén estructurado optimizado para analytics y BI</p>
+                    </div>
+                    <div class="platform-characteristics">
+                        <div class="char-item">
+                            <i class="fas fa-table"></i>
+                            <span>Schema-on-write (estructura definida)</span>
+                        </div>
+                        <div class="char-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>ACID completo</span>
+                        </div>
+                        <div class="char-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Queries optimizados</span>
+                        </div>
+                        <div class="char-item warning">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span>Mayor costo por TB</span>
+                        </div>
+                    </div>
+                    <div class="platform-techs">
+                        <a href="https://www.snowflake.com/" target="_blank" class="tech-link">
+                            <img src="https://cdn.simpleicons.org/snowflake/29B5E8" alt="Snowflake" width="18" height="18"> Snowflake
+                        </a>
+                        <a href="https://cloud.google.com/bigquery" target="_blank" class="tech-link">
+                            <img src="https://cdn.simpleicons.org/googlebigquery/669DF6" alt="BigQuery" width="18" height="18"> BigQuery
+                        </a>
+                        <a href="https://aws.amazon.com/redshift/" target="_blank" class="tech-link">
+                            <i class="devicon-amazonwebservices-plain-wordmark"></i> Redshift
+                        </a>
+                    </div>
+                </div>
+
+                <div class="storage-platform lakehouse highlighted">
+                    <div class="platform-header">
+                        <div class="platform-icon"><i class="fas fa-home"></i></div>
+                        <h4>Data Lakehouse</h4>
+                        <span class="recommended-badge"><i class="fas fa-star"></i> Recomendado</span>
+                    </div>
+                    <div class="platform-description">
+                        <p>Combina la flexibilidad del Data Lake con las capacidades del Data Warehouse</p>
+                    </div>
+                    <div class="platform-characteristics">
+                        <div class="char-item">
+                            <i class="fas fa-check-double"></i>
+                            <span>Schema-on-read + Schema-on-write</span>
+                        </div>
+                        <div class="char-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>ACID sobre archivos Parquet</span>
+                        </div>
+                        <div class="char-item">
+                            <i class="fas fa-history"></i>
+                            <span>Time travel y versionado</span>
+                        </div>
+                        <div class="char-item">
+                            <i class="fas fa-code-merge"></i>
+                            <span>Batch + Streaming unificado</span>
+                        </div>
+                    </div>
+                    <div class="platform-techs">
+                        <a href="https://www.databricks.com/" target="_blank" class="tech-link">
+                            <img src="https://cdn.simpleicons.org/databricks/FF3621" alt="Databricks" width="18" height="18"> Databricks
+                        </a>
+                        <a href="https://delta.io/" target="_blank" class="tech-link">
+                            <img src="https://cdn.simpleicons.org/delta/003366" alt="Delta Lake" width="18" height="18"> Delta Lake
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Open Table Formats -->
+            <div class="table-formats-section">
+                <div class="formats-header">
+                    <h4><i class="fas fa-layer-group"></i> Open Table Formats</h4>
+                    <p>Formatos abiertos que habilitan funcionalidades de Lakehouse sobre Data Lakes</p>
+                </div>
+
+                <div class="formats-grid">
+                    <div class="format-card delta">
+                        <div class="format-logo">
+                            <img src="https://cdn.simpleicons.org/delta/003366" alt="Delta Lake" width="40" height="40">
+                        </div>
+                        <h5>Delta Lake</h5>
+                        <p class="format-origin">Databricks</p>
+                        <ul class="format-features">
+                            <li>ACID transactions</li>
+                            <li>Schema evolution</li>
+                            <li>Time travel</li>
+                            <li>Z-ordering</li>
+                        </ul>
+                        <a href="https://delta.io/" target="_blank" class="format-link">delta.io</a>
+                    </div>
+
+                    <div class="format-card iceberg">
+                        <div class="format-logo">
+                            <img src="https://cdn.simpleicons.org/apacheiceberg/4F7FE8" alt="Apache Iceberg" width="40" height="40">
+                        </div>
+                        <h5>Apache Iceberg</h5>
+                        <p class="format-origin">Netflix → Apache</p>
+                        <ul class="format-features">
+                            <li>Hidden partitioning</li>
+                            <li>Catalog integration</li>
+                            <li>Time travel</li>
+                            <li>Vendor neutral</li>
+                        </ul>
+                        <a href="https://iceberg.apache.org/" target="_blank" class="format-link">iceberg.apache.org</a>
+                    </div>
+
+                    <div class="format-card hudi">
+                        <div class="format-logo">
+                            <img src="https://cdn.simpleicons.org/apachehudi/FF6B00" alt="Apache Hudi" width="40" height="40">
+                        </div>
+                        <h5>Apache Hudi</h5>
+                        <p class="format-origin">Uber → Apache</p>
+                        <ul class="format-features">
+                            <li>Upserts optimizados</li>
+                            <li>Incremental queries</li>
+                            <li>Record-level changes</li>
+                            <li>CDC support</li>
+                        </ul>
+                        <a href="https://hudi.apache.org/" target="_blank" class="format-link">hudi.apache.org</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -3004,6 +3579,9 @@ default_args = &#123;
         var btnVisualization = document.getElementById('btn-visualization');
         var btnIngestion = document.getElementById('btn-ingestion');
         var btnOrchestration = document.getElementById('btn-orchestration');
+        var btnPatterns = document.getElementById('btn-patterns');
+        var btnProcessing = document.getElementById('btn-processing');
+        var btnStorage = document.getElementById('btn-storage');
 
         if (btnRealtime) {
             btnRealtime.onclick = function() { switchPipelineMode('realtime'); };
@@ -3025,6 +3603,15 @@ default_args = &#123;
         }
         if (btnOrchestration) {
             btnOrchestration.onclick = function() { switchPipelineMode('orchestration'); };
+        }
+        if (btnPatterns) {
+            btnPatterns.onclick = function() { switchPipelineMode('patterns'); };
+        }
+        if (btnProcessing) {
+            btnProcessing.onclick = function() { switchPipelineMode('processing'); };
+        }
+        if (btnStorage) {
+            btnStorage.onclick = function() { switchPipelineMode('storage'); };
         }
     }
 
