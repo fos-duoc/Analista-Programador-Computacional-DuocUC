@@ -736,14 +736,15 @@ const categoryFilters = techCategories.map(cat => ({ id: cat.id, title: cat.titl
                         <span class="cat-count">{category.items.length}</span>
                     </div>
                     <div class="category-items">
-                        {category.items.map(item => {
+                        {category.items.map((item, itemIdx) => {
                             const meta = techMetadata[item.name];
                             const tooltipData = meta ?
                                 `${item.name}|${meta.objective}|${meta.features?.join(', ') || ''}|tool|fas fa-${item.hot ? 'fire' : 'code'}|${meta.creator} (${meta.year})` :
                                 `${item.name}|${item.desc}||tool|fas fa-code|`;
+                            const sizeClass = itemIdx < 3 ? 'size-lg' : itemIdx < 5 ? 'size-md' : 'size-sm';
                             return (
                             <a href={item.url} target="_blank" rel="noopener"
-                               class={`tech-item ${item.hot ? 'hot' : ''}`}
+                               class={`tech-item ${item.hot ? 'hot' : ''} ${sizeClass}`}
                                data-premium-tooltip={tooltipData}>
                                 {item.icon.startsWith('img:') ? (
                                     <img src={item.icon.replace('img:', '')} alt={item.name} class="tech-icon-img" width="32" height="32" loading="lazy" />
@@ -885,19 +886,56 @@ function initTechStack() {
         };
     });
 
-    // Category Filters
+    // Category Filters with Multi-Selection Support
     const filterBtns = document.querySelectorAll('.filter-btn');
     const categoryCards = document.querySelectorAll('.category-card');
+    let activeFilters = new Set(['all']);
 
     filterBtns.forEach(btn => {
-        btn.onclick = () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
+        btn.onclick = (e) => {
             const filter = btn.dataset.filter;
+            const isMultiSelect = e.ctrlKey || e.metaKey;
+            
+            if (filter === 'all') {
+                // Clicking "all" resets everything
+                activeFilters.clear();
+                activeFilters.add('all');
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            } else if (isMultiSelect) {
+                // Multi-select mode (Ctrl/Cmd + click)
+                activeFilters.delete('all');
+                if (activeFilters.has(filter)) {
+                    activeFilters.delete(filter);
+                    btn.classList.remove('active');
+                } else {
+                    activeFilters.add(filter);
+                    btn.classList.add('active');
+                }
+                // Deactivate "all" button
+                filterBtns.forEach(b => {
+                    if (b.dataset.filter === 'all') b.classList.remove('active');
+                });
+                // If no filters active, show all
+                if (activeFilters.size === 0) {
+                    activeFilters.add('all');
+                    filterBtns.forEach(b => {
+                        if (b.dataset.filter === 'all') b.classList.add('active');
+                    });
+                }
+            } else {
+                // Single select mode
+                activeFilters.clear();
+                activeFilters.add(filter);
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            }
+
+            // Apply filter
             categoryCards.forEach(card => {
-                if (filter === 'all' || card.dataset.category === filter) {
-                    card.style.display = 'block';
+                const shouldShow = activeFilters.has('all') || activeFilters.has(card.dataset.category);
+                if (shouldShow) {
+                    card.style.display = '';
                     card.style.animation = 'fadeIn 0.3s ease';
                 } else {
                     card.style.display = 'none';
@@ -1000,10 +1038,12 @@ function updatePodiumData(source) {
     }
 
     if (secondaryGrid) {
-        // Clear and rebuild secondary
-        secondaryGrid.innerHTML = data.secondary.map(lang => `
+        // Clear and rebuild secondary with size classes
+        secondaryGrid.innerHTML = data.secondary.map((lang, idx) => {
+            const sizeClass = idx < 3 ? 'size-lg' : idx < 5 ? 'size-md' : 'size-sm';
+            return `
             <a href="${lang.url}" target="_blank" rel="noopener"
-               class="lang-chip-v2"
+               class="lang-chip-v2 ${sizeClass}"
                data-source="${source}"
                data-premium-tooltip="${buildTooltip(lang.name, lang.desc)}">
                 ${lang.icon.startsWith('devicon') ?
@@ -1012,11 +1052,11 @@ function updatePodiumData(source) {
                 }
                 <span class="chip-name-v2">${lang.name}</span>
                 <span class="chip-stat-v2">${lang.stat}</span>
-                <span class="chip-trend-v2 trend-${lang.trend}">
+                ${sizeClass !== 'size-sm' ? `<span class="chip-trend-v2 trend-${lang.trend}">
                     ${lang.trend === 'hot' ? '🔥' : lang.trend === 'up' ? '↑' : lang.trend === 'stable' ? '→' : '↓'}${lang.trendValue}
-                </span>
-            </a>
-        `).join('');
+                </span>` : ''}
+            </a>`;
+        }).join('');
     }
 
     // Re-init premium tooltips
@@ -1809,6 +1849,59 @@ function initTooltips() {
         background: linear-gradient(90deg, #ef4444, #f97316);
         border-radius: 4px 4px 0 0;
         opacity: 0.8;
+    }
+
+    /* Tech Item Size Variants */
+    .tech-item.size-lg {
+        padding: 0.875rem 1rem;
+    }
+    .tech-item.size-lg i,
+    .tech-item.size-lg .tech-icon-img {
+        font-size: 1.75rem;
+        width: 38px;
+        height: 38px;
+    }
+    .tech-item.size-lg .item-name {
+        font-size: 0.95rem;
+        font-weight: 600;
+    }
+
+    .tech-item.size-md {
+        padding: 0.5rem 0.75rem;
+    }
+    .tech-item.size-md i,
+    .tech-item.size-md .tech-icon-img {
+        font-size: 1.25rem;
+        width: 26px;
+        height: 26px;
+    }
+    .tech-item.size-md .item-name {
+        font-size: 0.85rem;
+    }
+    .tech-item.size-md .item-desc {
+        font-size: 0.7rem;
+    }
+
+    .tech-item.size-sm {
+        padding: 0.35rem 0.6rem;
+    }
+    .tech-item.size-sm i,
+    .tech-item.size-sm .tech-icon-img {
+        font-size: 1rem;
+        width: 20px;
+        height: 20px;
+    }
+    .tech-item.size-sm .item-name {
+        font-size: 0.75rem;
+    }
+    .tech-item.size-sm .item-desc {
+        display: none;
+    }
+    .tech-item.size-sm .tech-stat-value {
+        font-size: 0.65rem;
+    }
+    .tech-item.size-sm .hot-badge {
+        font-size: 0.65rem;
     }
 
     .tech-item i {
