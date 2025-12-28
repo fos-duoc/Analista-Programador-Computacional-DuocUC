@@ -681,14 +681,16 @@ const categoryFilters = techCategories.map(cat => ({ id: cat.id, title: cat.titl
                     <span class="secondary-count">+5 lenguajes</span>
                 </div>
                 <div class="secondary-grid">
-                    {secondaryLanguages.map(lang => {
+                    {secondaryLanguages.map((lang, idx) => {
                         const meta = techMetadata[lang.name];
                         const tooltipData = meta ?
                             `${lang.name}|${meta.objective}|${meta.features?.join(', ') || ''}|tool|fas fa-code|${meta.creator} (${meta.year})` :
                             `${lang.name}|${lang.desc}||tool|fas fa-code|`;
+                        // Tamaños decrecientes: 0-2 = large, 3-4 = medium, 5+ = small
+                        const sizeClass = idx < 3 ? 'size-lg' : idx < 5 ? 'size-md' : 'size-sm';
                         return (
                         <a href={lang.url} target="_blank" rel="noopener"
-                           class="lang-chip-v2"
+                           class={`lang-chip-v2 ${sizeClass}`}
                            data-source="stackoverflow"
                            data-premium-tooltip={tooltipData}>
                             {lang.icon.startsWith('devicon') ? (
@@ -1562,6 +1564,71 @@ function initTooltips() {
         background: rgba(0, 212, 255, 0.1);
         border-color: rgba(0, 212, 255, 0.3);
         transform: translateY(-2px);
+    }
+
+    /* Tamaños decrecientes para lenguajes secundarios */
+    .lang-chip-v2.size-lg {
+        padding: 0.4rem 0.7rem;
+        gap: 0.4rem;
+    }
+    
+    .lang-chip-v2.size-lg i,
+    .lang-chip-v2.size-lg img {
+        font-size: 1.2rem;
+        width: 22px;
+        height: 22px;
+    }
+    
+    .lang-chip-v2.size-lg .chip-name-v2 {
+        font-size: 0.8rem;
+    }
+    
+    .lang-chip-v2.size-lg .chip-stat-v2 {
+        font-size: 0.7rem;
+    }
+    
+    .lang-chip-v2.size-md {
+        padding: 0.3rem 0.55rem;
+        gap: 0.35rem;
+    }
+    
+    .lang-chip-v2.size-md i,
+    .lang-chip-v2.size-md img {
+        font-size: 0.95rem;
+        width: 18px;
+        height: 18px;
+    }
+    
+    .lang-chip-v2.size-md .chip-name-v2 {
+        font-size: 0.7rem;
+    }
+    
+    .lang-chip-v2.size-md .chip-stat-v2 {
+        font-size: 0.6rem;
+    }
+    
+    .lang-chip-v2.size-sm {
+        padding: 0.2rem 0.4rem;
+        gap: 0.25rem;
+    }
+    
+    .lang-chip-v2.size-sm i,
+    .lang-chip-v2.size-sm img {
+        font-size: 0.8rem;
+        width: 14px;
+        height: 14px;
+    }
+    
+    .lang-chip-v2.size-sm .chip-name-v2 {
+        font-size: 0.6rem;
+    }
+    
+    .lang-chip-v2.size-sm .chip-stat-v2 {
+        font-size: 0.5rem;
+    }
+    
+    .lang-chip-v2.size-sm .chip-trend-v2 {
+        display: none; /* Ocultar tendencia en tamaño pequeño */
     }
 
     .lang-chip-v2 img,
