@@ -700,16 +700,221 @@ document.addEventListener('astro:page-load', () => {
         }
     }
 
-    /* Light Mode */
-    :global([data-theme="light"]) .map-legend {
-        background: rgba(255, 255, 255, 0.95);
+    /* ============================================
+       LIGHT MODE - Enterprise Grade Styles
+       Typography: System fonts, proper weights
+       Contrast: WCAG AA compliant
+       ============================================ */
+
+    :global([data-theme="light"]) .sedes-section {
+        background: linear-gradient(180deg, rgba(248, 250, 252, 0.5) 0%, rgba(241, 245, 249, 0.3) 100%);
     }
 
-    :global([data-theme="light"]) .sede-card {
+    /* Header Styles */
+    :global([data-theme="light"]) .header-icon-wrap {
+        background: linear-gradient(135deg, rgba(8, 145, 178, 0.1), rgba(124, 58, 237, 0.1));
+        box-shadow: 0 4px 12px rgba(8, 145, 178, 0.12);
+    }
+
+    :global([data-theme="light"]) .header-icon-wrap i {
+        color: #0891b2;
+    }
+
+    :global([data-theme="light"]) .sedes-header h2 {
+        color: #0f172a;
+        letter-spacing: -0.02em;
+    }
+
+    :global([data-theme="light"]) .gradient-text {
+        background: linear-gradient(135deg, #0891b2, #7c3aed);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    :global([data-theme="light"]) .sedes-header p {
+        color: #475569;
+    }
+
+    /* Region Filters */
+    :global([data-theme="light"]) .region-btn {
         background: rgba(255, 255, 255, 0.8);
+        border-color: rgba(0, 0, 0, 0.08);
+        color: #475569;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    }
+
+    :global([data-theme="light"]) .region-btn:hover {
+        background: rgba(255, 255, 255, 0.95);
+        color: #0f172a;
+        border-color: rgba(0, 0, 0, 0.12);
+    }
+
+    :global([data-theme="light"]) .region-btn.active {
+        background: linear-gradient(135deg, rgba(8, 145, 178, 0.1), rgba(124, 58, 237, 0.1));
+        border-color: rgba(8, 145, 178, 0.3);
+        color: #0891b2;
+        box-shadow: 0 2px 8px rgba(8, 145, 178, 0.1);
+    }
+
+    /* Map Wrapper */
+    :global([data-theme="light"]) .map-wrapper {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    :global([data-theme="light"]) .map-legend {
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    :global([data-theme="light"]) .legend-item {
+        color: #475569;
+    }
+
+    /* Sede Cards */
+    :global([data-theme="light"]) .sede-card {
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    :global([data-theme="light"]) .sede-card:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    :global([data-theme="light"]) .sede-card.online {
+        border-left: 4px solid #059669;
+    }
+
+    :global([data-theme="light"]) .sede-card.hybrid {
+        border-left: 4px solid #7c3aed;
+    }
+
+    :global([data-theme="light"]) .sede-card.presencial {
+        border-left: 4px solid #0891b2;
+    }
+
+    :global([data-theme="light"]) .sede-icon {
+        background: rgba(8, 145, 178, 0.08);
+        color: #0891b2;
+    }
+
+    :global([data-theme="light"]) .sede-card.online .sede-icon {
+        background: rgba(5, 150, 105, 0.08);
+        color: #059669;
+    }
+
+    :global([data-theme="light"]) .sede-title h3 {
+        color: #0f172a;
+    }
+
+    :global([data-theme="light"]) .sede-comuna {
+        color: #64748b;
+    }
+
+    /* Modalidad Badges */
+    :global([data-theme="light"]) .modalidad-badge {
+        background: rgba(8, 145, 178, 0.08);
+        color: #0891b2;
+        border: 1px solid rgba(8, 145, 178, 0.15);
+    }
+
+    :global([data-theme="light"]) .modalidad-badge.online {
+        background: rgba(5, 150, 105, 0.08);
+        color: #059669;
+        border-color: rgba(5, 150, 105, 0.15);
+    }
+
+    :global([data-theme="light"]) .modalidad-badge.hybrid {
+        background: rgba(124, 58, 237, 0.08);
+        color: #7c3aed;
+        border-color: rgba(124, 58, 237, 0.15);
+    }
+
+    /* Sede Info */
+    :global([data-theme="light"]) .sede-info-row {
+        color: #475569;
+    }
+
+    :global([data-theme="light"]) .sede-info-row i {
+        color: #64748b;
+    }
+
+    :global([data-theme="light"]) .sede-carreras {
+        border-top-color: rgba(0, 0, 0, 0.06);
+    }
+
+    :global([data-theme="light"]) .carreras-label {
+        color: #64748b;
     }
 
     :global([data-theme="light"]) .carrera-tag {
-        background: rgba(0, 0, 0, 0.05);
+        background: rgba(0, 0, 0, 0.04);
+        color: #475569;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    /* Sede Buttons */
+    :global([data-theme="light"]) .sede-btn.directions {
+        background: rgba(8, 145, 178, 0.08);
+        border-color: rgba(8, 145, 178, 0.2);
+        color: #0891b2;
+    }
+
+    :global([data-theme="light"]) .sede-btn.directions:hover {
+        background: rgba(8, 145, 178, 0.12);
+        box-shadow: 0 2px 8px rgba(8, 145, 178, 0.15);
+    }
+
+    :global([data-theme="light"]) .sede-btn.focus {
+        background: rgba(124, 58, 237, 0.08);
+        border-color: rgba(124, 58, 237, 0.2);
+        color: #7c3aed;
+    }
+
+    :global([data-theme="light"]) .sede-btn.focus:hover {
+        background: rgba(124, 58, 237, 0.12);
+        box-shadow: 0 2px 8px rgba(124, 58, 237, 0.15);
+    }
+
+    /* Stats Section */
+    :global([data-theme="light"]) .sedes-stats {
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    }
+
+    :global([data-theme="light"]) .stat-box i {
+        color: #0891b2;
+    }
+
+    :global([data-theme="light"]) .stat-number {
+        color: #0f172a;
+    }
+
+    :global([data-theme="light"]) .stat-label {
+        color: #64748b;
+    }
+
+    /* Scrollbar for Sedes List */
+    :global([data-theme="light"]) .sedes-list::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    :global([data-theme="light"]) .sedes-list::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.03);
+        border-radius: 3px;
+    }
+
+    :global([data-theme="light"]) .sedes-list::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.15);
+        border-radius: 3px;
+    }
+
+    :global([data-theme="light"]) .sedes-list::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 0, 0, 0.25);
     }
 </style>

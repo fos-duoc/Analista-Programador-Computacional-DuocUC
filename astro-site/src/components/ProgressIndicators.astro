@@ -782,57 +782,139 @@ const circularMetrics = [
         }
     }
 
-    /* Light Mode */
-    [data-theme="light"] .progress-card {
-        background: rgba(255, 255, 255, 0.9);
-        border-color: rgba(0, 0, 0, 0.1);
+    /* ============================================
+       LIGHT MODE - Enterprise Grade Styles
+       ============================================ */
+
+    :global([data-theme="light"]) .progress-section {
+        background: linear-gradient(180deg, rgba(248, 250, 252, 0.5) 0%, rgba(241, 245, 249, 0.3) 100%);
     }
 
-    [data-theme="light"] .card-header {
-        border-bottom-color: rgba(0, 0, 0, 0.1);
+    :global([data-theme="light"]) .progress-header .header-icon-wrap {
+        background: linear-gradient(135deg, rgba(8, 145, 178, 0.15), rgba(109, 40, 217, 0.15));
+        color: #0891b2;
     }
 
-    [data-theme="light"] .progress-bar-track {
-        background: rgba(0, 0, 0, 0.1);
+    :global([data-theme="light"]) .progress-header h2 {
+        color: #0f172a;
     }
 
-    [data-theme="light"] .circular-progress .progress-bg {
-        stroke: rgba(0, 0, 0, 0.1);
-    }
-
-    [data-theme="light"] .step-marker {
-        background: rgba(0, 0, 0, 0.05);
-        border-color: rgba(0, 0, 0, 0.2);
+    :global([data-theme="light"]) .progress-header p {
         color: #64748b;
     }
 
-    [data-theme="light"] .step-connector {
-        background: rgba(0, 0, 0, 0.1);
+    :global([data-theme="light"]) .progress-card {
+        background: rgba(255, 255, 255, 0.95);
+        border-color: rgba(0, 0, 0, 0.08);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
     }
 
-    [data-theme="light"] .spinner {
+    :global([data-theme="light"]) .progress-card:hover {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+    }
+
+    :global([data-theme="light"]) .card-header {
+        border-bottom-color: rgba(0, 0, 0, 0.06);
+    }
+
+    :global([data-theme="light"]) .card-header h3 {
+        color: #1e293b;
+    }
+
+    :global([data-theme="light"]) .card-header h3 i {
+        color: #0891b2;
+    }
+
+    :global([data-theme="light"]) .badge {
+        background: rgba(8, 145, 178, 0.1);
+        border-color: rgba(8, 145, 178, 0.25);
+        color: #0891b2;
+    }
+
+    :global([data-theme="light"]) .skill-name {
+        color: #334155;
+    }
+
+    :global([data-theme="light"]) .skill-level {
+        color: #0891b2;
+    }
+
+    :global([data-theme="light"]) .progress-bar-track {
+        background: rgba(0, 0, 0, 0.08);
+    }
+
+    :global([data-theme="light"]) .circular-progress .progress-bg {
+        stroke: rgba(0, 0, 0, 0.08);
+    }
+
+    :global([data-theme="light"]) .progress-value {
+        color: #1e293b;
+    }
+
+    :global([data-theme="light"]) .circular-label {
+        color: #64748b;
+    }
+
+    :global([data-theme="light"]) .demo-label {
+        color: #64748b;
+    }
+
+    :global([data-theme="light"]) .step-marker {
+        background: rgba(0, 0, 0, 0.04);
+        border-color: rgba(0, 0, 0, 0.15);
+        color: #64748b;
+    }
+
+    :global([data-theme="light"]) .step-title {
+        color: #1e293b;
+    }
+
+    :global([data-theme="light"]) .step-desc {
+        color: #64748b;
+    }
+
+    :global([data-theme="light"]) .step-connector {
+        background: rgba(0, 0, 0, 0.08);
+    }
+
+    :global([data-theme="light"]) .step.completed .step-marker {
+        background: linear-gradient(135deg, #059669, #10b981);
+        border-color: #059669;
+    }
+
+    :global([data-theme="light"]) .step.active .step-marker {
+        background: linear-gradient(135deg, #0891b2, #6d28d9);
+        border-color: #0891b2;
+        box-shadow: 0 0 20px rgba(8, 145, 178, 0.4);
+    }
+
+    :global([data-theme="light"]) .spinner {
         border-color: rgba(0, 0, 0, 0.1);
-        border-top-color: var(--accent-cyan, #00d4ff);
+        border-top-color: #0891b2;
     }
 
-    [data-theme="light"] .pulse-ring {
+    :global([data-theme="light"]) .pulse-ring {
         border-color: #0891b2;
     }
 
-    [data-theme="light"] .pulse-core {
+    :global([data-theme="light"]) .pulse-core {
         background: #0891b2;
     }
 
-    [data-theme="light"] .dot-loader .dot {
+    :global([data-theme="light"]) .dot-loader .dot {
         background: #0891b2;
     }
 
-    [data-theme="light"] .wave-bar {
+    :global([data-theme="light"]) .wave-bar {
         background: #0891b2;
     }
 
-    [data-theme="light"] .circular-loader circle {
+    :global([data-theme="light"]) .circular-loader circle {
         stroke: #0891b2;
+    }
+
+    :global([data-theme="light"]) .indeterminate-fill {
+        background: linear-gradient(90deg, #0891b2, #6d28d9, #0891b2) !important;
     }
 </style>
 
