@@ -1,98 +1,145 @@
 ---
-// Capstone Projects - Proyectos prácticos por nivel
-// Basado en mejores prácticas 2025 y malla DuocUC
+// Capstone Projects - Proyectos prácticos alineados con Malla DuocUC 1444729-2025
+// Cada proyecto corresponde a asignaturas específicas del programa APC
 
 const projectLevels = [
     {
-        level: "Beginner",
+        level: "Fundamentos",
         levelNum: 1,
         color: "cyan",
         icon: "fas fa-seedling",
-        description: "Proyectos para consolidar fundamentos de programación",
+        description: "Proyectos para consolidar fundamentos de programación y pensamiento lógico",
         bimestres: "B01-B02",
+        subjects: ["PRY1101", "MDY1101", "PRY2202"],
         projects: [
             {
-                name: "CLI Task Manager",
-                description: "Aplicación de consola para gestionar tareas con persistencia en archivos",
-                skills: ["Python", "Archivos JSON", "Lógica"],
+                name: "Sistema de Inventario CLI",
+                description: "Aplicación de consola que gestiona productos con menú, CRUD y persistencia en archivos TXT/CSV",
+                skills: ["Python", "Archivos", "Estructuras de datos", "Menú interactivo"],
                 duration: "2-3 semanas",
-                difficulty: 1
+                difficulty: 2,
+                subject: "PRY1101 - Fundamentos de Programación"
             },
             {
-                name: "ETL Pipeline Básico",
-                description: "Pipeline que ingesta CSV, transforma datos y carga en SQLite",
-                skills: ["Python", "Pandas", "SQL básico"],
+                name: "Calculadora Científica POO",
+                description: "Calculadora con clases: Operacion, Historial, Validador. Aplica encapsulamiento y herencia",
+                skills: ["Java", "Clases", "Encapsulamiento", "ArrayList"],
                 duration: "2 semanas",
-                difficulty: 2
+                difficulty: 2,
+                subject: "PRY2202 - Desarrollo OO I"
             },
             {
-                name: "API de Calculadora",
-                description: "REST API simple con operaciones matemáticas usando Flask/FastAPI",
-                skills: ["Python", "HTTP", "JSON"],
+                name: "Modelo Entidad-Relación",
+                description: "Diseño completo de BD para sistema de biblioteca: entidades, relaciones, normalización 3NF",
+                skills: ["DER", "MER", "Normalización", "SQL DDL"],
                 duration: "1-2 semanas",
-                difficulty: 2
+                difficulty: 2,
+                subject: "MDY1101 - Modelamiento de Datos"
             }
         ]
     },
     {
-        level: "Intermediate",
+        level: "Desarrollo OO",
         levelNum: 2,
         color: "purple",
         icon: "fas fa-cubes",
-        description: "Proyectos con arquitectura POO y bases de datos",
-        bimestres: "B03-B06",
+        description: "Proyectos con arquitectura POO completa, herencia, interfaces y BD relacional",
+        bimestres: "B03-B04",
+        subjects: ["MDY3131", "PRY3131", "DAW4101"],
         projects: [
             {
-                name: "E-Commerce Backend",
-                description: "API REST completa con usuarios, productos, carrito y órdenes",
-                skills: ["Spring Boot / FastAPI", "PostgreSQL", "JWT Auth"],
-                duration: "4-6 semanas",
-                difficulty: 3
-            },
-            {
-                name: "Real-Time Dashboard",
-                description: "Dashboard con datos en tiempo real usando WebSockets",
-                skills: ["Node.js", "Socket.io", "Redis", "Chart.js"],
+                name: "Sistema de Gestión Empresarial",
+                description: "CRUD completo con Java + PostgreSQL: Empleados, Departamentos, Proyectos. MVC + DAO",
+                skills: ["Java", "JDBC", "PostgreSQL", "MVC", "DAO Pattern"],
                 duration: "3-4 semanas",
-                difficulty: 3
+                difficulty: 3,
+                subject: "MDY3131 - Modelamiento BD"
             },
             {
-                name: "Microservicios Demo",
-                description: "Sistema de 3 microservicios comunicándose via REST/mensajería",
-                skills: ["Docker", "RabbitMQ/Kafka", "API Gateway"],
-                duration: "4-5 semanas",
-                difficulty: 4
+                name: "API REST con Spring Boot",
+                description: "Backend REST para gestión de usuarios y productos. JWT auth, validaciones, Swagger docs",
+                skills: ["Spring Boot", "JPA/Hibernate", "JWT", "Swagger"],
+                duration: "3-4 semanas",
+                difficulty: 3,
+                subject: "PRY3131 - Desarrollo OO II"
+            },
+            {
+                name: "Portafolio Web Responsive",
+                description: "Sitio web personal con HTML5, CSS3, JavaScript. Formulario de contacto, animaciones",
+                skills: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
+                duration: "2-3 semanas",
+                difficulty: 2,
+                subject: "DAW4101 - Desarrollo de Aplicaciones Web"
             }
         ]
     },
     {
-        level: "Advanced",
+        level: "Fullstack",
         levelNum: 3,
         color: "orange",
-        icon: "fas fa-rocket",
-        description: "Proyectos cloud-native con deploy real",
-        bimestres: "B07-B10",
+        icon: "fas fa-layer-group",
+        description: "Proyectos fullstack con frontend moderno, backend robusto y deploy cloud",
+        bimestres: "B05-B07",
+        subjects: ["DAW5101", "PGY5101", "CLD6101"],
         projects: [
             {
-                name: "Fullstack SaaS App",
-                description: "Aplicación SaaS completa con frontend React, backend y DB en la nube",
-                skills: ["React/Angular", "Node.js/Spring", "AWS/GCP", "CI/CD"],
-                duration: "6-8 semanas",
-                difficulty: 4
-            },
-            {
-                name: "Data Pipeline E2E",
-                description: "Pipeline de ingesta, procesamiento y visualización de datos",
-                skills: ["Airflow", "Spark", "PostgreSQL/Snowflake", "Grafana"],
+                name: "E-Commerce SPA",
+                description: "Tienda online con React/Vue: catálogo, carrito, checkout, panel admin. API REST propia",
+                skills: ["React/Vue", "Node.js/Spring", "PostgreSQL", "REST API"],
                 duration: "5-6 semanas",
-                difficulty: 5
+                difficulty: 4,
+                subject: "DAW5101 - Desarrollo Web Avanzado"
             },
             {
-                name: "Mobile App + Backend",
-                description: "App móvil con backend propio, auth, notificaciones push",
-                skills: ["Flutter/React Native", "Firebase", "Play Store/App Store"],
+                name: "Dashboard Tiempo Real",
+                description: "Panel de métricas con WebSockets: gráficos en vivo, alertas, filtros dinámicos",
+                skills: ["React", "Socket.io", "Chart.js", "Redis"],
+                duration: "3-4 semanas",
+                difficulty: 3,
+                subject: "PGY5101 - Programación Web"
+            },
+            {
+                name: "App Cloud-Native",
+                description: "Aplicación desplegada en AWS/GCP: EC2/Cloud Run, RDS, S3, CI/CD con GitHub Actions",
+                skills: ["AWS/GCP", "Docker", "CI/CD", "Terraform básico"],
+                duration: "4-5 semanas",
+                difficulty: 4,
+                subject: "CLD6101 - Computación en la Nube"
+            }
+        ]
+    },
+    {
+        level: "Integración",
+        levelNum: 4,
+        color: "green",
+        icon: "fas fa-rocket",
+        description: "Proyectos integradores: metodologías ágiles, testing y despliegue profesional",
+        bimestres: "B08-B10",
+        subjects: ["PGY6101", "DAM7101", "TIT10101"],
+        projects: [
+            {
+                name: "App Móvil Híbrida",
+                description: "Aplicación móvil con React Native/Flutter: auth, cámara, GPS, notificaciones push, offline",
+                skills: ["React Native/Flutter", "Firebase", "Push Notifications", "Offline Storage"],
                 duration: "6-8 semanas",
-                difficulty: 5
+                difficulty: 5,
+                subject: "DAM7101 - Desarrollo de Aplicaciones Móviles"
+            },
+            {
+                name: "Sistema con Microservicios",
+                description: "Arquitectura de 3+ microservicios: API Gateway, auth service, business service, Docker Compose",
+                skills: ["Docker", "API Gateway", "RabbitMQ/Kafka", "Kubernetes básico"],
+                duration: "5-6 semanas",
+                difficulty: 5,
+                subject: "PGY6101 - Programación de Software"
+            },
+            {
+                name: "Proyecto de Título",
+                description: "Desarrollo completo: levantamiento, diseño, implementación, testing, deploy y documentación",
+                skills: ["Metodología Scrum", "Git Flow", "Testing", "Documentación técnica"],
+                duration: "8-10 semanas",
+                difficulty: 5,
+                subject: "TIT10101 - Proyecto de Título"
             }
         ]
     }
@@ -118,11 +165,15 @@ const projectTips = [
             <div class="capstone-stats">
                 <span class="capstone-stat">
                     <i class="fas fa-folder-open"></i>
-                    <strong>9</strong> Proyectos
+                    <strong>12</strong> Proyectos
                 </span>
                 <span class="capstone-stat">
                     <i class="fas fa-layer-group"></i>
-                    <strong>3</strong> Niveles
+                    <strong>4</strong> Niveles
+                </span>
+                <span class="capstone-stat">
+                    <i class="fas fa-graduation-cap"></i>
+                    Alineado Malla DuocUC
                 </span>
                 <span class="capstone-stat">
                     <i class="fas fa-briefcase"></i>
@@ -165,6 +216,9 @@ const projectTips = [
                                     {project.skills.map(skill => (
                                         <span class="project-skill">{skill}</span>
                                     ))}
+                                </div>
+                                <div class="project-subject">
+                                    <i class="fas fa-book"></i> {project.subject}
                                 </div>
                                 <div class="project-footer">
                                     <span class="project-duration">
@@ -298,6 +352,7 @@ const projectTips = [
     .level-cyan { border-left: 4px solid #00d4ff; }
     .level-purple { border-left: 4px solid #7c3aed; }
     .level-orange { border-left: 4px solid #f59e0b; }
+    .level-green { border-left: 4px solid #10b981; }
 
     .level-header {
         display: flex;
@@ -320,6 +375,7 @@ const projectTips = [
     .level-cyan .level-badge i { color: #00d4ff; font-size: 1.5rem; }
     .level-purple .level-badge i { color: #7c3aed; font-size: 1.5rem; }
     .level-orange .level-badge i { color: #f59e0b; font-size: 1.5rem; }
+    .level-green .level-badge i { color: #10b981; font-size: 1.5rem; }
 
     .level-badge span {
         font-size: 0.75rem;
@@ -406,7 +462,7 @@ const projectTips = [
         display: flex;
         flex-wrap: wrap;
         gap: 0.4rem;
-        margin-bottom: 1rem;
+        margin-bottom: 0.75rem;
     }
 
     .project-skill {
@@ -417,6 +473,23 @@ const projectTips = [
         font-size: 0.7rem;
         color: #00d4ff;
         font-weight: 500;
+    }
+
+    .project-subject {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.4rem 0.6rem;
+        background: rgba(124, 58, 237, 0.1);
+        border: 1px solid rgba(124, 58, 237, 0.2);
+        border-radius: 8px;
+        font-size: 0.7rem;
+        color: #a78bfa;
+        margin-bottom: 0.75rem;
+    }
+
+    .project-subject i {
+        font-size: 0.65rem;
     }
 
     .project-footer {
