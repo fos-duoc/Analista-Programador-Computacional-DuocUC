@@ -426,6 +426,155 @@ print(func(2))`,
         explanation: 'COALESCE retorna el primer valor no NULL de la lista de argumentos. Es útil para manejar NULLs.'
     },
 
+    // SQL Questions - Alineadas con MDY1101/MDY3131 DuocUC
+    {
+        id: 'sql-011',
+        category: 'sql',
+        certification: 'SQL Fundamentals / MDY1101',
+        difficulty: 'beginner',
+        question: '¿Qué comando SQL se usa para crear una nueva tabla?',
+        code: 'CREATE TABLE productos (id INT PRIMARY KEY, nombre VARCHAR(100));',
+        options: ['INSERT TABLE', 'NEW TABLE', 'CREATE TABLE', 'MAKE TABLE'],
+        correctAnswer: 2,
+        explanation: 'CREATE TABLE es el comando DDL para crear tablas. Se especifica el nombre y las columnas con sus tipos de datos.'
+    },
+    {
+        id: 'sql-012',
+        category: 'sql',
+        certification: 'SQL Fundamentals / MDY1101',
+        difficulty: 'beginner',
+        question: '¿Qué es una clave primaria (PRIMARY KEY)?',
+        options: [
+            'Una columna que puede tener valores duplicados',
+            'Un identificador único para cada fila que no acepta NULL ni duplicados',
+            'Una columna opcional',
+            'Una contraseña de la base de datos'
+        ],
+        correctAnswer: 1,
+        explanation: 'La PRIMARY KEY identifica de forma única cada registro de una tabla. No permite valores NULL ni duplicados.'
+    },
+    {
+        id: 'sql-013',
+        category: 'sql',
+        certification: 'SQL Fundamentals / MDY1101',
+        difficulty: 'intermediate',
+        question: '¿Qué es una clave foránea (FOREIGN KEY)?',
+        code: 'FOREIGN KEY (cliente_id) REFERENCES clientes(id)',
+        options: [
+            'Una clave de otro país',
+            'Una columna que referencia la clave primaria de otra tabla',
+            'Una clave encriptada',
+            'Una clave temporal'
+        ],
+        correctAnswer: 1,
+        explanation: 'La FOREIGN KEY crea una relación entre tablas, referenciando la PRIMARY KEY de otra tabla para mantener integridad referencial.'
+    },
+    {
+        id: 'sql-014',
+        category: 'sql',
+        certification: 'SQL Fundamentals / MDY1101',
+        difficulty: 'beginner',
+        question: '¿Cuál es la diferencia entre DELETE y TRUNCATE?',
+        options: [
+            'No hay diferencia',
+            'DELETE puede filtrar con WHERE, TRUNCATE elimina todos los registros',
+            'TRUNCATE es más lento',
+            'DELETE no puede deshacerse'
+        ],
+        correctAnswer: 1,
+        explanation: 'DELETE permite WHERE para eliminar registros específicos y se puede revertir con ROLLBACK. TRUNCATE elimina todo sin log de transacción.'
+    },
+    {
+        id: 'sql-015',
+        category: 'sql',
+        certification: 'SQL Fundamentals / MDY3131',
+        difficulty: 'intermediate',
+        question: '¿Qué es la Primera Forma Normal (1FN)?',
+        options: [
+            'Tener una clave primaria',
+            'Eliminar grupos repetitivos y asegurar que cada celda tenga un valor atómico',
+            'No tener claves foráneas',
+            'Tener al menos 3 columnas'
+        ],
+        correctAnswer: 1,
+        explanation: '1FN requiere que cada celda contenga un solo valor (atómico), eliminando grupos repetitivos y atributos multivaluados.'
+    },
+    {
+        id: 'sql-016',
+        category: 'sql',
+        certification: 'SQL Fundamentals / MDY3131',
+        difficulty: 'intermediate',
+        question: '¿Qué tipo de relación representa un diagrama donde un Cliente puede tener muchos Pedidos?',
+        options: [
+            'Uno a Uno (1:1)',
+            'Uno a Muchos (1:N)',
+            'Muchos a Muchos (N:M)',
+            'Ninguna relación'
+        ],
+        correctAnswer: 1,
+        explanation: 'Una relación 1:N (Uno a Muchos) significa que un registro de una tabla se relaciona con múltiples registros de otra. Un Cliente tiene muchos Pedidos.'
+    },
+    {
+        id: 'sql-017',
+        category: 'sql',
+        certification: 'SQL Fundamentals / MDY1101',
+        difficulty: 'beginner',
+        question: '¿Qué comando SQL modifica registros existentes?',
+        code: 'UPDATE productos SET precio = 1500 WHERE id = 1;',
+        options: ['MODIFY', 'CHANGE', 'UPDATE', 'ALTER'],
+        correctAnswer: 2,
+        explanation: 'UPDATE modifica datos existentes en una tabla. ALTER modifica la estructura de la tabla, no los datos.'
+    },
+    {
+        id: 'sql-018',
+        category: 'sql',
+        certification: 'SQL Fundamentals / MDY3131',
+        difficulty: 'advanced',
+        question: '¿Qué es un procedimiento almacenado (Stored Procedure)?',
+        options: [
+            'Un backup de la base de datos',
+            'Un conjunto de instrucciones SQL guardadas que se pueden ejecutar como unidad',
+            'Una tabla temporal',
+            'Un tipo de índice'
+        ],
+        correctAnswer: 1,
+        explanation: 'Un Stored Procedure es código SQL compilado y guardado en el servidor que se puede llamar por nombre, acepta parámetros y mejora rendimiento.'
+    },
+    {
+        id: 'sql-019',
+        category: 'sql',
+        certification: 'SQL Fundamentals / MDY3131',
+        difficulty: 'intermediate',
+        question: '¿Qué es una transacción en SQL?',
+        code: `BEGIN TRANSACTION;
+UPDATE cuentas SET saldo = saldo - 100 WHERE id = 1;
+UPDATE cuentas SET saldo = saldo + 100 WHERE id = 2;
+COMMIT;`,
+        options: [
+            'Una consulta SELECT',
+            'Una unidad de trabajo que se ejecuta completamente o no se ejecuta',
+            'Un tipo de JOIN',
+            'Una copia de seguridad'
+        ],
+        correctAnswer: 1,
+        explanation: 'Una transacción agrupa operaciones que deben ejecutarse todas (COMMIT) o ninguna (ROLLBACK), garantizando integridad de datos.'
+    },
+    {
+        id: 'sql-020',
+        category: 'sql',
+        certification: 'SQL Fundamentals / MDY3131',
+        difficulty: 'advanced',
+        question: '¿Qué es un trigger en bases de datos?',
+        options: [
+            'Un botón de la interfaz',
+            'Código que se ejecuta automáticamente ante eventos INSERT/UPDATE/DELETE',
+            'Un tipo de índice',
+            'Una consulta programada'
+        ],
+        correctAnswer: 1,
+        explanation: 'Un Trigger es código que se dispara automáticamente cuando ocurren eventos específicos (INSERT, UPDATE, DELETE) en una tabla.'
+    },
+
     // AWS Questions
     {
         id: 'aws-001',
@@ -851,6 +1000,166 @@ print(func(2))`,
         ],
         correctAnswer: 1,
         explanation: 'El método main(String[] args) es el punto de entrada. Debe ser public, static, void y recibir un array de String.'
+    },
+
+    // Java POO Questions - Alineadas con PRY2202 DuocUC
+    {
+        id: 'java-011',
+        category: 'java',
+        certification: 'Oracle Java SE / PRY2202',
+        difficulty: 'beginner',
+        question: '¿Cuáles son los 4 pilares de la Programación Orientada a Objetos?',
+        options: [
+            'Clase, Objeto, Método, Atributo',
+            'Encapsulamiento, Herencia, Polimorfismo, Abstracción',
+            'Public, Private, Protected, Default',
+            'Interface, Abstract, Final, Static'
+        ],
+        correctAnswer: 1,
+        explanation: 'Los 4 pilares de POO son: Encapsulamiento (ocultar datos), Herencia (reutilizar código), Polimorfismo (múltiples formas) y Abstracción (ocultar complejidad).'
+    },
+    {
+        id: 'java-012',
+        category: 'java',
+        certification: 'Oracle Java SE / PRY2202',
+        difficulty: 'beginner',
+        question: '¿Qué es el Encapsulamiento en POO?',
+        options: [
+            'Crear múltiples constructores',
+            'Ocultar los datos internos y controlar su acceso mediante getters/setters',
+            'Heredar de una clase padre',
+            'Implementar múltiples interfaces'
+        ],
+        correctAnswer: 1,
+        explanation: 'El Encapsulamiento protege los datos internos de una clase haciendo los atributos private y proporcionando métodos public (getters/setters) para accederlos.'
+    },
+    {
+        id: 'java-013',
+        category: 'java',
+        certification: 'Oracle Java SE / PRY2202',
+        difficulty: 'intermediate',
+        question: '¿Qué palabra clave se usa para heredar de una clase en Java?',
+        code: 'class Empleado extends Persona { }',
+        options: ['implements', 'inherits', 'extends', 'super'],
+        correctAnswer: 2,
+        explanation: 'extends se usa para herencia de clases. implements es para interfaces. super se usa para llamar al constructor o método de la clase padre.'
+    },
+    {
+        id: 'java-014',
+        category: 'java',
+        certification: 'Oracle Java SE / PRY2202',
+        difficulty: 'intermediate',
+        question: '¿Qué es el Polimorfismo en Java?',
+        code: `Animal animal = new Perro();
+animal.hacerSonido(); // "Guau"`,
+        options: [
+            'Crear múltiples clases con el mismo nombre',
+            'La capacidad de un objeto de tomar múltiples formas',
+            'Ocultar la implementación de métodos',
+            'Definir variables estáticas'
+        ],
+        correctAnswer: 1,
+        explanation: 'El Polimorfismo permite que una referencia de tipo padre apunte a objetos de clases hijas, y el método ejecutado depende del tipo real del objeto.'
+    },
+    {
+        id: 'java-015',
+        category: 'java',
+        certification: 'Oracle Java SE / PRY2202',
+        difficulty: 'intermediate',
+        question: '¿Cuál es la diferencia entre una clase abstracta y una interfaz?',
+        options: [
+            'No hay diferencia en Java 8+',
+            'Abstract puede tener métodos implementados y atributos; interface solo métodos abstractos (antes de Java 8)',
+            'Interface puede tener constructores',
+            'Abstract class puede implementar múltiples clases'
+        ],
+        correctAnswer: 1,
+        explanation: 'Una clase abstracta puede tener métodos concretos, atributos y constructor. Una interfaz (pre-Java 8) solo tenía métodos abstractos. Desde Java 8, interfaces pueden tener default methods.'
+    },
+    {
+        id: 'java-016',
+        category: 'java',
+        certification: 'Oracle Java SE / PRY2202',
+        difficulty: 'beginner',
+        question: '¿Qué modificador de acceso permite acceso solo dentro de la misma clase?',
+        options: ['public', 'protected', 'default (package)', 'private'],
+        correctAnswer: 3,
+        explanation: 'private: solo la misma clase. default: mismo paquete. protected: mismo paquete + subclases. public: acceso desde cualquier lugar.'
+    },
+    {
+        id: 'java-017',
+        category: 'java',
+        certification: 'Oracle Java SE / PRY2202',
+        difficulty: 'intermediate',
+        question: '¿Qué es un constructor en Java?',
+        code: `public class Producto {
+    private String nombre;
+    public Producto(String nombre) {
+        this.nombre = nombre;
+    }
+}`,
+        options: [
+            'Un método que retorna void',
+            'Un método especial que inicializa objetos al crearlos',
+            'Un método estático',
+            'Un método abstracto'
+        ],
+        correctAnswer: 1,
+        explanation: 'Un constructor es un método especial sin tipo de retorno que tiene el mismo nombre de la clase y se ejecuta al crear un objeto con new.'
+    },
+    {
+        id: 'java-018',
+        category: 'java',
+        certification: 'Oracle Java SE / PRY2202',
+        difficulty: 'advanced',
+        question: '¿Qué principio SOLID representa la "S"?',
+        options: [
+            'Single Responsibility - Una clase debe tener una sola razón para cambiar',
+            'Strict Typing - Tipos estrictos',
+            'Static Methods - Usar métodos estáticos',
+            'Secure Access - Acceso seguro'
+        ],
+        correctAnswer: 0,
+        explanation: 'Single Responsibility Principle (SRP): Una clase debe tener una única responsabilidad o razón para cambiar. Mejora mantenibilidad y cohesión.'
+    },
+    {
+        id: 'java-019',
+        category: 'java',
+        certification: 'Oracle Java SE / PRY2202',
+        difficulty: 'advanced',
+        question: '¿Qué es la sobrecarga (overloading) de métodos?',
+        code: `public int sumar(int a, int b) { ... }
+public double sumar(double a, double b) { ... }`,
+        options: [
+            'Redefinir un método heredado',
+            'Definir múltiples métodos con el mismo nombre pero diferentes parámetros',
+            'Ejecutar múltiples métodos a la vez',
+            'Cargar métodos de otra clase'
+        ],
+        correctAnswer: 1,
+        explanation: 'Overloading es tener múltiples métodos con el mismo nombre pero diferente firma (número o tipo de parámetros). Se resuelve en tiempo de compilación.'
+    },
+    {
+        id: 'java-020',
+        category: 'java',
+        certification: 'Oracle Java SE / PRY2202',
+        difficulty: 'advanced',
+        question: '¿Qué es la sobrescritura (overriding) de métodos?',
+        code: `class Animal {
+    void hacerSonido() { System.out.println("..."); }
+}
+class Perro extends Animal {
+    @Override
+    void hacerSonido() { System.out.println("Guau"); }
+}`,
+        options: [
+            'Crear métodos con el mismo nombre y diferentes parámetros',
+            'Redefinir en la subclase un método heredado de la superclase',
+            'Llamar al método de la clase padre',
+            'Convertir un método a estático'
+        ],
+        correctAnswer: 1,
+        explanation: 'Overriding es redefinir un método de la clase padre en la subclase con la misma firma. Permite polimorfismo en tiempo de ejecución.'
     },
 
     // Snowflake Questions
