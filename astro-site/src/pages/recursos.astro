@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import Breadcrumbs from '../components/Breadcrumbs.astro';
 import AIToolsSection from '../components/AIToolsSection.astro';
 import Recursos2025 from '../components/Recursos2025.astro';
 import YouTubeSection from '../components/YouTubeSection.astro';
@@ -20,13 +19,10 @@ import PasswordGeneratorSection from '../components/tools/PasswordGeneratorSecti
 import SQLQueryGeneratorSection from '../components/tools/SQLQueryGeneratorSection.astro';
 import QuizGeneratorSection from '../components/tools/QuizGeneratorSection.astro';
 import GanttGeneratorSection from '../components/tools/GanttGeneratorSection.astro';
-// Decision Guides - AWS Well-Architected pattern
-import DecisionGuides from '../components/DecisionGuides.astro';
 ---
 
 <Layout title="Recursos de Aprendizaje | DuocUC">
     <Header />
-    <Breadcrumbs />
 
     <!-- Page Hero -->
     <section class="page-hero">
@@ -120,11 +116,6 @@ import DecisionGuides from '../components/DecisionGuides.astro';
                     <i class="fas fa-chart-line"></i>
                     <span>Progress</span>
                 </a>
-                <a href="#decision-guides" class="quick-nav featured"
-                   data-premium-tooltip="Decision Guides|Guías interactivas para elegir tecnologías: SQL vs NoSQL, Monolito vs Microservicios|AWS Well-Architected,Fowler|tool|fa-route|GUÍAS">
-                    <i class="fas fa-route"></i>
-                    <span>Decisions</span>
-                </a>
             </div>
         </div>
     </section>
@@ -141,9 +132,6 @@ import DecisionGuides from '../components/DecisionGuides.astro';
 
     <!-- Quiz/Test Generator -->
     <QuizGeneratorSection />
-
-    <!-- Decision Guides - AWS Well-Architected Pattern -->
-    <DecisionGuides />
 
     <!-- RECURSOS DE APRENDIZAJE -->
     <!-- AI Tools Section -->
