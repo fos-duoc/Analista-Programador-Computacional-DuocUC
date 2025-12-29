@@ -664,4 +664,231 @@ const tools = [
             grid-template-columns: repeat(2, 1fr);
         }
     }
+
+    /* ============================================
+       LIGHT MODE - Enterprise Grade Styles
+       WCAG AA compliant contrast ratios
+       ============================================ */
+
+    :global([data-theme="light"]) .recursos-section {
+        background: linear-gradient(180deg, rgba(248, 250, 252, 0.5) 0%, rgba(241, 245, 249, 0.3) 100%);
+    }
+
+    /* Header Light Mode */
+    :global([data-theme="light"]) .recursos-header-icon {
+        background: linear-gradient(135deg, rgba(217, 119, 6, 0.12), rgba(220, 38, 38, 0.12));
+        box-shadow: 0 4px 12px rgba(217, 119, 6, 0.12);
+    }
+
+    :global([data-theme="light"]) .recursos-header-icon i {
+        background: linear-gradient(135deg, #d97706, #dc2626);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    :global([data-theme="light"]) .recursos-header h2 {
+        background: linear-gradient(135deg, #0f172a, #334155);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        letter-spacing: -0.02em;
+    }
+
+    :global([data-theme="light"]) .recursos-subtitle {
+        color: #475569;
+    }
+
+    /* Category Header Light Mode */
+    :global([data-theme="light"]) .category-header i {
+        color: #d97706;
+    }
+
+    :global([data-theme="light"]) .category-header h3 {
+        color: #0f172a;
+        letter-spacing: -0.01em;
+    }
+
+    /* Book Cards Light Mode */
+    :global([data-theme="light"]) .book-card {
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    :global([data-theme="light"]) .book-card:hover {
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        border-color: rgba(217, 119, 6, 0.2);
+    }
+
+    :global([data-theme="light"]) .book-cover {
+        background: linear-gradient(135deg, #d97706, #dc2626);
+        box-shadow: 0 2px 8px rgba(217, 119, 6, 0.25);
+    }
+
+    :global([data-theme="light"]) .book-info h4 {
+        color: #0f172a;
+    }
+
+    :global([data-theme="light"]) .book-author {
+        color: #64748b;
+    }
+
+    :global([data-theme="light"]) .book-description {
+        color: #475569;
+    }
+
+    :global([data-theme="light"]) .book-category {
+        background: rgba(8, 145, 178, 0.1);
+        color: #0891b2;
+        border: 1px solid rgba(8, 145, 178, 0.15);
+    }
+
+    :global([data-theme="light"]) .book-level {
+        background: rgba(124, 58, 237, 0.08);
+        color: #7c3aed;
+        border: 1px solid rgba(124, 58, 237, 0.15);
+    }
+
+    /* Course Cards Light Mode */
+    :global([data-theme="light"]) .course-card {
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    :global([data-theme="light"]) .course-card:hover {
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        border-color: rgba(5, 150, 105, 0.2);
+    }
+
+    :global([data-theme="light"]) .course-icon {
+        background: linear-gradient(135deg, rgba(5, 150, 105, 0.1), rgba(8, 145, 178, 0.1));
+        border: 1px solid rgba(5, 150, 105, 0.12);
+    }
+
+    :global([data-theme="light"]) .course-icon i {
+        color: #059669;
+    }
+
+    :global([data-theme="light"]) .course-logo {
+        filter: brightness(0.95);
+    }
+
+    :global([data-theme="light"]) .course-badge {
+        background: rgba(5, 150, 105, 0.1);
+        border-color: rgba(5, 150, 105, 0.2);
+        color: #059669;
+    }
+
+    :global([data-theme="light"]) .course-card h4 {
+        color: #0f172a;
+    }
+
+    :global([data-theme="light"]) .course-platform {
+        color: #64748b;
+    }
+
+    :global([data-theme="light"]) .course-description {
+        color: #475569;
+    }
+
+    :global([data-theme="light"]) .topic-chip {
+        background: rgba(0, 0, 0, 0.04);
+        color: #475569;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    /* Communities Light Mode */
+    :global([data-theme="light"]) .community-card {
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    :global([data-theme="light"]) .community-card:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        border-color: rgba(255, 69, 0, 0.2);
+    }
+
+    :global([data-theme="light"]) .community-icon {
+        background: rgba(255, 69, 0, 0.1);
+        border: 1px solid rgba(255, 69, 0, 0.12);
+    }
+
+    :global([data-theme="light"]) .community-icon i {
+        color: #ea580c;
+    }
+
+    :global([data-theme="light"]) .community-info h4 {
+        color: #0f172a;
+    }
+
+    :global([data-theme="light"]) .community-platform {
+        color: #64748b;
+    }
+
+    :global([data-theme="light"]) .community-members {
+        color: #059669;
+    }
+
+    :global([data-theme="light"]) .community-description {
+        color: #475569;
+    }
+
+    /* Tools Light Mode */
+    :global([data-theme="light"]) .tool-card {
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    :global([data-theme="light"]) .tool-card:hover {
+        background: rgba(8, 145, 178, 0.06);
+        border-color: rgba(8, 145, 178, 0.2);
+        box-shadow: 0 4px 12px rgba(8, 145, 178, 0.1);
+    }
+
+    :global([data-theme="light"]) .tool-name {
+        color: #0f172a;
+    }
+
+    :global([data-theme="light"]) .tool-desc {
+        color: #64748b;
+    }
+
+    /* Quick Links Light Mode */
+    :global([data-theme="light"]) .quick-links {
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    :global([data-theme="light"]) .quick-links-header {
+        color: #0f172a;
+    }
+
+    :global([data-theme="light"]) .quick-links-header i {
+        color: #0891b2;
+    }
+
+    :global([data-theme="light"]) .quick-link {
+        background: rgba(0, 0, 0, 0.03);
+        border-color: rgba(0, 0, 0, 0.06);
+        color: #475569;
+    }
+
+    :global([data-theme="light"]) .quick-link:hover {
+        background: rgba(8, 145, 178, 0.08);
+        border-color: rgba(8, 145, 178, 0.2);
+        color: #0891b2;
+    }
+
+    :global([data-theme="light"]) .quick-link i {
+        color: #64748b;
+    }
+
+    :global([data-theme="light"]) .quick-link:hover i {
+        color: #0891b2;
+    }
 </style>

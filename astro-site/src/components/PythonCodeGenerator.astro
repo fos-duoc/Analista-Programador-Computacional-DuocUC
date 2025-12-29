@@ -759,43 +759,247 @@
         line-height: 1.4;
     }
 
-    /* Light Mode */
+    /* Light Mode - Enterprise Grade */
     :global([data-theme="light"]) .python-generator-section {
-        background: linear-gradient(180deg, rgba(248, 250, 252, 0.8) 0%, rgba(241, 245, 249, 0.9) 100%);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.95) 100%);
     }
 
     :global([data-theme="light"]) .python-header {
-        background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(37, 99, 235, 0.04));
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.06), rgba(37, 99, 235, 0.03));
+        border-color: rgba(59, 130, 246, 0.15);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
     }
 
-    :global([data-theme="light"]) .header-content h2,
-    :global([data-theme="light"]) .panel-header,
-    :global([data-theme="light"]) .config-section h4,
-    :global([data-theme="light"]) .templates-section h4,
-    :global([data-theme="light"]) .tips-section h4,
-    :global([data-theme="light"]) .tip-card strong {
+    :global([data-theme="light"]) .header-icon {
+        background: linear-gradient(135deg, #2563eb, #3b82f6);
+    }
+
+    :global([data-theme="light"]) .header-content h2 {
         color: #0f172a;
     }
 
+    :global([data-theme="light"]) .header-content p {
+        color: #475569;
+    }
+
+    /* Badges Light Mode */
+    :global([data-theme="light"]) .badge.python {
+        background: rgba(59, 130, 246, 0.1);
+        color: #2563eb;
+        border-color: rgba(59, 130, 246, 0.25);
+    }
+
+    :global([data-theme="light"]) .badge.pep {
+        background: rgba(217, 119, 6, 0.1);
+        color: #b45309;
+        border-color: rgba(217, 119, 6, 0.25);
+    }
+
+    :global([data-theme="light"]) .badge.typing {
+        background: rgba(139, 92, 246, 0.1);
+        color: #7c3aed;
+        border-color: rgba(139, 92, 246, 0.25);
+    }
+
+    /* Panels Light Mode */
     :global([data-theme="light"]) .config-panel,
-    :global([data-theme="light"]) .output-panel,
-    :global([data-theme="light"]) .templates-section,
-    :global([data-theme="light"]) .tips-section,
-    :global([data-theme="light"]) .tip-card {
-        background: rgba(255, 255, 255, 0.8);
-        border-color: rgba(148, 163, 184, 0.2);
+    :global([data-theme="light"]) .output-panel {
+        background: rgba(255, 255, 255, 0.95);
+        border-color: rgba(0, 0, 0, 0.08);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    :global([data-theme="light"]) .panel-header {
+        background: rgba(248, 250, 252, 0.95);
+        border-bottom-color: rgba(0, 0, 0, 0.06);
+        color: #0f172a;
+    }
+
+    :global([data-theme="light"]) .panel-header i {
+        color: #2563eb;
+    }
+
+    :global([data-theme="light"]) .btn-icon {
+        background: rgba(0, 0, 0, 0.04);
+        color: #64748b;
+    }
+
+    :global([data-theme="light"]) .btn-icon:hover {
+        background: rgba(59, 130, 246, 0.15);
+        color: #2563eb;
+    }
+
+    /* Config Sections Light Mode */
+    :global([data-theme="light"]) .config-section {
+        border-bottom-color: rgba(0, 0, 0, 0.06);
+    }
+
+    :global([data-theme="light"]) .config-section h4 {
+        color: #0f172a;
+    }
+
+    :global([data-theme="light"]) .config-section h4 i {
+        color: #2563eb;
+    }
+
+    /* Type Selector Light Mode */
+    :global([data-theme="light"]) .type-btn {
+        background: rgba(248, 250, 252, 0.95);
+        border-color: rgba(0, 0, 0, 0.08);
+        color: #475569;
+    }
+
+    :global([data-theme="light"]) .type-btn:hover {
+        border-color: rgba(59, 130, 246, 0.3);
+        color: #2563eb;
+    }
+
+    :global([data-theme="light"]) .type-btn.active {
+        background: rgba(59, 130, 246, 0.1);
+        border-color: #2563eb;
+        color: #2563eb;
+    }
+
+    /* Form Groups Light Mode */
+    :global([data-theme="light"]) .form-group label {
+        color: #64748b;
     }
 
     :global([data-theme="light"]) .form-group input,
     :global([data-theme="light"]) .form-group select,
     :global([data-theme="light"]) .form-group textarea {
-        background: rgba(248, 250, 252, 0.8);
-        border-color: rgba(148, 163, 184, 0.3);
+        background: rgba(248, 250, 252, 0.95);
+        border-color: rgba(0, 0, 0, 0.1);
         color: #0f172a;
+    }
+
+    :global([data-theme="light"]) .form-group input:focus,
+    :global([data-theme="light"]) .form-group select:focus,
+    :global([data-theme="light"]) .form-group textarea:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    /* Attribute/Method Items Light Mode */
+    :global([data-theme="light"]) .attribute-item,
+    :global([data-theme="light"]) .method-item {
+        background: rgba(248, 250, 252, 0.95);
+        border-color: rgba(0, 0, 0, 0.08);
+    }
+
+    :global([data-theme="light"]) .attribute-item input,
+    :global([data-theme="light"]) .attribute-item select,
+    :global([data-theme="light"]) .method-item input,
+    :global([data-theme="light"]) .method-item select {
+        background: rgba(255, 255, 255, 0.95);
+        border-color: rgba(0, 0, 0, 0.1);
+        color: #0f172a;
+    }
+
+    :global([data-theme="light"]) .btn-remove {
+        background: rgba(239, 68, 68, 0.1);
+        color: #dc2626;
+    }
+
+    :global([data-theme="light"]) .btn-remove:hover {
+        background: rgba(239, 68, 68, 0.2);
+    }
+
+    :global([data-theme="light"]) .btn-add {
+        background: rgba(59, 130, 246, 0.08);
+        border-color: rgba(59, 130, 246, 0.25);
+        color: #2563eb;
+    }
+
+    :global([data-theme="light"]) .btn-add:hover {
+        background: rgba(59, 130, 246, 0.15);
+        border-color: #2563eb;
+    }
+
+    /* Options Grid Light Mode */
+    :global([data-theme="light"]) .checkbox-option {
+        background: rgba(248, 250, 252, 0.8);
+        color: #475569;
+    }
+
+    :global([data-theme="light"]) .checkbox-option:hover {
+        background: rgba(248, 250, 252, 1);
+        color: #0f172a;
+    }
+
+    /* Generate Button Light Mode */
+    :global([data-theme="light"]) .btn-generate {
+        background: linear-gradient(135deg, #2563eb, #3b82f6);
+    }
+
+    :global([data-theme="light"]) .btn-generate:hover {
+        box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+    }
+
+    /* Output Footer Light Mode */
+    :global([data-theme="light"]) .output-footer {
+        background: rgba(248, 250, 252, 0.95);
+        border-top-color: rgba(0, 0, 0, 0.06);
+        color: #64748b;
     }
 
     :global([data-theme="light"]) .code-output {
         background: #1e293b;
+    }
+
+    /* Templates Section Light Mode */
+    :global([data-theme="light"]) .templates-section {
+        background: rgba(255, 255, 255, 0.95);
+        border-color: rgba(0, 0, 0, 0.08);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    :global([data-theme="light"]) .templates-section h4 {
+        color: #0f172a;
+    }
+
+    :global([data-theme="light"]) .templates-section h4 i {
+        color: #2563eb;
+    }
+
+    :global([data-theme="light"]) .template-btn {
+        background: rgba(248, 250, 252, 0.95);
+        border-color: rgba(0, 0, 0, 0.08);
+        color: #475569;
+    }
+
+    :global([data-theme="light"]) .template-btn:hover {
+        background: rgba(59, 130, 246, 0.08);
+        border-color: rgba(59, 130, 246, 0.3);
+        color: #2563eb;
+    }
+
+    /* Tips Section Light Mode */
+    :global([data-theme="light"]) .tips-section {
+        background: rgba(255, 255, 255, 0.95);
+        border-color: rgba(0, 0, 0, 0.08);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    :global([data-theme="light"]) .tips-section h4 {
+        color: #0f172a;
+    }
+
+    :global([data-theme="light"]) .tips-section h4 i {
+        color: #d97706;
+    }
+
+    :global([data-theme="light"]) .tip-card {
+        background: rgba(248, 250, 252, 0.95);
+        border-color: rgba(0, 0, 0, 0.06);
+    }
+
+    :global([data-theme="light"]) .tip-card strong {
+        color: #0f172a;
+    }
+
+    :global([data-theme="light"]) .tip-card p {
+        color: #475569;
     }
 
     /* Responsive */
