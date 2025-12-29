@@ -26737,6 +26737,205 @@ main,
   color: #00d4ff;
 }
 
+/* ===== OOP EDUCATIONAL ENHANCEMENTS ===== */
+.oop-intro-banner,
+.solid-intro-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(124, 58, 237, 0.05));
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 12px;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  line-height: 1.5;
+}
+
+.oop-intro-banner i,
+.solid-intro-banner i {
+  font-size: 1.1rem;
+  color: #00d4ff;
+  margin-top: 0.1rem;
+  flex-shrink: 0;
+}
+
+.oop-intro-banner strong,
+.solid-intro-banner strong {
+  color: #f8fafc;
+}
+
+.pillar-code-example {
+  background: #1e1e1e;
+  border: 1px solid #3c3c3c;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.pillar-code-example pre {
+  margin: 0;
+  padding: 0.75rem;
+  overflow-x: auto;
+}
+
+.pillar-code-example code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.68rem;
+  line-height: 1.4;
+  color: #d4d4d4;
+  white-space: pre;
+}
+
+.oop-competencies,
+.solid-benefits {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.oop-competencies h5,
+.solid-benefits h5 {
+  font-size: 0.9rem;
+  color: #10b981;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.competency-tags,
+.benefit-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.competency-tag,
+.benefit-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  color: #f8fafc;
+}
+
+.competency-tag i,
+.benefit-tag i {
+  color: #10b981;
+}
+
+.lang-chip.hot {
+  background: rgba(239, 68, 68, 0.15) !important;
+  border-color: rgba(239, 68, 68, 0.4) !important;
+}
+
+.lang-chip.hot::before {
+  content: '🔥 ';
+}
+
+/* ===== SOLID PRINCIPLES ENHANCED ===== */
+.principle-example {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.example-bad,
+.example-good {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+}
+
+.example-bad {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.example-good {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.example-bad .label {
+  color: #ef4444;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.example-good .label {
+  color: #10b981;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.example-bad code,
+.example-good code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: #94a3b8;
+  word-break: break-word;
+}
+
+/* Light Mode for Educational Enhancements */
+[data-theme="light"] .oop-intro-banner,
+[data-theme="light"] .solid-intro-banner {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(124, 58, 237, 0.04));
+  border-color: rgba(0, 139, 178, 0.25);
+  color: #475569;
+}
+
+[data-theme="light"] .oop-intro-banner strong,
+[data-theme="light"] .solid-intro-banner strong {
+  color: #1e293b;
+}
+
+[data-theme="light"] .pillar-code-example {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+[data-theme="light"] .pillar-code-example code {
+  color: #334155;
+}
+
+[data-theme="light"] .oop-competencies,
+[data-theme="light"] .solid-benefits {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+[data-theme="light"] .competency-tag,
+[data-theme="light"] .benefit-tag {
+  background: rgba(16, 185, 129, 0.1);
+  color: #1e293b;
+}
+
+[data-theme="light"] .example-bad {
+  background: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.25);
+}
+
+[data-theme="light"] .example-good {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+[data-theme="light"] .example-bad code,
+[data-theme="light"] .example-good code {
+  color: #475569;
+}
+
 /* ===== FUNCTIONAL PROGRAMMING GRID ===== */
 .fp-concepts-grid {
   display: grid;

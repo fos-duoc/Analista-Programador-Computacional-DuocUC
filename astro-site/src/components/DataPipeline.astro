@@ -4065,56 +4065,132 @@ WHERE order_date > (SELECT MAX(order_date) FROM &#123;&#123; this &#125;&#125;)
             <div class="pipeline-mode-header fundamentals">
                 <div class="mode-indicator">
                     <i class="fas fa-cube"></i>
-                    <span>Object-Oriented Programming (OOP)</span>
+                    <span>Programación Orientada a Objetos (POO)</span>
                 </div>
                 <div class="mode-stats">
+                    <span class="stat-pill"><i class="fas fa-graduation-cap"></i> PRY2202 DuocUC</span>
                     <span class="stat-pill"><i class="fas fa-book"></i> SWEBOK v4</span>
-                    <span class="stat-pill"><i class="fas fa-history"></i> Simula 67</span>
-                    <span class="stat-pill"><i class="fas fa-check-circle"></i> 4 Pillars</span>
+                    <span class="stat-pill"><i class="fas fa-check-circle"></i> 4 Pilares</span>
                 </div>
             </div>
             <div class="fundamentals-content">
+                <div class="oop-intro-banner">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Asignatura <strong>PRY2202 - Desarrollo Orientado a Objetos I</strong> (Bimestre 02). Paradigma fundamental en Java, Python, C# y la mayoría de lenguajes modernos.</span>
+                </div>
                 <div class="oop-pillars-grid">
                     <div class="oop-pillar-card encapsulation">
                         <div class="pillar-icon"><i class="fas fa-lock"></i></div>
-                        <h4>Encapsulation</h4>
-                        <p>Ocultar datos internos y exponer solo interfaces publicas.</p>
-                        <div class="pillar-example"><code>private data + public methods</code></div>
-                        <div class="pillar-keywords"><span>private</span><span>protected</span><span>public</span></div>
+                        <h4>Encapsulamiento</h4>
+                        <p>Ocultar datos internos (private) y controlar acceso mediante métodos públicos (getters/setters).</p>
+                        <div class="pillar-code-example">
+                            <pre><code set:html={`public class Empleado {
+    private String rut;  // Oculto
+    private double salario;
+
+    public String getRut() {
+        return this.rut;
+    }
+
+    public void setSalario(double s) {
+        if (s >= 0) this.salario = s;
+    }
+}`}></code></pre>
+                        </div>
+                        <div class="pillar-keywords"><span>private</span><span>protected</span><span>getters</span><span>setters</span></div>
                     </div>
                     <div class="oop-pillar-card inheritance">
                         <div class="pillar-icon"><i class="fas fa-sitemap"></i></div>
-                        <h4>Inheritance</h4>
-                        <p>Crear nuevas clases basadas en clases existentes.</p>
-                        <div class="pillar-example"><code>class Dog extends Animal</code></div>
-                        <div class="pillar-keywords"><span>extends</span><span>super</span><span>override</span></div>
+                        <h4>Herencia</h4>
+                        <p>Crear clases hijas que heredan atributos y métodos de una clase padre. Reutilización de código.</p>
+                        <div class="pillar-code-example">
+                            <pre><code set:html={`public class Persona {
+    protected String nombre;
+}
+
+public class Estudiante extends Persona {
+    private String matricula;
+
+    public Estudiante(String n, String m) {
+        super();  // Llama constructor padre
+        this.nombre = n;
+        this.matricula = m;
+    }
+}`}></code></pre>
+                        </div>
+                        <div class="pillar-keywords"><span>extends</span><span>super()</span><span>protected</span></div>
                     </div>
                     <div class="oop-pillar-card polymorphism">
                         <div class="pillar-icon"><i class="fas fa-shapes"></i></div>
-                        <h4>Polymorphism</h4>
-                        <p>Objetos de diferentes tipos responden al mismo mensaje.</p>
-                        <div class="pillar-example"><code>animal.speak()</code></div>
-                        <div class="pillar-keywords"><span>override</span><span>overload</span><span>interface</span></div>
+                        <h4>Polimorfismo</h4>
+                        <p>"Muchas formas": Un mismo método con diferentes comportamientos según la clase que lo implemente.</p>
+                        <div class="pillar-code-example">
+                            <pre><code set:html={`public abstract class Vehiculo {
+    public abstract void acelerar();
+}
+
+public class Auto extends Vehiculo {
+    @Override
+    public void acelerar() {
+        System.out.println("Pedal");
+    }
+}
+
+// Una variable padre puede referenciar hijos
+Vehiculo v = new Auto();
+v.acelerar(); // Ejecuta versión de Auto`}></code></pre>
+                        </div>
+                        <div class="pillar-keywords"><span>@Override</span><span>abstract</span><span>dynamic binding</span></div>
                     </div>
                     <div class="oop-pillar-card abstraction">
                         <div class="pillar-icon"><i class="fas fa-layer-group"></i></div>
-                        <h4>Abstraction</h4>
-                        <p>Modelar solo caracteristicas relevantes del dominio.</p>
-                        <div class="pillar-example"><code>abstract class Shape</code></div>
-                        <div class="pillar-keywords"><span>abstract</span><span>interface</span><span>contract</span></div>
+                        <h4>Abstracción</h4>
+                        <p>Definir contratos (interfaces) que especifican QUÉ hacer, no CÓMO. Desacoplar implementación.</p>
+                        <div class="pillar-code-example">
+                            <pre><code set:html={`public interface Registrable {
+    String getId();
+    boolean validar();
+}
+
+public class Producto implements Registrable {
+    private String codigo;
+
+    @Override
+    public String getId() {
+        return this.codigo;
+    }
+
+    @Override
+    public boolean validar() {
+        return codigo != null;
+    }
+}`}></code></pre>
+                        </div>
+                        <div class="pillar-keywords"><span>interface</span><span>implements</span><span>contract</span></div>
+                    </div>
+                </div>
+                <div class="oop-competencies">
+                    <h5><i class="fas fa-bullseye"></i> Competencias PRY2202:</h5>
+                    <div class="competency-tags">
+                        <span class="competency-tag"><i class="fas fa-check"></i> Diseñar clases con encapsulamiento</span>
+                        <span class="competency-tag"><i class="fas fa-check"></i> Implementar jerarquías de herencia</span>
+                        <span class="competency-tag"><i class="fas fa-check"></i> Aplicar polimorfismo en colecciones</span>
+                        <span class="competency-tag"><i class="fas fa-check"></i> Definir e implementar interfaces</span>
                     </div>
                 </div>
                 <div class="oop-languages">
                     <span class="lang-title">Lenguajes OOP:</span>
                     <div class="lang-icons">
-                        <a href="https://www.java.com/" target="_blank" class="lang-chip"><i class="devicon-java-plain colored"></i> Java</a>
+                        <a href="https://www.java.com/" target="_blank" class="lang-chip hot"><i class="devicon-java-plain colored"></i> Java</a>
                         <a href="https://www.python.org/" target="_blank" class="lang-chip"><i class="devicon-python-plain colored"></i> Python</a>
                         <a href="https://docs.microsoft.com/dotnet/csharp/" target="_blank" class="lang-chip"><i class="devicon-csharp-plain colored"></i> C#</a>
+                        <a href="https://kotlinlang.org/" target="_blank" class="lang-chip"><i class="devicon-kotlin-plain colored"></i> Kotlin</a>
                     </div>
                 </div>
                 <div class="fundamentals-references">
-                    <a href="https://www.swebok.org/" target="_blank" class="ref-link"><i class="fas fa-book"></i> SWEBOK v4</a>
-                    <a href="https://refactoring.guru/" target="_blank" class="ref-link"><i class="fas fa-shapes"></i> Refactoring Guru</a>
+                    <a href="https://www.swebok.org/" target="_blank" class="ref-link"><i class="fas fa-book"></i> SWEBOK v4 (IEEE)</a>
+                    <a href="https://refactoring.guru/design-patterns" target="_blank" class="ref-link"><i class="fas fa-shapes"></i> Refactoring Guru</a>
+                    <a href="https://docs.oracle.com/javase/tutorial/java/concepts/" target="_blank" class="ref-link"><i class="fab fa-java"></i> Oracle Java OOP</a>
                 </div>
             </div>
         </div>
@@ -4183,59 +4259,119 @@ WHERE order_date > (SELECT MAX(order_date) FROM &#123;&#123; this &#125;&#125;)
             <div class="pipeline-mode-header fundamentals">
                 <div class="mode-indicator">
                     <i class="fas fa-gem"></i>
-                    <span>SOLID Principles</span>
+                    <span>Principios SOLID</span>
                 </div>
                 <div class="mode-stats">
-                    <span class="stat-pill"><i class="fas fa-user"></i> Uncle Bob</span>
+                    <span class="stat-pill"><i class="fas fa-user"></i> Robert C. Martin</span>
                     <span class="stat-pill"><i class="fas fa-book"></i> Clean Architecture</span>
-                    <span class="stat-pill"><i class="fas fa-check-circle"></i> 5 Principles</span>
+                    <span class="stat-pill"><i class="fas fa-check-circle"></i> 5 Principios</span>
                 </div>
             </div>
             <div class="fundamentals-content">
+                <div class="solid-intro-banner">
+                    <i class="fas fa-lightbulb"></i>
+                    <span>Los 5 principios de diseño OO que hacen el código más <strong>mantenible</strong>, <strong>extensible</strong> y <strong>testeable</strong>. Aplicables en Java, C#, Python y todos los lenguajes OOP.</span>
+                </div>
                 <div class="solid-principles-list">
                     <div class="solid-principle srp">
                         <div class="principle-letter">S</div>
                         <div class="principle-content">
-                            <h4>Single Responsibility Principle</h4>
-                            <p>Una clase debe tener una sola razon para cambiar.</p>
-                            <code>class UserAuth // Solo autenticacion</code>
+                            <h4>Single Responsibility Principle (SRP)</h4>
+                            <p>Una clase debe tener <strong>una sola razón para cambiar</strong>. Separar responsabilidades en clases especializadas.</p>
+                            <div class="principle-example">
+                                <div class="example-bad">
+                                    <span class="label"><i class="fas fa-times"></i> MAL</span>
+                                    <code set:html={`class Empleado { guardarBD(); validar(); enviarEmail(); }`}></code>
+                                </div>
+                                <div class="example-good">
+                                    <span class="label"><i class="fas fa-check"></i> BIEN</span>
+                                    <code>class Empleado + EmpleadoValidator + EmpleadoRepository</code>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="solid-principle ocp">
                         <div class="principle-letter">O</div>
                         <div class="principle-content">
-                            <h4>Open/Closed Principle</h4>
-                            <p>Abierto para extension, cerrado para modificacion.</p>
-                            <code>interface PaymentMethod</code>
+                            <h4>Open/Closed Principle (OCP)</h4>
+                            <p><strong>Abierto para extensión, cerrado para modificación</strong>. Usar herencia o interfaces para agregar comportamiento.</p>
+                            <div class="principle-example">
+                                <div class="example-bad">
+                                    <span class="label"><i class="fas fa-times"></i> MAL</span>
+                                    <code set:html={`if (tipo == "tarjeta") {...} else if (tipo == "paypal") {...}`}></code>
+                                </div>
+                                <div class="example-good">
+                                    <span class="label"><i class="fas fa-check"></i> BIEN</span>
+                                    <code set:html={`interface MetodoPago { procesar(); } → TarjetaPago, PayPalPago`}></code>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="solid-principle lsp">
                         <div class="principle-letter">L</div>
                         <div class="principle-content">
-                            <h4>Liskov Substitution Principle</h4>
-                            <p>Subclases sustituibles por sus clases base.</p>
-                            <code>Rectangle r = new Square()</code>
+                            <h4>Liskov Substitution Principle (LSP)</h4>
+                            <p><strong>Subclases deben ser sustituibles por su clase base</strong> sin romper el programa. Diseño de herencia correcto.</p>
+                            <div class="principle-example">
+                                <div class="example-bad">
+                                    <span class="label"><i class="fas fa-times"></i> MAL</span>
+                                    <code>class Cuadrado extends Rectangulo // setWidth rompe setHeight</code>
+                                </div>
+                                <div class="example-good">
+                                    <span class="label"><i class="fas fa-check"></i> BIEN</span>
+                                    <code set:html={`interface Forma { getArea(); } → Cuadrado, Rectangulo`}></code>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="solid-principle isp">
                         <div class="principle-letter">I</div>
                         <div class="principle-content">
-                            <h4>Interface Segregation Principle</h4>
-                            <p>Interfaces especificas mejor que una general.</p>
-                            <code>IPrinter, IScanner</code>
+                            <h4>Interface Segregation Principle (ISP)</h4>
+                            <p><strong>Interfaces pequeñas y específicas</strong> mejor que una interfaz grande. No obligar a implementar métodos no usados.</p>
+                            <div class="principle-example">
+                                <div class="example-bad">
+                                    <span class="label"><i class="fas fa-times"></i> MAL</span>
+                                    <code set:html={`interface Trabajador { trabajar(); comer(); dormir(); }`}></code>
+                                </div>
+                                <div class="example-good">
+                                    <span class="label"><i class="fas fa-check"></i> BIEN</span>
+                                    <code>interface Trabajable + Alimentable + Descansable</code>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="solid-principle dip">
                         <div class="principle-letter">D</div>
                         <div class="principle-content">
-                            <h4>Dependency Inversion Principle</h4>
-                            <p>Depender de abstracciones, no de concretos.</p>
-                            <code>constructor(repo: IRepository)</code>
+                            <h4>Dependency Inversion Principle (DIP)</h4>
+                            <p><strong>Depender de abstracciones, no de concretos</strong>. Inyectar dependencias mediante interfaces.</p>
+                            <div class="principle-example">
+                                <div class="example-bad">
+                                    <span class="label"><i class="fas fa-times"></i> MAL</span>
+                                    <code set:html={`class Servicio { private MySQLRepo repo = new MySQLRepo(); }`}></code>
+                                </div>
+                                <div class="example-good">
+                                    <span class="label"><i class="fas fa-check"></i> BIEN</span>
+                                    <code set:html={`class Servicio { Servicio(IRepository repo) {...} }`}></code>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                </div>
+                <div class="solid-benefits">
+                    <h5><i class="fas fa-star"></i> Beneficios de aplicar SOLID:</h5>
+                    <div class="benefit-tags">
+                        <span class="benefit-tag"><i class="fas fa-wrench"></i> Código mantenible</span>
+                        <span class="benefit-tag"><i class="fas fa-puzzle-piece"></i> Fácil de extender</span>
+                        <span class="benefit-tag"><i class="fas fa-vial"></i> Testeable (unit tests)</span>
+                        <span class="benefit-tag"><i class="fas fa-users"></i> Trabajo en equipo</span>
                     </div>
                 </div>
                 <div class="fundamentals-references">
                     <a href="https://blog.cleancoder.com/" target="_blank" class="ref-link"><i class="fas fa-user"></i> Uncle Bob Blog</a>
+                    <a href="https://www.oreilly.com/library/view/clean-architecture-a/9780134494272/" target="_blank" class="ref-link"><i class="fas fa-book"></i> Clean Architecture</a>
+                    <a href="https://refactoring.guru/refactoring/smells" target="_blank" class="ref-link"><i class="fas fa-nose"></i> Code Smells</a>
                 </div>
             </div>
         </div>
