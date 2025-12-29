@@ -4066,6 +4066,502 @@ body,
   }
 }
 
+/* ==================== HEXAGONAL ARCHITECTURE ==================== */
+.hexagonal-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 0.5rem;
+}
+
+.hex-layer {
+  width: 100%;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.hex-layer .layer-title {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hex-layer.outer {
+  background: linear-gradient(135deg, rgba(20, 184, 166, 0.15) 0%, rgba(45, 212, 191, 0.08) 100%);
+  border: 2px solid rgba(20, 184, 166, 0.4);
+}
+
+.hex-layer.outer .layer-title {
+  color: #14b8a6;
+}
+
+.hex-layer.middle {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(129, 140, 248, 0.08) 100%);
+  border: 2px solid rgba(99, 102, 241, 0.4);
+  width: 85%;
+}
+
+.hex-layer.middle .layer-title {
+  color: #818cf8;
+}
+
+.hex-layer.inner {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(251, 191, 36, 0.1) 100%);
+  border: 2px solid rgba(245, 158, 11, 0.5);
+  width: 70%;
+}
+
+.hex-layer.inner .layer-title {
+  color: #f59e0b;
+}
+
+.adapters-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.adapter-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  background: rgba(20, 184, 166, 0.1);
+  border: 1px solid rgba(20, 184, 166, 0.3);
+  border-radius: 8px;
+  font-size: 0.7rem;
+  color: #5eead4;
+  transition: all 0.2s ease;
+}
+
+.adapter-item:hover {
+  background: rgba(20, 184, 166, 0.2);
+  transform: translateY(-2px);
+}
+
+.adapter-item i {
+  font-size: 1rem;
+  color: #14b8a6;
+}
+
+.ports-row {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.port-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.75rem;
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  border-radius: 20px;
+  font-size: 0.7rem;
+  color: #a5b4fc;
+}
+
+.port-item.driving {
+  border-color: rgba(34, 197, 94, 0.5);
+  background: rgba(34, 197, 94, 0.1);
+  color: #86efac;
+}
+
+.port-item.driven {
+  border-color: rgba(249, 115, 22, 0.5);
+  background: rgba(249, 115, 22, 0.1);
+  color: #fdba74;
+}
+
+.port-item i {
+  font-size: 0.8rem;
+}
+
+.domain-items {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.domain-item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.7rem;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  border-radius: 6px;
+  font-size: 0.7rem;
+  color: #fcd34d;
+}
+
+.domain-item i {
+  font-size: 0.75rem;
+  color: #f59e0b;
+}
+
+/* ==================== EVENT-DRIVEN ARCHITECTURE ==================== */
+.eda-diagram {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1rem;
+  align-items: stretch;
+  padding: 1rem 0.5rem;
+}
+
+.eda-producers,
+.eda-consumers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.eda-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+  text-align: center;
+  margin-bottom: 0.25rem;
+}
+
+.eda-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.eda-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.eda-item.producer {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(74, 222, 128, 0.08) 100%);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  color: #86efac;
+}
+
+.eda-item.producer:hover {
+  background: rgba(34, 197, 94, 0.25);
+  transform: translateX(4px);
+}
+
+.eda-item.consumer {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(129, 140, 248, 0.08) 100%);
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  color: #a5b4fc;
+}
+
+.eda-item.consumer:hover {
+  background: rgba(99, 102, 241, 0.25);
+  transform: translateX(-4px);
+}
+
+.eda-item i {
+  font-size: 0.9rem;
+}
+
+.eda-broker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.2) 0%, rgba(251, 146, 60, 0.1) 100%);
+  border: 2px solid rgba(249, 115, 22, 0.5);
+  border-radius: 12px;
+  min-width: 140px;
+}
+
+.broker-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f97316, #fb923c);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.broker-icon i {
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.broker-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fdba74;
+}
+
+.broker-tools {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.broker-tool {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  font-size: 0.6rem;
+  color: #fcd34d;
+}
+
+.event-types {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 0.25rem;
+}
+
+.event-type {
+  padding: 0.2rem 0.5rem;
+  background: rgba(249, 115, 22, 0.15);
+  border: 1px dashed rgba(249, 115, 22, 0.4);
+  border-radius: 4px;
+  font-size: 0.6rem;
+  color: #fb923c;
+  font-family: monospace;
+}
+
+/* ==================== LAYERED (N-TIER) ARCHITECTURE ==================== */
+.layered-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 0.5rem;
+}
+
+.layer-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.layer-row:hover {
+  transform: scale(1.02);
+}
+
+.layer-number {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.layer-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.layer-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.layer-desc {
+  font-size: 0.65rem;
+  opacity: 0.7;
+}
+
+.layer-tech {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.layer-tech span {
+  padding: 0.2rem 0.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  font-size: 0.6rem;
+  font-weight: 600;
+}
+
+.layer-row.presentation {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(96, 165, 250, 0.1) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+}
+
+.layer-row.presentation .layer-number {
+  background: #3b82f6;
+}
+
+.layer-row.presentation .layer-name {
+  color: #93c5fd;
+}
+
+.layer-row.presentation .layer-tech span {
+  color: #60a5fa;
+}
+
+.layer-row.business {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(52, 211, 153, 0.1) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.layer-row.business .layer-number {
+  background: #10b981;
+}
+
+.layer-row.business .layer-name {
+  color: #6ee7b7;
+}
+
+.layer-row.business .layer-tech span {
+  color: #34d399;
+}
+
+.layer-row.persistence {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(251, 191, 36, 0.1) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.layer-row.persistence .layer-number {
+  background: #f59e0b;
+}
+
+.layer-row.persistence .layer-name {
+  color: #fcd34d;
+}
+
+.layer-row.persistence .layer-tech span {
+  color: #fbbf24;
+}
+
+.layer-row.database {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(168, 85, 247, 0.1) 100%);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+}
+
+.layer-row.database .layer-number {
+  background: #8b5cf6;
+}
+
+.layer-row.database .layer-name {
+  color: #c4b5fd;
+}
+
+.layer-row.database .layer-tech span {
+  color: #a78bfa;
+}
+
+.layer-arrow {
+  color: #64748b;
+  font-size: 0.9rem;
+  animation: pulseArrow 2s infinite;
+}
+
+/* ==================== ARCHITECTURE REFERENCES ==================== */
+.arch-references {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  flex-wrap: wrap;
+}
+
+.ref-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.75rem;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 20px;
+  font-size: 0.7rem;
+  color: #67e8f9;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.ref-link:hover {
+  background: rgba(0, 212, 255, 0.2);
+  border-color: rgba(0, 212, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.ref-link i {
+  font-size: 0.75rem;
+}
+
+/* Responsive Architecture Diagrams */
+@media (max-width: 768px) {
+  .adapters-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .eda-diagram {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .eda-broker {
+    order: -1;
+  }
+
+  .eda-item.producer:hover {
+    transform: translateY(-2px);
+  }
+
+  .eda-item.consumer:hover {
+    transform: translateY(-2px);
+  }
+
+  .layer-row {
+    flex-wrap: wrap;
+  }
+
+  .layer-tech {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .arch-references {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 /* Agile Scrum Expanded */
 /* ==================== SCRUM PREMIUM DESIGN ==================== */
 .scrum-premium-container.glass-card {
@@ -8309,6 +8805,198 @@ section {
   background: rgba(8, 145, 178, 0.15) !important;
 }
 
+/* ============================================
+   HEXAGONAL ARCHITECTURE - Light Mode
+   ============================================ */
+[data-theme="light"] .hex-layer.outer {
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.1) 0%, rgba(20, 184, 166, 0.05) 100%) !important;
+  border-color: rgba(13, 148, 136, 0.4) !important;
+}
+
+[data-theme="light"] .hex-layer.outer .layer-title {
+  color: #0d9488 !important;
+}
+
+[data-theme="light"] .hex-layer.middle {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(99, 102, 241, 0.05) 100%) !important;
+  border-color: rgba(79, 70, 229, 0.4) !important;
+}
+
+[data-theme="light"] .hex-layer.middle .layer-title {
+  color: #4f46e5 !important;
+}
+
+[data-theme="light"] .hex-layer.inner {
+  background: linear-gradient(135deg, rgba(217, 119, 6, 0.12) 0%, rgba(245, 158, 11, 0.06) 100%) !important;
+  border-color: rgba(217, 119, 6, 0.5) !important;
+}
+
+[data-theme="light"] .hex-layer.inner .layer-title {
+  color: #d97706 !important;
+}
+
+[data-theme="light"] .adapter-item {
+  background: rgba(13, 148, 136, 0.08) !important;
+  border-color: rgba(13, 148, 136, 0.3) !important;
+  color: #0f766e !important;
+}
+
+[data-theme="light"] .adapter-item i {
+  color: #0d9488 !important;
+}
+
+[data-theme="light"] .port-item {
+  background: rgba(79, 70, 229, 0.1) !important;
+  border-color: rgba(79, 70, 229, 0.4) !important;
+  color: #4f46e5 !important;
+}
+
+[data-theme="light"] .port-item.driving {
+  background: rgba(22, 163, 74, 0.08) !important;
+  border-color: rgba(22, 163, 74, 0.5) !important;
+  color: #16a34a !important;
+}
+
+[data-theme="light"] .port-item.driven {
+  background: rgba(234, 88, 12, 0.08) !important;
+  border-color: rgba(234, 88, 12, 0.5) !important;
+  color: #ea580c !important;
+}
+
+[data-theme="light"] .domain-item {
+  background: rgba(217, 119, 6, 0.1) !important;
+  border-color: rgba(217, 119, 6, 0.4) !important;
+  color: #b45309 !important;
+}
+
+[data-theme="light"] .domain-item i {
+  color: #d97706 !important;
+}
+
+/* ============================================
+   EVENT-DRIVEN ARCHITECTURE - Light Mode
+   ============================================ */
+[data-theme="light"] .eda-label {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .eda-item.producer {
+  background: linear-gradient(135deg, rgba(22, 163, 74, 0.1) 0%, rgba(34, 197, 94, 0.05) 100%) !important;
+  border-color: rgba(22, 163, 74, 0.4) !important;
+  color: #16a34a !important;
+}
+
+[data-theme="light"] .eda-item.consumer {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(99, 102, 241, 0.05) 100%) !important;
+  border-color: rgba(79, 70, 229, 0.4) !important;
+  color: #4f46e5 !important;
+}
+
+[data-theme="light"] .eda-broker {
+  background: linear-gradient(135deg, rgba(234, 88, 12, 0.12) 0%, rgba(249, 115, 22, 0.06) 100%) !important;
+  border-color: rgba(234, 88, 12, 0.5) !important;
+}
+
+[data-theme="light"] .broker-title {
+  color: #ea580c !important;
+}
+
+[data-theme="light"] .broker-tool {
+  background: rgba(0, 0, 0, 0.06) !important;
+  color: #c2410c !important;
+}
+
+[data-theme="light"] .event-type {
+  background: rgba(234, 88, 12, 0.08) !important;
+  border-color: rgba(234, 88, 12, 0.4) !important;
+  color: #ea580c !important;
+}
+
+/* ============================================
+   LAYERED (N-TIER) ARCHITECTURE - Light Mode
+   ============================================ */
+[data-theme="light"] .layer-row.presentation {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.12) 0%, rgba(59, 130, 246, 0.06) 100%) !important;
+  border-color: rgba(37, 99, 235, 0.4) !important;
+}
+
+[data-theme="light"] .layer-row.presentation .layer-name {
+  color: #2563eb !important;
+}
+
+[data-theme="light"] .layer-row.presentation .layer-tech span {
+  color: #3b82f6 !important;
+}
+
+[data-theme="light"] .layer-row.business {
+  background: linear-gradient(135deg, rgba(5, 150, 105, 0.12) 0%, rgba(16, 185, 129, 0.06) 100%) !important;
+  border-color: rgba(5, 150, 105, 0.4) !important;
+}
+
+[data-theme="light"] .layer-row.business .layer-name {
+  color: #059669 !important;
+}
+
+[data-theme="light"] .layer-row.business .layer-tech span {
+  color: #10b981 !important;
+}
+
+[data-theme="light"] .layer-row.persistence {
+  background: linear-gradient(135deg, rgba(217, 119, 6, 0.12) 0%, rgba(245, 158, 11, 0.06) 100%) !important;
+  border-color: rgba(217, 119, 6, 0.4) !important;
+}
+
+[data-theme="light"] .layer-row.persistence .layer-name {
+  color: #d97706 !important;
+}
+
+[data-theme="light"] .layer-row.persistence .layer-tech span {
+  color: #f59e0b !important;
+}
+
+[data-theme="light"] .layer-row.database {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.12) 0%, rgba(139, 92, 246, 0.06) 100%) !important;
+  border-color: rgba(124, 58, 237, 0.4) !important;
+}
+
+[data-theme="light"] .layer-row.database .layer-name {
+  color: #7c3aed !important;
+}
+
+[data-theme="light"] .layer-row.database .layer-tech span {
+  color: #8b5cf6 !important;
+}
+
+[data-theme="light"] .layer-desc {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .layer-arrow {
+  color: #94a3b8 !important;
+}
+
+[data-theme="light"] .layer-tech span {
+  background: rgba(0, 0, 0, 0.06) !important;
+}
+
+/* ============================================
+   ARCHITECTURE REFERENCES - Light Mode
+   ============================================ */
+[data-theme="light"] .arch-references {
+  border-top-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .ref-link {
+  background: rgba(8, 145, 178, 0.08) !important;
+  border-color: rgba(8, 145, 178, 0.3) !important;
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .ref-link:hover {
+  background: rgba(8, 145, 178, 0.15) !important;
+  border-color: rgba(8, 145, 178, 0.5) !important;
+}
+
 /* Data Pipeline - Light */
 [data-theme="light"] .pipeline-premium-container {
   background: rgba(255, 255, 255, 0.85) !important;
@@ -11687,6 +12375,21 @@ section {
   color: #ef4444;
 }
 
+.arch-selector-icon.teal {
+  background: rgba(20, 184, 166, 0.15);
+  color: #14b8a6;
+}
+
+.arch-selector-icon.orange {
+  background: rgba(249, 115, 22, 0.15);
+  color: #f97316;
+}
+
+.arch-selector-icon.blue {
+  background: rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
+}
+
 .arch-selector-card:hover .arch-selector-icon,
 .arch-selector-card.active .arch-selector-icon {
   transform: scale(1.1);
@@ -11806,6 +12509,21 @@ section {
 [data-theme="light"] .arch-selector-icon.red {
   background: rgba(220, 38, 38, 0.12) !important;
   color: #dc2626 !important;
+}
+
+[data-theme="light"] .arch-selector-icon.teal {
+  background: rgba(13, 148, 136, 0.12) !important;
+  color: #0d9488 !important;
+}
+
+[data-theme="light"] .arch-selector-icon.orange {
+  background: rgba(234, 88, 12, 0.12) !important;
+  color: #ea580c !important;
+}
+
+[data-theme="light"] .arch-selector-icon.blue {
+  background: rgba(37, 99, 235, 0.12) !important;
+  color: #2563eb !important;
 }
 
 [data-theme="light"] .arch-selector-name {

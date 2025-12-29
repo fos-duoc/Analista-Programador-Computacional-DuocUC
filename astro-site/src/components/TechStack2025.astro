@@ -19,6 +19,20 @@ const techMetadata: Record<string, { creator: string; year: string; objective: s
     "C": { creator: "Dennis Ritchie (Bell Labs)", year: "1972", objective: "Lenguaje de sistemas para Unix", features: ["Low-level", "Portable", "Efficient"] },
     "SQL": { creator: "IBM (Donald Chamberlin)", year: "1974", objective: "Lenguaje estándar para bases de datos relacionales", features: ["Declarative", "CRUD", "Joins"] },
 
+    // Fundamentos de Ingeniería de Software (SWEBOK v4)
+    "SOLID": { creator: "Robert C. Martin (Uncle Bob)", year: "2000", objective: "5 principios para diseño orientado a objetos mantenible y escalable", features: ["Single Responsibility", "Open/Closed", "Liskov Substitution", "Interface Segregation", "Dependency Inversion"] },
+    "Design Patterns": { creator: "Gang of Four (GoF)", year: "1994", objective: "23 patrones de diseño reutilizables para problemas comunes de software", features: ["Creational (5)", "Structural (7)", "Behavioral (11)"] },
+    "Clean Code": { creator: "Robert C. Martin (Uncle Bob)", year: "2008", objective: "Prácticas para escribir código legible, mantenible y profesional", features: ["Nombres significativos", "Funciones pequeñas", "Sin comentarios innecesarios", "Manejo de errores"] },
+    "DSA": { creator: "Donald Knuth et al.", year: "1968", objective: "Estructuras de datos y algoritmos fundamentales para resolver problemas eficientemente", features: ["Arrays/Lists", "Trees/Graphs", "Sorting/Searching", "Big O Notation"] },
+    "OWASP Top 10": { creator: "OWASP Foundation", year: "2003", objective: "Las 10 vulnerabilidades de seguridad más críticas en aplicaciones web", features: ["Broken Access Control", "Cryptographic Failures", "Injection", "Insecure Design"] },
+    "Git Flow": { creator: "Vincent Driessen", year: "2010", objective: "Modelo de branching para gestión profesional del control de versiones", features: ["main/develop", "feature branches", "release branches", "hotfix branches"] },
+    "System Design": { creator: "Industry Best Practices", year: "2010", objective: "Diseño de sistemas distribuidos escalables y resilientes", features: ["Load Balancing", "Caching", "Sharding", "CAP Theorem"] },
+    "API Design": { creator: "Roy Fielding (REST)", year: "2000", objective: "Diseño de interfaces de programación de aplicaciones profesionales", features: ["REST principles", "OpenAPI/Swagger", "Versioning", "Rate limiting"] },
+    "Testing Pyramid": { creator: "Mike Cohn", year: "2009", objective: "Estrategia de testing con balance de velocidad y cobertura", features: ["Unit Tests (70%)", "Integration (20%)", "E2E (10%)", "TDD/BDD"] },
+    "Code Review": { creator: "Google Engineering", year: "2015", objective: "Proceso de revisión de código para calidad y transferencia de conocimiento", features: ["PR reviews", "Code standards", "Knowledge sharing", "Bug prevention"] },
+    "12-Factor App": { creator: "Heroku (Adam Wiggins)", year: "2011", objective: "12 principios para aplicaciones SaaS cloud-native modernas", features: ["Config in env", "Stateless processes", "Port binding", "Disposability"] },
+    "Refactoring": { creator: "Martin Fowler", year: "1999", objective: "Mejora del diseño de código existente sin cambiar su comportamiento", features: ["Extract Method", "Rename", "Move", "Code Smells"] },
+
     // Bases de Datos
     "PostgreSQL": { creator: "UC Berkeley", year: "1996", objective: "Base de datos relacional avanzada y extensible", features: ["ACID", "JSON support", "Extensions"] },
     "MySQL": { creator: "MySQL AB (Monty Widenius)", year: "1995", objective: "Base de datos relacional rápida y confiable", features: ["Replication", "InnoDB", "Open source"] },
@@ -267,6 +281,34 @@ const secondaryLanguages = secondaryLangsBySource.stackoverflow;
 
 // Using Simple Icons CDN for icons not in devicon: https://cdn.simpleicons.org/[ICON_SLUG]
 const techCategories = [
+    {
+        id: "fundamentals",
+        title: "🔴 Fundamentos SW",
+        icon: "fas fa-graduation-cap",
+        color: "#ef4444",
+        items: [
+            { name: "SOLID", icon: "fas fa-cubes", stat: "SWEBOK", desc: "5 Principios OOP", url: "https://en.wikipedia.org/wiki/SOLID", hot: true },
+            { name: "Design Patterns", icon: "fas fa-shapes", stat: "GoF 23", desc: "Creational/Structural/Behavioral", url: "https://refactoring.guru/design-patterns", hot: true },
+            { name: "Clean Code", icon: "fas fa-broom", stat: "Uncle Bob", desc: "Código legible y mantenible", url: "https://www.oreilly.com/library/view/clean-code-a/9780136083238/", hot: true },
+            { name: "DSA", icon: "fas fa-project-diagram", stat: "Entrevistas", desc: "Estructuras de Datos y Algoritmos", url: "https://www.geeksforgeeks.org/data-structures/", hot: true },
+            { name: "OWASP Top 10", icon: "fas fa-shield-alt", stat: "Security", desc: "10 vulnerabilidades críticas", url: "https://owasp.org/www-project-top-ten/", hot: true },
+            { name: "Git Flow", icon: "devicon-git-plain colored", stat: "VCS", desc: "Branching strategy profesional", url: "https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow", hot: true }
+        ]
+    },
+    {
+        id: "engineering-practices",
+        title: "🟡 Prácticas Ing.",
+        icon: "fas fa-cogs",
+        color: "#f59e0b",
+        items: [
+            { name: "System Design", icon: "fas fa-sitemap", stat: "Senior", desc: "Diseño de sistemas escalables", url: "https://github.com/donnemartin/system-design-primer", hot: true },
+            { name: "API Design", icon: "fas fa-plug", stat: "REST/gRPC", desc: "Diseño de APIs profesionales", url: "https://swagger.io/specification/", hot: true },
+            { name: "Testing Pyramid", icon: "fas fa-vial", stat: "QA", desc: "Unit → Integration → E2E", url: "https://martinfowler.com/articles/practical-test-pyramid.html", hot: true },
+            { name: "Code Review", icon: "fas fa-code-branch", stat: "Team", desc: "Revisión de código efectiva", url: "https://google.github.io/eng-practices/review/", hot: true },
+            { name: "12-Factor App", icon: "fas fa-layer-group", stat: "Cloud Native", desc: "Apps SaaS modernas", url: "https://12factor.net/", hot: true },
+            { name: "Refactoring", icon: "fas fa-recycle", stat: "Quality", desc: "Mejora sin cambiar comportamiento", url: "https://refactoring.guru/refactoring", hot: true }
+        ]
+    },
     {
         id: "databases",
         title: "Bases de Datos",

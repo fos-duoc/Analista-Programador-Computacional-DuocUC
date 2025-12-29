@@ -60,6 +60,27 @@
             <span class="arch-selector-name">Data Governance</span>
             <span class="arch-selector-tag">Compliance</span>
         </button>
+        <button class="arch-selector-card" data-arch="hexagonal">
+            <div class="arch-selector-icon teal">
+                <i class="fas fa-hexagon"></i>
+            </div>
+            <span class="arch-selector-name">Hexagonal</span>
+            <span class="arch-selector-tag">Ports & Adapters</span>
+        </button>
+        <button class="arch-selector-card" data-arch="event-driven">
+            <div class="arch-selector-icon orange">
+                <i class="fas fa-bolt"></i>
+            </div>
+            <span class="arch-selector-name">Event-Driven</span>
+            <span class="arch-selector-tag">EDA</span>
+        </button>
+        <button class="arch-selector-card" data-arch="layered">
+            <div class="arch-selector-icon blue">
+                <i class="fas fa-layer-group"></i>
+            </div>
+            <span class="arch-selector-name">Layered (N-Tier)</span>
+            <span class="arch-selector-tag">Traditional</span>
+        </button>
     </div>
 
     <!-- Architecture Detail Panels -->
@@ -406,6 +427,236 @@
                         <span class="tip-item"><i class="fas fa-check"></i> Retention Policies</span>
                         <span class="tip-item"><i class="fas fa-check"></i> Access Controls</span>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hexagonal Architecture Panel -->
+        <div class="arch-detail-panel" id="panel-hexagonal">
+            <div class="arch-card-xl glass-card hexagonal">
+                <div class="arch-header-lg">
+                    <div class="arch-icon-gif">
+                        <i class="fas fa-hexagon arch-card-icon teal"></i>
+                    </div>
+                    <span>Hexagonal Architecture</span>
+                    <span class="arch-badge">Ports & Adapters</span>
+                </div>
+                <div class="arch-metrics">
+                    <span class="metric-badge uptime"><i class="fas fa-plug"></i> Decoupled</span>
+                    <span class="metric-badge latency"><i class="fas fa-vial"></i> Testable</span>
+                    <span class="metric-badge scale"><i class="fas fa-sync"></i> Flexible</span>
+                </div>
+                <div class="hexagonal-diagram">
+                    <div class="hex-layer outer">
+                        <span class="layer-title">Adapters (Infrastructure)</span>
+                        <div class="adapters-grid">
+                            <div class="adapter-item left">
+                                <i class="fas fa-globe"></i>
+                                <span>REST API</span>
+                            </div>
+                            <div class="adapter-item left">
+                                <i class="fas fa-terminal"></i>
+                                <span>CLI</span>
+                            </div>
+                            <div class="adapter-item right">
+                                <i class="fas fa-database"></i>
+                                <span>PostgreSQL</span>
+                            </div>
+                            <div class="adapter-item right">
+                                <i class="fas fa-envelope"></i>
+                                <span>Email</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hex-layer middle">
+                        <span class="layer-title">Ports (Interfaces)</span>
+                        <div class="ports-row">
+                            <span class="port-item driving"><i class="fas fa-sign-in-alt"></i> Driving Ports</span>
+                            <span class="port-item driven"><i class="fas fa-sign-out-alt"></i> Driven Ports</span>
+                        </div>
+                    </div>
+                    <div class="hex-layer inner">
+                        <span class="layer-title">Domain (Business Logic)</span>
+                        <div class="domain-items">
+                            <span class="domain-item"><i class="fas fa-cube"></i> Entities</span>
+                            <span class="domain-item"><i class="fas fa-cog"></i> Use Cases</span>
+                            <span class="domain-item"><i class="fas fa-file-alt"></i> Domain Services</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="arch-tips">
+                    <div class="tip-header"><i class="fas fa-lightbulb"></i> Best Practices (Alistair Cockburn)</div>
+                    <div class="tips-grid">
+                        <span class="tip-item"><i class="fas fa-check"></i> Dominio independiente de infraestructura</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> Ports = Contratos/Interfaces</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> Adapters = Implementaciones</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> Dependency Inversion</span>
+                    </div>
+                </div>
+                <div class="arch-references">
+                    <a href="https://alistair.cockburn.us/hexagonal-architecture/" target="_blank" rel="noopener" class="ref-link">
+                        <i class="fas fa-external-link-alt"></i> Alistair Cockburn (Original)
+                    </a>
+                    <a href="https://netflixtechblog.com/ready-for-changes-with-hexagonal-architecture-b315ec967749" target="_blank" rel="noopener" class="ref-link">
+                        <i class="fab fa-netflix"></i> Netflix Tech Blog
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Event-Driven Architecture Panel -->
+        <div class="arch-detail-panel" id="panel-event-driven">
+            <div class="arch-card-xl glass-card event-driven">
+                <div class="arch-header-lg">
+                    <div class="arch-icon-gif">
+                        <i class="fas fa-bolt arch-card-icon orange"></i>
+                    </div>
+                    <span>Event-Driven Architecture</span>
+                    <span class="arch-badge">EDA</span>
+                </div>
+                <div class="arch-metrics">
+                    <span class="metric-badge uptime"><i class="fas fa-unlink"></i> Loosely Coupled</span>
+                    <span class="metric-badge latency"><i class="fas fa-clock"></i> Real-time</span>
+                    <span class="metric-badge scale"><i class="fas fa-expand-arrows-alt"></i> Scalable</span>
+                </div>
+                <div class="eda-diagram">
+                    <div class="eda-producers">
+                        <span class="eda-label">Event Producers</span>
+                        <div class="eda-items">
+                            <div class="eda-item producer"><i class="fas fa-user"></i> User Service</div>
+                            <div class="eda-item producer"><i class="fas fa-shopping-cart"></i> Order Service</div>
+                            <div class="eda-item producer"><i class="fas fa-credit-card"></i> Payment Service</div>
+                        </div>
+                    </div>
+                    <div class="eda-broker">
+                        <div class="broker-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <span class="broker-title">Event Broker</span>
+                        <div class="broker-tools">
+                            <span class="broker-tool"><i class="devicon-apachekafka-original"></i> Kafka</span>
+                            <span class="broker-tool"><i class="fas fa-cloud"></i> EventBridge</span>
+                            <span class="broker-tool"><i class="fas fa-stream"></i> Pulsar</span>
+                        </div>
+                        <div class="event-types">
+                            <span class="event-type">OrderCreated</span>
+                            <span class="event-type">PaymentProcessed</span>
+                            <span class="event-type">UserRegistered</span>
+                        </div>
+                    </div>
+                    <div class="eda-consumers">
+                        <span class="eda-label">Event Consumers</span>
+                        <div class="eda-items">
+                            <div class="eda-item consumer"><i class="fas fa-bell"></i> Notification</div>
+                            <div class="eda-item consumer"><i class="fas fa-chart-line"></i> Analytics</div>
+                            <div class="eda-item consumer"><i class="fas fa-warehouse"></i> Inventory</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="arch-tips">
+                    <div class="tip-header"><i class="fas fa-lightbulb"></i> Event Patterns</div>
+                    <div class="tips-grid">
+                        <span class="tip-item"><i class="fas fa-check"></i> Event Sourcing</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> CQRS (Command Query)</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> Saga Pattern</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> Outbox Pattern</span>
+                    </div>
+                </div>
+                <div class="arch-references">
+                    <a href="https://martinfowler.com/articles/201701-event-driven.html" target="_blank" rel="noopener" class="ref-link">
+                        <i class="fas fa-external-link-alt"></i> Martin Fowler
+                    </a>
+                    <a href="https://aws.amazon.com/event-driven-architecture/" target="_blank" rel="noopener" class="ref-link">
+                        <i class="fab fa-aws"></i> AWS EDA Guide
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Layered (N-Tier) Architecture Panel -->
+        <div class="arch-detail-panel" id="panel-layered">
+            <div class="arch-card-xl glass-card layered">
+                <div class="arch-header-lg">
+                    <div class="arch-icon-gif">
+                        <i class="fas fa-layer-group arch-card-icon blue"></i>
+                    </div>
+                    <span>Layered Architecture (N-Tier)</span>
+                    <span class="arch-badge">Traditional</span>
+                </div>
+                <div class="arch-metrics">
+                    <span class="metric-badge uptime"><i class="fas fa-th-list"></i> Organized</span>
+                    <span class="metric-badge latency"><i class="fas fa-graduation-cap"></i> Easy to Learn</span>
+                    <span class="metric-badge scale"><i class="fas fa-shield-alt"></i> Separation</span>
+                </div>
+                <div class="layered-diagram">
+                    <div class="layer-row presentation">
+                        <div class="layer-number">1</div>
+                        <div class="layer-content">
+                            <span class="layer-name">Presentation Layer</span>
+                            <span class="layer-desc">UI, Controllers, Views</span>
+                        </div>
+                        <div class="layer-tech">
+                            <span>React</span>
+                            <span>Angular</span>
+                            <span>REST API</span>
+                        </div>
+                    </div>
+                    <div class="layer-arrow"><i class="fas fa-arrow-down"></i></div>
+                    <div class="layer-row business">
+                        <div class="layer-number">2</div>
+                        <div class="layer-content">
+                            <span class="layer-name">Business Logic Layer</span>
+                            <span class="layer-desc">Services, Use Cases, Domain</span>
+                        </div>
+                        <div class="layer-tech">
+                            <span>Spring</span>
+                            <span>.NET</span>
+                            <span>Django</span>
+                        </div>
+                    </div>
+                    <div class="layer-arrow"><i class="fas fa-arrow-down"></i></div>
+                    <div class="layer-row persistence">
+                        <div class="layer-number">3</div>
+                        <div class="layer-content">
+                            <span class="layer-name">Data Access Layer</span>
+                            <span class="layer-desc">Repositories, ORM, DAOs</span>
+                        </div>
+                        <div class="layer-tech">
+                            <span>Hibernate</span>
+                            <span>EF Core</span>
+                            <span>SQLAlchemy</span>
+                        </div>
+                    </div>
+                    <div class="layer-arrow"><i class="fas fa-arrow-down"></i></div>
+                    <div class="layer-row database">
+                        <div class="layer-number">4</div>
+                        <div class="layer-content">
+                            <span class="layer-name">Database Layer</span>
+                            <span class="layer-desc">Data Storage, Persistence</span>
+                        </div>
+                        <div class="layer-tech">
+                            <span>PostgreSQL</span>
+                            <span>MySQL</span>
+                            <span>MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="arch-tips">
+                    <div class="tip-header"><i class="fas fa-lightbulb"></i> Best Practices (SWEBOK)</div>
+                    <div class="tips-grid">
+                        <span class="tip-item"><i class="fas fa-check"></i> Cada capa solo conoce la inferior</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> Separación clara de responsabilidades</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> Ideal para aplicaciones enterprise</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> Fácil de entender y mantener</span>
+                    </div>
+                </div>
+                <div class="arch-references">
+                    <a href="https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/n-tier" target="_blank" rel="noopener" class="ref-link">
+                        <i class="fab fa-microsoft"></i> Microsoft N-Tier Guide
+                    </a>
+                    <a href="https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/" target="_blank" rel="noopener" class="ref-link">
+                        <i class="fas fa-book"></i> O'Reilly Patterns
+                    </a>
                 </div>
             </div>
         </div>
