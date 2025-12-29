@@ -2,7 +2,7 @@
 
 export interface Question {
     id: string;
-    category: 'javascript' | 'python' | 'sql' | 'java' | 'aws' | 'docker' | 'snowflake' | 'databricks' | 'linux' | 'hardware';
+    category: 'javascript' | 'python' | 'sql' | 'java' | 'aws' | 'docker' | 'snowflake' | 'databricks' | 'linux' | 'hardware' | 'architecture' | 'devops' | 'testing' | 'security';
     certification: string;
     difficulty: 'beginner' | 'intermediate' | 'advanced';
     question: string;
@@ -1748,6 +1748,614 @@ class Perro extends Animal {
         ],
         correctAnswer: 1,
         explanation: 'RAID 5 distribuye datos y paridad entre 3+ discos. Tolera el fallo de 1 disco manteniendo rendimiento y capacidad.'
+    },
+
+    // ============== IDS: ARCHITECTURE QUESTIONS ==============
+    {
+        id: 'arch-001',
+        category: 'architecture',
+        certification: 'Software Architecture / IDS',
+        difficulty: 'intermediate',
+        question: '¿Cuáles son las capas principales de Clean Architecture?',
+        options: [
+            'Frontend, Backend, Database',
+            'Entities, Use Cases, Interface Adapters, Frameworks & Drivers',
+            'Model, View, Controller',
+            'Client, Server, API'
+        ],
+        correctAnswer: 1,
+        explanation: 'Clean Architecture tiene 4 capas concéntricas: Entities (reglas de negocio), Use Cases (aplicación), Interface Adapters (presentación), Frameworks & Drivers (infraestructura).'
+    },
+    {
+        id: 'arch-002',
+        category: 'architecture',
+        certification: 'Software Architecture / IDS',
+        difficulty: 'advanced',
+        question: '¿Qué es la Dependency Rule en Clean Architecture?',
+        options: [
+            'Las dependencias deben ir de externo a interno',
+            'Las dependencias deben apuntar hacia adentro, hacia las políticas de alto nivel',
+            'Todas las capas pueden depender entre sí',
+            'Solo la capa externa puede tener dependencias'
+        ],
+        correctAnswer: 1,
+        explanation: 'La Dependency Rule establece que las dependencias de código fuente solo pueden apuntar hacia adentro. Las capas internas no conocen nada de las externas.'
+    },
+    {
+        id: 'arch-003',
+        category: 'architecture',
+        certification: 'Software Architecture / IDS',
+        difficulty: 'advanced',
+        question: '¿Qué es un Bounded Context en Domain-Driven Design?',
+        options: [
+            'Un límite geográfico del servidor',
+            'Un límite explícito donde un modelo de dominio particular es definido y aplicable',
+            'Una restricción de seguridad',
+            'Un tipo de base de datos'
+        ],
+        correctAnswer: 1,
+        explanation: 'Un Bounded Context es un límite donde un modelo de dominio es válido. Cada contexto tiene su propio Ubiquitous Language y puede tener diferentes representaciones de conceptos.'
+    },
+    {
+        id: 'arch-004',
+        category: 'architecture',
+        certification: 'Software Architecture / IDS',
+        difficulty: 'advanced',
+        question: '¿Qué es un Aggregate en DDD?',
+        options: [
+            'Una función de base de datos',
+            'Un cluster de objetos de dominio tratados como una unidad con una raíz',
+            'Un tipo de join SQL',
+            'Una colección de microservicios'
+        ],
+        correctAnswer: 1,
+        explanation: 'Un Aggregate es un grupo de entidades y value objects tratados como unidad. Tiene un Aggregate Root que es el único punto de acceso para modificaciones.'
+    },
+    {
+        id: 'arch-005',
+        category: 'architecture',
+        certification: 'Software Architecture / IDS',
+        difficulty: 'advanced',
+        question: '¿Qué es Event Sourcing?',
+        options: [
+            'Enviar eventos a un servidor',
+            'Almacenar el estado como secuencia de eventos en lugar del estado actual',
+            'Un sistema de logging',
+            'Un patrón de mensajería'
+        ],
+        correctAnswer: 1,
+        explanation: 'Event Sourcing guarda todos los cambios de estado como eventos inmutables. El estado actual se reconstruye reproduciendo la secuencia de eventos.'
+    },
+    {
+        id: 'arch-006',
+        category: 'architecture',
+        certification: 'Software Architecture / IDS',
+        difficulty: 'advanced',
+        question: '¿Qué es CQRS (Command Query Responsibility Segregation)?',
+        options: [
+            'Un tipo de base de datos',
+            'Separar los modelos de lectura (Query) y escritura (Command)',
+            'Un patrón de seguridad',
+            'Un framework de testing'
+        ],
+        correctAnswer: 1,
+        explanation: 'CQRS separa las operaciones de lectura y escritura en modelos diferentes. Permite optimizar cada uno independientemente y escalar de forma diferenciada.'
+    },
+    {
+        id: 'arch-007',
+        category: 'architecture',
+        certification: 'Software Architecture / IDS',
+        difficulty: 'intermediate',
+        question: '¿Qué es Hexagonal Architecture (Ports & Adapters)?',
+        options: [
+            'Una arquitectura con 6 capas',
+            'Arquitectura donde el dominio está en el centro, aislado por puertos e implementado con adaptadores',
+            'Un tipo de red de computadores',
+            'Una arquitectura para bases de datos'
+        ],
+        correctAnswer: 1,
+        explanation: 'Hexagonal Architecture coloca la lógica de negocio en el centro. Los Ports definen interfaces y los Adapters implementan la comunicación con el exterior.'
+    },
+    {
+        id: 'arch-008',
+        category: 'architecture',
+        certification: 'Software Architecture / IDS',
+        difficulty: 'intermediate',
+        question: '¿Cuál es el beneficio principal de los microservicios sobre un monolito?',
+        options: [
+            'Son siempre más rápidos',
+            'Permiten desplegar, escalar y desarrollar servicios de forma independiente',
+            'Usan menos memoria',
+            'Son más fáciles de debuggear'
+        ],
+        correctAnswer: 1,
+        explanation: 'Los microservicios permiten equipos autónomos, deploy independiente, escalado granular y uso de tecnologías específicas por servicio.'
+    },
+    {
+        id: 'arch-009',
+        category: 'architecture',
+        certification: 'Software Architecture / IDS',
+        difficulty: 'advanced',
+        question: '¿Qué patrón se usa para manejar transacciones distribuidas en microservicios?',
+        options: [
+            'Two-Phase Commit siempre',
+            'Saga Pattern con compensaciones',
+            'Transacciones XA',
+            'Bloqueos distribuidos'
+        ],
+        correctAnswer: 1,
+        explanation: 'El Saga Pattern coordina transacciones distribuidas como secuencia de transacciones locales con acciones de compensación si algo falla.'
+    },
+    {
+        id: 'arch-010',
+        category: 'architecture',
+        certification: 'Software Architecture / IDS',
+        difficulty: 'intermediate',
+        question: '¿Qué es un API Gateway en arquitectura de microservicios?',
+        options: [
+            'Una base de datos compartida',
+            'Un punto de entrada único que enruta requests a los microservicios',
+            'Un servidor de archivos',
+            'Una herramienta de monitoreo'
+        ],
+        correctAnswer: 1,
+        explanation: 'El API Gateway es el punto de entrada único que maneja routing, autenticación, rate limiting, y agregación de respuestas.'
+    },
+
+    // ============== IDS: DEVOPS QUESTIONS ==============
+    {
+        id: 'devops-001',
+        category: 'devops',
+        certification: 'CKA/CKAD / IDS',
+        difficulty: 'intermediate',
+        question: '¿Qué es un Pod en Kubernetes?',
+        options: [
+            'Un servidor físico',
+            'La unidad más pequeña desplegable, uno o más contenedores compartiendo red y storage',
+            'Un tipo de servicio',
+            'Una máquina virtual'
+        ],
+        correctAnswer: 1,
+        explanation: 'Un Pod es la unidad mínima en K8s. Contiene uno o más contenedores que comparten namespace de red, IP y volúmenes.'
+    },
+    {
+        id: 'devops-002',
+        category: 'devops',
+        certification: 'CKA/CKAD / IDS',
+        difficulty: 'intermediate',
+        question: '¿Qué hace un Deployment en Kubernetes?',
+        options: [
+            'Solo crea pods una vez',
+            'Gestiona ReplicaSets para mantener el estado deseado de pods',
+            'Expone servicios externamente',
+            'Almacena configuraciones'
+        ],
+        correctAnswer: 1,
+        explanation: 'Un Deployment declara el estado deseado de pods, gestiona ReplicaSets, y permite rolling updates y rollbacks.'
+    },
+    {
+        id: 'devops-003',
+        category: 'devops',
+        certification: 'CKA/CKAD / IDS',
+        difficulty: 'advanced',
+        question: '¿Qué es un Service en Kubernetes?',
+        options: [
+            'Un contenedor',
+            'Una abstracción que define acceso de red estable a un conjunto de pods',
+            'Un archivo de configuración',
+            'Un tipo de storage'
+        ],
+        correctAnswer: 1,
+        explanation: 'Un Service proporciona una IP estable y DNS para acceder a pods. Tipos: ClusterIP, NodePort, LoadBalancer, ExternalName.'
+    },
+    {
+        id: 'devops-004',
+        category: 'devops',
+        certification: 'Terraform Associate / IDS',
+        difficulty: 'intermediate',
+        question: '¿Qué es Infrastructure as Code (IaC)?',
+        options: [
+            'Código que se ejecuta en servidores',
+            'Gestionar infraestructura mediante archivos de configuración versionables',
+            'Un lenguaje de programación',
+            'Un tipo de base de datos'
+        ],
+        correctAnswer: 1,
+        explanation: 'IaC permite definir infraestructura en código, habilitando versionado, revisión, automatización y reproducibilidad.'
+    },
+    {
+        id: 'devops-005',
+        category: 'devops',
+        certification: 'Terraform Associate / IDS',
+        difficulty: 'intermediate',
+        question: '¿Cuál es la diferencia entre terraform plan y terraform apply?',
+        options: [
+            'No hay diferencia',
+            'plan muestra cambios propuestos, apply ejecuta los cambios',
+            'apply es más rápido',
+            'plan solo funciona con AWS'
+        ],
+        correctAnswer: 1,
+        explanation: 'terraform plan genera un plan de ejecución mostrando qué se creará/modificará/destruirá. terraform apply ejecuta esos cambios.'
+    },
+    {
+        id: 'devops-006',
+        category: 'devops',
+        certification: 'GitOps / IDS',
+        difficulty: 'advanced',
+        question: '¿Qué es GitOps?',
+        options: [
+            'Usar Git para código',
+            'Usar Git como fuente de verdad para infraestructura y deployments declarativos',
+            'Un hosting de Git',
+            'Una herramienta de CI'
+        ],
+        correctAnswer: 1,
+        explanation: 'GitOps usa Git como fuente de verdad. Los cambios en Git disparan reconciliación automática del estado deseado vs actual.'
+    },
+    {
+        id: 'devops-007',
+        category: 'devops',
+        certification: 'ArgoCD / IDS',
+        difficulty: 'advanced',
+        question: '¿Qué es ArgoCD?',
+        options: [
+            'Un lenguaje de programación',
+            'Herramienta declarativa de CD GitOps para Kubernetes',
+            'Un servicio de AWS',
+            'Un tipo de contenedor'
+        ],
+        correctAnswer: 1,
+        explanation: 'ArgoCD es una herramienta GitOps que sincroniza continuamente el estado de Kubernetes con configuraciones en Git.'
+    },
+    {
+        id: 'devops-008',
+        category: 'devops',
+        certification: 'CKA/CKAD / IDS',
+        difficulty: 'advanced',
+        question: '¿Qué es un Helm Chart?',
+        options: [
+            'Un gráfico de monitoreo',
+            'Paquete de recursos Kubernetes con templates y valores configurables',
+            'Una herramienta de logging',
+            'Un tipo de pod'
+        ],
+        correctAnswer: 1,
+        explanation: 'Helm es el package manager de K8s. Los Charts son paquetes con templates YAML y values.yaml para configuración.'
+    },
+    {
+        id: 'devops-009',
+        category: 'devops',
+        certification: 'CKA/CKAD / IDS',
+        difficulty: 'intermediate',
+        question: '¿Qué es un ConfigMap en Kubernetes?',
+        options: [
+            'Un mapa geográfico',
+            'Objeto para almacenar configuración no confidencial como key-value',
+            'Un tipo de servicio',
+            'Una configuración de red'
+        ],
+        correctAnswer: 1,
+        explanation: 'ConfigMap almacena datos de configuración no sensibles. Se pueden montar como volumen o exponer como variables de entorno.'
+    },
+    {
+        id: 'devops-010',
+        category: 'devops',
+        certification: 'CKA/CKAD / IDS',
+        difficulty: 'intermediate',
+        question: '¿Cuál es la diferencia entre ConfigMap y Secret?',
+        options: [
+            'No hay diferencia',
+            'Secret almacena datos sensibles codificados en base64',
+            'ConfigMap es más rápido',
+            'Secret solo funciona con passwords'
+        ],
+        correctAnswer: 1,
+        explanation: 'Secret es similar a ConfigMap pero para datos sensibles. Los valores se almacenan en base64 y tienen restricciones de acceso adicionales.'
+    },
+
+    // ============== IDS: TESTING QUESTIONS ==============
+    {
+        id: 'test-001',
+        category: 'testing',
+        certification: 'Testing Professional / IDS',
+        difficulty: 'intermediate',
+        question: '¿Qué es TDD (Test-Driven Development)?',
+        options: [
+            'Testing al final del desarrollo',
+            'Escribir tests antes del código, siguiendo Red-Green-Refactor',
+            'Testing solo de UI',
+            'Testing automático de seguridad'
+        ],
+        correctAnswer: 1,
+        explanation: 'TDD sigue el ciclo: Red (escribir test que falla), Green (escribir código mínimo para pasar), Refactor (mejorar código manteniendo tests verdes).'
+    },
+    {
+        id: 'test-002',
+        category: 'testing',
+        certification: 'Testing Professional / IDS',
+        difficulty: 'intermediate',
+        question: '¿Qué es BDD (Behavior-Driven Development)?',
+        options: [
+            'Testing de base de datos',
+            'Desarrollo guiado por comportamiento usando Given-When-Then',
+            'Bug Detection Development',
+            'Un tipo de debugging'
+        ],
+        correctAnswer: 1,
+        explanation: 'BDD describe comportamientos en lenguaje natural: Given (contexto), When (acción), Then (resultado esperado). Herramientas: Cucumber, SpecFlow.'
+    },
+    {
+        id: 'test-003',
+        category: 'testing',
+        certification: 'Testing Professional / IDS',
+        difficulty: 'advanced',
+        question: '¿Qué es Contract Testing?',
+        options: [
+            'Testing de contratos legales',
+            'Verificar que servicios cumplen contratos de API acordados entre consumer y provider',
+            'Testing de UI',
+            'Testing de base de datos'
+        ],
+        correctAnswer: 1,
+        explanation: 'Contract Testing verifica que consumidores y proveedores de APIs cumplen un contrato acordado. Herramientas: Pact, Spring Cloud Contract.'
+    },
+    {
+        id: 'test-004',
+        category: 'testing',
+        certification: 'Testing Professional / IDS',
+        difficulty: 'advanced',
+        question: '¿Qué es Mutation Testing?',
+        options: [
+            'Testing de código genético',
+            'Introducir cambios (mutantes) en el código para verificar que los tests los detectan',
+            'Testing de cambios en Git',
+            'Testing de performance'
+        ],
+        correctAnswer: 1,
+        explanation: 'Mutation Testing evalúa la calidad de los tests introduciendo mutaciones en el código. Un buen test suite debe "matar" los mutantes.'
+    },
+    {
+        id: 'test-005',
+        category: 'testing',
+        certification: 'Testing Professional / IDS',
+        difficulty: 'intermediate',
+        question: '¿Qué porcentaje de tests debería ser unitario según la pirámide de testing?',
+        options: [
+            '10%',
+            '20%',
+            '70%',
+            '50%'
+        ],
+        correctAnswer: 2,
+        explanation: 'La pirámide de testing sugiere: 70% Unit Tests (base), 20% Integration Tests (medio), 10% E2E Tests (cima).'
+    },
+    {
+        id: 'test-006',
+        category: 'testing',
+        certification: 'Testing Professional / IDS',
+        difficulty: 'intermediate',
+        question: '¿Qué es un Mock en testing?',
+        options: [
+            'Un test que siempre pasa',
+            'Un objeto simulado que reemplaza dependencias reales',
+            'Un tipo de assertion',
+            'Un framework de testing'
+        ],
+        correctAnswer: 1,
+        explanation: 'Un Mock es un objeto que simula el comportamiento de dependencias reales, permitiendo tests aislados y controlados.'
+    },
+    {
+        id: 'test-007',
+        category: 'testing',
+        certification: 'Testing Professional / IDS',
+        difficulty: 'advanced',
+        question: '¿Cuál es la diferencia entre Mock y Stub?',
+        options: [
+            'No hay diferencia',
+            'Mock verifica interacciones, Stub solo provee respuestas predefinidas',
+            'Stub es más moderno',
+            'Mock solo funciona con Java'
+        ],
+        correctAnswer: 1,
+        explanation: 'Un Stub provee respuestas fijas sin verificar cómo fue llamado. Un Mock permite verificar que métodos fueron llamados correctamente.'
+    },
+    {
+        id: 'test-008',
+        category: 'testing',
+        certification: 'Testing Professional / IDS',
+        difficulty: 'intermediate',
+        question: '¿Qué es un Integration Test?',
+        options: [
+            'Test de la UI completa',
+            'Test que verifica la interacción entre múltiples componentes o sistemas',
+            'Test de un solo método',
+            'Test de performance'
+        ],
+        correctAnswer: 1,
+        explanation: 'Los Integration Tests verifican que múltiples componentes funcionan correctamente juntos (ej: servicio + base de datos).'
+    },
+    {
+        id: 'test-009',
+        category: 'testing',
+        certification: 'Testing Professional / IDS',
+        difficulty: 'advanced',
+        question: '¿Qué herramienta se usa para E2E testing en web?',
+        options: [
+            'JUnit',
+            'Playwright, Cypress, o Selenium',
+            'Mockito',
+            'Maven'
+        ],
+        correctAnswer: 1,
+        explanation: 'Playwright, Cypress y Selenium son frameworks para E2E testing que automatizan interacciones de navegador como un usuario real.'
+    },
+    {
+        id: 'test-010',
+        category: 'testing',
+        certification: 'Testing Professional / IDS',
+        difficulty: 'advanced',
+        question: '¿Qué es Property-Based Testing?',
+        options: [
+            'Testing de propiedades CSS',
+            'Generar casos de prueba automáticamente basados en propiedades que el código debe cumplir',
+            'Testing de configuración',
+            'Testing de variables de entorno'
+        ],
+        correctAnswer: 1,
+        explanation: 'Property-Based Testing genera inputs automáticamente verificando que propiedades invariantes se cumplan. Herramientas: QuickCheck, jqwik.'
+    },
+
+    // ============== IDS: SECURITY QUESTIONS ==============
+    {
+        id: 'sec-001',
+        category: 'security',
+        certification: 'OWASP / Security+ / IDS',
+        difficulty: 'intermediate',
+        question: '¿Cuál es el #1 del OWASP Top 10 2021?',
+        options: [
+            'Cross-Site Scripting (XSS)',
+            'Broken Access Control',
+            'SQL Injection',
+            'Cryptographic Failures'
+        ],
+        correctAnswer: 1,
+        explanation: 'Broken Access Control es el #1 en OWASP 2021. Ocurre cuando usuarios pueden acceder a recursos o funciones no autorizadas.'
+    },
+    {
+        id: 'sec-002',
+        category: 'security',
+        certification: 'OWASP / Security+ / IDS',
+        difficulty: 'intermediate',
+        question: '¿Qué es SQL Injection?',
+        options: [
+            'Un tipo de base de datos',
+            'Ataque donde se inyecta código SQL malicioso a través de inputs',
+            'Una consulta optimizada',
+            'Un framework de SQL'
+        ],
+        correctAnswer: 1,
+        explanation: 'SQL Injection permite ejecutar SQL malicioso al no sanitizar inputs. Mitigación: usar prepared statements y parameterized queries.'
+    },
+    {
+        id: 'sec-003',
+        category: 'security',
+        certification: 'OWASP / Security+ / IDS',
+        difficulty: 'intermediate',
+        question: '¿Qué es Cross-Site Scripting (XSS)?',
+        options: [
+            'Un tipo de CSS',
+            'Inyección de scripts maliciosos en páginas web vistas por otros usuarios',
+            'Un framework JavaScript',
+            'Una técnica de optimización'
+        ],
+        correctAnswer: 1,
+        explanation: 'XSS inyecta scripts que se ejecutan en el navegador de víctimas. Tipos: Stored, Reflected, DOM-based. Mitigación: escapar output, CSP.'
+    },
+    {
+        id: 'sec-004',
+        category: 'security',
+        certification: 'OWASP / Security+ / IDS',
+        difficulty: 'advanced',
+        question: '¿Qué es CSRF (Cross-Site Request Forgery)?',
+        options: [
+            'Un tipo de encriptación',
+            'Ataque que fuerza a usuarios autenticados a ejecutar acciones no deseadas',
+            'Un protocolo de seguridad',
+            'Una herramienta de testing'
+        ],
+        correctAnswer: 1,
+        explanation: 'CSRF engaña al navegador para enviar requests autenticados a sitios donde el usuario tiene sesión activa. Mitigación: tokens CSRF, SameSite cookies.'
+    },
+    {
+        id: 'sec-005',
+        category: 'security',
+        certification: 'Security Engineering / IDS',
+        difficulty: 'advanced',
+        question: '¿Qué es HashiCorp Vault?',
+        options: [
+            'Un tipo de base de datos',
+            'Herramienta para gestión centralizada de secrets y datos sensibles',
+            'Un framework web',
+            'Un servicio de backup'
+        ],
+        correctAnswer: 1,
+        explanation: 'Vault gestiona secrets, tokens, passwords, certificados y claves de encriptación de forma centralizada y segura.'
+    },
+    {
+        id: 'sec-006',
+        category: 'security',
+        certification: 'Security Engineering / IDS',
+        difficulty: 'intermediate',
+        question: '¿Qué es el principio de Least Privilege?',
+        options: [
+            'Dar acceso root a todos',
+            'Otorgar solo los permisos mínimos necesarios para realizar una tarea',
+            'Eliminar todos los privilegios',
+            'Un tipo de encriptación'
+        ],
+        correctAnswer: 1,
+        explanation: 'Least Privilege minimiza el riesgo otorgando solo los permisos estrictamente necesarios. Aplica a usuarios, servicios y aplicaciones.'
+    },
+    {
+        id: 'sec-007',
+        category: 'security',
+        certification: 'OWASP / Security+ / IDS',
+        difficulty: 'advanced',
+        question: '¿Qué es SAST (Static Application Security Testing)?',
+        options: [
+            'Testing de performance',
+            'Análisis de seguridad del código fuente sin ejecutarlo',
+            'Testing de UI',
+            'Testing de integración'
+        ],
+        correctAnswer: 1,
+        explanation: 'SAST analiza código fuente en busca de vulnerabilidades sin ejecutar la aplicación. Herramientas: SonarQube, Checkmarx, Snyk.'
+    },
+    {
+        id: 'sec-008',
+        category: 'security',
+        certification: 'OWASP / Security+ / IDS',
+        difficulty: 'advanced',
+        question: '¿Qué es DAST (Dynamic Application Security Testing)?',
+        options: [
+            'Análisis estático de código',
+            'Testing de seguridad de aplicación en ejecución simulando ataques',
+            'Testing de base de datos',
+            'Testing unitario'
+        ],
+        correctAnswer: 1,
+        explanation: 'DAST prueba aplicaciones en ejecución simulando ataques desde el exterior. Herramientas: OWASP ZAP, Burp Suite.'
+    },
+    {
+        id: 'sec-009',
+        category: 'security',
+        certification: 'Security Engineering / IDS',
+        difficulty: 'intermediate',
+        question: '¿Qué es mTLS (mutual TLS)?',
+        options: [
+            'TLS solo del servidor',
+            'Autenticación bidireccional donde cliente y servidor verifican certificados',
+            'Un tipo de HTTP',
+            'Una versión antigua de TLS'
+        ],
+        correctAnswer: 1,
+        explanation: 'mTLS requiere que ambas partes (cliente y servidor) presenten certificados válidos, común en comunicación entre microservicios.'
+    },
+    {
+        id: 'sec-010',
+        category: 'security',
+        certification: 'Security Engineering / IDS',
+        difficulty: 'advanced',
+        question: '¿Qué es Zero Trust Security?',
+        options: [
+            'No confiar en nadie y denegar todo acceso',
+            'Nunca confiar implícitamente, siempre verificar, con acceso mínimo',
+            'Confiar solo en usuarios internos',
+            'Un tipo de firewall'
+        ],
+        correctAnswer: 1,
+        explanation: 'Zero Trust asume que ningún usuario o sistema es confiable por defecto. Principios: verify explicitly, least privilege, assume breach.'
     }
 ];
 
@@ -1811,6 +2419,31 @@ export const categories = {
         icon: 'fas fa-microchip',
         color: '#6b7280',
         certifications: ['CompTIA A+', 'CompTIA Server+']
+    },
+    // IDS Categories
+    architecture: {
+        name: 'Arquitectura',
+        icon: 'fas fa-sitemap',
+        color: '#8b5cf6',
+        certifications: ['Software Architecture', 'Clean Architecture / IDS']
+    },
+    devops: {
+        name: 'DevOps & K8s',
+        icon: 'fas fa-dharmachakra',
+        color: '#326ce5',
+        certifications: ['CKA/CKAD', 'Terraform Associate', 'GitOps / IDS']
+    },
+    testing: {
+        name: 'Testing',
+        icon: 'fas fa-vial',
+        color: '#22c55e',
+        certifications: ['ISTQB', 'Testing Professional / IDS']
+    },
+    security: {
+        name: 'Seguridad',
+        icon: 'fas fa-shield-alt',
+        color: '#ef4444',
+        certifications: ['Security+', 'OWASP / IDS']
     }
 };
 
