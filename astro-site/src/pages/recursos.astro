@@ -2,186 +2,280 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+// Herramientas Interactivas
+import GanttGeneratorSection from '../components/tools/GanttGeneratorSection.astro';
+import SQLQueryGeneratorSection from '../components/tools/SQLQueryGeneratorSection.astro';
+import PasswordGeneratorSection from '../components/tools/PasswordGeneratorSection.astro';
+import QuizGeneratorSection from '../components/tools/QuizGeneratorSection.astro';
+import TerminalDemo from '../components/TerminalDemo.astro';
+// Aprendizaje
 import AIToolsSection from '../components/AIToolsSection.astro';
-import Recursos2025 from '../components/Recursos2025.astro';
 import YouTubeSection from '../components/YouTubeSection.astro';
 import NotionEmbed from '../components/NotionEmbed.astro';
 import CodeSnippets from '../components/CodeSnippets.astro';
-import FAQSection from '../components/FAQSection.astro';
+import Recursos2025 from '../components/Recursos2025.astro';
+// Carrera
 import CertificationsSection from '../components/CertificationsSection.astro';
-import TerminalDemo from '../components/TerminalDemo.astro';
+import FAQSection from '../components/FAQSection.astro';
+import ProfessionalProjectsSection from '../components/ProfessionalProjectsSection.astro';
+// Información
 import WebVitalsSection from '../components/WebVitalsSection.astro';
 import SedesMapSection from '../components/SedesMapSection.astro';
-import ProfessionalProjectsSection from '../components/ProfessionalProjectsSection.astro';
 import ProgressIndicators from '../components/ProgressIndicators.astro';
-// Interactive Tools
-import PasswordGeneratorSection from '../components/tools/PasswordGeneratorSection.astro';
-import SQLQueryGeneratorSection from '../components/tools/SQLQueryGeneratorSection.astro';
-import QuizGeneratorSection from '../components/tools/QuizGeneratorSection.astro';
-import GanttGeneratorSection from '../components/tools/GanttGeneratorSection.astro';
+
+// Definir categorías y sus secciones
+const categories = [
+    {
+        id: 'herramientas',
+        name: 'Herramientas',
+        icon: 'fas fa-tools',
+        color: 'cyan',
+        description: 'Generadores y utilidades interactivas',
+        sections: [
+            { id: 'gantt-generator', name: 'Gantt Chart', icon: 'fa-project-diagram' },
+            { id: 'sql-generator', name: 'SQL Builder', icon: 'fa-database' },
+            { id: 'password-generator', name: 'Passwords', icon: 'fa-key' },
+            { id: 'quiz-generator', name: 'Quiz', icon: 'fa-clipboard-check' },
+            { id: 'terminal-demo', name: 'Terminal', icon: 'fa-terminal' }
+        ]
+    },
+    {
+        id: 'aprendizaje',
+        name: 'Aprendizaje',
+        icon: 'fas fa-book-open',
+        color: 'amber',
+        description: 'Recursos educativos y tutoriales',
+        sections: [
+            { id: 'ai-tools', name: 'AI Tools', icon: 'fa-robot' },
+            { id: 'videos', name: 'Videos', icon: 'fa-youtube' },
+            { id: 'notion-workspace', name: 'Notion', icon: 'fa-file-alt' },
+            { id: 'code-snippets', name: 'Código', icon: 'fa-code' },
+            { id: 'recursos-2025', name: 'Cursos', icon: 'fa-graduation-cap' }
+        ]
+    },
+    {
+        id: 'carrera',
+        name: 'Carrera',
+        icon: 'fas fa-briefcase',
+        color: 'purple',
+        description: 'Certificaciones y desarrollo profesional',
+        sections: [
+            { id: 'certifications', name: 'Certificaciones', icon: 'fa-award' },
+            { id: 'faq', name: 'FAQ', icon: 'fa-question-circle' },
+            { id: 'professional-projects', name: 'Proyectos Pro', icon: 'fa-briefcase' }
+        ]
+    },
+    {
+        id: 'informacion',
+        name: 'Información',
+        icon: 'fas fa-info-circle',
+        color: 'green',
+        description: 'Métricas, sedes y más',
+        sections: [
+            { id: 'web-vitals', name: 'Performance', icon: 'fa-tachometer-alt' },
+            { id: 'sedes-duocuc', name: 'Sedes', icon: 'fa-map-marked-alt' },
+            { id: 'progress-indicators', name: 'Progress UI', icon: 'fa-chart-line' }
+        ]
+    }
+];
 ---
 
 <Layout title="Recursos de Aprendizaje | DuocUC">
     <Header />
 
-    <!-- Page Hero -->
-    <section class="page-hero">
+    <!-- Page Hero Premium -->
+    <section class="resources-hero">
+        <div class="hero-background">
+            <div class="hero-gradient"></div>
+            <div class="hero-pattern"></div>
+        </div>
         <div class="hero-content">
             <div class="hero-badge">
                 <i class="fas fa-book-reader"></i>
                 <span>Centro de Recursos</span>
             </div>
-            <h1>Recursos de Aprendizaje</h1>
-            <p>Herramientas, videos, documentación y código para potenciar tu aprendizaje</p>
-            <div class="hero-cards">
-                <!-- Generadores Interactivos -->
-                <a href="#gantt-generator" class="quick-nav featured"
-                   data-premium-tooltip="Generador de Gantt|Crea diagramas de Gantt interactivos con drag & drop y múltiples vistas|Quarter,Semestre,Año,Templates|tool|fa-project-diagram|HERRAMIENTA">
-                    <i class="fas fa-project-diagram"></i>
-                    <span>Gantt</span>
-                </a>
-                <a href="#sql-generator" class="quick-nav featured"
-                   data-premium-tooltip="Constructor SQL|Genera queries SQL de forma visual sin escribir código|SELECT,INSERT,UPDATE,DELETE|tool|fa-database|HERRAMIENTA">
-                    <i class="fas fa-database"></i>
-                    <span>SQL Builder</span>
-                </a>
-                <a href="#password-generator" class="quick-nav featured"
-                   data-premium-tooltip="Generador de Contraseñas|Genera contraseñas criptográficamente seguras con Web Crypto API|Entropía,Fortaleza,Opciones|tool|fa-key|HERRAMIENTA">
-                    <i class="fas fa-key"></i>
-                    <span>Passwords</span>
-                </a>
-                <a href="#quiz-generator" class="quick-nav featured"
-                   data-premium-tooltip="Quizzes de Certificación|160+ preguntas de JavaScript, Python, SQL, Java POO, AWS, Docker y más|10 Categorías,Timer,Explicaciones|tool|fa-clipboard-check|HERRAMIENTA">
-                    <i class="fas fa-clipboard-check"></i>
-                    <span>Quiz</span>
-                </a>
-                <!-- Recursos existentes -->
-                <a href="#ai-tools" class="quick-nav"
-                   data-premium-tooltip="Herramientas AI|GitHub Copilot, Claude, ChatGPT, DeepSeek y más para estudiantes|Gratuitas,Productividad|feature|fa-robot|RECURSOS">
-                    <i class="fas fa-robot"></i>
-                    <span>AI Tools</span>
-                </a>
-                <a href="#videos" class="quick-nav"
-                   data-premium-tooltip="Videos Educativos|Tutoriales, arquitectura y fundamentos de hardware curados|Branch Education,Data Eng|feature|fa-youtube|RECURSOS">
-                    <i class="fab fa-youtube"></i>
-                    <span>Videos</span>
-                </a>
-                <a href="#notion-workspace" class="quick-nav"
-                   data-premium-tooltip="Notion Workspace|Plantillas y recursos para organizar tu aprendizaje|Templates,Organización|feature|fa-file-alt|RECURSOS">
-                    <i class="fas fa-file-alt"></i>
-                    <span>Notion</span>
-                </a>
-                <a href="#code-snippets" class="quick-nav"
-                   data-premium-tooltip="Snippets de Código|Ejemplos prácticos en Python, Java, SQL y JavaScript|4 Lenguajes,Copy Button|feature|fa-code|RECURSOS">
-                    <i class="fas fa-code"></i>
-                    <span>Código</span>
-                </a>
-                <a href="#recursos-2025" class="quick-nav"
-                   data-premium-tooltip="Plataformas de Cursos|Coursera, DataCamp, Whizlabs, freeCodeCamp y comunidades|Certificaciones,Gratuitos|feature|fa-graduation-cap|RECURSOS">
-                    <i class="fas fa-graduation-cap"></i>
-                    <span>Cursos</span>
-                </a>
-                <a href="#certifications" class="quick-nav"
-                   data-premium-tooltip="Certificaciones IT|35+ certificaciones en Cloud, Data, DevOps y más|AWS,Azure,Snowflake|feature|fa-award|RECURSOS">
-                    <i class="fas fa-award"></i>
-                    <span>Certificaciones</span>
-                </a>
-                <a href="#faq" class="quick-nav"
-                   data-premium-tooltip="Preguntas Frecuentes|8 preguntas comunes sobre la carrera y recursos|Estudiantes,DuocUC|info|fa-question-circle|AYUDA">
-                    <i class="fas fa-question-circle"></i>
-                    <span>FAQ</span>
-                </a>
-                <a href="#terminal-demo" class="quick-nav"
-                   data-premium-tooltip="Terminal Interactivo|Practica comandos de Git, Docker, npm, Python, SQL y Kubernetes|6 Sesiones,Copiar|tool|fa-terminal|HERRAMIENTA">
-                    <i class="fas fa-terminal"></i>
-                    <span>Terminal</span>
-                </a>
-                <a href="#web-vitals" class="quick-nav"
-                   data-premium-tooltip="Métricas de Rendimiento|Dashboard de Core Web Vitals y optimizaciones aplicadas|LCP,FID,CLS,Score 94|info|fa-tachometer-alt|MÉTRICAS">
-                    <i class="fas fa-tachometer-alt"></i>
-                    <span>Performance</span>
-                </a>
-                <a href="#sedes-duocuc" class="quick-nav"
-                   data-premium-tooltip="Sedes DuocUC|Mapa interactivo con 8 sedes de la Escuela de Informática|4 Regiones,Filtros|info|fa-map-marked-alt|INFORMACIÓN">
-                    <i class="fas fa-map-marked-alt"></i>
-                    <span>Sedes</span>
-                </a>
-                <a href="#professional-projects" class="quick-nav"
-                   data-premium-tooltip="Proyectos Profesionales|6 proyectos para construir tu portafolio como desarrollador|Full-Stack,Data,DevOps|feature|fa-briefcase|PROYECTOS">
-                    <i class="fas fa-briefcase"></i>
-                    <span>Proyectos Pro</span>
-                </a>
-                <a href="#progress-indicators" class="quick-nav"
-                   data-premium-tooltip="Progress Indicators|Indicadores de progreso lineales, circulares y de pasos|Linear,Circular,Step|feature|fa-chart-line|UI">
-                    <i class="fas fa-chart-line"></i>
-                    <span>Progress</span>
-                </a>
+            <h1>Recursos de <span class="gradient-text">Aprendizaje</span></h1>
+            <p>Herramientas interactivas, videos educativos, certificaciones y más para potenciar tu carrera</p>
+
+            <!-- Stats Row -->
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">16+</span>
+                    <span class="stat-label">Herramientas</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">31</span>
+                    <span class="stat-label">Videos</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">35+</span>
+                    <span class="stat-label">Certificaciones</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">225+</span>
+                    <span class="stat-label">Quiz Questions</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- HERRAMIENTAS INTERACTIVAS -->
-    <!-- Gantt Chart Generator -->
-    <GanttGeneratorSection />
+    <!-- Main Layout: Sidebar + Content -->
+    <div class="resources-layout">
+        <!-- Sticky Sidebar Navigation -->
+        <aside class="resources-sidebar" id="resources-sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-title">Navegación</span>
+                <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
 
-    <!-- SQL Query Generator -->
-    <SQLQueryGeneratorSection />
+            <!-- Category Tabs -->
+            <nav class="sidebar-nav">
+                {categories.map((cat, index) => (
+                    <div class="nav-category" data-category={cat.id}>
+                        <button
+                            class={`category-btn ${index === 0 ? 'active' : ''}`}
+                            data-target={cat.id}
+                            aria-expanded={index === 0 ? 'true' : 'false'}
+                        >
+                            <i class={`${cat.icon} category-icon ${cat.color}`}></i>
+                            <span class="category-name">{cat.name}</span>
+                            <i class="fas fa-chevron-down category-arrow"></i>
+                        </button>
+                        <ul class={`section-list ${index === 0 ? 'expanded' : ''}`}>
+                            {cat.sections.map(section => (
+                                <li>
+                                    <a href={`#${section.id}`} class="section-link" data-section={section.id}>
+                                        <i class={`fas ${section.icon}`}></i>
+                                        <span>{section.name}</span>
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ))}
+            </nav>
 
-    <!-- Password Generator -->
-    <PasswordGeneratorSection />
+            <!-- Quick Jump -->
+            <div class="sidebar-footer">
+                <span class="footer-label">Acceso Rápido</span>
+                <div class="quick-actions">
+                    <button class="quick-btn" data-scroll="top" title="Ir arriba">
+                        <i class="fas fa-arrow-up"></i>
+                    </button>
+                    <button class="quick-btn" data-scroll="bottom" title="Ir abajo">
+                        <i class="fas fa-arrow-down"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
 
-    <!-- Quiz/Test Generator -->
-    <QuizGeneratorSection />
+        <!-- Main Content Area -->
+        <main class="resources-content">
+            <!-- Category: Herramientas -->
+            <div class="content-category" id="cat-herramientas" data-category="herramientas">
+                <div class="category-header-bar">
+                    <i class="fas fa-tools"></i>
+                    <h2>Herramientas Interactivas</h2>
+                    <span class="category-count">5 herramientas</span>
+                </div>
 
-    <!-- RECURSOS DE APRENDIZAJE -->
-    <!-- AI Tools Section -->
-    <AIToolsSection />
+                <GanttGeneratorSection />
+                <SQLQueryGeneratorSection />
+                <PasswordGeneratorSection />
+                <QuizGeneratorSection />
+                <TerminalDemo />
+            </div>
 
-    <!-- YouTube Videos Section -->
-    <YouTubeSection />
+            <!-- Category: Aprendizaje -->
+            <div class="content-category" id="cat-aprendizaje" data-category="aprendizaje">
+                <div class="category-header-bar amber">
+                    <i class="fas fa-book-open"></i>
+                    <h2>Recursos de Aprendizaje</h2>
+                    <span class="category-count">5 secciones</span>
+                </div>
 
-    <!-- Notion Workspace -->
-    <NotionEmbed />
+                <AIToolsSection />
+                <YouTubeSection />
+                <NotionEmbed />
+                <CodeSnippets />
+                <Recursos2025 />
+            </div>
 
-    <!-- Code Snippets -->
-    <CodeSnippets />
+            <!-- Category: Carrera -->
+            <div class="content-category" id="cat-carrera" data-category="carrera">
+                <div class="category-header-bar purple">
+                    <i class="fas fa-briefcase"></i>
+                    <h2>Desarrollo de Carrera</h2>
+                    <span class="category-count">3 secciones</span>
+                </div>
 
-    <!-- Recursos 2025 -->
-    <Recursos2025 />
+                <CertificationsSection />
+                <FAQSection />
+                <ProfessionalProjectsSection />
+            </div>
 
-    <!-- Certificaciones Recomendadas -->
-    <CertificationsSection />
+            <!-- Category: Información -->
+            <div class="content-category" id="cat-informacion" data-category="informacion">
+                <div class="category-header-bar green">
+                    <i class="fas fa-info-circle"></i>
+                    <h2>Información Útil</h2>
+                    <span class="category-count">3 secciones</span>
+                </div>
 
-    <!-- FAQ Section -->
-    <FAQSection />
-
-    <!-- Terminal Demo -->
-    <TerminalDemo />
-
-    <!-- Web Vitals Dashboard -->
-    <WebVitalsSection />
-
-    <!-- Sedes DuocUC Map -->
-    <SedesMapSection />
-
-    <!-- Proyectos Profesionales -->
-    <ProfessionalProjectsSection />
-
-    <!-- Progress Indicators -->
-    <ProgressIndicators />
+                <WebVitalsSection />
+                <SedesMapSection />
+                <ProgressIndicators />
+            </div>
+        </main>
+    </div>
 
     <Footer />
 </Layout>
 
 <style>
-    .page-hero {
-        padding: 8rem 2rem 4rem;
+    /* ============================================
+       RESOURCES PAGE - SOPHISTICATED LAYOUT
+       ============================================ */
+
+    /* Hero Section */
+    .resources-hero {
+        position: relative;
+        padding: 10rem 2rem 4rem;
         text-align: center;
-        background: linear-gradient(180deg, rgba(245, 158, 11, 0.1) 0%, transparent 100%);
+        overflow: hidden;
+    }
+
+    .hero-background {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+    }
+
+    .hero-gradient {
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(ellipse at 30% 20%, rgba(245, 158, 11, 0.15) 0%, transparent 50%),
+            radial-gradient(ellipse at 70% 80%, rgba(124, 58, 237, 0.1) 0%, transparent 50%),
+            radial-gradient(ellipse at 50% 50%, rgba(0, 212, 255, 0.08) 0%, transparent 60%);
+    }
+
+    .hero-pattern {
+        position: absolute;
+        inset: 0;
+        background-image:
+            radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 40px 40px;
     }
 
     .hero-content {
-        max-width: 900px;
+        position: relative;
+        max-width: 800px;
         margin: 0 auto;
     }
 
@@ -189,109 +283,678 @@ import GanttGeneratorSection from '../components/tools/GanttGeneratorSection.ast
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 1.25rem;
         background: rgba(245, 158, 11, 0.1);
         border: 1px solid rgba(245, 158, 11, 0.3);
-        border-radius: 20px;
+        border-radius: 30px;
         font-size: 0.85rem;
         color: #f59e0b;
         margin-bottom: 1.5rem;
     }
 
-    .page-hero h1 {
-        font-size: 3.5rem;
+    .hero-badge i {
+        font-size: 1rem;
+    }
+
+    .resources-hero h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
         font-weight: 800;
         margin-bottom: 1rem;
+        color: var(--text-primary);
+        line-height: 1.1;
+    }
+
+    .gradient-text {
+        background: linear-gradient(135deg, #f59e0b 0%, #00d4ff 50%, #7c3aed 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .resources-hero p {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        margin-bottom: 2.5rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Hero Stats */
+    .hero-stats {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .stat-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+        font-weight: 800;
         background: linear-gradient(135deg, #f8fafc, #94a3b8);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
     }
 
-    .page-hero p {
-        font-size: 1.25rem;
-        color: #94a3b8;
-        margin-bottom: 2rem;
+    .stat-label {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
     }
 
-    .hero-cards {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 1rem;
+    .stat-divider {
+        width: 1px;
+        height: 40px;
+        background: linear-gradient(180deg, transparent, rgba(255,255,255,0.2), transparent);
     }
 
-    .quick-nav {
+    /* ============================================
+       MAIN LAYOUT - SIDEBAR + CONTENT
+       ============================================ */
+
+    .resources-layout {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 0;
+        max-width: 1800px;
+        margin: 0 auto;
+        min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .resources-sidebar {
+        position: sticky;
+        top: 80px;
+        height: calc(100vh - 80px);
+        background: rgba(18, 18, 26, 0.95);
+        backdrop-filter: blur(20px);
+        border-right: 1px solid var(--border-color);
         display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 1rem 1.5rem;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        text-decoration: none;
+        overflow: hidden;
         transition: all 0.3s ease;
+        z-index: 100;
     }
 
-    .quick-nav:hover {
-        background: rgba(245, 158, 11, 0.1);
-        border-color: rgba(245, 158, 11, 0.3);
-        transform: translateY(-4px);
+    .sidebar-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.25rem 1.5rem;
+        border-bottom: 1px solid var(--border-color);
     }
 
-    .quick-nav.featured {
-        background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(139, 92, 246, 0.1));
-        border-color: rgba(0, 212, 255, 0.3);
+    .sidebar-title {
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--text-muted);
     }
 
-    .quick-nav.featured:hover {
-        background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(139, 92, 246, 0.2));
-        border-color: rgba(0, 212, 255, 0.5);
-        box-shadow: 0 4px 20px rgba(0, 212, 255, 0.2);
+    .sidebar-toggle {
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s ease;
     }
 
-    .quick-nav.featured i {
-        color: #00d4ff;
+    .sidebar-toggle:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--text-primary);
     }
 
-    .quick-nav i {
-        font-size: 1.5rem;
-        color: #f59e0b;
+    /* Sidebar Navigation */
+    .sidebar-nav {
+        flex: 1;
+        overflow-y: auto;
+        padding: 1rem 0;
     }
 
-    .quick-nav span {
-        font-size: 0.85rem;
-        color: #94a3b8;
+    .nav-category {
+        margin-bottom: 0.5rem;
+    }
+
+    .category-btn {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.875rem 1.5rem;
+        background: transparent;
+        border: none;
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-align: left;
+    }
+
+    .category-btn:hover {
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--text-primary);
+    }
+
+    .category-btn.active {
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--text-primary);
+    }
+
+    .category-icon {
+        font-size: 1rem;
+        width: 20px;
+        text-align: center;
+    }
+
+    .category-icon.cyan { color: #00d4ff; }
+    .category-icon.amber { color: #f59e0b; }
+    .category-icon.purple { color: #7c3aed; }
+    .category-icon.green { color: #10b981; }
+
+    .category-name {
+        flex: 1;
+        font-size: 0.9rem;
         font-weight: 500;
     }
 
-    @media (max-width: 768px) {
-        .page-hero h1 {
-            font-size: 2rem;
+    .category-arrow {
+        font-size: 0.7rem;
+        transition: transform 0.2s ease;
+    }
+
+    .category-btn.active .category-arrow {
+        transform: rotate(180deg);
+    }
+
+    /* Section List */
+    .section-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .section-list.expanded {
+        max-height: 500px;
+    }
+
+    .section-link {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.625rem 1.5rem 0.625rem 3rem;
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.85rem;
+        transition: all 0.2s ease;
+        border-left: 2px solid transparent;
+    }
+
+    .section-link:hover {
+        color: var(--text-primary);
+        background: rgba(255, 255, 255, 0.02);
+    }
+
+    .section-link.active {
+        color: #00d4ff;
+        border-left-color: #00d4ff;
+        background: rgba(0, 212, 255, 0.05);
+    }
+
+    .section-link i {
+        font-size: 0.8rem;
+        width: 16px;
+        text-align: center;
+        opacity: 0.7;
+    }
+
+    /* Sidebar Footer */
+    .sidebar-footer {
+        padding: 1rem 1.5rem;
+        border-top: 1px solid var(--border-color);
+    }
+
+    .footer-label {
+        display: block;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--text-muted);
+        margin-bottom: 0.75rem;
+    }
+
+    .quick-actions {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .quick-btn {
+        flex: 1;
+        padding: 0.5rem;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .quick-btn:hover {
+        background: rgba(0, 212, 255, 0.1);
+        border-color: rgba(0, 212, 255, 0.3);
+        color: #00d4ff;
+    }
+
+    /* ============================================
+       MAIN CONTENT AREA
+       ============================================ */
+
+    .resources-content {
+        padding: 2rem;
+        min-width: 0;
+    }
+
+    .content-category {
+        margin-bottom: 4rem;
+    }
+
+    .category-header-bar {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.25rem 1.5rem;
+        background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 212, 255, 0.05));
+        border: 1px solid rgba(0, 212, 255, 0.2);
+        border-radius: 16px;
+        margin-bottom: 2rem;
+    }
+
+    .category-header-bar.amber {
+        background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.05));
+        border-color: rgba(245, 158, 11, 0.2);
+    }
+
+    .category-header-bar.purple {
+        background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(124, 58, 237, 0.05));
+        border-color: rgba(124, 58, 237, 0.2);
+    }
+
+    .category-header-bar.green {
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
+        border-color: rgba(16, 185, 129, 0.2);
+    }
+
+    .category-header-bar i {
+        font-size: 1.5rem;
+        color: #00d4ff;
+    }
+
+    .category-header-bar.amber i { color: #f59e0b; }
+    .category-header-bar.purple i { color: #7c3aed; }
+    .category-header-bar.green i { color: #10b981; }
+
+    .category-header-bar h2 {
+        flex: 1;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 0;
+    }
+
+    .category-count {
+        padding: 0.375rem 0.875rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+    }
+
+    /* ============================================
+       RESPONSIVE DESIGN
+       ============================================ */
+
+    @media (max-width: 1024px) {
+        .resources-layout {
+            grid-template-columns: 1fr;
         }
 
-        .hero-cards {
-            gap: 0.75rem;
+        .resources-sidebar {
+            position: fixed;
+            left: -300px;
+            top: 0;
+            height: 100vh;
+            width: 280px;
+            z-index: 1000;
+            border-right: 1px solid var(--border-color);
         }
 
-        .quick-nav {
-            padding: 0.75rem 1rem;
+        .resources-sidebar.open {
+            left: 0;
         }
 
-        .quick-nav i {
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 999;
+        }
+
+        .sidebar-overlay.active {
+            display: block;
+        }
+
+        /* Mobile Toggle Button */
+        .mobile-sidebar-toggle {
+            display: flex;
+            position: fixed;
+            bottom: 100px;
+            left: 1rem;
+            width: 48px;
+            height: 48px;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #00d4ff, #7c3aed);
+            border: none;
+            border-radius: 50%;
+            color: white;
             font-size: 1.25rem;
+            cursor: pointer;
+            z-index: 998;
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-sidebar-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .resources-content {
+            padding: 1.5rem 1rem;
         }
     }
 
-    :global([data-theme="light"]) .page-hero h1 {
+    @media (min-width: 1025px) {
+        .mobile-sidebar-toggle,
+        .sidebar-overlay {
+            display: none !important;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .resources-hero {
+            padding: 8rem 1rem 3rem;
+        }
+
+        .resources-hero h1 {
+            font-size: 2rem;
+        }
+
+        .hero-stats {
+            gap: 1rem;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+        }
+
+        .stat-divider {
+            display: none;
+        }
+
+        .category-header-bar {
+            flex-wrap: wrap;
+            padding: 1rem;
+        }
+
+        .category-header-bar h2 {
+            font-size: 1.25rem;
+            width: 100%;
+            order: 2;
+            margin-top: 0.5rem;
+        }
+
+        .category-count {
+            order: 3;
+        }
+    }
+
+    /* ============================================
+       LIGHT MODE
+       ============================================ */
+
+    :global([data-theme="light"]) .resources-hero h1 {
+        color: var(--text-primary);
+    }
+
+    :global([data-theme="light"]) .stat-number {
         background: linear-gradient(135deg, #1e293b, #475569);
         -webkit-background-clip: text;
         background-clip: text;
     }
 
-    :global([data-theme="light"]) .page-hero p,
-    :global([data-theme="light"]) .quick-nav span {
-        color: #64748b;
+    :global([data-theme="light"]) .resources-sidebar {
+        background: rgba(255, 255, 255, 0.95);
+        border-right-color: var(--border-color);
     }
+
+    :global([data-theme="light"]) .sidebar-toggle {
+        background: rgba(0, 0, 0, 0.03);
+        border-color: var(--border-color);
+    }
+
+    :global([data-theme="light"]) .category-btn:hover {
+        background: rgba(0, 0, 0, 0.03);
+    }
+
+    :global([data-theme="light"]) .category-btn.active {
+        background: rgba(0, 0, 0, 0.05);
+    }
+
+    :global([data-theme="light"]) .section-link:hover {
+        background: rgba(0, 0, 0, 0.02);
+    }
+
+    :global([data-theme="light"]) .section-link.active {
+        background: rgba(8, 145, 178, 0.05);
+    }
+
+    :global([data-theme="light"]) .quick-btn {
+        background: rgba(0, 0, 0, 0.02);
+    }
+
+    :global([data-theme="light"]) .quick-btn:hover {
+        background: rgba(8, 145, 178, 0.1);
+        border-color: rgba(8, 145, 178, 0.3);
+        color: #0891b2;
+    }
+
+    :global([data-theme="light"]) .category-header-bar {
+        background: linear-gradient(135deg, rgba(8, 145, 178, 0.08), rgba(8, 145, 178, 0.03));
+        border-color: rgba(8, 145, 178, 0.15);
+    }
+
+    :global([data-theme="light"]) .category-header-bar i {
+        color: #0891b2;
+    }
+
+    :global([data-theme="light"]) .category-header-bar.amber {
+        background: linear-gradient(135deg, rgba(217, 119, 6, 0.08), rgba(217, 119, 6, 0.03));
+        border-color: rgba(217, 119, 6, 0.15);
+    }
+
+    :global([data-theme="light"]) .category-header-bar.amber i { color: #d97706; }
+
+    :global([data-theme="light"]) .category-header-bar.purple {
+        background: linear-gradient(135deg, rgba(109, 40, 217, 0.08), rgba(109, 40, 217, 0.03));
+        border-color: rgba(109, 40, 217, 0.15);
+    }
+
+    :global([data-theme="light"]) .category-header-bar.purple i { color: #7c3aed; }
+
+    :global([data-theme="light"]) .category-header-bar.green {
+        background: linear-gradient(135deg, rgba(5, 150, 105, 0.08), rgba(5, 150, 105, 0.03));
+        border-color: rgba(5, 150, 105, 0.15);
+    }
+
+    :global([data-theme="light"]) .category-header-bar.green i { color: #059669; }
 </style>
+
+<script is:inline>
+document.addEventListener('DOMContentLoaded', initResourcesPage);
+document.addEventListener('astro:page-load', initResourcesPage);
+
+function initResourcesPage() {
+    const sidebar = document.getElementById('resources-sidebar');
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    const sectionLinks = document.querySelectorAll('.section-link');
+    const quickBtns = document.querySelectorAll('.quick-btn');
+
+    // Toggle category sections
+    categoryBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const wasActive = btn.classList.contains('active');
+            const sectionList = btn.nextElementSibling;
+
+            // Close all other categories
+            categoryBtns.forEach(otherBtn => {
+                if (otherBtn !== btn) {
+                    otherBtn.classList.remove('active');
+                    otherBtn.setAttribute('aria-expanded', 'false');
+                    otherBtn.nextElementSibling?.classList.remove('expanded');
+                }
+            });
+
+            // Toggle current
+            if (!wasActive) {
+                btn.classList.add('active');
+                btn.setAttribute('aria-expanded', 'true');
+                sectionList?.classList.add('expanded');
+            }
+        });
+    });
+
+    // Smooth scroll to sections
+    sectionLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').slice(1);
+            const targetEl = document.getElementById(targetId);
+
+            if (targetEl) {
+                const offset = 100;
+                const top = targetEl.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({ top, behavior: 'smooth' });
+
+                // Update active state
+                sectionLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+
+                // Close mobile sidebar
+                sidebar?.classList.remove('open');
+                document.querySelector('.sidebar-overlay')?.classList.remove('active');
+            }
+        });
+    });
+
+    // Quick scroll buttons
+    quickBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const direction = btn.dataset.scroll;
+            if (direction === 'top') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else if (direction === 'bottom') {
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Scroll spy - highlight active section
+    const observerOptions = {
+        root: null,
+        rootMargin: '-20% 0px -60% 0px',
+        threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const sectionId = entry.target.id;
+                sectionLinks.forEach(link => {
+                    link.classList.toggle('active', link.dataset.section === sectionId);
+                });
+
+                // Expand parent category
+                const link = document.querySelector(`[data-section="${sectionId}"]`);
+                if (link) {
+                    const categoryDiv = link.closest('.nav-category');
+                    if (categoryDiv) {
+                        const btn = categoryDiv.querySelector('.category-btn');
+                        const list = categoryDiv.querySelector('.section-list');
+
+                        // Expand this category, collapse others
+                        categoryBtns.forEach(otherBtn => {
+                            if (otherBtn !== btn) {
+                                otherBtn.classList.remove('active');
+                                otherBtn.nextElementSibling?.classList.remove('expanded');
+                            }
+                        });
+
+                        btn?.classList.add('active');
+                        list?.classList.add('expanded');
+                    }
+                }
+            }
+        });
+    }, observerOptions);
+
+    // Observe all sections
+    const sections = document.querySelectorAll('[id]');
+    sections.forEach(section => {
+        if (section.id && document.querySelector(`[data-section="${section.id}"]`)) {
+            observer.observe(section);
+        }
+    });
+
+    // Mobile sidebar toggle
+    const mobileToggle = document.querySelector('.mobile-sidebar-toggle');
+    const overlay = document.querySelector('.sidebar-overlay');
+
+    mobileToggle?.addEventListener('click', () => {
+        sidebar?.classList.toggle('open');
+        overlay?.classList.toggle('active');
+    });
+
+    overlay?.addEventListener('click', () => {
+        sidebar?.classList.remove('open');
+        overlay?.classList.remove('active');
+    });
+}
+</script>
+
+<!-- Mobile Sidebar Toggle Button -->
+<button class="mobile-sidebar-toggle" aria-label="Abrir navegación">
+    <i class="fas fa-layer-group"></i>
+</button>
+
+<!-- Sidebar Overlay for Mobile -->
+<div class="sidebar-overlay"></div>
