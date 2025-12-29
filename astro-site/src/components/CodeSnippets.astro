@@ -58,6 +58,68 @@ async def crear_usuario(usuario: Usuario):
     # Lógica para crear usuario
     return {"mensaje": "Usuario creado", "data": usuario}`,
                 tags: ["api", "fastapi", "rest"]
+            },
+            {
+                title: "Análisis de Datos con Pandas",
+                description: "Operaciones comunes de DataFrame",
+                code: `import pandas as pd
+import numpy as np
+
+# Leer CSV
+df = pd.read_csv('ventas.csv')
+
+# Explorar datos
+print(df.head())        # Primeras 5 filas
+print(df.info())        # Tipos de datos y nulos
+print(df.describe())    # Estadísticas básicas
+
+# Filtrar datos
+ventas_altas = df[df['monto'] > 1000]
+ventas_2024 = df[df['fecha'].str.startswith('2024')]
+
+# Agrupar y agregar
+por_region = df.groupby('region').agg({
+    'monto': ['sum', 'mean', 'count'],
+    'cliente': 'nunique'
+}).round(2)
+
+# Crear columnas calculadas
+df['margen'] = df['venta'] - df['costo']
+df['rentabilidad'] = (df['margen'] / df['venta'] * 100).round(2)
+
+# Exportar
+df.to_csv('reporte.csv', index=False)
+df.to_excel('reporte.xlsx', sheet_name='Ventas')`,
+                tags: ["pandas", "dataframe", "analytics", "data"]
+            },
+            {
+                title: "List Comprehensions y Generators",
+                description: "Patrones Pythónicos para transformar datos",
+                code: `# List Comprehension - crear lista filtrada
+numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+pares = [n for n in numeros if n % 2 == 0]  # [2, 4, 6, 8, 10]
+
+# Transformación con comprehension
+cuadrados = [n**2 for n in range(1, 6)]  # [1, 4, 9, 16, 25]
+
+# Dictionary Comprehension
+usuarios = ['ana', 'luis', 'carlos']
+usuarios_dict = {u: len(u) for u in usuarios}
+# {'ana': 3, 'luis': 4, 'carlos': 6}
+
+# Generator Expression (memoria eficiente)
+suma_millones = sum(x**2 for x in range(1_000_000))
+
+# Generator Function con yield
+def fibonacci(n):
+    a, b = 0, 1
+    for _ in range(n):
+        yield a
+        a, b = b, a + b
+
+for num in fibonacci(10):
+    print(num)  # 0, 1, 1, 2, 3, 5, 8, 13, 21, 34`,
+                tags: ["comprehension", "generator", "pythonic", "functional"]
             }
         ]
     },
@@ -643,6 +705,88 @@ function useFetch(url) {
     return { data, loading, error };
 }`,
                 tags: ["react", "hooks", "custom"]
+            },
+            {
+                title: "ES6 Módulos y Clases",
+                description: "Exportar/importar módulos y clases modernas",
+                code: `// usuario.js - Módulo con clase
+export class Usuario {
+    #password;  // Campo privado (ES2022)
+
+    constructor(nombre, email) {
+        this.nombre = nombre;
+        this.email = email;
+        this.createdAt = new Date();
+    }
+
+    // Getter
+    get info() {
+        return \`\${this.nombre} <\${this.email}>\`;
+    }
+
+    // Método estático
+    static validarEmail(email) {
+        return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email);
+    }
+
+    // Método async
+    async guardar() {
+        const response = await fetch('/api/usuarios', {
+            method: 'POST',
+            body: JSON.stringify(this)
+        });
+        return response.json();
+    }
+}
+
+// Función helper exportada
+export const formatearFecha = (fecha) =>
+    new Intl.DateTimeFormat('es-CL').format(fecha);
+
+// Export default
+export default Usuario;
+
+// En otro archivo:
+// import Usuario, { formatearFecha } from './usuario.js';`,
+                tags: ["es6", "modules", "classes", "export", "import"]
+            },
+            {
+                title: "Array Methods Funcionales",
+                description: "map, filter, reduce y encadenamiento",
+                code: `const productos = [
+    { id: 1, nombre: 'Laptop', precio: 999, stock: 5 },
+    { id: 2, nombre: 'Mouse', precio: 29, stock: 50 },
+    { id: 3, nombre: 'Teclado', precio: 79, stock: 0 },
+    { id: 4, nombre: 'Monitor', precio: 299, stock: 10 }
+];
+
+// filter - filtrar elementos
+const enStock = productos.filter(p => p.stock > 0);
+
+// map - transformar elementos
+const nombres = productos.map(p => p.nombre);
+
+// find - encontrar uno
+const laptop = productos.find(p => p.id === 1);
+
+// reduce - agregar a un valor
+const totalInventario = productos.reduce(
+    (total, p) => total + (p.precio * p.stock), 0
+);
+
+// Encadenamiento (chaining)
+const resumen = productos
+    .filter(p => p.stock > 0)
+    .map(p => ({
+        nombre: p.nombre,
+        valor: p.precio * p.stock
+    }))
+    .sort((a, b) => b.valor - a.valor);
+
+// some / every - validaciones
+const hayAgotados = productos.some(p => p.stock === 0);
+const todosDisponibles = productos.every(p => p.stock > 0);`,
+                tags: ["array", "functional", "map", "filter", "reduce"]
             }
         ]
     }
