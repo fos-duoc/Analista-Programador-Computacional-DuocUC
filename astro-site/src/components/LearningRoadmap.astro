@@ -1,120 +1,175 @@
 ---
-// Learning Roadmap - Progreso visual interactivo basado en malla DuocUC 2025
-// Inspirado en roadmap.sh con gamificación
+// Learning Roadmap - Progreso visual basado en malla oficial DuocUC 2025
+// Alineado con documentación Analista Programador Computacional
+// Modalidad: 100% Online | Código Malla: 1444729-2025
 
 const roadmapPhases = [
     {
         phase: 1,
-        title: "Fundamentos",
+        title: "Fundamentos de Programación",
         period: "B01-B02",
         months: "Meses 1-4",
         color: "cyan",
         icon: "fas fa-seedling",
+        description: "Bases sólidas en lógica, algoritmos y primeros pasos en POO",
+        subjects: ["Fundamentos de Programación", "Modelamiento de BD", "Desarrollo OO I", "Intro Cloud Computing"],
         skills: [
-            { name: "Lógica de Programación", level: "core", tools: ["Pseudocódigo", "Diagramas de flujo"] },
-            { name: "Python Básico", level: "core", tools: ["Variables", "Funciones", "Loops"] },
-            { name: "Modelamiento de Datos", level: "core", tools: ["ER Diagrams", "Normalización"] },
-            { name: "Git Básico", level: "essential", tools: ["Commits", "Branches", "GitHub"] },
-            { name: "Cloud Intro", level: "essential", tools: ["IaaS", "PaaS", "SaaS"] }
+            { name: "Lógica y Algoritmos", level: "core", tools: ["Pseudocódigo", "Diagramas de flujo", "PSeInt"], competency: "Pensamiento computacional" },
+            { name: "Python Fundamentals", level: "core", tools: ["Variables", "Control de flujo", "Funciones", "Listas"], competency: "Programación básica" },
+            { name: "Modelamiento de Datos", level: "core", tools: ["Modelo E-R", "Normalización", "MySQL Workbench"], competency: "Diseño de BD" },
+            { name: "POO con Java", level: "core", tools: ["Clases", "Objetos", "Constructores", "Métodos"], competency: "Paradigma OO" },
+            { name: "Cloud Computing Intro", level: "essential", tools: ["IaaS", "PaaS", "SaaS", "AWS/Azure/GCP"], competency: "Fundamentos cloud" },
+            { name: "Control de Versiones", level: "essential", tools: ["Git", "GitHub", "Commits", "Branches"], competency: "Colaboración" }
         ],
-        milestone: "Primer programa funcional"
+        milestone: "Primer programa OOP funcional con persistencia",
+        certifications: ["GitHub Foundations", "AWS Cloud Practitioner (preparación)"]
     },
     {
         phase: 2,
-        title: "POO & DevOps",
+        title: "POO Avanzado & DevOps",
         period: "B03-B04",
         months: "Meses 5-8",
         color: "purple",
         icon: "fas fa-cubes",
+        description: "Profundización en POO, SQL avanzado y herramientas DevOps",
+        subjects: ["Desarrollo OO II", "Herramientas DevOps", "Consulta de BD", "Seguridad Informática"],
         skills: [
-            { name: "POO Completo", level: "core", tools: ["Clases", "Herencia", "Polimorfismo"] },
-            { name: "Java / Python OOP", level: "core", tools: ["Encapsulamiento", "Abstracción"] },
-            { name: "SQL Consultas", level: "core", tools: ["JOINs", "Subqueries", "Índices"] },
-            { name: "Docker Básico", level: "essential", tools: ["Containers", "Images", "Compose"] },
-            { name: "CI/CD Intro", level: "essential", tools: ["GitHub Actions", "Pipelines"] }
+            { name: "POO Avanzado", level: "core", tools: ["Herencia", "Polimorfismo", "Interfaces", "Clases abstractas"], competency: "4 pilares POO" },
+            { name: "Principios SOLID", level: "core", tools: ["SRP", "OCP", "LSP", "ISP", "DIP"], competency: "Diseño limpio" },
+            { name: "SQL Consultas", level: "core", tools: ["JOINs", "Subconsultas", "Vistas", "Índices"], competency: "Manipulación datos" },
+            { name: "Docker", level: "core", tools: ["Containers", "Images", "Docker Compose", "Volumes"], competency: "Contenedores" },
+            { name: "CI/CD Pipelines", level: "essential", tools: ["GitHub Actions", "Jenkins", "Automatización"], competency: "Integración continua" },
+            { name: "Seguridad Básica", level: "essential", tools: ["OWASP Top 10", "Input validation", "Sanitización"], competency: "Seguridad" }
         ],
-        milestone: "App OOP con BD"
+        milestone: "Aplicación OOP con BD y pipeline CI/CD",
+        certifications: ["Oracle Java SE", "Docker Essentials"]
     },
     {
         phase: 3,
-        title: "Backend & SQL",
+        title: "Backend & Cloud Native",
         period: "B05-B06",
         months: "Meses 9-12",
         color: "green",
         icon: "fas fa-server",
+        description: "Desarrollo de APIs, SQL avanzado y metodologías ágiles",
+        subjects: ["Programación de BD", "Desarrollo Cloud Native", "Gestión de Requisitos", "Backend I", "Ing. Software I"],
         skills: [
-            { name: "APIs RESTful", level: "core", tools: ["Endpoints", "HTTP", "JSON"] },
-            { name: "Spring Boot / FastAPI", level: "core", tools: ["Controllers", "Services", "Repos"] },
-            { name: "SQL Avanzado", level: "core", tools: ["Stored Procedures", "Triggers", "Views"] },
-            { name: "Cloud Native", level: "essential", tools: ["Kubernetes", "Microservicios"] },
-            { name: "Testing", level: "essential", tools: ["Unit Tests", "Integration", "Mocking"] }
+            { name: "APIs RESTful", level: "core", tools: ["Endpoints", "HTTP Methods", "JSON", "Status codes"], competency: "Servicios web" },
+            { name: "Spring Boot", level: "core", tools: ["Controllers", "Services", "Repositories", "JPA"], competency: "Framework Java" },
+            { name: "SQL Procedural", level: "core", tools: ["Stored Procedures", "Triggers", "Funciones", "Transacciones"], competency: "BD avanzado" },
+            { name: "Cloud Native", level: "core", tools: ["Kubernetes basics", "Microservicios", "12-Factor App"], competency: "Nube" },
+            { name: "Scrum/Kanban", level: "essential", tools: ["User Stories", "Sprint Planning", "Jira", "Retrospectivas"], competency: "Metodologías ágiles" },
+            { name: "Testing", level: "essential", tools: ["JUnit", "Mockito", "Unit tests", "Integration tests"], competency: "Calidad" }
         ],
-        milestone: "API REST completa"
+        milestone: "API REST completa con autenticación y tests",
+        certifications: ["AWS Developer Associate (preparación)", "Scrum Foundation"]
     },
     {
         phase: 4,
-        title: "Fullstack",
+        title: "Fullstack & Arquitectura",
         period: "B07-B08",
         months: "Meses 13-16",
         color: "orange",
         icon: "fas fa-layer-group",
+        description: "Frontend moderno, arquitectura de software y seguridad",
+        subjects: ["Backend II", "Backend III", "Ing. Software II", "Arquitectura SW", "Frontend I", "Frontend II"],
         skills: [
-            { name: "Frontend Moderno", level: "core", tools: ["React", "Angular", "Vue"] },
-            { name: "TypeScript", level: "core", tools: ["Types", "Interfaces", "Generics"] },
-            { name: "Arquitectura SW", level: "core", tools: ["Clean Arch", "DDD", "Patrones"] },
-            { name: "Seguridad", level: "essential", tools: ["OWASP", "Auth", "JWT"] },
-            { name: "DevOps Avanzado", level: "essential", tools: ["Terraform", "Monitoring"] }
+            { name: "React/Angular", level: "core", tools: ["Components", "Hooks/Services", "State", "Routing"], competency: "Frontend moderno" },
+            { name: "TypeScript", level: "core", tools: ["Types", "Interfaces", "Generics", "Decorators"], competency: "Tipado estático" },
+            { name: "Microservicios", level: "core", tools: ["API Gateway", "Service mesh", "RabbitMQ/Kafka"], competency: "Arquitectura distribuida" },
+            { name: "Arquitectura SW", level: "core", tools: ["Clean Architecture", "Patrones de diseño", "DDD basics"], competency: "Diseño de sistemas" },
+            { name: "Seguridad Avanzada", level: "essential", tools: ["JWT", "OAuth 2.0", "Spring Security"], competency: "Autenticación" },
+            { name: "DevOps Avanzado", level: "essential", tools: ["Terraform", "Monitoring", "Grafana"], competency: "Infraestructura" }
         ],
-        milestone: "Fullstack App deployada"
+        milestone: "Aplicación Fullstack desplegada en la nube",
+        certifications: ["Azure Developer", "Kubernetes CKAD (preparación)"]
     },
     {
         phase: 5,
-        title: "Mobile & Título",
+        title: "Mobile & Proyecto de Título",
         period: "B09-B10",
         months: "Meses 17-20",
         color: "pink",
         icon: "fas fa-mobile-alt",
+        description: "Desarrollo móvil multiplataforma y proyecto integrador",
+        subjects: ["Frontend III", "App Móviles I", "App Móviles II", "Taller Aplicado SW"],
         skills: [
-            { name: "Mobile Development", level: "core", tools: ["Android", "iOS", "Flutter/React Native"] },
-            { name: "Proyecto Capstone", level: "core", tools: ["Diseño", "Desarrollo", "Deploy"] },
-            { name: "App Stores", level: "essential", tools: ["Play Store", "App Store", "CI/CD Mobile"] },
-            { name: "Soft Skills", level: "essential", tools: ["Scrum", "Comunicación", "Liderazgo"] }
+            { name: "React Native / Flutter", level: "core", tools: ["Components", "Navigation", "State management", "Native APIs"], competency: "Mobile cross-platform" },
+            { name: "App Stores", level: "core", tools: ["Google Play", "App Store", "CI/CD Mobile", "Distribución"], competency: "Publicación" },
+            { name: "Proyecto Capstone", level: "core", tools: ["Análisis", "Diseño", "Desarrollo", "Deploy"], competency: "Integración total" },
+            { name: "UX/UI Mobile", level: "essential", tools: ["Material Design", "Human Interface", "Accesibilidad"], competency: "Experiencia usuario" },
+            { name: "Backend Mobile", level: "essential", tools: ["Firebase", "Push notifications", "Offline sync"], competency: "Servicios móviles" },
+            { name: "Soft Skills", level: "essential", tools: ["Presentaciones", "Documentación", "Trabajo en equipo"], competency: "Profesionalismo" }
         ],
-        milestone: "TÍTULO: Analista Programador"
+        milestone: "TÍTULO: Analista Programador Computacional",
+        certifications: ["Google Associate Android Developer", "Meta React Native"]
     }
 ];
 
+// Badges de logro alineados con competencias reales
 const badges = [
-    { icon: "fas fa-code", name: "First Commit", description: "Tu primer código en GitHub" },
-    { icon: "fas fa-database", name: "Data Master", description: "Dominas SQL avanzado" },
-    { icon: "fas fa-cloud", name: "Cloud Native", description: "Deploy en la nube" },
-    { icon: "fas fa-mobile-alt", name: "Mobile Dev", description: "App publicada" },
-    { icon: "fas fa-graduation-cap", name: "Graduate", description: "Título obtenido" }
+    { icon: "fas fa-code", name: "First Commit", description: "Tu primer código en GitHub", phase: 1 },
+    { icon: "fas fa-cubes", name: "OOP Master", description: "Dominas los 4 pilares de POO", phase: 2 },
+    { icon: "fas fa-database", name: "Data Architect", description: "SQL avanzado y modelamiento", phase: 2 },
+    { icon: "fas fa-server", name: "API Builder", description: "API REST funcional", phase: 3 },
+    { icon: "fas fa-cloud", name: "Cloud Native", description: "Deploy en Kubernetes", phase: 4 },
+    { icon: "fas fa-mobile-alt", name: "Mobile Dev", description: "App publicada en Store", phase: 5 },
+    { icon: "fas fa-graduation-cap", name: "Graduate", description: "Título profesional obtenido", phase: 5 }
+];
+
+// Competencias transversales del programa
+const transversalSkills = [
+    { name: "Trabajo en equipo", icon: "fas fa-users" },
+    { name: "Pensamiento analítico", icon: "fas fa-brain" },
+    { name: "Comunicación efectiva", icon: "fas fa-comments" },
+    { name: "Aprendizaje continuo", icon: "fas fa-book-reader" },
+    { name: "Ética profesional", icon: "fas fa-balance-scale" }
 ];
 ---
 
 <section id="learning-roadmap" class="roadmap-section">
     <div class="roadmap-container">
-        <!-- Header -->
+        <!-- Header Premium -->
         <div class="roadmap-header" data-aos="fade-up">
             <div class="roadmap-header-icon">
                 <i class="fas fa-route"></i>
             </div>
-            <h2>Learning Roadmap 2025</h2>
-            <p class="roadmap-subtitle">Tu camino de 0 a Desarrollador Profesional en 20 meses</p>
+            <div class="roadmap-badge">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Malla 1444729-2025 | Online</span>
+            </div>
+            <h2>Learning Roadmap</h2>
+            <p class="roadmap-subtitle">Tu camino de 0 a Analista Programador Computacional en 20 meses</p>
             <div class="roadmap-stats-row">
                 <span class="roadmap-stat">
                     <i class="fas fa-flag-checkered"></i>
                     <strong>5</strong> Fases
                 </span>
                 <span class="roadmap-stat">
+                    <i class="fas fa-book"></i>
+                    <strong>10</strong> Bimestres
+                </span>
+                <span class="roadmap-stat">
                     <i class="fas fa-trophy"></i>
-                    <strong>25+</strong> Skills
+                    <strong>30+</strong> Skills
                 </span>
                 <span class="roadmap-stat">
                     <i class="fas fa-medal"></i>
-                    <strong>5</strong> Badges
+                    <strong>7</strong> Badges
                 </span>
+            </div>
+        </div>
+
+        <!-- Competencias Transversales -->
+        <div class="transversal-skills" data-aos="fade-up">
+            <span class="transversal-label">Competencias Transversales:</span>
+            <div class="transversal-grid">
+                {transversalSkills.map(skill => (
+                    <span class="transversal-item">
+                        <i class={skill.icon}></i>
+                        {skill.name}
+                    </span>
+                ))}
             </div>
         </div>
 
@@ -130,10 +185,21 @@ const badges = [
                         </div>
                         <div class="phase-title-group">
                             <h3>{phase.title}</h3>
+                            <p class="phase-description">{phase.description}</p>
                             <div class="phase-meta">
                                 <span class="phase-period">{phase.period}</span>
                                 <span class="phase-months">{phase.months}</span>
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- Asignaturas -->
+                    <div class="phase-subjects">
+                        <span class="subjects-label"><i class="fas fa-book-open"></i> Asignaturas:</span>
+                        <div class="subjects-list">
+                            {phase.subjects.map(subject => (
+                                <span class="subject-chip">{subject}</span>
+                            ))}
                         </div>
                     </div>
 
@@ -145,6 +211,9 @@ const badges = [
                                     <span class={`skill-level-dot ${skill.level}`}></span>
                                     {skill.name}
                                 </div>
+                                <div class="skill-competency">
+                                    <i class="fas fa-star"></i> {skill.competency}
+                                </div>
                                 <div class="skill-tools">
                                     {skill.tools.map(tool => (
                                         <span class="skill-tool">{tool}</span>
@@ -154,9 +223,21 @@ const badges = [
                         ))}
                     </div>
 
+                    <!-- Certificaciones sugeridas -->
+                    {phase.certifications && phase.certifications.length > 0 && (
+                        <div class="phase-certifications">
+                            <span class="cert-label"><i class="fas fa-certificate"></i> Certificaciones sugeridas:</span>
+                            <div class="cert-list">
+                                {phase.certifications.map(cert => (
+                                    <span class="cert-chip">{cert}</span>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
                     <!-- Milestone -->
-                    <div class="phase-milestone">
-                        <i class="fas fa-flag"></i>
+                    <div class={`phase-milestone ${phase.phase === 5 ? 'final' : ''}`}>
+                        <i class={phase.phase === 5 ? 'fas fa-graduation-cap' : 'fas fa-flag'}></i>
                         <span>{phase.milestone}</span>
                     </div>
 
@@ -178,6 +259,7 @@ const badges = [
             <div class="badges-header">
                 <i class="fas fa-award"></i>
                 <span>Badges de Logro</span>
+                <span class="badges-subtitle">Desbloquea a medida que avanzas</span>
             </div>
             <div class="badges-grid">
                 {badges.map((badge, index) => (
@@ -188,6 +270,7 @@ const badges = [
                         <div class="badge-info">
                             <span class="badge-name">{badge.name}</span>
                             <span class="badge-desc">{badge.description}</span>
+                            <span class="badge-phase">Fase {badge.phase}</span>
                         </div>
                     </div>
                 ))}
@@ -205,6 +288,18 @@ const badges = [
                 Essential Skills (Recomendado)
             </span>
         </div>
+
+        <!-- CTA Continuar -->
+        <div class="roadmap-cta" data-aos="fade-up">
+            <div class="cta-content">
+                <i class="fas fa-arrow-up"></i>
+                <span>¿Quieres continuar hasta Ingeniero en Desarrollo de Software?</span>
+                <a href="/Analista-Programador-Computacional-DuocUC/proyectos" class="cta-link">
+                    <span>+7 Bimestres adicionales</span>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -218,13 +313,13 @@ const badges = [
     /* Header */
     .roadmap-header {
         text-align: center;
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
     }
 
     .roadmap-header-icon {
         width: 80px;
         height: 80px;
-        margin: 0 auto 1.5rem;
+        margin: 0 auto 1rem;
         background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(124, 58, 237, 0.2));
         border-radius: 50%;
         display: flex;
@@ -238,6 +333,19 @@ const badges = [
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
+    }
+
+    .roadmap-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.4rem 0.8rem;
+        background: rgba(124, 58, 237, 0.15);
+        border: 1px solid rgba(124, 58, 237, 0.3);
+        border-radius: 20px;
+        font-size: 0.75rem;
+        color: #a78bfa;
+        margin-bottom: 1rem;
     }
 
     .roadmap-header h2 {
@@ -279,6 +387,48 @@ const badges = [
         color: #f8fafc;
     }
 
+    /* Competencias Transversales */
+    .transversal-skills {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-bottom: 2.5rem;
+        padding: 1rem;
+        background: rgba(124, 58, 237, 0.05);
+        border-radius: 12px;
+        border: 1px solid rgba(124, 58, 237, 0.15);
+    }
+
+    .transversal-label {
+        font-size: 0.85rem;
+        color: #a78bfa;
+        font-weight: 600;
+    }
+
+    .transversal-grid {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .transversal-item {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.3rem 0.6rem;
+        background: rgba(124, 58, 237, 0.1);
+        border-radius: 6px;
+        font-size: 0.75rem;
+        color: #c4b5fd;
+    }
+
+    .transversal-item i {
+        font-size: 0.7rem;
+    }
+
     /* Timeline */
     .roadmap-timeline {
         position: relative;
@@ -309,7 +459,7 @@ const badges = [
 
     .phase-header {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         gap: 1rem;
         margin-bottom: 1.5rem;
     }
@@ -317,6 +467,7 @@ const badges = [
     .phase-number {
         width: 40px;
         height: 40px;
+        min-width: 40px;
         background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(124, 58, 237, 0.2));
         border-radius: 50%;
         display: flex;
@@ -330,6 +481,7 @@ const badges = [
     .phase-icon {
         width: 50px;
         height: 50px;
+        min-width: 50px;
         background: rgba(255, 255, 255, 0.05);
         border-radius: 12px;
         display: flex;
@@ -354,6 +506,12 @@ const badges = [
         margin-bottom: 0.25rem;
     }
 
+    .phase-description {
+        font-size: 0.85rem;
+        color: #94a3b8;
+        margin-bottom: 0.5rem;
+    }
+
     .phase-meta {
         display: flex;
         gap: 1rem;
@@ -369,10 +527,42 @@ const badges = [
         color: #64748b;
     }
 
+    /* Asignaturas */
+    .phase-subjects {
+        margin-bottom: 1rem;
+        padding: 0.75rem;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 8px;
+    }
+
+    .subjects-label {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.8rem;
+        color: #64748b;
+        margin-bottom: 0.5rem;
+    }
+
+    .subjects-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+    }
+
+    .subject-chip {
+        padding: 0.25rem 0.6rem;
+        background: rgba(0, 212, 255, 0.1);
+        border: 1px solid rgba(0, 212, 255, 0.2);
+        border-radius: 6px;
+        font-size: 0.7rem;
+        color: #00d4ff;
+    }
+
     /* Skills Grid */
     .phase-skills {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
         gap: 0.75rem;
         margin-bottom: 1rem;
     }
@@ -399,7 +589,7 @@ const badges = [
         font-weight: 600;
         color: #f8fafc;
         font-size: 0.85rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.3rem;
     }
 
     .skill-level-dot {
@@ -416,6 +606,17 @@ const badges = [
         background: #f59e0b;
     }
 
+    .skill-competency {
+        font-size: 0.7rem;
+        color: #a78bfa;
+        margin-bottom: 0.4rem;
+    }
+
+    .skill-competency i {
+        font-size: 0.6rem;
+        margin-right: 0.2rem;
+    }
+
     .skill-tools {
         display: flex;
         flex-wrap: wrap;
@@ -426,8 +627,40 @@ const badges = [
         padding: 0.2rem 0.5rem;
         background: rgba(255, 255, 255, 0.05);
         border-radius: 6px;
-        font-size: 0.7rem;
+        font-size: 0.65rem;
         color: #64748b;
+    }
+
+    /* Certificaciones */
+    .phase-certifications {
+        margin-bottom: 1rem;
+        padding: 0.5rem 0.75rem;
+        background: rgba(16, 185, 129, 0.05);
+        border-radius: 8px;
+        border: 1px solid rgba(16, 185, 129, 0.1);
+    }
+
+    .cert-label {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.75rem;
+        color: #10b981;
+        margin-bottom: 0.4rem;
+    }
+
+    .cert-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+    }
+
+    .cert-chip {
+        padding: 0.2rem 0.5rem;
+        background: rgba(16, 185, 129, 0.15);
+        border-radius: 4px;
+        font-size: 0.65rem;
+        color: #34d399;
     }
 
     /* Milestone */
@@ -442,6 +675,12 @@ const badges = [
         font-size: 0.85rem;
         color: #10b981;
         font-weight: 600;
+    }
+
+    .phase-milestone.final {
+        background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(124, 58, 237, 0.2));
+        border-color: rgba(236, 72, 153, 0.4);
+        color: #ec4899;
     }
 
     /* Connector */
@@ -487,6 +726,13 @@ const badges = [
     .badges-header i {
         color: #ffd700;
         font-size: 1.25rem;
+    }
+
+    .badges-subtitle {
+        font-size: 0.75rem;
+        color: #64748b;
+        font-weight: 400;
+        margin-left: auto;
     }
 
     .badges-grid {
@@ -540,6 +786,12 @@ const badges = [
         color: #64748b;
     }
 
+    .badge-phase {
+        font-size: 0.65rem;
+        color: #7c3aed;
+        margin-top: 0.2rem;
+    }
+
     /* Legend */
     .roadmap-legend {
         display: flex;
@@ -555,6 +807,52 @@ const badges = [
         gap: 0.5rem;
         font-size: 0.85rem;
         color: #94a3b8;
+    }
+
+    /* CTA */
+    .roadmap-cta {
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    .cta-content {
+        display: inline-flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 1.5rem;
+        background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(236, 72, 153, 0.1));
+        border: 1px solid rgba(124, 58, 237, 0.3);
+        border-radius: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .cta-content > i {
+        color: #7c3aed;
+    }
+
+    .cta-content > span {
+        color: #94a3b8;
+        font-size: 0.9rem;
+    }
+
+    .cta-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: rgba(124, 58, 237, 0.2);
+        border-radius: 8px;
+        color: #a78bfa;
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .cta-link:hover {
+        background: rgba(124, 58, 237, 0.3);
+        color: #c4b5fd;
     }
 
     /* Responsive */
@@ -574,5 +872,54 @@ const badges = [
         .badges-grid {
             grid-template-columns: 1fr;
         }
+
+        .phase-header {
+            flex-wrap: wrap;
+        }
+
+        .transversal-skills {
+            flex-direction: column;
+        }
+    }
+
+    /* Light mode */
+    :global([data-theme="light"]) .roadmap-header h2 {
+        background: linear-gradient(135deg, #1e293b, #475569);
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+
+    :global([data-theme="light"]) .roadmap-subtitle,
+    :global([data-theme="light"]) .roadmap-stat,
+    :global([data-theme="light"]) .phase-description,
+    :global([data-theme="light"]) .legend-item {
+        color: #64748b;
+    }
+
+    :global([data-theme="light"]) .roadmap-stat strong,
+    :global([data-theme="light"]) .phase-title-group h3,
+    :global([data-theme="light"]) .skill-name,
+    :global([data-theme="light"]) .badge-name {
+        color: #1e293b;
+    }
+
+    :global([data-theme="light"]) .roadmap-phase {
+        background: rgba(248, 250, 252, 0.9);
+        border-color: rgba(203, 213, 225, 0.5);
+    }
+
+    :global([data-theme="light"]) .skill-card {
+        background: rgba(241, 245, 249, 0.8);
+        border-color: rgba(203, 213, 225, 0.3);
+    }
+
+    :global([data-theme="light"]) .transversal-skills {
+        background: rgba(124, 58, 237, 0.05);
+        border-color: rgba(124, 58, 237, 0.1);
+    }
+
+    :global([data-theme="light"]) .cta-content {
+        background: rgba(124, 58, 237, 0.05);
+        border-color: rgba(124, 58, 237, 0.2);
     }
 </style>
