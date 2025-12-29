@@ -1796,11 +1796,37 @@ function initTooltips() {
         to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Categories Grid */
+    /* Categories Grid - Responsive */
     .categories-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
         gap: 1.25rem;
+    }
+
+    @media (min-width: 1400px) {
+        .categories-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .categories-grid {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+    }
+
+    @media (max-width: 768px) {
+        .categories-grid {
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .categories-grid {
+            grid-template-columns: 1fr;
+            gap: 0.875rem;
+        }
     }
 
     .category-card {

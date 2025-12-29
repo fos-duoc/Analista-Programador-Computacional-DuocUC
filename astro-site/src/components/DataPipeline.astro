@@ -14,68 +14,78 @@
                 <p class="pipeline-tagline">Arquitectura moderna de flujo de datos para procesamiento en tiempo real y por lotes</p>
             </div>
         </div>
-        <!-- Mode Selector Buttons -->
-        <div class="pipeline-mode-selector">
-            <button class="mode-btn active" data-mode="realtime" id="btn-realtime"
-                    data-premium-tooltip="Real-time Streaming|Procesa eventos conforme llegan con latencia sub-segundo. Tecnologías: Kafka, Flink, Spark Streaming.|Latency < 1s,Event-driven,Streaming|feature|fa-bolt|Streaming">
-                <i class="fas fa-bolt"></i>
-                <span>Real-time Streaming</span>
-                <small>Latency &lt; 1s</small>
-            </button>
-            <button class="mode-btn" data-mode="batch" id="btn-batch"
-                    data-premium-tooltip="Batch Processing|Procesa grandes volúmenes de datos históricos en intervalos programados. Tecnologías: Spark, Hadoop, dbt.|High Volume,Scheduled Jobs,Parallel|feature|fa-layer-group|Processing">
-                <i class="fas fa-layer-group"></i>
-                <span>Batch Processing</span>
-                <small>High Volume</small>
-            </button>
-            <button class="mode-btn" data-mode="architecture" id="btn-architecture"
-                    data-premium-tooltip="Pipeline Architecture|Diagrama de flujo de datos de principio a fin, desde fuentes hasta capa de servicio.|E2E Diagram,Visual Flow,Medallion|feature|fa-stream|Architecture">
-                <i class="fas fa-stream"></i>
-                <span>Pipeline Architecture</span>
-                <small>E2E Diagram</small>
-            </button>
-            <button class="mode-btn" data-mode="governance" id="btn-governance"
-                    data-premium-tooltip="Data Governance|Framework DAMA-DMBOK cubriendo calidad de datos, seguridad, privacidad y cumplimiento regulatorio.|DAMA-DMBOK,Compliance,Data Quality|feature|fa-shield-alt|Governance">
-                <i class="fas fa-shield-alt"></i>
-                <span>Data Governance</span>
-                <small>DAMA Framework</small>
-            </button>
-            <button class="mode-btn" data-mode="visualization" id="btn-visualization"
-                    data-premium-tooltip="Data Visualization|Dashboards de Business Intelligence y reportes. Herramientas: Power BI, Tableau, Looker, Grafana.|BI Dashboards,Charts,Reports|feature|fa-chart-pie|Visualization">
-                <i class="fas fa-chart-pie"></i>
-                <span>Data Visualization</span>
-                <small>BI & Dashboards</small>
-            </button>
-            <button class="mode-btn" data-mode="ingestion" id="btn-ingestion"
-                    data-premium-tooltip="Data Ingestion|Patrones de movimiento e integración de datos. Herramientas: Fivetran, Airbyte, Debezium CDC, APIs Custom.|ETL/ELT,CDC,Data Movement|feature|fa-cloud-download-alt|Ingestion">
-                <i class="fas fa-cloud-download-alt"></i>
-                <span>Data Ingestion</span>
-                <small>ETL & CDC</small>
-            </button>
-            <button class="mode-btn" data-mode="orchestration" id="btn-orchestration"
-                    data-premium-tooltip="Data Orchestration|Automatización de flujos de trabajo, programación y gestión de dependencias. Herramientas: Apache Airflow, Prefect, Dagster.|DAGs,Workflows,Scheduling|feature|fa-tasks|Orchestration">
-                <i class="fas fa-tasks"></i>
-                <span>Data Orchestration</span>
-                <small>DAGs & Workflows</small>
-            </button>
-            <button class="mode-btn" data-mode="patterns" id="btn-patterns"
-                    data-premium-tooltip="Design Patterns|Patrones de arquitectura de datos probados. Medallion Architecture, CDC, Tipos SCD, Data Mesh, Data Vault 2.0, CQRS.|Medallion,CDC,SCD,Data Mesh|feature|fa-cubes|Patterns">
-                <i class="fas fa-cubes"></i>
-                <span>Design Patterns</span>
-                <small>Medallion, CDC, SCD</small>
-            </button>
-            <button class="mode-btn" data-mode="processing" id="btn-processing"
-                    data-premium-tooltip="Processing Architectures|Paradigmas y estrategias de procesamiento de datos. Arquitecturas Lambda, Kappa, Delta. Comparación ETL vs ELT. Patrones de Streaming.|Lambda,Kappa,Delta,ETL vs ELT|feature|fa-microchip|Architectures">
-                <i class="fas fa-microchip"></i>
-                <span>Processing Architectures</span>
-                <small>Lambda, Kappa, Delta</small>
-            </button>
-            <button class="mode-btn" data-mode="storage" id="btn-storage"
-                    data-premium-tooltip="Storage Platforms|Soluciones modernas de almacenamiento de datos. Comparación Data Lake, Warehouse, Lakehouse. Star/Snowflake Schema. Delta Lake, Iceberg, Hudi.|Lakehouse,Star Schema,Iceberg|feature|fa-database|Storage">
-                <i class="fas fa-database"></i>
-                <span>Storage Platforms</span>
-                <small>Lakehouse, Star Schema</small>
-            </button>
+        <!-- Mode Selector Buttons - Organized in Groups -->
+        <div class="pipeline-mode-selector-wrapper">
+            <!-- Row 1: Pipelines & Architecture -->
+            <div class="mode-btn-group">
+                <span class="group-label"><i class="fas fa-code-branch"></i> Pipelines</span>
+                <div class="mode-btn-row">
+                    <button class="mode-btn active" data-mode="realtime" id="btn-realtime"
+                            data-premium-tooltip="Real-time Streaming|Procesa eventos conforme llegan con latencia sub-segundo. Tecnologías: Kafka, Flink, Spark Streaming.|Latency < 1s,Event-driven,Streaming|feature|fa-bolt|Streaming">
+                        <i class="fas fa-bolt"></i>
+                        <span>Streaming</span>
+                    </button>
+                    <button class="mode-btn" data-mode="batch" id="btn-batch"
+                            data-premium-tooltip="Batch Processing|Procesa grandes volúmenes de datos históricos en intervalos programados. Tecnologías: Spark, Hadoop, dbt.|High Volume,Scheduled Jobs,Parallel|feature|fa-layer-group|Processing">
+                        <i class="fas fa-layer-group"></i>
+                        <span>Batch</span>
+                    </button>
+                    <button class="mode-btn" data-mode="architecture" id="btn-architecture"
+                            data-premium-tooltip="Pipeline Architecture|Diagrama de flujo de datos de principio a fin, desde fuentes hasta capa de servicio.|E2E Diagram,Visual Flow,Medallion|feature|fa-stream|Architecture">
+                        <i class="fas fa-stream"></i>
+                        <span>Architecture</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Row 2: Data Lifecycle -->
+            <div class="mode-btn-group">
+                <span class="group-label"><i class="fas fa-database"></i> Data Lifecycle</span>
+                <div class="mode-btn-row">
+                    <button class="mode-btn" data-mode="ingestion" id="btn-ingestion"
+                            data-premium-tooltip="Data Ingestion|Patrones de movimiento e integración de datos. Herramientas: Fivetran, Airbyte, Debezium CDC, APIs Custom.|ETL/ELT,CDC,Data Movement|feature|fa-cloud-download-alt|Ingestion">
+                        <i class="fas fa-cloud-download-alt"></i>
+                        <span>Ingestion</span>
+                    </button>
+                    <button class="mode-btn" data-mode="orchestration" id="btn-orchestration"
+                            data-premium-tooltip="Data Orchestration|Automatización de flujos de trabajo, programación y gestión de dependencias. Herramientas: Apache Airflow, Prefect, Dagster.|DAGs,Workflows,Scheduling|feature|fa-tasks|Orchestration">
+                        <i class="fas fa-tasks"></i>
+                        <span>Orchestration</span>
+                    </button>
+                    <button class="mode-btn" data-mode="storage" id="btn-storage"
+                            data-premium-tooltip="Storage Platforms|Soluciones modernas de almacenamiento de datos. Comparación Data Lake, Warehouse, Lakehouse. Star/Snowflake Schema. Delta Lake, Iceberg, Hudi.|Lakehouse,Star Schema,Iceberg|feature|fa-database|Storage">
+                        <i class="fas fa-database"></i>
+                        <span>Storage</span>
+                    </button>
+                    <button class="mode-btn" data-mode="visualization" id="btn-visualization"
+                            data-premium-tooltip="Data Visualization|Dashboards de Business Intelligence y reportes. Herramientas: Power BI, Tableau, Looker, Grafana.|BI Dashboards,Charts,Reports|feature|fa-chart-pie|Visualization">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Visualization</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Row 3: Patterns & Governance -->
+            <div class="mode-btn-group">
+                <span class="group-label"><i class="fas fa-cubes"></i> Patterns & Governance</span>
+                <div class="mode-btn-row">
+                    <button class="mode-btn" data-mode="patterns" id="btn-patterns"
+                            data-premium-tooltip="Design Patterns|Patrones de arquitectura de datos probados. Medallion Architecture, CDC, Tipos SCD, Data Mesh, Data Vault 2.0, CQRS.|Medallion,CDC,SCD,Data Mesh|feature|fa-cubes|Patterns">
+                        <i class="fas fa-cubes"></i>
+                        <span>Patterns</span>
+                    </button>
+                    <button class="mode-btn" data-mode="processing" id="btn-processing"
+                            data-premium-tooltip="Processing Architectures|Paradigmas y estrategias de procesamiento de datos. Arquitecturas Lambda, Kappa, Delta. Comparación ETL vs ELT. Patrones de Streaming.|Lambda,Kappa,Delta,ETL vs ELT|feature|fa-microchip|Architectures">
+                        <i class="fas fa-microchip"></i>
+                        <span>Processing</span>
+                    </button>
+                    <button class="mode-btn" data-mode="governance" id="btn-governance"
+                            data-premium-tooltip="Data Governance|Framework DAMA-DMBOK cubriendo calidad de datos, seguridad, privacidad y cumplimiento regulatorio.|DAMA-DMBOK,Compliance,Data Quality|feature|fa-shield-alt|Governance">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Governance</span>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 
