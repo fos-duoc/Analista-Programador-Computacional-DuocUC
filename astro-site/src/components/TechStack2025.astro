@@ -915,7 +915,7 @@ function initTechStack() {
     let activeFilters = new Set(['all']);
 
     function applyFilters() {
-        if (!categoriesGrid) return;
+        if (!categoriesGrid) { console.warn('[TechStack] No categoriesGrid'); return; }
 
         const categoryCards = categoriesGrid.querySelectorAll('.category-card');
 
@@ -1043,12 +1043,12 @@ function updatePodiumData(source) {
     }
 
     // Helper function to render icon based on type
-    function renderIcon(iconStr, name) {
+    function renderIcon(iconStr, name, isAvatar = false) {
         if (!iconStr) return '<i class="fas fa-code"></i>';
 
         if (iconStr.startsWith('img:')) {
             const src = iconStr.replace('img:', '');
-            return `<img src="${src}" alt="${name}" loading="lazy" style="width: 100%; height: 100%; object-fit: contain;" />`;
+            return isAvatar ? `<img src="${src}" alt="${name}" loading="lazy" />` : `<img src="${src}" alt="${name}" loading="lazy" width="20" />`;
         } else {
             return `<i class="${iconStr}"></i>`;
         }
@@ -1082,7 +1082,7 @@ function updatePodiumData(source) {
         // Build podium cards HTML - compact format to avoid whitespace issues
         const podiumHtml = data.top.map((lang, idx) => {
             const order = idx === 0 ? 2 : idx === 1 ? 1 : 3;
-            return `<a href="${lang.url}" target="_blank" rel="noopener" class="podium-card-v2 medal-${lang.medal}" data-source="${source}" data-premium-tooltip="${buildTooltip(lang.name, lang.desc)}" style="order: ${order}"><div class="medal-icon">${getMedalHtml(lang.medal)}</div><div class="lang-avatar-v2">${renderIcon(lang.icon, lang.name)}</div><div class="lang-info-v2"><span class="lang-name-v2">${lang.name}</span><span class="lang-stat-v2">${lang.stat}</span></div><div class="trend-badge trend-${lang.trend}"><i class="fas ${getTrendIcon(lang.trend)}"></i> ${lang.trendLabel || ''}<span class="trend-value">${lang.trendValue}</span></div><div class="jobs-badge"><i class="fas fa-briefcase"></i> ${lang.jobs} empleos</div><div class="progress-bar-v2"><div class="progress-fill-v2" style="width: ${lang.barWidth}"></div></div></a>`;
+            return `<a href="${lang.url}" target="_blank" rel="noopener" class="podium-card-v2 medal-${lang.medal}" data-source="${source}" data-premium-tooltip="${buildTooltip(lang.name, lang.desc)}" style="order: ${order}"><div class="medal-icon">${getMedalHtml(lang.medal)}</div><div class="lang-avatar-v2">${renderIcon(lang.icon, lang.name, true)}</div><div class="lang-info-v2"><span class="lang-name-v2">${lang.name}</span><span class="lang-stat-v2">${lang.stat}</span></div><div class="trend-badge trend-${lang.trend}"><i class="fas ${getTrendIcon(lang.trend)}"></i> ${lang.trendLabel || ''}<span class="trend-value">${lang.trendValue}</span></div><div class="jobs-badge"><i class="fas fa-briefcase"></i> ${lang.jobs} empleos</div><div class="progress-bar-v2"><div class="progress-fill-v2" style="width: ${lang.barWidth}"></div></div></a>`;
         }).join('');
 
         podiumGrid.innerHTML = podiumHtml;
