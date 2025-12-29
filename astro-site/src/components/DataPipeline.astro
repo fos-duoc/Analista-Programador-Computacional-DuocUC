@@ -389,6 +389,333 @@ cart.checkout(99.99);
 // Cambiar estrategia en runtime
 cart.setPaymentStrategy(new PayPalPayment("usuario@email.com"));
 cart.checkout(49.99);`;
+
+// ==================== TESTING CODE EXAMPLES ====================
+
+// TDD Example with JUnit 5 - Calculator
+const tddCode = `// TDD - Test Driven Development con JUnit 5
+// Ciclo: RED → GREEN → REFACTOR
+
+// STEP 1: RED - Escribir test que falla
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+import static org.junit.jupiter.api.Assertions.*;
+
+class CalculatorTest {
+
+    @Test
+    @DisplayName("Suma de dos números positivos")
+    void testSumaPositivos() {
+        Calculator calc = new Calculator();
+        assertEquals(5, calc.sumar(2, 3));
+    }
+
+    @Test
+    @DisplayName("Suma con número negativo")
+    void testSumaConNegativo() {
+        Calculator calc = new Calculator();
+        assertEquals(-1, calc.sumar(2, -3));
+    }
+
+    @Test
+    @DisplayName("División por cero lanza excepción")
+    void testDivisionPorCero() {
+        Calculator calc = new Calculator();
+        assertThrows(ArithmeticException.class,
+            () -> calc.dividir(10, 0));
+    }
+}
+
+// STEP 2: GREEN - Implementar código mínimo
+public class Calculator {
+    public int sumar(int a, int b) {
+        return a + b;
+    }
+
+    public int dividir(int a, int b) {
+        if (b == 0) {
+            throw new ArithmeticException("División por cero");
+        }
+        return a / b;
+    }
+}
+
+// STEP 3: REFACTOR - Mejorar sin romper tests
+// Los tests pasan → código validado ✓`;
+
+// BDD Example with Cucumber/Gherkin
+const bddCode = `// BDD - Behavior Driven Development
+// Lenguaje: Gherkin (Given-When-Then)
+
+// login.feature
+Feature: Inicio de sesión de usuario
+  Como usuario registrado
+  Quiero iniciar sesión en el sistema
+  Para acceder a mi cuenta
+
+  Scenario: Login exitoso con credenciales válidas
+    Given un usuario registrado con email "juan@email.com"
+    And su contraseña es "Password123"
+    When el usuario ingresa sus credenciales
+    And hace clic en "Iniciar Sesión"
+    Then debe ver el mensaje "Bienvenido, Juan"
+    And debe ser redirigido al dashboard
+
+  Scenario: Login fallido con contraseña incorrecta
+    Given un usuario registrado con email "juan@email.com"
+    When el usuario ingresa email "juan@email.com"
+    And ingresa contraseña "wrongpassword"
+    And hace clic en "Iniciar Sesión"
+    Then debe ver el mensaje de error "Credenciales inválidas"
+    And debe permanecer en la página de login
+
+// LoginSteps.java - Implementación de pasos
+import io.cucumber.java.en.*;
+
+public class LoginSteps {
+    private LoginPage loginPage;
+    private String mensaje;
+
+    @Given("un usuario registrado con email {string}")
+    public void usuarioRegistrado(String email) {
+        // Setup: crear usuario en BD de prueba
+    }
+
+    @When("el usuario ingresa sus credenciales")
+    public void ingresaCredenciales() {
+        loginPage.enterCredentials(email, password);
+    }
+
+    @Then("debe ver el mensaje {string}")
+    public void verificarMensaje(String expected) {
+        assertEquals(expected, loginPage.getMessage());
+    }
+}`;
+
+// Contract Testing with Pact
+const contractTestCode = `// Contract Testing con Pact
+// Verifica contratos entre servicios (Consumer-Driven)
+
+// Consumer Side (Frontend/Mobile)
+const { Pact } = require('@pact-foundation/pact');
+
+describe('User API Contract', () => {
+  const provider = new Pact({
+    consumer: 'FrontendApp',
+    provider: 'UserService',
+    port: 1234
+  });
+
+  beforeAll(() => provider.setup());
+  afterAll(() => provider.finalize());
+
+  describe('GET /api/users/:id', () => {
+    it('returns user data for valid ID', async () => {
+      // Define expected interaction
+      await provider.addInteraction({
+        state: 'user with ID 1 exists',
+        uponReceiving: 'a request for user 1',
+        withRequest: {
+          method: 'GET',
+          path: '/api/users/1',
+          headers: { 'Accept': 'application/json' }
+        },
+        willRespondWith: {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' },
+          body: {
+            id: 1,
+            name: Matchers.string('John Doe'),
+            email: Matchers.email()
+          }
+        }
+      });
+
+      // Execute consumer code
+      const user = await userClient.getUser(1);
+      expect(user.name).toBeDefined();
+    });
+  });
+});
+
+// Provider Side (Backend) - Verifica contra el contrato
+// El Pact Broker almacena los contratos generados`;
+
+// Mutation Testing Example
+const mutationTestCode = `// Mutation Testing con PIT (Java)
+// Evalúa la calidad de los tests introduciendo mutaciones
+
+// pom.xml - Configuración de PIT
+<plugin>
+    <groupId>org.pitest</groupId>
+    <artifactId>pitest-maven</artifactId>
+    <version>1.15.0</version>
+    <configuration>
+        <targetClasses>
+            <param>com.myapp.services.*</param>
+        </targetClasses>
+        <targetTests>
+            <param>com.myapp.services.*Test</param>
+        </targetTests>
+        <mutators>
+            <mutator>CONDITIONALS_BOUNDARY</mutator>
+            <mutator>INCREMENTS</mutator>
+            <mutator>MATH</mutator>
+            <mutator>NEGATE_CONDITIONALS</mutator>
+            <mutator>RETURN_VALS</mutator>
+        </mutators>
+    </configuration>
+</plugin>
+
+// Código Original
+public class PriceCalculator {
+    public double calculateDiscount(double price, int quantity) {
+        if (quantity > 10) {  // Mutación: > → >=
+            return price * 0.9;  // Mutación: 0.9 → 0.8
+        }
+        return price;
+    }
+}
+
+// Test Original - ¿Detecta las mutaciones?
+@Test
+void testDescuentoPorCantidad() {
+    PriceCalculator calc = new PriceCalculator();
+    // Este test NO detecta mutación ">" → ">="
+    assertEquals(90.0, calc.calculateDiscount(100.0, 15));
+}
+
+// Test Mejorado - Detecta boundary mutation
+@Test
+void testBoundaryCondition() {
+    PriceCalculator calc = new PriceCalculator();
+    // Exactly 10 items → NO discount
+    assertEquals(100.0, calc.calculateDiscount(100.0, 10));
+    // 11 items → WITH discount
+    assertEquals(90.0, calc.calculateDiscount(100.0, 11));
+}
+
+// Ejecutar: mvn org.pitest:pitest-maven:mutationCoverage
+// Reporte: target/pit-reports/index.html`;
+
+// Integration Testing Example
+const integrationTestCode = `// Integration Testing con Spring Boot
+// Prueba la interacción entre componentes reales
+
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.test.context.TestPropertySource;
+import org.junit.jupiter.api.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+@SpringBootTest
+@AutoConfigureMockMvc
+@TestPropertySource(locations = "classpath:application-test.properties")
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+class UserControllerIntegrationTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @BeforeEach
+    void setup() {
+        userRepository.deleteAll();
+    }
+
+    @Test
+    @Order(1)
+    @DisplayName("POST /api/users - Crear usuario")
+    void createUser() throws Exception {
+        String userJson = """
+            {
+                "name": "Juan Pérez",
+                "email": "juan@email.com",
+                "role": "USER"
+            }
+            """;
+
+        mockMvc.perform(post("/api/users")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(userJson))
+            .andExpect(status().isCreated())
+            .andExpect(jsonPath("$.id").exists())
+            .andExpect(jsonPath("$.name").value("Juan Pérez"));
+
+        // Verificar que se guardó en BD real
+        assertTrue(userRepository.findByEmail("juan@email.com").isPresent());
+    }
+
+    @Test
+    @Order(2)
+    @DisplayName("GET /api/users/{id} - Obtener usuario existente")
+    void getUserById() throws Exception {
+        // Arrange: crear usuario directamente en BD
+        User saved = userRepository.save(new User("Test", "test@email.com"));
+
+        // Act & Assert
+        mockMvc.perform(get("/api/users/" + saved.getId()))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.name").value("Test"));
+    }
+}`;
+
+// E2E Testing Example with Playwright
+const e2eTestCode = `// E2E Testing con Playwright
+// Prueba flujos completos desde la perspectiva del usuario
+
+import { test, expect } from '@playwright/test';
+
+test.describe('Flujo de Compra E-Commerce', () => {
+
+  test.beforeEach(async ({ page }) => {
+    await page.goto('https://myshop.com');
+  });
+
+  test('Usuario completa compra exitosamente', async ({ page }) => {
+    // 1. Buscar producto
+    await page.fill('[data-testid="search-input"]', 'laptop');
+    await page.click('[data-testid="search-button"]');
+    await expect(page.locator('.product-card')).toHaveCount.greaterThan(0);
+
+    // 2. Seleccionar producto
+    await page.click('.product-card:first-child');
+    await expect(page).toHaveURL(/\\/products\\/\\d+/);
+
+    // 3. Agregar al carrito
+    await page.click('[data-testid="add-to-cart"]');
+    await expect(page.locator('.cart-badge')).toHaveText('1');
+
+    // 4. Ir al checkout
+    await page.click('[data-testid="cart-icon"]');
+    await page.click('[data-testid="checkout-button"]');
+
+    // 5. Completar datos de envío
+    await page.fill('#shipping-name', 'Juan Pérez');
+    await page.fill('#shipping-address', 'Av. Principal 123');
+    await page.fill('#shipping-city', 'Santiago');
+    await page.click('[data-testid="continue-payment"]');
+
+    // 6. Completar pago (sandbox)
+    await page.fill('#card-number', '4242424242424242');
+    await page.fill('#card-expiry', '12/25');
+    await page.fill('#card-cvv', '123');
+    await page.click('[data-testid="pay-button"]');
+
+    // 7. Verificar confirmación
+    await expect(page.locator('.order-confirmation')).toBeVisible();
+    await expect(page.locator('.order-number')).toHaveText(/ORD-\\d+/);
+  });
+
+  test('Validación de campos obligatorios', async ({ page }) => {
+    await page.goto('/checkout');
+    await page.click('[data-testid="continue-payment"]');
+    await expect(page.locator('.error-message')).toContainText('Nombre requerido');
+  });
+});`;
 ---
 
 <section id="pipeline" class="pipeline-section">
@@ -4833,57 +5160,329 @@ public class Producto implements Registrable {
             <div class="pipeline-mode-header fundamentals">
                 <div class="mode-indicator">
                     <i class="fas fa-vial"></i>
-                    <span>Testing Pyramid</span>
+                    <span>Testing Avanzado</span>
                 </div>
                 <div class="mode-stats">
                     <span class="stat-pill"><i class="fas fa-user"></i> Mike Cohn</span>
-                    <span class="stat-pill"><i class="fas fa-check-double"></i> TDD / BDD</span>
-                    <span class="stat-pill"><i class="fas fa-layer-group"></i> 3 Levels</span>
+                    <span class="stat-pill"><i class="fas fa-check-double"></i> 6 Técnicas</span>
+                    <span class="stat-pill"><i class="fas fa-code"></i> Code Examples</span>
                 </div>
             </div>
             <div class="fundamentals-content">
-                <div class="testing-pyramid-container">
-                    <div class="testing-pyramid-visual">
-                        <div class="pyramid-level e2e">
-                            <span class="level-name">E2E Tests</span>
-                            <span class="level-percent">~10%</span>
+                <!-- Intro Banner -->
+                <div class="testing-intro-banner">
+                    <div class="testing-intro-icon"><i class="fas fa-vial"></i></div>
+                    <div class="testing-intro-text">
+                        <p>El <strong>Testing de Software</strong> es fundamental para garantizar calidad. La <em>Testing Pyramid</em> de Mike Cohn establece la proporción óptima de tests. Técnicas avanzadas como TDD, BDD, Contract Testing y Mutation Testing mejoran la efectividad de las pruebas.</p>
+                    </div>
+                </div>
+
+                <div class="testing-advanced-container">
+                    <!-- Testing Pyramid Visual - Clickable -->
+                    <div class="testing-pyramid-visual-v2">
+                        <div class="pyramid-wrapper">
+                            <button class="pyramid-level-btn e2e" data-test-type="e2e">
+                                <span class="level-name">E2E Tests</span>
+                                <span class="level-percent">~10%</span>
+                                <span class="level-tools">Playwright, Cypress</span>
+                            </button>
+                            <button class="pyramid-level-btn integration" data-test-type="integration">
+                                <span class="level-name">Integration Tests</span>
+                                <span class="level-percent">~20%</span>
+                                <span class="level-tools">Spring Boot Test</span>
+                            </button>
+                            <button class="pyramid-level-btn unit" data-test-type="unit">
+                                <span class="level-name">Unit Tests</span>
+                                <span class="level-percent">~70%</span>
+                                <span class="level-tools">JUnit 5, Jest</span>
+                            </button>
                         </div>
-                        <div class="pyramid-level integration">
-                            <span class="level-name">Integration Tests</span>
-                            <span class="level-percent">~20%</span>
-                        </div>
-                        <div class="pyramid-level unit">
-                            <span class="level-name">Unit Tests</span>
-                            <span class="level-percent">~70%</span>
+                        <div class="pyramid-legend">
+                            <span><i class="fas fa-arrow-up"></i> Más lento, más costoso</span>
+                            <span><i class="fas fa-arrow-down"></i> Más rápido, más económico</span>
                         </div>
                     </div>
-                    <div class="testing-methodologies">
-                        <div class="methodology-card">
-                            <h5><i class="fas fa-sync-alt"></i> TDD - Test Driven Development</h5>
-                            <p>Escribir tests antes del codigo.</p>
-                            <div class="methodology-cycle">
-                                <span class="cycle-step">Red</span>
-                                <span class="cycle-arrow">&rarr;</span>
-                                <span class="cycle-step">Green</span>
-                                <span class="cycle-arrow">&rarr;</span>
-                                <span class="cycle-step">Refactor</span>
+
+                    <!-- Testing Methodologies Grid - Clickable -->
+                    <div class="testing-methodologies-grid">
+                        <button class="test-method-card selectable" data-test-type="tdd">
+                            <div class="method-icon"><i class="fas fa-sync-alt"></i></div>
+                            <h5>TDD</h5>
+                            <p>Test Driven Development</p>
+                            <div class="method-cycle">
+                                <span class="cycle-dot red"></span>
+                                <span class="cycle-dot green"></span>
+                                <span class="cycle-dot blue"></span>
+                            </div>
+                        </button>
+                        <button class="test-method-card selectable" data-test-type="bdd">
+                            <div class="method-icon"><i class="fas fa-users"></i></div>
+                            <h5>BDD</h5>
+                            <p>Behavior Driven Development</p>
+                            <div class="method-cycle">
+                                <span class="cycle-keyword">Given</span>
+                                <span class="cycle-keyword">When</span>
+                                <span class="cycle-keyword">Then</span>
+                            </div>
+                        </button>
+                        <button class="test-method-card selectable" data-test-type="contract">
+                            <div class="method-icon"><i class="fas fa-handshake"></i></div>
+                            <h5>Contract Testing</h5>
+                            <p>Consumer-Driven Contracts</p>
+                            <div class="method-tools">
+                                <span>Pact</span>
+                            </div>
+                        </button>
+                        <button class="test-method-card selectable" data-test-type="mutation">
+                            <div class="method-icon"><i class="fas fa-dna"></i></div>
+                            <h5>Mutation Testing</h5>
+                            <p>Test Quality Assessment</p>
+                            <div class="method-tools">
+                                <span>PIT</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Hint to select -->
+                <div id="testing-hint" class="testing-select-hint">
+                    <i class="fas fa-hand-pointer"></i> Haz clic en un nivel de la pirámide o metodología para ver el código de ejemplo
+                </div>
+
+                <!-- Testing Detail Panels -->
+                <div class="testing-details">
+                    <!-- TDD Panel -->
+                    <div id="test-panel-tdd" class="test-panel">
+                        <div class="test-panel-header">
+                            <h4><i class="fas fa-sync-alt"></i> TDD - Test Driven Development</h4>
+                            <span class="test-badge tdd">Red → Green → Refactor</span>
+                        </div>
+                        <div class="test-panel-content">
+                            <div class="tdd-cycle-visual">
+                                <div class="tdd-step red">
+                                    <div class="step-number">1</div>
+                                    <div class="step-name">RED</div>
+                                    <div class="step-desc">Escribir test que falla</div>
+                                </div>
+                                <div class="tdd-arrow">→</div>
+                                <div class="tdd-step green">
+                                    <div class="step-number">2</div>
+                                    <div class="step-name">GREEN</div>
+                                    <div class="step-desc">Código mínimo que pasa</div>
+                                </div>
+                                <div class="tdd-arrow">→</div>
+                                <div class="tdd-step blue">
+                                    <div class="step-number">3</div>
+                                    <div class="step-name">REFACTOR</div>
+                                    <div class="step-desc">Mejorar sin romper</div>
+                                </div>
+                            </div>
+                            <div class="test-code-section">
+                                <div class="code-header">
+                                    <span class="code-lang"><i class="devicon-java-plain"></i> JUnit 5</span>
+                                </div>
+                                <pre class="code-block"><code set:html={tddCode}></code></pre>
                             </div>
                         </div>
-                        <div class="methodology-card">
-                            <h5><i class="fas fa-users"></i> BDD - Behavior Driven Development</h5>
-                            <p>Tests desde la perspectiva del usuario.</p>
-                            <div class="methodology-cycle">
-                                <span class="cycle-step">Given</span>
-                                <span class="cycle-arrow">&rarr;</span>
-                                <span class="cycle-step">When</span>
-                                <span class="cycle-arrow">&rarr;</span>
-                                <span class="cycle-step">Then</span>
+                    </div>
+
+                    <!-- BDD Panel -->
+                    <div id="test-panel-bdd" class="test-panel">
+                        <div class="test-panel-header">
+                            <h4><i class="fas fa-users"></i> BDD - Behavior Driven Development</h4>
+                            <span class="test-badge bdd">Given → When → Then</span>
+                        </div>
+                        <div class="test-panel-content">
+                            <div class="bdd-structure-visual">
+                                <div class="bdd-keyword given">
+                                    <span class="keyword-name">Given</span>
+                                    <span class="keyword-desc">Contexto inicial</span>
+                                </div>
+                                <div class="bdd-keyword when">
+                                    <span class="keyword-name">When</span>
+                                    <span class="keyword-desc">Acción del usuario</span>
+                                </div>
+                                <div class="bdd-keyword then">
+                                    <span class="keyword-name">Then</span>
+                                    <span class="keyword-desc">Resultado esperado</span>
+                                </div>
+                            </div>
+                            <div class="test-code-section">
+                                <div class="code-header">
+                                    <span class="code-lang"><i class="fas fa-cucumber"></i> Cucumber + Gherkin</span>
+                                </div>
+                                <pre class="code-block"><code set:html={bddCode}></code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contract Testing Panel -->
+                    <div id="test-panel-contract" class="test-panel">
+                        <div class="test-panel-header">
+                            <h4><i class="fas fa-handshake"></i> Contract Testing</h4>
+                            <span class="test-badge contract">Consumer-Driven</span>
+                        </div>
+                        <div class="test-panel-content">
+                            <div class="contract-flow-visual">
+                                <div class="contract-party consumer">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span>Consumer</span>
+                                    <small>Frontend/Mobile</small>
+                                </div>
+                                <div class="contract-arrow">
+                                    <div class="contract-doc">
+                                        <i class="fas fa-file-contract"></i>
+                                        <span>Contract</span>
+                                    </div>
+                                </div>
+                                <div class="contract-party provider">
+                                    <i class="fas fa-server"></i>
+                                    <span>Provider</span>
+                                    <small>Backend API</small>
+                                </div>
+                            </div>
+                            <div class="test-code-section">
+                                <div class="code-header">
+                                    <span class="code-lang"><i class="devicon-javascript-plain"></i> Pact.js</span>
+                                </div>
+                                <pre class="code-block"><code set:html={contractTestCode}></code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mutation Testing Panel -->
+                    <div id="test-panel-mutation" class="test-panel">
+                        <div class="test-panel-header">
+                            <h4><i class="fas fa-dna"></i> Mutation Testing</h4>
+                            <span class="test-badge mutation">Test Quality</span>
+                        </div>
+                        <div class="test-panel-content">
+                            <div class="mutation-concept-visual">
+                                <div class="mutation-step original">
+                                    <span class="step-label">Código Original</span>
+                                    <code>if (x > 10)</code>
+                                </div>
+                                <div class="mutation-arrow">
+                                    <i class="fas fa-dna"></i>
+                                    <span>Mutación</span>
+                                </div>
+                                <div class="mutation-step mutant">
+                                    <span class="step-label">Mutante</span>
+                                    <code>if (x >= 10)</code>
+                                </div>
+                                <div class="mutation-result">
+                                    <span class="killed"><i class="fas fa-check"></i> Test detecta = Mutante Killed</span>
+                                    <span class="survived"><i class="fas fa-times"></i> Test no detecta = Mutante Survived</span>
+                                </div>
+                            </div>
+                            <div class="test-code-section">
+                                <div class="code-header">
+                                    <span class="code-lang"><i class="devicon-java-plain"></i> PIT (Java)</span>
+                                </div>
+                                <pre class="code-block"><code set:html={mutationTestCode}></code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Integration Testing Panel -->
+                    <div id="test-panel-integration" class="test-panel">
+                        <div class="test-panel-header">
+                            <h4><i class="fas fa-puzzle-piece"></i> Integration Testing</h4>
+                            <span class="test-badge integration">~20% Pyramid</span>
+                        </div>
+                        <div class="test-panel-content">
+                            <div class="integration-layers-visual">
+                                <div class="int-layer controller">Controller</div>
+                                <div class="int-arrow">↓</div>
+                                <div class="int-layer service">Service</div>
+                                <div class="int-arrow">↓</div>
+                                <div class="int-layer repository">Repository</div>
+                                <div class="int-arrow">↓</div>
+                                <div class="int-layer database">Database (H2/TestContainers)</div>
+                            </div>
+                            <div class="test-code-section">
+                                <div class="code-header">
+                                    <span class="code-lang"><i class="devicon-spring-plain"></i> Spring Boot Test</span>
+                                </div>
+                                <pre class="code-block"><code set:html={integrationTestCode}></code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- E2E Testing Panel -->
+                    <div id="test-panel-e2e" class="test-panel">
+                        <div class="test-panel-header">
+                            <h4><i class="fas fa-globe"></i> E2E Testing</h4>
+                            <span class="test-badge e2e">~10% Pyramid</span>
+                        </div>
+                        <div class="test-panel-content">
+                            <div class="e2e-flow-visual">
+                                <div class="e2e-step">
+                                    <i class="fas fa-user"></i>
+                                    <span>Usuario</span>
+                                </div>
+                                <div class="e2e-arrow">→</div>
+                                <div class="e2e-step">
+                                    <i class="fas fa-browser"></i>
+                                    <span>Browser</span>
+                                </div>
+                                <div class="e2e-arrow">→</div>
+                                <div class="e2e-step">
+                                    <i class="fas fa-server"></i>
+                                    <span>Backend</span>
+                                </div>
+                                <div class="e2e-arrow">→</div>
+                                <div class="e2e-step">
+                                    <i class="fas fa-database"></i>
+                                    <span>Database</span>
+                                </div>
+                            </div>
+                            <div class="test-code-section">
+                                <div class="code-header">
+                                    <span class="code-lang"><i class="fas fa-theater-masks"></i> Playwright</span>
+                                </div>
+                                <pre class="code-block"><code set:html={e2eTestCode}></code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Unit Testing Panel -->
+                    <div id="test-panel-unit" class="test-panel">
+                        <div class="test-panel-header">
+                            <h4><i class="fas fa-cube"></i> Unit Testing</h4>
+                            <span class="test-badge unit">~70% Pyramid</span>
+                        </div>
+                        <div class="test-panel-content">
+                            <div class="unit-concept-visual">
+                                <div class="unit-principle">
+                                    <div class="principle-icon"><i class="fas fa-bullseye"></i></div>
+                                    <div class="principle-text">
+                                        <strong>Una unidad = Una función/método</strong>
+                                        <p>Aislar dependencias con Mocks</p>
+                                    </div>
+                                </div>
+                                <div class="unit-characteristics">
+                                    <span class="char-item"><i class="fas fa-bolt"></i> Rápidos</span>
+                                    <span class="char-item"><i class="fas fa-cube"></i> Aislados</span>
+                                    <span class="char-item"><i class="fas fa-redo"></i> Repetibles</span>
+                                    <span class="char-item"><i class="fas fa-check"></i> Auto-verificables</span>
+                                </div>
+                            </div>
+                            <div class="test-code-section">
+                                <div class="code-header">
+                                    <span class="code-lang"><i class="devicon-java-plain"></i> JUnit 5</span>
+                                </div>
+                                <pre class="code-block"><code set:html={tddCode}></code></pre>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="fundamentals-references">
                     <a href="https://martinfowler.com/bliki/TestPyramid.html" target="_blank" class="ref-link"><i class="fas fa-layer-group"></i> Test Pyramid</a>
+                    <a href="https://cucumber.io/docs/bdd/" target="_blank" class="ref-link"><i class="fas fa-cucumber"></i> Cucumber BDD</a>
+                    <a href="https://pact.io/" target="_blank" class="ref-link"><i class="fas fa-handshake"></i> Pact Contract Testing</a>
+                    <a href="https://pitest.org/" target="_blank" class="ref-link"><i class="fas fa-dna"></i> PIT Mutation</a>
                 </div>
             </div>
         </div>
@@ -5614,4 +6213,62 @@ public class Producto implements Registrable {
     // Add event listeners for GoF patterns
     document.addEventListener('DOMContentLoaded', initGofPatterns);
     document.addEventListener('astro:page-load', initGofPatterns);
+
+    // ===== Testing Avanzado Selector =====
+    function initTestingPanels() {
+        var pyramidButtons = document.querySelectorAll('.pyramid-level-btn');
+        var methodCards = document.querySelectorAll('.test-method-card.selectable');
+        var testPanels = document.querySelectorAll('.test-panel');
+        var testingHint = document.getElementById('testing-hint');
+
+        function showTestPanel(testType) {
+            // Hide hint
+            if (testingHint) {
+                testingHint.style.display = 'none';
+            }
+
+            // Remove selected from all buttons
+            pyramidButtons.forEach(function(btn) {
+                btn.classList.remove('selected');
+            });
+            methodCards.forEach(function(card) {
+                card.classList.remove('selected');
+            });
+
+            // Hide all panels
+            testPanels.forEach(function(panel) {
+                panel.classList.remove('active');
+            });
+
+            // Show target panel
+            var targetPanel = document.getElementById('test-panel-' + testType);
+            if (targetPanel) {
+                targetPanel.classList.add('active');
+            }
+        }
+
+        // Pyramid level buttons
+        pyramidButtons.forEach(function(btn) {
+            btn.onclick = function() {
+                var testType = this.dataset.testType;
+                if (!testType) return;
+                this.classList.add('selected');
+                showTestPanel(testType);
+            };
+        });
+
+        // Method cards
+        methodCards.forEach(function(card) {
+            card.onclick = function() {
+                var testType = this.dataset.testType;
+                if (!testType) return;
+                this.classList.add('selected');
+                showTestPanel(testType);
+            };
+        });
+    }
+
+    // Add event listeners for Testing panels
+    document.addEventListener('DOMContentLoaded', initTestingPanels);
+    document.addEventListener('astro:page-load', initTestingPanels);
 </script>
