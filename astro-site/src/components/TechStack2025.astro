@@ -860,95 +860,140 @@ const langData = {
     }
 };
 
-document.addEventListener('astro:page-load', initTechStack);
+// Inicialización con soporte para View Transitions
+let techStackInitialized = false;
+
+document.addEventListener('astro:page-load', () => {
+    techStackInitialized = false;
+    initTechStack();
+});
 document.addEventListener('DOMContentLoaded', initTechStack);
 
 function initTechStack() {
-    // Source Selector Tabs
+    // Evitar doble inicialización
+    if (techStackInitialized) return;
+
+    const techSection = document.querySelector('.tech-stack-section');
+    if (!techSection) return;
+
+    techStackInitialized = true;
+
+    // ==========================================
+    // SOURCE SELECTOR (SO Survey / Octoverse / TIOBE)
+    // ==========================================
     const sourceTabs = document.querySelectorAll('.source-tab');
     const sourceLinks = document.querySelectorAll('.source-link');
 
     sourceTabs.forEach(tab => {
-        tab.onclick = () => {
-            const source = tab.dataset.source;
+        tab.addEventListener('click', function() {
+            const source = this.dataset.source;
+            if (!source) return;
 
-            // Update active tab
+            // Update active tab styling
             sourceTabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
+            this.classList.add('active');
 
-            // Update source links
+            // Update source attribution links
             sourceLinks.forEach(link => {
-                link.classList.toggle('active', link.dataset.for === source);
+                if (link.dataset.for === source) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
             });
 
-            // Update podium cards
+            // Update podium data
             updatePodiumData(source);
-        };
+        });
     });
 
-    // Category Filters with Multi-Selection Support
+    // ==========================================
+    // CATEGORY FILTERS (Multi-selection support)
+    // ==========================================
     const filterBtns = document.querySelectorAll('.filter-btn');
-    const categoryCards = document.querySelectorAll('.category-card');
+    const categoriesGrid = document.querySelector('.categories-grid');
     let activeFilters = new Set(['all']);
 
+    function applyFilters() {
+        if (!categoriesGrid) return;
+
+        const categoryCards = categoriesGrid.querySelectorAll('.category-card');
+
+        categoryCards.forEach(card => {
+            const cardCategory = card.dataset.category;
+            const shouldShow = activeFilters.has('all') || activeFilters.has(cardCategory);
+
+            if (shouldShow) {
+                card.style.display = '';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
     filterBtns.forEach(btn => {
-        btn.onclick = (e) => {
-            const filter = btn.dataset.filter;
+        btn.addEventListener('click', function(e) {
+            const filter = this.dataset.filter;
+            if (!filter) return;
+
             const isMultiSelect = e.ctrlKey || e.metaKey;
-            
+
             if (filter === 'all') {
-                // Clicking "all" resets everything
+                // Reset to show all
                 activeFilters.clear();
                 activeFilters.add('all');
                 filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
+                this.classList.add('active');
             } else if (isMultiSelect) {
                 // Multi-select mode (Ctrl/Cmd + click)
                 activeFilters.delete('all');
+
                 if (activeFilters.has(filter)) {
                     activeFilters.delete(filter);
-                    btn.classList.remove('active');
+                    this.classList.remove('active');
                 } else {
                     activeFilters.add(filter);
-                    btn.classList.add('active');
+                    this.classList.add('active');
                 }
-                // Deactivate "all" button
+
+                // Deactivate "Todas" button
                 filterBtns.forEach(b => {
-                    if (b.dataset.filter === 'all') b.classList.remove('active');
+                    if (b.dataset.filter === 'all') {
+                        b.classList.remove('active');
+                    }
                 });
-                // If no filters active, show all
+
+                // If no filters selected, show all
                 if (activeFilters.size === 0) {
                     activeFilters.add('all');
                     filterBtns.forEach(b => {
-                        if (b.dataset.filter === 'all') b.classList.add('active');
+                        if (b.dataset.filter === 'all') {
+                            b.classList.add('active');
+                        }
                     });
                 }
             } else {
-                // Single select mode
+                // Single select mode (normal click)
                 activeFilters.clear();
                 activeFilters.add(filter);
                 filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
+                this.classList.add('active');
             }
 
-            // Apply filter
-            categoryCards.forEach(card => {
-                const shouldShow = activeFilters.has('all') || activeFilters.has(card.dataset.category);
-                if (shouldShow) {
-                    card.style.display = '';
-                    card.style.animation = 'fadeIn 0.3s ease';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        };
+            // Apply the filters
+            applyFilters();
+        });
     });
 
-    // Search Functionality
+    // ==========================================
+    // SEARCH FUNCTIONALITY
+    // ==========================================
     const searchInput = document.getElementById('tech-search');
     if (searchInput) {
-        searchInput.oninput = (e) => {
-            const query = e.target.value.toLowerCase();
+        searchInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase().trim();
             const techItems = document.querySelectorAll('.tech-item, .lang-chip-v2, .podium-card-v2');
 
             techItems.forEach(item => {
@@ -961,15 +1006,15 @@ function initTechStack() {
                     item.style.transform = 'scale(0.95)';
                 }
             });
-        };
+        });
 
-        // Keyboard shortcut
-        document.addEventListener('keydown', (e) => {
+        // Keyboard shortcut (Cmd/Ctrl + K)
+        document.addEventListener('keydown', function(e) {
             if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
                 e.preventDefault();
                 searchInput.focus();
             }
-            if (e.key === 'Escape') {
+            if (e.key === 'Escape' && document.activeElement === searchInput) {
                 searchInput.value = '';
                 searchInput.dispatchEvent(new Event('input'));
                 searchInput.blur();
@@ -977,7 +1022,7 @@ function initTechStack() {
         });
     }
 
-    // Tooltips
+    // Initialize tooltips
     initTooltips();
 }
 
@@ -998,75 +1043,66 @@ function updatePodiumData(source) {
     }
 
     // Helper function to render icon based on type
-    function renderIcon(iconStr, name, size = 'normal') {
+    function renderIcon(iconStr, name) {
+        if (!iconStr) return '<i class="fas fa-code"></i>';
+
         if (iconStr.startsWith('img:')) {
-            // Simple Icons CDN or external image
             const src = iconStr.replace('img:', '');
-            const imgSize = size === 'small' ? '20' : size === 'large' ? '36' : '32';
-            return `<img src="${src}" alt="${name}" width="${imgSize}" height="${imgSize}" loading="lazy" />`;
-        } else if (iconStr.startsWith('devicon') || iconStr.startsWith('fas') || iconStr.startsWith('fab') || iconStr.startsWith('far')) {
-            // Devicon or Font Awesome
-            return `<i class="${iconStr}"></i>`;
+            return `<img src="${src}" alt="${name}" loading="lazy" style="width: 100%; height: 100%; object-fit: contain;" />`;
         } else {
-            // Fallback to treating as class
             return `<i class="${iconStr}"></i>`;
         }
     }
 
+    // Helper to get medal HTML
+    function getMedalHtml(medal) {
+        if (medal === 'gold') return '<span class="medal gold">🥇</span>';
+        if (medal === 'silver') return '<span class="medal silver">🥈</span>';
+        if (medal === 'bronze') return '<span class="medal bronze">🥉</span>';
+        return '';
+    }
+
+    // Helper to get trend icon
+    function getTrendIcon(trend) {
+        if (trend === 'hot') return 'fa-fire';
+        if (trend === 'up') return 'fa-arrow-up';
+        if (trend === 'down') return 'fa-arrow-down';
+        return 'fa-minus';
+    }
+
+    // Helper to get trend emoji
+    function getTrendEmoji(trend) {
+        if (trend === 'hot') return '🔥';
+        if (trend === 'up') return '↑';
+        if (trend === 'down') return '↓';
+        return '→';
+    }
+
     if (podiumGrid) {
-        // Clear and rebuild podium
-        podiumGrid.innerHTML = data.top.map((lang, idx) => `
-            <a href="${lang.url}" target="_blank" rel="noopener"
-               class="podium-card-v2 medal-${lang.medal}"
-               data-source="${source}"
-               data-premium-tooltip="${buildTooltip(lang.name, lang.desc)}"
-               style="order: ${idx === 0 ? 2 : idx === 1 ? 1 : 3}">
-                <div class="medal-icon">
-                    ${lang.medal === 'gold' ? '<span class="medal gold">🥇</span>' : ''}
-                    ${lang.medal === 'silver' ? '<span class="medal silver">🥈</span>' : ''}
-                    ${lang.medal === 'bronze' ? '<span class="medal bronze">🥉</span>' : ''}
-                </div>
-                <div class="lang-avatar-v2">
-                    ${renderIcon(lang.icon, lang.name, 'large')}
-                </div>
-                <div class="lang-info-v2">
-                    <span class="lang-name-v2">${lang.name}</span>
-                    <span class="lang-stat-v2">${lang.stat}</span>
-                </div>
-                <div class="trend-badge trend-${lang.trend}">
-                    <i class="fas ${lang.trend === 'hot' ? 'fa-fire' : lang.trend === 'up' ? 'fa-arrow-up' : lang.trend === 'down' ? 'fa-arrow-down' : 'fa-minus'}"></i> ${lang.trendLabel}
-                    <span class="trend-value">${lang.trendValue}</span>
-                </div>
-                <div class="jobs-badge">
-                    <i class="fas fa-briefcase"></i> ${lang.jobs} empleos
-                </div>
-                <div class="progress-bar-v2">
-                    <div class="progress-fill-v2" style="width: ${lang.barWidth}"></div>
-                </div>
-            </a>
-        `).join('');
+        // Build podium cards HTML - compact format to avoid whitespace issues
+        const podiumHtml = data.top.map((lang, idx) => {
+            const order = idx === 0 ? 2 : idx === 1 ? 1 : 3;
+            return `<a href="${lang.url}" target="_blank" rel="noopener" class="podium-card-v2 medal-${lang.medal}" data-source="${source}" data-premium-tooltip="${buildTooltip(lang.name, lang.desc)}" style="order: ${order}"><div class="medal-icon">${getMedalHtml(lang.medal)}</div><div class="lang-avatar-v2">${renderIcon(lang.icon, lang.name)}</div><div class="lang-info-v2"><span class="lang-name-v2">${lang.name}</span><span class="lang-stat-v2">${lang.stat}</span></div><div class="trend-badge trend-${lang.trend}"><i class="fas ${getTrendIcon(lang.trend)}"></i> ${lang.trendLabel || ''}<span class="trend-value">${lang.trendValue}</span></div><div class="jobs-badge"><i class="fas fa-briefcase"></i> ${lang.jobs} empleos</div><div class="progress-bar-v2"><div class="progress-fill-v2" style="width: ${lang.barWidth}"></div></div></a>`;
+        }).join('');
+
+        podiumGrid.innerHTML = podiumHtml;
     }
 
     if (secondaryGrid) {
-        // Clear and rebuild secondary with size classes
-        secondaryGrid.innerHTML = data.secondary.map((lang, idx) => {
+        // Build secondary languages HTML
+        const secondaryHtml = data.secondary.map((lang, idx) => {
             const sizeClass = idx < 3 ? 'size-lg' : idx < 5 ? 'size-md' : 'size-sm';
-            return `
-            <a href="${lang.url}" target="_blank" rel="noopener"
-               class="lang-chip-v2 ${sizeClass}"
-               data-source="${source}"
-               data-premium-tooltip="${buildTooltip(lang.name, lang.desc)}">
-                ${renderIcon(lang.icon, lang.name, 'small')}
-                <span class="chip-name-v2">${lang.name}</span>
-                <span class="chip-stat-v2">${lang.stat}</span>
-                ${sizeClass !== 'size-sm' ? `<span class="chip-trend-v2 trend-${lang.trend}">
-                    ${lang.trend === 'hot' ? '🔥' : lang.trend === 'up' ? '↑' : lang.trend === 'stable' ? '→' : '↓'}${lang.trendValue}
-                </span>` : ''}
-            </a>`;
+            const trendHtml = sizeClass !== 'size-sm'
+                ? `<span class="chip-trend-v2 trend-${lang.trend}">${getTrendEmoji(lang.trend)}${lang.trendValue}</span>`
+                : '';
+
+            return `<a href="${lang.url}" target="_blank" rel="noopener" class="lang-chip-v2 ${sizeClass}" data-source="${source}" data-premium-tooltip="${buildTooltip(lang.name, lang.desc)}">${renderIcon(lang.icon, lang.name)}<span class="chip-name-v2">${lang.name}</span><span class="chip-stat-v2">${lang.stat}</span>${trendHtml}</a>`;
         }).join('');
+
+        secondaryGrid.innerHTML = secondaryHtml;
     }
 
-    // Re-init premium tooltips
+    // Re-init premium tooltips if available
     if (typeof initPremiumTooltips === 'function') {
         initPremiumTooltips();
     }
