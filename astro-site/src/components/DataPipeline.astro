@@ -1,5 +1,394 @@
 ---
 // Data Pipeline Section - Real-time and Batch processing views
+
+// GoF Design Patterns Code Examples
+const singletonCode = `// Singleton Pattern - Thread-Safe (Double-Checked Locking)
+public class DatabaseConnection {
+    private static volatile DatabaseConnection instance;
+    private Connection connection;
+
+    private DatabaseConnection() {
+        // Private constructor prevents direct instantiation
+        this.connection = createConnection();
+    }
+
+    public static DatabaseConnection getInstance() {
+        if (instance == null) {
+            synchronized (DatabaseConnection.class) {
+                if (instance == null) {
+                    instance = new DatabaseConnection();
+                }
+            }
+        }
+        return instance;
+    }
+
+    public void executeQuery(String sql) {
+        // Execute SQL using the single connection
+    }
+}
+
+// Uso:
+DatabaseConnection db = DatabaseConnection.getInstance();
+db.executeQuery("SELECT * FROM users");`;
+
+const factoryCode = `// Factory Method Pattern
+public interface Notification {
+    void send(String message);
+}
+
+public class EmailNotification implements Notification {
+    @Override
+    public void send(String message) {
+        System.out.println("Email: " + message);
+    }
+}
+
+public class SMSNotification implements Notification {
+    @Override
+    public void send(String message) {
+        System.out.println("SMS: " + message);
+    }
+}
+
+public class PushNotification implements Notification {
+    @Override
+    public void send(String message) {
+        System.out.println("Push: " + message);
+    }
+}
+
+// Factory Creator
+public abstract class NotificationFactory {
+    public abstract Notification createNotification();
+
+    public void notifyUser(String message) {
+        Notification notification = createNotification();
+        notification.send(message);
+    }
+}
+
+public class EmailFactory extends NotificationFactory {
+    @Override
+    public Notification createNotification() {
+        return new EmailNotification();
+    }
+}
+
+// Uso:
+NotificationFactory factory = new EmailFactory();
+factory.notifyUser("Tu pedido ha sido enviado!");`;
+
+const builderCode = `// Builder Pattern - Fluent Interface
+public class User {
+    private final String firstName;  // Requerido
+    private final String lastName;   // Requerido
+    private final String email;      // Opcional
+    private final int age;           // Opcional
+    private final String phone;      // Opcional
+
+    private User(UserBuilder builder) {
+        this.firstName = builder.firstName;
+        this.lastName = builder.lastName;
+        this.email = builder.email;
+        this.age = builder.age;
+        this.phone = builder.phone;
+    }
+
+    public static class UserBuilder {
+        private final String firstName;  // Requerido
+        private final String lastName;   // Requerido
+        private String email = "";
+        private int age = 0;
+        private String phone = "";
+
+        public UserBuilder(String firstName, String lastName) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+
+        public UserBuilder email(String email) {
+            this.email = email;
+            return this;
+        }
+
+        public UserBuilder age(int age) {
+            this.age = age;
+            return this;
+        }
+
+        public UserBuilder phone(String phone) {
+            this.phone = phone;
+            return this;
+        }
+
+        public User build() {
+            return new User(this);
+        }
+    }
+}
+
+// Uso con fluent interface:
+User user = new User.UserBuilder("Juan", "Pérez")
+    .email("juan@example.com")
+    .age(28)
+    .phone("+56912345678")
+    .build();`;
+
+const adapterCode = `// Adapter Pattern - Integración de APIs externas
+// Interfaz que espera nuestro sistema
+public interface PaymentProcessor {
+    void processPayment(double amount, String currency);
+    boolean refund(String transactionId);
+}
+
+// API externa con interfaz diferente
+public class StripeAPI {
+    public String charge(int amountInCents, String cur) {
+        // Lógica de Stripe...
+        return "txn_" + System.currentTimeMillis();
+    }
+
+    public boolean cancelCharge(String chargeId) {
+        // Lógica de cancelación...
+        return true;
+    }
+}
+
+// Adapter: adapta Stripe a nuestra interfaz
+public class StripePaymentAdapter implements PaymentProcessor {
+    private final StripeAPI stripeAPI;
+
+    public StripePaymentAdapter(StripeAPI stripeAPI) {
+        this.stripeAPI = stripeAPI;
+    }
+
+    @Override
+    public void processPayment(double amount, String currency) {
+        // Convertimos el monto a centavos
+        int amountInCents = (int) (amount * 100);
+        stripeAPI.charge(amountInCents, currency);
+    }
+
+    @Override
+    public boolean refund(String transactionId) {
+        return stripeAPI.cancelCharge(transactionId);
+    }
+}
+
+// Uso: nuestro código usa la interfaz estándar
+PaymentProcessor processor = new StripePaymentAdapter(new StripeAPI());
+processor.processPayment(99.99, "USD");`;
+
+const decoratorCode = `// Decorator Pattern - Añadir funcionalidad dinámicamente
+public interface Coffee {
+    String getDescription();
+    double getCost();
+}
+
+public class SimpleCoffee implements Coffee {
+    @Override
+    public String getDescription() {
+        return "Café simple";
+    }
+
+    @Override
+    public double getCost() {
+        return 1.00;
+    }
+}
+
+// Decorador base
+public abstract class CoffeeDecorator implements Coffee {
+    protected Coffee decoratedCoffee;
+
+    public CoffeeDecorator(Coffee coffee) {
+        this.decoratedCoffee = coffee;
+    }
+}
+
+// Decoradores concretos
+public class MilkDecorator extends CoffeeDecorator {
+    public MilkDecorator(Coffee coffee) {
+        super(coffee);
+    }
+
+    @Override
+    public String getDescription() {
+        return decoratedCoffee.getDescription() + ", con leche";
+    }
+
+    @Override
+    public double getCost() {
+        return decoratedCoffee.getCost() + 0.50;
+    }
+}
+
+public class VanillaDecorator extends CoffeeDecorator {
+    public VanillaDecorator(Coffee coffee) {
+        super(coffee);
+    }
+
+    @Override
+    public String getDescription() {
+        return decoratedCoffee.getDescription() + ", con vainilla";
+    }
+
+    @Override
+    public double getCost() {
+        return decoratedCoffee.getCost() + 0.70;
+    }
+}
+
+// Uso: composición dinámica
+Coffee miCafe = new VanillaDecorator(
+    new MilkDecorator(
+        new SimpleCoffee()
+    )
+);
+System.out.println(miCafe.getDescription()); // Café simple, con leche, con vainilla
+System.out.println("$" + miCafe.getCost());  // $2.20`;
+
+const observerCode = `// Observer Pattern - Sistema de eventos
+import java.util.ArrayList;
+import java.util.List;
+
+// Subject (Publisher)
+public interface StockSubject {
+    void attach(StockObserver observer);
+    void detach(StockObserver observer);
+    void notifyObservers();
+}
+
+// Observer (Subscriber)
+public interface StockObserver {
+    void update(String stockSymbol, double price);
+}
+
+// Concrete Subject
+public class Stock implements StockSubject {
+    private List<StockObserver> observers = new ArrayList<>();
+    private String symbol;
+    private double price;
+
+    public Stock(String symbol, double price) {
+        this.symbol = symbol;
+        this.price = price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+        notifyObservers(); // Notifica cambios automáticamente
+    }
+
+    @Override
+    public void attach(StockObserver observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void detach(StockObserver observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (StockObserver observer : observers) {
+            observer.update(symbol, price);
+        }
+    }
+}
+
+// Concrete Observer
+public class StockAlert implements StockObserver {
+    private String name;
+
+    public StockAlert(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void update(String stockSymbol, double price) {
+        System.out.println(name + ": " + stockSymbol + " ahora vale $" + price);
+    }
+}
+
+// Uso:
+Stock apple = new Stock("AAPL", 150.0);
+apple.attach(new StockAlert("Inversor1"));
+apple.attach(new StockAlert("Inversor2"));
+apple.setPrice(155.0); // Notifica a todos los observers`;
+
+const strategyCode = `// Strategy Pattern - Algoritmos intercambiables
+public interface PaymentStrategy {
+    void pay(double amount);
+    boolean validate();
+}
+
+public class CreditCardPayment implements PaymentStrategy {
+    private String cardNumber;
+    private String cvv;
+
+    public CreditCardPayment(String cardNumber, String cvv) {
+        this.cardNumber = cardNumber;
+        this.cvv = cvv;
+    }
+
+    @Override
+    public boolean validate() {
+        return cardNumber.length() == 16 && cvv.length() == 3;
+    }
+
+    @Override
+    public void pay(double amount) {
+        System.out.println("Pagando $" + amount + " con tarjeta: ****" +
+            cardNumber.substring(12));
+    }
+}
+
+public class PayPalPayment implements PaymentStrategy {
+    private String email;
+
+    public PayPalPayment(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public boolean validate() {
+        return email.contains("@");
+    }
+
+    @Override
+    public void pay(double amount) {
+        System.out.println("Pagando $" + amount + " via PayPal: " + email);
+    }
+}
+
+// Context: usa la estrategia sin conocer los detalles
+public class ShoppingCart {
+    private PaymentStrategy paymentStrategy;
+
+    public void setPaymentStrategy(PaymentStrategy strategy) {
+        this.paymentStrategy = strategy;
+    }
+
+    public void checkout(double amount) {
+        if (paymentStrategy.validate()) {
+            paymentStrategy.pay(amount);
+        } else {
+            throw new RuntimeException("Pago inválido");
+        }
+    }
+}
+
+// Uso: el cliente elige la estrategia
+ShoppingCart cart = new ShoppingCart();
+cart.setPaymentStrategy(new CreditCardPayment("1234567890123456", "123"));
+cart.checkout(99.99);
+
+// Cambiar estrategia en runtime
+cart.setPaymentStrategy(new PayPalPayment("usuario@email.com"));
+cart.checkout(49.99);`;
 ---
 
 <section id="pipeline" class="pipeline-section">
@@ -4513,49 +4902,442 @@ public class Producto implements Registrable {
                 </div>
             </div>
             <div class="fundamentals-content">
+                <!-- Intro Banner -->
+                <div class="gof-intro-banner">
+                    <div class="gof-intro-icon"><i class="fas fa-shapes"></i></div>
+                    <div class="gof-intro-text">
+                        <p>Los <strong>Design Patterns</strong> son soluciones reutilizables a problemas comunes en el diseño de software. El libro <em>"Design Patterns: Elements of Reusable Object-Oriented Software"</em> (1994) documentó 23 patrones clasificados en tres categorías.</p>
+                    </div>
+                </div>
+
+                <!-- Categories Grid -->
                 <div class="patterns-categories-grid">
                     <div class="pattern-category creational">
                         <div class="category-header">
                             <div class="category-icon"><i class="fas fa-plus-circle"></i></div>
-                            <div class="category-info"><h4>Creational</h4><span>5 patterns</span></div>
+                            <div class="category-info"><h4>Creational</h4><span>Creación de objetos</span></div>
                         </div>
                         <div class="pattern-list">
-                            <div class="pattern-item hot"><i class="fas fa-industry"></i> Factory Method</div>
-                            <div class="pattern-item"><i class="fas fa-cube"></i> Abstract Factory</div>
-                            <div class="pattern-item hot"><i class="fas fa-hammer"></i> Builder</div>
-                            <div class="pattern-item"><i class="fas fa-clone"></i> Prototype</div>
-                            <div class="pattern-item hot"><i class="fas fa-fingerprint"></i> Singleton</div>
+                            <button class="pattern-item hot selectable" data-pattern="singleton"><i class="fas fa-fingerprint"></i> Singleton</button>
+                            <button class="pattern-item hot selectable" data-pattern="factory"><i class="fas fa-industry"></i> Factory Method</button>
+                            <button class="pattern-item hot selectable" data-pattern="builder"><i class="fas fa-hammer"></i> Builder</button>
+                            <button class="pattern-item"><i class="fas fa-cube"></i> Abstract Factory</button>
+                            <button class="pattern-item"><i class="fas fa-clone"></i> Prototype</button>
                         </div>
                     </div>
                     <div class="pattern-category structural">
                         <div class="category-header">
                             <div class="category-icon"><i class="fas fa-cubes"></i></div>
-                            <div class="category-info"><h4>Structural</h4><span>7 patterns</span></div>
+                            <div class="category-info"><h4>Structural</h4><span>Composición de clases</span></div>
                         </div>
                         <div class="pattern-list">
-                            <div class="pattern-item hot"><i class="fas fa-plug"></i> Adapter</div>
-                            <div class="pattern-item"><i class="fas fa-bridge"></i> Bridge</div>
-                            <div class="pattern-item"><i class="fas fa-folder-tree"></i> Composite</div>
-                            <div class="pattern-item hot"><i class="fas fa-paint-brush"></i> Decorator</div>
-                            <div class="pattern-item hot"><i class="fas fa-door-open"></i> Facade</div>
+                            <button class="pattern-item hot selectable" data-pattern="adapter"><i class="fas fa-plug"></i> Adapter</button>
+                            <button class="pattern-item hot selectable" data-pattern="decorator"><i class="fas fa-paint-brush"></i> Decorator</button>
+                            <button class="pattern-item"><i class="fas fa-door-open"></i> Facade</button>
+                            <button class="pattern-item"><i class="fas fa-bridge"></i> Bridge</button>
+                            <button class="pattern-item"><i class="fas fa-folder-tree"></i> Composite</button>
                         </div>
                     </div>
                     <div class="pattern-category behavioral">
                         <div class="category-header">
                             <div class="category-icon"><i class="fas fa-exchange-alt"></i></div>
-                            <div class="category-info"><h4>Behavioral</h4><span>11 patterns</span></div>
+                            <div class="category-info"><h4>Behavioral</h4><span>Comunicación entre objetos</span></div>
                         </div>
                         <div class="pattern-list">
-                            <div class="pattern-item hot"><i class="fas fa-eye"></i> Observer</div>
-                            <div class="pattern-item hot"><i class="fas fa-route"></i> Strategy</div>
-                            <div class="pattern-item"><i class="fas fa-terminal"></i> Command</div>
-                            <div class="pattern-item"><i class="fas fa-list"></i> Iterator</div>
-                            <div class="pattern-item"><i class="fas fa-file-alt"></i> Template Method</div>
+                            <button class="pattern-item hot selectable" data-pattern="observer"><i class="fas fa-eye"></i> Observer</button>
+                            <button class="pattern-item hot selectable" data-pattern="strategy"><i class="fas fa-route"></i> Strategy</button>
+                            <button class="pattern-item"><i class="fas fa-terminal"></i> Command</button>
+                            <button class="pattern-item"><i class="fas fa-list"></i> Iterator</button>
+                            <button class="pattern-item"><i class="fas fa-file-alt"></i> Template Method</button>
                         </div>
                     </div>
                 </div>
+
+                <!-- Pattern Detail Panels -->
+                <div class="gof-pattern-details">
+                    <div class="gof-select-hint" id="gof-hint">
+                        <i class="fas fa-hand-pointer"></i>
+                        <span>Selecciona un patrón con <span class="hot-badge">HOT</span> para ver el código de ejemplo</span>
+                    </div>
+
+                    <!-- Singleton Panel -->
+                    <div class="gof-pattern-panel" id="gof-panel-singleton">
+                        <div class="pattern-panel-header">
+                            <div class="pattern-title">
+                                <i class="fas fa-fingerprint"></i>
+                                <h4>Singleton Pattern</h4>
+                                <span class="pattern-category-badge creational">Creational</span>
+                            </div>
+                            <div class="pattern-intent">
+                                <strong>Intención:</strong> Garantizar que una clase tenga una única instancia y proporcionar un punto de acceso global a ella.
+                            </div>
+                        </div>
+                        <div class="pattern-diagram">
+                            <div class="uml-simple">
+                                <div class="uml-class singleton-class">
+                                    <div class="uml-class-name">DatabaseConnection</div>
+                                    <div class="uml-class-attrs">
+                                        <span>- instance: DatabaseConnection</span>
+                                        <span>- connection: Connection</span>
+                                    </div>
+                                    <div class="uml-class-methods">
+                                        <span>- DatabaseConnection()</span>
+                                        <span>+ getInstance(): DatabaseConnection</span>
+                                        <span>+ executeQuery(sql): void</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pattern-code-section">
+                            <div class="code-header">
+                                <span class="code-lang"><i class="devicon-java-plain"></i> Java</span>
+                                <span class="code-file">DatabaseConnection.java</span>
+                            </div>
+                            <pre class="code-block"><code set:html={singletonCode}></code></pre>
+                        </div>
+                        <div class="pattern-use-cases">
+                            <h5><i class="fas fa-check-circle"></i> Casos de Uso</h5>
+                            <div class="use-case-tags">
+                                <span>Conexiones BD</span>
+                                <span>Logger</span>
+                                <span>Cache</span>
+                                <span>Config Manager</span>
+                                <span>Thread Pool</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Factory Method Panel -->
+                    <div class="gof-pattern-panel" id="gof-panel-factory">
+                        <div class="pattern-panel-header">
+                            <div class="pattern-title">
+                                <i class="fas fa-industry"></i>
+                                <h4>Factory Method Pattern</h4>
+                                <span class="pattern-category-badge creational">Creational</span>
+                            </div>
+                            <div class="pattern-intent">
+                                <strong>Intención:</strong> Definir una interfaz para crear objetos, pero permitir que las subclases decidan qué clase instanciar.
+                            </div>
+                        </div>
+                        <div class="pattern-diagram">
+                            <div class="uml-simple factory-diagram">
+                                <div class="uml-row">
+                                    <div class="uml-class interface">
+                                        <div class="uml-class-name">«interface» Notification</div>
+                                        <div class="uml-class-methods">
+                                            <span>+ send(message): void</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uml-arrow-down"></div>
+                                <div class="uml-row implementations">
+                                    <div class="uml-class impl">
+                                        <div class="uml-class-name">EmailNotification</div>
+                                    </div>
+                                    <div class="uml-class impl">
+                                        <div class="uml-class-name">SMSNotification</div>
+                                    </div>
+                                    <div class="uml-class impl">
+                                        <div class="uml-class-name">PushNotification</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pattern-code-section">
+                            <div class="code-header">
+                                <span class="code-lang"><i class="devicon-java-plain"></i> Java</span>
+                                <span class="code-file">NotificationFactory.java</span>
+                            </div>
+                            <pre class="code-block"><code set:html={factoryCode}></code></pre>
+                        </div>
+                        <div class="pattern-use-cases">
+                            <h5><i class="fas fa-check-circle"></i> Casos de Uso</h5>
+                            <div class="use-case-tags">
+                                <span>Notificaciones</span>
+                                <span>Documentos</span>
+                                <span>Conexiones BD</span>
+                                <span>UI Components</span>
+                                <span>Parsers</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Builder Panel -->
+                    <div class="gof-pattern-panel" id="gof-panel-builder">
+                        <div class="pattern-panel-header">
+                            <div class="pattern-title">
+                                <i class="fas fa-hammer"></i>
+                                <h4>Builder Pattern</h4>
+                                <span class="pattern-category-badge creational">Creational</span>
+                            </div>
+                            <div class="pattern-intent">
+                                <strong>Intención:</strong> Separar la construcción de un objeto complejo de su representación, permitiendo crear diferentes representaciones.
+                            </div>
+                        </div>
+                        <div class="pattern-diagram">
+                            <div class="uml-simple builder-diagram">
+                                <div class="uml-class">
+                                    <div class="uml-class-name">User</div>
+                                    <div class="uml-class-attrs">
+                                        <span>- firstName: String (req)</span>
+                                        <span>- lastName: String (req)</span>
+                                        <span>- email: String (opt)</span>
+                                        <span>- age: int (opt)</span>
+                                    </div>
+                                </div>
+                                <div class="uml-arrow-right"></div>
+                                <div class="uml-class builder-class">
+                                    <div class="uml-class-name">UserBuilder</div>
+                                    <div class="uml-class-methods">
+                                        <span>+ email(e): UserBuilder</span>
+                                        <span>+ age(a): UserBuilder</span>
+                                        <span>+ build(): User</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pattern-code-section">
+                            <div class="code-header">
+                                <span class="code-lang"><i class="devicon-java-plain"></i> Java</span>
+                                <span class="code-file">User.java</span>
+                            </div>
+                            <pre class="code-block"><code set:html={builderCode}></code></pre>
+                        </div>
+                        <div class="pattern-use-cases">
+                            <h5><i class="fas fa-check-circle"></i> Casos de Uso</h5>
+                            <div class="use-case-tags">
+                                <span>DTOs complejos</span>
+                                <span>Queries SQL</span>
+                                <span>HTTP Requests</span>
+                                <span>Configuraciones</span>
+                                <span>Documentos</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Adapter Panel -->
+                    <div class="gof-pattern-panel" id="gof-panel-adapter">
+                        <div class="pattern-panel-header">
+                            <div class="pattern-title">
+                                <i class="fas fa-plug"></i>
+                                <h4>Adapter Pattern</h4>
+                                <span class="pattern-category-badge structural">Structural</span>
+                            </div>
+                            <div class="pattern-intent">
+                                <strong>Intención:</strong> Convertir la interfaz de una clase en otra interfaz que el cliente espera. Permite que clases incompatibles trabajen juntas.
+                            </div>
+                        </div>
+                        <div class="pattern-diagram">
+                            <div class="uml-simple adapter-diagram">
+                                <div class="uml-class client">
+                                    <div class="uml-class-name">Client</div>
+                                </div>
+                                <div class="uml-arrow-uses"></div>
+                                <div class="uml-class interface">
+                                    <div class="uml-class-name">«interface» PaymentProcessor</div>
+                                    <div class="uml-class-methods">
+                                        <span>+ processPayment()</span>
+                                        <span>+ refund()</span>
+                                    </div>
+                                </div>
+                                <div class="uml-arrow-down"></div>
+                                <div class="uml-class adapter">
+                                    <div class="uml-class-name">StripePaymentAdapter</div>
+                                </div>
+                                <div class="uml-arrow-uses"></div>
+                                <div class="uml-class external">
+                                    <div class="uml-class-name">StripeAPI</div>
+                                    <div class="uml-class-methods">
+                                        <span>+ charge()</span>
+                                        <span>+ cancelCharge()</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pattern-code-section">
+                            <div class="code-header">
+                                <span class="code-lang"><i class="devicon-java-plain"></i> Java</span>
+                                <span class="code-file">StripePaymentAdapter.java</span>
+                            </div>
+                            <pre class="code-block"><code set:html={adapterCode}></code></pre>
+                        </div>
+                        <div class="pattern-use-cases">
+                            <h5><i class="fas fa-check-circle"></i> Casos de Uso</h5>
+                            <div class="use-case-tags">
+                                <span>APIs externas</span>
+                                <span>Legacy systems</span>
+                                <span>Payment gateways</span>
+                                <span>Librerías 3rd party</span>
+                                <span>Data formats</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Decorator Panel -->
+                    <div class="gof-pattern-panel" id="gof-panel-decorator">
+                        <div class="pattern-panel-header">
+                            <div class="pattern-title">
+                                <i class="fas fa-paint-brush"></i>
+                                <h4>Decorator Pattern</h4>
+                                <span class="pattern-category-badge structural">Structural</span>
+                            </div>
+                            <div class="pattern-intent">
+                                <strong>Intención:</strong> Añadir responsabilidades adicionales a un objeto dinámicamente. Alternativa flexible a la herencia.
+                            </div>
+                        </div>
+                        <div class="pattern-diagram">
+                            <div class="uml-simple decorator-diagram">
+                                <div class="decorator-visual">
+                                    <div class="decorator-layer outer">VanillaDecorator</div>
+                                    <div class="decorator-layer middle">MilkDecorator</div>
+                                    <div class="decorator-layer inner">SimpleCoffee</div>
+                                </div>
+                                <div class="decorator-result">
+                                    <span>= "Café simple, con leche, con vainilla"</span>
+                                    <span class="price">$2.20</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pattern-code-section">
+                            <div class="code-header">
+                                <span class="code-lang"><i class="devicon-java-plain"></i> Java</span>
+                                <span class="code-file">CoffeeDecorator.java</span>
+                            </div>
+                            <pre class="code-block"><code set:html={decoratorCode}></code></pre>
+                        </div>
+                        <div class="pattern-use-cases">
+                            <h5><i class="fas fa-check-circle"></i> Casos de Uso</h5>
+                            <div class="use-case-tags">
+                                <span>I/O Streams</span>
+                                <span>UI Components</span>
+                                <span>Logging</span>
+                                <span>Compression</span>
+                                <span>Encryption</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Observer Panel -->
+                    <div class="gof-pattern-panel" id="gof-panel-observer">
+                        <div class="pattern-panel-header">
+                            <div class="pattern-title">
+                                <i class="fas fa-eye"></i>
+                                <h4>Observer Pattern</h4>
+                                <span class="pattern-category-badge behavioral">Behavioral</span>
+                            </div>
+                            <div class="pattern-intent">
+                                <strong>Intención:</strong> Definir una dependencia uno-a-muchos entre objetos, de modo que cuando uno cambie de estado, todos sus dependientes sean notificados.
+                            </div>
+                        </div>
+                        <div class="pattern-diagram">
+                            <div class="uml-simple observer-diagram">
+                                <div class="observer-subject">
+                                    <div class="subject-box">
+                                        <div class="subject-name">Stock (Subject)</div>
+                                        <div class="subject-state">price: $155.00</div>
+                                    </div>
+                                    <div class="notify-arrows">
+                                        <div class="notify-arrow"></div>
+                                        <div class="notify-arrow"></div>
+                                        <div class="notify-arrow"></div>
+                                    </div>
+                                </div>
+                                <div class="observer-list">
+                                    <div class="observer-box">
+                                        <i class="fas fa-bell"></i>
+                                        <span>Inversor1</span>
+                                    </div>
+                                    <div class="observer-box">
+                                        <i class="fas fa-bell"></i>
+                                        <span>Inversor2</span>
+                                    </div>
+                                    <div class="observer-box">
+                                        <i class="fas fa-bell"></i>
+                                        <span>Dashboard</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pattern-code-section">
+                            <div class="code-header">
+                                <span class="code-lang"><i class="devicon-java-plain"></i> Java</span>
+                                <span class="code-file">StockObserver.java</span>
+                            </div>
+                            <pre class="code-block"><code set:html={observerCode}></code></pre>
+                        </div>
+                        <div class="pattern-use-cases">
+                            <h5><i class="fas fa-check-circle"></i> Casos de Uso</h5>
+                            <div class="use-case-tags">
+                                <span>Event systems</span>
+                                <span>MVC/MVVM</span>
+                                <span>Real-time updates</span>
+                                <span>Pub/Sub</span>
+                                <span>Reactive programming</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Strategy Panel -->
+                    <div class="gof-pattern-panel" id="gof-panel-strategy">
+                        <div class="pattern-panel-header">
+                            <div class="pattern-title">
+                                <i class="fas fa-route"></i>
+                                <h4>Strategy Pattern</h4>
+                                <span class="pattern-category-badge behavioral">Behavioral</span>
+                            </div>
+                            <div class="pattern-intent">
+                                <strong>Intención:</strong> Definir una familia de algoritmos, encapsular cada uno, y hacerlos intercambiables. Permite variar el algoritmo independientemente de los clientes.
+                            </div>
+                        </div>
+                        <div class="pattern-diagram">
+                            <div class="uml-simple strategy-diagram">
+                                <div class="strategy-context">
+                                    <div class="context-box">
+                                        <div class="context-name">ShoppingCart</div>
+                                        <div class="context-method">checkout()</div>
+                                    </div>
+                                </div>
+                                <div class="strategy-arrow"></div>
+                                <div class="strategy-interface">
+                                    <div class="interface-box">
+                                        <div class="interface-name">«interface» PaymentStrategy</div>
+                                        <div class="interface-methods">
+                                            <span>pay(amount)</span>
+                                            <span>validate()</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="strategy-implementations">
+                                    <div class="impl-box credit"><i class="fas fa-credit-card"></i> CreditCard</div>
+                                    <div class="impl-box paypal"><i class="fab fa-paypal"></i> PayPal</div>
+                                    <div class="impl-box crypto"><i class="fab fa-bitcoin"></i> Crypto</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pattern-code-section">
+                            <div class="code-header">
+                                <span class="code-lang"><i class="devicon-java-plain"></i> Java</span>
+                                <span class="code-file">PaymentStrategy.java</span>
+                            </div>
+                            <pre class="code-block"><code set:html={strategyCode}></code></pre>
+                        </div>
+                        <div class="pattern-use-cases">
+                            <h5><i class="fas fa-check-circle"></i> Casos de Uso</h5>
+                            <div class="use-case-tags">
+                                <span>Payment processing</span>
+                                <span>Sorting algorithms</span>
+                                <span>Validation rules</span>
+                                <span>Compression</span>
+                                <span>Route planning</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="fundamentals-references">
                     <a href="https://refactoring.guru/design-patterns" target="_blank" class="ref-link"><i class="fas fa-shapes"></i> Refactoring Guru</a>
+                    <a href="https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612" target="_blank" class="ref-link"><i class="fas fa-book"></i> GoF Book</a>
+                    <a href="https://sourcemaking.com/design_patterns" target="_blank" class="ref-link"><i class="fas fa-code"></i> SourceMaking</a>
                 </div>
             </div>
         </div>
@@ -4794,4 +5576,42 @@ public class Producto implements Registrable {
     // Add event listeners for dashboard tabs
     document.addEventListener('DOMContentLoaded', initDashboardTabs);
     document.addEventListener('astro:page-load', initDashboardTabs);
+
+    // ===== GoF Design Patterns Selector =====
+    function initGofPatterns() {
+        var patternButtons = document.querySelectorAll('.pattern-item.selectable');
+        var patternPanels = document.querySelectorAll('.gof-pattern-panel');
+        var gofHint = document.getElementById('gof-hint');
+
+        patternButtons.forEach(function(btn) {
+            btn.onclick = function() {
+                var patternName = this.dataset.pattern;
+                if (!patternName) return;
+
+                // Update button states
+                patternButtons.forEach(function(b) {
+                    b.classList.remove('selected');
+                });
+                this.classList.add('selected');
+
+                // Hide hint and all panels
+                if (gofHint) {
+                    gofHint.style.display = 'none';
+                }
+                patternPanels.forEach(function(panel) {
+                    panel.classList.remove('active');
+                });
+
+                // Show selected panel
+                var targetPanel = document.getElementById('gof-panel-' + patternName);
+                if (targetPanel) {
+                    targetPanel.classList.add('active');
+                }
+            };
+        });
+    }
+
+    // Add event listeners for GoF patterns
+    document.addEventListener('DOMContentLoaded', initGofPatterns);
+    document.addEventListener('astro:page-load', initGofPatterns);
 </script>
