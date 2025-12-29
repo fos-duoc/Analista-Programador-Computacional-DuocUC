@@ -139,6 +139,151 @@ console.log(test());`,
         correctAnswer: 1,
         explanation: 'Las funciones async siempre retornan una Promise. Aunque retornamos 1, el resultado es una Promise que resuelve a 1.'
     },
+    {
+        id: 'js-011',
+        category: 'javascript',
+        certification: 'JavaScript Developer',
+        difficulty: 'advanced',
+        question: '¿En qué orden se ejecutan estos console.log?',
+        code: `console.log('1');
+setTimeout(() => console.log('2'), 0);
+Promise.resolve().then(() => console.log('3'));
+console.log('4');`,
+        options: ['1, 2, 3, 4', '1, 4, 2, 3', '1, 4, 3, 2', '1, 3, 4, 2'],
+        correctAnswer: 2,
+        explanation: 'El Event Loop ejecuta: 1) código síncrono (1, 4), 2) microtasks/promises (3), 3) macrotasks/setTimeout (2). Las Promises tienen prioridad sobre setTimeout.'
+    },
+    {
+        id: 'js-012',
+        category: 'javascript',
+        certification: 'JavaScript Developer',
+        difficulty: 'intermediate',
+        question: '¿Cuál es el resultado del spread operator en este caso?',
+        code: `const arr1 = [1, 2];
+const arr2 = [...arr1, 3, 4];
+arr1.push(5);
+console.log(arr2);`,
+        options: ['[1, 2, 3, 4]', '[1, 2, 3, 4, 5]', '[1, 2, 5, 3, 4]', 'Error'],
+        correctAnswer: 0,
+        explanation: 'El spread operator crea una copia superficial de los elementos. Los cambios posteriores a arr1 no afectan a arr2.'
+    },
+    {
+        id: 'js-013',
+        category: 'javascript',
+        certification: 'JavaScript Developer',
+        difficulty: 'advanced',
+        question: '¿Qué método de array NO muta el array original?',
+        options: ['push()', 'splice()', 'sort()', 'map()'],
+        correctAnswer: 3,
+        explanation: 'map() retorna un nuevo array sin modificar el original. push(), splice() y sort() mutan el array original.'
+    },
+    {
+        id: 'js-014',
+        category: 'javascript',
+        certification: 'JavaScript Developer',
+        difficulty: 'intermediate',
+        question: '¿Cuál es el output de esta destructuración?',
+        code: `const { a, b = 10, ...rest } = { a: 1, c: 3, d: 4 };
+console.log(a, b, rest);`,
+        options: ['1 undefined {c: 3, d: 4}', '1 10 {c: 3, d: 4}', 'Error', '1 10 {a: 1, c: 3, d: 4}'],
+        correctAnswer: 1,
+        explanation: 'La destructuración asigna a=1, b usa el valor por defecto 10 (porque no existe b en el objeto), y rest captura las propiedades restantes.'
+    },
+    {
+        id: 'js-015',
+        category: 'javascript',
+        certification: 'JavaScript Developer',
+        difficulty: 'advanced',
+        question: '¿Qué es el "this" dentro de una arrow function?',
+        code: `const obj = {
+    name: 'Test',
+    regular: function() { return this.name; },
+    arrow: () => this.name
+};`,
+        options: [
+            'Siempre undefined',
+            'El objeto window/global',
+            'El this del contexto léxico donde se definió',
+            'El objeto obj'
+        ],
+        correctAnswer: 2,
+        explanation: 'Las arrow functions no tienen su propio "this". Usan el "this" del scope léxico donde fueron definidas, no donde se ejecutan.'
+    },
+    {
+        id: 'js-016',
+        category: 'javascript',
+        certification: 'JavaScript Developer',
+        difficulty: 'intermediate',
+        question: '¿Cuál es la diferencia entre == y ===?',
+        code: `console.log(1 == '1');
+console.log(1 === '1');`,
+        options: ['true, true', 'false, false', 'true, false', 'false, true'],
+        correctAnswer: 2,
+        explanation: '== realiza coerción de tipos (1 == "1" es true), mientras que === compara valor Y tipo sin coerción (1 === "1" es false).'
+    },
+    {
+        id: 'js-017',
+        category: 'javascript',
+        certification: 'JavaScript Developer',
+        difficulty: 'advanced',
+        question: '¿Cómo funciona Promise.all() cuando una promesa falla?',
+        options: [
+            'Retorna los resultados exitosos e ignora los errores',
+            'Rechaza inmediatamente con el primer error',
+            'Espera a que todas terminen y luego reporta errores',
+            'Convierte errores en null'
+        ],
+        correctAnswer: 1,
+        explanation: 'Promise.all() tiene comportamiento "fail-fast": si cualquier promesa rechaza, todo el Promise.all() rechaza inmediatamente con ese error.'
+    },
+    {
+        id: 'js-018',
+        category: 'javascript',
+        certification: 'JavaScript Developer',
+        difficulty: 'intermediate',
+        question: '¿Qué es el "nullish coalescing operator" (??)?',
+        code: `const a = null ?? 'default';
+const b = 0 ?? 'default';
+console.log(a, b);`,
+        options: ['"default", "default"', '"default", 0', 'null, 0', 'null, "default"'],
+        correctAnswer: 1,
+        explanation: '?? solo usa el valor por defecto si el lado izquierdo es null o undefined. A diferencia de ||, no trata 0, "" o false como falsy.'
+    },
+    {
+        id: 'js-019',
+        category: 'javascript',
+        certification: 'JavaScript Developer',
+        difficulty: 'advanced',
+        question: '¿Cuál es el propósito de Symbol en JavaScript?',
+        options: [
+            'Crear strings únicos para debugging',
+            'Crear identificadores únicos e inmutables para propiedades',
+            'Encriptar valores sensibles',
+            'Optimizar el rendimiento de objetos'
+        ],
+        correctAnswer: 1,
+        explanation: 'Symbol crea valores primitivos únicos, usados principalmente como claves de propiedades que no colisionan con otras propiedades del objeto.'
+    },
+    {
+        id: 'js-020',
+        category: 'javascript',
+        certification: 'JavaScript Developer',
+        difficulty: 'advanced',
+        question: '¿Qué output produce este código con WeakMap?',
+        code: `let obj = { key: 'value' };
+const weakMap = new WeakMap();
+weakMap.set(obj, 'data');
+obj = null;
+// Después del garbage collection...`,
+        options: [
+            'weakMap mantiene el objeto indefinidamente',
+            'El entry se elimina automáticamente (garbage collected)',
+            'Error: WeakMap no acepta objetos',
+            'weakMap.get(obj) retorna "data"'
+        ],
+        correctAnswer: 1,
+        explanation: 'WeakMap tiene referencias débiles a sus claves. Si no hay otra referencia al objeto, puede ser garbage collected junto con su entry en el WeakMap.'
+    },
 
     // Python Questions
     {
