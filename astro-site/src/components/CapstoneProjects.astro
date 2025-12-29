@@ -142,6 +142,131 @@ const projectLevels = [
                 subject: "TIT10101 - Proyecto de Título"
             }
         ]
+    },
+    // ============== INGENIERÍA EN DESARROLLO DE SOFTWARE (B11-B17) ==============
+    {
+        level: "Fullstack Avanzado",
+        levelNum: 5,
+        color: "rose",
+        icon: "fas fa-code-branch",
+        description: "Proyectos con arquitecturas limpias, patrones avanzados y BD distribuidas",
+        bimestres: "B11-B12",
+        badge: "IDS",
+        subjects: ["Fullstack I", "BD Aplicada", "Fullstack II", "Cloud Computing"],
+        projects: [
+            {
+                name: "Sistema con Clean Architecture",
+                description: "Aplicación con separación de capas: Domain, Application, Infrastructure. Use Cases, Entities, Repositories",
+                skills: ["Java/Kotlin", "Clean Architecture", "DI/IoC", "Unit Testing"],
+                duration: "5-6 semanas",
+                difficulty: 5,
+                subject: "Fullstack I - Clean Architecture"
+            },
+            {
+                name: "Data Warehouse con ETL",
+                description: "Diseño de DW con modelo dimensional (Star Schema), ETL pipeline con dbt, dashboards en Power BI",
+                skills: ["PostgreSQL", "dbt", "Power BI", "Dimensional Modeling"],
+                duration: "4-5 semanas",
+                difficulty: 4,
+                subject: "BD Aplicada - Data Warehouse"
+            },
+            {
+                name: "Plataforma SaaS Multi-tenant",
+                description: "Aplicación B2B con aislamiento de tenants, facturación, roles granulares, API públicas con rate limiting",
+                skills: ["Spring Boot", "Multi-tenancy", "Stripe API", "OAuth2"],
+                duration: "6-8 semanas",
+                difficulty: 5,
+                subject: "Fullstack II - SaaS Platform"
+            }
+        ]
+    },
+    {
+        level: "DevOps & Cloud Native",
+        levelNum: 6,
+        color: "amber",
+        icon: "fas fa-dharmachakra",
+        description: "Proyectos con CI/CD completo, contenedores y orquestación en producción",
+        bimestres: "B13-B14",
+        badge: "IDS",
+        subjects: ["Fullstack III", "DevOps", "Mobile", "Cloud Native I"],
+        projects: [
+            {
+                name: "Microservicios con DDD",
+                description: "Arquitectura de microservicios con Domain-Driven Design: Bounded Contexts, Aggregates, Events, CQRS",
+                skills: ["Java/Kotlin", "DDD", "Event Sourcing", "Kafka"],
+                duration: "6-8 semanas",
+                difficulty: 5,
+                subject: "Fullstack III - DDD Microservices"
+            },
+            {
+                name: "Pipeline CI/CD Completo",
+                description: "Infrastructure as Code: Terraform para provisioning, GitHub Actions CI/CD, ArgoCD para GitOps, observabilidad con Grafana",
+                skills: ["Terraform", "GitHub Actions", "ArgoCD", "Prometheus/Grafana"],
+                duration: "4-5 semanas",
+                difficulty: 4,
+                subject: "DevOps - CI/CD & GitOps"
+            },
+            {
+                name: "App Móvil Enterprise",
+                description: "Aplicación móvil con autenticación biométrica, sincronización offline-first, push notifications, analytics",
+                skills: ["Flutter/React Native", "SQLite", "Firebase", "Biometric Auth"],
+                duration: "5-6 semanas",
+                difficulty: 4,
+                subject: "Mobile - Enterprise App"
+            },
+            {
+                name: "Kubernetes Production Cluster",
+                description: "Despliegue en K8s: Helm charts, Ingress, ConfigMaps, Secrets, HPA, health checks, rolling updates",
+                skills: ["Kubernetes", "Helm", "Ingress", "HPA"],
+                duration: "4-5 semanas",
+                difficulty: 5,
+                subject: "Cloud Native I - Kubernetes"
+            }
+        ]
+    },
+    {
+        level: "Arquitectura & Gestión",
+        levelNum: 7,
+        color: "emerald",
+        icon: "fas fa-chess-king",
+        description: "Proyectos de arquitectura empresarial, seguridad y gestión de proyectos",
+        bimestres: "B15-B17",
+        badge: "IDS",
+        subjects: ["Cloud Native II", "Seguridad", "Gestión Proyectos", "Título IDS"],
+        projects: [
+            {
+                name: "Service Mesh & Zero Trust",
+                description: "Implementación de Istio/Linkerd con mTLS, canary deployments, circuit breakers, observabilidad distribuida",
+                skills: ["Istio", "mTLS", "Jaeger", "Kiali"],
+                duration: "5-6 semanas",
+                difficulty: 5,
+                subject: "Cloud Native II - Service Mesh"
+            },
+            {
+                name: "Security Hardening Project",
+                description: "Auditoría de seguridad: OWASP Top 10, SAST/DAST, secrets management con Vault, penetration testing básico",
+                skills: ["OWASP", "Vault", "SonarQube", "SAST/DAST"],
+                duration: "4-5 semanas",
+                difficulty: 4,
+                subject: "Seguridad - Security Engineering"
+            },
+            {
+                name: "Gestión de Proyecto Ágil",
+                description: "Liderazgo de proyecto real: estimación, planning, sprints, métricas (velocity, burndown), retrospectivas",
+                skills: ["Scrum Master", "Jira", "Confluence", "Métricas Ágiles"],
+                duration: "Durante todo el bimestre",
+                difficulty: 4,
+                subject: "Gestión Proyectos - Scrum Master"
+            },
+            {
+                name: "Proyecto de Título IDS",
+                description: "Solución empresarial completa: arquitectura documentada, microservicios, testing E2E, deploy K8s, monitoreo",
+                skills: ["Arquitectura", "Full CI/CD", "Testing E2E", "Documentación C4"],
+                duration: "10-12 semanas",
+                difficulty: 5,
+                subject: "Título IDS - Enterprise Solution"
+            }
+        ]
     }
 ];
 
@@ -165,15 +290,15 @@ const projectTips = [
             <div class="capstone-stats">
                 <span class="capstone-stat">
                     <i class="fas fa-folder-open"></i>
-                    <strong>12</strong> Proyectos
+                    <strong>23</strong> Proyectos
                 </span>
                 <span class="capstone-stat">
                     <i class="fas fa-layer-group"></i>
-                    <strong>4</strong> Niveles
+                    <strong>7</strong> Niveles
                 </span>
                 <span class="capstone-stat">
                     <i class="fas fa-graduation-cap"></i>
-                    Alineado Malla DuocUC
+                    APC + IDS
                 </span>
                 <span class="capstone-stat">
                     <i class="fas fa-briefcase"></i>
@@ -191,11 +316,15 @@ const projectTips = [
                         <div class="level-badge">
                             <i class={level.icon}></i>
                             <span>Level {level.levelNum}</span>
+                            {level.badge && <span class="level-program-badge">{level.badge}</span>}
                         </div>
                         <div class="level-info">
                             <h3>{level.level}</h3>
                             <p>{level.description}</p>
-                            <span class="level-bimestres">{level.bimestres}</span>
+                            <div class="level-tags">
+                                <span class="level-bimestres">{level.bimestres}</span>
+                                {level.badge && <span class="level-badge-tag ids">{level.badge}</span>}
+                            </div>
                         </div>
                     </div>
 
@@ -353,6 +482,10 @@ const projectTips = [
     .level-purple { border-left: 4px solid #7c3aed; }
     .level-orange { border-left: 4px solid #f59e0b; }
     .level-green { border-left: 4px solid #10b981; }
+    /* IDS Colors */
+    .level-rose { border-left: 4px solid #f43f5e; }
+    .level-amber { border-left: 4px solid #f59e0b; }
+    .level-emerald { border-left: 4px solid #34d399; }
 
     .level-header {
         display: flex;
@@ -376,6 +509,40 @@ const projectTips = [
     .level-purple .level-badge i { color: #7c3aed; font-size: 1.5rem; }
     .level-orange .level-badge i { color: #f59e0b; font-size: 1.5rem; }
     .level-green .level-badge i { color: #10b981; font-size: 1.5rem; }
+    /* IDS Level Icons */
+    .level-rose .level-badge i { color: #f43f5e; font-size: 1.5rem; }
+    .level-amber .level-badge i { color: #f59e0b; font-size: 1.5rem; }
+    .level-emerald .level-badge i { color: #34d399; font-size: 1.5rem; }
+
+    /* IDS Program Badge */
+    .level-program-badge {
+        display: inline-block;
+        margin-top: 0.5rem;
+        padding: 0.2rem 0.5rem;
+        background: linear-gradient(135deg, #f43f5e, #ec4899);
+        border-radius: 6px;
+        font-size: 0.65rem;
+        font-weight: 700;
+        color: white;
+        letter-spacing: 0.5px;
+    }
+
+    .level-tags {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .level-badge-tag.ids {
+        padding: 0.2rem 0.5rem;
+        background: linear-gradient(135deg, rgba(244, 63, 94, 0.2), rgba(236, 72, 153, 0.2));
+        border: 1px solid rgba(244, 63, 94, 0.4);
+        border-radius: 8px;
+        font-size: 0.7rem;
+        color: #f43f5e;
+        font-weight: 600;
+    }
 
     .level-badge span {
         font-size: 0.75rem;
