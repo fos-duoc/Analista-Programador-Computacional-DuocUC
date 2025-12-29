@@ -2,12 +2,21 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-// Herramientas Interactivas
-import GanttGeneratorSection from '../components/tools/GanttGeneratorSection.astro';
+// Herramientas Interactivas - Generadores de Código
+import JavaClassGenerator from '../components/JavaClassGenerator.astro';
 import SQLQueryGeneratorSection from '../components/tools/SQLQueryGeneratorSection.astro';
+import ERDiagramGenerator from '../components/ERDiagramGenerator.astro';
+import PythonCodeGenerator from '../components/PythonCodeGenerator.astro';
+import DashboardBuilder from '../components/DashboardBuilder.astro';
+import StreamlitGenerator from '../components/StreamlitGenerator.astro';
+// Herramientas Interactivas - Utilidades
 import PasswordGeneratorSection from '../components/tools/PasswordGeneratorSection.astro';
 import QuizGeneratorSection from '../components/tools/QuizGeneratorSection.astro';
+import GanttGeneratorSection from '../components/tools/GanttGeneratorSection.astro';
 import TerminalDemo from '../components/TerminalDemo.astro';
+// Herramientas Interactivas - Gestión de Proyectos
+import AgileSprintGenerator from '../components/AgileSprintGenerator.astro';
+import TicketManager from '../components/TicketManager.astro';
 // Aprendizaje
 import AIToolsSection from '../components/AIToolsSection.astro';
 import YouTubeSection from '../components/YouTubeSection.astro';
@@ -26,24 +35,49 @@ import ProgressIndicators from '../components/ProgressIndicators.astro';
 // Definir categorías y sus secciones
 const categories = [
     {
-        id: 'herramientas',
-        name: 'Herramientas',
-        icon: 'fas fa-tools',
+        id: 'code-generators',
+        name: 'Generadores de Código',
+        icon: 'fas fa-code',
         color: 'cyan',
-        description: 'Generadores y utilidades interactivas',
+        description: 'Generadores visuales de código fuente',
         sections: [
-            { id: 'gantt-generator', name: 'Gantt Chart', icon: 'fa-project-diagram' },
+            { id: 'java-generator', name: 'Java Generator', icon: 'devicon-java-plain' },
             { id: 'sql-generator', name: 'SQL Builder', icon: 'fa-database' },
+            { id: 'er-diagram', name: 'ER Diagram', icon: 'fa-project-diagram' },
+            { id: 'python-generator', name: 'Python Generator', icon: 'devicon-python-plain' },
+            { id: 'dashboard-builder', name: 'Dashboard Builder', icon: 'fa-chart-bar' },
+            { id: 'streamlit-generator', name: 'Streamlit Apps', icon: 'fa-stream' }
+        ]
+    },
+    {
+        id: 'herramientas',
+        name: 'Utilidades',
+        icon: 'fas fa-tools',
+        color: 'amber',
+        description: 'Herramientas y utilidades interactivas',
+        sections: [
             { id: 'password-generator', name: 'Passwords', icon: 'fa-key' },
             { id: 'quiz-generator', name: 'Quiz', icon: 'fa-clipboard-check' },
+            { id: 'gantt-generator', name: 'Gantt Chart', icon: 'fa-calendar-alt' },
             { id: 'terminal-demo', name: 'Terminal', icon: 'fa-terminal' }
+        ]
+    },
+    {
+        id: 'project-management',
+        name: 'Gestión de Proyectos',
+        icon: 'fas fa-tasks',
+        color: 'teal',
+        description: 'Herramientas Agile y gestión de tickets',
+        sections: [
+            { id: 'agile-sprint', name: 'Agile Sprints', icon: 'fa-running' },
+            { id: 'ticket-manager', name: 'Ticket Manager', icon: 'fa-ticket-alt' }
         ]
     },
     {
         id: 'aprendizaje',
         name: 'Aprendizaje',
         icon: 'fas fa-book-open',
-        color: 'amber',
+        color: 'blue',
         description: 'Recursos educativos y tutoriales',
         sections: [
             { id: 'ai-tools', name: 'AI Tools', icon: 'fa-robot' },
@@ -100,7 +134,7 @@ const categories = [
             <!-- Stats Row -->
             <div class="hero-stats">
                 <div class="stat-item">
-                    <span class="stat-number">16+</span>
+                    <span class="stat-number">12</span>
                     <span class="stat-label">Herramientas</span>
                 </div>
                 <div class="stat-divider"></div>
@@ -176,24 +210,51 @@ const categories = [
 
         <!-- Main Content Area -->
         <main class="resources-content">
-            <!-- Category: Herramientas -->
-            <div class="content-category" id="cat-herramientas" data-category="herramientas">
+            <!-- Category: Generadores de Código -->
+            <div class="content-category" id="cat-code-generators" data-category="code-generators">
                 <div class="category-header-bar">
-                    <i class="fas fa-tools"></i>
-                    <h2>Herramientas Interactivas</h2>
-                    <span class="category-count">5 herramientas</span>
+                    <i class="fas fa-code"></i>
+                    <h2>Generadores de Código</h2>
+                    <span class="category-count">6 generadores</span>
                 </div>
 
-                <GanttGeneratorSection />
+                <JavaClassGenerator />
                 <SQLQueryGeneratorSection />
+                <ERDiagramGenerator />
+                <PythonCodeGenerator />
+                <DashboardBuilder />
+                <StreamlitGenerator />
+            </div>
+
+            <!-- Category: Utilidades -->
+            <div class="content-category" id="cat-herramientas" data-category="herramientas">
+                <div class="category-header-bar amber">
+                    <i class="fas fa-tools"></i>
+                    <h2>Utilidades</h2>
+                    <span class="category-count">4 herramientas</span>
+                </div>
+
                 <PasswordGeneratorSection />
                 <QuizGeneratorSection />
+                <GanttGeneratorSection />
                 <TerminalDemo />
+            </div>
+
+            <!-- Category: Gestión de Proyectos -->
+            <div class="content-category" id="cat-project-management" data-category="project-management">
+                <div class="category-header-bar teal">
+                    <i class="fas fa-tasks"></i>
+                    <h2>Gestión de Proyectos</h2>
+                    <span class="category-count">2 herramientas</span>
+                </div>
+
+                <AgileSprintGenerator />
+                <TicketManager />
             </div>
 
             <!-- Category: Aprendizaje -->
             <div class="content-category" id="cat-aprendizaje" data-category="aprendizaje">
-                <div class="category-header-bar amber">
+                <div class="category-header-bar blue">
                     <i class="fas fa-book-open"></i>
                     <h2>Recursos de Aprendizaje</h2>
                     <span class="category-count">5 secciones</span>
@@ -466,6 +527,8 @@ const categories = [
     .category-icon.amber { color: #f59e0b; }
     .category-icon.purple { color: #7c3aed; }
     .category-icon.green { color: #10b981; }
+    .category-icon.teal { color: #14b8a6; }
+    .category-icon.blue { color: #3b82f6; }
 
     .category-name {
         flex: 1;
@@ -602,6 +665,16 @@ const categories = [
         border-color: rgba(16, 185, 129, 0.2);
     }
 
+    .category-header-bar.teal {
+        background: linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(20, 184, 166, 0.05));
+        border-color: rgba(20, 184, 166, 0.2);
+    }
+
+    .category-header-bar.blue {
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05));
+        border-color: rgba(59, 130, 246, 0.2);
+    }
+
     .category-header-bar i {
         font-size: 1.5rem;
         color: #00d4ff;
@@ -610,6 +683,8 @@ const categories = [
     .category-header-bar.amber i { color: #f59e0b; }
     .category-header-bar.purple i { color: #7c3aed; }
     .category-header-bar.green i { color: #10b981; }
+    .category-header-bar.teal i { color: #14b8a6; }
+    .category-header-bar.blue i { color: #3b82f6; }
 
     .category-header-bar h2 {
         flex: 1;
@@ -817,6 +892,20 @@ const categories = [
     }
 
     :global([data-theme="light"]) .category-header-bar.green i { color: #059669; }
+
+    :global([data-theme="light"]) .category-header-bar.teal {
+        background: linear-gradient(135deg, rgba(13, 148, 136, 0.08), rgba(13, 148, 136, 0.03));
+        border-color: rgba(13, 148, 136, 0.15);
+    }
+
+    :global([data-theme="light"]) .category-header-bar.teal i { color: #0d9488; }
+
+    :global([data-theme="light"]) .category-header-bar.blue {
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(37, 99, 235, 0.03));
+        border-color: rgba(37, 99, 235, 0.15);
+    }
+
+    :global([data-theme="light"]) .category-header-bar.blue i { color: #2563eb; }
 </style>
 
 <script is:inline>

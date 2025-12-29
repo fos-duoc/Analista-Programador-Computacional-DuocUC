@@ -1,0 +1,1984 @@
+---
+/**
+ * AgileSprintGenerator.astro
+ * Generador de Sprints, User Stories y gestión Agile/Scrum
+ * Basado en: Scrum Guide, SAFe, User Story Mapping
+ */
+---
+
+<section id="agile-generator" class="agile-generator-section">
+  <div class="agile-header">
+    <div class="header-icon">
+      <i class="fas fa-tasks"></i>
+    </div>
+    <div class="header-content">
+      <h2>Agile Sprint Generator</h2>
+      <p>Planifica sprints y crea user stories profesionales</p>
+    </div>
+    <div class="header-badges">
+      <span class="badge scrum">Scrum</span>
+      <span class="badge kanban">Kanban</span>
+      <span class="badge safe">SAFe</span>
+    </div>
+  </div>
+
+  <!-- Conceptos Agile -->
+  <div class="agile-concepts">
+    <div class="concept-card">
+      <i class="fas fa-running"></i>
+      <h4>Sprint</h4>
+      <p>Iteración de 1-4 semanas con objetivo definido</p>
+    </div>
+    <div class="concept-card">
+      <i class="fas fa-book-open"></i>
+      <h4>User Story</h4>
+      <p>"Como [rol], quiero [qué], para [por qué]"</p>
+    </div>
+    <div class="concept-card">
+      <i class="fas fa-star"></i>
+      <h4>Story Points</h4>
+      <p>Estimación relativa de esfuerzo (Fibonacci)</p>
+    </div>
+    <div class="concept-card">
+      <i class="fas fa-tachometer-alt"></i>
+      <h4>Velocity</h4>
+      <p>Puntos completados por sprint</p>
+    </div>
+  </div>
+
+  <div class="agile-builder">
+    <!-- Panel Izquierdo: Sprint Config -->
+    <div class="sprint-config-panel">
+      <h3><i class="fas fa-calendar-alt"></i> Configuración del Sprint</h3>
+
+      <div class="config-section">
+        <div class="form-group">
+          <label>Nombre del Sprint</label>
+          <input type="text" id="sprint-name" placeholder="Sprint 1 - MVP Features">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Fecha Inicio</label>
+            <input type="date" id="sprint-start">
+          </div>
+          <div class="form-group">
+            <label>Duración</label>
+            <select id="sprint-duration">
+              <option value="1">1 semana</option>
+              <option value="2" selected>2 semanas</option>
+              <option value="3">3 semanas</option>
+              <option value="4">4 semanas</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Sprint Goal</label>
+          <textarea id="sprint-goal" rows="2" placeholder="Objetivo principal del sprint..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Team Velocity (puntos/sprint)</label>
+          <input type="number" id="team-velocity" value="30" min="1" max="200">
+        </div>
+
+        <div class="velocity-indicator">
+          <div class="velocity-bar">
+            <div class="velocity-fill" id="velocity-fill" style="width: 0%"></div>
+          </div>
+          <div class="velocity-labels">
+            <span>Usado: <strong id="points-used">0</strong></span>
+            <span>Disponible: <strong id="points-available">30</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-section">
+        <h4><i class="fas fa-users"></i> Equipo Scrum</h4>
+        <div class="team-roles">
+          <div class="role-input">
+            <label>Product Owner</label>
+            <input type="text" id="po-name" placeholder="Nombre PO">
+          </div>
+          <div class="role-input">
+            <label>Scrum Master</label>
+            <input type="text" id="sm-name" placeholder="Nombre SM">
+          </div>
+          <div class="role-input">
+            <label>Dev Team Size</label>
+            <input type="number" id="team-size" value="5" min="3" max="9">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel Central: User Stories -->
+    <div class="stories-panel">
+      <div class="stories-header">
+        <h3><i class="fas fa-sticky-note"></i> User Stories</h3>
+        <button id="add-story-btn" class="btn-add-story">
+          <i class="fas fa-plus"></i> Nueva Story
+        </button>
+      </div>
+
+      <!-- Formulario de User Story -->
+      <div id="story-form" class="story-form hidden">
+        <div class="story-form-header">
+          <h4><i class="fas fa-edit"></i> <span id="story-form-title">Nueva User Story</span></h4>
+          <button id="close-story-form" class="btn-close"><i class="fas fa-times"></i></button>
+        </div>
+
+        <div class="story-template">
+          <div class="template-part">
+            <label>Como</label>
+            <input type="text" id="story-role" placeholder="usuario, administrador, cliente...">
+          </div>
+          <div class="template-part">
+            <label>Quiero</label>
+            <input type="text" id="story-want" placeholder="poder hacer algo...">
+          </div>
+          <div class="template-part">
+            <label>Para</label>
+            <input type="text" id="story-benefit" placeholder="obtener algún beneficio...">
+          </div>
+        </div>
+
+        <div class="story-details">
+          <div class="detail-row">
+            <div class="form-group">
+              <label>Story Points</label>
+              <div class="points-selector">
+                <button class="point-btn" data-points="1">1</button>
+                <button class="point-btn" data-points="2">2</button>
+                <button class="point-btn" data-points="3">3</button>
+                <button class="point-btn" data-points="5">5</button>
+                <button class="point-btn" data-points="8">8</button>
+                <button class="point-btn" data-points="13">13</button>
+                <button class="point-btn" data-points="21">21</button>
+              </div>
+              <input type="hidden" id="story-points" value="">
+            </div>
+
+            <div class="form-group">
+              <label>Prioridad (MoSCoW)</label>
+              <select id="story-priority">
+                <option value="must">Must Have</option>
+                <option value="should">Should Have</option>
+                <option value="could">Could Have</option>
+                <option value="wont">Won't Have</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="detail-row">
+            <div class="form-group">
+              <label>Epic</label>
+              <input type="text" id="story-epic" placeholder="Nombre del Epic">
+            </div>
+            <div class="form-group">
+              <label>Labels</label>
+              <input type="text" id="story-labels" placeholder="frontend, api, ux...">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Descripción</label>
+            <textarea id="story-description" rows="2" placeholder="Detalles adicionales..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Criterios de Aceptación</label>
+            <div id="acceptance-criteria" class="acceptance-criteria">
+              <div class="ac-item">
+                <input type="text" class="ac-input" placeholder="Dado que... Cuando... Entonces...">
+                <button class="btn-remove-ac"><i class="fas fa-minus"></i></button>
+              </div>
+            </div>
+            <button id="add-ac-btn" class="btn-add-ac">
+              <i class="fas fa-plus"></i> Agregar Criterio
+            </button>
+          </div>
+        </div>
+
+        <div class="story-form-actions">
+          <button id="cancel-story" class="btn-cancel">Cancelar</button>
+          <button id="save-story" class="btn-save">Guardar Story</button>
+        </div>
+      </div>
+
+      <!-- Lista de Stories -->
+      <div id="stories-list" class="stories-list">
+        <div class="stories-empty">
+          <i class="fas fa-clipboard-list"></i>
+          <p>No hay user stories aún</p>
+          <p class="hint">Haz clic en "Nueva Story" o usa una plantilla</p>
+        </div>
+      </div>
+
+      <!-- Resumen del Sprint -->
+      <div class="sprint-summary">
+        <div class="summary-item">
+          <span class="summary-label">Total Stories</span>
+          <span class="summary-value" id="total-stories">0</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">Total Points</span>
+          <span class="summary-value" id="total-points">0</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">Must Have</span>
+          <span class="summary-value priority-must" id="must-count">0</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">Should Have</span>
+          <span class="summary-value priority-should" id="should-count">0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel Derecho: Backlog & Export -->
+    <div class="backlog-panel">
+      <h3><i class="fas fa-layer-group"></i> Product Backlog</h3>
+
+      <!-- Filtros -->
+      <div class="backlog-filters">
+        <select id="filter-priority">
+          <option value="">Todas las prioridades</option>
+          <option value="must">Must Have</option>
+          <option value="should">Should Have</option>
+          <option value="could">Could Have</option>
+          <option value="wont">Won't Have</option>
+        </select>
+        <select id="filter-epic">
+          <option value="">Todos los Epics</option>
+        </select>
+      </div>
+
+      <!-- Backlog ordenable -->
+      <div id="backlog-list" class="backlog-list">
+        <div class="backlog-empty">
+          <i class="fas fa-inbox"></i>
+          <p>Backlog vacío</p>
+        </div>
+      </div>
+
+      <!-- Templates -->
+      <div class="templates-section">
+        <h4><i class="fas fa-magic"></i> Plantillas</h4>
+        <div class="template-buttons">
+          <button class="template-btn" data-template="ecommerce">
+            <i class="fas fa-shopping-cart"></i> E-Commerce
+          </button>
+          <button class="template-btn" data-template="saas">
+            <i class="fas fa-cloud"></i> SaaS App
+          </button>
+          <button class="template-btn" data-template="mobile">
+            <i class="fas fa-mobile-alt"></i> Mobile App
+          </button>
+          <button class="template-btn" data-template="api">
+            <i class="fas fa-plug"></i> API Backend
+          </button>
+        </div>
+      </div>
+
+      <!-- Exportar -->
+      <div class="export-section">
+        <h4><i class="fas fa-file-export"></i> Exportar</h4>
+        <div class="export-buttons">
+          <button id="export-jira" class="export-btn">
+            <i class="fab fa-jira"></i> Jira CSV
+          </button>
+          <button id="export-azure" class="export-btn">
+            <i class="fab fa-microsoft"></i> Azure DevOps
+          </button>
+          <button id="export-markdown" class="export-btn">
+            <i class="fab fa-markdown"></i> Markdown
+          </button>
+          <button id="export-json" class="export-btn">
+            <i class="fas fa-code"></i> JSON
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sprint Board (Kanban) -->
+  <div class="sprint-board-section">
+    <h3><i class="fas fa-columns"></i> Sprint Board</h3>
+    <div class="sprint-board">
+      <div class="board-column" data-status="todo">
+        <div class="column-header">
+          <span class="column-title">📋 To Do</span>
+          <span class="column-count" id="todo-count">0</span>
+        </div>
+        <div class="column-content" id="todo-column"></div>
+      </div>
+      <div class="board-column" data-status="progress">
+        <div class="column-header">
+          <span class="column-title">🔄 In Progress</span>
+          <span class="column-count" id="progress-count">0</span>
+        </div>
+        <div class="column-content" id="progress-column"></div>
+      </div>
+      <div class="board-column" data-status="review">
+        <div class="column-header">
+          <span class="column-title">👀 In Review</span>
+          <span class="column-count" id="review-count">0</span>
+        </div>
+        <div class="column-content" id="review-column"></div>
+      </div>
+      <div class="board-column" data-status="done">
+        <div class="column-header">
+          <span class="column-title">✅ Done</span>
+          <span class="column-count" id="done-count">0</span>
+        </div>
+        <div class="column-content" id="done-column"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Burndown Chart -->
+  <div class="burndown-section">
+    <h3><i class="fas fa-chart-line"></i> Burndown Chart</h3>
+    <div class="burndown-chart" id="burndown-chart">
+      <div class="chart-placeholder">
+        <i class="fas fa-chart-area"></i>
+        <p>Agrega stories para ver el burndown chart</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .agile-generator-section {
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
+    border-radius: 16px;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+  }
+
+  .agile-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+    flex-wrap: wrap;
+  }
+
+  .header-icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(139, 92, 246, 0.15);
+    border-radius: 12px;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+  }
+
+  .header-icon i {
+    font-size: 1.75rem;
+    color: #8b5cf6;
+  }
+
+  .header-content h2 {
+    margin: 0;
+    font-size: 1.75rem;
+    background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .header-content p {
+    margin: 0.25rem 0 0;
+    color: #94a3b8;
+    font-size: 0.95rem;
+  }
+
+  .header-badges {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: auto;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .badge.scrum {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8b5cf6;
+    border: 1px solid rgba(139, 92, 246, 0.4);
+  }
+
+  .badge.kanban {
+    background: rgba(6, 182, 212, 0.2);
+    color: #06b6d4;
+    border: 1px solid rgba(6, 182, 212, 0.4);
+  }
+
+  .badge.safe {
+    background: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.4);
+  }
+
+  /* Concept Cards */
+  .agile-concepts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .concept-card {
+    background: rgba(30, 41, 59, 0.6);
+    padding: 1.25rem;
+    border-radius: 12px;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .concept-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(139, 92, 246, 0.4);
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.15);
+  }
+
+  .concept-card i {
+    font-size: 1.75rem;
+    color: #8b5cf6;
+    margin-bottom: 0.75rem;
+  }
+
+  .concept-card h4 {
+    margin: 0 0 0.5rem;
+    color: #f8fafc;
+    font-size: 1rem;
+  }
+
+  .concept-card p {
+    margin: 0;
+    color: #94a3b8;
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  /* Builder Layout */
+  .agile-builder {
+    display: grid;
+    grid-template-columns: 300px 1fr 280px;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 1200px) {
+    .agile-builder {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Sprint Config Panel */
+  .sprint-config-panel {
+    background: rgba(30, 41, 59, 0.6);
+    border-radius: 12px;
+    padding: 1.25rem;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+  }
+
+  .sprint-config-panel h3 {
+    margin: 0 0 1rem;
+    color: #f8fafc;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .sprint-config-panel h3 i {
+    color: #8b5cf6;
+  }
+
+  .config-section {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-group label {
+    display: block;
+    color: #94a3b8;
+    font-size: 0.75rem;
+    margin-bottom: 0.35rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.6rem;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 6px;
+    color: #f8fafc;
+    font-size: 0.85rem;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #8b5cf6;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  /* Velocity Indicator */
+  .velocity-indicator {
+    margin-top: 1rem;
+  }
+
+  .velocity-bar {
+    height: 8px;
+    background: rgba(15, 23, 42, 0.6);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+  }
+
+  .velocity-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #8b5cf6, #a78bfa);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+  }
+
+  .velocity-fill.warning {
+    background: linear-gradient(90deg, #fbbf24, #f59e0b);
+  }
+
+  .velocity-fill.danger {
+    background: linear-gradient(90deg, #ef4444, #dc2626);
+  }
+
+  .velocity-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #64748b;
+  }
+
+  .velocity-labels strong {
+    color: #8b5cf6;
+  }
+
+  /* Team Section */
+  .team-section {
+    border-top: 1px solid rgba(139, 92, 246, 0.2);
+    padding-top: 1rem;
+  }
+
+  .team-section h4 {
+    margin: 0 0 0.75rem;
+    color: #f8fafc;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .team-section h4 i {
+    color: #8b5cf6;
+  }
+
+  .team-roles {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .role-input label {
+    display: block;
+    color: #94a3b8;
+    font-size: 0.7rem;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+  }
+
+  .role-input input {
+    width: 100%;
+    padding: 0.5rem;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 6px;
+    color: #f8fafc;
+    font-size: 0.85rem;
+  }
+
+  /* Stories Panel */
+  .stories-panel {
+    background: rgba(30, 41, 59, 0.6);
+    border-radius: 12px;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    overflow: hidden;
+  }
+
+  .stories-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    background: rgba(15, 23, 42, 0.6);
+    border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+  }
+
+  .stories-header h3 {
+    margin: 0;
+    color: #f8fafc;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .stories-header h3 i {
+    color: #8b5cf6;
+  }
+
+  .btn-add-story {
+    padding: 0.5rem 1rem;
+    background: #8b5cf6;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 0.85rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: all 0.2s ease;
+  }
+
+  .btn-add-story:hover {
+    background: #7c3aed;
+    transform: translateY(-1px);
+  }
+
+  /* Story Form */
+  .story-form {
+    padding: 1.25rem;
+    border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+    background: rgba(15, 23, 42, 0.4);
+  }
+
+  .story-form.hidden {
+    display: none;
+  }
+
+  .story-form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .story-form-header h4 {
+    margin: 0;
+    color: #f8fafc;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .story-form-header h4 i {
+    color: #8b5cf6;
+  }
+
+  .btn-close {
+    padding: 0.35rem 0.5rem;
+    background: transparent;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: 4px;
+    color: #ef4444;
+    cursor: pointer;
+  }
+
+  /* Story Template */
+  .story-template {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: rgba(139, 92, 246, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .story-template {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .template-part label {
+    display: block;
+    color: #8b5cf6;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+  }
+
+  .template-part input {
+    width: 100%;
+    padding: 0.5rem;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 6px;
+    color: #f8fafc;
+    font-size: 0.85rem;
+  }
+
+  /* Story Details */
+  .story-details {
+    margin-bottom: 1rem;
+  }
+
+  .detail-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .detail-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Points Selector */
+  .points-selector {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+  }
+
+  .point-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 6px;
+    color: #94a3b8;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .point-btn:hover,
+  .point-btn.selected {
+    background: #8b5cf6;
+    border-color: #8b5cf6;
+    color: white;
+  }
+
+  /* Acceptance Criteria */
+  .acceptance-criteria {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .ac-item {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .ac-input {
+    flex: 1;
+    padding: 0.5rem;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 6px;
+    color: #f8fafc;
+    font-size: 0.85rem;
+  }
+
+  .btn-remove-ac {
+    padding: 0.5rem;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: 6px;
+    color: #ef4444;
+    cursor: pointer;
+  }
+
+  .btn-add-ac {
+    padding: 0.4rem 0.75rem;
+    background: transparent;
+    border: 1px dashed rgba(139, 92, 246, 0.3);
+    border-radius: 6px;
+    color: #8b5cf6;
+    font-size: 0.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .btn-add-ac:hover {
+    background: rgba(139, 92, 246, 0.1);
+  }
+
+  /* Story Form Actions */
+  .story-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+  }
+
+  .btn-cancel {
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 1px solid rgba(100, 116, 139, 0.3);
+    border-radius: 6px;
+    color: #94a3b8;
+    cursor: pointer;
+  }
+
+  .btn-save {
+    padding: 0.5rem 1rem;
+    background: #8b5cf6;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+  }
+
+  .btn-save:hover {
+    background: #7c3aed;
+  }
+
+  /* Stories List */
+  .stories-list {
+    padding: 1rem;
+    min-height: 200px;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+  .stories-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 180px;
+    color: #64748b;
+    text-align: center;
+  }
+
+  .stories-empty i {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+    opacity: 0.5;
+  }
+
+  .stories-empty .hint {
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    color: #475569;
+  }
+
+  /* Story Card */
+  .story-card {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 8px;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .story-card:hover {
+    border-color: rgba(139, 92, 246, 0.4);
+    transform: translateX(2px);
+  }
+
+  .story-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+  }
+
+  .story-id {
+    font-size: 0.7rem;
+    color: #8b5cf6;
+    font-weight: 600;
+  }
+
+  .story-points-badge {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8b5cf6;
+    padding: 0.15rem 0.5rem;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+
+  .story-title {
+    color: #f8fafc;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+
+  .story-meta {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .story-priority {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .story-priority.must {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+  }
+
+  .story-priority.should {
+    background: rgba(251, 191, 36, 0.2);
+    color: #fbbf24;
+  }
+
+  .story-priority.could {
+    background: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+  }
+
+  .story-priority.wont {
+    background: rgba(100, 116, 139, 0.2);
+    color: #64748b;
+  }
+
+  .story-epic-tag {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    background: rgba(6, 182, 212, 0.2);
+    color: #06b6d4;
+  }
+
+  .story-card-actions {
+    display: flex;
+    gap: 0.35rem;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(139, 92, 246, 0.1);
+  }
+
+  .story-card-actions button {
+    padding: 0.25rem 0.5rem;
+    background: transparent;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 4px;
+    color: #94a3b8;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .story-card-actions button:hover {
+    background: rgba(139, 92, 246, 0.1);
+    color: #8b5cf6;
+  }
+
+  .story-card-actions .btn-delete:hover {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    border-color: rgba(239, 68, 68, 0.3);
+  }
+
+  /* Sprint Summary */
+  .sprint-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    padding: 1rem 1.25rem;
+    background: rgba(15, 23, 42, 0.6);
+    border-top: 1px solid rgba(139, 92, 246, 0.2);
+  }
+
+  .summary-item {
+    text-align: center;
+  }
+
+  .summary-label {
+    display: block;
+    font-size: 0.65rem;
+    color: #64748b;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+  }
+
+  .summary-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #8b5cf6;
+  }
+
+  .summary-value.priority-must {
+    color: #ef4444;
+  }
+
+  .summary-value.priority-should {
+    color: #fbbf24;
+  }
+
+  /* Backlog Panel */
+  .backlog-panel {
+    background: rgba(30, 41, 59, 0.6);
+    border-radius: 12px;
+    padding: 1.25rem;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+  }
+
+  .backlog-panel h3 {
+    margin: 0 0 1rem;
+    color: #f8fafc;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .backlog-panel h3 i {
+    color: #8b5cf6;
+  }
+
+  .backlog-filters {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .backlog-filters select {
+    flex: 1;
+    padding: 0.4rem;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 6px;
+    color: #f8fafc;
+    font-size: 0.8rem;
+  }
+
+  .backlog-list {
+    min-height: 150px;
+    max-height: 250px;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+  }
+
+  .backlog-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    color: #64748b;
+    text-align: center;
+  }
+
+  .backlog-empty i {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.5;
+  }
+
+  /* Templates Section */
+  .templates-section {
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(139, 92, 246, 0.2);
+  }
+
+  .templates-section h4 {
+    margin: 0 0 0.75rem;
+    color: #f8fafc;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .templates-section h4 i {
+    color: #fbbf24;
+  }
+
+  .template-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .template-btn {
+    padding: 0.5rem;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 6px;
+    color: #94a3b8;
+    font-size: 0.75rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: all 0.2s ease;
+  }
+
+  .template-btn:hover {
+    background: rgba(139, 92, 246, 0.1);
+    border-color: rgba(139, 92, 246, 0.4);
+    color: #f8fafc;
+  }
+
+  .template-btn i {
+    color: #8b5cf6;
+  }
+
+  /* Export Section */
+  .export-section {
+    padding-top: 1rem;
+    border-top: 1px solid rgba(139, 92, 246, 0.2);
+  }
+
+  .export-section h4 {
+    margin: 0 0 0.75rem;
+    color: #f8fafc;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .export-section h4 i {
+    color: #06b6d4;
+  }
+
+  .export-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .export-btn {
+    padding: 0.5rem;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    border-radius: 6px;
+    color: #94a3b8;
+    font-size: 0.75rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: all 0.2s ease;
+  }
+
+  .export-btn:hover {
+    background: rgba(6, 182, 212, 0.1);
+    border-color: rgba(6, 182, 212, 0.4);
+    color: #06b6d4;
+  }
+
+  .export-btn i {
+    color: #06b6d4;
+  }
+
+  /* Sprint Board */
+  .sprint-board-section {
+    margin-bottom: 2rem;
+  }
+
+  .sprint-board-section h3 {
+    margin: 0 0 1rem;
+    color: #f8fafc;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .sprint-board-section h3 i {
+    color: #8b5cf6;
+  }
+
+  .sprint-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  @media (max-width: 900px) {
+    .sprint-board {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .sprint-board {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .board-column {
+    background: rgba(30, 41, 59, 0.6);
+    border-radius: 12px;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    min-height: 300px;
+  }
+
+  .column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: rgba(15, 23, 42, 0.6);
+    border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 12px 12px 0 0;
+  }
+
+  .column-title {
+    color: #f8fafc;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .column-count {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8b5cf6;
+    padding: 0.2rem 0.6rem;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .column-content {
+    padding: 0.75rem;
+    min-height: 200px;
+  }
+
+  /* Board Card */
+  .board-card {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 6px;
+    padding: 0.6rem;
+    margin-bottom: 0.5rem;
+    cursor: grab;
+    transition: all 0.2s ease;
+  }
+
+  .board-card:hover {
+    border-color: rgba(139, 92, 246, 0.4);
+  }
+
+  .board-card.dragging {
+    opacity: 0.5;
+    cursor: grabbing;
+  }
+
+  .board-card-title {
+    font-size: 0.8rem;
+    color: #f8fafc;
+    margin-bottom: 0.35rem;
+  }
+
+  .board-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .board-card-points {
+    font-size: 0.7rem;
+    color: #8b5cf6;
+    font-weight: 600;
+  }
+
+  /* Burndown Chart */
+  .burndown-section h3 {
+    margin: 0 0 1rem;
+    color: #f8fafc;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .burndown-section h3 i {
+    color: #8b5cf6;
+  }
+
+  .burndown-chart {
+    background: rgba(30, 41, 59, 0.6);
+    border-radius: 12px;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    min-height: 250px;
+    padding: 1rem;
+  }
+
+  .chart-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    color: #64748b;
+    text-align: center;
+  }
+
+  .chart-placeholder i {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+    opacity: 0.5;
+  }
+
+  /* Light Mode */
+  :global(.light-mode) .agile-generator-section {
+    background: linear-gradient(135deg, rgba(248, 250, 252, 0.98), rgba(241, 245, 249, 0.98));
+    border-color: rgba(139, 92, 246, 0.15);
+  }
+
+  :global(.light-mode) .header-content h2 {
+    -webkit-text-fill-color: #7c3aed;
+  }
+
+  :global(.light-mode) .header-content p {
+    color: #475569;
+  }
+
+  :global(.light-mode) .concept-card,
+  :global(.light-mode) .sprint-config-panel,
+  :global(.light-mode) .stories-panel,
+  :global(.light-mode) .backlog-panel,
+  :global(.light-mode) .board-column,
+  :global(.light-mode) .burndown-chart {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(139, 92, 246, 0.15);
+  }
+
+  :global(.light-mode) .concept-card h4,
+  :global(.light-mode) .sprint-config-panel h3,
+  :global(.light-mode) .stories-header h3,
+  :global(.light-mode) .backlog-panel h3,
+  :global(.light-mode) .sprint-board-section h3,
+  :global(.light-mode) .burndown-section h3,
+  :global(.light-mode) .column-title {
+    color: #0f172a;
+  }
+
+  :global(.light-mode) .form-group input,
+  :global(.light-mode) .form-group select,
+  :global(.light-mode) .form-group textarea,
+  :global(.light-mode) .role-input input,
+  :global(.light-mode) .backlog-filters select,
+  :global(.light-mode) .template-part input,
+  :global(.light-mode) .ac-input {
+    background: rgba(248, 250, 252, 0.9);
+    border-color: rgba(139, 92, 246, 0.2);
+    color: #0f172a;
+  }
+
+  :global(.light-mode) .story-card,
+  :global(.light-mode) .board-card {
+    background: rgba(248, 250, 252, 0.9);
+  }
+
+  :global(.light-mode) .story-title,
+  :global(.light-mode) .board-card-title {
+    color: #0f172a;
+  }
+
+  :global(.light-mode) .point-btn {
+    background: rgba(248, 250, 252, 0.9);
+    color: #475569;
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener('astro:page-load', () => {
+    // Estado
+    let stories = [];
+    let storyCounter = 0;
+    let editingStoryId = null;
+    const teamVelocity = () => parseInt(document.getElementById('team-velocity')?.value) || 30;
+
+    // Elements
+    const storyForm = document.getElementById('story-form');
+    const storiesList = document.getElementById('stories-list');
+    const addStoryBtn = document.getElementById('add-story-btn');
+    const closeFormBtn = document.getElementById('close-story-form');
+    const cancelStoryBtn = document.getElementById('cancel-story');
+    const saveStoryBtn = document.getElementById('save-story');
+
+    // Templates
+    const templates = {
+      ecommerce: [
+        { role: 'cliente', want: 'ver el catálogo de productos', benefit: 'encontrar lo que necesito', points: 3, priority: 'must', epic: 'Catálogo' },
+        { role: 'cliente', want: 'agregar productos al carrito', benefit: 'preparar mi compra', points: 5, priority: 'must', epic: 'Carrito' },
+        { role: 'cliente', want: 'realizar el pago con tarjeta', benefit: 'completar mi compra', points: 8, priority: 'must', epic: 'Pagos' },
+        { role: 'cliente', want: 'ver el historial de pedidos', benefit: 'revisar mis compras anteriores', points: 3, priority: 'should', epic: 'Cuenta' },
+        { role: 'admin', want: 'gestionar el inventario', benefit: 'mantener el stock actualizado', points: 5, priority: 'must', epic: 'Admin' },
+        { role: 'cliente', want: 'recibir notificaciones de envío', benefit: 'saber cuándo llega mi pedido', points: 3, priority: 'should', epic: 'Notificaciones' }
+      ],
+      saas: [
+        { role: 'usuario', want: 'registrarme con email', benefit: 'acceder a la plataforma', points: 3, priority: 'must', epic: 'Auth' },
+        { role: 'usuario', want: 'iniciar sesión con OAuth', benefit: 'acceder rápidamente', points: 5, priority: 'should', epic: 'Auth' },
+        { role: 'usuario', want: 'ver mi dashboard personalizado', benefit: 'monitorear mis métricas', points: 8, priority: 'must', epic: 'Dashboard' },
+        { role: 'admin', want: 'gestionar usuarios y roles', benefit: 'controlar los accesos', points: 5, priority: 'must', epic: 'Admin' },
+        { role: 'usuario', want: 'exportar reportes en PDF', benefit: 'compartir información', points: 5, priority: 'could', epic: 'Reportes' },
+        { role: 'usuario', want: 'configurar notificaciones', benefit: 'recibir alertas relevantes', points: 3, priority: 'should', epic: 'Settings' }
+      ],
+      mobile: [
+        { role: 'usuario', want: 'iniciar sesión con biometría', benefit: 'acceder de forma segura y rápida', points: 5, priority: 'must', epic: 'Auth' },
+        { role: 'usuario', want: 'recibir push notifications', benefit: 'estar informado en tiempo real', points: 5, priority: 'must', epic: 'Notificaciones' },
+        { role: 'usuario', want: 'usar la app offline', benefit: 'acceder sin conexión', points: 8, priority: 'should', epic: 'Offline' },
+        { role: 'usuario', want: 'sincronizar datos entre dispositivos', benefit: 'continuar donde lo dejé', points: 8, priority: 'should', epic: 'Sync' },
+        { role: 'usuario', want: 'personalizar el tema de la app', benefit: 'tener una experiencia cómoda', points: 3, priority: 'could', epic: 'UX' },
+        { role: 'usuario', want: 'acceder con gestos rápidos', benefit: 'navegar eficientemente', points: 5, priority: 'could', epic: 'UX' }
+      ],
+      api: [
+        { role: 'desarrollador', want: 'autenticarme con API Keys', benefit: 'acceder a los endpoints de forma segura', points: 5, priority: 'must', epic: 'Auth' },
+        { role: 'desarrollador', want: 'consultar documentación interactiva', benefit: 'entender cómo usar la API', points: 5, priority: 'must', epic: 'Docs' },
+        { role: 'desarrollador', want: 'recibir webhooks de eventos', benefit: 'reaccionar a cambios en tiempo real', points: 8, priority: 'should', epic: 'Events' },
+        { role: 'desarrollador', want: 'paginar resultados de listas', benefit: 'manejar grandes volúmenes de datos', points: 3, priority: 'must', epic: 'Core' },
+        { role: 'desarrollador', want: 'filtrar recursos con query params', benefit: 'obtener solo los datos necesarios', points: 5, priority: 'must', epic: 'Core' },
+        { role: 'admin', want: 'ver métricas de uso de la API', benefit: 'monitorear el consumo', points: 5, priority: 'should', epic: 'Analytics' }
+      ]
+    };
+
+    // Show/Hide Story Form
+    function showStoryForm(storyId = null) {
+      editingStoryId = storyId;
+      storyForm?.classList.remove('hidden');
+
+      if (storyId) {
+        const story = stories.find(s => s.id === storyId);
+        if (story) {
+          document.getElementById('story-form-title').textContent = `Editar Story ${story.id}`;
+          document.getElementById('story-role').value = story.role;
+          document.getElementById('story-want').value = story.want;
+          document.getElementById('story-benefit').value = story.benefit;
+          document.getElementById('story-points').value = story.points;
+          document.getElementById('story-priority').value = story.priority;
+          document.getElementById('story-epic').value = story.epic || '';
+          document.getElementById('story-labels').value = story.labels?.join(', ') || '';
+          document.getElementById('story-description').value = story.description || '';
+
+          // Select point button
+          document.querySelectorAll('.point-btn').forEach(btn => {
+            btn.classList.toggle('selected', parseInt(btn.dataset.points) === story.points);
+          });
+
+          // Render acceptance criteria
+          renderAcceptanceCriteria(story.acceptanceCriteria || []);
+        }
+      } else {
+        document.getElementById('story-form-title').textContent = 'Nueva User Story';
+        clearStoryForm();
+      }
+    }
+
+    function hideStoryForm() {
+      storyForm?.classList.add('hidden');
+      editingStoryId = null;
+      clearStoryForm();
+    }
+
+    function clearStoryForm() {
+      document.getElementById('story-role').value = '';
+      document.getElementById('story-want').value = '';
+      document.getElementById('story-benefit').value = '';
+      document.getElementById('story-points').value = '';
+      document.getElementById('story-priority').value = 'must';
+      document.getElementById('story-epic').value = '';
+      document.getElementById('story-labels').value = '';
+      document.getElementById('story-description').value = '';
+      document.querySelectorAll('.point-btn').forEach(btn => btn.classList.remove('selected'));
+      renderAcceptanceCriteria([]);
+    }
+
+    function renderAcceptanceCriteria(criteria) {
+      const container = document.getElementById('acceptance-criteria');
+      if (!container) return;
+
+      if (criteria.length === 0) {
+        container.innerHTML = `
+          <div class="ac-item">
+            <input type="text" class="ac-input" placeholder="Dado que... Cuando... Entonces...">
+            <button class="btn-remove-ac"><i class="fas fa-minus"></i></button>
+          </div>
+        `;
+      } else {
+        container.innerHTML = criteria.map(ac => `
+          <div class="ac-item">
+            <input type="text" class="ac-input" value="${ac}" placeholder="Dado que... Cuando... Entonces...">
+            <button class="btn-remove-ac"><i class="fas fa-minus"></i></button>
+          </div>
+        `).join('');
+      }
+
+      // Add remove listeners
+      container.querySelectorAll('.btn-remove-ac').forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (container.querySelectorAll('.ac-item').length > 1) {
+            btn.closest('.ac-item')?.remove();
+          }
+        });
+      });
+    }
+
+    // Save Story
+    function saveStory() {
+      const role = document.getElementById('story-role')?.value.trim();
+      const want = document.getElementById('story-want')?.value.trim();
+      const benefit = document.getElementById('story-benefit')?.value.trim();
+      const points = parseInt(document.getElementById('story-points')?.value) || 0;
+      const priority = document.getElementById('story-priority')?.value || 'must';
+      const epic = document.getElementById('story-epic')?.value.trim();
+      const labels = document.getElementById('story-labels')?.value.split(',').map(l => l.trim()).filter(l => l);
+      const description = document.getElementById('story-description')?.value.trim();
+
+      const acInputs = document.querySelectorAll('.ac-input');
+      const acceptanceCriteria = Array.from(acInputs).map(input => input.value.trim()).filter(ac => ac);
+
+      if (!role || !want) {
+        alert('Por favor completa al menos "Como" y "Quiero"');
+        return;
+      }
+
+      if (editingStoryId) {
+        // Update existing story
+        const storyIndex = stories.findIndex(s => s.id === editingStoryId);
+        if (storyIndex !== -1) {
+          stories[storyIndex] = {
+            ...stories[storyIndex],
+            role, want, benefit, points, priority, epic, labels, description, acceptanceCriteria
+          };
+        }
+      } else {
+        // Create new story
+        storyCounter++;
+        const story = {
+          id: `US-${String(storyCounter).padStart(3, '0')}`,
+          role, want, benefit, points, priority, epic, labels, description, acceptanceCriteria,
+          status: 'todo',
+          createdAt: new Date().toISOString()
+        };
+        stories.push(story);
+      }
+
+      hideStoryForm();
+      renderStories();
+      updateSummary();
+      updateVelocityIndicator();
+      updateBoard();
+    }
+
+    // Render Stories
+    function renderStories() {
+      if (!storiesList) return;
+
+      if (stories.length === 0) {
+        storiesList.innerHTML = `
+          <div class="stories-empty">
+            <i class="fas fa-clipboard-list"></i>
+            <p>No hay user stories aún</p>
+            <p class="hint">Haz clic en "Nueva Story" o usa una plantilla</p>
+          </div>
+        `;
+        return;
+      }
+
+      storiesList.innerHTML = stories.map(story => `
+        <div class="story-card" data-id="${story.id}">
+          <div class="story-card-header">
+            <span class="story-id">${story.id}</span>
+            <span class="story-points-badge">${story.points} pts</span>
+          </div>
+          <div class="story-title">
+            Como <strong>${story.role}</strong>, quiero <strong>${story.want}</strong>${story.benefit ? `, para <strong>${story.benefit}</strong>` : ''}
+          </div>
+          <div class="story-meta">
+            <span class="story-priority ${story.priority}">${story.priority.toUpperCase()}</span>
+            ${story.epic ? `<span class="story-epic-tag">${story.epic}</span>` : ''}
+          </div>
+          <div class="story-card-actions">
+            <button class="btn-edit" data-id="${story.id}"><i class="fas fa-edit"></i> Editar</button>
+            <button class="btn-duplicate" data-id="${story.id}"><i class="fas fa-copy"></i> Duplicar</button>
+            <button class="btn-delete" data-id="${story.id}"><i class="fas fa-trash"></i> Eliminar</button>
+          </div>
+        </div>
+      `).join('');
+
+      // Add event listeners
+      storiesList.querySelectorAll('.btn-edit').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          showStoryForm(btn.dataset.id);
+        });
+      });
+
+      storiesList.querySelectorAll('.btn-duplicate').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          duplicateStory(btn.dataset.id);
+        });
+      });
+
+      storiesList.querySelectorAll('.btn-delete').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          deleteStory(btn.dataset.id);
+        });
+      });
+    }
+
+    function duplicateStory(id) {
+      const story = stories.find(s => s.id === id);
+      if (story) {
+        storyCounter++;
+        const newStory = {
+          ...story,
+          id: `US-${String(storyCounter).padStart(3, '0')}`,
+          createdAt: new Date().toISOString()
+        };
+        stories.push(newStory);
+        renderStories();
+        updateSummary();
+        updateVelocityIndicator();
+        updateBoard();
+      }
+    }
+
+    function deleteStory(id) {
+      if (confirm('¿Eliminar esta user story?')) {
+        stories = stories.filter(s => s.id !== id);
+        renderStories();
+        updateSummary();
+        updateVelocityIndicator();
+        updateBoard();
+      }
+    }
+
+    // Update Summary
+    function updateSummary() {
+      const totalStories = stories.length;
+      const totalPoints = stories.reduce((sum, s) => sum + (s.points || 0), 0);
+      const mustCount = stories.filter(s => s.priority === 'must').length;
+      const shouldCount = stories.filter(s => s.priority === 'should').length;
+
+      document.getElementById('total-stories').textContent = totalStories;
+      document.getElementById('total-points').textContent = totalPoints;
+      document.getElementById('must-count').textContent = mustCount;
+      document.getElementById('should-count').textContent = shouldCount;
+    }
+
+    // Update Velocity Indicator
+    function updateVelocityIndicator() {
+      const velocity = teamVelocity();
+      const usedPoints = stories.reduce((sum, s) => sum + (s.points || 0), 0);
+      const percentage = Math.min((usedPoints / velocity) * 100, 100);
+
+      const fill = document.getElementById('velocity-fill');
+      if (fill) {
+        fill.style.width = `${percentage}%`;
+        fill.classList.remove('warning', 'danger');
+        if (percentage > 100) {
+          fill.classList.add('danger');
+        } else if (percentage > 80) {
+          fill.classList.add('warning');
+        }
+      }
+
+      document.getElementById('points-used').textContent = usedPoints;
+      document.getElementById('points-available').textContent = Math.max(0, velocity - usedPoints);
+    }
+
+    // Update Board
+    function updateBoard() {
+      const columns = {
+        todo: document.getElementById('todo-column'),
+        progress: document.getElementById('progress-column'),
+        review: document.getElementById('review-column'),
+        done: document.getElementById('done-column')
+      };
+
+      // Clear columns
+      Object.values(columns).forEach(col => {
+        if (col) col.innerHTML = '';
+      });
+
+      // Populate columns
+      stories.forEach(story => {
+        const column = columns[story.status || 'todo'];
+        if (column) {
+          const card = document.createElement('div');
+          card.className = 'board-card';
+          card.draggable = true;
+          card.dataset.id = story.id;
+          card.innerHTML = `
+            <div class="board-card-title">${story.want}</div>
+            <div class="board-card-meta">
+              <span class="board-card-points">${story.points} pts</span>
+              <span class="story-priority ${story.priority}">${story.priority.charAt(0).toUpperCase()}</span>
+            </div>
+          `;
+          column.appendChild(card);
+
+          // Drag events
+          card.addEventListener('dragstart', (e) => {
+            e.dataTransfer.setData('text/plain', story.id);
+            card.classList.add('dragging');
+          });
+
+          card.addEventListener('dragend', () => {
+            card.classList.remove('dragging');
+          });
+        }
+      });
+
+      // Update counts
+      document.getElementById('todo-count').textContent = stories.filter(s => s.status === 'todo').length;
+      document.getElementById('progress-count').textContent = stories.filter(s => s.status === 'progress').length;
+      document.getElementById('review-count').textContent = stories.filter(s => s.status === 'review').length;
+      document.getElementById('done-count').textContent = stories.filter(s => s.status === 'done').length;
+    }
+
+    // Board drag and drop
+    document.querySelectorAll('.board-column').forEach(column => {
+      column.addEventListener('dragover', (e) => {
+        e.preventDefault();
+      });
+
+      column.addEventListener('drop', (e) => {
+        e.preventDefault();
+        const storyId = e.dataTransfer.getData('text/plain');
+        const newStatus = column.dataset.status;
+
+        const story = stories.find(s => s.id === storyId);
+        if (story) {
+          story.status = newStatus;
+          updateBoard();
+        }
+      });
+    });
+
+    // Event Listeners
+    addStoryBtn?.addEventListener('click', () => showStoryForm());
+    closeFormBtn?.addEventListener('click', hideStoryForm);
+    cancelStoryBtn?.addEventListener('click', hideStoryForm);
+    saveStoryBtn?.addEventListener('click', saveStory);
+
+    // Points selector
+    document.querySelectorAll('.point-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.point-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        document.getElementById('story-points').value = btn.dataset.points;
+      });
+    });
+
+    // Add acceptance criteria
+    document.getElementById('add-ac-btn')?.addEventListener('click', () => {
+      const container = document.getElementById('acceptance-criteria');
+      const newItem = document.createElement('div');
+      newItem.className = 'ac-item';
+      newItem.innerHTML = `
+        <input type="text" class="ac-input" placeholder="Dado que... Cuando... Entonces...">
+        <button class="btn-remove-ac"><i class="fas fa-minus"></i></button>
+      `;
+      container?.appendChild(newItem);
+
+      newItem.querySelector('.btn-remove-ac')?.addEventListener('click', () => {
+        if (container.querySelectorAll('.ac-item').length > 1) {
+          newItem.remove();
+        }
+      });
+    });
+
+    // Velocity input change
+    document.getElementById('team-velocity')?.addEventListener('change', updateVelocityIndicator);
+
+    // Templates
+    document.querySelectorAll('.template-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const templateName = btn.dataset.template;
+        const template = templates[templateName];
+        if (!template) return;
+
+        if (stories.length > 0 && !confirm('Esto reemplazará las stories actuales. ¿Continuar?')) {
+          return;
+        }
+
+        stories = [];
+        storyCounter = 0;
+
+        template.forEach(item => {
+          storyCounter++;
+          stories.push({
+            id: `US-${String(storyCounter).padStart(3, '0')}`,
+            ...item,
+            labels: [],
+            description: '',
+            acceptanceCriteria: [],
+            status: 'todo',
+            createdAt: new Date().toISOString()
+          });
+        });
+
+        renderStories();
+        updateSummary();
+        updateVelocityIndicator();
+        updateBoard();
+      });
+    });
+
+    // Export functions
+    document.getElementById('export-jira')?.addEventListener('click', () => exportToJira());
+    document.getElementById('export-azure')?.addEventListener('click', () => exportToAzure());
+    document.getElementById('export-markdown')?.addEventListener('click', () => exportToMarkdown());
+    document.getElementById('export-json')?.addEventListener('click', () => exportToJson());
+
+    function exportToJira() {
+      const headers = ['Summary', 'Issue Type', 'Priority', 'Story Points', 'Epic Link', 'Labels', 'Description'];
+      const rows = stories.map(s => [
+        `Como ${s.role}, quiero ${s.want}${s.benefit ? `, para ${s.benefit}` : ''}`,
+        'Story',
+        s.priority === 'must' ? 'Highest' : s.priority === 'should' ? 'High' : s.priority === 'could' ? 'Medium' : 'Low',
+        s.points,
+        s.epic || '',
+        s.labels?.join(';') || '',
+        s.description || ''
+      ]);
+
+      const csv = [headers, ...rows].map(row => row.map(cell => `"${cell}"`).join(',')).join('\n');
+      downloadFile(csv, 'jira-import.csv', 'text/csv');
+    }
+
+    function exportToAzure() {
+      const rows = stories.map(s => ({
+        'Work Item Type': 'User Story',
+        Title: `Como ${s.role}, quiero ${s.want}`,
+        'Story Points': s.points,
+        Priority: s.priority === 'must' ? 1 : s.priority === 'should' ? 2 : s.priority === 'could' ? 3 : 4,
+        'Area Path': s.epic || '',
+        Description: `<p><strong>Beneficio:</strong> ${s.benefit || 'N/A'}</p>${s.description ? `<p>${s.description}</p>` : ''}`,
+        'Acceptance Criteria': s.acceptanceCriteria?.map(ac => `<li>${ac}</li>`).join('') || ''
+      }));
+
+      const headers = Object.keys(rows[0] || {});
+      const csv = [headers, ...rows.map(r => headers.map(h => `"${r[h]}"`))].map(row => row.join(',')).join('\n');
+      downloadFile(csv, 'azure-devops-import.csv', 'text/csv');
+    }
+
+    function exportToMarkdown() {
+      const sprintName = document.getElementById('sprint-name')?.value || 'Sprint';
+      const sprintGoal = document.getElementById('sprint-goal')?.value || '';
+
+      let md = `# ${sprintName}\n\n`;
+      if (sprintGoal) md += `**Goal:** ${sprintGoal}\n\n`;
+
+      md += `## User Stories\n\n`;
+      md += `| ID | Story | Points | Priority | Epic |\n`;
+      md += `|----|-------|--------|----------|------|\n`;
+
+      stories.forEach(s => {
+        md += `| ${s.id} | Como ${s.role}, quiero ${s.want} | ${s.points} | ${s.priority.toUpperCase()} | ${s.epic || '-'} |\n`;
+      });
+
+      md += `\n## Detalle\n\n`;
+      stories.forEach(s => {
+        md += `### ${s.id}: ${s.want}\n\n`;
+        md += `**Como** ${s.role}, **quiero** ${s.want}`;
+        if (s.benefit) md += `, **para** ${s.benefit}`;
+        md += `\n\n`;
+        if (s.acceptanceCriteria?.length) {
+          md += `**Criterios de Aceptación:**\n`;
+          s.acceptanceCriteria.forEach(ac => {
+            md += `- ${ac}\n`;
+          });
+          md += `\n`;
+        }
+      });
+
+      downloadFile(md, 'sprint-backlog.md', 'text/markdown');
+    }
+
+    function exportToJson() {
+      const data = {
+        sprint: {
+          name: document.getElementById('sprint-name')?.value || 'Sprint',
+          goal: document.getElementById('sprint-goal')?.value || '',
+          startDate: document.getElementById('sprint-start')?.value || '',
+          duration: document.getElementById('sprint-duration')?.value || '2',
+          velocity: teamVelocity()
+        },
+        team: {
+          productOwner: document.getElementById('po-name')?.value || '',
+          scrumMaster: document.getElementById('sm-name')?.value || '',
+          teamSize: document.getElementById('team-size')?.value || '5'
+        },
+        stories
+      };
+
+      downloadFile(JSON.stringify(data, null, 2), 'sprint-data.json', 'application/json');
+    }
+
+    function downloadFile(content, filename, type) {
+      const blob = new Blob([content], { type });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    // Initialize
+    updateSummary();
+    updateVelocityIndicator();
+    updateBoard();
+  });
+</script>

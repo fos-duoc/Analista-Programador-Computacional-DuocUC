@@ -1,0 +1,1669 @@
+---
+/**
+ * StreamlitGenerator.astro
+ * Generador visual de aplicaciones Streamlit
+ * Basado en documentación oficial: https://docs.streamlit.io/
+ */
+---
+
+<section id="streamlit-generator" class="streamlit-generator-section">
+  <div class="streamlit-header">
+    <div class="header-icon">
+      <img src="https://cdn.simpleicons.org/streamlit/FF4B4B" alt="Streamlit" width="48" height="48">
+    </div>
+    <div class="header-content">
+      <h2>Streamlit App Generator</h2>
+      <p>Crea aplicaciones de datos interactivas con Python</p>
+    </div>
+    <div class="header-badges">
+      <span class="badge python">Python 3.8+</span>
+      <span class="badge streamlit">Streamlit 1.x</span>
+      <span class="badge hot">Data Apps</span>
+    </div>
+  </div>
+
+  <!-- Conceptos de Streamlit -->
+  <div class="concept-cards">
+    <div class="concept-card">
+      <i class="fas fa-play-circle"></i>
+      <h4>Run Script</h4>
+      <p>Streamlit ejecuta tu script de arriba a abajo cada vez que hay una interacción</p>
+    </div>
+    <div class="concept-card">
+      <i class="fas fa-sync-alt"></i>
+      <h4>Reactive</h4>
+      <p>Los widgets actualizan automáticamente el estado y re-ejecutan el app</p>
+    </div>
+    <div class="concept-card">
+      <i class="fas fa-database"></i>
+      <h4>Cache</h4>
+      <p>@st.cache_data y @st.cache_resource optimizan rendimiento</p>
+    </div>
+    <div class="concept-card">
+      <i class="fas fa-columns"></i>
+      <h4>Layouts</h4>
+      <p>Columnas, tabs, sidebar y expanders para organizar contenido</p>
+    </div>
+  </div>
+
+  <div class="streamlit-builder">
+    <!-- Panel de Componentes -->
+    <div class="components-panel">
+      <h3><i class="fas fa-puzzle-piece"></i> Componentes</h3>
+
+      <div class="component-category">
+        <h4><i class="fas fa-heading"></i> Texto</h4>
+        <div class="component-items">
+          <button class="component-btn" data-type="title" title="st.title()">
+            <i class="fas fa-heading"></i> Title
+          </button>
+          <button class="component-btn" data-type="header" title="st.header()">
+            <i class="fas fa-h-square"></i> Header
+          </button>
+          <button class="component-btn" data-type="subheader" title="st.subheader()">
+            <i class="fas fa-text-height"></i> Subheader
+          </button>
+          <button class="component-btn" data-type="text" title="st.text()">
+            <i class="fas fa-font"></i> Text
+          </button>
+          <button class="component-btn" data-type="markdown" title="st.markdown()">
+            <i class="fab fa-markdown"></i> Markdown
+          </button>
+          <button class="component-btn" data-type="code" title="st.code()">
+            <i class="fas fa-code"></i> Code
+          </button>
+          <button class="component-btn" data-type="latex" title="st.latex()">
+            <i class="fas fa-square-root-alt"></i> LaTeX
+          </button>
+        </div>
+      </div>
+
+      <div class="component-category">
+        <h4><i class="fas fa-sliders-h"></i> Widgets</h4>
+        <div class="component-items">
+          <button class="component-btn" data-type="button" title="st.button()">
+            <i class="fas fa-square"></i> Button
+          </button>
+          <button class="component-btn" data-type="checkbox" title="st.checkbox()">
+            <i class="fas fa-check-square"></i> Checkbox
+          </button>
+          <button class="component-btn" data-type="radio" title="st.radio()">
+            <i class="fas fa-dot-circle"></i> Radio
+          </button>
+          <button class="component-btn" data-type="selectbox" title="st.selectbox()">
+            <i class="fas fa-caret-square-down"></i> Selectbox
+          </button>
+          <button class="component-btn" data-type="multiselect" title="st.multiselect()">
+            <i class="fas fa-list-ul"></i> Multiselect
+          </button>
+          <button class="component-btn" data-type="slider" title="st.slider()">
+            <i class="fas fa-sliders-h"></i> Slider
+          </button>
+          <button class="component-btn" data-type="text_input" title="st.text_input()">
+            <i class="fas fa-i-cursor"></i> Text Input
+          </button>
+          <button class="component-btn" data-type="number_input" title="st.number_input()">
+            <i class="fas fa-hashtag"></i> Number Input
+          </button>
+          <button class="component-btn" data-type="text_area" title="st.text_area()">
+            <i class="fas fa-align-left"></i> Text Area
+          </button>
+          <button class="component-btn" data-type="date_input" title="st.date_input()">
+            <i class="fas fa-calendar"></i> Date Input
+          </button>
+          <button class="component-btn" data-type="file_uploader" title="st.file_uploader()">
+            <i class="fas fa-upload"></i> File Uploader
+          </button>
+          <button class="component-btn" data-type="color_picker" title="st.color_picker()">
+            <i class="fas fa-palette"></i> Color Picker
+          </button>
+        </div>
+      </div>
+
+      <div class="component-category">
+        <h4><i class="fas fa-chart-bar"></i> Data & Charts</h4>
+        <div class="component-items">
+          <button class="component-btn" data-type="dataframe" title="st.dataframe()">
+            <i class="fas fa-table"></i> DataFrame
+          </button>
+          <button class="component-btn" data-type="data_editor" title="st.data_editor()">
+            <i class="fas fa-edit"></i> Data Editor
+          </button>
+          <button class="component-btn" data-type="metric" title="st.metric()">
+            <i class="fas fa-tachometer-alt"></i> Metric
+          </button>
+          <button class="component-btn" data-type="line_chart" title="st.line_chart()">
+            <i class="fas fa-chart-line"></i> Line Chart
+          </button>
+          <button class="component-btn" data-type="bar_chart" title="st.bar_chart()">
+            <i class="fas fa-chart-bar"></i> Bar Chart
+          </button>
+          <button class="component-btn" data-type="area_chart" title="st.area_chart()">
+            <i class="fas fa-chart-area"></i> Area Chart
+          </button>
+          <button class="component-btn" data-type="scatter_chart" title="st.scatter_chart()">
+            <i class="fas fa-braille"></i> Scatter Chart
+          </button>
+          <button class="component-btn" data-type="map" title="st.map()">
+            <i class="fas fa-map-marked-alt"></i> Map
+          </button>
+          <button class="component-btn" data-type="plotly" title="st.plotly_chart()">
+            <i class="fas fa-chart-pie"></i> Plotly Chart
+          </button>
+        </div>
+      </div>
+
+      <div class="component-category">
+        <h4><i class="fas fa-th-large"></i> Layout</h4>
+        <div class="component-items">
+          <button class="component-btn" data-type="columns" title="st.columns()">
+            <i class="fas fa-columns"></i> Columns
+          </button>
+          <button class="component-btn" data-type="tabs" title="st.tabs()">
+            <i class="fas fa-folder"></i> Tabs
+          </button>
+          <button class="component-btn" data-type="expander" title="st.expander()">
+            <i class="fas fa-expand-alt"></i> Expander
+          </button>
+          <button class="component-btn" data-type="container" title="st.container()">
+            <i class="fas fa-box"></i> Container
+          </button>
+          <button class="component-btn" data-type="sidebar" title="st.sidebar">
+            <i class="fas fa-bars"></i> Sidebar
+          </button>
+        </div>
+      </div>
+
+      <div class="component-category">
+        <h4><i class="fas fa-bell"></i> Feedback</h4>
+        <div class="component-items">
+          <button class="component-btn" data-type="success" title="st.success()">
+            <i class="fas fa-check-circle"></i> Success
+          </button>
+          <button class="component-btn" data-type="info" title="st.info()">
+            <i class="fas fa-info-circle"></i> Info
+          </button>
+          <button class="component-btn" data-type="warning" title="st.warning()">
+            <i class="fas fa-exclamation-triangle"></i> Warning
+          </button>
+          <button class="component-btn" data-type="error" title="st.error()">
+            <i class="fas fa-times-circle"></i> Error
+          </button>
+          <button class="component-btn" data-type="spinner" title="st.spinner()">
+            <i class="fas fa-spinner"></i> Spinner
+          </button>
+          <button class="component-btn" data-type="progress" title="st.progress()">
+            <i class="fas fa-tasks"></i> Progress
+          </button>
+          <button class="component-btn" data-type="balloons" title="st.balloons()">
+            <i class="fas fa-birthday-cake"></i> Balloons
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Canvas del App -->
+    <div class="app-canvas-container">
+      <div class="canvas-toolbar">
+        <h3><i class="fas fa-mobile-alt"></i> App Preview</h3>
+        <div class="toolbar-actions">
+          <button id="clear-app-btn" class="btn-action" title="Limpiar app">
+            <i class="fas fa-trash"></i>
+          </button>
+          <button id="preview-app-btn" class="btn-action" title="Vista previa">
+            <i class="fas fa-eye"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="app-canvas" id="app-canvas">
+        <div class="canvas-placeholder">
+          <i class="fas fa-plus-circle"></i>
+          <p>Haz clic en los componentes para agregarlos</p>
+          <p class="hint">O usa una plantilla para comenzar rápido</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel de Propiedades -->
+    <div class="properties-panel">
+      <h3><i class="fas fa-cog"></i> Propiedades</h3>
+
+      <div id="properties-content" class="properties-content">
+        <div class="no-selection">
+          <i class="fas fa-mouse-pointer"></i>
+          <p>Selecciona un componente para editar sus propiedades</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Templates -->
+  <div class="templates-section">
+    <h3><i class="fas fa-magic"></i> Plantillas Rápidas</h3>
+    <div class="templates-grid">
+      <button class="template-card" data-template="dashboard">
+        <div class="template-icon">
+          <i class="fas fa-tachometer-alt"></i>
+        </div>
+        <h4>Dashboard Analytics</h4>
+        <p>Métricas, gráficos y filtros</p>
+      </button>
+      <button class="template-card" data-template="data-explorer">
+        <div class="template-icon">
+          <i class="fas fa-search"></i>
+        </div>
+        <h4>Data Explorer</h4>
+        <p>Exploración de datasets</p>
+      </button>
+      <button class="template-card" data-template="ml-app">
+        <div class="template-icon">
+          <i class="fas fa-brain"></i>
+        </div>
+        <h4>ML Predictor</h4>
+        <p>App de Machine Learning</p>
+      </button>
+      <button class="template-card" data-template="form-app">
+        <div class="template-icon">
+          <i class="fas fa-wpforms"></i>
+        </div>
+        <h4>Form App</h4>
+        <p>Formulario con validación</p>
+      </button>
+      <button class="template-card" data-template="chat-app">
+        <div class="template-icon">
+          <i class="fas fa-comments"></i>
+        </div>
+        <h4>Chat Interface</h4>
+        <p>Interfaz de chat/chatbot</p>
+      </button>
+      <button class="template-card" data-template="crud-app">
+        <div class="template-icon">
+          <i class="fas fa-database"></i>
+        </div>
+        <h4>CRUD App</h4>
+        <p>Gestión de datos básica</p>
+      </button>
+    </div>
+  </div>
+
+  <!-- Código Generado -->
+  <div class="code-output-section">
+    <div class="code-header">
+      <h3><i class="fas fa-file-code"></i> Código Generado</h3>
+      <div class="code-actions">
+        <button id="copy-streamlit-code" class="btn-copy" title="Copiar código">
+          <i class="fas fa-copy"></i> Copiar
+        </button>
+        <button id="download-streamlit-code" class="btn-download" title="Descargar archivo">
+          <i class="fas fa-download"></i> app.py
+        </button>
+      </div>
+    </div>
+    <div class="code-output">
+      <pre id="streamlit-code-output"><code class="language-python"># Tu app Streamlit aparecerá aquí
+import streamlit as st
+
+st.set_page_config(
+    page_title="Mi App",
+    page_icon="🚀",
+    layout="wide"
+)
+
+st.title("¡Bienvenido a Streamlit!")
+st.write("Agrega componentes para generar código.")</code></pre>
+    </div>
+  </div>
+
+  <!-- Tips de Streamlit -->
+  <div class="streamlit-tips">
+    <h3><i class="fas fa-lightbulb"></i> Tips de Streamlit</h3>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <h4><i class="fas fa-rocket"></i> Inicio Rápido</h4>
+        <code>pip install streamlit</code>
+        <code>streamlit run app.py</code>
+      </div>
+      <div class="tip-card">
+        <h4><i class="fas fa-bolt"></i> Cache de Datos</h4>
+        <code>@st.cache_data</code>
+        <p>Cachea resultados de funciones que retornan datos</p>
+      </div>
+      <div class="tip-card">
+        <h4><i class="fas fa-memory"></i> Cache de Recursos</h4>
+        <code>@st.cache_resource</code>
+        <p>Para conexiones DB, modelos ML</p>
+      </div>
+      <div class="tip-card">
+        <h4><i class="fas fa-save"></i> Session State</h4>
+        <code>st.session_state</code>
+        <p>Persiste variables entre reruns</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .streamlit-generator-section {
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
+    border-radius: 16px;
+    border: 1px solid rgba(255, 75, 75, 0.2);
+  }
+
+  .streamlit-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 75, 75, 0.2);
+    flex-wrap: wrap;
+  }
+
+  .header-icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 75, 75, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 75, 75, 0.3);
+  }
+
+  .header-content h2 {
+    margin: 0;
+    font-size: 1.75rem;
+    background: linear-gradient(135deg, #FF4B4B, #FF6B6B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .header-content p {
+    margin: 0.25rem 0 0;
+    color: #94a3b8;
+    font-size: 0.95rem;
+  }
+
+  .header-badges {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: auto;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .badge.python {
+    background: rgba(55, 118, 171, 0.2);
+    color: #3776AB;
+    border: 1px solid rgba(55, 118, 171, 0.4);
+  }
+
+  .badge.streamlit {
+    background: rgba(255, 75, 75, 0.2);
+    color: #FF4B4B;
+    border: 1px solid rgba(255, 75, 75, 0.4);
+  }
+
+  .badge.hot {
+    background: rgba(251, 191, 36, 0.2);
+    color: #fbbf24;
+    border: 1px solid rgba(251, 191, 36, 0.4);
+  }
+
+  /* Concept Cards */
+  .concept-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .concept-card {
+    background: rgba(30, 41, 59, 0.6);
+    padding: 1.25rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 75, 75, 0.2);
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .concept-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255, 75, 75, 0.4);
+    box-shadow: 0 8px 25px rgba(255, 75, 75, 0.15);
+  }
+
+  .concept-card i {
+    font-size: 1.75rem;
+    color: #FF4B4B;
+    margin-bottom: 0.75rem;
+  }
+
+  .concept-card h4 {
+    margin: 0 0 0.5rem;
+    color: #f8fafc;
+    font-size: 1rem;
+  }
+
+  .concept-card p {
+    margin: 0;
+    color: #94a3b8;
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  /* Builder Layout */
+  .streamlit-builder {
+    display: grid;
+    grid-template-columns: 280px 1fr 280px;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 1200px) {
+    .streamlit-builder {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Components Panel */
+  .components-panel {
+    background: rgba(30, 41, 59, 0.6);
+    border-radius: 12px;
+    padding: 1rem;
+    border: 1px solid rgba(255, 75, 75, 0.2);
+    max-height: 700px;
+    overflow-y: auto;
+  }
+
+  .components-panel h3 {
+    margin: 0 0 1rem;
+    color: #f8fafc;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .components-panel h3 i {
+    color: #FF4B4B;
+  }
+
+  .component-category {
+    margin-bottom: 1rem;
+  }
+
+  .component-category h4 {
+    margin: 0 0 0.5rem;
+    color: #94a3b8;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .component-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .component-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.7rem;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 75, 75, 0.2);
+    border-radius: 6px;
+    color: #e2e8f0;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .component-btn:hover {
+    background: rgba(255, 75, 75, 0.15);
+    border-color: rgba(255, 75, 75, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .component-btn i {
+    color: #FF4B4B;
+    font-size: 0.8rem;
+  }
+
+  /* App Canvas */
+  .app-canvas-container {
+    background: rgba(30, 41, 59, 0.6);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 75, 75, 0.2);
+    overflow: hidden;
+  }
+
+  .canvas-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: rgba(15, 23, 42, 0.6);
+    border-bottom: 1px solid rgba(255, 75, 75, 0.2);
+  }
+
+  .canvas-toolbar h3 {
+    margin: 0;
+    color: #f8fafc;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .canvas-toolbar h3 i {
+    color: #FF4B4B;
+  }
+
+  .toolbar-actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .btn-action {
+    padding: 0.4rem 0.6rem;
+    background: rgba(255, 75, 75, 0.1);
+    border: 1px solid rgba(255, 75, 75, 0.3);
+    border-radius: 6px;
+    color: #FF4B4B;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .btn-action:hover {
+    background: rgba(255, 75, 75, 0.2);
+  }
+
+  .app-canvas {
+    min-height: 500px;
+    padding: 1rem;
+    background: #0f172a;
+  }
+
+  .canvas-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 400px;
+    color: #64748b;
+    text-align: center;
+  }
+
+  .canvas-placeholder i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+  }
+
+  .canvas-placeholder .hint {
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    color: #475569;
+  }
+
+  /* App Components in Canvas */
+  .app-component {
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(255, 75, 75, 0.2);
+    border-radius: 8px;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+
+  .app-component:hover {
+    border-color: rgba(255, 75, 75, 0.5);
+  }
+
+  .app-component.selected {
+    border-color: #FF4B4B;
+    box-shadow: 0 0 0 2px rgba(255, 75, 75, 0.2);
+  }
+
+  .app-component .component-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .app-component .component-type {
+    font-size: 0.7rem;
+    color: #FF4B4B;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .app-component .component-actions {
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .app-component .component-actions button {
+    padding: 0.2rem 0.4rem;
+    background: transparent;
+    border: none;
+    color: #64748b;
+    cursor: pointer;
+    font-size: 0.75rem;
+    transition: color 0.2s;
+  }
+
+  .app-component .component-actions button:hover {
+    color: #FF4B4B;
+  }
+
+  .app-component .component-preview {
+    color: #e2e8f0;
+    font-size: 0.85rem;
+  }
+
+  /* Properties Panel */
+  .properties-panel {
+    background: rgba(30, 41, 59, 0.6);
+    border-radius: 12px;
+    padding: 1rem;
+    border: 1px solid rgba(255, 75, 75, 0.2);
+  }
+
+  .properties-panel h3 {
+    margin: 0 0 1rem;
+    color: #f8fafc;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .properties-panel h3 i {
+    color: #FF4B4B;
+  }
+
+  .properties-content {
+    min-height: 200px;
+  }
+
+  .no-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    color: #64748b;
+    text-align: center;
+  }
+
+  .no-selection i {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    opacity: 0.5;
+  }
+
+  .property-group {
+    margin-bottom: 1rem;
+  }
+
+  .property-group label {
+    display: block;
+    color: #94a3b8;
+    font-size: 0.75rem;
+    margin-bottom: 0.35rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .property-group input,
+  .property-group select,
+  .property-group textarea {
+    width: 100%;
+    padding: 0.5rem;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 75, 75, 0.2);
+    border-radius: 6px;
+    color: #f8fafc;
+    font-size: 0.85rem;
+  }
+
+  .property-group input:focus,
+  .property-group select:focus,
+  .property-group textarea:focus {
+    outline: none;
+    border-color: #FF4B4B;
+  }
+
+  /* Templates Section */
+  .templates-section {
+    margin-bottom: 2rem;
+  }
+
+  .templates-section h3 {
+    margin: 0 0 1rem;
+    color: #f8fafc;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .templates-section h3 i {
+    color: #FF4B4B;
+  }
+
+  .templates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+
+  .template-card {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(255, 75, 75, 0.2);
+    border-radius: 12px;
+    padding: 1.25rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .template-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255, 75, 75, 0.5);
+    box-shadow: 0 8px 25px rgba(255, 75, 75, 0.15);
+  }
+
+  .template-icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 75, 75, 0.1);
+    border-radius: 12px;
+    font-size: 1.5rem;
+    color: #FF4B4B;
+  }
+
+  .template-card h4 {
+    margin: 0 0 0.35rem;
+    color: #f8fafc;
+    font-size: 0.95rem;
+  }
+
+  .template-card p {
+    margin: 0;
+    color: #64748b;
+    font-size: 0.8rem;
+  }
+
+  /* Code Output */
+  .code-output-section {
+    background: rgba(30, 41, 59, 0.6);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 75, 75, 0.2);
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+
+  .code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: rgba(15, 23, 42, 0.6);
+    border-bottom: 1px solid rgba(255, 75, 75, 0.2);
+  }
+
+  .code-header h3 {
+    margin: 0;
+    color: #f8fafc;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .code-header h3 i {
+    color: #FF4B4B;
+  }
+
+  .code-actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .btn-copy,
+  .btn-download {
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: all 0.2s ease;
+  }
+
+  .btn-copy {
+    background: rgba(255, 75, 75, 0.1);
+    border: 1px solid rgba(255, 75, 75, 0.3);
+    color: #FF4B4B;
+  }
+
+  .btn-copy:hover {
+    background: rgba(255, 75, 75, 0.2);
+  }
+
+  .btn-download {
+    background: #FF4B4B;
+    border: 1px solid #FF4B4B;
+    color: white;
+  }
+
+  .btn-download:hover {
+    background: #FF6B6B;
+  }
+
+  .code-output {
+    max-height: 400px;
+    overflow: auto;
+  }
+
+  .code-output pre {
+    margin: 0;
+    padding: 1rem;
+    background: #0f172a;
+  }
+
+  .code-output code {
+    font-family: 'Fira Code', 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #e2e8f0;
+  }
+
+  /* Streamlit Tips */
+  .streamlit-tips h3 {
+    margin: 0 0 1rem;
+    color: #f8fafc;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .streamlit-tips h3 i {
+    color: #fbbf24;
+  }
+
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .tip-card {
+    background: rgba(30, 41, 59, 0.6);
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(251, 191, 36, 0.2);
+  }
+
+  .tip-card h4 {
+    margin: 0 0 0.5rem;
+    color: #fbbf24;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .tip-card code {
+    display: block;
+    background: rgba(15, 23, 42, 0.6);
+    padding: 0.4rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: #FF4B4B;
+    margin-bottom: 0.5rem;
+    font-family: 'Fira Code', monospace;
+  }
+
+  .tip-card p {
+    margin: 0;
+    color: #94a3b8;
+    font-size: 0.8rem;
+  }
+
+  /* Light Mode */
+  :global(.light-mode) .streamlit-generator-section {
+    background: linear-gradient(135deg, rgba(248, 250, 252, 0.98), rgba(241, 245, 249, 0.98));
+    border-color: rgba(255, 75, 75, 0.15);
+  }
+
+  :global(.light-mode) .header-content h2 {
+    -webkit-text-fill-color: #dc2626;
+  }
+
+  :global(.light-mode) .header-content p {
+    color: #475569;
+  }
+
+  :global(.light-mode) .concept-card,
+  :global(.light-mode) .components-panel,
+  :global(.light-mode) .app-canvas-container,
+  :global(.light-mode) .properties-panel,
+  :global(.light-mode) .template-card,
+  :global(.light-mode) .code-output-section,
+  :global(.light-mode) .tip-card {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(255, 75, 75, 0.15);
+  }
+
+  :global(.light-mode) .concept-card h4,
+  :global(.light-mode) .components-panel h3,
+  :global(.light-mode) .canvas-toolbar h3,
+  :global(.light-mode) .properties-panel h3,
+  :global(.light-mode) .templates-section h3,
+  :global(.light-mode) .code-header h3,
+  :global(.light-mode) .streamlit-tips h3,
+  :global(.light-mode) .template-card h4 {
+    color: #0f172a;
+  }
+
+  :global(.light-mode) .concept-card p,
+  :global(.light-mode) .template-card p,
+  :global(.light-mode) .tip-card p {
+    color: #475569;
+  }
+
+  :global(.light-mode) .component-btn {
+    background: rgba(248, 250, 252, 0.9);
+    color: #0f172a;
+  }
+
+  :global(.light-mode) .app-canvas {
+    background: #f8fafc;
+  }
+
+  :global(.light-mode) .canvas-placeholder {
+    color: #64748b;
+  }
+
+  :global(.light-mode) .app-component {
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  :global(.light-mode) .app-component .component-preview {
+    color: #0f172a;
+  }
+
+  :global(.light-mode) .property-group input,
+  :global(.light-mode) .property-group select,
+  :global(.light-mode) .property-group textarea {
+    background: rgba(248, 250, 252, 0.9);
+    border-color: rgba(255, 75, 75, 0.2);
+    color: #0f172a;
+  }
+
+  :global(.light-mode) .code-output pre {
+    background: #1e293b;
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener('astro:page-load', () => {
+    // Estado del app
+    let components = [];
+    let componentCounter = 0;
+    let selectedComponent = null;
+
+    const appCanvas = document.getElementById('app-canvas');
+    const codeOutput = document.getElementById('streamlit-code-output');
+    const propertiesContent = document.getElementById('properties-content');
+
+    // Templates
+    const templates = {
+      'dashboard': [
+        { type: 'title', props: { text: '📊 Analytics Dashboard' } },
+        { type: 'sidebar', props: { text: 'Sidebar Content' }, children: [
+          { type: 'header', props: { text: 'Filtros' } },
+          { type: 'date_input', props: { label: 'Fecha inicio', key: 'start_date' } },
+          { type: 'date_input', props: { label: 'Fecha fin', key: 'end_date' } },
+          { type: 'multiselect', props: { label: 'Categorías', options: ['A', 'B', 'C'], key: 'categories' } }
+        ]},
+        { type: 'columns', props: { count: 3 }, children: [
+          { type: 'metric', props: { label: 'Total Ventas', value: '$45,231', delta: '+12.5%' } },
+          { type: 'metric', props: { label: 'Usuarios Activos', value: '2,345', delta: '+5.2%' } },
+          { type: 'metric', props: { label: 'Conversión', value: '3.2%', delta: '-0.3%' } }
+        ]},
+        { type: 'line_chart', props: { title: 'Tendencia de Ventas' } },
+        { type: 'columns', props: { count: 2 }, children: [
+          { type: 'bar_chart', props: { title: 'Ventas por Categoría' } },
+          { type: 'dataframe', props: { title: 'Detalle de Transacciones' } }
+        ]}
+      ],
+      'data-explorer': [
+        { type: 'title', props: { text: '🔍 Data Explorer' } },
+        { type: 'file_uploader', props: { label: 'Cargar dataset', types: ['csv', 'xlsx'], key: 'uploaded_file' } },
+        { type: 'tabs', props: { tabs: ['Vista Previa', 'Estadísticas', 'Visualización'] }, children: [
+          { type: 'dataframe', props: { title: 'Datos' } },
+          { type: 'text', props: { text: 'Estadísticas descriptivas' } },
+          { type: 'selectbox', props: { label: 'Tipo de gráfico', options: ['Barras', 'Líneas', 'Dispersión'], key: 'chart_type' } }
+        ]},
+        { type: 'expander', props: { label: 'Filtros avanzados' }, children: [
+          { type: 'multiselect', props: { label: 'Columnas', options: [], key: 'columns' } },
+          { type: 'slider', props: { label: 'Rango de filas', min: 0, max: 100, key: 'row_range' } }
+        ]}
+      ],
+      'ml-app': [
+        { type: 'title', props: { text: '🤖 ML Predictor' } },
+        { type: 'sidebar', props: {}, children: [
+          { type: 'header', props: { text: 'Configuración del Modelo' } },
+          { type: 'selectbox', props: { label: 'Algoritmo', options: ['Random Forest', 'XGBoost', 'Neural Network'], key: 'algorithm' } },
+          { type: 'slider', props: { label: 'Train/Test Split', min: 0.1, max: 0.9, value: 0.8, key: 'split' } },
+          { type: 'button', props: { label: 'Entrenar Modelo' } }
+        ]},
+        { type: 'header', props: { text: 'Datos de Entrada' } },
+        { type: 'file_uploader', props: { label: 'Dataset de entrenamiento', types: ['csv'], key: 'train_data' } },
+        { type: 'expander', props: { label: 'Métricas del Modelo' }, children: [
+          { type: 'metric', props: { label: 'Accuracy', value: '0.95', delta: '' } },
+          { type: 'metric', props: { label: 'F1 Score', value: '0.93', delta: '' } }
+        ]},
+        { type: 'header', props: { text: 'Predicción' } },
+        { type: 'text_area', props: { label: 'Datos para predecir (JSON)', key: 'predict_data' } },
+        { type: 'button', props: { label: 'Predecir', type: 'primary' } }
+      ],
+      'form-app': [
+        { type: 'title', props: { text: '📝 Formulario de Registro' } },
+        { type: 'text_input', props: { label: 'Nombre completo', key: 'name', placeholder: 'Ingrese su nombre' } },
+        { type: 'text_input', props: { label: 'Email', key: 'email', placeholder: 'correo@ejemplo.com' } },
+        { type: 'date_input', props: { label: 'Fecha de nacimiento', key: 'birthdate' } },
+        { type: 'selectbox', props: { label: 'País', options: ['Chile', 'Argentina', 'Perú', 'Colombia', 'México'], key: 'country' } },
+        { type: 'text_area', props: { label: 'Comentarios', key: 'comments', placeholder: 'Escriba aquí...' } },
+        { type: 'checkbox', props: { label: 'Acepto los términos y condiciones', key: 'terms' } },
+        { type: 'button', props: { label: 'Enviar', type: 'primary' } }
+      ],
+      'chat-app': [
+        { type: 'title', props: { text: '💬 Chat Assistant' } },
+        { type: 'sidebar', props: {}, children: [
+          { type: 'header', props: { text: 'Configuración' } },
+          { type: 'selectbox', props: { label: 'Modelo', options: ['GPT-4', 'Claude', 'Llama'], key: 'model' } },
+          { type: 'slider', props: { label: 'Temperature', min: 0, max: 1, value: 0.7, key: 'temperature' } },
+          { type: 'button', props: { label: 'Limpiar Chat' } }
+        ]},
+        { type: 'container', props: { height: 400 }, children: [
+          { type: 'text', props: { text: '# Chat messages will appear here' } }
+        ]},
+        { type: 'text_input', props: { label: 'Tu mensaje', key: 'user_input', placeholder: 'Escribe tu mensaje...' } }
+      ],
+      'crud-app': [
+        { type: 'title', props: { text: '🗄️ Gestión de Datos' } },
+        { type: 'tabs', props: { tabs: ['Ver', 'Crear', 'Actualizar', 'Eliminar'] }, children: [
+          { type: 'dataframe', props: { title: 'Registros' } },
+          { type: 'text_input', props: { label: 'Nombre', key: 'new_name' } },
+          { type: 'selectbox', props: { label: 'ID a actualizar', options: [], key: 'update_id' } },
+          { type: 'selectbox', props: { label: 'ID a eliminar', options: [], key: 'delete_id' } }
+        ]},
+        { type: 'success', props: { text: 'Operación completada exitosamente' } }
+      ]
+    };
+
+    // Agregar componente
+    function addComponent(type, props = {}) {
+      componentCounter++;
+      const component = {
+        id: `comp-${componentCounter}`,
+        type,
+        props: { ...getDefaultProps(type), ...props }
+      };
+      components.push(component);
+      renderCanvas();
+      generateCode();
+      return component;
+    }
+
+    // Propiedades por defecto
+    function getDefaultProps(type) {
+      const defaults = {
+        title: { text: 'Mi Aplicación' },
+        header: { text: 'Sección' },
+        subheader: { text: 'Subsección' },
+        text: { text: 'Texto de ejemplo' },
+        markdown: { text: '**Markdown** con *formato*' },
+        code: { text: 'print("Hello World")', language: 'python' },
+        latex: { text: 'E = mc^2' },
+        button: { label: 'Botón', type: 'secondary' },
+        checkbox: { label: 'Opción', key: 'checkbox_1', default: false },
+        radio: { label: 'Opciones', options: ['A', 'B', 'C'], key: 'radio_1' },
+        selectbox: { label: 'Seleccionar', options: ['Opción 1', 'Opción 2', 'Opción 3'], key: 'select_1' },
+        multiselect: { label: 'Multi-selección', options: ['A', 'B', 'C'], key: 'multi_1', default: [] },
+        slider: { label: 'Valor', min: 0, max: 100, value: 50, key: 'slider_1' },
+        text_input: { label: 'Texto', key: 'text_1', placeholder: '' },
+        number_input: { label: 'Número', min: 0, max: 100, value: 0, key: 'number_1' },
+        text_area: { label: 'Área de texto', key: 'textarea_1', placeholder: '' },
+        date_input: { label: 'Fecha', key: 'date_1' },
+        file_uploader: { label: 'Archivo', types: ['csv', 'xlsx'], key: 'file_1' },
+        color_picker: { label: 'Color', key: 'color_1', default: '#FF4B4B' },
+        dataframe: { title: 'DataFrame' },
+        data_editor: { title: 'Editor de Datos' },
+        metric: { label: 'Métrica', value: '100', delta: '+10%' },
+        line_chart: { title: 'Gráfico de Líneas' },
+        bar_chart: { title: 'Gráfico de Barras' },
+        area_chart: { title: 'Gráfico de Área' },
+        scatter_chart: { title: 'Gráfico de Dispersión' },
+        map: { title: 'Mapa' },
+        plotly: { title: 'Gráfico Plotly' },
+        columns: { count: 2 },
+        tabs: { tabs: ['Tab 1', 'Tab 2'] },
+        expander: { label: 'Expandir', expanded: false },
+        container: { height: 300 },
+        sidebar: {},
+        success: { text: 'Éxito!' },
+        info: { text: 'Información' },
+        warning: { text: 'Advertencia' },
+        error: { text: 'Error' },
+        spinner: { text: 'Cargando...' },
+        progress: { value: 50 },
+        balloons: {}
+      };
+      return defaults[type] || {};
+    }
+
+    // Renderizar canvas
+    function renderCanvas() {
+      if (components.length === 0) {
+        appCanvas.innerHTML = `
+          <div class="canvas-placeholder">
+            <i class="fas fa-plus-circle"></i>
+            <p>Haz clic en los componentes para agregarlos</p>
+            <p class="hint">O usa una plantilla para comenzar rápido</p>
+          </div>
+        `;
+        return;
+      }
+
+      appCanvas.innerHTML = components.map(comp => renderComponent(comp)).join('');
+
+      // Event listeners para componentes
+      appCanvas.querySelectorAll('.app-component').forEach(el => {
+        el.addEventListener('click', (e) => {
+          if (!e.target.closest('.component-actions')) {
+            selectComponent(el.dataset.id);
+          }
+        });
+      });
+
+      // Botones de eliminar
+      appCanvas.querySelectorAll('.delete-comp').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const id = btn.closest('.app-component').dataset.id;
+          deleteComponent(id);
+        });
+      });
+
+      // Botones de mover arriba/abajo
+      appCanvas.querySelectorAll('.move-up').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const id = btn.closest('.app-component').dataset.id;
+          moveComponent(id, -1);
+        });
+      });
+
+      appCanvas.querySelectorAll('.move-down').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const id = btn.closest('.app-component').dataset.id;
+          moveComponent(id, 1);
+        });
+      });
+    }
+
+    // Renderizar un componente
+    function renderComponent(comp) {
+      const preview = getComponentPreview(comp);
+      const isSelected = selectedComponent === comp.id ? 'selected' : '';
+
+      return `
+        <div class="app-component ${isSelected}" data-id="${comp.id}">
+          <div class="component-header">
+            <span class="component-type">st.${comp.type}()</span>
+            <div class="component-actions">
+              <button class="move-up" title="Mover arriba"><i class="fas fa-chevron-up"></i></button>
+              <button class="move-down" title="Mover abajo"><i class="fas fa-chevron-down"></i></button>
+              <button class="delete-comp" title="Eliminar"><i class="fas fa-times"></i></button>
+            </div>
+          </div>
+          <div class="component-preview">${preview}</div>
+        </div>
+      `;
+    }
+
+    // Preview del componente
+    function getComponentPreview(comp) {
+      const { type, props } = comp;
+
+      switch (type) {
+        case 'title':
+          return `<h1 style="margin:0;font-size:1.2rem;color:#f8fafc;">${props.text}</h1>`;
+        case 'header':
+          return `<h2 style="margin:0;font-size:1rem;color:#f8fafc;">${props.text}</h2>`;
+        case 'subheader':
+          return `<h3 style="margin:0;font-size:0.9rem;color:#f8fafc;">${props.text}</h3>`;
+        case 'text':
+          return `<p style="margin:0;color:#94a3b8;">${props.text}</p>`;
+        case 'markdown':
+          return `<p style="margin:0;color:#94a3b8;"><em>Markdown:</em> ${props.text.substring(0, 50)}...</p>`;
+        case 'code':
+          return `<code style="background:#1e293b;padding:0.25rem 0.5rem;border-radius:4px;font-size:0.8rem;">${props.text.substring(0, 40)}...</code>`;
+        case 'button':
+          return `<button style="padding:0.35rem 0.75rem;background:${props.type === 'primary' ? '#FF4B4B' : '#475569'};border:none;border-radius:4px;color:white;font-size:0.8rem;">${props.label}</button>`;
+        case 'checkbox':
+          return `<label style="display:flex;align-items:center;gap:0.5rem;color:#e2e8f0;font-size:0.85rem;"><input type="checkbox" ${props.default ? 'checked' : ''}> ${props.label}</label>`;
+        case 'selectbox':
+        case 'multiselect':
+          return `<div><label style="color:#94a3b8;font-size:0.75rem;display:block;margin-bottom:0.25rem;">${props.label}</label><select style="width:100%;padding:0.35rem;background:#1e293b;border:1px solid #475569;border-radius:4px;color:#f8fafc;font-size:0.8rem;"><option>${props.options[0]}</option></select></div>`;
+        case 'slider':
+          return `<div><label style="color:#94a3b8;font-size:0.75rem;display:block;margin-bottom:0.25rem;">${props.label}: ${props.value}</label><input type="range" min="${props.min}" max="${props.max}" value="${props.value}" style="width:100%;"></div>`;
+        case 'text_input':
+        case 'number_input':
+          return `<div><label style="color:#94a3b8;font-size:0.75rem;display:block;margin-bottom:0.25rem;">${props.label}</label><input type="${type === 'number_input' ? 'number' : 'text'}" placeholder="${props.placeholder || ''}" style="width:100%;padding:0.35rem;background:#1e293b;border:1px solid #475569;border-radius:4px;color:#f8fafc;font-size:0.8rem;"></div>`;
+        case 'metric':
+          return `<div style="text-align:center;"><div style="color:#94a3b8;font-size:0.75rem;">${props.label}</div><div style="font-size:1.5rem;font-weight:bold;color:#f8fafc;">${props.value}</div><div style="color:${props.delta?.startsWith('+') ? '#22c55e' : props.delta?.startsWith('-') ? '#ef4444' : '#64748b'};font-size:0.8rem;">${props.delta}</div></div>`;
+        case 'line_chart':
+        case 'bar_chart':
+        case 'area_chart':
+        case 'scatter_chart':
+          return `<div style="text-align:center;padding:1rem;background:#1e293b;border-radius:4px;"><i class="fas fa-chart-${type.includes('line') ? 'line' : type.includes('bar') ? 'bar' : type.includes('area') ? 'area' : 'bar'}" style="font-size:2rem;color:#FF4B4B;"></i><div style="color:#94a3b8;font-size:0.8rem;margin-top:0.5rem;">${props.title}</div></div>`;
+        case 'dataframe':
+          return `<div style="text-align:center;padding:1rem;background:#1e293b;border-radius:4px;"><i class="fas fa-table" style="font-size:1.5rem;color:#FF4B4B;"></i><div style="color:#94a3b8;font-size:0.8rem;margin-top:0.5rem;">${props.title}</div></div>`;
+        case 'columns':
+          return `<div style="display:flex;gap:0.5rem;">${Array(props.count).fill(0).map((_, i) => `<div style="flex:1;background:#1e293b;padding:0.5rem;border-radius:4px;text-align:center;color:#64748b;font-size:0.75rem;">Col ${i+1}</div>`).join('')}</div>`;
+        case 'tabs':
+          return `<div style="display:flex;gap:0.25rem;border-bottom:1px solid #475569;">${props.tabs.map((t, i) => `<div style="padding:0.35rem 0.75rem;background:${i===0?'#FF4B4B':'transparent'};color:${i===0?'white':'#94a3b8'};border-radius:4px 4px 0 0;font-size:0.8rem;">${t}</div>`).join('')}</div>`;
+        case 'expander':
+          return `<div style="border:1px solid #475569;border-radius:4px;"><div style="padding:0.5rem;display:flex;align-items:center;gap:0.5rem;color:#e2e8f0;font-size:0.85rem;"><i class="fas fa-chevron-right"></i> ${props.label}</div></div>`;
+        case 'sidebar':
+          return `<div style="background:#1e293b;padding:0.5rem;border-radius:4px;border-left:3px solid #FF4B4B;"><span style="color:#94a3b8;font-size:0.8rem;">📱 Sidebar</span></div>`;
+        case 'success':
+          return `<div style="background:rgba(34,197,94,0.2);border-left:3px solid #22c55e;padding:0.5rem;border-radius:4px;color:#22c55e;font-size:0.85rem;">${props.text}</div>`;
+        case 'info':
+          return `<div style="background:rgba(59,130,246,0.2);border-left:3px solid #3b82f6;padding:0.5rem;border-radius:4px;color:#3b82f6;font-size:0.85rem;">${props.text}</div>`;
+        case 'warning':
+          return `<div style="background:rgba(251,191,36,0.2);border-left:3px solid #fbbf24;padding:0.5rem;border-radius:4px;color:#fbbf24;font-size:0.85rem;">${props.text}</div>`;
+        case 'error':
+          return `<div style="background:rgba(239,68,68,0.2);border-left:3px solid #ef4444;padding:0.5rem;border-radius:4px;color:#ef4444;font-size:0.85rem;">${props.text}</div>`;
+        case 'file_uploader':
+          return `<div><label style="color:#94a3b8;font-size:0.75rem;display:block;margin-bottom:0.25rem;">${props.label}</label><div style="border:2px dashed #475569;padding:1rem;text-align:center;border-radius:4px;color:#64748b;font-size:0.8rem;"><i class="fas fa-upload"></i> Drag and drop</div></div>`;
+        default:
+          return `<div style="color:#64748b;font-size:0.85rem;">st.${type}()</div>`;
+      }
+    }
+
+    // Seleccionar componente
+    function selectComponent(id) {
+      selectedComponent = id;
+      renderCanvas();
+      renderProperties();
+    }
+
+    // Renderizar propiedades
+    function renderProperties() {
+      if (!selectedComponent) {
+        propertiesContent.innerHTML = `
+          <div class="no-selection">
+            <i class="fas fa-mouse-pointer"></i>
+            <p>Selecciona un componente para editar sus propiedades</p>
+          </div>
+        `;
+        return;
+      }
+
+      const comp = components.find(c => c.id === selectedComponent);
+      if (!comp) return;
+
+      let html = `<div class="property-group"><label>Tipo</label><input type="text" value="st.${comp.type}()" readonly></div>`;
+
+      // Generar campos según el tipo
+      const props = comp.props;
+
+      if ('text' in props) {
+        html += `<div class="property-group"><label>Texto</label><textarea id="prop-text" rows="2">${props.text}</textarea></div>`;
+      }
+      if ('label' in props) {
+        html += `<div class="property-group"><label>Label</label><input type="text" id="prop-label" value="${props.label}"></div>`;
+      }
+      if ('key' in props) {
+        html += `<div class="property-group"><label>Key (variable)</label><input type="text" id="prop-key" value="${props.key}"></div>`;
+      }
+      if ('value' in props && typeof props.value !== 'object') {
+        html += `<div class="property-group"><label>Valor</label><input type="text" id="prop-value" value="${props.value}"></div>`;
+      }
+      if ('delta' in props) {
+        html += `<div class="property-group"><label>Delta</label><input type="text" id="prop-delta" value="${props.delta}"></div>`;
+      }
+      if ('placeholder' in props) {
+        html += `<div class="property-group"><label>Placeholder</label><input type="text" id="prop-placeholder" value="${props.placeholder}"></div>`;
+      }
+      if ('options' in props) {
+        html += `<div class="property-group"><label>Opciones (separadas por coma)</label><input type="text" id="prop-options" value="${props.options.join(', ')}"></div>`;
+      }
+      if ('min' in props) {
+        html += `<div class="property-group"><label>Mínimo</label><input type="number" id="prop-min" value="${props.min}"></div>`;
+      }
+      if ('max' in props) {
+        html += `<div class="property-group"><label>Máximo</label><input type="number" id="prop-max" value="${props.max}"></div>`;
+      }
+      if ('count' in props) {
+        html += `<div class="property-group"><label>Cantidad</label><input type="number" id="prop-count" value="${props.count}" min="1" max="6"></div>`;
+      }
+      if ('tabs' in props) {
+        html += `<div class="property-group"><label>Tabs (separados por coma)</label><input type="text" id="prop-tabs" value="${props.tabs.join(', ')}"></div>`;
+      }
+      if ('types' in props) {
+        html += `<div class="property-group"><label>Tipos de archivo</label><input type="text" id="prop-types" value="${props.types.join(', ')}"></div>`;
+      }
+      if (comp.type === 'button') {
+        html += `<div class="property-group"><label>Tipo de botón</label><select id="prop-btntype"><option value="secondary" ${props.type === 'secondary' ? 'selected' : ''}>Secondary</option><option value="primary" ${props.type === 'primary' ? 'selected' : ''}>Primary</option></select></div>`;
+      }
+
+      propertiesContent.innerHTML = html;
+
+      // Event listeners para actualizar propiedades
+      propertiesContent.querySelectorAll('input, textarea, select').forEach(input => {
+        input.addEventListener('change', () => updateProperty(input));
+        input.addEventListener('input', () => updateProperty(input));
+      });
+    }
+
+    // Actualizar propiedad
+    function updateProperty(input) {
+      const comp = components.find(c => c.id === selectedComponent);
+      if (!comp) return;
+
+      const propName = input.id.replace('prop-', '');
+      let value = input.value;
+
+      if (propName === 'options' || propName === 'tabs' || propName === 'types') {
+        value = value.split(',').map(s => s.trim()).filter(s => s);
+      } else if (propName === 'min' || propName === 'max' || propName === 'count') {
+        value = parseInt(value) || 0;
+      } else if (propName === 'btntype') {
+        comp.props.type = value;
+        renderCanvas();
+        generateCode();
+        return;
+      }
+
+      comp.props[propName] = value;
+      renderCanvas();
+      generateCode();
+    }
+
+    // Eliminar componente
+    function deleteComponent(id) {
+      components = components.filter(c => c.id !== id);
+      if (selectedComponent === id) {
+        selectedComponent = null;
+        renderProperties();
+      }
+      renderCanvas();
+      generateCode();
+    }
+
+    // Mover componente
+    function moveComponent(id, direction) {
+      const index = components.findIndex(c => c.id === id);
+      if (index === -1) return;
+
+      const newIndex = index + direction;
+      if (newIndex < 0 || newIndex >= components.length) return;
+
+      const temp = components[index];
+      components[index] = components[newIndex];
+      components[newIndex] = temp;
+
+      renderCanvas();
+      generateCode();
+    }
+
+    // Generar código
+    function generateCode() {
+      let code = `"""
+Streamlit App generado automáticamente
+Ejecutar: streamlit run app.py
+"""
+import streamlit as st
+import pandas as pd
+import numpy as np
+
+# Configuración de la página
+st.set_page_config(
+    page_title="Mi App Streamlit",
+    page_icon="🚀",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
+# Datos de ejemplo
+@st.cache_data
+def load_sample_data():
+    df = pd.DataFrame({
+        'fecha': pd.date_range('2024-01-01', periods=100),
+        'ventas': np.random.randint(100, 1000, 100),
+        'categoria': np.random.choice(['A', 'B', 'C'], 100)
+    })
+    return df
+
+df = load_sample_data()
+
+`;
+
+      let sidebarCode = '';
+      let mainCode = '';
+      let inSidebar = false;
+
+      components.forEach(comp => {
+        if (comp.type === 'sidebar') {
+          inSidebar = true;
+          return;
+        }
+
+        const prefix = inSidebar ? 'st.sidebar.' : 'st.';
+        const compCode = generateComponentCode(comp, prefix);
+
+        if (inSidebar) {
+          sidebarCode += compCode + '\n';
+        } else {
+          mainCode += compCode + '\n';
+        }
+      });
+
+      if (sidebarCode) {
+        code += '# Sidebar\nwith st.sidebar:\n';
+        code += sidebarCode.split('\n').map(line => line ? '    ' + line.replace('st.sidebar.', 'st.') : '').join('\n');
+        code += '\n\n# Contenido principal\n';
+      }
+
+      code += mainCode || '# Agrega componentes para generar código\nst.write("¡Bienvenido!")\n';
+
+      codeOutput.querySelector('code').textContent = code;
+    }
+
+    // Generar código de un componente
+    function generateComponentCode(comp, prefix = 'st.') {
+      const { type, props } = comp;
+      const key = props.key ? `, key="${props.key}"` : '';
+
+      switch (type) {
+        case 'title':
+          return `${prefix}title("${props.text}")`;
+        case 'header':
+          return `${prefix}header("${props.text}")`;
+        case 'subheader':
+          return `${prefix}subheader("${props.text}")`;
+        case 'text':
+          return `${prefix}text("${props.text}")`;
+        case 'markdown':
+          return `${prefix}markdown("""${props.text}""")`;
+        case 'code':
+          return `${prefix}code("""${props.text}"""${props.language ? `, language="${props.language}"` : ''})`;
+        case 'latex':
+          return `${prefix}latex(r"${props.text}")`;
+        case 'button':
+          return `if ${prefix}button("${props.label}"${key}${props.type === 'primary' ? ', type="primary"' : ''}):\n    st.write("Botón presionado!")`;
+        case 'checkbox':
+          return `${props.key} = ${prefix}checkbox("${props.label}"${key}${props.default ? ', value=True' : ''})`;
+        case 'radio':
+          return `${props.key} = ${prefix}radio("${props.label}", [${props.options.map(o => `"${o}"`).join(', ')}]${key})`;
+        case 'selectbox':
+          return `${props.key} = ${prefix}selectbox("${props.label}", [${props.options.map(o => `"${o}"`).join(', ')}]${key})`;
+        case 'multiselect':
+          return `${props.key} = ${prefix}multiselect("${props.label}", [${props.options.map(o => `"${o}"`).join(', ')}]${key})`;
+        case 'slider':
+          return `${props.key} = ${prefix}slider("${props.label}", min_value=${props.min}, max_value=${props.max}, value=${props.value}${key})`;
+        case 'text_input':
+          return `${props.key} = ${prefix}text_input("${props.label}"${props.placeholder ? `, placeholder="${props.placeholder}"` : ''}${key})`;
+        case 'number_input':
+          return `${props.key} = ${prefix}number_input("${props.label}", min_value=${props.min}, max_value=${props.max}, value=${props.value}${key})`;
+        case 'text_area':
+          return `${props.key} = ${prefix}text_area("${props.label}"${props.placeholder ? `, placeholder="${props.placeholder}"` : ''}${key})`;
+        case 'date_input':
+          return `${props.key} = ${prefix}date_input("${props.label}"${key})`;
+        case 'file_uploader':
+          return `${props.key} = ${prefix}file_uploader("${props.label}", type=[${props.types.map(t => `"${t}"`).join(', ')}]${key})`;
+        case 'color_picker':
+          return `${props.key} = ${prefix}color_picker("${props.label}", "${props.default}"${key})`;
+        case 'dataframe':
+          return `${prefix}dataframe(df)  # ${props.title}`;
+        case 'data_editor':
+          return `edited_df = ${prefix}data_editor(df)  # ${props.title}`;
+        case 'metric':
+          return `${prefix}metric(label="${props.label}", value="${props.value}"${props.delta ? `, delta="${props.delta}"` : ''})`;
+        case 'line_chart':
+          return `${prefix}line_chart(df.set_index('fecha')['ventas'])  # ${props.title}`;
+        case 'bar_chart':
+          return `${prefix}bar_chart(df.groupby('categoria')['ventas'].sum())  # ${props.title}`;
+        case 'area_chart':
+          return `${prefix}area_chart(df.set_index('fecha')['ventas'])  # ${props.title}`;
+        case 'scatter_chart':
+          return `${prefix}scatter_chart(df, x='fecha', y='ventas')  # ${props.title}`;
+        case 'map':
+          return `# ${props.title}\nmap_data = pd.DataFrame(np.random.randn(100, 2) / [50, 50] + [-33.45, -70.66], columns=['lat', 'lon'])\n${prefix}map(map_data)`;
+        case 'plotly':
+          return `import plotly.express as px\nfig = px.line(df, x='fecha', y='ventas', title='${props.title}')\n${prefix}plotly_chart(fig, use_container_width=True)`;
+        case 'columns':
+          const colNames = Array(props.count).fill(0).map((_, i) => `col${i+1}`).join(', ');
+          return `${colNames} = ${prefix}columns(${props.count})\nwith col1:\n    st.write("Columna 1")`;
+        case 'tabs':
+          const tabNames = props.tabs.map((_, i) => `tab${i+1}`).join(', ');
+          return `${tabNames} = ${prefix}tabs([${props.tabs.map(t => `"${t}"`).join(', ')}])\nwith tab1:\n    st.write("Contenido Tab 1")`;
+        case 'expander':
+          return `with ${prefix}expander("${props.label}"):\n    st.write("Contenido expandible")`;
+        case 'container':
+          return `with ${prefix}container(height=${props.height}):\n    st.write("Contenido del container")`;
+        case 'success':
+          return `${prefix}success("${props.text}")`;
+        case 'info':
+          return `${prefix}info("${props.text}")`;
+        case 'warning':
+          return `${prefix}warning("${props.text}")`;
+        case 'error':
+          return `${prefix}error("${props.text}")`;
+        case 'spinner':
+          return `with ${prefix}spinner("${props.text}"):\n    import time\n    time.sleep(1)`;
+        case 'progress':
+          return `progress_bar = ${prefix}progress(${props.value})`;
+        case 'balloons':
+          return `${prefix}balloons()`;
+        default:
+          return `# ${prefix}${type}()`;
+      }
+    }
+
+    // Event listeners para botones de componentes
+    document.querySelectorAll('.component-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        addComponent(btn.dataset.type);
+      });
+    });
+
+    // Event listeners para templates
+    document.querySelectorAll('.template-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const templateName = card.dataset.template;
+        const template = templates[templateName];
+        if (!template) return;
+
+        components = [];
+        componentCounter = 0;
+        selectedComponent = null;
+
+        template.forEach(item => {
+          addComponent(item.type, item.props);
+        });
+      });
+    });
+
+    // Limpiar app
+    document.getElementById('clear-app-btn')?.addEventListener('click', () => {
+      components = [];
+      componentCounter = 0;
+      selectedComponent = null;
+      renderCanvas();
+      renderProperties();
+      generateCode();
+    });
+
+    // Copiar código
+    document.getElementById('copy-streamlit-code')?.addEventListener('click', () => {
+      const code = codeOutput.querySelector('code').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        const btn = document.getElementById('copy-streamlit-code');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check"></i> Copiado';
+        setTimeout(() => { btn.innerHTML = originalText; }, 2000);
+      });
+    });
+
+    // Descargar código
+    document.getElementById('download-streamlit-code')?.addEventListener('click', () => {
+      const code = codeOutput.querySelector('code').textContent;
+      const blob = new Blob([code], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'app.py';
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    // Inicializar
+    generateCode();
+  });
+</script>
