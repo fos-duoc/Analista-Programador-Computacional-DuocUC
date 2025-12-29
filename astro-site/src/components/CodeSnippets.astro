@@ -68,6 +68,401 @@ async def crear_usuario(usuario: Usuario):
         color: "#ED8B00",
         snippets: [
             {
+                title: "Encapsulamiento - Clase con atributos privados",
+                description: "POO Pilar 1: Proteger datos internos con getters/setters y validación",
+                code: `/**
+ * Encapsulamiento: Ocultar implementación interna
+ * Atributos privados + métodos públicos de acceso
+ */
+public class Empleado {
+    // Atributos privados - no accesibles directamente
+    private String rut;
+    private String nombre;
+    private double salario;
+    private boolean activo;
+
+    // Constructor con validación
+    public Empleado(String rut, String nombre, double salario) {
+        this.setRut(rut);      // Usa setter para validar
+        this.nombre = nombre;
+        this.setSalario(salario);
+        this.activo = true;
+    }
+
+    // Getter - acceso controlado de lectura
+    public String getRut() {
+        return this.rut;
+    }
+
+    // Setter con validación - control de escritura
+    public void setRut(String rut) {
+        if (rut == null || rut.length() < 8) {
+            throw new IllegalArgumentException("RUT inválido");
+        }
+        this.rut = rut;
+    }
+
+    public double getSalario() {
+        return this.salario;
+    }
+
+    public void setSalario(double salario) {
+        if (salario < 0) {
+            throw new IllegalArgumentException("Salario no puede ser negativo");
+        }
+        this.salario = salario;
+    }
+
+    // Método de negocio encapsulado
+    public double calcularSalarioAnual() {
+        return this.salario * 12 + (this.salario * 0.5); // + aguinaldo
+    }
+}`,
+                tags: ["poo", "encapsulamiento", "getters-setters", "validacion"]
+            },
+            {
+                title: "Herencia - Extensión de clases",
+                description: "POO Pilar 2: Reutilizar código con extends y super()",
+                code: `/**
+ * Herencia: Crear jerarquías de clases
+ * Clase hija hereda atributos y métodos de la padre
+ */
+
+// Clase padre (superclase)
+public class Persona {
+    protected String nombre;
+    protected String email;
+    protected LocalDate fechaNacimiento;
+
+    public Persona(String nombre, String email) {
+        this.nombre = nombre;
+        this.email = email;
+    }
+
+    public String presentarse() {
+        return "Hola, soy " + this.nombre;
+    }
+
+    public int calcularEdad() {
+        return Period.between(fechaNacimiento, LocalDate.now()).getYears();
+    }
+}
+
+// Clase hija (subclase) - hereda de Persona
+public class Estudiante extends Persona {
+    private String matricula;
+    private String carrera;
+    private List<String> asignaturas;
+
+    // Constructor llama a super() para inicializar padre
+    public Estudiante(String nombre, String email, String matricula, String carrera) {
+        super(nombre, email);  // Llama constructor padre
+        this.matricula = matricula;
+        this.carrera = carrera;
+        this.asignaturas = new ArrayList<>();
+    }
+
+    // Método propio de Estudiante
+    public void inscribirAsignatura(String asignatura) {
+        this.asignaturas.add(asignatura);
+    }
+
+    // Sobrescribir método padre
+    @Override
+    public String presentarse() {
+        return super.presentarse() + " y estudio " + this.carrera;
+    }
+}`,
+                tags: ["poo", "herencia", "extends", "super"]
+            },
+            {
+                title: "Polimorfismo - Múltiples formas",
+                description: "POO Pilar 3: Un mismo método con diferentes comportamientos",
+                code: `/**
+ * Polimorfismo: "Muchas formas"
+ * - Sobrecarga: mismo nombre, diferentes parámetros
+ * - Sobrescritura: @Override en clases hijas
+ */
+
+// Clase abstracta base
+public abstract class Vehiculo {
+    protected String marca;
+    protected String modelo;
+
+    public Vehiculo(String marca, String modelo) {
+        this.marca = marca;
+        this.modelo = modelo;
+    }
+
+    // Método abstracto - cada vehículo lo implementa diferente
+    public abstract void acelerar();
+
+    // Método concreto heredable
+    public String getInfo() {
+        return marca + " " + modelo;
+    }
+}
+
+// Polimorfismo por sobrescritura
+public class Auto extends Vehiculo {
+    private int numeroPuertas;
+
+    public Auto(String marca, String modelo, int puertas) {
+        super(marca, modelo);
+        this.numeroPuertas = puertas;
+    }
+
+    @Override
+    public void acelerar() {
+        System.out.println("El auto acelera con el pedal");
+    }
+}
+
+public class Moto extends Vehiculo {
+    private int cilindrada;
+
+    public Moto(String marca, String modelo, int cc) {
+        super(marca, modelo);
+        this.cilindrada = cc;
+    }
+
+    @Override
+    public void acelerar() {
+        System.out.println("La moto acelera con el puño");
+    }
+}
+
+// Uso del polimorfismo
+public class Main {
+    public static void main(String[] args) {
+        // Una variable del tipo padre puede referenciar hijos
+        List<Vehiculo> vehiculos = new ArrayList<>();
+        vehiculos.add(new Auto("Toyota", "Corolla", 4));
+        vehiculos.add(new Moto("Honda", "CBR", 600));
+
+        // Cada uno ejecuta SU versión de acelerar()
+        for (Vehiculo v : vehiculos) {
+            v.acelerar();  // Polimorfismo en acción
+        }
+    }
+}`,
+                tags: ["poo", "polimorfismo", "override", "abstract"]
+            },
+            {
+                title: "Abstracción - Interfaces",
+                description: "POO Pilar 4: Definir contratos con interface e implements",
+                code: `/**
+ * Abstracción: Ocultar complejidad, mostrar solo lo esencial
+ * Interface = contrato que las clases deben cumplir
+ */
+
+// Interface define QUÉ hacer, no CÓMO
+public interface Registrable {
+    String obtenerIdentificador();
+    LocalDateTime getFechaRegistro();
+    boolean validar();
+}
+
+// Interface para persistencia
+public interface Persistible {
+    void guardar();
+    void eliminar();
+    void actualizar();
+}
+
+// Clase implementa múltiples interfaces
+public class Producto implements Registrable, Persistible {
+    private String codigo;
+    private String nombre;
+    private double precio;
+    private LocalDateTime fechaCreacion;
+
+    public Producto(String codigo, String nombre, double precio) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.fechaCreacion = LocalDateTime.now();
+    }
+
+    // Implementación de Registrable
+    @Override
+    public String obtenerIdentificador() {
+        return this.codigo;
+    }
+
+    @Override
+    public LocalDateTime getFechaRegistro() {
+        return this.fechaCreacion;
+    }
+
+    @Override
+    public boolean validar() {
+        return codigo != null && !codigo.isEmpty() && precio > 0;
+    }
+
+    // Implementación de Persistible
+    @Override
+    public void guardar() {
+        if (this.validar()) {
+            System.out.println("Guardando producto: " + this.codigo);
+            // Lógica de persistencia (BD, archivo, etc.)
+        }
+    }
+
+    @Override
+    public void eliminar() {
+        System.out.println("Eliminando producto: " + this.codigo);
+    }
+
+    @Override
+    public void actualizar() {
+        System.out.println("Actualizando producto: " + this.codigo);
+    }
+}`,
+                tags: ["poo", "abstraccion", "interface", "implements"]
+            },
+            {
+                title: "SOLID - Single Responsibility (SRP)",
+                description: "Principio SRP: Una clase debe tener una sola razón para cambiar",
+                code: `/**
+ * SOLID - SRP: Single Responsibility Principle
+ * ❌ MAL: Una clase hace todo (validación, lógica, persistencia)
+ * ✅ BIEN: Separar responsabilidades en clases especializadas
+ */
+
+// ❌ MAL - Clase con múltiples responsabilidades
+public class EmpleadoMalo {
+    public void guardarEnBaseDatos() { /* SQL aquí */ }
+    public void validarDatos() { /* Validaciones */ }
+    public void enviarEmailBienvenida() { /* Email */ }
+    public double calcularSalario() { /* Cálculo */ }
+    // Esta clase tiene 4 razones para cambiar!
+}
+
+// ✅ BIEN - Responsabilidades separadas
+
+// Solo datos y comportamiento de negocio del empleado
+public class Empleado {
+    private String rut;
+    private String nombre;
+    private double salarioBase;
+
+    public double calcularSalarioMensual() {
+        return this.salarioBase;
+    }
+}
+
+// Solo validaciones
+public class EmpleadoValidator {
+    public boolean validar(Empleado empleado) {
+        return empleado.getRut() != null &&
+               empleado.getNombre() != null &&
+               empleado.getSalarioBase() > 0;
+    }
+
+    public List<String> obtenerErrores(Empleado empleado) {
+        List<String> errores = new ArrayList<>();
+        if (empleado.getRut() == null) errores.add("RUT requerido");
+        return errores;
+    }
+}
+
+// Solo persistencia
+public class EmpleadoRepository {
+    public void guardar(Empleado empleado) {
+        // Solo lógica de base de datos
+    }
+
+    public Empleado buscarPorRut(String rut) {
+        // Solo consulta BD
+        return null;
+    }
+}
+
+// Solo notificaciones
+public class EmpleadoNotificador {
+    public void enviarBienvenida(Empleado empleado) {
+        // Solo lógica de email
+    }
+}`,
+                tags: ["solid", "srp", "clean-code", "principios"]
+            },
+            {
+                title: "Excepciones Personalizadas",
+                description: "Manejo de errores con excepciones propias del dominio",
+                code: `/**
+ * Excepciones Personalizadas
+ * Crear excepciones específicas del negocio para mejor manejo de errores
+ */
+
+// Excepción base del dominio
+public class NegocioException extends RuntimeException {
+    private final String codigo;
+
+    public NegocioException(String codigo, String mensaje) {
+        super(mensaje);
+        this.codigo = codigo;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+}
+
+// Excepciones específicas
+public class EmpleadoNoEncontradoException extends NegocioException {
+    public EmpleadoNoEncontradoException(String rut) {
+        super("EMP-001", "Empleado no encontrado con RUT: " + rut);
+    }
+}
+
+public class ValidacionException extends NegocioException {
+    private final List<String> errores;
+
+    public ValidacionException(List<String> errores) {
+        super("VAL-001", "Errores de validación");
+        this.errores = errores;
+    }
+
+    public List<String> getErrores() {
+        return errores;
+    }
+}
+
+// Uso en el servicio
+public class EmpleadoService {
+    private final EmpleadoRepository repository;
+
+    public Empleado buscarPorRut(String rut) {
+        return repository.buscarPorRut(rut)
+            .orElseThrow(() -> new EmpleadoNoEncontradoException(rut));
+    }
+
+    public void registrar(Empleado empleado) {
+        List<String> errores = validator.obtenerErrores(empleado);
+        if (!errores.isEmpty()) {
+            throw new ValidacionException(errores);
+        }
+        repository.guardar(empleado);
+    }
+}
+
+// Manejo en el controller
+public class EmpleadoController {
+    public void buscar(String rut) {
+        try {
+            Empleado emp = service.buscarPorRut(rut);
+            mostrar(emp);
+        } catch (EmpleadoNoEncontradoException e) {
+            mostrarError("No encontrado: " + e.getMessage());
+        } catch (ValidacionException e) {
+            mostrarErrores(e.getErrores());
+        }
+    }
+}`,
+                tags: ["excepciones", "try-catch", "manejo-errores"]
+            },
+            {
                 title: "Spring Boot Controller",
                 description: "Controller REST básico con Spring Boot",
                 code: `@RestController
