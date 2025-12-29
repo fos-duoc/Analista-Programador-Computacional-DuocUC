@@ -209,6 +209,393 @@ public class PostgresOrderRepository implements OrderRepository {
             .collect(Collectors.toList());
     }
 }`;
+
+// DDD Code Snippets
+const dddAggregateCode = `// Aggregate Root - Order (Entity)
+public class Order extends AggregateRoot&lt;OrderId&gt; {
+    private final OrderId id;
+    private final CustomerId customerId;
+    private final List&lt;OrderLine&gt; orderLines;
+    private OrderStatus status;
+    private Money totalAmount;
+
+    // Factory method - solo forma de crear
+    public static Order create(CustomerId customerId) {
+        Order order = new Order(
+            OrderId.generate(),
+            customerId,
+            new ArrayList&lt;&gt;(),
+            OrderStatus.DRAFT,
+            Money.ZERO
+        );
+        // Emitir Domain Event
+        order.registerEvent(new OrderCreatedEvent(order.id));
+        return order;
+    }
+
+    // Business Logic - protege invariantes
+    public void addLine(ProductId productId, int quantity, Money price) {
+        if (status != OrderStatus.DRAFT) {
+            throw new OrderNotEditableException(id);
+        }
+        OrderLine line = new OrderLine(productId, quantity, price);
+        orderLines.add(line);
+        recalculateTotal();
+        registerEvent(new OrderLineAddedEvent(id, line));
+    }
+
+    public void submit() {
+        if (orderLines.isEmpty()) {
+            throw new EmptyOrderException(id);
+        }
+        this.status = OrderStatus.SUBMITTED;
+        registerEvent(new OrderSubmittedEvent(id, totalAmount));
+    }
+
+    private void recalculateTotal() {
+        this.totalAmount = orderLines.stream()
+            .map(OrderLine::getSubtotal)
+            .reduce(Money.ZERO, Money::add);
+    }
+}`;
+
+const dddValueObjectCode = `// Value Object - Inmutable, sin identidad
+public final class Money {
+    public static final Money ZERO = new Money(BigDecimal.ZERO, "USD");
+
+    private final BigDecimal amount;
+    private final String currency;
+
+    public Money(BigDecimal amount, String currency) {
+        if (amount == null || amount.compareTo(BigDecimal.ZERO) &lt; 0) {
+            throw new InvalidMoneyException("Amount cannot be negative");
+        }
+        this.amount = amount.setScale(2, RoundingMode.HALF_UP);
+        this.currency = currency;
+    }
+
+    // Operaciones que retornan nuevas instancias
+    public Money add(Money other) {
+        validateSameCurrency(other);
+        return new Money(amount.add(other.amount), currency);
+    }
+
+    public Money multiply(int quantity) {
+        return new Money(amount.multiply(BigDecimal.valueOf(quantity)), currency);
+    }
+
+    // Value Objects se comparan por valor
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Money money = (Money) o;
+        return amount.equals(money.amount) &amp;&amp; currency.equals(money.currency);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(amount, currency);
+    }
+}`;
+
+const dddDomainServiceCode = `// Domain Service - lógica que no pertenece a una entidad
+public class PricingService {
+    private final DiscountPolicyRepository discountRepo;
+    private final TaxCalculator taxCalculator;
+
+    public PricingService(DiscountPolicyRepository discountRepo,
+                         TaxCalculator taxCalculator) {
+        this.discountRepo = discountRepo;
+        this.taxCalculator = taxCalculator;
+    }
+
+    // Operación que involucra múltiples agregados
+    public Money calculateFinalPrice(Order order, Customer customer) {
+        Money subtotal = order.getTotalAmount();
+
+        // Aplicar descuentos según políticas
+        DiscountPolicy policy = discountRepo.findForCustomer(customer);
+        Money afterDiscount = policy.apply(subtotal, customer);
+
+        // Calcular impuestos según ubicación
+        Money taxes = taxCalculator.calculate(afterDiscount, customer.getAddress());
+
+        return afterDiscount.add(taxes);
+    }
+}
+
+// Domain Event - algo que ocurrió en el dominio
+public record OrderSubmittedEvent(
+    OrderId orderId,
+    Money totalAmount,
+    Instant occurredAt
+) implements DomainEvent {
+    public OrderSubmittedEvent(OrderId orderId, Money totalAmount) {
+        this(orderId, totalAmount, Instant.now());
+    }
+}`;
+
+// CQRS Code Snippets
+const cqrsCommandCode = `// Command - intención de cambiar estado
+public record CreateOrderCommand(
+    UUID customerId,
+    List&lt;OrderLineDto&gt; items
+) implements Command {}
+
+// Command Handler - ejecuta el comando
+@Component
+public class CreateOrderCommandHandler implements CommandHandler&lt;CreateOrderCommand&gt; {
+    private final OrderRepository orderRepository;
+    private final CustomerRepository customerRepository;
+    private final EventPublisher eventPublisher;
+
+    @Override
+    @Transactional
+    public void handle(CreateOrderCommand command) {
+        // 1. Validar que cliente existe
+        Customer customer = customerRepository.findById(command.customerId())
+            .orElseThrow(() -&gt; new CustomerNotFoundException(command.customerId()));
+
+        // 2. Crear agregado Order
+        Order order = Order.create(customer.getId());
+
+        // 3. Agregar líneas
+        command.items().forEach(item -&gt;
+            order.addLine(item.productId(), item.quantity(), item.price())
+        );
+
+        // 4. Persistir en Write DB
+        orderRepository.save(order);
+
+        // 5. Publicar eventos para actualizar Read DB
+        order.getDomainEvents().forEach(eventPublisher::publish);
+    }
+}`;
+
+const cqrsQueryCode = `// Query - solicitud de datos (no modifica estado)
+public record GetOrderDetailsQuery(UUID orderId) implements Query {}
+
+// Query Handler - ejecuta la consulta
+@Component
+public class GetOrderDetailsQueryHandler
+        implements QueryHandler&lt;GetOrderDetailsQuery, OrderDetailsDto&gt; {
+
+    private final OrderReadRepository readRepository;  // Read-optimized DB
+
+    @Override
+    public OrderDetailsDto handle(GetOrderDetailsQuery query) {
+        // Lee de la base optimizada para lecturas
+        return readRepository.findById(query.orderId())
+            .orElseThrow(() -&gt; new OrderNotFoundException(query.orderId()));
+    }
+}
+
+// Read Model - optimizado para consultas
+@Document(collection = "order_details")
+public class OrderDetailsReadModel {
+    @Id
+    private String orderId;
+    private String customerName;
+    private String customerEmail;
+    private List&lt;OrderLineView&gt; items;
+    private String status;
+    private BigDecimal totalAmount;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+    // Datos denormalizados para evitar JOINs
+}`;
+
+const cqrsProjectionCode = `// Projection - actualiza Read Model cuando ocurren eventos
+@Component
+public class OrderProjection {
+    private final OrderReadRepository readRepository;
+
+    @EventHandler
+    public void on(OrderCreatedEvent event) {
+        OrderDetailsReadModel model = new OrderDetailsReadModel();
+        model.setOrderId(event.orderId().toString());
+        model.setStatus("DRAFT");
+        model.setCreatedAt(LocalDateTime.now());
+        model.setItems(new ArrayList&lt;&gt;());
+        readRepository.save(model);
+    }
+
+    @EventHandler
+    public void on(OrderLineAddedEvent event) {
+        OrderDetailsReadModel model = readRepository.findById(event.orderId().toString())
+            .orElseThrow();
+
+        model.getItems().add(new OrderLineView(
+            event.productId(),
+            event.productName(),  // Denormalizado
+            event.quantity(),
+            event.price()
+        ));
+        model.setUpdatedAt(LocalDateTime.now());
+        readRepository.save(model);
+    }
+
+    @EventHandler
+    public void on(OrderSubmittedEvent event) {
+        OrderDetailsReadModel model = readRepository.findById(event.orderId().toString())
+            .orElseThrow();
+        model.setStatus("SUBMITTED");
+        model.setTotalAmount(event.totalAmount());
+        readRepository.save(model);
+    }
+}`;
+
+// Event Sourcing Code Snippets
+const esAggregateCode = `// Event Sourced Aggregate
+public class Order extends EventSourcedAggregate {
+    private OrderId id;
+    private CustomerId customerId;
+    private List&lt;OrderLine&gt; orderLines = new ArrayList&lt;&gt;();
+    private OrderStatus status;
+    private Money totalAmount = Money.ZERO;
+
+    // Constructor desde eventos
+    public Order(List&lt;DomainEvent&gt; events) {
+        events.forEach(this::apply);
+    }
+
+    // Comandos producen eventos (no modifican estado directamente)
+    public void createOrder(CustomerId customerId) {
+        // Validaciones
+        if (customerId == null) {
+            throw new InvalidCustomerException();
+        }
+        // Emitir evento
+        raise(new OrderCreatedEvent(OrderId.generate(), customerId, Instant.now()));
+    }
+
+    public void addLine(ProductId productId, int quantity, Money price) {
+        if (status != OrderStatus.DRAFT) {
+            throw new OrderNotEditableException(id);
+        }
+        raise(new OrderLineAddedEvent(id, productId, quantity, price, Instant.now()));
+    }
+
+    // Handlers aplican eventos al estado
+    @EventHandler
+    private void on(OrderCreatedEvent event) {
+        this.id = event.orderId();
+        this.customerId = event.customerId();
+        this.status = OrderStatus.DRAFT;
+    }
+
+    @EventHandler
+    private void on(OrderLineAddedEvent event) {
+        OrderLine line = new OrderLine(event.productId(), event.quantity(), event.price());
+        this.orderLines.add(line);
+        this.totalAmount = totalAmount.add(line.getSubtotal());
+    }
+}`;
+
+const esEventStoreCode = `// Event Store - almacena eventos inmutables
+public interface EventStore {
+    void save(AggregateId id, List&lt;DomainEvent&gt; events, long expectedVersion);
+    List&lt;DomainEvent&gt; getEvents(AggregateId id);
+    List&lt;DomainEvent&gt; getEvents(AggregateId id, long fromVersion);
+}
+
+@Repository
+public class PostgresEventStore implements EventStore {
+    private final JdbcTemplate jdbc;
+    private final ObjectMapper mapper;
+
+    @Override
+    @Transactional
+    public void save(AggregateId id, List&lt;DomainEvent&gt; events, long expectedVersion) {
+        // Optimistic locking
+        long currentVersion = getCurrentVersion(id);
+        if (currentVersion != expectedVersion) {
+            throw new ConcurrencyException(id, expectedVersion, currentVersion);
+        }
+
+        long version = expectedVersion;
+        for (DomainEvent event : events) {
+            version++;
+            jdbc.update(
+                "INSERT INTO events (aggregate_id, version, type, data, timestamp) VALUES (?, ?, ?, ?, ?)",
+                id.toString(),
+                version,
+                event.getClass().getName(),
+                mapper.writeValueAsString(event),
+                event.occurredAt()
+            );
+        }
+    }
+
+    @Override
+    public List&lt;DomainEvent&gt; getEvents(AggregateId id) {
+        return jdbc.query(
+            "SELECT * FROM events WHERE aggregate_id = ? ORDER BY version",
+            this::mapToEvent,
+            id.toString()
+        );
+    }
+}`;
+
+const esSnapshotCode = `// Snapshots - optimización para agregados con muchos eventos
+public interface SnapshotStore {
+    Optional&lt;Snapshot&gt; getLatest(AggregateId id);
+    void save(Snapshot snapshot);
+}
+
+public record Snapshot(
+    AggregateId aggregateId,
+    long version,
+    String state,
+    Instant createdAt
+) {}
+
+// Repository que usa Event Sourcing + Snapshots
+public class EventSourcedOrderRepository implements OrderRepository {
+    private final EventStore eventStore;
+    private final SnapshotStore snapshotStore;
+    private static final int SNAPSHOT_FREQUENCY = 100;
+
+    @Override
+    public Optional&lt;Order&gt; findById(OrderId id) {
+        // 1. Buscar snapshot más reciente
+        Optional&lt;Snapshot&gt; snapshot = snapshotStore.getLatest(id);
+
+        // 2. Cargar eventos desde snapshot o desde el inicio
+        List&lt;DomainEvent&gt; events = snapshot
+            .map(s -&gt; eventStore.getEvents(id, s.version()))
+            .orElse(eventStore.getEvents(id));
+
+        if (events.isEmpty() &amp;&amp; snapshot.isEmpty()) {
+            return Optional.empty();
+        }
+
+        // 3. Reconstruir agregado
+        Order order = snapshot
+            .map(s -&gt; deserialize(s.state()))
+            .orElse(new Order());
+        events.forEach(order::apply);
+
+        return Optional.of(order);
+    }
+
+    @Override
+    public void save(Order order) {
+        List&lt;DomainEvent&gt; newEvents = order.getUncommittedEvents();
+        eventStore.save(order.getId(), newEvents, order.getVersion());
+
+        // Crear snapshot cada N eventos
+        if (order.getVersion() % SNAPSHOT_FREQUENCY == 0) {
+            snapshotStore.save(new Snapshot(
+                order.getId(),
+                order.getVersion(),
+                serialize(order),
+                Instant.now()
+            ));
+        }
+    }
+}`;
 ---
 
 <div class="architecture-devops-container">
@@ -288,6 +675,27 @@ public class PostgresOrderRepository implements OrderRepository {
             </div>
             <span class="arch-selector-name">Layered (N-Tier)</span>
             <span class="arch-selector-tag">Traditional</span>
+        </button>
+        <button class="arch-selector-card" data-arch="ddd">
+            <div class="arch-selector-icon pink">
+                <i class="fas fa-sitemap"></i>
+            </div>
+            <span class="arch-selector-name">DDD</span>
+            <span class="arch-selector-tag">Eric Evans</span>
+        </button>
+        <button class="arch-selector-card" data-arch="cqrs">
+            <div class="arch-selector-icon indigo">
+                <i class="fas fa-exchange-alt"></i>
+            </div>
+            <span class="arch-selector-name">CQRS</span>
+            <span class="arch-selector-tag">Read/Write Split</span>
+        </button>
+        <button class="arch-selector-card" data-arch="event-sourcing">
+            <div class="arch-selector-icon emerald">
+                <i class="fas fa-history"></i>
+            </div>
+            <span class="arch-selector-name">Event Sourcing</span>
+            <span class="arch-selector-tag">Event Log</span>
         </button>
     </div>
 
@@ -1117,6 +1525,408 @@ public class PostgresOrderRepository implements OrderRepository {
                 </div>
             </div>
         </div>
+
+        <!-- DDD (Domain-Driven Design) Panel -->
+        <div class="arch-detail-panel" id="panel-ddd">
+            <div class="arch-card-xl glass-card ddd">
+                <div class="arch-header-lg">
+                    <div class="arch-icon-gif">
+                        <i class="fas fa-sitemap arch-card-icon pink"></i>
+                    </div>
+                    <span>Domain-Driven Design (DDD)</span>
+                    <span class="arch-badge">Eric Evans (2003)</span>
+                </div>
+
+                <!-- Intro Banner -->
+                <div class="ddd-intro-banner">
+                    <div class="intro-icon"><i class="fas fa-book-open"></i></div>
+                    <div class="intro-content">
+                        <span class="intro-title">Tackling Complexity in the Heart of Software</span>
+                        <p>DDD es un enfoque para desarrollar software complejo conectando la implementación a un modelo evolutivo del dominio del negocio.</p>
+                    </div>
+                </div>
+
+                <div class="arch-metrics">
+                    <span class="metric-badge uptime"><i class="fas fa-comments"></i> Ubiquitous Language</span>
+                    <span class="metric-badge latency"><i class="fas fa-th-large"></i> Bounded Contexts</span>
+                    <span class="metric-badge scale"><i class="fas fa-cube"></i> Aggregates</span>
+                </div>
+
+                <!-- DDD Building Blocks Diagram -->
+                <div class="ddd-building-blocks">
+                    <div class="bb-header"><i class="fas fa-cubes"></i> Building Blocks</div>
+                    <div class="bb-grid">
+                        <div class="bb-category strategic">
+                            <span class="bb-cat-title">Strategic Design</span>
+                            <div class="bb-items">
+                                <div class="bb-item">
+                                    <i class="fas fa-th-large"></i>
+                                    <span class="bb-name">Bounded Context</span>
+                                    <span class="bb-desc">Límite explícito donde el modelo es válido</span>
+                                </div>
+                                <div class="bb-item">
+                                    <i class="fas fa-comments"></i>
+                                    <span class="bb-name">Ubiquitous Language</span>
+                                    <span class="bb-desc">Lenguaje común entre devs y domain experts</span>
+                                </div>
+                                <div class="bb-item">
+                                    <i class="fas fa-project-diagram"></i>
+                                    <span class="bb-name">Context Map</span>
+                                    <span class="bb-desc">Relaciones entre bounded contexts</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bb-category tactical">
+                            <span class="bb-cat-title">Tactical Design</span>
+                            <div class="bb-items">
+                                <div class="bb-item">
+                                    <i class="fas fa-cube"></i>
+                                    <span class="bb-name">Entity</span>
+                                    <span class="bb-desc">Objeto con identidad única</span>
+                                </div>
+                                <div class="bb-item">
+                                    <i class="fas fa-coins"></i>
+                                    <span class="bb-name">Value Object</span>
+                                    <span class="bb-desc">Inmutable, sin identidad</span>
+                                </div>
+                                <div class="bb-item">
+                                    <i class="fas fa-object-group"></i>
+                                    <span class="bb-name">Aggregate</span>
+                                    <span class="bb-desc">Cluster de entidades con root</span>
+                                </div>
+                                <div class="bb-item">
+                                    <i class="fas fa-database"></i>
+                                    <span class="bb-name">Repository</span>
+                                    <span class="bb-desc">Abstracción de persistencia</span>
+                                </div>
+                                <div class="bb-item">
+                                    <i class="fas fa-cogs"></i>
+                                    <span class="bb-name">Domain Service</span>
+                                    <span class="bb-desc">Lógica que no pertenece a entidad</span>
+                                </div>
+                                <div class="bb-item">
+                                    <i class="fas fa-bolt"></i>
+                                    <span class="bb-name">Domain Event</span>
+                                    <span class="bb-desc">Algo significativo que ocurrió</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Code Examples -->
+                <div class="ddd-code-examples">
+                    <div class="code-tabs">
+                        <button class="code-tab active" data-tab="aggregate">Aggregate Root</button>
+                        <button class="code-tab" data-tab="valueobject">Value Object</button>
+                        <button class="code-tab" data-tab="domainservice">Domain Service</button>
+                    </div>
+
+                    <div class="code-panel active" id="ddd-code-aggregate">
+                        <div class="code-header">
+                            <span class="code-filename">domain/model/Order.java</span>
+                            <span class="code-badge">Aggregate Root</span>
+                        </div>
+                        <pre class="code-block"><code class="language-java" set:html={dddAggregateCode}></code></pre>
+                    </div>
+
+                    <div class="code-panel" id="ddd-code-valueobject">
+                        <div class="code-header">
+                            <span class="code-filename">domain/model/Money.java</span>
+                            <span class="code-badge">Value Object</span>
+                        </div>
+                        <pre class="code-block"><code class="language-java" set:html={dddValueObjectCode}></code></pre>
+                    </div>
+
+                    <div class="code-panel" id="ddd-code-domainservice">
+                        <div class="code-header">
+                            <span class="code-filename">domain/service/PricingService.java</span>
+                            <span class="code-badge">Domain Service + Event</span>
+                        </div>
+                        <pre class="code-block"><code class="language-java" set:html={dddDomainServiceCode}></code></pre>
+                    </div>
+                </div>
+
+                <div class="arch-tips">
+                    <div class="tip-header"><i class="fas fa-lightbulb"></i> Principios Clave (Eric Evans)</div>
+                    <div class="tips-grid expanded">
+                        <span class="tip-item"><i class="fas fa-check"></i> <strong>Model-Driven Design:</strong> El código refleja el modelo del dominio</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> <strong>Ubiquitous Language:</strong> Todos hablan el mismo idioma</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> <strong>Bounded Context:</strong> Cada contexto tiene su propio modelo</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> <strong>Aggregates:</strong> Garantizan consistencia transaccional</span>
+                    </div>
+                </div>
+
+                <div class="arch-references">
+                    <a href="https://www.domainlanguage.com/ddd/blue-book/" target="_blank" rel="noopener" class="ref-link">
+                        <i class="fas fa-book"></i> Blue Book (Eric Evans)
+                    </a>
+                    <a href="https://www.amazon.com/Implementing-Domain-Driven-Design-Vaughn-Vernon/dp/0321834577" target="_blank" rel="noopener" class="ref-link">
+                        <i class="fas fa-book"></i> Red Book (Vaughn Vernon)
+                    </a>
+                    <a href="https://martinfowler.com/tags/domain%20driven%20design.html" target="_blank" rel="noopener" class="ref-link">
+                        <i class="fas fa-external-link-alt"></i> Martin Fowler DDD
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CQRS Panel -->
+        <div class="arch-detail-panel" id="panel-cqrs">
+            <div class="arch-card-xl glass-card cqrs">
+                <div class="arch-header-lg">
+                    <div class="arch-icon-gif">
+                        <i class="fas fa-exchange-alt arch-card-icon indigo"></i>
+                    </div>
+                    <span>CQRS</span>
+                    <span class="arch-badge">Greg Young</span>
+                </div>
+
+                <!-- Intro Banner -->
+                <div class="cqrs-intro-banner">
+                    <div class="intro-icon"><i class="fas fa-code-branch"></i></div>
+                    <div class="intro-content">
+                        <span class="intro-title">Command Query Responsibility Segregation</span>
+                        <p>Separar las operaciones de lectura (Query) de las de escritura (Command) permite optimizar cada una de forma independiente.</p>
+                    </div>
+                </div>
+
+                <div class="arch-metrics">
+                    <span class="metric-badge uptime"><i class="fas fa-pen"></i> Write Model</span>
+                    <span class="metric-badge latency"><i class="fas fa-eye"></i> Read Model</span>
+                    <span class="metric-badge scale"><i class="fas fa-rocket"></i> Scalable</span>
+                </div>
+
+                <!-- CQRS Diagram -->
+                <div class="cqrs-diagram">
+                    <div class="cqrs-side command-side">
+                        <div class="cqrs-side-header command">
+                            <i class="fas fa-pen"></i>
+                            <span>Command Side (Write)</span>
+                        </div>
+                        <div class="cqrs-flow">
+                            <div class="cqrs-box"><i class="fas fa-terminal"></i> Command</div>
+                            <div class="cqrs-arrow"><i class="fas fa-arrow-down"></i></div>
+                            <div class="cqrs-box"><i class="fas fa-cog"></i> Command Handler</div>
+                            <div class="cqrs-arrow"><i class="fas fa-arrow-down"></i></div>
+                            <div class="cqrs-box"><i class="fas fa-cube"></i> Domain Model</div>
+                            <div class="cqrs-arrow"><i class="fas fa-arrow-down"></i></div>
+                            <div class="cqrs-box db"><i class="fas fa-database"></i> Write DB</div>
+                        </div>
+                    </div>
+                    <div class="cqrs-center">
+                        <div class="cqrs-sync">
+                            <i class="fas fa-sync-alt"></i>
+                            <span>Event Bus</span>
+                            <span class="sync-detail">Eventual Consistency</span>
+                        </div>
+                    </div>
+                    <div class="cqrs-side query-side">
+                        <div class="cqrs-side-header query">
+                            <i class="fas fa-eye"></i>
+                            <span>Query Side (Read)</span>
+                        </div>
+                        <div class="cqrs-flow">
+                            <div class="cqrs-box"><i class="fas fa-search"></i> Query</div>
+                            <div class="cqrs-arrow"><i class="fas fa-arrow-down"></i></div>
+                            <div class="cqrs-box"><i class="fas fa-filter"></i> Query Handler</div>
+                            <div class="cqrs-arrow"><i class="fas fa-arrow-down"></i></div>
+                            <div class="cqrs-box"><i class="fas fa-table"></i> Read Model</div>
+                            <div class="cqrs-arrow"><i class="fas fa-arrow-down"></i></div>
+                            <div class="cqrs-box db"><i class="fas fa-database"></i> Read DB</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Code Examples -->
+                <div class="cqrs-code-examples">
+                    <div class="code-tabs">
+                        <button class="code-tab active" data-tab="command">Command</button>
+                        <button class="code-tab" data-tab="query">Query</button>
+                        <button class="code-tab" data-tab="projection">Projection</button>
+                    </div>
+
+                    <div class="code-panel active" id="cqrs-code-command">
+                        <div class="code-header">
+                            <span class="code-filename">application/command/CreateOrderCommand.java</span>
+                            <span class="code-badge command">Command + Handler</span>
+                        </div>
+                        <pre class="code-block"><code class="language-java" set:html={cqrsCommandCode}></code></pre>
+                    </div>
+
+                    <div class="code-panel" id="cqrs-code-query">
+                        <div class="code-header">
+                            <span class="code-filename">application/query/GetOrderDetailsQuery.java</span>
+                            <span class="code-badge query">Query + Handler</span>
+                        </div>
+                        <pre class="code-block"><code class="language-java" set:html={cqrsQueryCode}></code></pre>
+                    </div>
+
+                    <div class="code-panel" id="cqrs-code-projection">
+                        <div class="code-header">
+                            <span class="code-filename">projection/OrderProjection.java</span>
+                            <span class="code-badge projection">Event → Read Model</span>
+                        </div>
+                        <pre class="code-block"><code class="language-java" set:html={cqrsProjectionCode}></code></pre>
+                    </div>
+                </div>
+
+                <div class="arch-tips">
+                    <div class="tip-header"><i class="fas fa-lightbulb"></i> Cuándo Usar CQRS</div>
+                    <div class="tips-grid expanded">
+                        <span class="tip-item"><i class="fas fa-check"></i> <strong>Alta carga de lectura:</strong> Optimizar queries independientemente</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> <strong>Modelos complejos:</strong> Write y Read tienen necesidades diferentes</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> <strong>Escalabilidad:</strong> Escalar read/write por separado</span>
+                        <span class="tip-item"><i class="fas fa-exclamation-triangle"></i> <strong>No siempre:</strong> Agrega complejidad, evaluar si es necesario</span>
+                    </div>
+                </div>
+
+                <div class="arch-references">
+                    <a href="https://www.youtube.com/watch?v=JHGkaShoyNs" target="_blank" rel="noopener" class="ref-link">
+                        <i class="fab fa-youtube"></i> Greg Young - CQRS
+                    </a>
+                    <a href="https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs" target="_blank" rel="noopener" class="ref-link">
+                        <i class="fab fa-microsoft"></i> Microsoft CQRS Pattern
+                    </a>
+                    <a href="https://martinfowler.com/bliki/CQRS.html" target="_blank" rel="noopener" class="ref-link">
+                        <i class="fas fa-external-link-alt"></i> Martin Fowler CQRS
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Event Sourcing Panel -->
+        <div class="arch-detail-panel" id="panel-event-sourcing">
+            <div class="arch-card-xl glass-card event-sourcing">
+                <div class="arch-header-lg">
+                    <div class="arch-icon-gif">
+                        <i class="fas fa-history arch-card-icon emerald"></i>
+                    </div>
+                    <span>Event Sourcing</span>
+                    <span class="arch-badge">Martin Fowler</span>
+                </div>
+
+                <!-- Intro Banner -->
+                <div class="es-intro-banner">
+                    <div class="intro-icon"><i class="fas fa-stream"></i></div>
+                    <div class="intro-content">
+                        <span class="intro-title">Events as the Source of Truth</span>
+                        <p>En lugar de almacenar el estado actual, almacenamos todos los eventos que ocurrieron. El estado se reconstruye reproduciendo los eventos.</p>
+                    </div>
+                </div>
+
+                <div class="arch-metrics">
+                    <span class="metric-badge uptime"><i class="fas fa-history"></i> Full History</span>
+                    <span class="metric-badge latency"><i class="fas fa-clock"></i> Time Travel</span>
+                    <span class="metric-badge scale"><i class="fas fa-file-alt"></i> Audit Trail</span>
+                </div>
+
+                <!-- Event Sourcing Diagram -->
+                <div class="es-diagram">
+                    <div class="es-timeline">
+                        <div class="es-event-row">
+                            <div class="es-event created">
+                                <div class="event-dot"></div>
+                                <div class="event-content">
+                                    <span class="event-type">OrderCreated</span>
+                                    <span class="event-time">t0</span>
+                                </div>
+                            </div>
+                            <div class="es-event line-added">
+                                <div class="event-dot"></div>
+                                <div class="event-content">
+                                    <span class="event-type">LineAdded</span>
+                                    <span class="event-time">t1</span>
+                                </div>
+                            </div>
+                            <div class="es-event line-added">
+                                <div class="event-dot"></div>
+                                <div class="event-content">
+                                    <span class="event-type">LineAdded</span>
+                                    <span class="event-time">t2</span>
+                                </div>
+                            </div>
+                            <div class="es-event submitted">
+                                <div class="event-dot"></div>
+                                <div class="event-content">
+                                    <span class="event-type">OrderSubmitted</span>
+                                    <span class="event-time">t3</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="es-timeline-line"></div>
+                    </div>
+                    <div class="es-reconstruction">
+                        <div class="es-arrow"><i class="fas fa-long-arrow-alt-down"></i> Replay Events</div>
+                        <div class="es-state">
+                            <span class="state-label">Current State</span>
+                            <div class="state-box">
+                                <span>Order #123</span>
+                                <span>Status: SUBMITTED</span>
+                                <span>Items: 2</span>
+                                <span>Total: $150.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Code Examples -->
+                <div class="es-code-examples">
+                    <div class="code-tabs">
+                        <button class="code-tab active" data-tab="aggregate">ES Aggregate</button>
+                        <button class="code-tab" data-tab="eventstore">Event Store</button>
+                        <button class="code-tab" data-tab="snapshot">Snapshots</button>
+                    </div>
+
+                    <div class="code-panel active" id="es-code-aggregate">
+                        <div class="code-header">
+                            <span class="code-filename">domain/Order.java</span>
+                            <span class="code-badge">Event Sourced Aggregate</span>
+                        </div>
+                        <pre class="code-block"><code class="language-java" set:html={esAggregateCode}></code></pre>
+                    </div>
+
+                    <div class="code-panel" id="es-code-eventstore">
+                        <div class="code-header">
+                            <span class="code-filename">infrastructure/PostgresEventStore.java</span>
+                            <span class="code-badge">Event Store</span>
+                        </div>
+                        <pre class="code-block"><code class="language-java" set:html={esEventStoreCode}></code></pre>
+                    </div>
+
+                    <div class="code-panel" id="es-code-snapshot">
+                        <div class="code-header">
+                            <span class="code-filename">infrastructure/EventSourcedRepository.java</span>
+                            <span class="code-badge">Snapshots</span>
+                        </div>
+                        <pre class="code-block"><code class="language-java" set:html={esSnapshotCode}></code></pre>
+                    </div>
+                </div>
+
+                <div class="arch-tips">
+                    <div class="tip-header"><i class="fas fa-lightbulb"></i> Beneficios de Event Sourcing</div>
+                    <div class="tips-grid expanded">
+                        <span class="tip-item"><i class="fas fa-check"></i> <strong>Auditoría completa:</strong> Sabes exactamente qué pasó y cuándo</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> <strong>Time Travel:</strong> Reconstruir estado en cualquier punto del tiempo</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> <strong>Debug:</strong> Reproducir bugs con los mismos eventos</span>
+                        <span class="tip-item"><i class="fas fa-check"></i> <strong>Eventos:</strong> Base natural para event-driven architecture</span>
+                        <span class="tip-item"><i class="fas fa-exclamation-triangle"></i> <strong>Complejidad:</strong> Más difícil de implementar y mantener</span>
+                    </div>
+                </div>
+
+                <div class="arch-references">
+                    <a href="https://martinfowler.com/eaaDev/EventSourcing.html" target="_blank" rel="noopener" class="ref-link">
+                        <i class="fas fa-external-link-alt"></i> Martin Fowler ES
+                    </a>
+                    <a href="https://www.eventstore.com/" target="_blank" rel="noopener" class="ref-link">
+                        <i class="fas fa-database"></i> EventStoreDB
+                    </a>
+                    <a href="https://docs.axoniq.io/reference-guide/" target="_blank" rel="noopener" class="ref-link">
+                        <i class="fas fa-book"></i> Axon Framework
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -1193,6 +2003,69 @@ public class PostgresOrderRepository implements OrderRepository {
 
                 hexPanels.forEach(panel => {
                     if (panel.id === `hex-code-${tabType}`) {
+                        panel.classList.add('active');
+                    } else {
+                        panel.classList.remove('active');
+                    }
+                });
+            };
+        });
+
+        // DDD tabs
+        const dddTabs = document.querySelectorAll('#panel-ddd .code-tab');
+        const dddPanels = document.querySelectorAll('#panel-ddd .code-panel');
+
+        dddTabs.forEach(tab => {
+            tab.onclick = function() {
+                const tabType = this.getAttribute('data-tab');
+
+                dddTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                dddPanels.forEach(panel => {
+                    if (panel.id === `ddd-code-${tabType}`) {
+                        panel.classList.add('active');
+                    } else {
+                        panel.classList.remove('active');
+                    }
+                });
+            };
+        });
+
+        // CQRS tabs
+        const cqrsTabs = document.querySelectorAll('#panel-cqrs .code-tab');
+        const cqrsPanels = document.querySelectorAll('#panel-cqrs .code-panel');
+
+        cqrsTabs.forEach(tab => {
+            tab.onclick = function() {
+                const tabType = this.getAttribute('data-tab');
+
+                cqrsTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                cqrsPanels.forEach(panel => {
+                    if (panel.id === `cqrs-code-${tabType}`) {
+                        panel.classList.add('active');
+                    } else {
+                        panel.classList.remove('active');
+                    }
+                });
+            };
+        });
+
+        // Event Sourcing tabs
+        const esTabs = document.querySelectorAll('#panel-event-sourcing .code-tab');
+        const esPanels = document.querySelectorAll('#panel-event-sourcing .code-panel');
+
+        esTabs.forEach(tab => {
+            tab.onclick = function() {
+                const tabType = this.getAttribute('data-tab');
+
+                esTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                esPanels.forEach(panel => {
+                    if (panel.id === `es-code-${tabType}`) {
                         panel.classList.add('active');
                     } else {
                         panel.classList.remove('active');
