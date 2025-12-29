@@ -2,12 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 
 const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="Proyectos | DuocUC">
     <Header />
+    <Breadcrumbs />
 
     <!-- Page Hero -->
     <section class="page-hero">

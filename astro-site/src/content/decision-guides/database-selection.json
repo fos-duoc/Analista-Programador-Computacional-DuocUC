@@ -1,0 +1,365 @@
+{
+    "id": "database-selection",
+    "title": "¿Qué Base de Datos elegir?",
+    "description": "Guía interactiva basada en AWS Well-Architected Framework y Google Cloud Architecture Center para elegir la base de datos correcta según tu caso de uso.",
+    "category": "database",
+    "icon": "fas fa-database",
+    "questions": [
+        {
+            "id": "q1-data-structure",
+            "question": "¿Cómo es la estructura de tus datos?",
+            "options": [
+                {
+                    "label": "Datos estructurados con relaciones claras (tablas, filas, columnas)",
+                    "value": "structured",
+                    "leadsTo": "q2-scale"
+                },
+                {
+                    "label": "Datos semiestructurados o sin esquema fijo (JSON, documentos)",
+                    "value": "semi-structured",
+                    "leadsTo": "q3-nosql-type"
+                },
+                {
+                    "label": "Grafos con muchas relaciones entre entidades",
+                    "value": "graph",
+                    "leadsTo": "rec-graph"
+                },
+                {
+                    "label": "Series de tiempo (métricas, logs, IoT)",
+                    "value": "timeseries",
+                    "leadsTo": "rec-timeseries"
+                }
+            ]
+        },
+        {
+            "id": "q2-scale",
+            "question": "¿Qué escala de datos manejarás?",
+            "options": [
+                {
+                    "label": "Pequeña/Mediana: < 100GB, miles de usuarios",
+                    "value": "small-medium",
+                    "leadsTo": "q4-acid"
+                },
+                {
+                    "label": "Grande: 100GB - 1TB, cientos de miles de usuarios",
+                    "value": "large",
+                    "leadsTo": "q4-acid"
+                },
+                {
+                    "label": "Masiva: > 1TB, millones de usuarios, multi-región",
+                    "value": "massive",
+                    "leadsTo": "rec-distributed-sql"
+                }
+            ]
+        },
+        {
+            "id": "q3-nosql-type",
+            "question": "¿Qué operaciones son más frecuentes?",
+            "options": [
+                {
+                    "label": "Lecturas/escrituras de documentos completos",
+                    "value": "document-ops",
+                    "leadsTo": "rec-document"
+                },
+                {
+                    "label": "Acceso por clave-valor muy rápido (cache, sesiones)",
+                    "value": "key-value",
+                    "leadsTo": "rec-keyvalue"
+                },
+                {
+                    "label": "Búsqueda full-text y analytics",
+                    "value": "search",
+                    "leadsTo": "rec-search"
+                },
+                {
+                    "label": "Datos de columnas anchas (analytics, data warehouse)",
+                    "value": "wide-column",
+                    "leadsTo": "rec-widecolumn"
+                }
+            ]
+        },
+        {
+            "id": "q4-acid",
+            "question": "¿Necesitas transacciones ACID estrictas?",
+            "options": [
+                {
+                    "label": "Sí, es crítico (finanzas, inventario, e-commerce)",
+                    "value": "acid-required",
+                    "leadsTo": "rec-postgresql"
+                },
+                {
+                    "label": "No es crítico, priorizo disponibilidad y velocidad",
+                    "value": "eventual-ok",
+                    "leadsTo": "rec-mysql"
+                }
+            ]
+        }
+    ],
+    "recommendations": [
+        {
+            "id": "rec-postgresql",
+            "technology": "PostgreSQL",
+            "description": "Base de datos relacional open-source más avanzada. ACID compliant, extensible, excelente para datos estructurados complejos.",
+            "pros": [
+                "ACID compliant con transacciones robustas",
+                "Soporte JSON nativo (híbrido SQL/NoSQL)",
+                "Extensiones poderosas (PostGIS, pg_vector)",
+                "Comunidad activa y documentación excelente",
+                "Gratuito y open-source"
+            ],
+            "cons": [
+                "Escalabilidad horizontal más compleja",
+                "Curva de aprendizaje para features avanzados",
+                "Requiere tuning para alto rendimiento"
+            ],
+            "bestFor": [
+                "Aplicaciones web tradicionales",
+                "Sistemas financieros y e-commerce",
+                "Datos geoespaciales con PostGIS",
+                "Proyectos que necesitan SQL estándar"
+            ],
+            "resources": [
+                {
+                    "title": "PostgreSQL Official Documentation",
+                    "url": "https://www.postgresql.org/docs/",
+                    "type": "docs"
+                },
+                {
+                    "title": "AWS RDS for PostgreSQL",
+                    "url": "https://aws.amazon.com/rds/postgresql/",
+                    "type": "docs"
+                }
+            ]
+        },
+        {
+            "id": "rec-mysql",
+            "technology": "MySQL",
+            "description": "Base de datos relacional más popular del mundo. Ideal para aplicaciones web con alto volumen de lecturas.",
+            "pros": [
+                "Muy rápido para lecturas",
+                "Fácil de configurar y usar",
+                "Amplio soporte en hosting",
+                "Replicación master-slave sencilla"
+            ],
+            "cons": [
+                "Menos features que PostgreSQL",
+                "Manejo de JSON menos maduro",
+                "Licenciamiento Oracle (versión community es GPL)"
+            ],
+            "bestFor": [
+                "Aplicaciones LAMP stack",
+                "WordPress, Drupal, aplicaciones PHP",
+                "Sistemas con muchas lecturas"
+            ],
+            "resources": [
+                {
+                    "title": "MySQL Documentation",
+                    "url": "https://dev.mysql.com/doc/",
+                    "type": "docs"
+                }
+            ]
+        },
+        {
+            "id": "rec-document",
+            "technology": "MongoDB",
+            "description": "Base de datos de documentos líder. Ideal para datos semiestructurados y desarrollo ágil.",
+            "pros": [
+                "Schema flexible (sin migraciones)",
+                "Modelo de datos intuitivo (JSON/BSON)",
+                "Escalabilidad horizontal nativa (sharding)",
+                "Atlas cloud service excelente"
+            ],
+            "cons": [
+                "Sin JOINs tradicionales (agregaciones)",
+                "Consistencia eventual por defecto",
+                "Puede desperdiciar espacio (datos duplicados)"
+            ],
+            "bestFor": [
+                "Catálogos de productos",
+                "Content Management Systems",
+                "Aplicaciones móviles",
+                "Prototipos rápidos"
+            ],
+            "resources": [
+                {
+                    "title": "MongoDB University (Gratis)",
+                    "url": "https://university.mongodb.com/",
+                    "type": "course"
+                }
+            ]
+        },
+        {
+            "id": "rec-keyvalue",
+            "technology": "Redis",
+            "description": "Almacén de datos en memoria ultra-rápido. Ideal para cache, sesiones y real-time.",
+            "pros": [
+                "Latencia sub-milisegundo",
+                "Estructuras de datos avanzadas (sets, hashes, streams)",
+                "Pub/Sub integrado",
+                "Persistencia opcional"
+            ],
+            "cons": [
+                "Datos deben caber en RAM",
+                "No es para almacenamiento primario",
+                "Modelo de datos simple"
+            ],
+            "bestFor": [
+                "Cache de aplicación",
+                "Sesiones de usuario",
+                "Leaderboards y contadores",
+                "Message queues simples"
+            ],
+            "resources": [
+                {
+                    "title": "Redis Documentation",
+                    "url": "https://redis.io/docs/",
+                    "type": "docs"
+                }
+            ]
+        },
+        {
+            "id": "rec-graph",
+            "technology": "Neo4j",
+            "description": "Base de datos de grafos líder. Ideal para datos altamente conectados.",
+            "pros": [
+                "Traversal de relaciones muy eficiente",
+                "Lenguaje Cypher intuitivo",
+                "Visualización de grafos integrada",
+                "Ideal para recomendaciones y fraude"
+            ],
+            "cons": [
+                "Curva de aprendizaje (pensar en grafos)",
+                "No ideal para datos tabulares simples",
+                "Escalabilidad más compleja"
+            ],
+            "bestFor": [
+                "Redes sociales",
+                "Sistemas de recomendación",
+                "Detección de fraude",
+                "Knowledge graphs"
+            ],
+            "resources": [
+                {
+                    "title": "Neo4j GraphAcademy (Gratis)",
+                    "url": "https://graphacademy.neo4j.com/",
+                    "type": "course"
+                }
+            ]
+        },
+        {
+            "id": "rec-timeseries",
+            "technology": "InfluxDB / TimescaleDB",
+            "description": "Bases de datos optimizadas para series temporales. Métricas, IoT, logs.",
+            "pros": [
+                "Compresión eficiente de datos temporales",
+                "Funciones de agregación temporal nativas",
+                "Retención de datos automática",
+                "Integración con Grafana"
+            ],
+            "cons": [
+                "Caso de uso específico",
+                "No para datos relacionales",
+                "Curva de aprendizaje"
+            ],
+            "bestFor": [
+                "Monitoreo de infraestructura",
+                "IoT y sensores",
+                "Métricas de aplicación",
+                "Trading y finanzas"
+            ],
+            "resources": [
+                {
+                    "title": "TimescaleDB Documentation",
+                    "url": "https://docs.timescale.com/",
+                    "type": "docs"
+                }
+            ]
+        },
+        {
+            "id": "rec-search",
+            "technology": "Elasticsearch",
+            "description": "Motor de búsqueda distribuido. Full-text search y analytics en tiempo real.",
+            "pros": [
+                "Búsqueda full-text muy potente",
+                "Escalabilidad horizontal",
+                "Analytics y agregaciones",
+                "Ecosystem Elastic (Kibana, Logstash)"
+            ],
+            "cons": [
+                "Consume muchos recursos",
+                "No es base de datos primaria",
+                "Complejidad operacional"
+            ],
+            "bestFor": [
+                "Búsqueda en aplicaciones",
+                "Log aggregation (ELK Stack)",
+                "E-commerce search",
+                "Analytics de texto"
+            ],
+            "resources": [
+                {
+                    "title": "Elasticsearch Guide",
+                    "url": "https://www.elastic.co/guide/",
+                    "type": "docs"
+                }
+            ]
+        },
+        {
+            "id": "rec-widecolumn",
+            "technology": "Apache Cassandra / ScyllaDB",
+            "description": "Base de datos de columnas anchas para escala masiva. Alta disponibilidad.",
+            "pros": [
+                "Escalabilidad lineal (petabytes)",
+                "No single point of failure",
+                "Escrituras muy rápidas",
+                "Multi-datacenter nativo"
+            ],
+            "cons": [
+                "Modelo de datos complejo",
+                "Sin JOINs ni transacciones ACID",
+                "Operaciones complejas"
+            ],
+            "bestFor": [
+                "IoT a escala masiva",
+                "Time series de alto volumen",
+                "Aplicaciones globales",
+                "Mensajería (Discord usa Cassandra)"
+            ],
+            "resources": [
+                {
+                    "title": "DataStax Academy (Gratis)",
+                    "url": "https://www.datastax.com/dev/",
+                    "type": "course"
+                }
+            ]
+        },
+        {
+            "id": "rec-distributed-sql",
+            "technology": "CockroachDB / TiDB / YugabyteDB",
+            "description": "Bases de datos SQL distribuidas. Lo mejor de SQL + escalabilidad NoSQL.",
+            "pros": [
+                "SQL estándar con escala horizontal",
+                "ACID distribuido (Spanner-like)",
+                "Compatible con PostgreSQL",
+                "Multi-región automático"
+            ],
+            "cons": [
+                "Mayor latencia que single-node",
+                "Más complejo de operar",
+                "Relativamente nuevos"
+            ],
+            "bestFor": [
+                "Aplicaciones globales que necesitan SQL",
+                "Fintech a escala",
+                "Migración desde PostgreSQL a escala"
+            ],
+            "resources": [
+                {
+                    "title": "CockroachDB University",
+                    "url": "https://www.cockroachlabs.com/cockroach-university/",
+                    "type": "course"
+                }
+            ]
+        }
+    ]
+}
