@@ -273,12 +273,12 @@ const BUILD_VERSION = Date.now().toString(36);
             bindEvents() {
                 // Use event delegation for better performance
                 document.addEventListener('mouseenter', (e) => {
-                    const target = e.target.closest('[data-premium-tooltip]');
+                    if (!e.target || typeof e.target.closest !== 'function') return; const target = e.target.closest('[data-premium-tooltip]');
                     if (target) this.handleMouseEnter(target);
                 }, true);
 
                 document.addEventListener('mouseleave', (e) => {
-                    const target = e.target.closest('[data-premium-tooltip]');
+                    if (!e.target || typeof e.target.closest !== 'function') return; const target = e.target.closest('[data-premium-tooltip]');
                     if (target) this.handleMouseLeave();
                 }, true);
 
