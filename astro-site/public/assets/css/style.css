@@ -26605,3 +26605,1204 @@ main,
     padding: 1rem !important;
   }
 }
+
+/* ==============================================================================
+   SOFTWARE ENGINEERING FUNDAMENTALS SECTION - SWEBOK v4 Based
+   OOP, Functional Programming, SOLID, Clean Code, Testing, Design Patterns, DSA, Security
+   ============================================================================== */
+
+/* ===== FUNDAMENTALS HEADER VARIANT ===== */
+.pipeline-mode-header.fundamentals {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(6, 182, 212, 0.1) 100%);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.pipeline-mode-header.fundamentals .mode-indicator {
+  color: #10b981;
+}
+
+.pipeline-mode-header.fundamentals .stat-pill {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: #10b981;
+}
+
+/* ===== FUNDAMENTALS CONTENT CONTAINER ===== */
+.fundamentals-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ===== OOP PILLARS GRID ===== */
+.oop-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.oop-pillar-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.oop-pillar-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--pillar-color, #00d4ff), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.oop-pillar-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--pillar-color, rgba(0, 212, 255, 0.4));
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.oop-pillar-card:hover::before {
+  opacity: 1;
+}
+
+/* Pillar Colors */
+.oop-pillar-card.encapsulation { --pillar-color: #00d4ff; }
+.oop-pillar-card.inheritance { --pillar-color: #7c3aed; }
+.oop-pillar-card.polymorphism { --pillar-color: #f472b6; }
+.oop-pillar-card.abstraction { --pillar-color: #10b981; }
+
+.pillar-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(124, 58, 237, 0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 1.5rem;
+  color: var(--pillar-color, #00d4ff);
+}
+
+.oop-pillar-card h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 0.75rem;
+}
+
+.oop-pillar-card p {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.pillar-example {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.pillar-example code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.75rem;
+  color: #10b981;
+}
+
+.pillar-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.pillar-keywords span {
+  font-size: 0.7rem;
+  padding: 0.25rem 0.5rem;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 4px;
+  color: #00d4ff;
+}
+
+/* ===== FUNCTIONAL PROGRAMMING GRID ===== */
+.fp-concepts-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.fp-concept-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.fp-concept-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(124, 58, 237, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.concept-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(236, 72, 153, 0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 1.25rem;
+  color: #a78bfa;
+}
+
+.fp-concept-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 0.75rem;
+}
+
+.fp-concept-card p {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.concept-example {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+
+.concept-example code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.7rem;
+  color: #a78bfa;
+}
+
+/* FP Applications */
+.fp-applications {
+  background: rgba(124, 58, 237, 0.1);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.fp-applications h5 {
+  font-size: 0.9rem;
+  color: #a78bfa;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.app-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.app-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: #f8fafc;
+}
+
+.app-tag i {
+  color: #a78bfa;
+}
+
+/* ===== SOLID PRINCIPLES LIST ===== */
+.solid-principles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.solid-principle {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.solid-principle:hover {
+  border-color: var(--solid-color, rgba(0, 212, 255, 0.4));
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* SOLID Colors */
+.solid-principle.srp { --solid-color: #00d4ff; }
+.solid-principle.ocp { --solid-color: #7c3aed; }
+.solid-principle.lsp { --solid-color: #f472b6; }
+.solid-principle.isp { --solid-color: #10b981; }
+.solid-principle.dip { --solid-color: #f59e0b; }
+
+.principle-letter {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--solid-color, #00d4ff), rgba(0, 0, 0, 0.3));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #fff;
+  flex-shrink: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.principle-content {
+  flex: 1;
+}
+
+.principle-content h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 0.5rem;
+}
+
+.principle-content p {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.principle-content code {
+  display: inline-block;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  color: var(--solid-color, #00d4ff);
+}
+
+/* ===== CLEAN CODE PRACTICES GRID ===== */
+.cleancode-practices-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.cleancode-practice {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.cleancode-practice:hover {
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.practice-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.practice-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(6, 182, 212, 0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: #10b981;
+}
+
+.practice-header h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.cleancode-practice p {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.practice-examples {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.practice-example {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+}
+
+.practice-example.good {
+  color: #10b981;
+}
+
+.practice-example.bad {
+  color: #ef4444;
+}
+
+.practice-example i {
+  width: 16px;
+}
+
+.practice-example code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+/* ===== TESTING PYRAMID VISUAL ===== */
+.testing-pyramid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.testing-pyramid-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pyramid-level {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.pyramid-level:hover {
+  transform: scale(1.02);
+}
+
+.pyramid-level.e2e {
+  width: 40%;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.pyramid-level.integration {
+  width: 65%;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.pyramid-level.unit {
+  width: 90%;
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.level-name {
+  font-size: 0.9rem;
+}
+
+.level-percent {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  padding: 0.25rem 0.75rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+.level-tools {
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+
+/* Testing Methodologies */
+.testing-methodologies {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.methodology-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.methodology-card:hover {
+  border-color: rgba(0, 212, 255, 0.3);
+}
+
+.methodology-card h5 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.methodology-card h5 i {
+  color: #00d4ff;
+}
+
+.methodology-card p {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin-bottom: 0.75rem;
+}
+
+.methodology-cycle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.cycle-step {
+  padding: 0.35rem 0.75rem;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 20px;
+  color: #00d4ff;
+}
+
+.cycle-arrow {
+  color: #64748b;
+}
+
+/* ===== DESIGN PATTERNS (GoF) GRID ===== */
+.patterns-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.pattern-category {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.pattern-category:hover {
+  border-color: var(--pattern-color, rgba(0, 212, 255, 0.4));
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.pattern-category.creational { --pattern-color: #00d4ff; }
+.pattern-category.structural { --pattern-color: #7c3aed; }
+.pattern-category.behavioral { --pattern-color: #10b981; }
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.category-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--pattern-color, #00d4ff), rgba(0, 0, 0, 0.3));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.category-info h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.category-info span {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.pattern-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pattern-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  transition: all 0.2s ease;
+}
+
+.pattern-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #f8fafc;
+}
+
+.pattern-item i {
+  color: var(--pattern-color, #00d4ff);
+  width: 16px;
+  text-align: center;
+}
+
+.pattern-item.hot {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #f8fafc;
+}
+
+.pattern-item.hot::after {
+  content: '🔥';
+  margin-left: auto;
+  font-size: 0.7rem;
+}
+
+/* ===== DATA STRUCTURES & ALGORITHMS ===== */
+.dsa-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.dsa-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.dsa-category {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.dsa-category h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dsa-category h4 i {
+  color: #00d4ff;
+}
+
+.dsa-items-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.dsa-item {
+  padding: 0.5rem 0.75rem;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 8px;
+  font-size: 0.75rem;
+  color: #00d4ff;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.dsa-item:hover {
+  background: rgba(0, 212, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.dsa-item.algo {
+  background: rgba(124, 58, 237, 0.1);
+  border-color: rgba(124, 58, 237, 0.2);
+  color: #a78bfa;
+}
+
+.dsa-item.algo:hover {
+  background: rgba(124, 58, 237, 0.2);
+}
+
+/* Big O Chart */
+.big-o-container {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.big-o-container h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.big-o-container h4 i {
+  color: #f59e0b;
+}
+
+.complexity-scale {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.complexity-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.complexity-notation {
+  width: 80px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.8rem;
+  color: #f8fafc;
+  font-weight: 600;
+}
+
+.complexity-bar {
+  flex: 1;
+  height: 20px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.complexity-bar::after {
+  content: attr(data-label);
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.complexity-row.excellent .complexity-bar {
+  background: linear-gradient(90deg, #10b981 0%, #10b981 5%);
+  width: 5%;
+}
+
+.complexity-row.good .complexity-bar {
+  background: linear-gradient(90deg, #10b981, #84cc16);
+  width: 15%;
+}
+
+.complexity-row.fair .complexity-bar {
+  background: linear-gradient(90deg, #84cc16, #eab308);
+  width: 30%;
+}
+
+.complexity-row.bad .complexity-bar {
+  background: linear-gradient(90deg, #eab308, #f97316);
+  width: 50%;
+}
+
+.complexity-row.horrible .complexity-bar {
+  background: linear-gradient(90deg, #f97316, #ef4444);
+  width: 75%;
+}
+
+.complexity-row.worst .complexity-bar {
+  background: linear-gradient(90deg, #ef4444, #dc2626);
+  width: 100%;
+}
+
+/* ===== SECURITY / OWASP ===== */
+.security-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.owasp-section h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.owasp-section h4 i {
+  color: #ef4444;
+}
+
+.owasp-top10 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.owasp-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.owasp-item:hover {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+.owasp-rank {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ef4444;
+  padding: 0.25rem 0.5rem;
+  background: rgba(239, 68, 68, 0.2);
+  border-radius: 4px;
+}
+
+.owasp-name {
+  flex: 1;
+  font-size: 0.85rem;
+  color: #f8fafc;
+}
+
+.owasp-year {
+  font-size: 0.7rem;
+  color: #64748b;
+}
+
+/* Security Practices */
+.security-practices-section h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.security-practices-section h4 i {
+  color: #10b981;
+}
+
+.security-practices {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.security-practice {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 8px;
+}
+
+.security-practice i {
+  color: #10b981;
+  margin-top: 0.2rem;
+}
+
+.security-practice span {
+  font-size: 0.85rem;
+  color: #f8fafc;
+}
+
+/* ===== LANGUAGES CHIPS ===== */
+.oop-languages,
+.fp-languages {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+}
+
+.lang-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.lang-icons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.lang-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: #f8fafc;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.lang-chip:hover {
+  background: rgba(0, 212, 255, 0.2);
+  border-color: rgba(0, 212, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.lang-chip i {
+  font-size: 1rem;
+}
+
+.lang-chip.fp-lang {
+  background: rgba(124, 58, 237, 0.1);
+  border-color: rgba(124, 58, 237, 0.2);
+}
+
+.lang-chip.fp-lang:hover {
+  background: rgba(124, 58, 237, 0.2);
+  border-color: rgba(124, 58, 237, 0.4);
+}
+
+/* ===== FUNDAMENTALS REFERENCES ===== */
+.fundamentals-references {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ref-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.ref-link:hover {
+  background: rgba(0, 212, 255, 0.1);
+  border-color: rgba(0, 212, 255, 0.3);
+  color: #00d4ff;
+}
+
+.ref-link i {
+  color: #64748b;
+}
+
+.ref-link:hover i {
+  color: #00d4ff;
+}
+
+/* ===== RESPONSIVE - SOFTWARE FUNDAMENTALS ===== */
+@media (max-width: 1200px) {
+  .oop-pillars-grid,
+  .fp-concepts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .patterns-categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .testing-pyramid-container,
+  .dsa-container,
+  .security-container {
+    grid-template-columns: 1fr;
+  }
+
+  .patterns-categories-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .oop-pillars-grid,
+  .fp-concepts-grid,
+  .cleancode-practices-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .solid-principle {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .principle-letter {
+    margin: 0 auto;
+  }
+
+  .dsa-items-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .fundamentals-content {
+    padding: 1rem;
+  }
+}
+
+/* ==============================================================================
+   SOFTWARE FUNDAMENTALS - LIGHT MODE
+   ============================================================================== */
+
+[data-theme="light"] .pipeline-mode-header.fundamentals {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(6, 182, 212, 0.08) 100%);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+[data-theme="light"] .pipeline-mode-header.fundamentals .mode-indicator {
+  color: #059669;
+}
+
+[data-theme="light"] .pipeline-mode-header.fundamentals .stat-pill {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.25);
+  color: #047857;
+}
+
+/* OOP Light Mode */
+[data-theme="light"] .oop-pillar-card,
+[data-theme="light"] .fp-concept-card,
+[data-theme="light"] .solid-principle,
+[data-theme="light"] .cleancode-practice,
+[data-theme="light"] .methodology-card,
+[data-theme="light"] .pattern-category,
+[data-theme="light"] .dsa-category,
+[data-theme="light"] .big-o-container {
+  background: rgba(248, 250, 252, 0.8);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .oop-pillar-card:hover,
+[data-theme="light"] .fp-concept-card:hover,
+[data-theme="light"] .cleancode-practice:hover,
+[data-theme="light"] .pattern-category:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .oop-pillar-card h4,
+[data-theme="light"] .fp-concept-card h4,
+[data-theme="light"] .solid-principle .principle-content h4,
+[data-theme="light"] .cleancode-practice h4,
+[data-theme="light"] .methodology-card h5,
+[data-theme="light"] .pattern-category .category-info h4,
+[data-theme="light"] .dsa-category h4,
+[data-theme="light"] .big-o-container h4,
+[data-theme="light"] .owasp-section h4,
+[data-theme="light"] .security-practices-section h4 {
+  color: #0f172a;
+}
+
+[data-theme="light"] .oop-pillar-card p,
+[data-theme="light"] .fp-concept-card p,
+[data-theme="light"] .solid-principle .principle-content p,
+[data-theme="light"] .cleancode-practice p,
+[data-theme="light"] .methodology-card p {
+  color: #475569;
+}
+
+[data-theme="light"] .pillar-icon,
+[data-theme="light"] .concept-icon,
+[data-theme="light"] .practice-icon {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(124, 58, 237, 0.1));
+}
+
+[data-theme="light"] .pillar-example,
+[data-theme="light"] .concept-example,
+[data-theme="light"] .practice-example code,
+[data-theme="light"] .principle-content code {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .pillar-keywords span {
+  background: rgba(0, 212, 255, 0.1);
+  border-color: rgba(0, 212, 255, 0.2);
+  color: #0891b2;
+}
+
+[data-theme="light"] .fp-applications {
+  background: rgba(124, 58, 237, 0.08);
+  border-color: rgba(124, 58, 237, 0.15);
+}
+
+[data-theme="light"] .fp-applications h5 {
+  color: #6d28d9;
+}
+
+[data-theme="light"] .app-tag {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #1e293b;
+}
+
+[data-theme="light"] .lang-chip {
+  background: rgba(0, 212, 255, 0.1);
+  border-color: rgba(0, 212, 255, 0.2);
+  color: #0f172a;
+}
+
+[data-theme="light"] .lang-chip.fp-lang {
+  background: rgba(124, 58, 237, 0.1);
+  border-color: rgba(124, 58, 237, 0.2);
+}
+
+[data-theme="light"] .cycle-step {
+  background: rgba(0, 212, 255, 0.1);
+  border-color: rgba(0, 212, 255, 0.2);
+  color: #0891b2;
+}
+
+[data-theme="light"] .pattern-item {
+  background: rgba(248, 250, 252, 0.5);
+  color: #475569;
+}
+
+[data-theme="light"] .pattern-item:hover {
+  background: rgba(248, 250, 252, 0.8);
+  color: #0f172a;
+}
+
+[data-theme="light"] .pattern-item.hot {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.2);
+  color: #0f172a;
+}
+
+[data-theme="light"] .dsa-item {
+  background: rgba(0, 212, 255, 0.1);
+  border-color: rgba(0, 212, 255, 0.2);
+  color: #0891b2;
+}
+
+[data-theme="light"] .dsa-item.algo {
+  background: rgba(124, 58, 237, 0.1);
+  border-color: rgba(124, 58, 237, 0.2);
+  color: #6d28d9;
+}
+
+[data-theme="light"] .complexity-notation {
+  color: #0f172a;
+}
+
+[data-theme="light"] .owasp-item {
+  background: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.15);
+}
+
+[data-theme="light"] .owasp-item:hover {
+  background: rgba(239, 68, 68, 0.12);
+}
+
+[data-theme="light"] .owasp-name {
+  color: #0f172a;
+}
+
+[data-theme="light"] .security-practice {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.15);
+}
+
+[data-theme="light"] .security-practice span {
+  color: #0f172a;
+}
+
+[data-theme="light"] .oop-languages,
+[data-theme="light"] .fp-languages {
+  background: rgba(248, 250, 252, 0.5);
+}
+
+[data-theme="light"] .lang-title {
+  color: #475569;
+}
+
+[data-theme="light"] .fundamentals-references {
+  border-top-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .ref-link {
+  background: rgba(248, 250, 252, 0.8);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #475569;
+}
+
+[data-theme="light"] .ref-link:hover {
+  background: rgba(0, 212, 255, 0.1);
+  border-color: rgba(0, 212, 255, 0.3);
+  color: #0891b2;
+}

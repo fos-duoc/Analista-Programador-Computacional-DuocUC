@@ -86,6 +86,60 @@
                     </button>
                 </div>
             </div>
+
+            <!-- Row 4: Software Engineering Fundamentals -->
+            <div class="mode-btn-group">
+                <span class="group-label"><i class="fas fa-graduation-cap"></i> Software Fundamentals</span>
+                <div class="mode-btn-row">
+                    <button class="mode-btn" data-mode="oop" id="btn-oop"
+                            data-premium-tooltip="OOP|Los 4 pilares: Encapsulacion, Herencia, Polimorfismo, Abstraccion.|Pillars,Classes|feature|fa-cube|SWEBOK">
+                        <i class="fas fa-cube"></i>
+                        <span>OOP</span>
+                    </button>
+                    <button class="mode-btn" data-mode="functional" id="btn-functional"
+                            data-premium-tooltip="Functional|Funciones puras, inmutabilidad, composicion.|Pure,Immutable|feature|fa-infinity|FP">
+                        <i class="fas fa-infinity"></i>
+                        <span>Functional</span>
+                    </button>
+                    <button class="mode-btn" data-mode="solid" id="btn-solid"
+                            data-premium-tooltip="SOLID|5 principios de diseno OO por Uncle Bob.|SRP,OCP,LSP|feature|fa-gem|Clean">
+                        <i class="fas fa-gem"></i>
+                        <span>SOLID</span>
+                    </button>
+                    <button class="mode-btn" data-mode="cleancode" id="btn-cleancode"
+                            data-premium-tooltip="Clean Code|Practicas de codigo legible y mantenible.|Readable,Testable|feature|fa-broom|2008">
+                        <i class="fas fa-broom"></i>
+                        <span>Clean Code</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Row 5: Testing and Quality -->
+            <div class="mode-btn-group">
+                <span class="group-label"><i class="fas fa-vial"></i> Testing and Quality</span>
+                <div class="mode-btn-row">
+                    <button class="mode-btn" data-mode="testing" id="btn-testing"
+                            data-premium-tooltip="Testing|Unit, Integration, E2E. TDD y BDD.|Unit,E2E,TDD|feature|fa-vial|Cohn">
+                        <i class="fas fa-vial"></i>
+                        <span>Testing</span>
+                    </button>
+                    <button class="mode-btn" data-mode="designpatterns" id="btn-designpatterns"
+                            data-premium-tooltip="GoF Patterns|23 patrones: Creational, Structural, Behavioral.|Factory,Observer|feature|fa-shapes|1994">
+                        <i class="fas fa-shapes"></i>
+                        <span>GoF Patterns</span>
+                    </button>
+                    <button class="mode-btn" data-mode="dsa" id="btn-dsa"
+                            data-premium-tooltip="DSA|Arrays, Trees, Graphs, Sorting, Big O.|Arrays,Trees|feature|fa-project-diagram|CS">
+                        <i class="fas fa-project-diagram"></i>
+                        <span>DSA</span>
+                    </button>
+                    <button class="mode-btn" data-mode="security" id="btn-security"
+                            data-premium-tooltip="Security|OWASP Top 10, Secure Coding.|OWASP,Auth|feature|fa-shield-virus|2024">
+                        <i class="fas fa-shield-virus"></i>
+                        <span>Security</span>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -4005,6 +4059,471 @@ WHERE order_date > (SELECT MAX(order_date) FROM &#123;&#123; this &#125;&#125;)
                 </div>
             </div>
         </div>
+
+        <!-- ==================== OOP ==================== -->
+        <div id="pipeline-oop" class="pipeline-diagram-premium pipeline-mode">
+            <div class="pipeline-mode-header fundamentals">
+                <div class="mode-indicator">
+                    <i class="fas fa-cube"></i>
+                    <span>Object-Oriented Programming (OOP)</span>
+                </div>
+                <div class="mode-stats">
+                    <span class="stat-pill"><i class="fas fa-book"></i> SWEBOK v4</span>
+                    <span class="stat-pill"><i class="fas fa-history"></i> Simula 67</span>
+                    <span class="stat-pill"><i class="fas fa-check-circle"></i> 4 Pillars</span>
+                </div>
+            </div>
+            <div class="fundamentals-content">
+                <div class="oop-pillars-grid">
+                    <div class="oop-pillar-card encapsulation">
+                        <div class="pillar-icon"><i class="fas fa-lock"></i></div>
+                        <h4>Encapsulation</h4>
+                        <p>Ocultar datos internos y exponer solo interfaces publicas.</p>
+                        <div class="pillar-example"><code>private data + public methods</code></div>
+                        <div class="pillar-keywords"><span>private</span><span>protected</span><span>public</span></div>
+                    </div>
+                    <div class="oop-pillar-card inheritance">
+                        <div class="pillar-icon"><i class="fas fa-sitemap"></i></div>
+                        <h4>Inheritance</h4>
+                        <p>Crear nuevas clases basadas en clases existentes.</p>
+                        <div class="pillar-example"><code>class Dog extends Animal</code></div>
+                        <div class="pillar-keywords"><span>extends</span><span>super</span><span>override</span></div>
+                    </div>
+                    <div class="oop-pillar-card polymorphism">
+                        <div class="pillar-icon"><i class="fas fa-shapes"></i></div>
+                        <h4>Polymorphism</h4>
+                        <p>Objetos de diferentes tipos responden al mismo mensaje.</p>
+                        <div class="pillar-example"><code>animal.speak()</code></div>
+                        <div class="pillar-keywords"><span>override</span><span>overload</span><span>interface</span></div>
+                    </div>
+                    <div class="oop-pillar-card abstraction">
+                        <div class="pillar-icon"><i class="fas fa-layer-group"></i></div>
+                        <h4>Abstraction</h4>
+                        <p>Modelar solo caracteristicas relevantes del dominio.</p>
+                        <div class="pillar-example"><code>abstract class Shape</code></div>
+                        <div class="pillar-keywords"><span>abstract</span><span>interface</span><span>contract</span></div>
+                    </div>
+                </div>
+                <div class="oop-languages">
+                    <span class="lang-title">Lenguajes OOP:</span>
+                    <div class="lang-icons">
+                        <a href="https://www.java.com/" target="_blank" class="lang-chip"><i class="devicon-java-plain colored"></i> Java</a>
+                        <a href="https://www.python.org/" target="_blank" class="lang-chip"><i class="devicon-python-plain colored"></i> Python</a>
+                        <a href="https://docs.microsoft.com/dotnet/csharp/" target="_blank" class="lang-chip"><i class="devicon-csharp-plain colored"></i> C#</a>
+                    </div>
+                </div>
+                <div class="fundamentals-references">
+                    <a href="https://www.swebok.org/" target="_blank" class="ref-link"><i class="fas fa-book"></i> SWEBOK v4</a>
+                    <a href="https://refactoring.guru/" target="_blank" class="ref-link"><i class="fas fa-shapes"></i> Refactoring Guru</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== FUNCTIONAL PROGRAMMING ==================== -->
+        <div id="pipeline-functional" class="pipeline-diagram-premium pipeline-mode">
+            <div class="pipeline-mode-header fundamentals">
+                <div class="mode-indicator">
+                    <i class="fas fa-infinity"></i>
+                    <span>Functional Programming (FP)</span>
+                </div>
+                <div class="mode-stats">
+                    <span class="stat-pill"><i class="fas fa-calculator"></i> Lambda Calculus</span>
+                    <span class="stat-pill"><i class="fas fa-history"></i> LISP 1958</span>
+                    <span class="stat-pill"><i class="fas fa-stream"></i> Pipelines</span>
+                </div>
+            </div>
+            <div class="fundamentals-content">
+                <div class="fp-concepts-grid">
+                    <div class="fp-concept-card pure">
+                        <div class="concept-icon"><i class="fas fa-atom"></i></div>
+                        <h4>Pure Functions</h4>
+                        <p>Mismo input produce mismo output. Sin efectos secundarios.</p>
+                        <div class="concept-example"><code>f(x) = x * 2</code></div>
+                    </div>
+                    <div class="fp-concept-card immutable">
+                        <div class="concept-icon"><i class="fas fa-lock"></i></div>
+                        <h4>Immutability</h4>
+                        <p>Los datos no se modifican despues de crearse.</p>
+                        <div class="concept-example"><code>const newList = [...list, item]</code></div>
+                    </div>
+                    <div class="fp-concept-card hof">
+                        <div class="concept-icon"><i class="fas fa-code-branch"></i></div>
+                        <h4>Higher-Order Functions</h4>
+                        <p>Funciones que reciben o retornan funciones.</p>
+                        <div class="concept-example"><code>list.map(x =&gt; x * 2)</code></div>
+                    </div>
+                    <div class="fp-concept-card composition">
+                        <div class="concept-icon"><i class="fas fa-link"></i></div>
+                        <h4>Composition</h4>
+                        <p>Combinar funciones para crear nuevas funciones.</p>
+                        <div class="concept-example"><code>compose(f, g)(x)</code></div>
+                    </div>
+                </div>
+                <div class="fp-applications">
+                    <h5><i class="fas fa-rocket"></i> Aplicaciones en Data Engineering:</h5>
+                    <div class="app-tags">
+                        <span class="app-tag"><i class="devicon-apachespark-original"></i> Spark RDDs</span>
+                        <span class="app-tag"><i class="fas fa-stream"></i> Stream Processing</span>
+                        <span class="app-tag"><i class="fas fa-database"></i> ETL Pipelines</span>
+                    </div>
+                </div>
+                <div class="fp-languages">
+                    <span class="lang-title">Lenguajes FP:</span>
+                    <div class="lang-icons">
+                        <a href="https://www.haskell.org/" target="_blank" class="lang-chip fp-lang"><i class="devicon-haskell-plain"></i> Haskell</a>
+                        <a href="https://www.scala-lang.org/" target="_blank" class="lang-chip fp-lang"><i class="devicon-scala-plain colored"></i> Scala</a>
+                        <a href="https://elixir-lang.org/" target="_blank" class="lang-chip fp-lang"><i class="devicon-elixir-plain"></i> Elixir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== SOLID ==================== -->
+        <div id="pipeline-solid" class="pipeline-diagram-premium pipeline-mode">
+            <div class="pipeline-mode-header fundamentals">
+                <div class="mode-indicator">
+                    <i class="fas fa-gem"></i>
+                    <span>SOLID Principles</span>
+                </div>
+                <div class="mode-stats">
+                    <span class="stat-pill"><i class="fas fa-user"></i> Uncle Bob</span>
+                    <span class="stat-pill"><i class="fas fa-book"></i> Clean Architecture</span>
+                    <span class="stat-pill"><i class="fas fa-check-circle"></i> 5 Principles</span>
+                </div>
+            </div>
+            <div class="fundamentals-content">
+                <div class="solid-principles-list">
+                    <div class="solid-principle srp">
+                        <div class="principle-letter">S</div>
+                        <div class="principle-content">
+                            <h4>Single Responsibility Principle</h4>
+                            <p>Una clase debe tener una sola razon para cambiar.</p>
+                            <code>class UserAuth // Solo autenticacion</code>
+                        </div>
+                    </div>
+                    <div class="solid-principle ocp">
+                        <div class="principle-letter">O</div>
+                        <div class="principle-content">
+                            <h4>Open/Closed Principle</h4>
+                            <p>Abierto para extension, cerrado para modificacion.</p>
+                            <code>interface PaymentMethod</code>
+                        </div>
+                    </div>
+                    <div class="solid-principle lsp">
+                        <div class="principle-letter">L</div>
+                        <div class="principle-content">
+                            <h4>Liskov Substitution Principle</h4>
+                            <p>Subclases sustituibles por sus clases base.</p>
+                            <code>Rectangle r = new Square()</code>
+                        </div>
+                    </div>
+                    <div class="solid-principle isp">
+                        <div class="principle-letter">I</div>
+                        <div class="principle-content">
+                            <h4>Interface Segregation Principle</h4>
+                            <p>Interfaces especificas mejor que una general.</p>
+                            <code>IPrinter, IScanner</code>
+                        </div>
+                    </div>
+                    <div class="solid-principle dip">
+                        <div class="principle-letter">D</div>
+                        <div class="principle-content">
+                            <h4>Dependency Inversion Principle</h4>
+                            <p>Depender de abstracciones, no de concretos.</p>
+                            <code>constructor(repo: IRepository)</code>
+                        </div>
+                    </div>
+                </div>
+                <div class="fundamentals-references">
+                    <a href="https://blog.cleancoder.com/" target="_blank" class="ref-link"><i class="fas fa-user"></i> Uncle Bob Blog</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== CLEAN CODE ==================== -->
+        <div id="pipeline-cleancode" class="pipeline-diagram-premium pipeline-mode">
+            <div class="pipeline-mode-header fundamentals">
+                <div class="mode-indicator">
+                    <i class="fas fa-broom"></i>
+                    <span>Clean Code Practices</span>
+                </div>
+                <div class="mode-stats">
+                    <span class="stat-pill"><i class="fas fa-user"></i> Uncle Bob (2008)</span>
+                    <span class="stat-pill"><i class="fas fa-book"></i> Best Seller</span>
+                    <span class="stat-pill"><i class="fas fa-code"></i> Readable Code</span>
+                </div>
+            </div>
+            <div class="fundamentals-content">
+                <div class="cleancode-practices-grid">
+                    <div class="cleancode-practice">
+                        <div class="practice-header">
+                            <div class="practice-icon"><i class="fas fa-tag"></i></div>
+                            <h4>Meaningful Names</h4>
+                        </div>
+                        <p>Nombres que revelan intencion. Evitar abreviaciones.</p>
+                        <div class="practice-examples">
+                            <div class="practice-example bad"><i class="fas fa-times"></i> <code>int d;</code></div>
+                            <div class="practice-example good"><i class="fas fa-check"></i> <code>int elapsedDays;</code></div>
+                        </div>
+                    </div>
+                    <div class="cleancode-practice">
+                        <div class="practice-header">
+                            <div class="practice-icon"><i class="fas fa-code"></i></div>
+                            <h4>Small Functions</h4>
+                        </div>
+                        <p>Funciones pequenas que hacen una sola cosa.</p>
+                        <div class="practice-examples">
+                            <div class="practice-example good"><i class="fas fa-check"></i> <code>Menos de 20 lineas</code></div>
+                        </div>
+                    </div>
+                    <div class="cleancode-practice">
+                        <div class="practice-header">
+                            <div class="practice-icon"><i class="fas fa-comment-slash"></i></div>
+                            <h4>Comments</h4>
+                        </div>
+                        <p>El codigo debe ser auto-documentado.</p>
+                        <div class="practice-examples">
+                            <div class="practice-example bad"><i class="fas fa-times"></i> <code>i++; // increment i</code></div>
+                        </div>
+                    </div>
+                    <div class="cleancode-practice">
+                        <div class="practice-header">
+                            <div class="practice-icon"><i class="fas fa-align-left"></i></div>
+                            <h4>Code Smells</h4>
+                        </div>
+                        <p>Long Method, Duplicate Code, God Class.</p>
+                        <div class="practice-examples">
+                            <div class="practice-example good"><i class="fas fa-check"></i> <code>Extract Method</code></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fundamentals-references">
+                    <a href="https://www.oreilly.com/library/view/clean-code-a/9780136083238/" target="_blank" class="ref-link"><i class="fas fa-book"></i> Clean Code Book</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== TESTING ==================== -->
+        <div id="pipeline-testing" class="pipeline-diagram-premium pipeline-mode">
+            <div class="pipeline-mode-header fundamentals">
+                <div class="mode-indicator">
+                    <i class="fas fa-vial"></i>
+                    <span>Testing Pyramid</span>
+                </div>
+                <div class="mode-stats">
+                    <span class="stat-pill"><i class="fas fa-user"></i> Mike Cohn</span>
+                    <span class="stat-pill"><i class="fas fa-check-double"></i> TDD / BDD</span>
+                    <span class="stat-pill"><i class="fas fa-layer-group"></i> 3 Levels</span>
+                </div>
+            </div>
+            <div class="fundamentals-content">
+                <div class="testing-pyramid-container">
+                    <div class="testing-pyramid-visual">
+                        <div class="pyramid-level e2e">
+                            <span class="level-name">E2E Tests</span>
+                            <span class="level-percent">~10%</span>
+                        </div>
+                        <div class="pyramid-level integration">
+                            <span class="level-name">Integration Tests</span>
+                            <span class="level-percent">~20%</span>
+                        </div>
+                        <div class="pyramid-level unit">
+                            <span class="level-name">Unit Tests</span>
+                            <span class="level-percent">~70%</span>
+                        </div>
+                    </div>
+                    <div class="testing-methodologies">
+                        <div class="methodology-card">
+                            <h5><i class="fas fa-sync-alt"></i> TDD - Test Driven Development</h5>
+                            <p>Escribir tests antes del codigo.</p>
+                            <div class="methodology-cycle">
+                                <span class="cycle-step">Red</span>
+                                <span class="cycle-arrow">&rarr;</span>
+                                <span class="cycle-step">Green</span>
+                                <span class="cycle-arrow">&rarr;</span>
+                                <span class="cycle-step">Refactor</span>
+                            </div>
+                        </div>
+                        <div class="methodology-card">
+                            <h5><i class="fas fa-users"></i> BDD - Behavior Driven Development</h5>
+                            <p>Tests desde la perspectiva del usuario.</p>
+                            <div class="methodology-cycle">
+                                <span class="cycle-step">Given</span>
+                                <span class="cycle-arrow">&rarr;</span>
+                                <span class="cycle-step">When</span>
+                                <span class="cycle-arrow">&rarr;</span>
+                                <span class="cycle-step">Then</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fundamentals-references">
+                    <a href="https://martinfowler.com/bliki/TestPyramid.html" target="_blank" class="ref-link"><i class="fas fa-layer-group"></i> Test Pyramid</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== DESIGN PATTERNS ==================== -->
+        <div id="pipeline-designpatterns" class="pipeline-diagram-premium pipeline-mode">
+            <div class="pipeline-mode-header fundamentals">
+                <div class="mode-indicator">
+                    <i class="fas fa-shapes"></i>
+                    <span>Design Patterns (GoF)</span>
+                </div>
+                <div class="mode-stats">
+                    <span class="stat-pill"><i class="fas fa-users"></i> Gang of Four</span>
+                    <span class="stat-pill"><i class="fas fa-book"></i> 1994</span>
+                    <span class="stat-pill"><i class="fas fa-puzzle-piece"></i> 23 Patterns</span>
+                </div>
+            </div>
+            <div class="fundamentals-content">
+                <div class="patterns-categories-grid">
+                    <div class="pattern-category creational">
+                        <div class="category-header">
+                            <div class="category-icon"><i class="fas fa-plus-circle"></i></div>
+                            <div class="category-info"><h4>Creational</h4><span>5 patterns</span></div>
+                        </div>
+                        <div class="pattern-list">
+                            <div class="pattern-item hot"><i class="fas fa-industry"></i> Factory Method</div>
+                            <div class="pattern-item"><i class="fas fa-cube"></i> Abstract Factory</div>
+                            <div class="pattern-item hot"><i class="fas fa-hammer"></i> Builder</div>
+                            <div class="pattern-item"><i class="fas fa-clone"></i> Prototype</div>
+                            <div class="pattern-item hot"><i class="fas fa-fingerprint"></i> Singleton</div>
+                        </div>
+                    </div>
+                    <div class="pattern-category structural">
+                        <div class="category-header">
+                            <div class="category-icon"><i class="fas fa-cubes"></i></div>
+                            <div class="category-info"><h4>Structural</h4><span>7 patterns</span></div>
+                        </div>
+                        <div class="pattern-list">
+                            <div class="pattern-item hot"><i class="fas fa-plug"></i> Adapter</div>
+                            <div class="pattern-item"><i class="fas fa-bridge"></i> Bridge</div>
+                            <div class="pattern-item"><i class="fas fa-folder-tree"></i> Composite</div>
+                            <div class="pattern-item hot"><i class="fas fa-paint-brush"></i> Decorator</div>
+                            <div class="pattern-item hot"><i class="fas fa-door-open"></i> Facade</div>
+                        </div>
+                    </div>
+                    <div class="pattern-category behavioral">
+                        <div class="category-header">
+                            <div class="category-icon"><i class="fas fa-exchange-alt"></i></div>
+                            <div class="category-info"><h4>Behavioral</h4><span>11 patterns</span></div>
+                        </div>
+                        <div class="pattern-list">
+                            <div class="pattern-item hot"><i class="fas fa-eye"></i> Observer</div>
+                            <div class="pattern-item hot"><i class="fas fa-route"></i> Strategy</div>
+                            <div class="pattern-item"><i class="fas fa-terminal"></i> Command</div>
+                            <div class="pattern-item"><i class="fas fa-list"></i> Iterator</div>
+                            <div class="pattern-item"><i class="fas fa-file-alt"></i> Template Method</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fundamentals-references">
+                    <a href="https://refactoring.guru/design-patterns" target="_blank" class="ref-link"><i class="fas fa-shapes"></i> Refactoring Guru</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== DSA ==================== -->
+        <div id="pipeline-dsa" class="pipeline-diagram-premium pipeline-mode">
+            <div class="pipeline-mode-header fundamentals">
+                <div class="mode-indicator">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>Data Structures and Algorithms</span>
+                </div>
+                <div class="mode-stats">
+                    <span class="stat-pill"><i class="fas fa-user"></i> Knuth, Cormen</span>
+                    <span class="stat-pill"><i class="fas fa-briefcase"></i> Tech Interviews</span>
+                    <span class="stat-pill"><i class="fas fa-chart-line"></i> Big O</span>
+                </div>
+            </div>
+            <div class="fundamentals-content">
+                <div class="dsa-container">
+                    <div class="dsa-categories">
+                        <div class="dsa-category">
+                            <h4><i class="fas fa-database"></i> Data Structures</h4>
+                            <div class="dsa-items-grid">
+                                <span class="dsa-item">Arrays</span>
+                                <span class="dsa-item">Hash Tables</span>
+                                <span class="dsa-item">Trees</span>
+                                <span class="dsa-item">Graphs</span>
+                                <span class="dsa-item">Heaps</span>
+                                <span class="dsa-item">Queues</span>
+                            </div>
+                        </div>
+                        <div class="dsa-category">
+                            <h4><i class="fas fa-cogs"></i> Algorithms</h4>
+                            <div class="dsa-items-grid">
+                                <span class="dsa-item algo">Sorting</span>
+                                <span class="dsa-item algo">Binary Search</span>
+                                <span class="dsa-item algo">Dynamic Prog</span>
+                                <span class="dsa-item algo">Recursion</span>
+                                <span class="dsa-item algo">BFS/DFS</span>
+                                <span class="dsa-item algo">Dijkstra</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="big-o-container">
+                        <h4><i class="fas fa-chart-line"></i> Big O Complexity</h4>
+                        <div class="complexity-scale">
+                            <div class="complexity-row excellent"><span class="complexity-notation">O(1)</span><div class="complexity-bar" data-label="Excellent"></div></div>
+                            <div class="complexity-row good"><span class="complexity-notation">O(log n)</span><div class="complexity-bar" data-label="Good"></div></div>
+                            <div class="complexity-row fair"><span class="complexity-notation">O(n)</span><div class="complexity-bar" data-label="Fair"></div></div>
+                            <div class="complexity-row bad"><span class="complexity-notation">O(n log n)</span><div class="complexity-bar" data-label="Bad"></div></div>
+                            <div class="complexity-row horrible"><span class="complexity-notation">O(n2)</span><div class="complexity-bar" data-label="Horrible"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fundamentals-references">
+                    <a href="https://leetcode.com/" target="_blank" class="ref-link"><i class="fas fa-code"></i> LeetCode</a>
+                    <a href="https://neetcode.io/" target="_blank" class="ref-link"><i class="fas fa-road"></i> NeetCode</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== SECURITY ==================== -->
+        <div id="pipeline-security" class="pipeline-diagram-premium pipeline-mode">
+            <div class="pipeline-mode-header fundamentals">
+                <div class="mode-indicator">
+                    <i class="fas fa-shield-virus"></i>
+                    <span>Software Security (OWASP)</span>
+                </div>
+                <div class="mode-stats">
+                    <span class="stat-pill"><i class="fas fa-exclamation-triangle"></i> OWASP Top 10</span>
+                    <span class="stat-pill"><i class="fas fa-book"></i> SWEBOK v4</span>
+                    <span class="stat-pill"><i class="fas fa-lock"></i> Secure Coding</span>
+                </div>
+            </div>
+            <div class="fundamentals-content">
+                <div class="security-container">
+                    <div class="owasp-section">
+                        <h4><i class="fas fa-exclamation-triangle"></i> OWASP Top 10 (2021)</h4>
+                        <div class="owasp-top10">
+                            <div class="owasp-item"><span class="owasp-rank">A01</span><span class="owasp-name">Broken Access Control</span></div>
+                            <div class="owasp-item"><span class="owasp-rank">A02</span><span class="owasp-name">Cryptographic Failures</span></div>
+                            <div class="owasp-item"><span class="owasp-rank">A03</span><span class="owasp-name">Injection</span></div>
+                            <div class="owasp-item"><span class="owasp-rank">A04</span><span class="owasp-name">Insecure Design</span></div>
+                            <div class="owasp-item"><span class="owasp-rank">A05</span><span class="owasp-name">Security Misconfiguration</span></div>
+                        </div>
+                    </div>
+                    <div class="security-practices-section">
+                        <h4><i class="fas fa-shield-alt"></i> Secure Coding Practices</h4>
+                        <div class="security-practices">
+                            <div class="security-practice"><i class="fas fa-check"></i><span>Input Validation</span></div>
+                            <div class="security-practice"><i class="fas fa-check"></i><span>Output Encoding</span></div>
+                            <div class="security-practice"><i class="fas fa-check"></i><span>Authentication and Password Management</span></div>
+                            <div class="security-practice"><i class="fas fa-check"></i><span>Session Management</span></div>
+                            <div class="security-practice"><i class="fas fa-check"></i><span>Error Handling and Logging</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fundamentals-references">
+                    <a href="https://owasp.org/www-project-top-ten/" target="_blank" class="ref-link"><i class="fas fa-shield-alt"></i> OWASP Top 10</a>
+                    <a href="https://cheatsheetseries.owasp.org/" target="_blank" class="ref-link"><i class="fas fa-file-alt"></i> OWASP Cheat Sheets</a>
+                </div>
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -4075,6 +4594,25 @@ WHERE order_date > (SELECT MAX(order_date) FROM &#123;&#123; this &#125;&#125;)
         if (btnStorage) {
             btnStorage.onclick = function() { switchPipelineMode('storage'); };
         }
+
+        // Software Fundamentals buttons
+        var btnOop = document.getElementById('btn-oop');
+        var btnFunctional = document.getElementById('btn-functional');
+        var btnSolid = document.getElementById('btn-solid');
+        var btnCleancode = document.getElementById('btn-cleancode');
+        var btnTesting = document.getElementById('btn-testing');
+        var btnDesignpatterns = document.getElementById('btn-designpatterns');
+        var btnDsa = document.getElementById('btn-dsa');
+        var btnSecurity = document.getElementById('btn-security');
+
+        if (btnOop) { btnOop.onclick = function() { switchPipelineMode('oop'); }; }
+        if (btnFunctional) { btnFunctional.onclick = function() { switchPipelineMode('functional'); }; }
+        if (btnSolid) { btnSolid.onclick = function() { switchPipelineMode('solid'); }; }
+        if (btnCleancode) { btnCleancode.onclick = function() { switchPipelineMode('cleancode'); }; }
+        if (btnTesting) { btnTesting.onclick = function() { switchPipelineMode('testing'); }; }
+        if (btnDesignpatterns) { btnDesignpatterns.onclick = function() { switchPipelineMode('designpatterns'); }; }
+        if (btnDsa) { btnDsa.onclick = function() { switchPipelineMode('dsa'); }; }
+        if (btnSecurity) { btnSecurity.onclick = function() { switchPipelineMode('security'); }; }
     }
 
     // Add event listeners for both initial load and Astro View Transitions
