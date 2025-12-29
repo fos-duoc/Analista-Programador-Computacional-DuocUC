@@ -19,7 +19,7 @@ const techMetadata: Record<string, { creator: string; year: string; objective: s
     "C": { creator: "Dennis Ritchie (Bell Labs)", year: "1972", objective: "Lenguaje de sistemas para Unix", features: ["Low-level", "Portable", "Efficient"] },
     "SQL": { creator: "IBM (Donald Chamberlin)", year: "1974", objective: "Lenguaje estándar para bases de datos relacionales", features: ["Declarative", "CRUD", "Joins"] },
 
-    // Fundamentos de Ingeniería de Software (SWEBOK v4)
+    // Fundamentos de Ingeniería de Software (Industry Best Practices - Google/AWS/Fowler)
     "SOLID": { creator: "Robert C. Martin (Uncle Bob)", year: "2000", objective: "5 principios para diseño orientado a objetos mantenible y escalable", features: ["Single Responsibility", "Open/Closed", "Liskov Substitution", "Interface Segregation", "Dependency Inversion"] },
     "Design Patterns": { creator: "Gang of Four (GoF)", year: "1994", objective: "23 patrones de diseño reutilizables para problemas comunes de software", features: ["Creational (5)", "Structural (7)", "Behavioral (11)"] },
     "Clean Code": { creator: "Robert C. Martin (Uncle Bob)", year: "2008", objective: "Prácticas para escribir código legible, mantenible y profesional", features: ["Nombres significativos", "Funciones pequeñas", "Sin comentarios innecesarios", "Manejo de errores"] },
@@ -287,7 +287,7 @@ const techCategories = [
         icon: "fas fa-graduation-cap",
         color: "#ef4444",
         items: [
-            { name: "SOLID", icon: "fas fa-cubes", stat: "SWEBOK", desc: "5 Principios OOP", url: "https://en.wikipedia.org/wiki/SOLID", hot: true },
+            { name: "SOLID", icon: "fas fa-cubes", stat: "Uncle Bob", desc: "5 Principios OOP", url: "https://en.wikipedia.org/wiki/SOLID", hot: true },
             { name: "Design Patterns", icon: "fas fa-shapes", stat: "GoF 23", desc: "Creational/Structural/Behavioral", url: "https://refactoring.guru/design-patterns", hot: true },
             { name: "Clean Code", icon: "fas fa-broom", stat: "Uncle Bob", desc: "Código legible y mantenible", url: "https://www.oreilly.com/library/view/clean-code-a/9780136083238/", hot: true },
             { name: "DSA", icon: "fas fa-project-diagram", stat: "Entrevistas", desc: "Estructuras de Datos y Algoritmos", url: "https://www.geeksforgeeks.org/data-structures/", hot: true },
