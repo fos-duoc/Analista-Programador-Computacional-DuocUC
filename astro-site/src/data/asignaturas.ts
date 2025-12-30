@@ -1397,7 +1397,9 @@ export const asignaturas: Record<string, Asignatura> = {
         tecnologias: [
             { nombre: 'PostgreSQL', icon: 'postgresql-plain', iconType: 'devicon' },
             { nombre: 'Oracle', icon: 'oracle-original', iconType: 'devicon' },
-            { nombre: 'PL/pgSQL', icon: 'fa-code', iconType: 'fontawesome' }
+            { nombre: 'PL/pgSQL', icon: 'fa-code', iconType: 'fontawesome' },
+            { nombre: 'DBeaver', icon: 'fa-database', iconType: 'fontawesome' },
+            { nombre: 'pgAdmin', icon: 'postgresql-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs de programación', ponderacion: 0, descripcion: 'Práctica de SP y funciones' },
@@ -1410,7 +1412,9 @@ export const asignaturas: Record<string, Asignatura> = {
         recursos: [
             { tipo: 'Documentación', nombre: 'PostgreSQL PL/pgSQL', url: 'https://www.postgresql.org/docs/current/plpgsql.html' },
             { tipo: 'Tutorial', nombre: 'Oracle PL/SQL', url: 'https://docs.oracle.com/en/database/oracle/oracle-database/19/lnpls/' },
-            { tipo: 'Práctica', nombre: 'SQL Performance Explained', url: 'https://use-the-index-luke.com/' }
+            { tipo: 'Práctica', nombre: 'SQL Performance Explained', url: 'https://use-the-index-luke.com/' },
+            { tipo: 'Video', nombre: 'PL/SQL Tutorial - Oracle', url: 'https://www.youtube.com/watch?v=3bEQaCUvp6Q' },
+            { tipo: 'Curso', nombre: 'Database Performance Tuning', url: 'https://www.udemy.com/topic/sql-optimization/' }
         ],
         color: 'amber',
         area: 'datos'
@@ -1506,7 +1510,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Kubernetes', icon: 'kubernetes-plain', iconType: 'devicon' },
             { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' },
             { nombre: 'AWS', icon: 'amazonwebservices-plain-wordmark', iconType: 'devicon' },
-            { nombre: 'Prometheus', icon: 'prometheus-original', iconType: 'devicon' }
+            { nombre: 'Prometheus', icon: 'prometheus-original', iconType: 'devicon' },
+            { nombre: 'Helm', icon: 'fa-dharmachakra', iconType: 'fontawesome' },
+            { nombre: 'Grafana', icon: 'grafana-original', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs Kubernetes', ponderacion: 0, descripcion: 'Prácticas de orquestación' },
@@ -1519,7 +1525,9 @@ export const asignaturas: Record<string, Asignatura> = {
         recursos: [
             { tipo: 'Documentación', nombre: 'Kubernetes Docs', url: 'https://kubernetes.io/docs/' },
             { tipo: 'Curso', nombre: 'CNCF Landscape', url: 'https://landscape.cncf.io/' },
-            { tipo: 'Tutorial', nombre: 'Katacoda K8s', url: 'https://www.katacoda.com/courses/kubernetes' }
+            { tipo: 'Tutorial', nombre: 'Kubernetes Learning Path', url: 'https://learn.microsoft.com/en-us/training/paths/intro-to-kubernetes-on-azure/' },
+            { tipo: 'Video', nombre: 'Kubernetes Tutorial - TechWorld', url: 'https://www.youtube.com/watch?v=X48VuDVv0do' },
+            { tipo: 'Libro', nombre: '12-Factor App', url: 'https://12factor.net/' }
         ],
         color: 'blue',
         area: 'cloud'
@@ -1615,7 +1623,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Jira', icon: 'jira-plain', iconType: 'devicon' },
             { nombre: 'Azure DevOps', icon: 'azure-plain', iconType: 'devicon' },
             { nombre: 'Figma', icon: 'figma-plain', iconType: 'devicon' },
-            { nombre: 'Draw.io', icon: 'fa-project-diagram', iconType: 'fontawesome' }
+            { nombre: 'Draw.io', icon: 'fa-project-diagram', iconType: 'fontawesome' },
+            { nombre: 'Notion', icon: 'notion-plain', iconType: 'devicon' },
+            { nombre: 'Miro', icon: 'fa-object-group', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Ejercicios de elicitación', ponderacion: 0, descripcion: 'Práctica de técnicas' },
@@ -1626,9 +1636,11 @@ export const asignaturas: Record<string, Asignatura> = {
         prerrequisitos: [],
         conexiones: ['Ing. Software I', 'Ing. Software II', 'Gestión de Proyectos'],
         recursos: [
-            { tipo: 'Estándar', nombre: 'IEEE 830', url: 'https://standards.ieee.org/' },
+            { tipo: 'Estándar', nombre: 'IEEE 830 / ISO 29148', url: 'https://standards.ieee.org/' },
             { tipo: 'Tutorial', nombre: 'User Story Mapping', url: 'https://www.jpattonassociates.com/user-story-mapping/' },
-            { tipo: 'Herramienta', nombre: 'Jira Software', url: 'https://www.atlassian.com/software/jira' }
+            { tipo: 'Herramienta', nombre: 'Jira Software', url: 'https://www.atlassian.com/software/jira' },
+            { tipo: 'Video', nombre: 'Requirements Engineering', url: 'https://www.youtube.com/watch?v=VVpWbODPIQI' },
+            { tipo: 'Libro', nombre: 'Software Requirements - Wiegers', url: 'https://www.processimpact.com/books.html' }
         ],
         color: 'purple',
         area: 'gestion'
@@ -1728,7 +1740,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Spring Boot', icon: 'spring-plain', iconType: 'devicon' },
             { nombre: 'Java', icon: 'java-plain', iconType: 'devicon' },
             { nombre: 'PostgreSQL', icon: 'postgresql-plain', iconType: 'devicon' },
-            { nombre: 'Postman', icon: 'postman-plain', iconType: 'devicon' }
+            { nombre: 'Postman', icon: 'postman-plain', iconType: 'devicon' },
+            { nombre: 'Maven', icon: 'maven-plain', iconType: 'devicon' },
+            { nombre: 'Swagger', icon: 'swagger-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs Spring Boot', ponderacion: 0, descripcion: 'Prácticas guiadas' },
@@ -1741,7 +1755,9 @@ export const asignaturas: Record<string, Asignatura> = {
         recursos: [
             { tipo: 'Documentación', nombre: 'Spring Boot Docs', url: 'https://docs.spring.io/spring-boot/docs/current/reference/html/' },
             { tipo: 'Tutorial', nombre: 'Baeldung Spring', url: 'https://www.baeldung.com/spring-boot' },
-            { tipo: 'Herramienta', nombre: 'Spring Initializr', url: 'https://start.spring.io/' }
+            { tipo: 'Herramienta', nombre: 'Spring Initializr', url: 'https://start.spring.io/' },
+            { tipo: 'Video', nombre: 'Spring Boot Full Course - Amigoscode', url: 'https://www.youtube.com/watch?v=9SGDpanrc8U' },
+            { tipo: 'Curso', nombre: 'Spring & Hibernate - Udemy', url: 'https://www.udemy.com/course/spring-hibernate-tutorial/' }
         ],
         color: 'green',
         area: 'programacion'
@@ -1837,7 +1853,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Jira', icon: 'jira-plain', iconType: 'devicon' },
             { nombre: 'Confluence', icon: 'confluence-plain', iconType: 'devicon' },
             { nombre: 'Trello', icon: 'trello-plain', iconType: 'devicon' },
-            { nombre: 'Miro', icon: 'fa-chalkboard', iconType: 'fontawesome' }
+            { nombre: 'Miro', icon: 'fa-chalkboard', iconType: 'fontawesome' },
+            { nombre: 'Notion', icon: 'notion-plain', iconType: 'devicon' },
+            { nombre: 'Slack', icon: 'slack-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Simulaciones Scrum', ponderacion: 0, descripcion: 'Práctica de ceremonias' },
@@ -1850,7 +1868,9 @@ export const asignaturas: Record<string, Asignatura> = {
         recursos: [
             { tipo: 'Guía', nombre: 'Scrum Guide', url: 'https://scrumguides.org/' },
             { tipo: 'Certificación', nombre: 'Scrum.org', url: 'https://www.scrum.org/' },
-            { tipo: 'Tutorial', nombre: 'Atlassian Agile', url: 'https://www.atlassian.com/agile' }
+            { tipo: 'Tutorial', nombre: 'Atlassian Agile', url: 'https://www.atlassian.com/agile' },
+            { tipo: 'Video', nombre: 'Scrum in 10 Minutes', url: 'https://www.youtube.com/watch?v=XU0llRltyFM' },
+            { tipo: 'Curso', nombre: 'Agile with Atlassian Jira', url: 'https://www.coursera.org/learn/agile-atlassian-jira' }
         ],
         color: 'purple',
         area: 'gestion'
@@ -1950,7 +1970,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Spring Boot', icon: 'spring-plain', iconType: 'devicon' },
             { nombre: 'Redis', icon: 'redis-plain', iconType: 'devicon' },
             { nombre: 'RabbitMQ', icon: 'rabbitmq-plain', iconType: 'devicon' },
-            { nombre: 'JUnit', icon: 'junit-plain', iconType: 'devicon' }
+            { nombre: 'JUnit', icon: 'junit-plain', iconType: 'devicon' },
+            { nombre: 'Mockito', icon: 'fa-check-double', iconType: 'fontawesome' },
+            { nombre: 'SonarQube', icon: 'sonarqube-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs de seguridad', ponderacion: 0, descripcion: 'Prácticas de Spring Security' },
@@ -1963,7 +1985,9 @@ export const asignaturas: Record<string, Asignatura> = {
         recursos: [
             { tipo: 'Documentación', nombre: 'Spring Security', url: 'https://docs.spring.io/spring-security/reference/' },
             { tipo: 'Tutorial', nombre: 'JWT.io', url: 'https://jwt.io/' },
-            { tipo: 'Curso', nombre: 'Testing Spring Boot', url: 'https://www.baeldung.com/spring-boot-testing' }
+            { tipo: 'Curso', nombre: 'Testing Spring Boot', url: 'https://www.baeldung.com/spring-boot-testing' },
+            { tipo: 'Video', nombre: 'Spring Security JWT - Amigoscode', url: 'https://www.youtube.com/watch?v=KxqlJblhzfI' },
+            { tipo: 'Práctica', nombre: 'Mockito Tutorial', url: 'https://site.mockito.org/' }
         ],
         color: 'green',
         area: 'programacion'
@@ -2059,7 +2083,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Selenium', icon: 'selenium-original', iconType: 'devicon' },
             { nombre: 'Cypress', icon: 'fa-vial', iconType: 'fontawesome' },
             { nombre: 'JMeter', icon: 'fa-tachometer-alt', iconType: 'fontawesome' },
-            { nombre: 'Cucumber', icon: 'cucumber-plain', iconType: 'devicon' }
+            { nombre: 'Cucumber', icon: 'cucumber-plain', iconType: 'devicon' },
+            { nombre: 'Playwright', icon: 'playwright-plain', iconType: 'devicon' },
+            { nombre: 'Postman', icon: 'postman-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs de testing', ponderacion: 0, descripcion: 'Práctica de automatización' },
@@ -2072,7 +2098,9 @@ export const asignaturas: Record<string, Asignatura> = {
         recursos: [
             { tipo: 'Documentación', nombre: 'Selenium Docs', url: 'https://www.selenium.dev/documentation/' },
             { tipo: 'Tutorial', nombre: 'Cypress Docs', url: 'https://docs.cypress.io/' },
-            { tipo: 'Herramienta', nombre: 'JMeter', url: 'https://jmeter.apache.org/' }
+            { tipo: 'Herramienta', nombre: 'JMeter', url: 'https://jmeter.apache.org/' },
+            { tipo: 'Video', nombre: 'Playwright Full Course', url: 'https://www.youtube.com/watch?v=VELWdMWQN8c' },
+            { tipo: 'Libro', nombre: 'Software Testing - ISTQB', url: 'https://www.istqb.org/' }
         ],
         color: 'purple',
         area: 'gestion'
@@ -2172,7 +2200,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'React', icon: 'react-original', iconType: 'devicon' },
             { nombre: 'TypeScript', icon: 'typescript-plain', iconType: 'devicon' },
             { nombre: 'Vite', icon: 'vitejs-plain', iconType: 'devicon' },
-            { nombre: 'Tailwind', icon: 'tailwindcss-original', iconType: 'devicon' }
+            { nombre: 'Tailwind', icon: 'tailwindcss-original', iconType: 'devicon' },
+            { nombre: 'Redux', icon: 'redux-original', iconType: 'devicon' },
+            { nombre: 'Axios', icon: 'axios-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs React', ponderacion: 0, descripcion: 'Prácticas de componentes' },
@@ -2185,7 +2215,9 @@ export const asignaturas: Record<string, Asignatura> = {
         recursos: [
             { tipo: 'Documentación', nombre: 'React Docs', url: 'https://react.dev/' },
             { tipo: 'Tutorial', nombre: 'React Tutorial', url: 'https://react.dev/learn' },
-            { tipo: 'Curso', nombre: 'Frontend Masters React', url: 'https://frontendmasters.com/learn/react/' }
+            { tipo: 'Curso', nombre: 'Frontend Masters React', url: 'https://frontendmasters.com/learn/react/' },
+            { tipo: 'Video', nombre: 'React Full Course - freeCodeCamp', url: 'https://www.youtube.com/watch?v=bMknfKXIFA8' },
+            { tipo: 'Práctica', nombre: 'React Challenges', url: 'https://www.frontendmentor.io/' }
         ],
         color: 'cyan',
         area: 'programacion'
@@ -2281,7 +2313,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Mermaid', icon: 'fa-project-diagram', iconType: 'fontawesome' },
             { nombre: 'PlantUML', icon: 'fa-sitemap', iconType: 'fontawesome' },
             { nombre: 'Draw.io', icon: 'fa-draw-polygon', iconType: 'fontawesome' },
-            { nombre: 'Structurizr', icon: 'fa-cubes', iconType: 'fontawesome' }
+            { nombre: 'Structurizr', icon: 'fa-cubes', iconType: 'fontawesome' },
+            { nombre: 'Lucidchart', icon: 'fa-object-ungroup', iconType: 'fontawesome' },
+            { nombre: 'Notion', icon: 'notion-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Análisis de arquitecturas', ponderacion: 0, descripcion: 'Estudio de casos' },
@@ -2294,7 +2328,9 @@ export const asignaturas: Record<string, Asignatura> = {
         recursos: [
             { tipo: 'Libro', nombre: 'Fundamentals of Software Architecture', url: 'https://www.oreilly.com/library/view/fundamentals-of-software/9781492043447/' },
             { tipo: 'Modelo', nombre: 'C4 Model', url: 'https://c4model.com/' },
-            { tipo: 'Tutorial', nombre: 'ADR GitHub', url: 'https://adr.github.io/' }
+            { tipo: 'Tutorial', nombre: 'ADR GitHub', url: 'https://adr.github.io/' },
+            { tipo: 'Video', nombre: 'Software Architecture - Mark Richards', url: 'https://www.youtube.com/watch?v=DngAZyWMGR0' },
+            { tipo: 'Curso', nombre: 'Software Architecture & Design', url: 'https://www.udacity.com/course/software-architecture-design--ud821' }
         ],
         color: 'indigo',
         area: 'arquitectura'
@@ -2394,7 +2430,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'React Native', icon: 'react-original', iconType: 'devicon' },
             { nombre: 'Expo', icon: 'fa-mobile-alt', iconType: 'fontawesome' },
             { nombre: 'TypeScript', icon: 'typescript-plain', iconType: 'devicon' },
-            { nombre: 'Android Studio', icon: 'android-plain', iconType: 'devicon' }
+            { nombre: 'Android Studio', icon: 'android-plain', iconType: 'devicon' },
+            { nombre: 'Xcode', icon: 'xcode-plain', iconType: 'devicon' },
+            { nombre: 'Firebase', icon: 'firebase-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs Mobile', ponderacion: 0, descripcion: 'Prácticas de componentes' },
@@ -2407,7 +2445,9 @@ export const asignaturas: Record<string, Asignatura> = {
         recursos: [
             { tipo: 'Documentación', nombre: 'React Native Docs', url: 'https://reactnative.dev/' },
             { tipo: 'Tutorial', nombre: 'Expo Docs', url: 'https://docs.expo.dev/' },
-            { tipo: 'Curso', nombre: 'React Native Course', url: 'https://www.udemy.com/course/react-native-the-practical-guide/' }
+            { tipo: 'Curso', nombre: 'React Native Course', url: 'https://www.udemy.com/course/react-native-the-practical-guide/' },
+            { tipo: 'Video', nombre: 'React Native Full Course - Mosh', url: 'https://www.youtube.com/watch?v=0-S5a0eXPoc' },
+            { tipo: 'Práctica', nombre: 'Expo Snack', url: 'https://snack.expo.dev/' }
         ],
         color: 'blue',
         area: 'mobile'
@@ -2503,7 +2543,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Next.js', icon: 'nextjs-original', iconType: 'devicon' },
             { nombre: 'React', icon: 'react-original', iconType: 'devicon' },
             { nombre: 'TypeScript', icon: 'typescript-plain', iconType: 'devicon' },
-            { nombre: 'Vercel', icon: 'vercel-original', iconType: 'devicon' }
+            { nombre: 'Vercel', icon: 'vercel-original', iconType: 'devicon' },
+            { nombre: 'Prisma', icon: 'prisma-original', iconType: 'devicon' },
+            { nombre: 'Playwright', icon: 'playwright-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs Next.js', ponderacion: 0, descripcion: 'Prácticas de renderizado' },
@@ -2516,7 +2558,9 @@ export const asignaturas: Record<string, Asignatura> = {
         recursos: [
             { tipo: 'Documentación', nombre: 'Next.js Docs', url: 'https://nextjs.org/docs' },
             { tipo: 'Tutorial', nombre: 'Next.js Learn', url: 'https://nextjs.org/learn' },
-            { tipo: 'Curso', nombre: 'Vercel Templates', url: 'https://vercel.com/templates/next.js' }
+            { tipo: 'Curso', nombre: 'Vercel Templates', url: 'https://vercel.com/templates/next.js' },
+            { tipo: 'Video', nombre: 'Next.js 14 Full Course - Codevolution', url: 'https://www.youtube.com/watch?v=ZVnjOPwW4ZA' },
+            { tipo: 'Práctica', nombre: 'web.dev Performance', url: 'https://web.dev/performance/' }
         ],
         color: 'cyan',
         area: 'programacion'
@@ -2616,7 +2660,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'React Native', icon: 'react-original', iconType: 'devicon' },
             { nombre: 'Firebase', icon: 'firebase-plain', iconType: 'devicon' },
             { nombre: 'Jest', icon: 'jest-plain', iconType: 'devicon' },
-            { nombre: 'GitHub Actions', icon: 'github-original', iconType: 'devicon' }
+            { nombre: 'GitHub Actions', icon: 'github-original', iconType: 'devicon' },
+            { nombre: 'Sentry', icon: 'fa-bug', iconType: 'fontawesome' },
+            { nombre: 'SQLite', icon: 'sqlite-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs avanzados', ponderacion: 0, descripcion: 'Prácticas de arquitectura' },
@@ -2629,7 +2675,9 @@ export const asignaturas: Record<string, Asignatura> = {
         recursos: [
             { tipo: 'Tutorial', nombre: 'React Native Performance', url: 'https://reactnative.dev/docs/performance' },
             { tipo: 'Herramienta', nombre: 'Detox', url: 'https://wix.github.io/Detox/' },
-            { tipo: 'Servicio', nombre: 'Firebase', url: 'https://firebase.google.com/' }
+            { tipo: 'Servicio', nombre: 'Firebase', url: 'https://firebase.google.com/' },
+            { tipo: 'Video', nombre: 'React Native Testing', url: 'https://www.youtube.com/watch?v=aSwCB9Vbv8k' },
+            { tipo: 'Guía', nombre: 'EAS Build Docs', url: 'https://docs.expo.dev/build/introduction/' }
         ],
         color: 'blue',
         area: 'mobile'
@@ -2728,7 +2776,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Stack completo', icon: 'fa-layer-group', iconType: 'fontawesome' },
             { nombre: 'Git', icon: 'git-plain', iconType: 'devicon' },
             { nombre: 'Jira', icon: 'jira-plain', iconType: 'devicon' },
-            { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' }
+            { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' },
+            { nombre: 'GitHub', icon: 'github-original', iconType: 'devicon' },
+            { nombre: 'Vercel', icon: 'vercel-original', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Sumativa', nombre: 'Propuesta', ponderacion: 15, descripcion: 'Documento de propuesta' },
@@ -2740,9 +2790,11 @@ export const asignaturas: Record<string, Asignatura> = {
         prerrequisitos: ['Backend II-III', 'Frontend I-II', 'Ing. Software II'],
         conexiones: ['Título Analista Programador'],
         recursos: [
-            { tipo: 'Guía', nombre: 'Guía de Proyecto DuocUC', url: '#' },
-            { tipo: 'Template', nombre: 'Plantillas de documentación', url: '#' },
-            { tipo: 'Ejemplo', nombre: 'Proyectos anteriores', url: '#' }
+            { tipo: 'Guía', nombre: 'Writing README Files', url: 'https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes' },
+            { tipo: 'Template', nombre: 'Awesome README Templates', url: 'https://github.com/matiassingers/awesome-readme' },
+            { tipo: 'Video', nombre: 'How to Present Software Projects', url: 'https://www.youtube.com/watch?v=3rFMYMJd1Wc' },
+            { tipo: 'Guía', nombre: 'Software Documentation Best Practices', url: 'https://www.writethedocs.org/' },
+            { tipo: 'Herramienta', nombre: 'Canva para presentaciones', url: 'https://www.canva.com/' }
         ],
         color: 'emerald',
         area: 'gestion'
@@ -2842,7 +2894,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Next.js', icon: 'nextjs-original', iconType: 'devicon' },
             { nombre: 'NestJS', icon: 'nestjs-original', iconType: 'devicon' },
             { nombre: 'TypeScript', icon: 'typescript-plain', iconType: 'devicon' },
-            { nombre: 'PostgreSQL', icon: 'postgresql-plain', iconType: 'devicon' }
+            { nombre: 'PostgreSQL', icon: 'postgresql-plain', iconType: 'devicon' },
+            { nombre: 'Prisma', icon: 'prisma-original', iconType: 'devicon' },
+            { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs Fullstack', ponderacion: 0, descripcion: 'Integraciones prácticas' },
@@ -2855,7 +2909,9 @@ export const asignaturas: Record<string, Asignatura> = {
         recursos: [
             { tipo: 'Documentación', nombre: 'Next.js Docs', url: 'https://nextjs.org/docs' },
             { tipo: 'Documentación', nombre: 'NestJS Docs', url: 'https://docs.nestjs.com/' },
-            { tipo: 'Tutorial', nombre: 'Fullstack Guide', url: 'https://www.freecodecamp.org/news/full-stack-development/' }
+            { tipo: 'Tutorial', nombre: 'Fullstack Guide', url: 'https://www.freecodecamp.org/news/full-stack-development/' },
+            { tipo: 'Video', nombre: 'Next.js 14 Full Course - Codevolution', url: 'https://www.youtube.com/watch?v=wm5gMKuwSYk' },
+            { tipo: 'Video', nombre: 'NestJS Crash Course - Traversy Media', url: 'https://www.youtube.com/watch?v=wqhNoDE6pb4' }
         ],
         color: 'teal',
         area: 'programacion'
@@ -2951,7 +3007,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'MongoDB', icon: 'mongodb-plain', iconType: 'devicon' },
             { nombre: 'Redis', icon: 'redis-plain', iconType: 'devicon' },
             { nombre: 'PostgreSQL', icon: 'postgresql-plain', iconType: 'devicon' },
-            { nombre: 'Prisma', icon: 'prisma-original', iconType: 'devicon' }
+            { nombre: 'Prisma', icon: 'prisma-original', iconType: 'devicon' },
+            { nombre: 'DBeaver', icon: 'dbeaver-plain', iconType: 'devicon' },
+            { nombre: 'Elasticsearch', icon: 'elasticsearch-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs NoSQL', ponderacion: 0, descripcion: 'Prácticas de modelado' },
@@ -2964,7 +3022,9 @@ export const asignaturas: Record<string, Asignatura> = {
         recursos: [
             { tipo: 'Documentación', nombre: 'MongoDB Docs', url: 'https://www.mongodb.com/docs/' },
             { tipo: 'Documentación', nombre: 'Redis Docs', url: 'https://redis.io/docs/' },
-            { tipo: 'Curso', nombre: 'MongoDB University', url: 'https://university.mongodb.com/' }
+            { tipo: 'Curso', nombre: 'MongoDB University', url: 'https://university.mongodb.com/' },
+            { tipo: 'Video', nombre: 'MongoDB Crash Course - Traversy Media', url: 'https://www.youtube.com/watch?v=-56x56UppqQ' },
+            { tipo: 'Tutorial', nombre: 'Redis Tutorial - TutorialsPoint', url: 'https://www.tutorialspoint.com/redis/index.htm' }
         ],
         color: 'amber',
         area: 'datos'
@@ -3064,7 +3124,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' },
             { nombre: 'RabbitMQ', icon: 'rabbitmq-original', iconType: 'devicon' },
             { nombre: 'Playwright', icon: 'playwright-plain', iconType: 'devicon' },
-            { nombre: 'Grafana', icon: 'grafana-original', iconType: 'devicon' }
+            { nombre: 'Grafana', icon: 'grafana-original', iconType: 'devicon' },
+            { nombre: 'Prometheus', icon: 'prometheus-original', iconType: 'devicon' },
+            { nombre: 'Kubernetes', icon: 'kubernetes-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs Microservicios', ponderacion: 0, descripcion: 'Prácticas distribuidas' },
@@ -3077,7 +3139,9 @@ export const asignaturas: Record<string, Asignatura> = {
         recursos: [
             { tipo: 'Libro', nombre: 'Building Microservices', url: 'https://www.oreilly.com/library/view/building-microservices-2nd/9781492034018/' },
             { tipo: 'Documentación', nombre: 'RabbitMQ Tutorials', url: 'https://www.rabbitmq.com/tutorials' },
-            { tipo: 'Tutorial', nombre: 'Playwright Docs', url: 'https://playwright.dev/docs/intro' }
+            { tipo: 'Tutorial', nombre: 'Playwright Docs', url: 'https://playwright.dev/docs/intro' },
+            { tipo: 'Video', nombre: 'Microservices Full Course - freeCodeCamp', url: 'https://www.youtube.com/watch?v=Cy9fAvsXGZA' },
+            { tipo: 'Tutorial', nombre: 'Prometheus + Grafana Monitoring', url: 'https://prometheus.io/docs/tutorials/getting_started/' }
         ],
         color: 'teal',
         area: 'programacion'
@@ -3173,7 +3237,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'AWS', icon: 'amazonwebservices-plain-wordmark', iconType: 'devicon' },
             { nombre: 'Terraform', icon: 'terraform-plain', iconType: 'devicon' },
             { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' },
-            { nombre: 'Kubernetes', icon: 'kubernetes-plain', iconType: 'devicon' }
+            { nombre: 'Kubernetes', icon: 'kubernetes-plain', iconType: 'devicon' },
+            { nombre: 'Ansible', icon: 'ansible-plain', iconType: 'devicon' },
+            { nombre: 'GitHub Actions', icon: 'github-original', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs Cloud', ponderacion: 0, descripcion: 'Prácticas en AWS' },
@@ -3186,7 +3252,9 @@ export const asignaturas: Record<string, Asignatura> = {
         recursos: [
             { tipo: 'Certificación', nombre: 'AWS Cloud Practitioner', url: 'https://aws.amazon.com/certification/certified-cloud-practitioner/' },
             { tipo: 'Documentación', nombre: 'Terraform Docs', url: 'https://developer.hashicorp.com/terraform/docs' },
-            { tipo: 'Tutorial', nombre: 'AWS Free Tier', url: 'https://aws.amazon.com/free/' }
+            { tipo: 'Tutorial', nombre: 'AWS Free Tier', url: 'https://aws.amazon.com/free/' },
+            { tipo: 'Video', nombre: 'AWS Course for Beginners - freeCodeCamp', url: 'https://www.youtube.com/watch?v=ulprqHHWlng' },
+            { tipo: 'Tutorial', nombre: 'Terraform on AWS - HashiCorp Learn', url: 'https://developer.hashicorp.com/terraform/tutorials/aws-get-started' }
         ],
         color: 'orange',
         area: 'infraestructura'
@@ -3286,7 +3354,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'GraphQL', icon: 'graphql-plain', iconType: 'devicon' },
             { nombre: 'Apollo', icon: 'fa-project-diagram', iconType: 'fontawesome' },
             { nombre: 'Redis', icon: 'redis-plain', iconType: 'devicon' },
-            { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' }
+            { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' },
+            { nombre: 'Lighthouse', icon: 'fa-tachometer-alt', iconType: 'fontawesome' },
+            { nombre: 'SonarQube', icon: 'sonarqube-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs Avanzados', ponderacion: 0, descripcion: 'Prácticas especializadas' },
@@ -3299,7 +3369,9 @@ export const asignaturas: Record<string, Asignatura> = {
         recursos: [
             { tipo: 'Documentación', nombre: 'GraphQL Docs', url: 'https://graphql.org/learn/' },
             { tipo: 'Documentación', nombre: 'Apollo Docs', url: 'https://www.apollographql.com/docs/' },
-            { tipo: 'Herramienta', nombre: 'k6 Load Testing', url: 'https://k6.io/docs/' }
+            { tipo: 'Herramienta', nombre: 'k6 Load Testing', url: 'https://k6.io/docs/' },
+            { tipo: 'Video', nombre: 'GraphQL Full Course - freeCodeCamp', url: 'https://www.youtube.com/watch?v=ed8SzALpx1Q' },
+            { tipo: 'Tutorial', nombre: 'web.dev Performance Guide', url: 'https://web.dev/learn/performance' }
         ],
         color: 'teal',
         area: 'programacion'
@@ -3399,7 +3471,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Flutter', icon: 'flutter-plain', iconType: 'devicon' },
             { nombre: 'Dart', icon: 'dart-plain', iconType: 'devicon' },
             { nombre: 'Firebase', icon: 'firebase-plain', iconType: 'devicon' },
-            { nombre: 'SQLite', icon: 'sqlite-plain', iconType: 'devicon' }
+            { nombre: 'SQLite', icon: 'sqlite-plain', iconType: 'devicon' },
+            { nombre: 'Android Studio', icon: 'androidstudio-plain', iconType: 'devicon' },
+            { nombre: 'Xcode', icon: 'xcode-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs Flutter', ponderacion: 0, descripcion: 'Prácticas móviles' },
@@ -3412,7 +3486,9 @@ export const asignaturas: Record<string, Asignatura> = {
         recursos: [
             { tipo: 'Documentación', nombre: 'Flutter Docs', url: 'https://docs.flutter.dev/' },
             { tipo: 'Tutorial', nombre: 'Flutter Codelabs', url: 'https://docs.flutter.dev/codelabs' },
-            { tipo: 'Curso', nombre: 'Flutter Complete Course', url: 'https://www.udemy.com/course/learn-flutter-dart-to-build-ios-android-apps/' }
+            { tipo: 'Curso', nombre: 'Flutter Complete Course', url: 'https://www.udemy.com/course/learn-flutter-dart-to-build-ios-android-apps/' },
+            { tipo: 'Video', nombre: 'Flutter Course for Beginners - freeCodeCamp', url: 'https://www.youtube.com/watch?v=VPvVD8t02U8' },
+            { tipo: 'Tutorial', nombre: 'Flutter by Example', url: 'https://flutterbyexample.com/' }
         ],
         color: 'blue',
         area: 'mobile'
@@ -3508,7 +3584,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Kubernetes', icon: 'kubernetes-plain', iconType: 'devicon' },
             { nombre: 'Helm', icon: 'helm-original', iconType: 'devicon' },
             { nombre: 'ArgoCD', icon: 'argocd-original', iconType: 'devicon' },
-            { nombre: 'Prometheus', icon: 'prometheus-original', iconType: 'devicon' }
+            { nombre: 'Prometheus', icon: 'prometheus-original', iconType: 'devicon' },
+            { nombre: 'Grafana', icon: 'grafana-original', iconType: 'devicon' },
+            { nombre: 'Istio', icon: 'fa-network-wired', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs K8s', ponderacion: 0, descripcion: 'Prácticas en cluster' },
@@ -3521,7 +3599,9 @@ export const asignaturas: Record<string, Asignatura> = {
         recursos: [
             { tipo: 'Documentación', nombre: 'Kubernetes Docs', url: 'https://kubernetes.io/docs/' },
             { tipo: 'Tutorial', nombre: 'Helm Docs', url: 'https://helm.sh/docs/' },
-            { tipo: 'Certificación', nombre: 'CKA Exam', url: 'https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/' }
+            { tipo: 'Certificación', nombre: 'CKA Exam', url: 'https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/' },
+            { tipo: 'Video', nombre: 'Kubernetes Tutorial - TechWorld with Nana', url: 'https://www.youtube.com/watch?v=X48VuDVv0do' },
+            { tipo: 'Tutorial', nombre: 'CKAD Exercises - GitHub', url: 'https://github.com/dgkanatsios/CKAD-exercises' }
         ],
         color: 'blue',
         area: 'infraestructura'
@@ -3621,7 +3701,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Kubernetes', icon: 'kubernetes-plain', iconType: 'devicon' },
             { nombre: 'Vault', icon: 'vault-original', iconType: 'devicon' },
             { nombre: 'Terraform', icon: 'terraform-plain', iconType: 'devicon' },
-            { nombre: 'Grafana', icon: 'grafana-original', iconType: 'devicon' }
+            { nombre: 'Grafana', icon: 'grafana-original', iconType: 'devicon' },
+            { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' },
+            { nombre: 'GitHub Actions', icon: 'github-original', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs Avanzados', ponderacion: 0, descripcion: 'Prácticas enterprise' },
@@ -3634,7 +3716,9 @@ export const asignaturas: Record<string, Asignatura> = {
         recursos: [
             { tipo: 'Certificación', nombre: 'CKS Exam', url: 'https://training.linuxfoundation.org/certification/certified-kubernetes-security-specialist/' },
             { tipo: 'Documentación', nombre: 'Vault Docs', url: 'https://developer.hashicorp.com/vault/docs' },
-            { tipo: 'Framework', nombre: 'Backstage', url: 'https://backstage.io/docs/overview/what-is-backstage' }
+            { tipo: 'Framework', nombre: 'Backstage', url: 'https://backstage.io/docs/overview/what-is-backstage' },
+            { tipo: 'Video', nombre: 'DevOps Engineering Course - freeCodeCamp', url: 'https://www.youtube.com/watch?v=j5Zsa_eOXeY' },
+            { tipo: 'Tutorial', nombre: 'Platform Engineering with Backstage', url: 'https://backstage.io/docs/getting-started/' }
         ],
         color: 'blue',
         area: 'infraestructura'
@@ -3730,7 +3814,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'SonarQube', icon: 'sonarqube-plain', iconType: 'devicon' },
             { nombre: 'Snyk', icon: 'fa-shield-alt', iconType: 'fontawesome' },
             { nombre: 'OWASP ZAP', icon: 'fa-bug', iconType: 'fontawesome' },
-            { nombre: 'GitHub Actions', icon: 'github-original', iconType: 'devicon' }
+            { nombre: 'GitHub Actions', icon: 'github-original', iconType: 'devicon' },
+            { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' },
+            { nombre: 'Burp Suite', icon: 'fa-user-secret', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs Security', ponderacion: 0, descripcion: 'Prácticas de seguridad' },
@@ -3743,7 +3829,9 @@ export const asignaturas: Record<string, Asignatura> = {
         recursos: [
             { tipo: 'Documentación', nombre: 'OWASP', url: 'https://owasp.org/' },
             { tipo: 'Herramienta', nombre: 'SonarQube', url: 'https://www.sonarsource.com/products/sonarqube/' },
-            { tipo: 'Tutorial', nombre: 'Snyk Learn', url: 'https://learn.snyk.io/' }
+            { tipo: 'Tutorial', nombre: 'Snyk Learn', url: 'https://learn.snyk.io/' },
+            { tipo: 'Video', nombre: 'Web Security Course - Computerphile', url: 'https://www.youtube.com/playlist?list=PLzH6n4zXuckrLBxd2MVWH_a6mlN0cYuOL' },
+            { tipo: 'Certificación', nombre: 'CompTIA Security+', url: 'https://www.comptia.org/certifications/security' }
         ],
         color: 'red',
         area: 'seguridad'
@@ -3843,7 +3931,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Jira', icon: 'jira-plain', iconType: 'devicon' },
             { nombre: 'Confluence', icon: 'confluence-plain', iconType: 'devicon' },
             { nombre: 'Notion', icon: 'notion-plain', iconType: 'devicon' },
-            { nombre: 'Miro', icon: 'fa-chalkboard', iconType: 'fontawesome' }
+            { nombre: 'Miro', icon: 'fa-chalkboard', iconType: 'fontawesome' },
+            { nombre: 'Slack', icon: 'slack-plain', iconType: 'devicon' },
+            { nombre: 'Azure DevOps', icon: 'azure-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Workshops', ponderacion: 0, descripcion: 'Dinámicas grupales' },
@@ -3856,7 +3946,9 @@ export const asignaturas: Record<string, Asignatura> = {
         recursos: [
             { tipo: 'Framework', nombre: 'SAFe', url: 'https://www.scaledagileframework.com/' },
             { tipo: 'Métricas', nombre: 'DORA Metrics', url: 'https://dora.dev/' },
-            { tipo: 'Curso', nombre: 'Atlassian Agile', url: 'https://www.atlassian.com/agile' }
+            { tipo: 'Curso', nombre: 'Atlassian Agile', url: 'https://www.atlassian.com/agile' },
+            { tipo: 'Video', nombre: 'Agile Project Management - Google', url: 'https://www.coursera.org/learn/agile-project-management' },
+            { tipo: 'Certificación', nombre: 'PMI-ACP', url: 'https://www.pmi.org/certifications/agile-acp' }
         ],
         color: 'purple',
         area: 'gestion'
@@ -3956,7 +4048,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Fairlearn', icon: 'fa-balance-scale', iconType: 'fontawesome' },
             { nombre: 'AI Explainability', icon: 'fa-brain', iconType: 'fontawesome' },
             { nombre: 'GDPR Tools', icon: 'fa-shield-alt', iconType: 'fontawesome' },
-            { nombre: 'Accessibility', icon: 'fa-universal-access', iconType: 'fontawesome' }
+            { nombre: 'Accessibility', icon: 'fa-universal-access', iconType: 'fontawesome' },
+            { nombre: 'Python', icon: 'python-plain', iconType: 'devicon' },
+            { nombre: 'VS Code', icon: 'vscode-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Debates', ponderacion: 0, descripcion: 'Discusiones éticas' },
@@ -3969,7 +4063,9 @@ export const asignaturas: Record<string, Asignatura> = {
         recursos: [
             { tipo: 'Código', nombre: 'ACM Code of Ethics', url: 'https://www.acm.org/code-of-ethics' },
             { tipo: 'Documentación', nombre: 'GDPR Info', url: 'https://gdpr.eu/' },
-            { tipo: 'Framework', nombre: 'AI Ethics Guidelines', url: 'https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai' }
+            { tipo: 'Framework', nombre: 'AI Ethics Guidelines', url: 'https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai' },
+            { tipo: 'Video', nombre: 'Ethics in Technology - TED', url: 'https://www.ted.com/topics/technology' },
+            { tipo: 'Tutorial', nombre: 'Responsible AI - Microsoft', url: 'https://www.microsoft.com/en-us/ai/responsible-ai' }
         ],
         color: 'slate',
         area: 'general'
@@ -4065,7 +4161,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Stack completo', icon: 'fa-layer-group', iconType: 'fontawesome' },
             { nombre: 'CI/CD', icon: 'fa-sync', iconType: 'fontawesome' },
             { nombre: 'Cloud', icon: 'fa-cloud', iconType: 'fontawesome' },
-            { nombre: 'Agile', icon: 'fa-tasks', iconType: 'fontawesome' }
+            { nombre: 'Agile', icon: 'fa-tasks', iconType: 'fontawesome' },
+            { nombre: 'GitHub', icon: 'github-original', iconType: 'devicon' },
+            { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Sprint reviews', ponderacion: 0, descripcion: 'Demos de sprint' },
@@ -4078,7 +4176,9 @@ export const asignaturas: Record<string, Asignatura> = {
         recursos: [
             { tipo: 'Template', nombre: 'Architecture Decision Records', url: 'https://adr.github.io/' },
             { tipo: 'Framework', nombre: 'Scrum Guide', url: 'https://scrumguides.org/' },
-            { tipo: 'Tool', nombre: 'Notion for Teams', url: 'https://www.notion.so/product/teams' }
+            { tipo: 'Tool', nombre: 'Notion for Teams', url: 'https://www.notion.so/product/teams' },
+            { tipo: 'Video', nombre: 'How to Present a Technical Project', url: 'https://www.youtube.com/watch?v=Unzc731iCUY' },
+            { tipo: 'Tutorial', nombre: 'Git Best Practices for Teams', url: 'https://www.atlassian.com/git/tutorials/comparing-workflows' }
         ],
         color: 'emerald',
         area: 'proyecto'
