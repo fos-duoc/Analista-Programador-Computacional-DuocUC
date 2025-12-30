@@ -10,8 +10,12 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import SubjectDrawer from '../../components/SubjectDrawer.astro';
 import AITutorSidePanel from '../../components/AITutorSidePanel.astro';
+import BestPracticeDrawer from '../../components/BestPracticeDrawer.astro';
+import TechDrawer from '../../components/TechDrawer.astro';
 import { bimestresYear1, bimestresYear2, bimestresYear3, bimestresYear4 } from '../../data/bimestres';
 import { nombreCortoToId, asignaturas } from '../../data/asignaturas';
+import { subjectToBestPractices, bestPractices } from '../../data/bestPractices';
+import { iconToTechId, technologies } from '../../data/technologies';
 
 const base = import.meta.env.BASE_URL;
 
@@ -200,29 +204,60 @@ const subjectLinks: Record<string, string> = {
                                     {bim.subjects.map((subject) => {
                                         const subjectId = nombreCortoToId[subject.name];
                                         const hasData = !!subjectId;
+                                        const practiceIds = subjectId ? (subjectToBestPractices[subjectId] || []) : [];
+                                        const practices = practiceIds.map(id => bestPractices[id]).filter(Boolean).slice(0, 4);
                                         return (
-                                            <button
-                                                type="button"
-                                                class="subject-chip clickable"
-                                                data-subject-id={subjectId}
-                                                data-subject-name={subject.name}
-                                                aria-label={`Ver detalles de ${subject.name}`}
-                                            >
-                                                {subject.iconType === 'fontawesome' ? (
-                                                    <i class={subject.icon}></i>
-                                                ) : (
-                                                    <i class={`devicon-${subject.icon}`}></i>
+                                            <div class="subject-wrapper">
+                                                <button
+                                                    type="button"
+                                                    class="subject-chip clickable"
+                                                    data-subject-id={subjectId}
+                                                    data-subject-name={subject.name}
+                                                    aria-label={`Ver detalles de ${subject.name}`}
+                                                >
+                                                    {subject.iconType === 'fontawesome' ? (
+                                                        <i class={subject.icon}></i>
+                                                    ) : (
+                                                        <i class={`devicon-${subject.icon}`}></i>
+                                                    )}
+                                                    <span>{subject.name}</span>
+                                                    <i class="fas fa-chevron-right chip-arrow"></i>
+                                                </button>
+                                                {practices.length > 0 && (
+                                                    <div class="subject-best-practices">
+                                                        {practices.map((bp) => (
+                                                            <button
+                                                                type="button"
+                                                                class={`bp-icon-btn ${bp.color}`}
+                                                                data-bp-id={bp.id}
+                                                                title={`${bp.nombreCorto}: ${bp.descripcionCorta}`}
+                                                                aria-label={`Ver ${bp.nombre}`}
+                                                            >
+                                                                <i class={bp.icon}></i>
+                                                            </button>
+                                                        ))}
+                                                        {practiceIds.length > 4 && (
+                                                            <span class="bp-more">+{practiceIds.length - 4}</span>
+                                                        )}
+                                                    </div>
                                                 )}
-                                                <span>{subject.name}</span>
-                                                <i class="fas fa-chevron-right chip-arrow"></i>
-                                            </button>
+                                            </div>
                                         );
                                     })}
                                 </div>
                                 <div class="card-tech">
-                                    {bim.techIcons.map((icon) => (
-                                        <i class={icon.startsWith('fas') ? icon : `devicon-${icon}`}></i>
-                                    ))}
+                                    {bim.techIcons.map((icon) => {
+                                        const iconClass = icon.startsWith('fas') ? '' : icon;
+                                        const techId = iconToTechId[iconClass];
+                                        const hasTech = !!techId && !!technologies[techId];
+                                        return hasTech ? (
+                                            <button type="button" class="tech-icon-btn" data-tech-id={techId} title={technologies[techId]?.nombre}>
+                                                <i class={icon.startsWith('fas') ? icon : `devicon-${icon}`}></i>
+                                            </button>
+                                        ) : (
+                                            <i class={icon.startsWith('fas') ? icon : `devicon-${icon}`}></i>
+                                        );
+                                    })}
                                 </div>
                             </div>
                         ))}
@@ -247,29 +282,60 @@ const subjectLinks: Record<string, string> = {
                                     {bim.subjects.map((subject) => {
                                         const subjectId = nombreCortoToId[subject.name];
                                         const hasData = !!subjectId;
+                                        const practiceIds = subjectId ? (subjectToBestPractices[subjectId] || []) : [];
+                                        const practices = practiceIds.map(id => bestPractices[id]).filter(Boolean).slice(0, 4);
                                         return (
-                                            <button
-                                                type="button"
-                                                class="subject-chip clickable"
-                                                data-subject-id={subjectId}
-                                                data-subject-name={subject.name}
-                                                aria-label={`Ver detalles de ${subject.name}`}
-                                            >
-                                                {subject.iconType === 'fontawesome' ? (
-                                                    <i class={subject.icon}></i>
-                                                ) : (
-                                                    <i class={`devicon-${subject.icon}`}></i>
+                                            <div class="subject-wrapper">
+                                                <button
+                                                    type="button"
+                                                    class="subject-chip clickable"
+                                                    data-subject-id={subjectId}
+                                                    data-subject-name={subject.name}
+                                                    aria-label={`Ver detalles de ${subject.name}`}
+                                                >
+                                                    {subject.iconType === 'fontawesome' ? (
+                                                        <i class={subject.icon}></i>
+                                                    ) : (
+                                                        <i class={`devicon-${subject.icon}`}></i>
+                                                    )}
+                                                    <span>{subject.name}</span>
+                                                    <i class="fas fa-chevron-right chip-arrow"></i>
+                                                </button>
+                                                {practices.length > 0 && (
+                                                    <div class="subject-best-practices">
+                                                        {practices.map((bp) => (
+                                                            <button
+                                                                type="button"
+                                                                class={`bp-icon-btn ${bp.color}`}
+                                                                data-bp-id={bp.id}
+                                                                title={`${bp.nombreCorto}: ${bp.descripcionCorta}`}
+                                                                aria-label={`Ver ${bp.nombre}`}
+                                                            >
+                                                                <i class={bp.icon}></i>
+                                                            </button>
+                                                        ))}
+                                                        {practiceIds.length > 4 && (
+                                                            <span class="bp-more">+{practiceIds.length - 4}</span>
+                                                        )}
+                                                    </div>
                                                 )}
-                                                <span>{subject.name}</span>
-                                                <i class="fas fa-chevron-right chip-arrow"></i>
-                                            </button>
+                                            </div>
                                         );
                                     })}
                                 </div>
                                 <div class="card-tech">
-                                    {bim.techIcons.map((icon) => (
-                                        <i class={icon.startsWith('fas') ? icon : `devicon-${icon}`}></i>
-                                    ))}
+                                    {bim.techIcons.map((icon) => {
+                                        const iconClass = icon.startsWith('fas') ? '' : icon;
+                                        const techId = iconToTechId[iconClass];
+                                        const hasTech = !!techId && !!technologies[techId];
+                                        return hasTech ? (
+                                            <button type="button" class="tech-icon-btn" data-tech-id={techId} title={technologies[techId]?.nombre}>
+                                                <i class={icon.startsWith('fas') ? icon : `devicon-${icon}`}></i>
+                                            </button>
+                                        ) : (
+                                            <i class={icon.startsWith('fas') ? icon : `devicon-${icon}`}></i>
+                                        );
+                                    })}
                                 </div>
                             </div>
                         ))}
@@ -328,29 +394,60 @@ const subjectLinks: Record<string, string> = {
                                     {bim.subjects.map((subject) => {
                                         const subjectId = nombreCortoToId[subject.name];
                                         const hasData = !!subjectId;
+                                        const practiceIds = subjectId ? (subjectToBestPractices[subjectId] || []) : [];
+                                        const practices = practiceIds.map(id => bestPractices[id]).filter(Boolean).slice(0, 4);
                                         return (
-                                            <button
-                                                type="button"
-                                                class="subject-chip clickable"
-                                                data-subject-id={subjectId}
-                                                data-subject-name={subject.name}
-                                                aria-label={`Ver detalles de ${subject.name}`}
-                                            >
-                                                {subject.iconType === 'fontawesome' ? (
-                                                    <i class={subject.icon}></i>
-                                                ) : (
-                                                    <i class={`devicon-${subject.icon}`}></i>
+                                            <div class="subject-wrapper">
+                                                <button
+                                                    type="button"
+                                                    class="subject-chip clickable"
+                                                    data-subject-id={subjectId}
+                                                    data-subject-name={subject.name}
+                                                    aria-label={`Ver detalles de ${subject.name}`}
+                                                >
+                                                    {subject.iconType === 'fontawesome' ? (
+                                                        <i class={subject.icon}></i>
+                                                    ) : (
+                                                        <i class={`devicon-${subject.icon}`}></i>
+                                                    )}
+                                                    <span>{subject.name}</span>
+                                                    <i class="fas fa-chevron-right chip-arrow"></i>
+                                                </button>
+                                                {practices.length > 0 && (
+                                                    <div class="subject-best-practices">
+                                                        {practices.map((bp) => (
+                                                            <button
+                                                                type="button"
+                                                                class={`bp-icon-btn ${bp.color}`}
+                                                                data-bp-id={bp.id}
+                                                                title={`${bp.nombreCorto}: ${bp.descripcionCorta}`}
+                                                                aria-label={`Ver ${bp.nombre}`}
+                                                            >
+                                                                <i class={bp.icon}></i>
+                                                            </button>
+                                                        ))}
+                                                        {practiceIds.length > 4 && (
+                                                            <span class="bp-more">+{practiceIds.length - 4}</span>
+                                                        )}
+                                                    </div>
                                                 )}
-                                                <span>{subject.name}</span>
-                                                <i class="fas fa-chevron-right chip-arrow"></i>
-                                            </button>
+                                            </div>
                                         );
                                     })}
                                 </div>
                                 <div class="card-tech">
-                                    {bim.techIcons.map((icon) => (
-                                        <i class={icon.startsWith('fas') ? icon : `devicon-${icon}`}></i>
-                                    ))}
+                                    {bim.techIcons.map((icon) => {
+                                        const iconClass = icon.startsWith('fas') ? '' : icon;
+                                        const techId = iconToTechId[iconClass];
+                                        const hasTech = !!techId && !!technologies[techId];
+                                        return hasTech ? (
+                                            <button type="button" class="tech-icon-btn" data-tech-id={techId} title={technologies[techId]?.nombre}>
+                                                <i class={icon.startsWith('fas') ? icon : `devicon-${icon}`}></i>
+                                            </button>
+                                        ) : (
+                                            <i class={icon.startsWith('fas') ? icon : `devicon-${icon}`}></i>
+                                        );
+                                    })}
                                 </div>
                             </div>
                         ))}
@@ -374,29 +471,60 @@ const subjectLinks: Record<string, string> = {
                                     {bim.subjects.map((subject) => {
                                         const subjectId = nombreCortoToId[subject.name];
                                         const hasData = !!subjectId;
+                                        const practiceIds = subjectId ? (subjectToBestPractices[subjectId] || []) : [];
+                                        const practices = practiceIds.map(id => bestPractices[id]).filter(Boolean).slice(0, 4);
                                         return (
-                                            <button
-                                                type="button"
-                                                class="subject-chip clickable"
-                                                data-subject-id={subjectId}
-                                                data-subject-name={subject.name}
-                                                aria-label={`Ver detalles de ${subject.name}`}
-                                            >
-                                                {subject.iconType === 'fontawesome' ? (
-                                                    <i class={subject.icon}></i>
-                                                ) : (
-                                                    <i class={`devicon-${subject.icon}`}></i>
+                                            <div class="subject-wrapper">
+                                                <button
+                                                    type="button"
+                                                    class="subject-chip clickable"
+                                                    data-subject-id={subjectId}
+                                                    data-subject-name={subject.name}
+                                                    aria-label={`Ver detalles de ${subject.name}`}
+                                                >
+                                                    {subject.iconType === 'fontawesome' ? (
+                                                        <i class={subject.icon}></i>
+                                                    ) : (
+                                                        <i class={`devicon-${subject.icon}`}></i>
+                                                    )}
+                                                    <span>{subject.name}</span>
+                                                    <i class="fas fa-chevron-right chip-arrow"></i>
+                                                </button>
+                                                {practices.length > 0 && (
+                                                    <div class="subject-best-practices">
+                                                        {practices.map((bp) => (
+                                                            <button
+                                                                type="button"
+                                                                class={`bp-icon-btn ${bp.color}`}
+                                                                data-bp-id={bp.id}
+                                                                title={`${bp.nombreCorto}: ${bp.descripcionCorta}`}
+                                                                aria-label={`Ver ${bp.nombre}`}
+                                                            >
+                                                                <i class={bp.icon}></i>
+                                                            </button>
+                                                        ))}
+                                                        {practiceIds.length > 4 && (
+                                                            <span class="bp-more">+{practiceIds.length - 4}</span>
+                                                        )}
+                                                    </div>
                                                 )}
-                                                <span>{subject.name}</span>
-                                                <i class="fas fa-chevron-right chip-arrow"></i>
-                                            </button>
+                                            </div>
                                         );
                                     })}
                                 </div>
                                 <div class="card-tech">
-                                    {bim.techIcons.map((icon) => (
-                                        <i class={icon.startsWith('fas') ? icon : `devicon-${icon}`}></i>
-                                    ))}
+                                    {bim.techIcons.map((icon) => {
+                                        const iconClass = icon.startsWith('fas') ? '' : icon;
+                                        const techId = iconToTechId[iconClass];
+                                        const hasTech = !!techId && !!technologies[techId];
+                                        return hasTech ? (
+                                            <button type="button" class="tech-icon-btn" data-tech-id={techId} title={technologies[techId]?.nombre}>
+                                                <i class={icon.startsWith('fas') ? icon : `devicon-${icon}`}></i>
+                                            </button>
+                                        ) : (
+                                            <i class={icon.startsWith('fas') ? icon : `devicon-${icon}`}></i>
+                                        );
+                                    })}
                                 </div>
                             </div>
                         ))}
@@ -525,6 +653,12 @@ const subjectLinks: Record<string, string> = {
 
         <!-- Subject Drawer Component -->
         <SubjectDrawer />
+
+        <!-- Best Practice Drawer Component -->
+        <BestPracticeDrawer />
+
+        <!-- Tech Drawer Component -->
+        <TechDrawer />
 
         <!-- AI Tutor Side Panel (Coursera Coach Style) -->
         <AITutorSidePanel />
@@ -1112,6 +1246,127 @@ const subjectLinks: Record<string, string> = {
         color: #94a3b8;
     }
 
+    /* Subject Wrapper - Contains chip + best practices icons */
+    .subject-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+    }
+
+    .subject-best-practices {
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding-left: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .bp-icon-btn {
+        width: 22px;
+        height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.03);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        padding: 0;
+    }
+
+    .bp-icon-btn i {
+        font-size: 0.65rem;
+        color: #64748b;
+        transition: color 0.2s ease;
+    }
+
+    .bp-icon-btn:hover {
+        transform: scale(1.15);
+    }
+
+    /* Color variants for BP icons */
+    .bp-icon-btn.cyan {
+        border-color: rgba(6, 182, 212, 0.3);
+        background: rgba(6, 182, 212, 0.1);
+    }
+    .bp-icon-btn.cyan i { color: #22d3ee; }
+    .bp-icon-btn.cyan:hover {
+        background: rgba(6, 182, 212, 0.25);
+        box-shadow: 0 0 8px rgba(6, 182, 212, 0.4);
+    }
+
+    .bp-icon-btn.purple {
+        border-color: rgba(139, 92, 246, 0.3);
+        background: rgba(139, 92, 246, 0.1);
+    }
+    .bp-icon-btn.purple i { color: #a78bfa; }
+    .bp-icon-btn.purple:hover {
+        background: rgba(139, 92, 246, 0.25);
+        box-shadow: 0 0 8px rgba(139, 92, 246, 0.4);
+    }
+
+    .bp-icon-btn.green {
+        border-color: rgba(34, 197, 94, 0.3);
+        background: rgba(34, 197, 94, 0.1);
+    }
+    .bp-icon-btn.green i { color: #4ade80; }
+    .bp-icon-btn.green:hover {
+        background: rgba(34, 197, 94, 0.25);
+        box-shadow: 0 0 8px rgba(34, 197, 94, 0.4);
+    }
+
+    .bp-icon-btn.amber {
+        border-color: rgba(245, 158, 11, 0.3);
+        background: rgba(245, 158, 11, 0.1);
+    }
+    .bp-icon-btn.amber i { color: #fbbf24; }
+    .bp-icon-btn.amber:hover {
+        background: rgba(245, 158, 11, 0.25);
+        box-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
+    }
+
+    .bp-icon-btn.rose {
+        border-color: rgba(244, 63, 94, 0.3);
+        background: rgba(244, 63, 94, 0.1);
+    }
+    .bp-icon-btn.rose i { color: #fb7185; }
+    .bp-icon-btn.rose:hover {
+        background: rgba(244, 63, 94, 0.25);
+        box-shadow: 0 0 8px rgba(244, 63, 94, 0.4);
+    }
+
+    .bp-more {
+        font-size: 0.6rem;
+        color: #64748b;
+        font-weight: 600;
+        padding: 0 0.25rem;
+    }
+
+    /* Tech Icon Buttons */
+    .tech-icon-btn {
+        padding: 0;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border-radius: 4px;
+    }
+
+    .tech-icon-btn i {
+        font-size: 1.25rem;
+        color: #64748b;
+        transition: all 0.2s ease;
+    }
+
+    .tech-icon-btn:hover {
+        transform: scale(1.2);
+    }
+
+    .tech-icon-btn:hover i {
+        color: #22d3ee;
+    }
+
     /* Milestone Banner */
     .milestone-banner {
         display: flex;
@@ -1539,6 +1794,55 @@ const subjectLinks: Record<string, string> = {
         color: #0891b2 !important;
     }
 
+    /* Light mode for BP icons */
+    :global([data-theme="light"]) .bp-icon-btn {
+        background: rgba(0, 0, 0, 0.02);
+        border-color: rgba(0, 0, 0, 0.08);
+    }
+
+    :global([data-theme="light"]) .bp-icon-btn.cyan {
+        background: rgba(6, 182, 212, 0.08);
+        border-color: rgba(6, 182, 212, 0.2);
+    }
+    :global([data-theme="light"]) .bp-icon-btn.cyan i { color: #0891b2; }
+
+    :global([data-theme="light"]) .bp-icon-btn.purple {
+        background: rgba(139, 92, 246, 0.08);
+        border-color: rgba(139, 92, 246, 0.2);
+    }
+    :global([data-theme="light"]) .bp-icon-btn.purple i { color: #7c3aed; }
+
+    :global([data-theme="light"]) .bp-icon-btn.green {
+        background: rgba(34, 197, 94, 0.08);
+        border-color: rgba(34, 197, 94, 0.2);
+    }
+    :global([data-theme="light"]) .bp-icon-btn.green i { color: #16a34a; }
+
+    :global([data-theme="light"]) .bp-icon-btn.amber {
+        background: rgba(245, 158, 11, 0.08);
+        border-color: rgba(245, 158, 11, 0.2);
+    }
+    :global([data-theme="light"]) .bp-icon-btn.amber i { color: #d97706; }
+
+    :global([data-theme="light"]) .bp-icon-btn.rose {
+        background: rgba(244, 63, 94, 0.08);
+        border-color: rgba(244, 63, 94, 0.2);
+    }
+    :global([data-theme="light"]) .bp-icon-btn.rose i { color: #e11d48; }
+
+    :global([data-theme="light"]) .bp-more {
+        color: #64748b;
+    }
+
+    /* Light mode for Tech Icon Buttons */
+    :global([data-theme="light"]) .tech-icon-btn i {
+        color: #64748b;
+    }
+
+    :global([data-theme="light"]) .tech-icon-btn:hover i {
+        color: #0891b2;
+    }
+
     :global([data-theme="light"]) .milestone-banner {
         background: rgba(255, 255, 255, 0.8);
         border-color: rgba(0, 0, 0, 0.08);
@@ -1723,13 +2027,57 @@ const subjectLinks: Record<string, string> = {
         document.body.style.overflow = '';
     }
 
+    // Inicializar event listeners para iconos de mejores prácticas
+    function initBestPracticeIcons() {
+        const bpBtns = document.querySelectorAll('.bp-icon-btn');
+
+        bpBtns.forEach(btn => {
+            // Prevenir doble inicialización
+            if (btn.hasAttribute('data-bp-listener-attached')) return;
+            btn.setAttribute('data-bp-listener-attached', 'true');
+
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation(); // Evitar que se abra el drawer de asignatura
+                const bpId = btn.getAttribute('data-bp-id');
+                if (bpId && typeof window.openBestPracticeDrawer === 'function') {
+                    window.openBestPracticeDrawer(bpId);
+                }
+            });
+        });
+    }
+
+    // Inicializar event listeners para iconos de tecnologías
+    function initTechIcons() {
+        const techBtns = document.querySelectorAll('.tech-icon-btn');
+
+        techBtns.forEach(btn => {
+            // Prevenir doble inicialización
+            if (btn.hasAttribute('data-tech-listener-attached')) return;
+            btn.setAttribute('data-tech-listener-attached', 'true');
+
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const techId = btn.getAttribute('data-tech-id');
+                if (techId && typeof window.openTechDrawer === 'function') {
+                    window.openTechDrawer(techId);
+                }
+            });
+        });
+    }
+
     // Inicializar en carga inicial y View Transitions
     document.addEventListener('DOMContentLoaded', () => {
         ensureDrawersClosed();
         initSubjectChips();
+        initBestPracticeIcons();
+        initTechIcons();
     });
     document.addEventListener('astro:page-load', () => {
         ensureDrawersClosed();
         initSubjectChips();
+        initBestPracticeIcons();
+        initTechIcons();
     });
 </script>
