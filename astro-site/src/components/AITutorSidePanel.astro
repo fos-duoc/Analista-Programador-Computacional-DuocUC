@@ -189,23 +189,25 @@ const base = import.meta.env.BASE_URL;
     /* ============================================
        AI TUTOR SIDE PANEL - Premium Enterprise Design
        Sophisticated, useful, and elegant
+       Responsive sizing with smooth transitions
     ============================================ */
 
     .ai-tutor-panel {
         position: fixed;
         top: 70px;
         right: 0;
-        width: 322px;
+        width: 380px;
         height: calc(100vh - 70px);
-        background: linear-gradient(180deg, #0a0f1a 0%, #111827 50%, #0f172a 100%);
-        border-left: 1px solid rgba(139, 92, 246, 0.2);
+        background: linear-gradient(180deg, #050810 0%, #0a0f1a 30%, #111827 70%, #0f172a 100%);
+        border-left: 1px solid rgba(139, 92, 246, 0.25);
         display: flex;
         flex-direction: column;
         z-index: 1002;
         transform: translateX(100%);
-        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        box-shadow: -8px 0 40px rgba(0, 0, 0, 0.4);
-        font-size: 0.85rem;
+        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), width 0.3s ease;
+        box-shadow: -12px 0 48px rgba(0, 0, 0, 0.5), -4px 0 16px rgba(139, 92, 246, 0.05);
+        font-size: 0.88rem;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
     }
 
     .ai-tutor-panel.visible {
@@ -213,28 +215,28 @@ const base = import.meta.env.BASE_URL;
     }
 
     /* ============================================
-       PREMIUM HEADER - Compact & Sophisticated
+       PREMIUM HEADER - Refined & Sophisticated
     ============================================ */
     .tutor-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0.5rem 0.75rem;
-        background: linear-gradient(135deg, rgba(139, 92, 246, 0.06), rgba(59, 130, 246, 0.04));
-        border-bottom: 1px solid rgba(139, 92, 246, 0.12);
+        padding: 0.6rem 0.9rem;
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(59, 130, 246, 0.05));
+        border-bottom: 1px solid rgba(139, 92, 246, 0.15);
         flex-shrink: 0;
     }
 
     .tutor-branding {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 0.6rem;
     }
 
     .tutor-logo {
         position: relative;
-        width: 26px;
-        height: 26px;
+        width: 30px;
+        height: 30px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -242,132 +244,132 @@ const base = import.meta.env.BASE_URL;
 
     .logo-glow {
         position: absolute;
-        inset: -3px;
+        inset: -4px;
         background: linear-gradient(135deg, #8b5cf6, #3b82f6);
-        border-radius: 8px;
-        opacity: 0.25;
-        filter: blur(6px);
+        border-radius: 10px;
+        opacity: 0.3;
+        filter: blur(8px);
         animation: logoGlow 3s ease-in-out infinite;
     }
 
     @keyframes logoGlow {
-        0%, 100% { opacity: 0.25; transform: scale(1); }
-        50% { opacity: 0.4; transform: scale(1.08); }
+        0%, 100% { opacity: 0.3; transform: scale(1); }
+        50% { opacity: 0.5; transform: scale(1.1); }
     }
 
     .tutor-logo img {
         position: relative;
-        width: 18px;
-        height: 18px;
+        width: 22px;
+        height: 22px;
         z-index: 1;
-        filter: drop-shadow(0 1px 3px rgba(139, 92, 246, 0.25));
+        filter: drop-shadow(0 2px 4px rgba(139, 92, 246, 0.3));
     }
 
     .tutor-title h3 {
         margin: 0;
-        font-size: 0.78rem;
+        font-size: 0.88rem;
         font-weight: 700;
         font-family: 'Sora', sans-serif;
         color: #f8fafc;
-        letter-spacing: -0.02em;
+        letter-spacing: -0.025em;
     }
 
     .tutor-status {
         display: flex;
         align-items: center;
-        gap: 0.25rem;
-        font-size: 0.55rem;
+        gap: 0.3rem;
+        font-size: 0.62rem;
         color: #94a3b8;
     }
 
     .status-dot {
-        width: 5px;
-        height: 5px;
+        width: 6px;
+        height: 6px;
         background: #22c55e;
         border-radius: 50%;
         animation: statusPulse 2s infinite;
-        box-shadow: 0 0 6px rgba(34, 197, 94, 0.4);
+        box-shadow: 0 0 8px rgba(34, 197, 94, 0.5);
     }
 
     @keyframes statusPulse {
-        0%, 100% { opacity: 1; box-shadow: 0 0 6px rgba(34, 197, 94, 0.4); }
-        50% { opacity: 0.7; box-shadow: 0 0 10px rgba(34, 197, 94, 0.7); }
+        0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(34, 197, 94, 0.5); }
+        50% { opacity: 0.7; box-shadow: 0 0 12px rgba(34, 197, 94, 0.8); }
     }
 
     .tutor-close {
-        width: 24px;
-        height: 24px;
-        border-radius: 6px;
-        border: 1px solid rgba(148, 163, 184, 0.12);
-        background: rgba(30, 41, 59, 0.35);
+        width: 28px;
+        height: 28px;
+        border-radius: 7px;
+        border: 1px solid rgba(148, 163, 184, 0.15);
+        background: rgba(30, 41, 59, 0.4);
         color: #94a3b8;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
         transition: all 0.25s ease;
-        font-size: 0.65rem;
+        font-size: 0.72rem;
     }
 
     .tutor-close:hover {
-        background: rgba(239, 68, 68, 0.15);
-        border-color: rgba(239, 68, 68, 0.3);
+        background: rgba(239, 68, 68, 0.18);
+        border-color: rgba(239, 68, 68, 0.35);
         color: #f87171;
         transform: rotate(90deg);
     }
 
     /* ============================================
-       CONTEXT BANNER - Compact & Elegant
+       CONTEXT BANNER - Refined & Elegant
     ============================================ */
     .tutor-context {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
-        padding: 0.4rem 0.75rem;
-        background: linear-gradient(90deg, rgba(6, 182, 212, 0.06), transparent);
-        border-bottom: 1px solid rgba(6, 182, 212, 0.08);
+        gap: 0.6rem;
+        padding: 0.55rem 0.9rem;
+        background: linear-gradient(90deg, rgba(6, 182, 212, 0.08), transparent);
+        border-bottom: 1px solid rgba(6, 182, 212, 0.1);
         flex-shrink: 0;
     }
 
     .context-badge {
-        width: 22px;
-        height: 22px;
-        background: linear-gradient(135deg, rgba(6, 182, 212, 0.18), rgba(6, 182, 212, 0.04));
-        border: 1px solid rgba(6, 182, 212, 0.2);
-        border-radius: 6px;
+        width: 26px;
+        height: 26px;
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(6, 182, 212, 0.05));
+        border: 1px solid rgba(6, 182, 212, 0.25);
+        border-radius: 7px;
         display: flex;
         align-items: center;
         justify-content: center;
         color: #22d3ee;
-        font-size: 0.6rem;
+        font-size: 0.68rem;
     }
 
     .context-info {
         flex: 1;
         display: flex;
         flex-direction: column;
-        gap: 0.1rem;
+        gap: 0.15rem;
     }
 
     .context-label {
-        font-size: 0.5rem;
+        font-size: 0.55rem;
         color: #64748b;
         text-transform: uppercase;
-        letter-spacing: 0.06em;
+        letter-spacing: 0.07em;
         font-weight: 500;
     }
 
     .context-subject {
-        font-size: 0.68rem;
+        font-size: 0.75rem;
         font-weight: 600;
         color: #f1f5f9;
         font-family: 'Space Grotesk', sans-serif;
-        letter-spacing: -0.01em;
+        letter-spacing: -0.015em;
     }
 
     .context-indicator {
         color: #22c55e;
-        font-size: 0.35rem;
+        font-size: 0.4rem;
         animation: contextPulse 2s infinite;
     }
 
@@ -377,40 +379,40 @@ const base = import.meta.env.BASE_URL;
     }
 
     /* ============================================
-       BODY / CHAT AREA - Compact
+       BODY / CHAT AREA - Premium
     ============================================ */
     .tutor-body {
         flex: 1;
         overflow-y: auto;
-        padding: 0.6rem 0.75rem;
+        padding: 0.75rem 0.9rem;
         scrollbar-width: thin;
-        scrollbar-color: rgba(139, 92, 246, 0.2) transparent;
+        scrollbar-color: rgba(139, 92, 246, 0.25) transparent;
     }
 
     .tutor-body::-webkit-scrollbar {
-        width: 5px;
+        width: 6px;
     }
 
     .tutor-body::-webkit-scrollbar-thumb {
-        background: rgba(139, 92, 246, 0.2);
+        background: linear-gradient(180deg, rgba(139, 92, 246, 0.3), rgba(59, 130, 246, 0.2));
         border-radius: 3px;
     }
 
-    /* Premium Welcome Message - Compact */
+    /* Premium Welcome Message - Refined */
     .tutor-welcome {
-        padding: 0.35rem;
+        padding: 0.5rem;
     }
 
     .welcome-hero {
         text-align: center;
-        margin-bottom: 0.85rem;
+        margin-bottom: 1rem;
     }
 
     .welcome-avatar {
         position: relative;
-        width: 42px;
-        height: 42px;
-        margin: 0 auto 0.6rem;
+        width: 50px;
+        height: 50px;
+        margin: 0 auto 0.75rem;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -418,8 +420,8 @@ const base = import.meta.env.BASE_URL;
 
     .avatar-ring {
         position: absolute;
-        inset: -2px;
-        border: 1.5px solid transparent;
+        inset: -3px;
+        border: 2px solid transparent;
         border-radius: 50%;
         background: linear-gradient(135deg, #8b5cf6, #3b82f6) border-box;
         -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
@@ -435,22 +437,22 @@ const base = import.meta.env.BASE_URL;
     }
 
     .welcome-avatar img {
-        width: 24px;
-        height: 24px;
-        filter: drop-shadow(0 2px 8px rgba(139, 92, 246, 0.25));
+        width: 28px;
+        height: 28px;
+        filter: drop-shadow(0 2px 10px rgba(139, 92, 246, 0.3));
     }
 
     .welcome-hero h4 {
         font-family: 'Sora', sans-serif;
-        font-size: 0.82rem;
+        font-size: 0.95rem;
         font-weight: 700;
         color: #f8fafc;
-        margin: 0 0 0.15rem 0;
-        letter-spacing: -0.02em;
+        margin: 0 0 0.2rem 0;
+        letter-spacing: -0.025em;
     }
 
     .welcome-subtitle {
-        font-size: 0.6rem;
+        font-size: 0.68rem;
         color: #a78bfa;
         font-weight: 500;
         margin: 0;
@@ -459,34 +461,35 @@ const base = import.meta.env.BASE_URL;
     .welcome-capabilities {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 0.35rem;
-        margin-bottom: 0.85rem;
+        gap: 0.45rem;
+        margin-bottom: 1rem;
     }
 
     .capability-card {
         display: flex;
         align-items: center;
-        gap: 0.35rem;
-        padding: 0.4rem 0.5rem;
-        background: rgba(30, 41, 59, 0.35);
-        border: 1px solid rgba(139, 92, 246, 0.1);
-        border-radius: 7px;
+        gap: 0.45rem;
+        padding: 0.5rem 0.6rem;
+        background: rgba(30, 41, 59, 0.4);
+        border: 1px solid rgba(139, 92, 246, 0.12);
+        border-radius: 8px;
         transition: all 0.25s ease;
     }
 
     .capability-card:hover {
-        background: rgba(139, 92, 246, 0.08);
-        border-color: rgba(139, 92, 246, 0.2);
-        transform: translateY(-1px);
+        background: rgba(139, 92, 246, 0.1);
+        border-color: rgba(139, 92, 246, 0.25);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(139, 92, 246, 0.12);
     }
 
     .capability-card i {
-        font-size: 0.65rem;
+        font-size: 0.75rem;
         color: #a78bfa;
     }
 
     .capability-card span {
-        font-size: 0.58rem;
+        font-size: 0.68rem;
         color: #e2e8f0;
         font-weight: 500;
     }
@@ -495,42 +498,42 @@ const base = import.meta.env.BASE_URL;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 0.35rem;
-        font-size: 0.58rem;
+        gap: 0.4rem;
+        font-size: 0.68rem;
         color: #64748b;
-        padding: 0.5rem;
-        background: rgba(100, 116, 139, 0.06);
-        border-radius: 6px;
+        padding: 0.6rem;
+        background: rgba(100, 116, 139, 0.08);
+        border-radius: 8px;
         margin: 0;
     }
 
     .welcome-hint i {
         color: #a78bfa;
         animation: pointBounce 1.5s ease-in-out infinite;
-        font-size: 0.6rem;
+        font-size: 0.72rem;
     }
 
     @keyframes pointBounce {
         0%, 100% { transform: translateX(0); }
-        50% { transform: translateX(3px); }
+        50% { transform: translateX(4px); }
     }
 
-    /* Chat Messages */
+    /* Chat Messages - Premium */
     .tutor-messages {
         display: flex;
         flex-direction: column;
-        gap: 0.75rem;
+        gap: 0.85rem;
     }
 
     .message {
         display: flex;
-        gap: 0.4rem;
+        gap: 0.5rem;
         animation: messageSlide 0.35s ease;
         max-width: 90%;
     }
 
     @keyframes messageSlide {
-        from { opacity: 0; transform: translateY(8px); }
+        from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }
     }
 
@@ -548,9 +551,9 @@ const base = import.meta.env.BASE_URL;
     }
 
     .message-avatar {
-        width: 22px;
-        height: 22px;
-        border-radius: 6px;
+        width: 26px;
+        height: 26px;
+        border-radius: 7px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -560,99 +563,99 @@ const base = import.meta.env.BASE_URL;
 
     .message.assistant .message-avatar {
         background: linear-gradient(135deg, #8b5cf6, #6366f1);
-        box-shadow: 0 1px 4px rgba(139, 92, 246, 0.25);
+        box-shadow: 0 2px 6px rgba(139, 92, 246, 0.3);
     }
 
     .message.assistant .message-avatar img {
-        width: 12px;
-        height: 12px;
+        width: 14px;
+        height: 14px;
     }
 
     .message.user .message-avatar {
         background: linear-gradient(135deg, #06b6d4, #0891b2);
-        box-shadow: 0 1px 4px rgba(6, 182, 212, 0.25);
+        box-shadow: 0 2px 6px rgba(6, 182, 212, 0.3);
     }
 
     .message.user .message-avatar i {
         color: white;
-        font-size: 0.55rem;
+        font-size: 0.62rem;
     }
 
     .message-bubble {
         max-width: 100%;
-        padding: 0.35rem 0.55rem;
-        border-radius: 8px;
-        font-size: 0.58rem;
-        line-height: 1.45;
+        padding: 0.5rem 0.7rem;
+        border-radius: 10px;
+        font-size: 0.72rem;
+        line-height: 1.55;
         font-family: 'Inter', system-ui, sans-serif;
         letter-spacing: -0.01em;
     }
 
     .message.assistant .message-bubble {
-        background: rgba(30, 41, 59, 0.5);
-        border: 1px solid rgba(139, 92, 246, 0.12);
+        background: rgba(30, 41, 59, 0.55);
+        border: 1px solid rgba(139, 92, 246, 0.15);
         color: #e2e8f0;
-        border-radius: 10px 10px 10px 3px;
+        border-radius: 12px 12px 12px 4px;
     }
 
     .message.user .message-bubble {
-        background: linear-gradient(135deg, rgba(6, 182, 212, 0.18), rgba(6, 182, 212, 0.06));
-        border: 1px solid rgba(6, 182, 212, 0.18);
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(6, 182, 212, 0.08));
+        border: 1px solid rgba(6, 182, 212, 0.2);
         color: #f1f5f9;
-        border-radius: 10px 10px 3px 10px;
+        border-radius: 12px 12px 4px 12px;
     }
 
     .message-bubble pre {
-        background: rgba(0, 0, 0, 0.45);
-        padding: 0.6rem 0.75rem;
-        border-radius: 6px;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 0.7rem 0.85rem;
+        border-radius: 8px;
         overflow-x: auto;
-        margin: 0.5rem 0;
-        border: 1px solid rgba(139, 92, 246, 0.08);
+        margin: 0.6rem 0;
+        border: 1px solid rgba(139, 92, 246, 0.1);
     }
 
     .message-bubble code {
         font-family: 'JetBrains Mono', 'Fira Code', monospace;
-        font-size: 0.52rem;
+        font-size: 0.65rem;
     }
 
     .message-bubble h3, .message-bubble h4 {
         color: #c4b5fd;
-        margin: 0.4rem 0 0.2rem;
-        font-size: 0.62rem;
+        margin: 0.5rem 0 0.25rem;
+        font-size: 0.75rem;
         font-family: 'Space Grotesk', sans-serif;
         font-weight: 600;
         letter-spacing: -0.02em;
     }
 
     .message-bubble ul, .message-bubble ol {
-        margin: 0.35rem 0;
-        padding-left: 1rem;
+        margin: 0.4rem 0;
+        padding-left: 1.1rem;
     }
 
     .message-bubble li {
-        margin-bottom: 0.2rem;
+        margin-bottom: 0.25rem;
     }
 
     /* Loading */
     .tutor-loading {
         display: flex;
         align-items: center;
-        gap: 0.6rem;
-        padding: 0.6rem 0.75rem;
-        background: rgba(30, 41, 59, 0.35);
-        border-radius: 8px;
-        border: 1px solid rgba(139, 92, 246, 0.08);
+        gap: 0.7rem;
+        padding: 0.7rem 0.85rem;
+        background: rgba(30, 41, 59, 0.4);
+        border-radius: 10px;
+        border: 1px solid rgba(139, 92, 246, 0.1);
     }
 
     .loading-dots {
         display: flex;
-        gap: 4px;
+        gap: 5px;
     }
 
     .loading-dots span {
-        width: 5px;
-        height: 5px;
+        width: 6px;
+        height: 6px;
         background: linear-gradient(135deg, #a78bfa, #8b5cf6);
         border-radius: 50%;
         animation: loadingBounce 1.4s infinite ease-in-out;
@@ -668,54 +671,54 @@ const base = import.meta.env.BASE_URL;
 
     .loading-text {
         color: #94a3b8;
-        font-size: 0.65rem;
+        font-size: 0.72rem;
         font-weight: 500;
         letter-spacing: -0.01em;
     }
 
     /* ============================================
-       QUICK ACTIONS - Compact
+       QUICK ACTIONS - Premium
     ============================================ */
     .tutor-quick-actions {
-        padding: 0.5rem 0.75rem;
-        border-top: 1px solid rgba(148, 163, 184, 0.06);
+        padding: 0.6rem 0.9rem;
+        border-top: 1px solid rgba(148, 163, 184, 0.08);
         flex-shrink: 0;
     }
 
     .actions-label {
-        font-size: 0.5rem;
+        font-size: 0.55rem;
         color: #64748b;
         text-transform: uppercase;
-        letter-spacing: 0.06em;
-        margin-bottom: 0.35rem;
+        letter-spacing: 0.07em;
+        margin-bottom: 0.45rem;
         font-weight: 500;
     }
 
     .actions-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 0.3rem;
+        gap: 0.4rem;
     }
 
     .quick-action {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 0.2rem;
-        padding: 0.4rem 0.3rem;
-        background: rgba(30, 41, 59, 0.35);
-        border: 1px solid rgba(139, 92, 246, 0.1);
-        border-radius: 6px;
+        gap: 0.25rem;
+        padding: 0.5rem 0.4rem;
+        background: rgba(30, 41, 59, 0.4);
+        border: 1px solid rgba(139, 92, 246, 0.12);
+        border-radius: 8px;
         color: #c4b5fd;
         cursor: pointer;
         transition: all 0.25s ease;
     }
 
     .quick-action:hover:not(:disabled) {
-        background: rgba(139, 92, 246, 0.12);
-        border-color: rgba(139, 92, 246, 0.25);
-        transform: translateY(-1px);
-        box-shadow: 0 2px 8px rgba(139, 92, 246, 0.12);
+        background: rgba(139, 92, 246, 0.15);
+        border-color: rgba(139, 92, 246, 0.3);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15);
     }
 
     .quick-action:disabled {
@@ -724,11 +727,11 @@ const base = import.meta.env.BASE_URL;
     }
 
     .quick-action i {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
     }
 
     .quick-action span {
-        font-size: 0.5rem;
+        font-size: 0.58rem;
         font-weight: 600;
     }
 
@@ -1089,18 +1092,93 @@ const base = import.meta.env.BASE_URL;
     }
 
     /* ============================================
-       RESPONSIVE
+       RESPONSIVE - Coordinated with SubjectDrawer
+       Breakpoints: 1400px, 1200px, 900px, 600px
     ============================================ */
+    @media (max-width: 1400px) {
+        .ai-tutor-panel {
+            width: 360px;
+        }
+
+        .tutor-header {
+            padding: 0.5rem 0.75rem;
+        }
+
+        .tutor-body {
+            padding: 0.65rem 0.8rem;
+        }
+
+        .capability-card {
+            padding: 0.45rem 0.55rem;
+        }
+    }
+
     @media (max-width: 1200px) {
         .ai-tutor-panel {
-            width: 350px;
+            width: 340px;
+        }
+
+        .tutor-logo {
+            width: 26px;
+            height: 26px;
+        }
+
+        .tutor-logo img {
+            width: 18px;
+            height: 18px;
+        }
+
+        .tutor-title h3 {
+            font-size: 0.82rem;
+        }
+
+        .welcome-avatar {
+            width: 44px;
+            height: 44px;
+        }
+
+        .welcome-avatar img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .welcome-hero h4 {
+            font-size: 0.88rem;
+        }
+
+        .capability-card span {
+            font-size: 0.62rem;
+        }
+
+        .message-bubble {
+            font-size: 0.68rem;
         }
     }
 
     @media (max-width: 900px) {
         .ai-tutor-panel {
             width: 100%;
-            max-width: 400px;
+            max-width: 380px;
+            right: 0 !important;
+            border-left: none;
+            border-top: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .tutor-header {
+            padding: 0.55rem 0.85rem;
+        }
+
+        .tutor-body {
+            padding: 0.7rem 0.85rem;
+        }
+
+        .welcome-capabilities {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.4rem;
+        }
+
+        .actions-grid {
+            gap: 0.35rem;
         }
     }
 
@@ -1108,14 +1186,231 @@ const base = import.meta.env.BASE_URL;
         .ai-tutor-panel {
             width: 100%;
             max-width: 100%;
+            top: 60px; /* Smaller header on mobile */
+            height: calc(100vh - 60px);
         }
 
-        .actions-grid {
-            grid-template-columns: repeat(2, 1fr);
+        .tutor-header {
+            padding: 0.5rem 0.75rem;
+        }
+
+        .tutor-branding {
+            gap: 0.5rem;
+        }
+
+        .tutor-logo {
+            width: 24px;
+            height: 24px;
+        }
+
+        .tutor-logo img {
+            width: 16px;
+            height: 16px;
+        }
+
+        .tutor-title h3 {
+            font-size: 0.78rem;
+        }
+
+        .tutor-status {
+            font-size: 0.55rem;
+        }
+
+        .tutor-context {
+            padding: 0.5rem 0.75rem;
+        }
+
+        .context-badge {
+            width: 24px;
+            height: 24px;
+            font-size: 0.62rem;
+        }
+
+        .context-subject {
+            font-size: 0.7rem;
+        }
+
+        .tutor-body {
+            padding: 0.6rem 0.75rem;
+        }
+
+        .welcome-avatar {
+            width: 40px;
+            height: 40px;
+        }
+
+        .welcome-avatar img {
+            width: 22px;
+            height: 22px;
+        }
+
+        .welcome-hero h4 {
+            font-size: 0.85rem;
+        }
+
+        .welcome-subtitle {
+            font-size: 0.62rem;
         }
 
         .welcome-capabilities {
             grid-template-columns: 1fr;
+            gap: 0.35rem;
+        }
+
+        .capability-card {
+            padding: 0.4rem 0.5rem;
+        }
+
+        .capability-card i {
+            font-size: 0.68rem;
+        }
+
+        .capability-card span {
+            font-size: 0.6rem;
+        }
+
+        .welcome-hint {
+            font-size: 0.62rem;
+            padding: 0.5rem;
+        }
+
+        .message-avatar {
+            width: 24px;
+            height: 24px;
+        }
+
+        .message-bubble {
+            font-size: 0.65rem;
+            padding: 0.45rem 0.6rem;
+        }
+
+        .message-bubble code {
+            font-size: 0.58rem;
+        }
+
+        .tutor-quick-actions {
+            padding: 0.5rem 0.75rem;
+        }
+
+        .actions-label {
+            font-size: 0.5rem;
+        }
+
+        .actions-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.3rem;
+        }
+
+        .quick-action {
+            padding: 0.4rem 0.35rem;
+            border-radius: 6px;
+        }
+
+        .quick-action i {
+            font-size: 0.72rem;
+        }
+
+        .quick-action span {
+            font-size: 0.52rem;
+        }
+
+        .tutor-input-area {
+            padding: 0.45rem 0.65rem;
+        }
+
+        .api-key-card {
+            padding: 0.4rem;
+        }
+
+        .api-key-icon {
+            width: 26px;
+            height: 26px;
+            font-size: 0.62rem;
+        }
+
+        .api-key-content h5 {
+            font-size: 0.65rem;
+        }
+
+        .api-key-content p {
+            font-size: 0.52rem;
+        }
+
+        .api-key-input {
+            font-size: 0.6rem;
+            padding: 0.4rem 0.5rem;
+        }
+
+        .api-key-save-btn {
+            width: 28px;
+            height: 28px;
+            font-size: 0.58rem;
+        }
+
+        .api-key-link {
+            font-size: 0.52rem;
+        }
+
+        .chat-input-wrapper textarea {
+            font-size: 0.62rem;
+            padding: 0.4rem 0.55rem;
+            min-height: 30px;
+        }
+
+        .send-btn {
+            width: 30px;
+            height: 30px;
+            font-size: 0.62rem;
+        }
+
+        .model-badge {
+            padding: 0.2rem 0.35rem;
+        }
+
+        .model-badge img {
+            width: 8px;
+            height: 8px;
+        }
+
+        .model-badge span {
+            font-size: 0.48rem;
+        }
+
+        .settings-btn {
+            width: 20px;
+            height: 20px;
+            font-size: 0.52rem;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .tutor-header {
+            padding: 0.45rem 0.6rem;
+        }
+
+        .tutor-logo {
+            width: 22px;
+            height: 22px;
+        }
+
+        .tutor-title h3 {
+            font-size: 0.72rem;
+        }
+
+        .welcome-hero h4 {
+            font-size: 0.78rem;
+        }
+
+        .capability-card span {
+            font-size: 0.55rem;
+        }
+
+        .message-bubble {
+            font-size: 0.6rem;
+        }
+
+        .quick-action span {
+            font-size: 0.48rem;
         }
     }
 </style>
