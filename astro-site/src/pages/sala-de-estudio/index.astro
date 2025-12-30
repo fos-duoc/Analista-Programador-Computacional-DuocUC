@@ -7,8 +7,9 @@
  */
 import Layout from '../../layouts/Layout.astro';
 import SubjectDrawer from '../../components/SubjectDrawer.astro';
+import AITutorSidePanel from '../../components/AITutorSidePanel.astro';
 import { bimestresYear1, bimestresYear2, bimestresYear3, bimestresYear4 } from '../../data/bimestres';
-import { nombreCortoToId } from '../../data/asignaturas';
+import { nombreCortoToId, asignaturas } from '../../data/asignaturas';
 
 const base = import.meta.env.BASE_URL;
 
@@ -553,6 +554,9 @@ const subjectLinks: Record<string, string> = {
 
         <!-- Subject Drawer Component -->
         <SubjectDrawer />
+
+        <!-- AI Tutor Side Panel (Coursera Coach Style) -->
+        <AITutorSidePanel />
     </main>
 </Layout>
 
@@ -1694,7 +1698,7 @@ const subjectLinks: Record<string, string> = {
     }
 </style>
 
-<script>
+<script define:vars={{ asignaturasData: asignaturas }}>
     // Inicializar event listeners para subject chips
     function initSubjectChips() {
         const chips = document.querySelectorAll('button.subject-chip.clickable');
@@ -1705,6 +1709,12 @@ const subjectLinks: Record<string, string> = {
                 const subjectId = chip.getAttribute('data-subject-id');
                 if (subjectId && typeof window.openSubjectDrawer === 'function') {
                     window.openSubjectDrawer(subjectId);
+
+                    // Show AI Tutor side panel with subject context
+                    const asignatura = asignaturasData[subjectId];
+                    if (asignatura && typeof window.showAITutor === 'function') {
+                        window.showAITutor(asignatura.nombre, asignatura.codigo);
+                    }
                 }
             });
         });
