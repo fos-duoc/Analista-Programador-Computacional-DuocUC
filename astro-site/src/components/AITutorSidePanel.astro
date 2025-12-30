@@ -623,20 +623,187 @@ const base = import.meta.env.BASE_URL;
         border-radius: 12px 12px 4px 12px;
     }
 
+    /* ============================================
+       ENHANCED MARKDOWN RENDERING STYLES
+       Premium typography for AI responses
+    ============================================ */
+
+    /* Code blocks with language label */
+    .message-bubble .code-block {
+        position: relative;
+        margin: 0.6rem 0;
+    }
+
+    .message-bubble .code-block .code-lang {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0.2rem 0.5rem;
+        background: rgba(139, 92, 246, 0.2);
+        color: #a78bfa;
+        font-size: 0.55rem;
+        font-family: 'JetBrains Mono', monospace;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border-radius: 0 8px 0 6px;
+    }
+
     .message-bubble pre {
         background: rgba(0, 0, 0, 0.5);
         padding: 0.7rem 0.85rem;
         border-radius: 8px;
         overflow-x: auto;
-        margin: 0.6rem 0;
+        margin: 0;
         border: 1px solid rgba(139, 92, 246, 0.1);
     }
 
     .message-bubble code {
         font-family: 'JetBrains Mono', 'Fira Code', monospace;
+        font-size: 0.62rem;
+    }
+
+    /* Inline code */
+    .message-bubble .inline-code {
+        background: rgba(139, 92, 246, 0.15);
+        color: #c4b5fd;
+        padding: 0.12rem 0.35rem;
+        border-radius: 4px;
+        font-size: 0.62rem;
+        border: 1px solid rgba(139, 92, 246, 0.1);
+    }
+
+    /* Headers - properly sized hierarchy */
+    .message-bubble .md-h3 {
+        color: #c4b5fd;
+        margin: 0.7rem 0 0.35rem;
+        font-size: 0.82rem;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        border-bottom: 1px solid rgba(139, 92, 246, 0.15);
+        padding-bottom: 0.25rem;
+    }
+
+    .message-bubble .md-h4 {
+        color: #a78bfa;
+        margin: 0.55rem 0 0.25rem;
+        font-size: 0.75rem;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        letter-spacing: -0.015em;
+    }
+
+    .message-bubble .md-h5 {
+        color: #94a3b8;
+        margin: 0.45rem 0 0.2rem;
+        font-size: 0.7rem;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+    }
+
+    /* Unordered lists */
+    .message-bubble .md-ul {
+        margin: 0.4rem 0;
+        padding-left: 0;
+        list-style: none;
+    }
+
+    .message-bubble .md-ul li.bullet {
+        position: relative;
+        padding-left: 1rem;
+        margin-bottom: 0.3rem;
+        line-height: 1.5;
+    }
+
+    .message-bubble .md-ul li.bullet::before {
+        content: '›';
+        position: absolute;
+        left: 0;
+        color: #06b6d4;
+        font-weight: 700;
+        font-size: 0.75rem;
+    }
+
+    /* Ordered lists */
+    .message-bubble .md-ol {
+        margin: 0.4rem 0;
+        padding-left: 0;
+        list-style: none;
+        counter-reset: item;
+    }
+
+    .message-bubble .md-ol li.numbered {
+        position: relative;
+        padding-left: 1.5rem;
+        margin-bottom: 0.35rem;
+        line-height: 1.5;
+        counter-increment: item;
+    }
+
+    .message-bubble .md-ol li.numbered::before {
+        content: counter(item) ".";
+        position: absolute;
+        left: 0;
+        color: #22d3ee;
+        font-weight: 700;
+        font-family: 'JetBrains Mono', monospace;
         font-size: 0.65rem;
     }
 
+    /* Blockquotes */
+    .message-bubble .md-quote {
+        margin: 0.5rem 0;
+        padding: 0.45rem 0.65rem;
+        background: rgba(6, 182, 212, 0.08);
+        border-left: 3px solid rgba(6, 182, 212, 0.5);
+        border-radius: 0 6px 6px 0;
+        color: #94a3b8;
+        font-style: italic;
+    }
+
+    /* Horizontal rule */
+    .message-bubble .md-hr {
+        margin: 0.6rem 0;
+        border: none;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.3), transparent);
+    }
+
+    /* Links */
+    .message-bubble .md-link {
+        color: #22d3ee;
+        text-decoration: underline;
+        text-decoration-color: rgba(34, 211, 238, 0.3);
+        text-underline-offset: 2px;
+        transition: all 0.2s ease;
+    }
+
+    .message-bubble .md-link:hover {
+        color: #67e8f9;
+        text-decoration-color: rgba(34, 211, 238, 0.6);
+    }
+
+    /* Strong/Bold */
+    .message-bubble strong {
+        color: #f1f5f9;
+        font-weight: 700;
+    }
+
+    /* Emphasis/Italic */
+    .message-bubble em {
+        color: #c4b5fd;
+        font-style: italic;
+    }
+
+    /* Strikethrough */
+    .message-bubble del {
+        color: #64748b;
+        text-decoration: line-through;
+    }
+
+    /* Legacy styles for backwards compatibility */
     .message-bubble h3, .message-bubble h4 {
         color: #c4b5fd;
         margin: 0.5rem 0 0.25rem;
@@ -1058,6 +1225,80 @@ const base = import.meta.env.BASE_URL;
         background: linear-gradient(135deg, rgba(6, 182, 212, 0.12), rgba(6, 182, 212, 0.05));
         border-color: rgba(6, 182, 212, 0.15);
         color: #0f172a;
+    }
+
+    /* Light mode Markdown styles */
+    :global([data-theme="light"]) .message-bubble .code-block .code-lang {
+        background: rgba(139, 92, 246, 0.15);
+        color: #7c3aed;
+    }
+
+    :global([data-theme="light"]) .message-bubble pre {
+        background: rgba(0, 0, 0, 0.04);
+        border-color: rgba(0, 0, 0, 0.08);
+    }
+
+    :global([data-theme="light"]) .message-bubble code {
+        color: #1e293b;
+    }
+
+    :global([data-theme="light"]) .message-bubble .inline-code {
+        background: rgba(139, 92, 246, 0.1);
+        color: #7c3aed;
+        border-color: rgba(139, 92, 246, 0.15);
+    }
+
+    :global([data-theme="light"]) .message-bubble .md-h3 {
+        color: #6d28d9;
+        border-bottom-color: rgba(139, 92, 246, 0.12);
+    }
+
+    :global([data-theme="light"]) .message-bubble .md-h4 {
+        color: #7c3aed;
+    }
+
+    :global([data-theme="light"]) .message-bubble .md-h5 {
+        color: #475569;
+    }
+
+    :global([data-theme="light"]) .message-bubble .md-ul li.bullet::before {
+        color: #0891b2;
+    }
+
+    :global([data-theme="light"]) .message-bubble .md-ol li.numbered::before {
+        color: #0891b2;
+    }
+
+    :global([data-theme="light"]) .message-bubble .md-quote {
+        background: rgba(6, 182, 212, 0.06);
+        border-left-color: rgba(6, 182, 212, 0.4);
+        color: #475569;
+    }
+
+    :global([data-theme="light"]) .message-bubble .md-hr {
+        background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.2), transparent);
+    }
+
+    :global([data-theme="light"]) .message-bubble .md-link {
+        color: #0891b2;
+        text-decoration-color: rgba(8, 145, 178, 0.3);
+    }
+
+    :global([data-theme="light"]) .message-bubble .md-link:hover {
+        color: #0e7490;
+        text-decoration-color: rgba(14, 116, 144, 0.5);
+    }
+
+    :global([data-theme="light"]) .message-bubble strong {
+        color: #0f172a;
+    }
+
+    :global([data-theme="light"]) .message-bubble em {
+        color: #7c3aed;
+    }
+
+    :global([data-theme="light"]) .message-bubble del {
+        color: #94a3b8;
     }
 
     /* Light mode gradient scrim */
@@ -1754,17 +1995,60 @@ Mantén respuestas concisas pero completas.`;
         const messageDiv = document.createElement('div');
         messageDiv.className = `message ${role}`;
 
-        // Simple markdown to HTML
-        let formattedContent = content
-            .replace(/```(\w+)?\n([\s\S]*?)```/g, '<pre><code class="language-$1">$2</code></pre>')
-            .replace(/`([^`]+)`/g, '<code>$1</code>')
-            .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-            .replace(/\*([^*]+)\*/g, '<em>$1</em>')
-            .replace(/^### (.+)$/gm, '<h4>$1</h4>')
-            .replace(/^## (.+)$/gm, '<h3>$1</h3>')
-            .replace(/^- (.+)$/gm, '<li>$1</li>')
-            .replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>')
-            .replace(/\n/g, '<br>');
+        // Enhanced Markdown to HTML conversion
+        let formattedContent = content;
+
+        // 1. Code blocks (must be first to preserve content)
+        formattedContent = formattedContent.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
+            const langClass = lang ? ` class="language-${lang}"` : '';
+            const langLabel = lang ? `<span class="code-lang">${lang}</span>` : '';
+            return `<div class="code-block">${langLabel}<pre><code${langClass}>${escapeHtml(code.trim())}</code></pre></div>`;
+        });
+
+        // 2. Inline code (before other formatting)
+        formattedContent = formattedContent.replace(/`([^`]+)`/g, '<code class="inline-code">$1</code>');
+
+        // 3. Headers (must check for # at start of line)
+        formattedContent = formattedContent.replace(/^#### (.+)$/gm, '<h5 class="md-h5">$1</h5>');
+        formattedContent = formattedContent.replace(/^### (.+)$/gm, '<h4 class="md-h4">$1</h4>');
+        formattedContent = formattedContent.replace(/^## (.+)$/gm, '<h3 class="md-h3">$1</h3>');
+        formattedContent = formattedContent.replace(/^# (.+)$/gm, '<h3 class="md-h3">$1</h3>');
+
+        // 4. Bold and italic (order matters)
+        formattedContent = formattedContent.replace(/\*\*\*([^*]+)\*\*\*/g, '<strong><em>$1</em></strong>');
+        formattedContent = formattedContent.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+        formattedContent = formattedContent.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+        formattedContent = formattedContent.replace(/__([^_]+)__/g, '<strong>$1</strong>');
+        formattedContent = formattedContent.replace(/_([^_]+)_/g, '<em>$1</em>');
+
+        // 5. Strikethrough
+        formattedContent = formattedContent.replace(/~~([^~]+)~~/g, '<del>$1</del>');
+
+        // 6. Numbered lists (1. 2. 3. etc.)
+        formattedContent = formattedContent.replace(/^(\d+)\. (.+)$/gm, '<li class="numbered" data-num="$1">$2</li>');
+
+        // 7. Bullet lists (-, *, +)
+        formattedContent = formattedContent.replace(/^[\-\*\+] (.+)$/gm, '<li class="bullet">$1</li>');
+
+        // 8. Wrap consecutive list items
+        formattedContent = formattedContent.replace(/(<li class="numbered"[^>]*>.*?<\/li>\n?)+/g, '<ol class="md-ol">$&</ol>');
+        formattedContent = formattedContent.replace(/(<li class="bullet">.*?<\/li>\n?)+/g, '<ul class="md-ul">$&</ul>');
+
+        // 9. Blockquotes
+        formattedContent = formattedContent.replace(/^> (.+)$/gm, '<blockquote class="md-quote">$1</blockquote>');
+
+        // 10. Horizontal rule
+        formattedContent = formattedContent.replace(/^---+$/gm, '<hr class="md-hr">');
+
+        // 11. Links
+        formattedContent = formattedContent.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener" class="md-link">$1</a>');
+
+        // 12. Line breaks (convert remaining newlines, but not inside pre/code)
+        formattedContent = formattedContent.replace(/\n(?![^<]*<\/pre>)/g, '<br>');
+
+        // Clean up extra br tags around block elements
+        formattedContent = formattedContent.replace(/<br>\s*(<h[1-6]|<ul|<ol|<blockquote|<div|<hr)/g, '$1');
+        formattedContent = formattedContent.replace(/(<\/h[1-6]>|<\/ul>|<\/ol>|<\/blockquote>|<\/div>|<hr[^>]*>)\s*<br>/g, '$1');
 
         const avatarContent = role === 'assistant'
             ? '<img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg" alt="AI" />'
@@ -1777,6 +2061,13 @@ Mantén respuestas concisas pero completas.`;
 
         messagesContainer.appendChild(messageDiv);
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    // Helper function to escape HTML in code blocks
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
     }
 
     function showLoading(show) {
