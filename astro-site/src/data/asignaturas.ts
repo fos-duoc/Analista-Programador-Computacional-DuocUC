@@ -1523,77 +1523,104 @@ export const asignaturas: Record<string, Asignatura> = {
             'Implementar cifrado y manejo seguro de datos'
         ],
         competencias: [
-            'Fundamentos de ciberseguridad',
-            'OWASP Top 10',
-            'Desarrollo seguro (SSDLC)',
-            'Autenticación y autorización',
-            'Criptografía básica'
+            'Fundamentos de seguridad de la información (CIA triad)',
+            'Identificación y explotación ética de vulnerabilidades OWASP Top 10',
+            'Implementación de Secure Software Development Lifecycle (SSDLC)',
+            'Diseño de sistemas de autenticación y autorización seguros',
+            'Aplicación de criptografía para protección de datos',
+            'Análisis de amenazas y modelado de ataques',
+            'Configuración segura de infraestructura y aplicaciones',
+            'Respuesta a incidentes y análisis forense básico'
         ],
         experiencias: [
             {
                 numero: 1,
                 titulo: 'Fundamentos de Seguridad',
                 semanas: 'Semana 1-3',
-                descripcion: 'Principios de seguridad y amenazas comunes.',
+                descripcion: 'Principios de seguridad de la información, tipos de amenazas y análisis de riesgo.',
                 contenidos: [
                     'Triada CIA: Confidencialidad, Integridad, Disponibilidad',
-                    'Tipos de amenazas y atacantes',
-                    'Ingeniería social y phishing',
-                    'Malware: virus, ransomware, troyanos',
-                    'Seguridad en redes básica',
-                    'Introducción a OWASP'
+                    'Tipos de amenazas: internas, externas, APT',
+                    'Perfil de atacantes: script kiddies, hacktivistas, estados',
+                    'Ingeniería social: phishing, vishing, pretexting',
+                    'Malware: virus, ransomware, troyanos, rootkits, spyware',
+                    'Ataques de red: MitM, DDoS, ARP spoofing',
+                    'Seguridad física y controles de acceso',
+                    'Introducción a OWASP y estándares de seguridad',
+                    'Análisis de riesgo y threat modeling (STRIDE)',
+                    'Leyes y regulaciones: GDPR, PCI-DSS, ISO 27001'
                 ],
                 actividades: [
-                    'Análisis de casos de brechas de seguridad',
-                    'Identificación de amenazas en sistemas',
-                    'Laboratorio de phishing awareness'
+                    'Análisis de casos de brechas de seguridad famosas',
+                    'Threat modeling de aplicación web con STRIDE',
+                    'Laboratorio de phishing awareness y simulación',
+                    'Identificación de amenazas en sistema real',
+                    'Quiz de reconocimiento de ingeniería social',
+                    'Evaluación de cumplimiento normativo básico'
                 ]
             },
             {
                 numero: 2,
                 titulo: 'OWASP Top 10 y Vulnerabilidades Web',
                 semanas: 'Semana 4-5',
-                descripcion: 'Principales vulnerabilidades en aplicaciones web.',
+                descripcion: 'Principales vulnerabilidades en aplicaciones web según OWASP 2021.',
                 contenidos: [
-                    'A01: Broken Access Control',
-                    'A02: Cryptographic Failures',
-                    'A03: Injection (SQL, XSS, Command)',
-                    'A04: Insecure Design',
-                    'A05: Security Misconfiguration',
-                    'A07: Cross-Site Scripting (XSS)'
+                    'A01: Broken Access Control - IDOR, privilege escalation',
+                    'A02: Cryptographic Failures - weak encryption, exposed secrets',
+                    'A03: Injection - SQL, NoSQL, XSS, Command, LDAP',
+                    'A04: Insecure Design - threat modeling failures',
+                    'A05: Security Misconfiguration - defaults, verbose errors',
+                    'A06: Vulnerable and Outdated Components - SCA',
+                    'A07: Authentication Failures - brute force, session hijacking',
+                    'A08: Software and Data Integrity Failures - supply chain',
+                    'A09: Security Logging and Monitoring Failures',
+                    'A10: Server-Side Request Forgery (SSRF)'
                 ],
                 actividades: [
-                    'Laboratorio con OWASP WebGoat',
-                    'Identificación de vulnerabilidades',
-                    'Práctica de SQL Injection y XSS'
+                    'Laboratorio completo con OWASP WebGoat',
+                    'Explotación guiada de SQL Injection (SQLi)',
+                    'Explotación guiada de XSS reflected y stored',
+                    'Identificación de IDOR en aplicación de prueba',
+                    'Escaneo de vulnerabilidades con OWASP ZAP',
+                    'Documentación de hallazgos en formato CVE'
                 ]
             },
             {
                 numero: 3,
                 titulo: 'Desarrollo Seguro y Mitigación',
                 semanas: 'Semana 6-8',
-                descripcion: 'Prácticas de desarrollo seguro y remediación.',
+                descripcion: 'Prácticas de desarrollo seguro, remediación de vulnerabilidades y criptografía aplicada.',
                 contenidos: [
-                    'Secure SDLC (SSDLC)',
-                    'Validación de entrada y sanitización',
-                    'Autenticación: contraseñas, MFA, OAuth',
-                    'Autorización: RBAC, ABAC',
-                    'Cifrado: hashing, AES, TLS',
-                    'HTTPS y certificados SSL'
+                    'Secure SDLC: security requirements, code review, SAST/DAST',
+                    'Validación de entrada: whitelist, sanitización, encoding',
+                    'Output encoding para prevención de XSS',
+                    'Autenticación segura: bcrypt, Argon2, MFA',
+                    'Autorización: RBAC, ABAC, OAuth 2.0, OIDC',
+                    'Session management: tokens, cookies seguras, JWT',
+                    'Criptografía: hashing vs encryption, AES-256, RSA',
+                    'TLS/HTTPS: certificados, HSTS, cipher suites',
+                    'Secrets management: Vault, environment variables',
+                    'Security headers: CSP, X-Frame-Options, X-XSS-Protection'
                 ],
                 actividades: [
-                    'Implementación de autenticación segura',
-                    'Remediación de vulnerabilidades',
-                    'Proyecto: Aplicación segura'
+                    'Implementación de autenticación segura con bcrypt',
+                    'Remediación de vulnerabilidades en código existente',
+                    'Configuración de security headers en servidor web',
+                    'Implementación de HTTPS con Let\'s Encrypt',
+                    'Code review con checklist de seguridad OWASP',
+                    'Proyecto integrador: Aplicación web segura'
                 ]
             }
         ],
         tecnologias: [
             { nombre: 'OWASP ZAP', icon: 'fa-shield-alt', iconType: 'fontawesome' },
             { nombre: 'Burp Suite', icon: 'fa-bug', iconType: 'fontawesome' },
-            { nombre: 'Linux', icon: 'linux-plain', iconType: 'devicon' },
             { nombre: 'Kali Linux', icon: 'linux-plain', iconType: 'devicon' },
-            { nombre: 'Wireshark', icon: 'fa-network-wired', iconType: 'fontawesome' }
+            { nombre: 'Wireshark', icon: 'fa-network-wired', iconType: 'fontawesome' },
+            { nombre: 'Nmap', icon: 'fa-search', iconType: 'fontawesome' },
+            { nombre: 'Git', icon: 'git-plain', iconType: 'devicon' },
+            { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' },
+            { nombre: 'Linux', icon: 'linux-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs de seguridad', ponderacion: 0, descripcion: 'Prácticas en WebGoat' },
@@ -1604,11 +1631,15 @@ export const asignaturas: Record<string, Asignatura> = {
         prerrequisitos: [],
         conexiones: ['Seguridad y Calidad', 'Backend I', 'Cloud Native'],
         recursos: [
-            { tipo: 'Documentación', nombre: 'OWASP Top 10', url: 'https://owasp.org/Top10/' },
+            { tipo: 'Documentación', nombre: 'OWASP Top 10 2021', url: 'https://owasp.org/Top10/' },
             { tipo: 'Práctica', nombre: 'OWASP WebGoat', url: 'https://owasp.org/www-project-webgoat/' },
-            { tipo: 'Curso', nombre: 'PortSwigger Academy', url: 'https://portswigger.net/web-security' },
-            { tipo: 'Práctica', nombre: 'TryHackMe', url: 'https://tryhackme.com/' },
-            { tipo: 'Curso', nombre: 'Cybersecurity - Google', url: 'https://grow.google/certificates/cybersecurity/' }
+            { tipo: 'Curso', nombre: 'PortSwigger Web Security Academy', url: 'https://portswigger.net/web-security' },
+            { tipo: 'Práctica', nombre: 'TryHackMe - Web Hacking', url: 'https://tryhackme.com/' },
+            { tipo: 'Certificación', nombre: 'Google Cybersecurity Certificate', url: 'https://grow.google/certificates/cybersecurity/' },
+            { tipo: 'Práctica', nombre: 'HackTheBox - Web Challenges', url: 'https://www.hackthebox.com/' },
+            { tipo: 'Video', nombre: 'LiveOverflow - Web Hacking', url: 'https://www.youtube.com/c/LiveOverflow' },
+            { tipo: 'Libro', nombre: 'The Web Application Hacker\'s Handbook', url: 'https://www.amazon.com/Web-Application-Hackers-Handbook-Exploiting/dp/1118026470' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-04%20-%20SQL%20Consultas%2C%20Seguridad/Seguridad%20Informatica' }
         ],
         color: 'red',
         area: 'arquitectura'
@@ -1628,79 +1659,103 @@ export const asignaturas: Record<string, Asignatura> = {
         creditos: 4,
         horasTeoricas: 2,
         horasPracticas: 4,
-        descripcion: 'Asignatura que desarrolla competencias en programación de bases de datos: procedimientos almacenados, funciones, triggers, cursores y optimización de rendimiento.',
-        proposito: 'Capacitar al estudiante en la programación avanzada de bases de datos para implementar lógica de negocio en el servidor, optimizar rendimiento y automatizar procesos de datos.',
+        descripcion: 'Asignatura que desarrolla competencias avanzadas en programación de bases de datos: procedimientos almacenados, funciones, triggers, cursores, optimización de rendimiento y administración de transacciones para implementar lógica de negocio robusta en el servidor de datos.',
+        proposito: 'Capacitar al estudiante en la programación avanzada de bases de datos relacionales para implementar lógica de negocio en el servidor, optimizar rendimiento de queries complejos, automatizar procesos de datos mediante triggers y procedimientos, y gestionar transacciones con garantías ACID.',
         objetivos: [
-            'Crear y gestionar procedimientos almacenados',
-            'Implementar funciones definidas por el usuario',
-            'Diseñar triggers para auditoría y validación',
-            'Utilizar cursores y manejo de excepciones',
-            'Optimizar queries y analizar planes de ejecución',
-            'Gestionar transacciones y concurrencia'
+            'Crear y gestionar procedimientos almacenados con parámetros IN/OUT/INOUT',
+            'Implementar funciones escalares y de tabla definidas por el usuario',
+            'Diseñar triggers para auditoría, validación y sincronización de datos',
+            'Utilizar cursores y estructuras de control de flujo avanzadas',
+            'Optimizar queries mediante análisis de planes de ejecución',
+            'Gestionar transacciones con niveles de aislamiento apropiados'
         ],
         competencias: [
-            'Stored Procedures',
-            'Funciones y triggers',
-            'PL/pgSQL y PL/SQL',
-            'Optimización de rendimiento',
-            'Transacciones ACID'
+            'Diseño e implementación de procedimientos almacenados modulares',
+            'Creación de funciones escalares, de tabla y agregadas',
+            'Programación de triggers para múltiples eventos de base de datos',
+            'Dominio de PL/pgSQL (PostgreSQL) y PL/SQL (Oracle)',
+            'Análisis y optimización de planes de ejecución con EXPLAIN ANALYZE',
+            'Gestión de transacciones ACID y niveles de aislamiento',
+            'Implementación de estrategias de indexación avanzadas',
+            'Resolución de problemas de concurrencia y deadlocks'
         ],
         experiencias: [
             {
                 numero: 1,
                 titulo: 'Procedimientos Almacenados y Funciones',
                 semanas: 'Semana 1-3',
-                descripcion: 'Creación de lógica de negocio en base de datos.',
+                descripcion: 'Creación de lógica de negocio encapsulada en la base de datos.',
                 contenidos: [
-                    'Procedimientos almacenados: CREATE PROCEDURE',
-                    'Parámetros IN, OUT, INOUT',
-                    'Variables y control de flujo',
-                    'Funciones escalares y de tabla',
-                    'Manejo de excepciones',
-                    'Diferencias entre Oracle PL/SQL y PostgreSQL PL/pgSQL'
+                    'Sintaxis CREATE PROCEDURE/FUNCTION en PostgreSQL y Oracle',
+                    'Parámetros IN, OUT, INOUT y valores por defecto',
+                    'Variables locales, constantes y tipos de datos compuestos',
+                    'Estructuras de control: IF/ELSE, CASE, LOOP, WHILE, FOR',
+                    'Funciones escalares que retornan un único valor',
+                    'Funciones de tabla (RETURNS TABLE) y set-returning functions',
+                    'Funciones agregadas personalizadas (CREATE AGGREGATE)',
+                    'Bloques anónimos DO $$ para scripts ad-hoc',
+                    'Diferencias sintácticas PL/pgSQL vs PL/SQL vs T-SQL',
+                    'Packages en Oracle: especificación y body'
                 ],
                 actividades: [
-                    'CRUD con procedimientos almacenados',
-                    'Funciones de validación y cálculo',
-                    'Manejo de errores y logging'
+                    'Implementación de CRUD completo usando stored procedures',
+                    'Creación de funciones de validación con expresiones regulares',
+                    'Desarrollo de funciones de cálculo financiero (interés, amortización)',
+                    'Migración de procedimientos entre PostgreSQL y Oracle',
+                    'Implementación de función de búsqueda con paginación',
+                    'Proyecto: Librería de funciones utilitarias reutilizables'
                 ]
             },
             {
                 numero: 2,
-                titulo: 'Triggers y Cursores',
+                titulo: 'Triggers, Cursores y Manejo de Excepciones',
                 semanas: 'Semana 4-5',
-                descripcion: 'Automatización y procesamiento fila por fila.',
+                descripcion: 'Automatización de procesos y procesamiento fila por fila.',
                 contenidos: [
-                    'Triggers: BEFORE, AFTER, INSTEAD OF',
-                    'Triggers para auditoría de cambios',
-                    'Restricciones con triggers',
-                    'Cursores implícitos y explícitos',
-                    'FETCH, LOOP, EXIT',
-                    'Alternativas a cursores con CTEs'
+                    'Triggers BEFORE, AFTER, INSTEAD OF y su orden de ejecución',
+                    'Triggers a nivel de fila (FOR EACH ROW) vs statement',
+                    'Variables especiales NEW, OLD en triggers',
+                    'Trigger functions y su reutilización entre tablas',
+                    'Cursores implícitos y explícitos: DECLARE, OPEN, FETCH, CLOSE',
+                    'Cursores con parámetros y cursores refcursor',
+                    'Manejo de excepciones: EXCEPTION WHEN, RAISE NOTICE/WARNING/EXCEPTION',
+                    'Excepciones predefinidas (NO_DATA_FOUND, TOO_MANY_ROWS, etc.)',
+                    'Logging de errores y auditoría con triggers',
+                    'Alternativas modernas a cursores: CTEs recursivas y LATERAL'
                 ],
                 actividades: [
-                    'Sistema de auditoría con triggers',
-                    'Validaciones de negocio automatizadas',
-                    'Procesamiento batch con cursores'
+                    'Sistema de auditoría automática con triggers (who/when/what)',
+                    'Trigger de validación de reglas de negocio complejas',
+                    'Trigger de sincronización entre tablas relacionadas',
+                    'Procesamiento batch de registros usando cursores',
+                    'Implementación de soft delete con trigger INSTEAD OF',
+                    'Proyecto: Sistema de histórico de cambios (CDC manual)'
                 ]
             },
             {
                 numero: 3,
-                titulo: 'Optimización y Transacciones',
+                titulo: 'Optimización, Transacciones y Concurrencia',
                 semanas: 'Semana 6-8',
-                descripcion: 'Rendimiento de base de datos y concurrencia.',
+                descripcion: 'Rendimiento de base de datos, transacciones y control de concurrencia.',
                 contenidos: [
-                    'EXPLAIN ANALYZE y planes de ejecución',
-                    'Índices: B-tree, Hash, GIN, GiST',
-                    'Estrategias de indexación',
-                    'Transacciones: COMMIT, ROLLBACK, SAVEPOINT',
-                    'Niveles de aislamiento',
-                    'Deadlocks y bloqueos'
+                    'EXPLAIN y EXPLAIN ANALYZE: lectura de planes de ejecución',
+                    'Tipos de índices: B-tree, Hash, GIN (full-text), GiST (geoespacial)',
+                    'Índices parciales, funcionales y covering indexes (INCLUDE)',
+                    'Estadísticas del planificador y VACUUM ANALYZE',
+                    'Transacciones: BEGIN, COMMIT, ROLLBACK, SAVEPOINT',
+                    'Niveles de aislamiento: READ UNCOMMITTED, READ COMMITTED, REPEATABLE READ, SERIALIZABLE',
+                    'Bloqueos: row-level, table-level, advisory locks',
+                    'Detección y resolución de deadlocks',
+                    'Optimistic vs Pessimistic locking patterns',
+                    'Query hints y configuración de parámetros del planificador'
                 ],
                 actividades: [
-                    'Análisis y optimización de queries',
-                    'Diseño de estrategia de índices',
-                    'Proyecto: Sistema transaccional completo'
+                    'Análisis de plan de ejecución y propuesta de optimización',
+                    'Diseño de estrategia de índices para schema complejo',
+                    'Simulación de escenarios de concurrencia y bloqueos',
+                    'Implementación de patrón optimistic locking con versioning',
+                    'Benchmark de queries antes/después de optimización',
+                    'Proyecto integrador: Sistema transaccional con auditoría y optimización'
                 ]
             }
         ],
@@ -1709,7 +1764,10 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Oracle', icon: 'oracle-original', iconType: 'devicon' },
             { nombre: 'PL/pgSQL', icon: 'fa-code', iconType: 'fontawesome' },
             { nombre: 'DBeaver', icon: 'fa-database', iconType: 'fontawesome' },
-            { nombre: 'pgAdmin', icon: 'postgresql-plain', iconType: 'devicon' }
+            { nombre: 'pgAdmin', icon: 'postgresql-plain', iconType: 'devicon' },
+            { nombre: 'SQL Developer', icon: 'oracle-original', iconType: 'devicon' },
+            { nombre: 'DataGrip', icon: 'jetbrains-plain', iconType: 'devicon' },
+            { nombre: 'Git', icon: 'git-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs de programación', ponderacion: 0, descripcion: 'Práctica de SP y funciones' },
@@ -1721,10 +1779,14 @@ export const asignaturas: Record<string, Asignatura> = {
         conexiones: ['BD Aplicada', 'Backend I', 'Arquitectura Software'],
         recursos: [
             { tipo: 'Documentación', nombre: 'PostgreSQL PL/pgSQL', url: 'https://www.postgresql.org/docs/current/plpgsql.html' },
-            { tipo: 'Tutorial', nombre: 'Oracle PL/SQL', url: 'https://docs.oracle.com/en/database/oracle/oracle-database/19/lnpls/' },
-            { tipo: 'Práctica', nombre: 'SQL Performance Explained', url: 'https://use-the-index-luke.com/' },
-            { tipo: 'Video', nombre: 'PL/SQL Tutorial - Oracle', url: 'https://www.youtube.com/watch?v=3bEQaCUvp6Q' },
-            { tipo: 'Curso', nombre: 'Database Performance Tuning', url: 'https://www.udemy.com/topic/sql-optimization/' }
+            { tipo: 'Documentación', nombre: 'Oracle PL/SQL Reference', url: 'https://docs.oracle.com/en/database/oracle/oracle-database/19/lnpls/' },
+            { tipo: 'Tutorial', nombre: 'Use The Index, Luke! - SQL Indexing', url: 'https://use-the-index-luke.com/' },
+            { tipo: 'Video', nombre: 'PostgreSQL Tutorial - freeCodeCamp', url: 'https://www.youtube.com/watch?v=qw--VYLpxG4' },
+            { tipo: 'Curso', nombre: 'Advanced SQL for Data Scientists - DataCamp', url: 'https://www.datacamp.com/courses/advanced-sql' },
+            { tipo: 'Libro', nombre: 'SQL Performance Explained - Markus Winand', url: 'https://sql-performance-explained.com/' },
+            { tipo: 'Práctica', nombre: 'PostgreSQL Exercises', url: 'https://pgexercises.com/' },
+            { tipo: 'Herramienta', nombre: 'explain.depesz.com - Plan Analyzer', url: 'https://explain.depesz.com/' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-05%20-%20SQL%20Avanzado%2C%20Cloud%20Native/Programacion%20SQL' }
         ],
         color: 'amber',
         area: 'datos'
@@ -1740,79 +1802,103 @@ export const asignaturas: Record<string, Asignatura> = {
         creditos: 4,
         horasTeoricas: 2,
         horasPracticas: 4,
-        descripcion: 'Asignatura que profundiza en el desarrollo de aplicaciones cloud-native, introduciendo Kubernetes, microservicios y arquitecturas serverless.',
-        proposito: 'Capacitar al estudiante en el diseño e implementación de aplicaciones nativas de la nube, aplicando patrones de microservicios y orquestación de contenedores.',
+        descripcion: 'Asignatura que profundiza en el desarrollo de aplicaciones cloud-native según los estándares CNCF, introduciendo Kubernetes como orquestador de contenedores, arquitecturas de microservicios, service mesh, observabilidad distribuida y patrones serverless para construir sistemas escalables, resilientes y portables.',
+        proposito: 'Capacitar al estudiante en el diseño, implementación y operación de aplicaciones nativas de la nube, aplicando los principios de los 12-Factor Apps, orquestación de contenedores con Kubernetes, patrones de microservicios y estrategias de observabilidad para sistemas distribuidos.',
         objetivos: [
-            'Comprender los principios de aplicaciones cloud-native',
-            'Desplegar y gestionar aplicaciones en Kubernetes',
-            'Diseñar arquitecturas de microservicios',
-            'Implementar patrones de comunicación entre servicios',
-            'Aplicar observabilidad: logs, métricas, traces',
-            'Utilizar servicios serverless'
+            'Comprender los principios fundamentales de aplicaciones cloud-native (CNCF)',
+            'Desplegar y gestionar aplicaciones en clústeres Kubernetes',
+            'Diseñar arquitecturas de microservicios desacoplados y escalables',
+            'Implementar patrones de comunicación síncrona y asíncrona entre servicios',
+            'Aplicar observabilidad completa: logging, métricas y tracing distribuido',
+            'Utilizar servicios serverless y arquitecturas event-driven'
         ],
         competencias: [
-            'Kubernetes básico',
-            'Arquitectura de microservicios',
-            'Service mesh concepts',
-            'Observabilidad',
-            'Serverless computing'
+            'Dominio de Kubernetes: Pods, Deployments, Services, Ingress, ConfigMaps, Secrets',
+            'Diseño de arquitecturas de microservicios con bounded contexts',
+            'Implementación de patrones de comunicación: REST, gRPC, event-driven',
+            'Configuración de API Gateway y service discovery',
+            'Implementación de observabilidad con el stack Prometheus/Grafana/Loki',
+            'Desarrollo y despliegue de funciones serverless',
+            'Aplicación de patrones de resiliencia: circuit breaker, retry, timeout',
+            'Gestión de configuración y secretos en entornos distribuidos'
         ],
         experiencias: [
             {
                 numero: 1,
                 titulo: 'Fundamentos Cloud Native y Kubernetes',
                 semanas: 'Semana 1-3',
-                descripcion: 'Principios cloud-native y orquestación con Kubernetes.',
+                descripcion: 'Principios cloud-native según CNCF y orquestación con Kubernetes.',
                 contenidos: [
-                    '12-Factor Apps',
-                    'Arquitectura cloud-native',
-                    'Kubernetes: Pods, Deployments, Services',
-                    'ConfigMaps y Secrets',
-                    'Namespaces y contextos',
-                    'kubectl y manifiestos YAML'
+                    'CNCF y el ecosistema cloud-native: definición y Trail Map',
+                    '12-Factor Apps: los doce principios de aplicaciones modernas',
+                    'Kubernetes architecture: control plane, worker nodes, etcd',
+                    'Pods: unidad mínima, multi-container patterns (sidecar, ambassador)',
+                    'Deployments: rolling updates, rollbacks, scaling',
+                    'Services: ClusterIP, NodePort, LoadBalancer, ExternalName',
+                    'ConfigMaps y Secrets: externalización de configuración',
+                    'Namespaces, labels, selectors y resource quotas',
+                    'kubectl: comandos esenciales y scripting',
+                    'Manifiestos YAML: estructura, best practices, Kustomize intro'
                 ],
                 actividades: [
-                    'Setup de cluster local (minikube/kind)',
-                    'Despliegue de aplicación en K8s',
-                    'Configuración con ConfigMaps'
+                    'Setup de cluster local con minikube, kind y k3d',
+                    'Despliegue de aplicación multi-tier en Kubernetes',
+                    'Configuración dinámica con ConfigMaps y Secrets',
+                    'Implementación de health checks (liveness, readiness probes)',
+                    'Práctica de rolling update y rollback de deployment',
+                    'Proyecto: Aplicación 12-factor desplegada en K8s'
                 ]
             },
             {
                 numero: 2,
-                titulo: 'Microservicios y Comunicación',
+                titulo: 'Microservicios, Comunicación y Resiliencia',
                 semanas: 'Semana 4-5',
-                descripcion: 'Diseño e implementación de microservicios.',
+                descripcion: 'Diseño e implementación de microservicios con patrones de comunicación.',
                 contenidos: [
-                    'Monolito vs microservicios',
-                    'Patrones de descomposición',
-                    'Comunicación síncrona: REST, gRPC',
-                    'Comunicación asíncrona: mensajería',
-                    'API Gateway patterns',
-                    'Service discovery'
+                    'Monolito vs microservicios: trade-offs y cuándo migrar',
+                    'Domain-Driven Design (DDD): bounded contexts y aggregates',
+                    'Patrones de descomposición: por dominio, por subdomain, strangler fig',
+                    'Comunicación síncrona: REST con OpenAPI, gRPC con Protocol Buffers',
+                    'Comunicación asíncrona: event-driven con message brokers',
+                    'API Gateway patterns: routing, rate limiting, authentication',
+                    'Service discovery: client-side vs server-side, DNS-based',
+                    'Patrones de resiliencia: Circuit Breaker, Retry, Timeout, Bulkhead',
+                    'Kubernetes Ingress: NGINX, Traefik, routing rules',
+                    'Intro a Service Mesh: Istio/Linkerd concepts'
                 ],
                 actividades: [
-                    'Diseño de sistema con microservicios',
-                    'Implementación de API Gateway',
-                    'Comunicación entre servicios'
+                    'Diseño de sistema e-commerce con bounded contexts',
+                    'Implementación de comunicación REST y gRPC entre servicios',
+                    'Configuración de API Gateway con Kong o NGINX Ingress',
+                    'Implementación de Circuit Breaker con Resilience4j',
+                    'Práctica de service discovery con Kubernetes DNS',
+                    'Proyecto: Sistema de microservicios con gateway y resiliencia'
                 ]
             },
             {
                 numero: 3,
-                titulo: 'Observabilidad y Serverless',
+                titulo: 'Observabilidad, Serverless y Operaciones',
                 semanas: 'Semana 6-8',
-                descripcion: 'Monitoreo de sistemas distribuidos y serverless.',
+                descripcion: 'Monitoreo de sistemas distribuidos, serverless y operaciones cloud-native.',
                 contenidos: [
-                    'Logging centralizado',
-                    'Métricas con Prometheus',
-                    'Tracing distribuido',
-                    'AWS Lambda / Cloud Functions',
-                    'Arquitecturas event-driven',
-                    'Escalamiento y costos'
+                    'Tres pilares de observabilidad: logs, métricas, traces',
+                    'Logging centralizado: Fluentd/Fluent Bit → Loki/ELK',
+                    'Métricas con Prometheus: PromQL, exporters, alerting',
+                    'Dashboards con Grafana: visualización y alertas',
+                    'Tracing distribuido: Jaeger, Zipkin, OpenTelemetry',
+                    'Serverless: AWS Lambda, Cloud Functions, Azure Functions',
+                    'FaaS patterns: event triggers, cold start optimization',
+                    'Event-driven architectures: EventBridge, Cloud Events',
+                    'GitOps: ArgoCD, Flux para continuous deployment',
+                    'Cost optimization y FinOps basics en Kubernetes'
                 ],
                 actividades: [
-                    'Implementación de observabilidad',
-                    'Desarrollo de función serverless',
-                    'Proyecto: Sistema cloud-native completo'
+                    'Despliegue del stack de observabilidad (Prometheus + Grafana + Loki)',
+                    'Instrumentación de aplicación con OpenTelemetry',
+                    'Creación de dashboards y alertas en Grafana',
+                    'Desarrollo y despliegue de función serverless en AWS/GCP',
+                    'Implementación de pipeline GitOps con ArgoCD',
+                    'Proyecto integrador: Sistema cloud-native con observabilidad completa'
                 ]
             }
         ],
@@ -1821,8 +1907,10 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' },
             { nombre: 'AWS', icon: 'amazonwebservices-plain-wordmark', iconType: 'devicon' },
             { nombre: 'Prometheus', icon: 'prometheus-original', iconType: 'devicon' },
+            { nombre: 'Grafana', icon: 'grafana-original', iconType: 'devicon' },
             { nombre: 'Helm', icon: 'fa-dharmachakra', iconType: 'fontawesome' },
-            { nombre: 'Grafana', icon: 'grafana-original', iconType: 'devicon' }
+            { nombre: 'ArgoCD', icon: 'argocd-plain', iconType: 'devicon' },
+            { nombre: 'Istio', icon: 'fa-project-diagram', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs Kubernetes', ponderacion: 0, descripcion: 'Prácticas de orquestación' },
@@ -1833,11 +1921,15 @@ export const asignaturas: Record<string, Asignatura> = {
         prerrequisitos: ['DevOps', 'Computación en la Nube'],
         conexiones: ['Cloud Native II', 'Arquitectura Software', 'Cloud Computing'],
         recursos: [
-            { tipo: 'Documentación', nombre: 'Kubernetes Docs', url: 'https://kubernetes.io/docs/' },
-            { tipo: 'Curso', nombre: 'CNCF Landscape', url: 'https://landscape.cncf.io/' },
-            { tipo: 'Tutorial', nombre: 'Kubernetes Learning Path', url: 'https://learn.microsoft.com/en-us/training/paths/intro-to-kubernetes-on-azure/' },
-            { tipo: 'Video', nombre: 'Kubernetes Tutorial - TechWorld', url: 'https://www.youtube.com/watch?v=X48VuDVv0do' },
-            { tipo: 'Libro', nombre: '12-Factor App', url: 'https://12factor.net/' }
+            { tipo: 'Documentación', nombre: 'Kubernetes Official Docs', url: 'https://kubernetes.io/docs/' },
+            { tipo: 'Guía', nombre: 'CNCF Trail Map', url: 'https://landscape.cncf.io/' },
+            { tipo: 'Tutorial', nombre: 'Kubernetes Learning Path - Microsoft', url: 'https://learn.microsoft.com/en-us/training/paths/intro-to-kubernetes-on-azure/' },
+            { tipo: 'Video', nombre: 'Kubernetes Course - TechWorld with Nana', url: 'https://www.youtube.com/watch?v=X48VuDVv0do' },
+            { tipo: 'Libro', nombre: '12-Factor App Methodology', url: 'https://12factor.net/' },
+            { tipo: 'Práctica', nombre: 'KillerCoda - Interactive K8s Labs', url: 'https://killercoda.com/playgrounds/scenario/kubernetes' },
+            { tipo: 'Curso', nombre: 'Kubernetes Basics - Udacity', url: 'https://www.udacity.com/course/scalable-microservices-with-kubernetes--ud615' },
+            { tipo: 'Certificación', nombre: 'CKAD Prep - Linux Foundation', url: 'https://training.linuxfoundation.org/certification/certified-kubernetes-application-developer-ckad/' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-05%20-%20SQL%20Avanzado%2C%20Cloud%20Native/Cloud%20Native' }
         ],
         color: 'blue',
         area: 'cloud'
@@ -1853,79 +1945,103 @@ export const asignaturas: Record<string, Asignatura> = {
         creditos: 4,
         horasTeoricas: 2,
         horasPracticas: 4,
-        descripcion: 'Asignatura que desarrolla competencias en elicitación, análisis, especificación y validación de requisitos de software.',
-        proposito: 'Capacitar al estudiante en las técnicas y herramientas para gestionar requisitos de software, desde la elicitación con stakeholders hasta la documentación y trazabilidad.',
+        descripcion: 'Asignatura que desarrolla competencias completas en el ciclo de vida de requisitos de software: elicitación con stakeholders, análisis y modelado, especificación según estándares IEEE/ISO, validación, trazabilidad y gestión del cambio para proyectos de desarrollo de software.',
+        proposito: 'Capacitar al estudiante en las técnicas, metodologías y herramientas profesionales para gestionar requisitos de software de manera integral, desde la identificación de stakeholders y elicitación hasta la documentación formal, validación continua y gestión de cambios a lo largo del ciclo de vida del proyecto.',
         objetivos: [
-            'Aplicar técnicas de elicitación de requisitos',
+            'Aplicar técnicas de elicitación de requisitos con diferentes tipos de stakeholders',
             'Clasificar y priorizar requisitos funcionales y no funcionales',
-            'Documentar requisitos usando estándares de la industria',
-            'Modelar requisitos con casos de uso y user stories',
-            'Gestionar cambios y trazabilidad de requisitos',
-            'Validar requisitos con stakeholders'
+            'Documentar requisitos usando estándares de la industria (IEEE 830, ISO 29148)',
+            'Modelar requisitos con casos de uso UML y user stories ágiles',
+            'Gestionar cambios y mantener trazabilidad bidireccional de requisitos',
+            'Validar requisitos con stakeholders mediante prototipos y revisiones'
         ],
         competencias: [
-            'Elicitación de requisitos',
-            'Análisis y priorización',
-            'Documentación SRS',
-            'User Stories y casos de uso',
-            'Gestión de cambios'
+            'Identificación y análisis de stakeholders y sus necesidades',
+            'Aplicación de múltiples técnicas de elicitación según contexto',
+            'Modelado de requisitos con UML (casos de uso, diagramas de actividad)',
+            'Redacción de User Stories con criterios de aceptación INVEST',
+            'Documentación de SRS según IEEE 830 e ISO/IEC/IEEE 29148',
+            'Priorización de requisitos con técnicas MoSCoW, Kano, WSJF',
+            'Gestión de trazabilidad bidireccional requisito-diseño-test',
+            'Facilitación de sesiones de validación y gestión de cambios'
         ],
         experiencias: [
             {
                 numero: 1,
-                titulo: 'Fundamentos y Elicitación',
+                titulo: 'Fundamentos, Stakeholders y Elicitación',
                 semanas: 'Semana 1-3',
-                descripcion: 'Conceptos básicos y técnicas de obtención de requisitos.',
+                descripcion: 'Conceptos fundamentales y técnicas de obtención de requisitos.',
                 contenidos: [
-                    'Tipos de requisitos: funcionales, no funcionales',
-                    'Stakeholders y su identificación',
-                    'Técnicas: entrevistas, cuestionarios, observación',
-                    'Workshops y brainstorming',
-                    'Prototipado como técnica de elicitación',
-                    'Documentación inicial de requisitos'
+                    'Ingeniería de Requisitos: definición, importancia y costo del error',
+                    'Tipos de requisitos: funcionales, no funcionales (calidad), de negocio',
+                    'Stakeholders: identificación, análisis de poder/interés, matriz RACI',
+                    'Técnicas de elicitación: entrevistas estructuradas y semi-estructuradas',
+                    'Cuestionarios y encuestas: diseño y análisis de resultados',
+                    'Observación etnográfica y análisis de tareas (task analysis)',
+                    'Workshops JAD (Joint Application Development) y brainstorming',
+                    'Prototipado como técnica de elicitación: wireframes, mockups',
+                    'Análisis de documentos existentes y sistemas legacy',
+                    'Técnicas creativas: card sorting, personas, journey maps'
                 ],
                 actividades: [
-                    'Identificación de stakeholders en caso',
-                    'Práctica de técnicas de elicitación',
-                    'Elaboración de prototipos'
+                    'Análisis de stakeholders para caso de estudio empresarial',
+                    'Práctica de entrevista de elicitación con role-playing',
+                    'Diseño y aplicación de cuestionario de requisitos',
+                    'Facilitación de workshop de brainstorming',
+                    'Creación de wireframes para validar requisitos',
+                    'Proyecto: Plan de elicitación completo para sistema real'
                 ]
             },
             {
                 numero: 2,
-                titulo: 'Análisis y Especificación',
+                titulo: 'Análisis, Modelado y Especificación',
                 semanas: 'Semana 4-5',
-                descripcion: 'Modelado y documentación de requisitos.',
+                descripcion: 'Modelado formal y documentación de requisitos según estándares.',
                 contenidos: [
-                    'Casos de uso UML',
-                    'User Stories y criterios de aceptación',
-                    'Especificación de requisitos (SRS)',
-                    'IEEE 830 / ISO 29148',
-                    'Priorización: MoSCoW, Kano',
-                    'Requisitos no funcionales: rendimiento, seguridad'
+                    'Casos de uso UML: actores, casos, relaciones (include, extend, generalization)',
+                    'Especificación de casos de uso: plantilla de Cockburn',
+                    'User Stories: formato "Como... quiero... para...", criterios INVEST',
+                    'Criterios de aceptación: Given-When-Then (Gherkin syntax)',
+                    'Épicas, Features, User Stories: jerarquía y descomposición',
+                    'Documento SRS según IEEE 830: estructura y secciones',
+                    'ISO/IEC/IEEE 29148: requisitos y ciclo de vida',
+                    'Requisitos no funcionales: FURPS+, ISO 25010 (calidad de producto)',
+                    'Priorización: MoSCoW, Kano Model, WSJF (Weighted Shortest Job First)',
+                    'Modelado de dominio: diagramas de clase y entidad-relación'
                 ],
                 actividades: [
-                    'Diagramas de casos de uso',
-                    'Redacción de User Stories',
-                    'Documento SRS parcial'
+                    'Creación de diagrama de casos de uso para sistema completo',
+                    'Especificación detallada de 3 casos de uso críticos',
+                    'Redacción de épica con User Stories descompuestas',
+                    'Definición de criterios de aceptación en formato Gherkin',
+                    'Priorización de backlog con técnica MoSCoW',
+                    'Proyecto: Documento SRS parcial siguiendo IEEE 830'
                 ]
             },
             {
                 numero: 3,
-                titulo: 'Validación y Gestión',
+                titulo: 'Validación, Trazabilidad y Gestión del Cambio',
                 semanas: 'Semana 6-8',
-                descripcion: 'Validación de requisitos y gestión del cambio.',
+                descripcion: 'Validación de requisitos, trazabilidad y control de cambios.',
                 contenidos: [
-                    'Técnicas de validación: revisiones, prototipos',
-                    'Trazabilidad de requisitos',
-                    'Gestión de cambios',
-                    'Herramientas: Jira, Azure DevOps',
-                    'Matrices de trazabilidad',
-                    'Métricas de requisitos'
+                    'Validación vs Verificación de requisitos: diferencias y técnicas',
+                    'Revisiones formales: inspecciones, walkthroughs, peer reviews',
+                    'Validación con prototipos: de baja a alta fidelidad',
+                    'Trazabilidad de requisitos: forward, backward, bidireccional',
+                    'Matrices de trazabilidad: requisito → diseño → código → test',
+                    'Gestión del cambio: CCB (Change Control Board), workflow de cambios',
+                    'Herramientas de gestión: Jira, Azure DevOps, Confluence',
+                    'Líneas base y versionamiento de requisitos',
+                    'Métricas de requisitos: volatilidad, cobertura, completitud',
+                    'Integración de requisitos en metodologías ágiles: Product Backlog refinement'
                 ],
                 actividades: [
-                    'Validación con stakeholders simulados',
-                    'Matriz de trazabilidad',
-                    'Proyecto: SRS completo'
+                    'Conducción de sesión de validación con stakeholders simulados',
+                    'Creación de matriz de trazabilidad bidireccional',
+                    'Simulación de proceso de gestión de cambios',
+                    'Configuración de proyecto de requisitos en Jira/Azure DevOps',
+                    'Análisis de métricas de requisitos en proyecto real',
+                    'Proyecto integrador: SRS completo con trazabilidad y validación'
                 ]
             }
         ],
@@ -1935,7 +2051,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Figma', icon: 'figma-plain', iconType: 'devicon' },
             { nombre: 'Draw.io', icon: 'fa-project-diagram', iconType: 'fontawesome' },
             { nombre: 'Notion', icon: 'notion-plain', iconType: 'devicon' },
-            { nombre: 'Miro', icon: 'fa-object-group', iconType: 'fontawesome' }
+            { nombre: 'Miro', icon: 'fa-object-group', iconType: 'fontawesome' },
+            { nombre: 'Confluence', icon: 'confluence-plain', iconType: 'devicon' },
+            { nombre: 'Lucidchart', icon: 'fa-sitemap', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Ejercicios de elicitación', ponderacion: 0, descripcion: 'Práctica de técnicas' },
@@ -1946,11 +2064,15 @@ export const asignaturas: Record<string, Asignatura> = {
         prerrequisitos: [],
         conexiones: ['Ing. Software I', 'Ing. Software II', 'Gestión de Proyectos'],
         recursos: [
-            { tipo: 'Estándar', nombre: 'IEEE 830 / ISO 29148', url: 'https://standards.ieee.org/' },
-            { tipo: 'Tutorial', nombre: 'User Story Mapping', url: 'https://www.jpattonassociates.com/user-story-mapping/' },
-            { tipo: 'Herramienta', nombre: 'Jira Software', url: 'https://www.atlassian.com/software/jira' },
-            { tipo: 'Video', nombre: 'Requirements Engineering', url: 'https://www.youtube.com/watch?v=VVpWbODPIQI' },
-            { tipo: 'Libro', nombre: 'Software Requirements - Wiegers', url: 'https://www.processimpact.com/books.html' }
+            { tipo: 'Estándar', nombre: 'IEEE 830 / ISO 29148 Standard', url: 'https://standards.ieee.org/' },
+            { tipo: 'Libro', nombre: 'Software Requirements - Karl Wiegers', url: 'https://www.processimpact.com/books.html' },
+            { tipo: 'Tutorial', nombre: 'User Story Mapping - Jeff Patton', url: 'https://www.jpattonassociates.com/user-story-mapping/' },
+            { tipo: 'Herramienta', nombre: 'Jira Software Guide', url: 'https://www.atlassian.com/software/jira/guides' },
+            { tipo: 'Video', nombre: 'Requirements Engineering Course - Udacity', url: 'https://www.udacity.com/course/software-architecture-design--ud821' },
+            { tipo: 'Curso', nombre: 'Business Analysis - IIBA', url: 'https://www.iiba.org/' },
+            { tipo: 'Guía', nombre: 'Atlassian Agile Requirements', url: 'https://www.atlassian.com/agile/product-management/requirements' },
+            { tipo: 'Plantilla', nombre: 'SRS Template - IEEE', url: 'https://www.templatelab.com/srs-software-requirements-specification/' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-05%20-%20SQL%20Avanzado%2C%20Cloud%20Native/Ingenieria%20de%20Requisitos' }
         ],
         color: 'purple',
         area: 'gestion'
@@ -1970,79 +2092,103 @@ export const asignaturas: Record<string, Asignatura> = {
         creditos: 4,
         horasTeoricas: 2,
         horasPracticas: 4,
-        descripcion: 'Asignatura que introduce el desarrollo de APIs REST con Spring Boot, incluyendo arquitectura de capas, persistencia con JPA/Hibernate y seguridad básica.',
-        proposito: 'Capacitar al estudiante en el desarrollo de servicios backend robustos utilizando Spring Boot, aplicando patrones de arquitectura y buenas prácticas de la industria.',
+        descripcion: 'Asignatura que introduce el desarrollo profesional de APIs REST con Spring Boot, incluyendo arquitectura de capas, inyección de dependencias, persistencia con JPA/Hibernate, validación robusta, manejo de excepciones y documentación con OpenAPI/Swagger para construir servicios backend escalables.',
+        proposito: 'Capacitar al estudiante en el desarrollo de servicios backend robustos y mantenibles utilizando Spring Boot, aplicando patrones de arquitectura empresarial, buenas prácticas de diseño de APIs REST y técnicas de persistencia con Spring Data JPA.',
         objetivos: [
-            'Comprender la arquitectura de aplicaciones backend',
-            'Desarrollar APIs REST con Spring Boot',
-            'Implementar persistencia con Spring Data JPA',
+            'Comprender la arquitectura de Spring Framework y Spring Boot',
+            'Desarrollar APIs REST siguiendo principios RESTful y mejores prácticas',
+            'Implementar persistencia de datos con Spring Data JPA e Hibernate',
             'Aplicar arquitectura de capas (Controller-Service-Repository)',
-            'Implementar validación y manejo de excepciones',
-            'Documentar APIs con OpenAPI/Swagger'
+            'Implementar validación robusta y manejo global de excepciones',
+            'Documentar APIs profesionalmente con OpenAPI 3.0 y Swagger'
         ],
         competencias: [
-            'Spring Boot fundamentals',
-            'APIs REST',
-            'Spring Data JPA',
-            'Arquitectura de capas',
-            'Documentación OpenAPI'
+            'Dominio de Spring Boot: auto-configuración, starters, properties',
+            'Diseño e implementación de APIs REST según mejores prácticas',
+            'Modelado de entidades JPA con relaciones complejas',
+            'Implementación de arquitectura de capas desacoplada',
+            'Uso de DTOs, validación y mapeo con MapStruct/ModelMapper',
+            'Manejo global de excepciones con @ControllerAdvice',
+            'Documentación de APIs con OpenAPI 3.0 y Swagger UI',
+            'Testing de APIs con Postman y Spring MockMvc'
         ],
         experiencias: [
             {
                 numero: 1,
-                titulo: 'Fundamentos Spring Boot y REST',
+                titulo: 'Fundamentos Spring Boot y APIs REST',
                 semanas: 'Semana 1-3',
-                descripcion: 'Introducción a Spring Boot y desarrollo de APIs REST.',
+                descripcion: 'Introducción al ecosistema Spring y desarrollo de APIs REST.',
                 contenidos: [
-                    'Spring Framework y Spring Boot',
-                    'Inyección de dependencias (DI) e IoC',
-                    'Creación de proyecto con Spring Initializr',
-                    'Controladores REST: @RestController, @GetMapping, @PostMapping',
-                    'Request/Response: @RequestBody, @PathVariable, @RequestParam',
-                    'HTTP Status codes y ResponseEntity'
+                    'Spring Framework: IoC container, ApplicationContext, beans',
+                    'Inyección de dependencias: @Autowired, constructor injection (best practice)',
+                    'Spring Boot: auto-configuration, starters, application.properties/yml',
+                    'Spring Initializr: creación y estructura de proyectos',
+                    '@RestController vs @Controller: diferencias y usos',
+                    'Mapping de endpoints: @GetMapping, @PostMapping, @PutMapping, @DeleteMapping',
+                    '@RequestBody, @PathVariable, @RequestParam, @RequestHeader',
+                    'ResponseEntity: control de status codes y headers',
+                    'Content negotiation: JSON, XML con Jackson',
+                    'CORS configuration: @CrossOrigin y configuración global'
                 ],
                 actividades: [
-                    'Proyecto Spring Boot inicial',
-                    'CRUD REST básico',
-                    'Testing de endpoints con Postman'
+                    'Creación de proyecto Spring Boot con Spring Initializr',
+                    'Implementación de API REST CRUD completa para entidad simple',
+                    'Configuración de diferentes perfiles (dev, prod)',
+                    'Testing manual de endpoints con Postman y cURL',
+                    'Implementación de paginación y sorting en endpoints GET',
+                    'Proyecto: API REST de gestión de productos con categorías'
                 ]
             },
             {
                 numero: 2,
                 titulo: 'Persistencia con Spring Data JPA',
                 semanas: 'Semana 4-5',
-                descripcion: 'Acceso a datos con JPA y arquitectura de capas.',
+                descripcion: 'Acceso a datos con JPA/Hibernate y arquitectura de capas.',
                 contenidos: [
-                    'JPA y Hibernate: entidades, @Entity, @Id',
-                    'Relaciones: @OneToMany, @ManyToOne, @ManyToMany',
-                    'Spring Data JPA: JpaRepository',
-                    'Query Methods y @Query',
-                    'Arquitectura Controller-Service-Repository',
-                    'DTOs y mapeo con MapStruct'
+                    'JPA vs Hibernate: especificación vs implementación',
+                    'Entidades: @Entity, @Table, @Id, @GeneratedValue strategies',
+                    'Mapeo de columnas: @Column, @Enumerated, @Temporal, @Lob',
+                    'Relaciones: @OneToOne, @OneToMany, @ManyToOne, @ManyToMany',
+                    'Fetch types: EAGER vs LAZY, problema N+1, @EntityGraph',
+                    'Cascade types y orphan removal',
+                    'Spring Data JPA: JpaRepository, PagingAndSortingRepository',
+                    'Query Methods: findBy, countBy, existsBy, naming conventions',
+                    '@Query con JPQL y native queries, @Param',
+                    'Arquitectura de capas: Controller → Service → Repository'
                 ],
                 actividades: [
-                    'Modelado de entidades JPA',
-                    'Implementación de capa Service',
-                    'Consultas personalizadas'
+                    'Modelado de entidades JPA con relaciones complejas',
+                    'Implementación de repositorios con query methods',
+                    'Creación de capa Service con lógica de negocio',
+                    'Solución del problema N+1 con @EntityGraph',
+                    'Implementación de búsquedas dinámicas con Specifications',
+                    'Proyecto: Sistema de órdenes con clientes y productos'
                 ]
             },
             {
                 numero: 3,
-                titulo: 'Validación, Excepciones y Documentación',
+                titulo: 'DTOs, Validación, Excepciones y Documentación',
                 semanas: 'Semana 6-8',
-                descripcion: 'Robustez de APIs y documentación profesional.',
+                descripcion: 'Robustez de APIs, patrones DTO y documentación profesional.',
                 contenidos: [
-                    'Bean Validation: @Valid, @NotNull, @Size',
-                    'Manejo global de excepciones: @ControllerAdvice',
-                    'Excepciones personalizadas',
-                    'OpenAPI 3.0 y Swagger UI',
-                    'Anotaciones de documentación',
-                    'Versionamiento de APIs'
+                    'DTOs: por qué usarlos, patrones de diseño (Request/Response DTOs)',
+                    'Mapeo DTO-Entity: MapStruct, ModelMapper, manual mapping',
+                    'Bean Validation (JSR-380): @Valid, @NotNull, @NotBlank, @Size, @Email',
+                    'Validaciones personalizadas: @Constraint, ConstraintValidator',
+                    'Validación de grupos: @Validated con grupos de validación',
+                    '@ControllerAdvice y @ExceptionHandler para manejo global',
+                    'Problem Details (RFC 7807) para respuestas de error estandarizadas',
+                    'OpenAPI 3.0 y Swagger UI: springdoc-openapi',
+                    'Anotaciones de documentación: @Operation, @ApiResponse, @Schema',
+                    'Versionamiento de APIs: URI path, header, query param'
                 ],
                 actividades: [
-                    'Validación completa de DTOs',
-                    'Sistema de excepciones robusto',
-                    'Proyecto: API REST documentada'
+                    'Refactoring a DTOs con MapStruct para entidades existentes',
+                    'Implementación de validaciones en DTOs de request',
+                    'Creación de validador personalizado (ej: RUT chileno)',
+                    'Sistema de excepciones con respuestas estandarizadas',
+                    'Documentación completa de API con Swagger/OpenAPI',
+                    'Proyecto integrador: API REST empresarial documentada'
                 ]
             }
         ],
@@ -2050,9 +2196,11 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Spring Boot', icon: 'spring-plain', iconType: 'devicon' },
             { nombre: 'Java', icon: 'java-plain', iconType: 'devicon' },
             { nombre: 'PostgreSQL', icon: 'postgresql-plain', iconType: 'devicon' },
-            { nombre: 'Postman', icon: 'postman-plain', iconType: 'devicon' },
+            { nombre: 'Hibernate', icon: 'hibernate-plain', iconType: 'devicon' },
             { nombre: 'Maven', icon: 'maven-plain', iconType: 'devicon' },
-            { nombre: 'Swagger', icon: 'swagger-plain', iconType: 'devicon' }
+            { nombre: 'Swagger', icon: 'swagger-plain', iconType: 'devicon' },
+            { nombre: 'Postman', icon: 'postman-plain', iconType: 'devicon' },
+            { nombre: 'IntelliJ IDEA', icon: 'intellij-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs Spring Boot', ponderacion: 0, descripcion: 'Prácticas guiadas' },
@@ -2063,11 +2211,15 @@ export const asignaturas: Record<string, Asignatura> = {
         prerrequisitos: ['POO II', 'SQL Consultas'],
         conexiones: ['Backend II-III', 'Frontend I-II', 'Arquitectura Software'],
         recursos: [
-            { tipo: 'Documentación', nombre: 'Spring Boot Docs', url: 'https://docs.spring.io/spring-boot/docs/current/reference/html/' },
-            { tipo: 'Tutorial', nombre: 'Baeldung Spring', url: 'https://www.baeldung.com/spring-boot' },
+            { tipo: 'Documentación', nombre: 'Spring Boot Reference', url: 'https://docs.spring.io/spring-boot/docs/current/reference/html/' },
+            { tipo: 'Tutorial', nombre: 'Baeldung - Spring Tutorials', url: 'https://www.baeldung.com/spring-boot' },
             { tipo: 'Herramienta', nombre: 'Spring Initializr', url: 'https://start.spring.io/' },
             { tipo: 'Video', nombre: 'Spring Boot Full Course - Amigoscode', url: 'https://www.youtube.com/watch?v=9SGDpanrc8U' },
-            { tipo: 'Curso', nombre: 'Spring & Hibernate - Udemy', url: 'https://www.udemy.com/course/spring-hibernate-tutorial/' }
+            { tipo: 'Curso', nombre: 'Spring Boot Masterclass - Udemy', url: 'https://www.udemy.com/course/spring-hibernate-tutorial/' },
+            { tipo: 'Documentación', nombre: 'Spring Data JPA Reference', url: 'https://docs.spring.io/spring-data/jpa/docs/current/reference/html/' },
+            { tipo: 'Guía', nombre: 'OpenAPI/Swagger Guide', url: 'https://springdoc.org/' },
+            { tipo: 'Práctica', nombre: 'Spring Boot REST API Best Practices', url: 'https://www.baeldung.com/rest-with-spring-series' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-06%20-%20Backend%20I%2C%20Ing.%20Software%20I/Backend%20I' }
         ],
         color: 'green',
         area: 'programacion'
@@ -2083,89 +2235,115 @@ export const asignaturas: Record<string, Asignatura> = {
         creditos: 4,
         horasTeoricas: 2,
         horasPracticas: 4,
-        descripcion: 'Asignatura que introduce metodologías ágiles, Scrum, y gestión de proyectos de software, incluyendo estimación, planificación y seguimiento.',
-        proposito: 'Capacitar al estudiante en la aplicación de metodologías ágiles para la gestión efectiva de proyectos de desarrollo de software.',
+        descripcion: 'Asignatura que introduce metodologías ágiles con énfasis en el framework Scrum, gestión de proyectos de software, técnicas de estimación, planificación y seguimiento de sprints, y el uso de herramientas profesionales para la gestión efectiva de equipos de desarrollo.',
+        proposito: 'Capacitar al estudiante en la aplicación práctica de metodologías ágiles, especialmente Scrum, para la gestión efectiva de proyectos de desarrollo de software, desarrollando habilidades de facilitación, estimación y uso de herramientas de gestión ágil.',
         objetivos: [
-            'Comprender los principios del Manifiesto Ágil',
-            'Aplicar el framework Scrum en proyectos de software',
-            'Gestionar el Product Backlog y Sprint Backlog',
-            'Realizar estimación ágil con Planning Poker',
-            'Facilitar ceremonias Scrum',
-            'Utilizar herramientas de gestión ágil'
+            'Comprender los principios y valores del Manifiesto Ágil',
+            'Aplicar el framework Scrum completo en proyectos de software',
+            'Gestionar eficientemente el Product Backlog y Sprint Backlog',
+            'Realizar estimación ágil con técnicas como Planning Poker',
+            'Facilitar ceremonias Scrum de manera efectiva',
+            'Utilizar herramientas profesionales de gestión ágil'
         ],
         competencias: [
-            'Metodologías ágiles',
-            'Framework Scrum',
-            'Estimación ágil',
-            'Gestión de backlog',
-            'Herramientas ágiles'
+            'Comprensión profunda del Manifiesto Ágil y sus principios',
+            'Dominio del framework Scrum: roles, eventos y artefactos',
+            'Facilitación efectiva de ceremonias Scrum',
+            'Técnicas de estimación ágil: Planning Poker, T-shirt, affinity',
+            'Gestión de Product Backlog y Sprint Backlog',
+            'Análisis de métricas ágiles: velocity, burndown, cycle time',
+            'Configuración y uso de Jira/Azure DevOps para Scrum',
+            'Conducción de retrospectivas efectivas y mejora continua'
         ],
         experiencias: [
             {
                 numero: 1,
-                titulo: 'Fundamentos Ágiles y Scrum',
+                titulo: 'Fundamentos Ágiles y Framework Scrum',
                 semanas: 'Semana 1-3',
-                descripcion: 'Principios ágiles y framework Scrum.',
+                descripcion: 'Principios del Manifiesto Ágil y estructura del framework Scrum.',
                 contenidos: [
-                    'Manifiesto Ágil y sus principios',
-                    'Metodologías tradicionales vs ágiles',
-                    'Framework Scrum: roles, eventos, artefactos',
-                    'Product Owner, Scrum Master, Development Team',
-                    'Sprint, Sprint Planning, Daily Scrum',
-                    'Sprint Review, Sprint Retrospective'
+                    'Historia del desarrollo de software: cascada, iterativo, ágil',
+                    'Manifiesto Ágil: los 4 valores y 12 principios',
+                    'Comparación: metodologías tradicionales vs ágiles (cuando usar cada una)',
+                    'Framework Scrum: teoría, pilares (transparencia, inspección, adaptación)',
+                    'Roles Scrum: Product Owner (responsabilidades y accountabilities)',
+                    'Roles Scrum: Scrum Master (servant-leader, facilitador, coach)',
+                    'Roles Scrum: Development Team (auto-organizado, cross-functional)',
+                    'Eventos Scrum: Sprint (timebox, incremento potencialmente entregable)',
+                    'Eventos Scrum: Sprint Planning (qué y cómo, Sprint Goal)',
+                    'Eventos Scrum: Daily Scrum, Sprint Review, Sprint Retrospective'
                 ],
                 actividades: [
-                    'Análisis de casos de éxito ágil',
-                    'Simulación de Sprint Planning',
-                    'Práctica de Daily Scrum'
+                    'Análisis de caso de éxito de adopción ágil en empresa real',
+                    'Role-playing de roles Scrum con escenarios conflictivos',
+                    'Simulación de Sprint Planning con Product Owner',
+                    'Práctica de Daily Scrum con impedimentos reales',
+                    'Conducción de Sprint Review con stakeholders simulados',
+                    'Proyecto: Definición de equipo Scrum para caso de estudio'
                 ]
             },
             {
                 numero: 2,
-                titulo: 'Gestión del Backlog y Estimación',
+                titulo: 'Gestión del Backlog y Técnicas de Estimación',
                 semanas: 'Semana 4-5',
-                descripcion: 'Product Backlog, User Stories y técnicas de estimación.',
+                descripcion: 'Product Backlog, User Stories, y técnicas de estimación ágil.',
                 contenidos: [
-                    'Product Backlog: creación y refinamiento',
-                    'User Stories: INVEST, criterios de aceptación',
-                    'Épicas, Features, Tasks',
-                    'Técnicas de estimación: Planning Poker, T-shirt sizing',
-                    'Story Points y velocidad del equipo',
-                    'Definition of Done y Definition of Ready'
+                    'Product Backlog: características, ordenamiento, refinamiento continuo',
+                    'User Stories: estructura "Como... quiero... para...", criterios INVEST',
+                    'Criterios de aceptación: formato Given-When-Then (Gherkin)',
+                    'Épicas, Features, User Stories, Tasks: jerarquía y descomposición',
+                    'Definition of Ready (DoR) y Definition of Done (DoD)',
+                    'Técnicas de estimación: Planning Poker (secuencia Fibonacci)',
+                    'Técnicas de estimación: T-shirt sizing, affinity mapping',
+                    'Story Points vs horas: por qué usar puntos relativos',
+                    'Velocity: cálculo, estabilización, forecasting',
+                    'Sprint Backlog: selección, compromiso, Sprint Goal'
                 ],
                 actividades: [
-                    'Creación de Product Backlog',
-                    'Sesión de Planning Poker',
-                    'Refinamiento de User Stories'
+                    'Creación de Product Backlog desde visión de producto',
+                    'Redacción de User Stories con criterios INVEST',
+                    'Definición de DoR y DoD para equipo de desarrollo',
+                    'Sesión de Planning Poker con equipo real',
+                    'Cálculo de velocity y proyección de releases',
+                    'Proyecto: Backlog refinement completo para MVP'
                 ]
             },
             {
                 numero: 3,
-                titulo: 'Herramientas y Métricas Ágiles',
+                titulo: 'Herramientas, Métricas y Mejora Continua',
                 semanas: 'Semana 6-8',
-                descripcion: 'Herramientas de gestión y métricas de seguimiento.',
+                descripcion: 'Herramientas de gestión, métricas ágiles y retrospectivas efectivas.',
                 contenidos: [
-                    'Jira: configuración de proyecto Scrum',
-                    'Tableros Kanban y Scrum boards',
-                    'Burndown y Burnup charts',
-                    'Velocity tracking',
-                    'Métricas ágiles: Lead time, Cycle time',
-                    'Retrospectivas efectivas'
+                    'Jira: configuración de proyecto Scrum, workflows, screens',
+                    'Tableros Scrum y Kanban: diseño, columnas, WIP limits',
+                    'Azure DevOps Boards: alternativa a Jira, integración con código',
+                    'Burndown Chart: lectura, interpretación, señales de alerta',
+                    'Burnup Chart y Cumulative Flow Diagram',
+                    'Métricas de flujo: Lead Time, Cycle Time, Throughput',
+                    'Velocity tracking y capacidad del equipo',
+                    'Retrospectivas efectivas: formatos (Start-Stop-Continue, 4Ls, Starfish)',
+                    'Facilitación de retrospectivas: ambiente seguro, accionables',
+                    'Mejora continua: Kaizen, experimentos, hypothesis-driven development'
                 ],
                 actividades: [
-                    'Configuración de proyecto en Jira',
-                    'Seguimiento de Sprint con métricas',
-                    'Proyecto: Sprint completo simulado'
+                    'Configuración completa de proyecto Scrum en Jira',
+                    'Creación de tablero Scrum con swimlanes y filtros',
+                    'Análisis de burndown chart con escenarios problemáticos',
+                    'Cálculo e interpretación de métricas de flujo',
+                    'Facilitación de retrospectiva con formato seleccionado',
+                    'Proyecto integrador: Sprint completo simulado con métricas'
                 ]
             }
         ],
         tecnologias: [
             { nombre: 'Jira', icon: 'jira-plain', iconType: 'devicon' },
             { nombre: 'Confluence', icon: 'confluence-plain', iconType: 'devicon' },
+            { nombre: 'Azure DevOps', icon: 'azure-plain', iconType: 'devicon' },
             { nombre: 'Trello', icon: 'trello-plain', iconType: 'devicon' },
             { nombre: 'Miro', icon: 'fa-chalkboard', iconType: 'fontawesome' },
             { nombre: 'Notion', icon: 'notion-plain', iconType: 'devicon' },
-            { nombre: 'Slack', icon: 'slack-plain', iconType: 'devicon' }
+            { nombre: 'Slack', icon: 'slack-plain', iconType: 'devicon' },
+            { nombre: 'Microsoft Teams', icon: 'fa-users', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Simulaciones Scrum', ponderacion: 0, descripcion: 'Práctica de ceremonias' },
@@ -2176,11 +2354,15 @@ export const asignaturas: Record<string, Asignatura> = {
         prerrequisitos: ['Ing. Requisitos'],
         conexiones: ['Ing. Software II', 'Arquitectura Software', 'Gestión de Proyectos'],
         recursos: [
-            { tipo: 'Guía', nombre: 'Scrum Guide', url: 'https://scrumguides.org/' },
-            { tipo: 'Certificación', nombre: 'Scrum.org', url: 'https://www.scrum.org/' },
-            { tipo: 'Tutorial', nombre: 'Atlassian Agile', url: 'https://www.atlassian.com/agile' },
-            { tipo: 'Video', nombre: 'Scrum in 10 Minutes', url: 'https://www.youtube.com/watch?v=XU0llRltyFM' },
-            { tipo: 'Curso', nombre: 'Agile with Atlassian Jira', url: 'https://www.coursera.org/learn/agile-atlassian-jira' }
+            { tipo: 'Guía', nombre: 'The Scrum Guide (Official)', url: 'https://scrumguides.org/' },
+            { tipo: 'Certificación', nombre: 'Scrum.org - PSM I', url: 'https://www.scrum.org/assessments/professional-scrum-master-i-certification' },
+            { tipo: 'Tutorial', nombre: 'Atlassian Agile Coach', url: 'https://www.atlassian.com/agile' },
+            { tipo: 'Video', nombre: 'Scrum in 16 Minutes', url: 'https://www.youtube.com/watch?v=vuBFzAdaHDY' },
+            { tipo: 'Curso', nombre: 'Agile with Atlassian Jira - Coursera', url: 'https://www.coursera.org/learn/agile-atlassian-jira' },
+            { tipo: 'Libro', nombre: 'Scrum: The Art of Doing Twice the Work', url: 'https://www.scruminc.com/new-scrum-the-book/' },
+            { tipo: 'Práctica', nombre: 'Scrum Simulation - Lego4Scrum', url: 'https://www.lego4scrum.com/' },
+            { tipo: 'Herramienta', nombre: 'Planning Poker Online', url: 'https://www.planningpoker.com/' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-06%20-%20Backend%20I%2C%20Ing.%20Software%20I/Ingenieria%20Software%20I' }
         ],
         color: 'purple',
         area: 'gestion'
@@ -2200,79 +2382,103 @@ export const asignaturas: Record<string, Asignatura> = {
         creditos: 6,
         horasTeoricas: 2,
         horasPracticas: 6,
-        descripcion: 'Asignatura avanzada de backend que cubre seguridad con Spring Security, autenticación JWT, testing, y patrones avanzados como CQRS y Event Sourcing.',
-        proposito: 'Desarrollar competencias avanzadas en backend, incluyendo seguridad empresarial, testing automatizado y patrones de arquitectura moderna.',
+        descripcion: 'Asignatura avanzada de backend que cubre seguridad empresarial con Spring Security, autenticación/autorización con JWT y OAuth2, testing automatizado con JUnit/Mockito, caching con Redis, mensajería asíncrona con RabbitMQ/Kafka, y patrones avanzados de arquitectura para construir APIs robustas y escalables.',
+        proposito: 'Desarrollar competencias avanzadas en desarrollo backend empresarial, incluyendo implementación de seguridad robusta, testing automatizado integral, optimización de rendimiento con caching, y comunicación asíncrona para construir APIs de alta disponibilidad.',
         objetivos: [
-            'Implementar autenticación y autorización con Spring Security',
-            'Aplicar JWT para APIs stateless',
-            'Desarrollar testing unitario e integración',
-            'Implementar patrones avanzados de backend',
-            'Aplicar caching y optimización de rendimiento',
-            'Integrar con servicios externos y mensajería'
+            'Implementar autenticación y autorización empresarial con Spring Security',
+            'Aplicar JWT y OAuth2/OpenID Connect para APIs stateless seguras',
+            'Desarrollar testing unitario, integración y E2E automatizado',
+            'Implementar patrones avanzados de backend y optimización',
+            'Aplicar caching distribuido y optimización de rendimiento',
+            'Integrar mensajería asíncrona para sistemas desacoplados'
         ],
         competencias: [
-            'Spring Security y JWT',
-            'Testing con JUnit y Mockito',
-            'Caching con Redis',
-            'Mensajería asíncrona',
-            'Patrones avanzados'
+            'Implementación de seguridad con Spring Security y filtros personalizados',
+            'Autenticación stateless con JWT: generación, validación, refresh tokens',
+            'Integración OAuth2/OpenID Connect con proveedores externos',
+            'Testing unitario con JUnit 5 y mocking con Mockito',
+            'Testing de integración con @SpringBootTest y Testcontainers',
+            'Implementación de caching distribuido con Redis',
+            'Mensajería asíncrona con RabbitMQ y/o Apache Kafka',
+            'Análisis de calidad de código con SonarQube'
         ],
         experiencias: [
             {
                 numero: 1,
-                titulo: 'Seguridad con Spring Security',
+                titulo: 'Seguridad Empresarial con Spring Security',
                 semanas: 'Semana 1-3',
-                descripcion: 'Autenticación y autorización empresarial.',
+                descripcion: 'Autenticación y autorización robusta para APIs empresariales.',
                 contenidos: [
-                    'Spring Security: arquitectura y filtros',
-                    'Autenticación: form-based, HTTP Basic',
-                    'JWT: estructura, generación, validación',
-                    'Autorización: roles y permisos',
-                    '@PreAuthorize y @Secured',
-                    'OAuth2 y OpenID Connect conceptos'
+                    'Spring Security: arquitectura, SecurityFilterChain, filtros',
+                    'Autenticación: form-based, HTTP Basic, custom authentication',
+                    'JWT (JSON Web Tokens): estructura (header.payload.signature)',
+                    'Generación de JWT: claims, expiración, signing con secret/RSA',
+                    'Validación de JWT: JwtDecoder, filtro de autenticación',
+                    'Refresh tokens: rotación segura, almacenamiento',
+                    'Autorización: roles vs authorities, @PreAuthorize, @Secured',
+                    'Method security: expresiones SpEL para permisos granulares',
+                    'OAuth2 Resource Server: validación de tokens externos',
+                    'OpenID Connect: integración con Google, Keycloak, Auth0'
                 ],
                 actividades: [
-                    'Implementación de login con JWT',
-                    'Sistema de roles y permisos',
-                    'Protección de endpoints'
+                    'Implementación completa de login/registro con JWT',
+                    'Sistema de roles y permisos con base de datos',
+                    'Refresh token rotation con invalidación de tokens anteriores',
+                    'Protección de endpoints por rol y permiso específico',
+                    'Integración OAuth2 con proveedor externo (Google/GitHub)',
+                    'Proyecto: Sistema de autenticación multi-tenant'
                 ]
             },
             {
                 numero: 2,
-                titulo: 'Testing y Calidad de Código',
+                titulo: 'Testing Automatizado y Calidad de Código',
                 semanas: 'Semana 4-5',
-                descripcion: 'Testing automatizado y métricas de calidad.',
+                descripcion: 'Testing integral y métricas de calidad de software.',
                 contenidos: [
-                    'JUnit 5: @Test, @BeforeEach, assertions',
-                    'Mockito: @Mock, @InjectMocks, when/thenReturn',
-                    'Testing de controllers con MockMvc',
-                    'Testing de repositorios con @DataJpaTest',
-                    'Cobertura de código con JaCoCo',
-                    'SonarQube y análisis estático'
+                    'JUnit 5: @Test, @ParameterizedTest, @Nested, lifecycle callbacks',
+                    'Assertions avanzadas: assertAll, assertThrows, assertTimeout',
+                    'Mockito: @Mock, @Spy, @InjectMocks, argument matchers',
+                    'when/thenReturn, doThrow, verify interactions',
+                    'Testing de controllers: MockMvc, @WebMvcTest',
+                    'Testing de repositorios: @DataJpaTest, H2 in-memory',
+                    'Testing de integración: @SpringBootTest, TestRestTemplate',
+                    'Testcontainers: PostgreSQL, Redis, RabbitMQ en Docker',
+                    'Cobertura de código: JaCoCo, reportes, umbrales',
+                    'SonarQube: análisis estático, code smells, security hotspots'
                 ],
                 actividades: [
-                    'Suite de tests unitarios',
-                    'Tests de integración',
-                    'Análisis con SonarQube'
+                    'Suite completa de tests unitarios para capa Service',
+                    'Tests de controllers con MockMvc y seguridad',
+                    'Tests de integración con Testcontainers',
+                    'Configuración de JaCoCo con umbral mínimo 80%',
+                    'Análisis de proyecto con SonarQube local',
+                    'Proyecto: Pipeline de CI con quality gates'
                 ]
             },
             {
                 numero: 3,
-                titulo: 'Patrones Avanzados y Optimización',
+                titulo: 'Caching, Mensajería y Patrones Avanzados',
                 semanas: 'Semana 6-8',
-                descripcion: 'Caching, mensajería y patrones de arquitectura.',
+                descripcion: 'Optimización de rendimiento y comunicación asíncrona.',
                 contenidos: [
-                    'Caching con Spring Cache y Redis',
-                    'Mensajería con RabbitMQ/Kafka',
-                    'Patrón Specification para queries dinámicos',
-                    'Auditoría con Spring Data Envers',
-                    'Scheduling con @Scheduled',
-                    'WebSockets para tiempo real'
+                    'Spring Cache abstraction: @Cacheable, @CacheEvict, @CachePut',
+                    'Redis como cache distribuido: configuración, serialización',
+                    'Estrategias de cache: TTL, LRU, write-through, write-behind',
+                    'RabbitMQ: exchanges, queues, bindings, acknowledgments',
+                    'Apache Kafka: topics, partitions, consumer groups, offsets',
+                    'Patrón Specification para queries dinámicos complejos',
+                    'Auditoría con Spring Data Envers: historial de cambios',
+                    'Scheduling: @Scheduled, cron expressions, distributed locks',
+                    'WebSockets con STOMP: tiempo real bidireccional',
+                    'Rate limiting y throttling con Bucket4j/Resilience4j'
                 ],
                 actividades: [
-                    'Implementación de cache Redis',
-                    'Sistema de notificaciones async',
-                    'Proyecto: API empresarial completa'
+                    'Implementación de cache Redis para entidades frecuentes',
+                    'Sistema de eventos con RabbitMQ (notificaciones)',
+                    'Consumer Kafka para procesamiento de eventos',
+                    'Búsqueda dinámica con Specifications',
+                    'Chat en tiempo real con WebSockets',
+                    'Proyecto integrador: API empresarial con seguridad, cache y eventos'
                 ]
             }
         ],
@@ -2280,9 +2486,11 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Spring Boot', icon: 'spring-plain', iconType: 'devicon' },
             { nombre: 'Redis', icon: 'redis-plain', iconType: 'devicon' },
             { nombre: 'RabbitMQ', icon: 'rabbitmq-plain', iconType: 'devicon' },
+            { nombre: 'Kafka', icon: 'apachekafka-original', iconType: 'devicon' },
             { nombre: 'JUnit', icon: 'junit-plain', iconType: 'devicon' },
             { nombre: 'Mockito', icon: 'fa-check-double', iconType: 'fontawesome' },
-            { nombre: 'SonarQube', icon: 'sonarqube-plain', iconType: 'devicon' }
+            { nombre: 'SonarQube', icon: 'sonarqube-plain', iconType: 'devicon' },
+            { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs de seguridad', ponderacion: 0, descripcion: 'Prácticas de Spring Security' },
@@ -2293,11 +2501,15 @@ export const asignaturas: Record<string, Asignatura> = {
         prerrequisitos: ['Backend I'],
         conexiones: ['Arquitectura Software', 'Cloud Native', 'Frontend I-II'],
         recursos: [
-            { tipo: 'Documentación', nombre: 'Spring Security', url: 'https://docs.spring.io/spring-security/reference/' },
-            { tipo: 'Tutorial', nombre: 'JWT.io', url: 'https://jwt.io/' },
-            { tipo: 'Curso', nombre: 'Testing Spring Boot', url: 'https://www.baeldung.com/spring-boot-testing' },
+            { tipo: 'Documentación', nombre: 'Spring Security Reference', url: 'https://docs.spring.io/spring-security/reference/' },
+            { tipo: 'Tutorial', nombre: 'JWT.io - Introduction', url: 'https://jwt.io/introduction' },
             { tipo: 'Video', nombre: 'Spring Security JWT - Amigoscode', url: 'https://www.youtube.com/watch?v=KxqlJblhzfI' },
-            { tipo: 'Práctica', nombre: 'Mockito Tutorial', url: 'https://site.mockito.org/' }
+            { tipo: 'Curso', nombre: 'Testing Spring Boot Apps - Baeldung', url: 'https://www.baeldung.com/spring-boot-testing' },
+            { tipo: 'Documentación', nombre: 'Mockito Framework', url: 'https://site.mockito.org/' },
+            { tipo: 'Guía', nombre: 'Testcontainers for Java', url: 'https://testcontainers.com/guides/getting-started-with-testcontainers-for-java/' },
+            { tipo: 'Tutorial', nombre: 'Redis with Spring Boot', url: 'https://www.baeldung.com/spring-data-redis-tutorial' },
+            { tipo: 'Video', nombre: 'RabbitMQ Tutorial - Amigoscode', url: 'https://www.youtube.com/watch?v=hfUIWe1tK8E' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-07%20-%20Backend%20II-III%2C%20Ing.%20Software%20II/Backend%20II-III' }
         ],
         color: 'green',
         area: 'programacion'
@@ -2313,89 +2525,115 @@ export const asignaturas: Record<string, Asignatura> = {
         creditos: 4,
         horasTeoricas: 2,
         horasPracticas: 4,
-        descripcion: 'Asignatura que profundiza en calidad de software, testing avanzado, integración continua y mejora de procesos.',
-        proposito: 'Desarrollar competencias en aseguramiento de calidad de software, automatización de pruebas y mejora continua de procesos de desarrollo.',
+        descripcion: 'Asignatura que profundiza en calidad de software, testing avanzado con múltiples frameworks, automatización de pruebas E2E, testing de rendimiento y seguridad, integración continua con quality gates, y mejora continua de procesos de desarrollo según estándares ISTQB.',
+        proposito: 'Desarrollar competencias integrales en aseguramiento de calidad de software, incluyendo diseño de estrategias de testing, automatización con frameworks modernos, testing de rendimiento y seguridad, y gestión de calidad en pipelines CI/CD para entregar software de alta calidad.',
         objetivos: [
-            'Aplicar técnicas avanzadas de testing de software',
-            'Implementar estrategias de testing automatizado',
-            'Configurar pipelines de calidad en CI/CD',
-            'Aplicar métricas de calidad de software',
-            'Gestionar defectos y mejora continua',
-            'Implementar testing de rendimiento y seguridad'
+            'Aplicar técnicas avanzadas de diseño de casos de prueba',
+            'Implementar estrategias de testing automatizado con múltiples frameworks',
+            'Configurar pipelines de CI/CD con quality gates',
+            'Aplicar métricas de calidad de software según estándares',
+            'Gestionar defectos y aplicar mejora continua',
+            'Implementar testing de rendimiento y seguridad básico'
         ],
         competencias: [
-            'Testing avanzado',
-            'Automatización de pruebas',
-            'CI/CD para calidad',
-            'Métricas de software',
-            'Performance testing'
+            'Diseño de estrategias de testing según niveles y tipos de prueba',
+            'Implementación de TDD (Test-Driven Development) y BDD',
+            'Automatización de pruebas E2E con Selenium, Cypress y Playwright',
+            'Testing de APIs con REST Assured y Postman',
+            'Testing de rendimiento con JMeter y Gatling',
+            'Configuración de quality gates en pipelines CI/CD',
+            'Análisis de métricas de calidad: coverage, defect density, MTTR',
+            'Gestión de defectos y trazabilidad con Jira/Azure DevOps'
         ],
         experiencias: [
             {
                 numero: 1,
-                titulo: 'Estrategias de Testing',
+                titulo: 'Estrategias de Testing y TDD/BDD',
                 semanas: 'Semana 1-3',
-                descripcion: 'Niveles de testing y diseño de casos de prueba.',
+                descripcion: 'Niveles de testing, diseño de casos de prueba y desarrollo guiado por tests.',
                 contenidos: [
-                    'Niveles de testing: unitario, integración, sistema, aceptación',
-                    'Técnicas de diseño: caja negra, caja blanca',
-                    'Partición de equivalencia y valores límite',
-                    'Testing basado en riesgos',
-                    'Test-Driven Development (TDD)',
-                    'Behavior-Driven Development (BDD)'
+                    'Fundamentos ISTQB: niveles de testing (unit, integration, system, acceptance)',
+                    'Tipos de testing: funcional, no funcional, regresión, smoke, sanity',
+                    'Técnicas de caja negra: partición de equivalencia, valores límite, decision table',
+                    'Técnicas de caja blanca: statement, branch, path coverage',
+                    'Testing basado en riesgos: priorización y matriz de riesgos',
+                    'Test-Driven Development (TDD): Red-Green-Refactor cycle',
+                    'Behavior-Driven Development (BDD): Given-When-Then, Gherkin syntax',
+                    'Cucumber: features, steps, hooks, data tables',
+                    'Estrategia de testing: test plan, test cases, traceability matrix',
+                    'Testing exploratorio: session-based, charters, heurísticas'
                 ],
                 actividades: [
-                    'Diseño de plan de pruebas',
-                    'Práctica de TDD',
-                    'Implementación de BDD con Cucumber'
+                    'Diseño de plan de pruebas para sistema e-commerce',
+                    'Creación de test cases con técnicas de caja negra',
+                    'Implementación de feature completa con TDD',
+                    'Desarrollo de escenarios BDD con Cucumber',
+                    'Matriz de trazabilidad requisitos → tests',
+                    'Proyecto: Estrategia de testing para proyecto real'
                 ]
             },
             {
                 numero: 2,
-                titulo: 'Automatización de Pruebas',
+                titulo: 'Automatización de Pruebas E2E y API',
                 semanas: 'Semana 4-5',
-                descripcion: 'Frameworks de automatización y testing E2E.',
+                descripcion: 'Frameworks de automatización para UI y API testing.',
                 contenidos: [
-                    'Selenium WebDriver para testing E2E',
-                    'Cypress para testing frontend',
-                    'API testing con REST Assured',
-                    'Page Object Model pattern',
-                    'Data-driven testing',
-                    'Reporting de resultados'
+                    'Selenium WebDriver: locators, waits, WebDriverWait',
+                    'Page Object Model (POM): encapsulación, Page Factory',
+                    'Cypress: comandos, intercepts, fixtures, custom commands',
+                    'Playwright: multi-browser, codegen, trace viewer',
+                    'REST Assured: given/when/then, response validation, authentication',
+                    'Postman/Newman: collections, environments, pre-request scripts',
+                    'Data-driven testing: parametrización, external data sources',
+                    'Cross-browser testing: BrowserStack, Sauce Labs',
+                    'Visual regression testing: Percy, Chromatic',
+                    'Reporting: Allure, ExtentReports, video recording'
                 ],
                 actividades: [
-                    'Suite de tests E2E con Selenium',
-                    'Testing de API con REST Assured',
-                    'Framework de automatización'
+                    'Suite de tests E2E con Selenium y POM',
+                    'Tests de UI con Cypress para SPA React',
+                    'Automatización multi-browser con Playwright',
+                    'Suite de API tests con REST Assured',
+                    'Data-driven tests con archivos externos',
+                    'Proyecto: Framework de automatización reutilizable'
                 ]
             },
             {
                 numero: 3,
-                titulo: 'Calidad y Mejora Continua',
+                titulo: 'Performance Testing, Seguridad y Quality Gates',
                 semanas: 'Semana 6-8',
-                descripcion: 'Métricas, performance testing y procesos de calidad.',
+                descripcion: 'Testing no funcional, métricas de calidad y pipelines de CI/CD.',
                 contenidos: [
-                    'Métricas de calidad: defect density, code coverage',
-                    'Performance testing con JMeter',
-                    'Security testing básico',
-                    'Gestión de defectos en Jira',
-                    'Quality Gates en CI/CD',
-                    'Retrospectivas de calidad'
+                    'Performance testing: load, stress, spike, soak testing',
+                    'JMeter: thread groups, samplers, listeners, assertions',
+                    'Gatling: simulaciones en Scala, reports detallados',
+                    'Métricas de performance: response time, throughput, error rate',
+                    'Security testing básico: OWASP ZAP, vulnerability scanning',
+                    'Métricas de calidad: code coverage, defect density, MTTR, escape rate',
+                    'Quality Gates: SonarQube, thresholds, políticas de calidad',
+                    'CI/CD integration: test stages, parallel execution, fail fast',
+                    'Gestión de defectos: severidad, prioridad, workflow, SLA',
+                    'Mejora continua: retrospectivas de calidad, action items'
                 ],
                 actividades: [
-                    'Testing de carga con JMeter',
-                    'Configuración de quality gates',
-                    'Proyecto: Plan de calidad completo'
+                    'Plan de load testing con objetivos de rendimiento',
+                    'Ejecución de tests de carga con JMeter',
+                    'Escaneo de vulnerabilidades con OWASP ZAP',
+                    'Configuración de quality gates en SonarQube',
+                    'Pipeline CI/CD con stages de testing',
+                    'Proyecto integrador: Plan de calidad completo con métricas'
                 ]
             }
         ],
         tecnologias: [
             { nombre: 'Selenium', icon: 'selenium-original', iconType: 'devicon' },
             { nombre: 'Cypress', icon: 'fa-vial', iconType: 'fontawesome' },
-            { nombre: 'JMeter', icon: 'fa-tachometer-alt', iconType: 'fontawesome' },
-            { nombre: 'Cucumber', icon: 'cucumber-plain', iconType: 'devicon' },
             { nombre: 'Playwright', icon: 'playwright-plain', iconType: 'devicon' },
-            { nombre: 'Postman', icon: 'postman-plain', iconType: 'devicon' }
+            { nombre: 'Cucumber', icon: 'cucumber-plain', iconType: 'devicon' },
+            { nombre: 'JMeter', icon: 'fa-tachometer-alt', iconType: 'fontawesome' },
+            { nombre: 'Postman', icon: 'postman-plain', iconType: 'devicon' },
+            { nombre: 'SonarQube', icon: 'sonarqube-plain', iconType: 'devicon' },
+            { nombre: 'GitHub Actions', icon: 'githubactions-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs de testing', ponderacion: 0, descripcion: 'Práctica de automatización' },
@@ -2406,11 +2644,15 @@ export const asignaturas: Record<string, Asignatura> = {
         prerrequisitos: ['Ing. Software I'],
         conexiones: ['Arquitectura Software', 'DevOps', 'Seguridad y Calidad'],
         recursos: [
-            { tipo: 'Documentación', nombre: 'Selenium Docs', url: 'https://www.selenium.dev/documentation/' },
-            { tipo: 'Tutorial', nombre: 'Cypress Docs', url: 'https://docs.cypress.io/' },
-            { tipo: 'Herramienta', nombre: 'JMeter', url: 'https://jmeter.apache.org/' },
-            { tipo: 'Video', nombre: 'Playwright Full Course', url: 'https://www.youtube.com/watch?v=VELWdMWQN8c' },
-            { tipo: 'Libro', nombre: 'Software Testing - ISTQB', url: 'https://www.istqb.org/' }
+            { tipo: 'Documentación', nombre: 'Selenium WebDriver', url: 'https://www.selenium.dev/documentation/' },
+            { tipo: 'Tutorial', nombre: 'Cypress Documentation', url: 'https://docs.cypress.io/' },
+            { tipo: 'Documentación', nombre: 'Playwright Docs', url: 'https://playwright.dev/docs/intro' },
+            { tipo: 'Video', nombre: 'Playwright Full Course - freeCodeCamp', url: 'https://www.youtube.com/watch?v=VELWdMWQN8c' },
+            { tipo: 'Herramienta', nombre: 'Apache JMeter', url: 'https://jmeter.apache.org/usermanual/index.html' },
+            { tipo: 'Certificación', nombre: 'ISTQB Foundation Level', url: 'https://www.istqb.org/certifications/certified-tester-foundation-level' },
+            { tipo: 'Libro', nombre: 'Agile Testing - Lisa Crispin', url: 'https://agiletester.ca/' },
+            { tipo: 'Tutorial', nombre: 'REST Assured Guide', url: 'https://rest-assured.io/' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-07%20-%20Backend%20II-III%2C%20Ing.%20Software%20II/Ingenieria%20Software%20II' }
         ],
         color: 'purple',
         area: 'gestion'
@@ -2441,11 +2683,14 @@ export const asignaturas: Record<string, Asignatura> = {
             'Aplicar testing de componentes'
         ],
         competencias: [
-            'React fundamentals',
-            'Hooks y estado',
-            'React Router',
-            'State management',
-            'Testing frontend'
+            'Dominio de React 18+ y su modelo de componentes funcionales con JSX/TSX',
+            'Implementación avanzada de hooks nativos y creación de custom hooks reutilizables',
+            'Gestión de estado global con Context API, Redux Toolkit y Zustand',
+            'Implementación de routing declarativo con React Router v6 y rutas protegidas',
+            'Consumo eficiente de APIs REST con TanStack Query y manejo de cache',
+            'Testing de componentes con Vitest, React Testing Library y MSW para mocking',
+            'Aplicación de patrones de diseño frontend: compound components, render props, HOCs',
+            'Optimización de rendimiento: memoization, code splitting, lazy loading y profiling'
         ],
         experiencias: [
             {
@@ -2454,17 +2699,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 1-3',
                 descripcion: 'Introducción a React, JSX y componentes.',
                 contenidos: [
-                    'React: virtual DOM, reconciliación',
-                    'JSX: sintaxis y expresiones',
-                    'Componentes funcionales',
-                    'Props y children',
-                    'Hooks básicos: useState, useEffect',
-                    'Eventos y formularios controlados'
+                    'Arquitectura de React 18+: virtual DOM, fiber, reconciliación y concurrent mode',
+                    'JSX/TSX: sintaxis, expresiones JavaScript, fragments y conditional rendering',
+                    'Componentes funcionales: estructura, naming conventions, single responsibility',
+                    'Sistema de Props: tipado con TypeScript, children, spread props, default values',
+                    'useState: estado local, batching de actualizaciones, functional updates',
+                    'useEffect: lifecycle, cleanup functions, dependency array, strict mode behavior',
+                    'Eventos sintéticos: event handling, event pooling, preventing defaults',
+                    'Formularios controlados vs no controlados: onChange, onSubmit, form validation',
+                    'Composición de componentes: slots pattern, children manipulation, cloneElement',
+                    'Styling en React: CSS modules, styled-components, Tailwind, CSS-in-JS trade-offs'
                 ],
                 actividades: [
-                    'Setup con Vite + React',
-                    'Componentes reutilizables',
-                    'Formularios con validación'
+                    'Setup de proyecto con Vite + React + TypeScript + ESLint + Prettier',
+                    'Implementación de component library con Storybook para documentación',
+                    'Creación de formulario multi-step con validación usando React Hook Form',
+                    'Desarrollo de sistema de temas (dark/light mode) con CSS variables',
+                    'Implementación de componentes accesibles siguiendo WCAG 2.1 guidelines',
+                    'Proyecto parcial: Dashboard de widgets con drag & drop básico'
                 ]
             },
             {
@@ -2473,17 +2725,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 4-5',
                 descripcion: 'Gestión de estado y navegación SPA.',
                 contenidos: [
-                    'useContext y Context API',
-                    'useReducer para estado complejo',
-                    'Custom hooks',
-                    'React Router: rutas, params, navigate',
-                    'Rutas protegidas',
-                    'Introducción a Redux Toolkit'
+                    'useContext: creación de contextos, Provider pattern, consumer optimization',
+                    'useReducer: acciones, dispatch, reducer puro, combinación con context',
+                    'Custom hooks: extracción de lógica, composición, testing de hooks',
+                    'React Router v6: createBrowserRouter, Outlet, loader, action functions',
+                    'Navegación programática: useNavigate, useSearchParams, useLocation state',
+                    'Rutas protegidas: guards, role-based access, redirect after login flow',
+                    'Redux Toolkit: createSlice, configureStore, createAsyncThunk, RTK Query',
+                    'Zustand: stores, selectors, persist middleware, devtools integration',
+                    'Comparativa state management: Context vs Redux vs Zustand vs Jotai vs Recoil',
+                    'URL state: sincronización de estado con query params, deep linking'
                 ],
                 actividades: [
-                    'Context para autenticación',
-                    'Sistema de navegación completo',
-                    'Implementación de Redux'
+                    'Implementación de auth context con token refresh y logout automático',
+                    'Sistema de navegación completo con breadcrumbs y navegación anidada',
+                    'Store de Redux Toolkit con múltiples slices y normalización de datos',
+                    'Implementación de feature flags con Zustand y remote config',
+                    'Rutas protegidas por rol con lazy loading de módulos por permiso',
+                    'Proyecto parcial: Panel de administración con RBAC completo'
                 ]
             },
             {
@@ -2492,17 +2751,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 6-8',
                 descripcion: 'Integración con backend y preparación para producción.',
                 contenidos: [
-                    'Fetch API y Axios',
-                    'React Query / TanStack Query',
-                    'Manejo de loading y errores',
-                    'Testing con Vitest y React Testing Library',
-                    'Build y optimización',
-                    'Deploy a Vercel/Netlify'
+                    'Fetch API moderno: AbortController, streaming, error handling patterns',
+                    'Axios: interceptors, request/response transformation, retry logic',
+                    'TanStack Query: queries, mutations, cache invalidation, optimistic updates',
+                    'Manejo de estados async: loading skeletons, error boundaries, suspense',
+                    'Vitest: configuración, test runners, coverage, snapshot testing',
+                    'React Testing Library: queries, user events, async utilities, custom renders',
+                    'MSW (Mock Service Worker): handlers, scenarios, testing de integración',
+                    'Bundle optimization: tree shaking, code splitting, dynamic imports, bundle analyzer',
+                    'Performance profiling: React DevTools, Lighthouse, Core Web Vitals optimization',
+                    'Deploy strategies: Vercel, Netlify, CloudFront, environment variables, CI/CD'
                 ],
                 actividades: [
-                    'Integración con API backend',
-                    'Suite de tests de componentes',
-                    'Proyecto: SPA completa'
+                    'Integración completa con API REST usando TanStack Query y cache',
+                    'Implementación de infinite scroll con virtualización de listas',
+                    'Suite de tests unitarios con coverage >80% usando Vitest y RTL',
+                    'Tests de integración con MSW simulando escenarios de backend',
+                    'Auditoría de performance con mejoras documentadas en Lighthouse',
+                    'Proyecto integrador: SPA e-commerce completa con deploy a producción'
                 ]
             }
         ],
@@ -2512,7 +2778,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Vite', icon: 'vitejs-plain', iconType: 'devicon' },
             { nombre: 'Tailwind', icon: 'tailwindcss-original', iconType: 'devicon' },
             { nombre: 'Redux', icon: 'redux-original', iconType: 'devicon' },
-            { nombre: 'Axios', icon: 'axios-plain', iconType: 'devicon' }
+            { nombre: 'Vitest', icon: 'vitest-plain', iconType: 'devicon' },
+            { nombre: 'Storybook', icon: 'storybook-plain', iconType: 'devicon' },
+            { nombre: 'Vercel', icon: 'vercel-original', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs React', ponderacion: 0, descripcion: 'Prácticas de componentes' },
@@ -2523,11 +2791,15 @@ export const asignaturas: Record<string, Asignatura> = {
         prerrequisitos: ['POO II'],
         conexiones: ['Frontend III', 'Mobile I', 'Arquitectura Software'],
         recursos: [
-            { tipo: 'Documentación', nombre: 'React Docs', url: 'https://react.dev/' },
-            { tipo: 'Tutorial', nombre: 'React Tutorial', url: 'https://react.dev/learn' },
-            { tipo: 'Curso', nombre: 'Frontend Masters React', url: 'https://frontendmasters.com/learn/react/' },
-            { tipo: 'Video', nombre: 'React Full Course - freeCodeCamp', url: 'https://www.youtube.com/watch?v=bMknfKXIFA8' },
-            { tipo: 'Práctica', nombre: 'React Challenges', url: 'https://www.frontendmentor.io/' }
+            { tipo: 'Documentación', nombre: 'React Documentation', url: 'https://react.dev/' },
+            { tipo: 'Tutorial', nombre: 'React Learn (Oficial)', url: 'https://react.dev/learn' },
+            { tipo: 'Curso', nombre: 'Epic React by Kent C. Dodds', url: 'https://epicreact.dev/' },
+            { tipo: 'Video', nombre: 'React 18 Full Course - freeCodeCamp', url: 'https://www.youtube.com/watch?v=bMknfKXIFA8' },
+            { tipo: 'Documentación', nombre: 'TanStack Query Docs', url: 'https://tanstack.com/query/latest' },
+            { tipo: 'Tutorial', nombre: 'Testing Library Recipes', url: 'https://testing-library.com/docs/react-testing-library/intro/' },
+            { tipo: 'Herramienta', nombre: 'Storybook for React', url: 'https://storybook.js.org/docs/react/get-started/introduction' },
+            { tipo: 'Práctica', nombre: 'Frontend Mentor Challenges', url: 'https://www.frontendmentor.io/' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-08%20-%20Frontend%20I-II%2C%20Arquitectura%20SW/Frontend%20I-II' }
         ],
         color: 'cyan',
         area: 'programacion'
@@ -2554,11 +2826,14 @@ export const asignaturas: Record<string, Asignatura> = {
             'Implementar patrones de resiliencia'
         ],
         competencias: [
-            'Estilos arquitectónicos',
-            'Diseño de microservicios',
-            'Patrones de resiliencia',
-            'Documentación C4',
-            'Decisiones arquitectónicas'
+            'Dominio de estilos arquitectónicos: monolito modular, microservicios, serverless, event-driven',
+            'Diseño de sistemas distribuidos aplicando patrones de resiliencia y escalabilidad',
+            'Implementación de Clean Architecture, Hexagonal Architecture y Onion Architecture',
+            'Aplicación de Domain-Driven Design: bounded contexts, agregados, domain events',
+            'Documentación arquitectónica profesional con modelo C4 y ADRs',
+            'Evaluación de trade-offs arquitectónicos usando fitness functions y métricas',
+            'Diseño de APIs y contratos: REST maturity model, GraphQL, gRPC, API versioning',
+            'Aplicación de patrones de integración empresarial y messaging patterns'
         ],
         experiencias: [
             {
@@ -2567,17 +2842,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 1-3',
                 descripcion: 'Estilos arquitectónicos y principios de diseño.',
                 contenidos: [
-                    'Rol del arquitecto de software',
-                    'Atributos de calidad: escalabilidad, mantenibilidad',
-                    'Estilos: monolito, capas, microservicios, serverless',
-                    'Clean Architecture y Hexagonal',
-                    'Domain-Driven Design (DDD) conceptos',
-                    'Bounded Contexts y agregados'
+                    'Rol del arquitecto de software: responsabilidades, habilidades, career path',
+                    'Atributos de calidad (ISO 25010): escalabilidad, mantenibilidad, disponibilidad, seguridad',
+                    'Estilos arquitectónicos: monolito, monolito modular, capas, microservicios, serverless',
+                    'Clean Architecture (Uncle Bob): entities, use cases, interface adapters, frameworks',
+                    'Hexagonal Architecture (Ports & Adapters): inbound/outbound ports, adapters, domain',
+                    'Onion Architecture: capas concéntricas, inversión de dependencias, domain core',
+                    'Domain-Driven Design conceptos: ubiquitous language, bounded contexts, context mapping',
+                    'Agregados, entities, value objects, domain events, domain services',
+                    'Strategic DDD: core domain, supporting domain, generic domain, subdomains',
+                    'Anti-corruption layer, shared kernel, customer-supplier, conformist patterns'
                 ],
                 actividades: [
-                    'Análisis de arquitecturas existentes',
-                    'Diseño con Clean Architecture',
-                    'Identificación de bounded contexts'
+                    'Análisis arquitectónico de sistemas open source (Netflix, Uber, Airbnb)',
+                    'Diseño de bounded contexts para un dominio de e-commerce complejo',
+                    'Refactoring de monolito a Clean Architecture con capas bien definidas',
+                    'Implementación de Hexagonal Architecture en proyecto Spring Boot',
+                    'Modelado de agregados y domain events para un sistema de pedidos',
+                    'Presentación de context map con patrones de integración entre bounded contexts'
                 ]
             },
             {
@@ -2586,17 +2868,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 4-5',
                 descripcion: 'Patrones para sistemas escalables y resilientes.',
                 contenidos: [
-                    'API Gateway pattern',
-                    'Service Mesh conceptos',
-                    'Circuit Breaker pattern',
-                    'Retry y Timeout patterns',
-                    'Event-Driven Architecture',
-                    'CQRS y Event Sourcing'
+                    'API Gateway pattern: routing, aggregation, rate limiting, authentication',
+                    'Backend for Frontend (BFF): specialization, optimization, team ownership',
+                    'Service Mesh: sidecar proxy, Istio/Linkerd, observability, mTLS',
+                    'Circuit Breaker pattern: estados, thresholds, half-open, fallback strategies',
+                    'Retry patterns: exponential backoff, jitter, idempotency, retry budgets',
+                    'Timeout patterns: connection timeout, read timeout, request timeout, deadline propagation',
+                    'Bulkhead pattern: thread pools, connection pools, semaphores, rate limiters',
+                    'Event-Driven Architecture: event notification, event-carried state transfer, event sourcing',
+                    'CQRS: command/query separation, read models, projections, eventual consistency',
+                    'Saga pattern: choreography vs orchestration, compensating transactions, idempotency'
                 ],
                 actividades: [
-                    'Implementación de Circuit Breaker',
-                    'Diseño event-driven',
-                    'Análisis de trade-offs'
+                    'Diseño de API Gateway con Kong o AWS API Gateway',
+                    'Implementación de Circuit Breaker con Resilience4j en microservicio',
+                    'Diseño de arquitectura event-driven con domain events y message broker',
+                    'Implementación de Saga pattern para proceso de checkout distribuido',
+                    'Análisis de trade-offs: consistency vs availability (CAP theorem)',
+                    'Proyecto parcial: Sistema de reservas con CQRS y Event Sourcing'
                 ]
             },
             {
@@ -2605,27 +2894,36 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 6-8',
                 descripcion: 'Documentación arquitectónica y ADRs.',
                 contenidos: [
-                    'Modelo C4: Context, Container, Component, Code',
-                    'Architecture Decision Records (ADRs)',
-                    'Diagramas de secuencia y colaboración',
-                    'Fitness functions y métricas',
-                    'Evolutionary architecture',
-                    'Tech Radar y estrategia tecnológica'
+                    'Modelo C4 detallado: Context, Container, Component, Code diagrams',
+                    'Structurizr y Structurizr DSL: arquitectura como código, workspaces',
+                    'Architecture Decision Records (ADRs): estructura, contexto, decision, consequences',
+                    'Diagramas de secuencia y colaboración para flujos críticos',
+                    'Fitness functions: automated testing de características arquitectónicas',
+                    'Métricas arquitectónicas: coupling, cohesion, instability, abstractness',
+                    'Evolutionary architecture: incremental change, fitness functions, last responsible moment',
+                    'Tech Radar: adopt, trial, assess, hold; governance tecnológica',
+                    'Architecture reviews: ATAM, lightweight ADRs, architecture katas',
+                    'API design principles: REST maturity levels, contract-first, OpenAPI, versioning strategies'
                 ],
                 actividades: [
-                    'Documentación C4 de sistema',
-                    'Redacción de ADRs',
-                    'Proyecto: Arquitectura completa'
+                    'Documentación C4 completa de sistema usando Structurizr DSL',
+                    'Redacción de 5+ ADRs para decisiones arquitectónicas clave',
+                    'Implementación de fitness functions con ArchUnit en proyecto Java',
+                    'Creación de Tech Radar para stack tecnológico del equipo',
+                    'Diseño de API REST nivel 3 (HATEOAS) con documentación OpenAPI',
+                    'Proyecto integrador: Arquitectura completa de sistema distribuido con documentación'
                 ]
             }
         ],
         tecnologias: [
-            { nombre: 'Mermaid', icon: 'fa-project-diagram', iconType: 'fontawesome' },
+            { nombre: 'Structurizr', icon: 'fa-cubes', iconType: 'fontawesome' },
             { nombre: 'PlantUML', icon: 'fa-sitemap', iconType: 'fontawesome' },
             { nombre: 'Draw.io', icon: 'fa-draw-polygon', iconType: 'fontawesome' },
-            { nombre: 'Structurizr', icon: 'fa-cubes', iconType: 'fontawesome' },
+            { nombre: 'Mermaid', icon: 'fa-project-diagram', iconType: 'fontawesome' },
             { nombre: 'Lucidchart', icon: 'fa-object-ungroup', iconType: 'fontawesome' },
-            { nombre: 'Notion', icon: 'notion-plain', iconType: 'devicon' }
+            { nombre: 'Notion', icon: 'notion-plain', iconType: 'devicon' },
+            { nombre: 'Confluence', icon: 'confluence-plain', iconType: 'devicon' },
+            { nombre: 'ArchUnit', icon: 'fa-check-circle', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Análisis de arquitecturas', ponderacion: 0, descripcion: 'Estudio de casos' },
@@ -2636,11 +2934,15 @@ export const asignaturas: Record<string, Asignatura> = {
         prerrequisitos: ['Backend I', 'Cloud Native'],
         conexiones: ['Cloud Native II', 'Seguridad y Calidad', 'Fullstack I'],
         recursos: [
-            { tipo: 'Libro', nombre: 'Fundamentals of Software Architecture', url: 'https://www.oreilly.com/library/view/fundamentals-of-software/9781492043447/' },
-            { tipo: 'Modelo', nombre: 'C4 Model', url: 'https://c4model.com/' },
-            { tipo: 'Tutorial', nombre: 'ADR GitHub', url: 'https://adr.github.io/' },
-            { tipo: 'Video', nombre: 'Software Architecture - Mark Richards', url: 'https://www.youtube.com/watch?v=DngAZyWMGR0' },
-            { tipo: 'Curso', nombre: 'Software Architecture & Design', url: 'https://www.udacity.com/course/software-architecture-design--ud821' }
+            { tipo: 'Libro', nombre: 'Fundamentals of Software Architecture - Richards & Ford', url: 'https://www.oreilly.com/library/view/fundamentals-of-software/9781492043447/' },
+            { tipo: 'Libro', nombre: 'Clean Architecture - Robert C. Martin', url: 'https://www.oreilly.com/library/view/clean-architecture-a/9780134494272/' },
+            { tipo: 'Libro', nombre: 'Building Microservices - Sam Newman', url: 'https://www.oreilly.com/library/view/building-microservices-2nd/9781492034018/' },
+            { tipo: 'Modelo', nombre: 'C4 Model - Simon Brown', url: 'https://c4model.com/' },
+            { tipo: 'Herramienta', nombre: 'Structurizr DSL', url: 'https://structurizr.com/dsl' },
+            { tipo: 'Tutorial', nombre: 'ADR GitHub Templates', url: 'https://adr.github.io/' },
+            { tipo: 'Video', nombre: 'Software Architecture Fundamentals - Mark Richards', url: 'https://www.youtube.com/watch?v=DngAZyWMGR0' },
+            { tipo: 'Curso', nombre: 'Developer to Architect - Mark Richards', url: 'https://developertoarchitect.com/' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-08%20-%20Frontend%20I-II%2C%20Arquitectura%20SW/Arquitectura%20Software' }
         ],
         color: 'indigo',
         area: 'arquitectura'
@@ -2671,11 +2973,14 @@ export const asignaturas: Record<string, Asignatura> = {
             'Publicar aplicaciones en stores'
         ],
         competencias: [
-            'React Native fundamentals',
-            'Navegación móvil',
-            'APIs del dispositivo',
-            'Storage local',
-            'Build y deploy'
+            'Dominio de React Native y su arquitectura de bridge y nuevo modelo (Fabric, TurboModules)',
+            'Desarrollo de componentes nativos reutilizables con TypeScript y estilos responsivos',
+            'Implementación de navegación compleja con React Navigation (Stack, Tab, Drawer, Deep Linking)',
+            'Gestión de estado en aplicaciones móviles con Context API, Zustand y Redux Toolkit',
+            'Acceso a APIs nativas del dispositivo: cámara, geolocalización, sensores, notificaciones',
+            'Persistencia de datos con AsyncStorage, SQLite y sincronización con backend',
+            'Configuración de builds y publicación con Expo EAS para App Store y Play Store',
+            'Implementación de UX móvil: gestos, animaciones, haptics y accesibilidad'
         ],
         experiencias: [
             {
@@ -2684,17 +2989,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 1-3',
                 descripcion: 'Introducción a React Native y componentes nativos.',
                 contenidos: [
-                    'React Native vs nativo vs híbrido',
-                    'Setup con Expo',
-                    'Componentes: View, Text, Image, ScrollView',
-                    'Estilos con StyleSheet',
-                    'Flexbox para layouts',
-                    'Manejo de listas con FlatList'
+                    'Ecosistema mobile: React Native vs Flutter vs nativo vs PWA, trade-offs',
+                    'Arquitectura React Native: bridge, JSI, Fabric, TurboModules, Hermes engine',
+                    'Setup con Expo: managed vs bare workflow, expo-dev-client',
+                    'Componentes core: View, Text, Image, ScrollView, TouchableOpacity, Pressable',
+                    'StyleSheet API: estilos inline, objetos de estilo, Platform-specific styles',
+                    'Flexbox mobile: layouts responsivos, SafeAreaView, KeyboardAvoidingView',
+                    'Listas performantes: FlatList, SectionList, VirtualizedList, optimización de renders',
+                    'Imágenes: Image component, caching, placeholder, progressive loading',
+                    'Inputs y formularios: TextInput, controlled components, React Hook Form',
+                    'Debugging: React DevTools, Flipper, console logs, error boundaries'
                 ],
                 actividades: [
-                    'Primera app con Expo',
-                    'Layouts responsivos',
-                    'Listas optimizadas'
+                    'Setup de proyecto con Expo + TypeScript + ESLint + Prettier',
+                    'Creación de design system con componentes reutilizables (Button, Card, Input)',
+                    'Implementación de layouts responsivos para múltiples tamaños de pantalla',
+                    'Lista con FlatList optimizada: keyExtractor, getItemLayout, windowSize',
+                    'Formulario de registro con validación usando React Hook Form + Zod',
+                    'Proyecto parcial: App de lista de tareas con CRUD local'
                 ]
             },
             {
@@ -2703,17 +3015,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 4-5',
                 descripcion: 'React Navigation y gestión de estado.',
                 contenidos: [
-                    'React Navigation: Stack, Tab, Drawer',
-                    'Paso de parámetros entre pantallas',
-                    'Deep linking',
-                    'AsyncStorage para persistencia',
-                    'Context API en mobile',
-                    'Redux/Zustand para estado global'
+                    'React Navigation setup: NavigationContainer, linking configuration',
+                    'Stack Navigator: screens, options, gestures, transitions, headerRight',
+                    'Tab Navigator: bottom tabs, material top tabs, custom tab bar',
+                    'Drawer Navigator: sidebar navigation, gestures, custom drawer content',
+                    'Deep linking: configuración de URL schemes, universal links, deferred deep links',
+                    'Paso de parámetros: route.params, navigation state, TypeScript navigation types',
+                    'AsyncStorage: almacenamiento key-value, encriptación con expo-secure-store',
+                    'Context API en mobile: providers, consumers, performance considerations',
+                    'Zustand: stores, selectors, persist middleware, devtools',
+                    'Redux Toolkit: slices, RTK Query, offline support, persistence'
                 ],
                 actividades: [
-                    'Navegación completa',
-                    'Autenticación con persistencia',
-                    'Estado global de la app'
+                    'Navegación completa: Stack + Tab + Drawer con TypeScript types',
+                    'Sistema de autenticación con flujo login/logout y token persistence',
+                    'Deep linking funcional con URL schemes para iOS y Android',
+                    'State management con Zustand incluyendo persist y devtools',
+                    'Implementación de Redux Toolkit para carrito de compras offline',
+                    'Proyecto parcial: App con navegación completa y estado persistente'
                 ]
             },
             {
@@ -2722,17 +3041,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 6-8',
                 descripcion: 'Acceso a hardware y proceso de publicación.',
                 contenidos: [
-                    'Cámara y galería',
-                    'Geolocalización',
-                    'Notificaciones push',
-                    'Expo EAS Build',
-                    'Configuración para stores',
-                    'App Store y Play Store'
+                    'Expo Camera: foto, video, face detection, barcode scanning, permisos',
+                    'Image Picker: selección de galería, crop, resize, compression',
+                    'Geolocalización: expo-location, tracking, geocoding, mapas con react-native-maps',
+                    'Notificaciones push: expo-notifications, FCM, APNs, local notifications',
+                    'Sensores: acelerómetro, giroscopio, pedómetro, Device Motion',
+                    'Haptics y audio: expo-haptics, expo-av para feedback táctil y sonidos',
+                    'Expo EAS Build: configuración, profiles, credentials, OTA updates',
+                    'App Store submission: certificates, provisioning profiles, App Store Connect',
+                    'Play Store submission: keystore, bundle, Play Console, internal testing',
+                    'App versioning: semver, build numbers, release notes, staged rollouts'
                 ],
                 actividades: [
-                    'App con cámara y ubicación',
-                    'Build para Android/iOS',
-                    'Proyecto: App móvil completa'
+                    'App con cámara: captura de fotos, galería, preview y upload',
+                    'Feature de geolocalización con mapa interactivo y markers',
+                    'Sistema de notificaciones push con Firebase Cloud Messaging',
+                    'Build de desarrollo con expo-dev-client y custom native modules',
+                    'Pipeline de publicación: build, submit, TestFlight/Internal Testing',
+                    'Proyecto integrador: App móvil completa publicada en stores (beta)'
                 ]
             }
         ],
@@ -2742,7 +3068,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'TypeScript', icon: 'typescript-plain', iconType: 'devicon' },
             { nombre: 'Android Studio', icon: 'android-plain', iconType: 'devicon' },
             { nombre: 'Xcode', icon: 'xcode-plain', iconType: 'devicon' },
-            { nombre: 'Firebase', icon: 'firebase-plain', iconType: 'devicon' }
+            { nombre: 'Firebase', icon: 'firebase-plain', iconType: 'devicon' },
+            { nombre: 'Zustand', icon: 'fa-layer-group', iconType: 'fontawesome' },
+            { nombre: 'React Navigation', icon: 'fa-route', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs Mobile', ponderacion: 0, descripcion: 'Prácticas de componentes' },
@@ -2753,11 +3081,15 @@ export const asignaturas: Record<string, Asignatura> = {
         prerrequisitos: ['Frontend I-II'],
         conexiones: ['Mobile II', 'App Móviles'],
         recursos: [
-            { tipo: 'Documentación', nombre: 'React Native Docs', url: 'https://reactnative.dev/' },
-            { tipo: 'Tutorial', nombre: 'Expo Docs', url: 'https://docs.expo.dev/' },
-            { tipo: 'Curso', nombre: 'React Native Course', url: 'https://www.udemy.com/course/react-native-the-practical-guide/' },
+            { tipo: 'Documentación', nombre: 'React Native Documentation', url: 'https://reactnative.dev/' },
+            { tipo: 'Tutorial', nombre: 'Expo Documentation', url: 'https://docs.expo.dev/' },
+            { tipo: 'Documentación', nombre: 'React Navigation Docs', url: 'https://reactnavigation.org/docs/getting-started' },
             { tipo: 'Video', nombre: 'React Native Full Course - Mosh', url: 'https://www.youtube.com/watch?v=0-S5a0eXPoc' },
-            { tipo: 'Práctica', nombre: 'Expo Snack', url: 'https://snack.expo.dev/' }
+            { tipo: 'Curso', nombre: 'React Native - The Practical Guide', url: 'https://www.udemy.com/course/react-native-the-practical-guide/' },
+            { tipo: 'Herramienta', nombre: 'Expo Snack (Playground)', url: 'https://snack.expo.dev/' },
+            { tipo: 'Tutorial', nombre: 'EAS Build Documentation', url: 'https://docs.expo.dev/build/introduction/' },
+            { tipo: 'Referencia', nombre: 'App Store Review Guidelines', url: 'https://developer.apple.com/app-store/review/guidelines/' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-09%20-%20Mobile%20I%2C%20Frontend%20III/Mobile%20I' }
         ],
         color: 'blue',
         area: 'mobile'
@@ -2784,11 +3116,14 @@ export const asignaturas: Record<string, Asignatura> = {
             'Desplegar aplicaciones Next.js'
         ],
         competencias: [
-            'Next.js App Router',
-            'SSR/SSG/ISR',
-            'Performance optimization',
-            'Accesibilidad web',
-            'Internacionalización'
+            'Dominio de Next.js 14+ App Router y su modelo de Server/Client Components',
+            'Implementación de estrategias de renderizado: SSR, SSG, ISR y streaming',
+            'Desarrollo de Server Actions y Route Handlers para APIs full-stack',
+            'Optimización de Core Web Vitals: LCP, INP, CLS con técnicas avanzadas',
+            'Implementación de accesibilidad web (WCAG 2.1) con testing automatizado',
+            'Configuración de internacionalización (i18n) y localización completa',
+            'Testing E2E con Playwright y testing de componentes con Vitest',
+            'Despliegue y operaciones en Vercel con Edge Functions y Analytics'
         ],
         experiencias: [
             {
@@ -2797,17 +3132,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 1-3',
                 descripcion: 'Fundamentos de Next.js y estrategias de renderizado.',
                 contenidos: [
-                    'Next.js App Router',
-                    'Server Components vs Client Components',
-                    'SSR: Server-Side Rendering',
-                    'SSG: Static Site Generation',
-                    'ISR: Incremental Static Regeneration',
-                    'Layouts y templates'
+                    'Next.js 14+ arquitectura: App Router, Turbopack, metadata API',
+                    'Server Components: renderizado en servidor, zero-bundle, streaming HTML',
+                    'Client Components: "use client" directive, hydration, interactividad',
+                    'Server-Side Rendering (SSR): getServerSideProps equivalente, dynamic rendering',
+                    'Static Site Generation (SSG): generateStaticParams, build-time rendering',
+                    'Incremental Static Regeneration (ISR): revalidate, on-demand revalidation',
+                    'Layouts y Templates: root layout, nested layouts, parallel routes',
+                    'Route Groups: organización, shared layouts, (marketing) vs (shop)',
+                    'Intercepting Routes: modals, photo galleries, (.)folder convention',
+                    'Middleware: authentication, redirects, geolocation, A/B testing'
                 ],
                 actividades: [
-                    'Proyecto Next.js con App Router',
-                    'Implementación de SSR y SSG',
-                    'Sistema de layouts'
+                    'Setup de proyecto Next.js 14 con TypeScript, ESLint, Tailwind',
+                    'Implementación de layout system con nested y parallel routes',
+                    'Página con SSG y generateStaticParams para blog posts',
+                    'Dashboard con SSR y datos dinámicos por usuario',
+                    'Sistema de ISR con revalidación on-demand via webhook',
+                    'Proyecto parcial: Landing page con múltiples estrategias de renderizado'
                 ]
             },
             {
@@ -2816,17 +3158,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 4-5',
                 descripcion: 'Fetching de datos y API routes.',
                 contenidos: [
-                    'Server Actions',
-                    'Route Handlers (API Routes)',
-                    'Caching y revalidación',
-                    'Streaming y Suspense',
-                    'Loading states y Error boundaries',
-                    'Parallel y Sequential data fetching'
+                    'Server Actions: "use server", form actions, progressive enhancement',
+                    'Route Handlers: GET, POST, PUT, DELETE, streaming responses',
+                    'Data fetching patterns: parallel, sequential, preloading, caching',
+                    'Cache strategies: force-cache, no-store, revalidate, tags',
+                    'Streaming con Suspense: loading.tsx, skeleton UIs, progressive rendering',
+                    'Error Handling: error.tsx, global-error.tsx, not-found.tsx',
+                    'Optimistic Updates: useOptimistic hook, immediate feedback, rollback',
+                    'Prisma ORM: schema, migrations, queries, relations, raw SQL',
+                    'NextAuth.js v5: OAuth providers, credentials, JWT, session strategies',
+                    'Rate Limiting y seguridad: tokens, CSRF protection, input validation'
                 ],
                 actividades: [
-                    'API Routes para backend',
-                    'Server Actions para formularios',
-                    'Optimistic updates'
+                    'CRUD completo con Server Actions y validación con Zod',
+                    'API REST con Route Handlers incluyendo autenticación JWT',
+                    'Sistema de autenticación con NextAuth.js (Google, GitHub, credentials)',
+                    'Implementación de cache granular con tags y revalidación selectiva',
+                    'Formularios con optimistic updates y error handling elegante',
+                    'Proyecto parcial: Dashboard admin con CRUD, auth y roles'
                 ]
             },
             {
@@ -2835,17 +3184,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 6-8',
                 descripcion: 'Performance, accesibilidad y despliegue.',
                 contenidos: [
-                    'Core Web Vitals: LCP, FID, CLS',
-                    'Image optimization con next/image',
-                    'Font optimization',
-                    'Accesibilidad: ARIA, semantic HTML',
-                    'Testing con Playwright',
-                    'Deploy en Vercel'
+                    'Core Web Vitals 2024: LCP (<2.5s), INP (<200ms), CLS (<0.1)',
+                    'Image optimization: next/image, blur placeholder, responsive sizes, priority',
+                    'Font optimization: next/font, local fonts, variable fonts, display swap',
+                    'Script optimization: next/script, strategy, onLoad, worker',
+                    'Bundle analysis: @next/bundle-analyzer, tree shaking, code splitting',
+                    'Accesibilidad: WCAG 2.1 AA, aria-*, roles, focus management, screen readers',
+                    'Testing a11y: axe-core, Lighthouse, pa11y, automated CI checks',
+                    'i18n: next-intl, routing, messages, formatting, RTL support',
+                    'Playwright testing: page objects, fixtures, assertions, visual regression',
+                    'Vercel deployment: edge functions, analytics, speed insights, preview deployments'
                 ],
                 actividades: [
-                    'Auditoría de performance',
-                    'Implementación de a11y',
-                    'Proyecto: App full-stack Next.js'
+                    'Auditoría Lighthouse con plan de mejoras documentado',
+                    'Optimización de imágenes con next/image y srcset responsive',
+                    'Implementación de accesibilidad completa con testing axe-core',
+                    'Suite de tests E2E con Playwright cubriendo user journeys críticos',
+                    'Configuración de i18n con 2 idiomas y contenido traducido',
+                    'Proyecto integrador: App full-stack Next.js con deploy en Vercel'
                 ]
             }
         ],
@@ -2855,7 +3211,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'TypeScript', icon: 'typescript-plain', iconType: 'devicon' },
             { nombre: 'Vercel', icon: 'vercel-original', iconType: 'devicon' },
             { nombre: 'Prisma', icon: 'prisma-original', iconType: 'devicon' },
-            { nombre: 'Playwright', icon: 'playwright-plain', iconType: 'devicon' }
+            { nombre: 'Playwright', icon: 'playwright-plain', iconType: 'devicon' },
+            { nombre: 'NextAuth', icon: 'fa-user-shield', iconType: 'fontawesome' },
+            { nombre: 'Tailwind', icon: 'tailwindcss-original', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs Next.js', ponderacion: 0, descripcion: 'Prácticas de renderizado' },
@@ -2866,11 +3224,15 @@ export const asignaturas: Record<string, Asignatura> = {
         prerrequisitos: ['Frontend I-II'],
         conexiones: ['Fullstack I', 'Arquitectura Software'],
         recursos: [
-            { tipo: 'Documentación', nombre: 'Next.js Docs', url: 'https://nextjs.org/docs' },
-            { tipo: 'Tutorial', nombre: 'Next.js Learn', url: 'https://nextjs.org/learn' },
-            { tipo: 'Curso', nombre: 'Vercel Templates', url: 'https://vercel.com/templates/next.js' },
+            { tipo: 'Documentación', nombre: 'Next.js Documentation', url: 'https://nextjs.org/docs' },
+            { tipo: 'Tutorial', nombre: 'Next.js Learn (Oficial)', url: 'https://nextjs.org/learn' },
             { tipo: 'Video', nombre: 'Next.js 14 Full Course - Codevolution', url: 'https://www.youtube.com/watch?v=ZVnjOPwW4ZA' },
-            { tipo: 'Práctica', nombre: 'web.dev Performance', url: 'https://web.dev/performance/' }
+            { tipo: 'Documentación', nombre: 'Vercel Documentation', url: 'https://vercel.com/docs' },
+            { tipo: 'Tutorial', nombre: 'Prisma Getting Started', url: 'https://www.prisma.io/docs/getting-started' },
+            { tipo: 'Documentación', nombre: 'Playwright Documentation', url: 'https://playwright.dev/docs/intro' },
+            { tipo: 'Referencia', nombre: 'web.dev Core Web Vitals', url: 'https://web.dev/vitals/' },
+            { tipo: 'Herramienta', nombre: 'WCAG 2.1 Guidelines', url: 'https://www.w3.org/WAI/WCAG21/quickref/' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-09%20-%20Mobile%20I%2C%20Frontend%20III/Frontend%20III' }
         ],
         color: 'cyan',
         area: 'programacion'
@@ -2901,11 +3263,14 @@ export const asignaturas: Record<string, Asignatura> = {
             'Monetización y analytics'
         ],
         competencias: [
-            'Arquitectura mobile',
-            'Testing E2E mobile',
-            'CI/CD mobile',
-            'Optimización de performance',
-            'Analytics y monetización'
+            'Diseño e implementación de Clean Architecture y patrones MVVM en aplicaciones móviles',
+            'Desarrollo de aplicaciones offline-first con sincronización bidireccional y conflict resolution',
+            'Testing automatizado completo: unit, integration y E2E con Jest, Testing Library y Detox',
+            'Configuración de pipelines CI/CD con EAS Build, GitHub Actions y distribución automatizada',
+            'Optimización de rendimiento: profiling, memory management, bundle size, startup time',
+            'Integración de analytics, crash reporting y feature flags para decisiones data-driven',
+            'Implementación de monetización: in-app purchases, subscriptions y ads',
+            'Aplicación de ASO (App Store Optimization) y estrategias de crecimiento'
         ],
         experiencias: [
             {
@@ -2914,17 +3279,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 1-3',
                 descripcion: 'Patrones de arquitectura para apps escalables.',
                 contenidos: [
-                    'Clean Architecture en mobile',
-                    'MVVM pattern',
-                    'Repository pattern',
-                    'Dependency injection',
-                    'Offline-first con sincronización',
-                    'SQLite y Realm para persistencia'
+                    'Clean Architecture en mobile: domain, data, presentation layers',
+                    'MVVM pattern: ViewModel, state management, bindings, separation of concerns',
+                    'Repository pattern: abstracción de data sources, caching strategies',
+                    'Dependency Injection: inversión de control, testing, módulos',
+                    'Offline-first architecture: local-first, sync engine, conflict resolution',
+                    'SQLite con expo-sqlite: schema, migrations, queries, transactions',
+                    'WatermelonDB: reactive database, sync, lazy loading, performance',
+                    'Sync strategies: optimistic vs pessimistic, delta sync, full sync',
+                    'Background tasks: expo-task-manager, background fetch, sync',
+                    'State machines: XState para flujos complejos, estados, transiciones'
                 ],
                 actividades: [
-                    'Refactorización a Clean Architecture',
-                    'Implementación de offline mode',
-                    'Sincronización con servidor'
+                    'Refactorización de app existente a Clean Architecture con capas definidas',
+                    'Implementación de Repository pattern con múltiples data sources',
+                    'Sistema de sync offline-first con cola de operaciones pendientes',
+                    'Base de datos local con SQLite incluyendo migraciones',
+                    'Resolución de conflictos de sync con estrategias configurables',
+                    'Proyecto parcial: App de notas con sync offline/online seamless'
                 ]
             },
             {
@@ -2933,17 +3305,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 4-5',
                 descripcion: 'Testing automatizado y pipelines para mobile.',
                 contenidos: [
-                    'Unit testing con Jest',
-                    'Integration testing',
-                    'E2E testing con Detox',
-                    'CI/CD con EAS Build',
-                    'GitHub Actions para mobile',
-                    'Distribución beta: TestFlight, Internal Testing'
+                    'Unit testing con Jest: mocks, spies, async testing, coverage',
+                    'Testing de componentes con React Native Testing Library',
+                    'Integration testing: flujos multi-componente, navigation testing',
+                    'E2E testing con Detox: device testing, synchronization, artifacts',
+                    'Maestro: E2E testing declarativo, flows, CI integration',
+                    'EAS Build: profiles, credentials, versioning, over-the-air updates',
+                    'GitHub Actions mobile: build matrix, caching, secrets, artifacts',
+                    'TestFlight distribution: internal, external testing, feedback',
+                    'Google Play Internal Testing: tracks, staged rollouts, crashes',
+                    'Code signing: iOS certificates, provisioning profiles, Android keystore'
                 ],
                 actividades: [
-                    'Suite de tests completa',
-                    'Pipeline CI/CD',
-                    'Distribución beta automatizada'
+                    'Suite de unit tests con coverage >80% para business logic',
+                    'Tests de componentes para UI crítica con Testing Library',
+                    'Suite E2E con Detox cubriendo happy paths principales',
+                    'Pipeline CI/CD completo: lint, test, build, deploy',
+                    'Configuración de EAS Build con múltiples profiles (dev, staging, prod)',
+                    'Proyecto parcial: App con testing automatizado y releases automatizados'
                 ]
             },
             {
@@ -2952,17 +3331,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 6-8',
                 descripcion: 'Preparación para producción y estrategias de negocio.',
                 contenidos: [
-                    'Performance profiling',
-                    'Memory leaks y optimización',
-                    'Firebase Analytics',
-                    'Crash reporting con Sentry',
-                    'In-app purchases',
-                    'ASO (App Store Optimization)'
+                    'Performance profiling: React DevTools, Flipper, systrace',
+                    'Memory management: leaks detection, heap snapshots, optimization',
+                    'Bundle optimization: metro bundler, tree shaking, lazy loading',
+                    'Startup time optimization: hermes, preloading, splash optimization',
+                    'Firebase Analytics: eventos, user properties, funnels, audiences',
+                    'Crash reporting: Sentry, Crashlytics, simbolización, alertas',
+                    'Feature flags: LaunchDarkly, remote config, A/B testing',
+                    'In-app purchases: expo-in-app-purchases, StoreKit, Google Play Billing',
+                    'Subscriptions: plans, trials, grace periods, renewal handling',
+                    'ASO: keywords, screenshots, A/B testing, ratings optimization'
                 ],
                 actividades: [
-                    'Optimización de performance',
-                    'Integración de analytics',
-                    'Proyecto: App lista para producción'
+                    'Profiling completo con identificación y fix de performance issues',
+                    'Implementación de analytics con eventos y conversiones',
+                    'Setup de crash reporting con Sentry incluyendo source maps',
+                    'Sistema de feature flags para releases graduales',
+                    'Implementación de in-app purchases (consumables o subscriptions)',
+                    'Proyecto integrador: App production-ready con monetización y analytics'
                 ]
             }
         ],
@@ -2970,9 +3356,11 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'React Native', icon: 'react-original', iconType: 'devicon' },
             { nombre: 'Firebase', icon: 'firebase-plain', iconType: 'devicon' },
             { nombre: 'Jest', icon: 'jest-plain', iconType: 'devicon' },
-            { nombre: 'GitHub Actions', icon: 'github-original', iconType: 'devicon' },
+            { nombre: 'GitHub Actions', icon: 'githubactions-plain', iconType: 'devicon' },
             { nombre: 'Sentry', icon: 'fa-bug', iconType: 'fontawesome' },
-            { nombre: 'SQLite', icon: 'sqlite-plain', iconType: 'devicon' }
+            { nombre: 'SQLite', icon: 'sqlite-plain', iconType: 'devicon' },
+            { nombre: 'Detox', icon: 'fa-vial', iconType: 'fontawesome' },
+            { nombre: 'Flipper', icon: 'fa-search', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs avanzados', ponderacion: 0, descripcion: 'Prácticas de arquitectura' },
@@ -2983,11 +3371,15 @@ export const asignaturas: Record<string, Asignatura> = {
         prerrequisitos: ['Mobile I'],
         conexiones: ['App Móviles', 'Cloud Native II'],
         recursos: [
-            { tipo: 'Tutorial', nombre: 'React Native Performance', url: 'https://reactnative.dev/docs/performance' },
-            { tipo: 'Herramienta', nombre: 'Detox', url: 'https://wix.github.io/Detox/' },
-            { tipo: 'Servicio', nombre: 'Firebase', url: 'https://firebase.google.com/' },
-            { tipo: 'Video', nombre: 'React Native Testing', url: 'https://www.youtube.com/watch?v=aSwCB9Vbv8k' },
-            { tipo: 'Guía', nombre: 'EAS Build Docs', url: 'https://docs.expo.dev/build/introduction/' }
+            { tipo: 'Documentación', nombre: 'React Native Performance', url: 'https://reactnative.dev/docs/performance' },
+            { tipo: 'Herramienta', nombre: 'Detox E2E Testing', url: 'https://wix.github.io/Detox/' },
+            { tipo: 'Herramienta', nombre: 'Maestro Mobile Testing', url: 'https://maestro.mobile.dev/' },
+            { tipo: 'Tutorial', nombre: 'EAS Build Documentation', url: 'https://docs.expo.dev/build/introduction/' },
+            { tipo: 'Servicio', nombre: 'Firebase for Mobile', url: 'https://firebase.google.com/docs/guides' },
+            { tipo: 'Herramienta', nombre: 'Sentry for React Native', url: 'https://docs.sentry.io/platforms/react-native/' },
+            { tipo: 'Video', nombre: 'React Native Architecture Deep Dive', url: 'https://www.youtube.com/watch?v=UcqRXTriUVI' },
+            { tipo: 'Guía', nombre: 'App Store Review Guidelines', url: 'https://developer.apple.com/app-store/review/guidelines/' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-10%20-%20Mobile%20II%2C%20Taller%20de%20Titulo/Mobile%20II' }
         ],
         color: 'blue',
         area: 'mobile'
@@ -3014,11 +3406,14 @@ export const asignaturas: Record<string, Asignatura> = {
             'Gestionar un proyecto de principio a fin'
         ],
         competencias: [
-            'Desarrollo full-stack',
-            'Gestión de proyectos',
-            'Documentación técnica',
-            'Presentación profesional',
-            'Trabajo en equipo'
+            'Desarrollo de proyecto de software completo aplicando arquitectura full-stack profesional',
+            'Aplicación de metodología Scrum con ceremonies, artefactos y métricas de seguimiento',
+            'Elaboración de documentación técnica profesional: SRS, SAD, manuales de usuario',
+            'Presentación y defensa de proyecto ante tribunal con comunicación técnica efectiva',
+            'Trabajo en equipo multidisciplinario con roles definidos y gestión de conflictos',
+            'Gestión integral de proyecto: scope, timeline, recursos, riesgos y calidad',
+            'Implementación de CI/CD completo con testing automatizado y deployment',
+            'Aplicación de estándares de calidad de código y mejores prácticas de la industria'
         ],
         experiencias: [
             {
@@ -3027,18 +3422,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 1-3',
                 descripcion: 'Definición del proyecto y planificación inicial.',
                 contenidos: [
-                    'Selección y validación de idea',
-                    'Análisis de factibilidad',
-                    'Especificación de requisitos',
-                    'Diseño de arquitectura',
-                    'Planificación de sprints',
-                    'Configuración del entorno'
+                    'Selección de idea: identificación de problema real, propuesta de valor',
+                    'Análisis de factibilidad: técnica, operacional, económica, legal (FODA)',
+                    'Benchmark: análisis de competencia, diferenciadores, market fit',
+                    'Especificación de requisitos (IEEE 830): funcionales, no funcionales, constraints',
+                    'User stories con criterios de aceptación INVEST y story points',
+                    'Diseño de arquitectura: diagramas C4, decisiones arquitectónicas (ADRs)',
+                    'Tech stack selection: justificación técnica de cada tecnología elegida',
+                    'Product Backlog: priorización MoSCoW, roadmap de releases',
+                    'Sprint Planning: velocity estimada, capacity planning, sprint goals',
+                    'DevOps setup: repositorio, CI/CD pipeline, environments (dev, staging, prod)'
                 ],
                 actividades: [
-                    'Propuesta de proyecto',
-                    'Documento de requisitos',
-                    'Diseño arquitectónico',
-                    'Product Backlog inicial'
+                    'Pitch de propuesta de proyecto con validación de stakeholders',
+                    'Documento de Especificación de Requisitos (SRS) completo',
+                    'Diseño arquitectónico con diagramas C4 (Context, Container, Component)',
+                    'Product Backlog refinado con >30 user stories estimadas',
+                    'Setup completo de repositorio con branch strategy y CI/CD',
+                    'Sprint 0: configuración de entorno, boilerplate, herramientas'
                 ]
             },
             {
@@ -3047,18 +3448,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 4-5',
                 descripcion: 'Desarrollo iterativo del proyecto.',
                 contenidos: [
-                    'Sprint 1: MVP funcional',
-                    'Sprint 2: Features principales',
-                    'Integración continua',
-                    'Code reviews',
-                    'Testing automatizado',
-                    'Documentación continua'
+                    'Sprint 1: MVP funcional con core features implementadas',
+                    'Sprint 2: Features secundarias, integración de APIs externas',
+                    'Daily standups: formato 15 min, blockers, collaboration needs',
+                    'Sprint Reviews: demo a stakeholders, feedback incorporado',
+                    'Retrospectivas: what worked, improvements, action items',
+                    'Code reviews: PR guidelines, feedback constructivo, merge policies',
+                    'Testing automatizado: unit tests, integration tests, cobertura >70%',
+                    'Documentación continua: JSDoc/TSDoc, README actualizado, changelog',
+                    'Burndown charts: tracking de progreso, velocity, scope changes',
+                    'Technical debt management: identificación, priorización, payoff strategy'
                 ],
                 actividades: [
-                    'Desarrollo de features',
-                    'Daily standups',
-                    'Sprint reviews',
-                    'Retrospectivas'
+                    'Desarrollo de MVP con todas las features críticas funcionando',
+                    'Daily standups documentados y seguimiento de blockers',
+                    'Sprint Reviews con demos grabadas y feedback de stakeholders',
+                    'Retrospectivas con action items implementados en siguiente sprint',
+                    'Pull Requests con code reviews y >2 approvals para merge',
+                    'Suite de tests automatizados con coverage report'
                 ]
             },
             {
@@ -3067,28 +3474,36 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 6-8',
                 descripcion: 'Finalización del proyecto y presentación.',
                 contenidos: [
-                    'Sprint final: pulido y QA',
-                    'Documentación final',
-                    'Manual de usuario',
-                    'Video demo',
-                    'Preparación de defensa',
-                    'Presentación ante tribunal'
+                    'Sprint final: bug fixes, performance optimization, UI polish',
+                    'QA completo: testing funcional, regresión, UAT con usuarios reales',
+                    'Documentación técnica final: API docs, deployment guide, architecture',
+                    'Manual de usuario: guías step-by-step, FAQ, troubleshooting',
+                    'Video demo: 3-5 minutos, features principales, user journey',
+                    'Métricas de proyecto: velocity, quality metrics, lessons learned',
+                    'Presentación profesional: estructura, storytelling, manejo del tiempo',
+                    'Defensa ante tribunal: dominio técnico, respuesta a preguntas',
+                    'Handoff: documentación para mantenimiento, onboarding de nuevos devs',
+                    'Release final: versión 1.0 en producción, monitoring configurado'
                 ],
                 actividades: [
-                    'Testing final y correcciones',
-                    'Documentación completa',
-                    'Ensayo de presentación',
-                    'Defensa de proyecto'
+                    'Testing completo con usuarios reales y corrección de bugs críticos',
+                    'Documentación final: técnica, usuario, deployment',
+                    'Video demo profesional mostrando el producto funcionando',
+                    'Ensayo de presentación con feedback de profesores y pares',
+                    'Defensa de proyecto ante tribunal evaluador',
+                    'Release a producción con monitoring y alertas configuradas'
                 ]
             }
         ],
         tecnologias: [
-            { nombre: 'Stack completo', icon: 'fa-layer-group', iconType: 'fontawesome' },
             { nombre: 'Git', icon: 'git-plain', iconType: 'devicon' },
-            { nombre: 'Jira', icon: 'jira-plain', iconType: 'devicon' },
-            { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' },
             { nombre: 'GitHub', icon: 'github-original', iconType: 'devicon' },
-            { nombre: 'Vercel', icon: 'vercel-original', iconType: 'devicon' }
+            { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' },
+            { nombre: 'Jira', icon: 'jira-plain', iconType: 'devicon' },
+            { nombre: 'Vercel', icon: 'vercel-original', iconType: 'devicon' },
+            { nombre: 'Notion', icon: 'notion-plain', iconType: 'devicon' },
+            { nombre: 'Figma', icon: 'figma-plain', iconType: 'devicon' },
+            { nombre: 'Loom', icon: 'fa-video', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Sumativa', nombre: 'Propuesta', ponderacion: 15, descripcion: 'Documento de propuesta' },
@@ -3100,11 +3515,15 @@ export const asignaturas: Record<string, Asignatura> = {
         prerrequisitos: ['Backend II-III', 'Frontend I-II', 'Ing. Software II'],
         conexiones: ['Título Analista Programador'],
         recursos: [
-            { tipo: 'Guía', nombre: 'Writing README Files', url: 'https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes' },
+            { tipo: 'Guía', nombre: 'GitHub README Best Practices', url: 'https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes' },
             { tipo: 'Template', nombre: 'Awesome README Templates', url: 'https://github.com/matiassingers/awesome-readme' },
+            { tipo: 'Guía', nombre: 'Write the Docs - Documentation Guide', url: 'https://www.writethedocs.org/guide/' },
             { tipo: 'Video', nombre: 'How to Present Software Projects', url: 'https://www.youtube.com/watch?v=3rFMYMJd1Wc' },
-            { tipo: 'Guía', nombre: 'Software Documentation Best Practices', url: 'https://www.writethedocs.org/' },
-            { tipo: 'Herramienta', nombre: 'Canva para presentaciones', url: 'https://www.canva.com/' }
+            { tipo: 'Herramienta', nombre: 'Canva para Presentaciones', url: 'https://www.canva.com/' },
+            { tipo: 'Tutorial', nombre: 'Technical Writing by Google', url: 'https://developers.google.com/tech-writing' },
+            { tipo: 'Guía', nombre: 'IEEE 830 SRS Standard', url: 'https://ieeexplore.ieee.org/document/720574' },
+            { tipo: 'Herramienta', nombre: 'Loom Video Recording', url: 'https://www.loom.com/' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-10%20-%20Mobile%20II%2C%20Taller%20de%20Titulo/Taller%20de%20Titulo' }
         ],
         color: 'emerald',
         area: 'gestion'
@@ -3135,11 +3554,14 @@ export const asignaturas: Record<string, Asignatura> = {
             'Desplegar aplicaciones fullstack en producción'
         ],
         competencias: [
-            'Arquitectura fullstack',
-            'Autenticación JWT/OAuth',
-            'APIs RESTful avanzadas',
-            'State management',
-            'Deployment integrado'
+            'Diseño de arquitecturas fullstack modernas con monorepos y tipos compartidos',
+            'Implementación de autenticación end-to-end con JWT, OAuth 2.0 y OpenID Connect',
+            'Desarrollo de APIs RESTful avanzadas con NestJS y validación robusta',
+            'Gestión de estado compartido entre frontend y backend con type safety',
+            'Integración de comunicación real-time con WebSockets y Server-Sent Events',
+            'Configuración de deployment integrado con CI/CD para frontend y backend',
+            'Aplicación de patrones de error handling unificado y logging estructurado',
+            'Optimización de performance fullstack: caching, lazy loading, bundle optimization'
         ],
         experiencias: [
             {
@@ -3148,17 +3570,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 1-3',
                 descripcion: 'Fundamentos de integración frontend-backend.',
                 contenidos: [
-                    'Arquitectura cliente-servidor moderna',
-                    'Monorepos con Turborepo/Nx',
-                    'Shared types entre front y back',
-                    'Environment configuration',
-                    'CORS y seguridad cross-origin',
-                    'API versioning strategies'
+                    'Arquitectura cliente-servidor moderna: separación de concerns, API contracts',
+                    'Monorepos con Turborepo: workspaces, caching, task orchestration',
+                    'Shared types: TypeScript definitions, zod schemas, OpenAPI generation',
+                    'Environment configuration: dotenv, config services, secrets management',
+                    'CORS y seguridad cross-origin: preflight, credentials, allowed origins',
+                    'API versioning strategies: URL path, headers, query params, sunset headers',
+                    'Error handling patterns: error codes, i18n messages, stack traces en dev',
+                    'Request validation: DTOs, pipes, transformers, sanitization',
+                    'Logging estructurado: correlation IDs, context propagation, log levels',
+                    'Development workflow: hot reload, debugging, proxy configuration'
                 ],
                 actividades: [
-                    'Setup de monorepo fullstack',
-                    'Configuración de tipos compartidos',
-                    'Implementación de CORS seguro'
+                    'Setup de monorepo fullstack con Turborepo (Next.js + NestJS)',
+                    'Configuración de tipos compartidos con generación automática desde OpenAPI',
+                    'Implementación de CORS seguro con whitelist de orígenes',
+                    'Sistema de configuración por ambiente (dev, staging, prod)',
+                    'Error handling unificado con tipos compartidos',
+                    'Proyecto parcial: Scaffold fullstack con autenticación básica'
                 ]
             },
             {
@@ -3167,17 +3596,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 4-5',
                 descripcion: 'Implementación de autenticación completa.',
                 contenidos: [
-                    'JWT tokens: access y refresh',
-                    'OAuth 2.0 y OpenID Connect',
-                    'Social login: Google, GitHub',
-                    'Session management seguro',
-                    'Protected routes frontend',
-                    'Guards y middleware backend'
+                    'JWT tokens: estructura, claims, signing algorithms (RS256 vs HS256)',
+                    'Access tokens vs Refresh tokens: lifecycle, rotation, revocation',
+                    'OAuth 2.0 flows: Authorization Code, PKCE, client credentials',
+                    'OpenID Connect: ID tokens, userinfo endpoint, claims mapping',
+                    'Social login integration: Google, GitHub, Microsoft providers',
+                    'Session management seguro: httpOnly cookies, SameSite, secure flag',
+                    'Protected routes frontend: route guards, auth context, redirects',
+                    'Guards y middleware backend: JWT verification, role-based access',
+                    'Multi-factor authentication: TOTP, SMS, email verification',
+                    'Password policies: hashing (bcrypt/argon2), complexity, breach detection'
                 ],
                 actividades: [
-                    'Sistema de login completo',
-                    'Integración OAuth con Google',
-                    'Refresh token rotation'
+                    'Sistema de login completo con JWT access + refresh tokens',
+                    'Integración OAuth con Google usando PKCE flow',
+                    'Refresh token rotation con invalidación de tokens anteriores',
+                    'Protected routes con role-based access control (RBAC)',
+                    'Email verification y password reset flows',
+                    'Proyecto parcial: Auth service completo con múltiples providers'
                 ]
             },
             {
@@ -3186,17 +3622,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 6-8',
                 descripcion: 'Patrones avanzados y despliegue.',
                 contenidos: [
-                    'Real-time con WebSockets',
-                    'Server-Sent Events (SSE)',
-                    'Optimistic updates',
-                    'Error handling unificado',
-                    'Logging y monitoring',
-                    'Deploy: Vercel + Railway/Render'
+                    'WebSockets con Socket.io: namespaces, rooms, acknowledgments',
+                    'Server-Sent Events (SSE): event streams, reconnection, last-event-id',
+                    'Optimistic updates: local mutations, rollback on error, conflict resolution',
+                    'Real-time data sync: live queries, subscriptions, delta updates',
+                    'Error handling unificado: error boundaries, toast notifications, retry logic',
+                    'Logging y monitoring: Sentry, LogRocket, custom analytics',
+                    'CI/CD pipeline: GitHub Actions, Vercel preview deployments',
+                    'Deploy strategies: Vercel (frontend) + Railway/Render (backend)',
+                    'Database migrations: Prisma migrate, seed data, rollback strategies',
+                    'Environment promotion: dev → staging → production workflows'
                 ],
                 actividades: [
-                    'Chat real-time',
-                    'Sistema de notificaciones',
-                    'Proyecto: App fullstack completa'
+                    'Chat real-time con WebSockets incluyendo typing indicators',
+                    'Sistema de notificaciones push con SSE y persistencia',
+                    'Optimistic UI updates con rollback automático',
+                    'Pipeline CI/CD completo con preview deployments',
+                    'Configuración de monitoring con alertas',
+                    'Proyecto integrador: App fullstack completa desplegada en producción'
                 ]
             }
         ],
@@ -3206,7 +3649,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'TypeScript', icon: 'typescript-plain', iconType: 'devicon' },
             { nombre: 'PostgreSQL', icon: 'postgresql-plain', iconType: 'devicon' },
             { nombre: 'Prisma', icon: 'prisma-original', iconType: 'devicon' },
-            { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' }
+            { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' },
+            { nombre: 'Socket.io', icon: 'socketio-original', iconType: 'devicon' },
+            { nombre: 'Turborepo', icon: 'fa-layer-group', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs Fullstack', ponderacion: 0, descripcion: 'Integraciones prácticas' },
@@ -3217,11 +3662,15 @@ export const asignaturas: Record<string, Asignatura> = {
         prerrequisitos: ['Frontend III', 'Backend II-III'],
         conexiones: ['Fullstack II', 'Cloud Computing'],
         recursos: [
-            { tipo: 'Documentación', nombre: 'Next.js Docs', url: 'https://nextjs.org/docs' },
-            { tipo: 'Documentación', nombre: 'NestJS Docs', url: 'https://docs.nestjs.com/' },
-            { tipo: 'Tutorial', nombre: 'Fullstack Guide', url: 'https://www.freecodecamp.org/news/full-stack-development/' },
-            { tipo: 'Video', nombre: 'Next.js 14 Full Course - Codevolution', url: 'https://www.youtube.com/watch?v=wm5gMKuwSYk' },
-            { tipo: 'Video', nombre: 'NestJS Crash Course - Traversy Media', url: 'https://www.youtube.com/watch?v=wqhNoDE6pb4' }
+            { tipo: 'Documentación', nombre: 'Next.js Documentation', url: 'https://nextjs.org/docs' },
+            { tipo: 'Documentación', nombre: 'NestJS Documentation', url: 'https://docs.nestjs.com/' },
+            { tipo: 'Tutorial', nombre: 'Turborepo Handbook', url: 'https://turbo.build/repo/docs/handbook' },
+            { tipo: 'Video', nombre: 'NestJS Full Course - freeCodeCamp', url: 'https://www.youtube.com/watch?v=GHTA143_b-s' },
+            { tipo: 'Documentación', nombre: 'Socket.io Documentation', url: 'https://socket.io/docs/v4/' },
+            { tipo: 'Tutorial', nombre: 'Prisma Getting Started', url: 'https://www.prisma.io/docs/getting-started' },
+            { tipo: 'Video', nombre: 'JWT Authentication Deep Dive', url: 'https://www.youtube.com/watch?v=7Q17ubqLfaM' },
+            { tipo: 'Guía', nombre: 'OAuth 2.0 Simplified', url: 'https://www.oauth.com/' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-11%20-%20Desarrollo%20Fullstack%20I%2C%20BD%20Aplicada/Desarrollo%20Fullstack%20I' }
         ],
         color: 'teal',
         area: 'programacion'
@@ -3248,11 +3697,14 @@ export const asignaturas: Record<string, Asignatura> = {
             'Implementar estrategias de caching'
         ],
         competencias: [
-            'MongoDB y bases documentales',
-            'Redis y caching',
-            'Data modeling avanzado',
-            'Query optimization',
-            'Database migrations'
+            'Diseño de schemas NoSQL eficientes con MongoDB aplicando patrones de modelado',
+            'Implementación de estrategias de caching con Redis para optimización de performance',
+            'Dominio de aggregation pipeline de MongoDB para análisis de datos complejos',
+            'Configuración de replicación, sharding y alta disponibilidad en bases de datos',
+            'Optimización de queries mediante análisis de explain plans y profiling',
+            'Gestión de migraciones de base de datos y versioning de schemas',
+            'Implementación de arquitecturas polyglot persistence con múltiples motores de BD',
+            'Aplicación de patrones de consistencia eventual y resolución de conflictos'
         ],
         experiencias: [
             {
@@ -3261,17 +3713,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 1-3',
                 descripcion: 'Fundamentos de bases de datos NoSQL.',
                 contenidos: [
-                    'NoSQL vs SQL: casos de uso',
-                    'MongoDB: documentos, colecciones',
-                    'Schema design patterns',
-                    'Embedded vs Referenced documents',
-                    'Indexes en MongoDB',
-                    'Aggregation pipeline'
+                    'NoSQL vs SQL: teorema CAP, BASE vs ACID, casos de uso por tipo',
+                    'MongoDB arquitectura: documents, collections, databases, replica sets',
+                    'Schema design patterns: embedded, referenced, bucket, outlier patterns',
+                    'Embedded vs Referenced: cuando usar cada uno, denormalización estratégica',
+                    'Indexes en MongoDB: single field, compound, multikey, text, geospatial',
+                    'Aggregation pipeline: stages ($match, $group, $project, $lookup, $unwind)',
+                    'Aggregation avanzado: $facet, $bucket, $graphLookup, window functions',
+                    'MongoDB transactions: multi-document ACID, sessions, retryable writes',
+                    'Change streams: real-time data changes, triggers, event-driven patterns',
+                    'MongoDB Atlas: clusters, connection strings, monitoring, alerts'
                 ],
                 actividades: [
-                    'Setup MongoDB Atlas',
-                    'Modelado de datos NoSQL',
-                    'Queries y aggregations'
+                    'Setup de MongoDB Atlas con cluster de producción',
+                    'Modelado de datos NoSQL para e-commerce (productos, órdenes, usuarios)',
+                    'Implementación de aggregation pipeline para reportes de ventas',
+                    'Creación de índices optimizados basados en query patterns',
+                    'Transacciones multi-documento para checkout process',
+                    'Proyecto parcial: API con MongoDB y Mongoose incluyendo aggregations'
                 ]
             },
             {
@@ -3280,17 +3739,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 4-5',
                 descripcion: 'Redis y estrategias de caching.',
                 contenidos: [
-                    'Redis: strings, hashes, lists, sets',
-                    'Cache-aside pattern',
-                    'Write-through y write-behind',
-                    'TTL y eviction policies',
-                    'Pub/Sub con Redis',
-                    'Session storage'
+                    'Redis data structures: strings, hashes, lists, sets, sorted sets, streams',
+                    'Cache-aside pattern: read-through, lazy loading, cache miss handling',
+                    'Write-through y write-behind: synchronous vs asynchronous writes',
+                    'TTL strategies: absolute, sliding expiration, refresh-ahead',
+                    'Eviction policies: LRU, LFU, volatile-ttl, allkeys-random',
+                    'Redis Pub/Sub: channels, patterns, message delivery guarantees',
+                    'Redis Streams: consumer groups, message acknowledgment, XREAD',
+                    'Session storage: distributed sessions, session affinity, serialization',
+                    'Rate limiting: token bucket, sliding window, distributed rate limiters',
+                    'Distributed locks: SETNX, Redlock algorithm, lock expiration'
                 ],
                 actividades: [
-                    'Implementación de cache layer',
-                    'Session management con Redis',
-                    'Real-time features'
+                    'Implementación de cache layer para API REST con invalidación',
+                    'Session management distribuido con Redis en aplicación multi-instancia',
+                    'Sistema de rate limiting por usuario/IP con sliding window',
+                    'Real-time leaderboard con sorted sets',
+                    'Pub/Sub para notificaciones en tiempo real',
+                    'Proyecto parcial: Caching layer completo con métricas de hit rate'
                 ]
             },
             {
@@ -3299,17 +3765,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 6-8',
                 descripcion: 'Performance y arquitecturas de datos.',
                 contenidos: [
-                    'Query optimization techniques',
-                    'Explain plans y profiling',
-                    'Sharding y replication',
-                    'Database migrations con herramientas',
-                    'Backup y disaster recovery',
-                    'Multi-database architectures'
+                    'Query optimization: explain(), executionStats, covered queries',
+                    'Index optimization: selectivity, compound index order, index intersection',
+                    'MongoDB profiler: slow query log, system.profile, threshold tuning',
+                    'Sharding: shard keys, chunks, balancer, zone sharding',
+                    'Replication: replica sets, elections, read preferences, write concerns',
+                    'Database migrations: mongomigrate, versioning, rollback strategies',
+                    'Backup strategies: mongodump, continuous backup, point-in-time recovery',
+                    'Multi-database architectures: polyglot persistence, database per service',
+                    'Data synchronization: CDC, dual writes, eventual consistency patterns',
+                    'Elasticsearch integration: full-text search, sync strategies, hybrid queries'
                 ],
                 actividades: [
-                    'Optimización de queries lentas',
-                    'Setup de replicación',
-                    'Proyecto: Sistema con múltiples DBs'
+                    'Análisis y optimización de queries lentas con explain plans',
+                    'Configuración de replica set de 3 nodos con failover automático',
+                    'Implementación de sharding para collection de alta cardinalidad',
+                    'Pipeline de migrations con rollback capability',
+                    'Integración PostgreSQL + MongoDB + Redis en una aplicación',
+                    'Proyecto integrador: Sistema multi-DB con caching, search y analytics'
                 ]
             }
         ],
@@ -3319,7 +3792,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'PostgreSQL', icon: 'postgresql-plain', iconType: 'devicon' },
             { nombre: 'Prisma', icon: 'prisma-original', iconType: 'devicon' },
             { nombre: 'DBeaver', icon: 'dbeaver-plain', iconType: 'devicon' },
-            { nombre: 'Elasticsearch', icon: 'elasticsearch-plain', iconType: 'devicon' }
+            { nombre: 'Elasticsearch', icon: 'elasticsearch-plain', iconType: 'devicon' },
+            { nombre: 'Mongoose', icon: 'fa-database', iconType: 'fontawesome' },
+            { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs NoSQL', ponderacion: 0, descripcion: 'Prácticas de modelado' },
@@ -3330,11 +3805,15 @@ export const asignaturas: Record<string, Asignatura> = {
         prerrequisitos: ['SQL Programación'],
         conexiones: ['Fullstack I', 'Cloud Computing'],
         recursos: [
-            { tipo: 'Documentación', nombre: 'MongoDB Docs', url: 'https://www.mongodb.com/docs/' },
-            { tipo: 'Documentación', nombre: 'Redis Docs', url: 'https://redis.io/docs/' },
-            { tipo: 'Curso', nombre: 'MongoDB University', url: 'https://university.mongodb.com/' },
-            { tipo: 'Video', nombre: 'MongoDB Crash Course - Traversy Media', url: 'https://www.youtube.com/watch?v=-56x56UppqQ' },
-            { tipo: 'Tutorial', nombre: 'Redis Tutorial - TutorialsPoint', url: 'https://www.tutorialspoint.com/redis/index.htm' }
+            { tipo: 'Documentación', nombre: 'MongoDB Documentation', url: 'https://www.mongodb.com/docs/' },
+            { tipo: 'Documentación', nombre: 'Redis Documentation', url: 'https://redis.io/docs/' },
+            { tipo: 'Curso', nombre: 'MongoDB University (Gratis)', url: 'https://university.mongodb.com/' },
+            { tipo: 'Video', nombre: 'MongoDB Full Course - freeCodeCamp', url: 'https://www.youtube.com/watch?v=c2M-rlkkT5o' },
+            { tipo: 'Tutorial', nombre: 'Redis Crash Course', url: 'https://www.youtube.com/watch?v=jgpVdJB2sKQ' },
+            { tipo: 'Documentación', nombre: 'Mongoose ODM Guide', url: 'https://mongoosejs.com/docs/guide.html' },
+            { tipo: 'Libro', nombre: 'MongoDB: The Definitive Guide', url: 'https://www.oreilly.com/library/view/mongodb-the-definitive/9781491954461/' },
+            { tipo: 'Práctica', nombre: 'Redis Labs Tutorials', url: 'https://redis.io/learn' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-11%20-%20Desarrollo%20Fullstack%20I%2C%20BD%20Aplicada/BD%20Aplicada' }
         ],
         color: 'amber',
         area: 'datos'
@@ -3365,78 +3844,104 @@ export const asignaturas: Record<string, Asignatura> = {
             'Gestionar configuración distribuida'
         ],
         competencias: [
-            'Microservicios architecture',
-            'Event-driven systems',
-            'E2E testing',
-            'Observability',
-            'Feature management'
+            'Diseño e implementación de arquitecturas de microservicios con NestJS y patrones DDD',
+            'Comunicación inter-servicios usando gRPC, REST y message queues (RabbitMQ, Kafka)',
+            'Implementación de patrones de resiliencia: Circuit Breaker, Retry, Bulkhead y Timeout',
+            'Dominio de event-driven architecture con Saga pattern, Event Sourcing y CQRS',
+            'Testing E2E completo con Playwright incluyendo contract testing con Pact',
+            'Configuración de observability stack: distributed tracing, logging centralizado y métricas',
+            'Implementación de feature flags, A/B testing y canary deployments',
+            'Gestión de configuración distribuida con Consul, etcd o AWS Parameter Store'
         ],
         experiencias: [
             {
                 numero: 1,
                 titulo: 'Microservicios Fullstack',
                 semanas: 'Semana 1-3',
-                descripcion: 'Arquitectura de microservicios para fullstack.',
+                descripcion: 'Arquitectura de microservicios para aplicaciones fullstack enterprise.',
                 contenidos: [
-                    'Descomposición de monolito',
-                    'API Gateway patterns',
-                    'Service discovery',
-                    'gRPC vs REST',
-                    'Inter-service communication',
-                    'Distributed tracing'
+                    'Monolith decomposition: strangler fig pattern, bounded contexts, domain analysis',
+                    'API Gateway patterns: Kong, AWS API Gateway, routing, rate limiting, authentication',
+                    'Service discovery: Consul, etcd, Kubernetes DNS, client-side vs server-side',
+                    'gRPC fundamentals: Protocol Buffers, streaming, deadlines, interceptors',
+                    'REST vs gRPC: use cases, performance comparison, hybrid architectures',
+                    'Inter-service communication: synchronous vs asynchronous, request-response vs events',
+                    'Distributed tracing: OpenTelemetry, Jaeger, correlation IDs, span context propagation',
+                    'Service mesh: Istio basics, sidecar pattern, traffic management, mTLS',
+                    'Data consistency: distributed transactions, two-phase commit limitations, compensation',
+                    'Anti-patterns: distributed monolith, shared databases, over-decomposition'
                 ],
                 actividades: [
-                    'Diseño de microservicios',
-                    'Implementación de API Gateway',
-                    'Service mesh básico'
+                    'Análisis de dominio y definición de bounded contexts para descomponer monolito',
+                    'Implementación de API Gateway con Kong incluyendo autenticación y rate limiting',
+                    'Configuración de service discovery con Consul y health checks',
+                    'Desarrollo de comunicación gRPC entre servicios con streaming bidireccional',
+                    'Setup de distributed tracing con Jaeger y OpenTelemetry SDK',
+                    'Proyecto parcial: Sistema de 3 microservicios con gateway y tracing'
                 ]
             },
             {
                 numero: 2,
                 titulo: 'Event-Driven Architecture',
                 semanas: 'Semana 4-5',
-                descripcion: 'Sistemas basados en eventos.',
+                descripcion: 'Sistemas distribuidos basados en eventos y mensajería.',
                 contenidos: [
-                    'Message queues: RabbitMQ, SQS',
-                    'Event streaming: Kafka basics',
-                    'Saga pattern',
-                    'Event sourcing introduction',
-                    'CQRS patterns',
-                    'Eventual consistency'
+                    'Message queues: RabbitMQ exchanges, SQS/SNS, dead letter queues, retry policies',
+                    'Event streaming: Apache Kafka, topics, partitions, consumer groups, offsets',
+                    'Saga pattern: choreography vs orchestration, compensating transactions, state machines',
+                    'Event Sourcing: event store, projections, snapshots, temporal queries',
+                    'CQRS: command handlers, query handlers, read/write model separation, eventual consistency',
+                    'Transactional outbox: ensuring exactly-once delivery, polling publisher, CDC',
+                    'Idempotency: idempotency keys, deduplication strategies, at-least-once delivery',
+                    'Schema evolution: Avro, schema registry, backwards/forwards compatibility',
+                    'Event versioning: upcasting, event transformations, migration strategies',
+                    'Debugging events: event replay, time travel debugging, audit logs'
                 ],
                 actividades: [
-                    'Setup de message queue',
-                    'Implementación de Saga',
-                    'Sistema event-driven'
+                    'Configuración de RabbitMQ con exchanges, routing y dead letter queues',
+                    'Implementación de Saga pattern con orquestador usando estado persistido',
+                    'Desarrollo de event store básico con PostgreSQL y proyecciones',
+                    'Setup de Kafka con schema registry y consumer groups',
+                    'Implementación de transactional outbox con Debezium CDC',
+                    'Sistema event-driven completo con compensating transactions'
                 ]
             },
             {
                 numero: 3,
                 titulo: 'Testing y Observabilidad',
                 semanas: 'Semana 6-8',
-                descripcion: 'Testing E2E y monitoring.',
+                descripcion: 'Testing E2E de sistemas distribuidos y observability stack completo.',
                 contenidos: [
-                    'E2E testing con Playwright',
-                    'Contract testing',
-                    'Logging centralizado (ELK)',
-                    'Metrics con Prometheus',
-                    'Dashboards con Grafana',
-                    'Alerting y on-call'
+                    'E2E testing con Playwright: page objects, fixtures, visual regression, parallelization',
+                    'Contract testing: Pact, consumer-driven contracts, provider verification, pact broker',
+                    'Integration testing: Testcontainers, database testing, message queue testing',
+                    'Logging centralizado: ELK stack (Elasticsearch, Logstash, Kibana), structured logging',
+                    'Metrics con Prometheus: instrumentación, PromQL, histograms, recording rules',
+                    'Dashboards con Grafana: panels, variables, annotations, alerting integration',
+                    'Distributed tracing analysis: flame graphs, latency analysis, dependency mapping',
+                    'Alerting y on-call: PagerDuty, runbooks, SLOs, error budgets, post-mortems',
+                    'Feature flags: LaunchDarkly, Unleash, gradual rollouts, kill switches',
+                    'Chaos engineering: fault injection, Chaos Monkey principles, game days'
                 ],
                 actividades: [
-                    'Suite de tests E2E',
-                    'Setup de observability stack',
-                    'Proyecto: Sistema distribuido'
+                    'Suite E2E con Playwright incluyendo visual regression y cross-browser testing',
+                    'Implementación de contract testing con Pact entre frontend y backend',
+                    'Configuración de ELK stack con structured logging desde microservicios',
+                    'Setup de Prometheus + Grafana con dashboards de RED metrics (Rate, Errors, Duration)',
+                    'Definición de SLOs y configuración de alertas basadas en error budget',
+                    'Proyecto integrador: Sistema distribuido con observability stack completo'
                 ]
             }
         ],
         tecnologias: [
             { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' },
             { nombre: 'RabbitMQ', icon: 'rabbitmq-original', iconType: 'devicon' },
+            { nombre: 'Kafka', icon: 'apachekafka-original', iconType: 'devicon' },
             { nombre: 'Playwright', icon: 'playwright-plain', iconType: 'devicon' },
             { nombre: 'Grafana', icon: 'grafana-original', iconType: 'devicon' },
             { nombre: 'Prometheus', icon: 'prometheus-original', iconType: 'devicon' },
-            { nombre: 'Kubernetes', icon: 'kubernetes-plain', iconType: 'devicon' }
+            { nombre: 'Jaeger', icon: 'fa-project-diagram', iconType: 'fontawesome' },
+            { nombre: 'Kong', icon: 'fa-network-wired', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs Microservicios', ponderacion: 0, descripcion: 'Prácticas distribuidas' },
@@ -3447,11 +3952,15 @@ export const asignaturas: Record<string, Asignatura> = {
         prerrequisitos: ['Fullstack I'],
         conexiones: ['Fullstack III', 'Cloud Computing'],
         recursos: [
-            { tipo: 'Libro', nombre: 'Building Microservices', url: 'https://www.oreilly.com/library/view/building-microservices-2nd/9781492034018/' },
+            { tipo: 'Libro', nombre: 'Building Microservices (Sam Newman)', url: 'https://www.oreilly.com/library/view/building-microservices-2nd/9781492034018/' },
+            { tipo: 'Libro', nombre: 'Designing Data-Intensive Applications', url: 'https://dataintensive.net/' },
             { tipo: 'Documentación', nombre: 'RabbitMQ Tutorials', url: 'https://www.rabbitmq.com/tutorials' },
-            { tipo: 'Tutorial', nombre: 'Playwright Docs', url: 'https://playwright.dev/docs/intro' },
-            { tipo: 'Video', nombre: 'Microservices Full Course - freeCodeCamp', url: 'https://www.youtube.com/watch?v=Cy9fAvsXGZA' },
-            { tipo: 'Tutorial', nombre: 'Prometheus + Grafana Monitoring', url: 'https://prometheus.io/docs/tutorials/getting_started/' }
+            { tipo: 'Documentación', nombre: 'Apache Kafka Documentation', url: 'https://kafka.apache.org/documentation/' },
+            { tipo: 'Tutorial', nombre: 'Playwright Testing Guide', url: 'https://playwright.dev/docs/intro' },
+            { tipo: 'Video', nombre: 'Microservices Course - freeCodeCamp', url: 'https://www.youtube.com/watch?v=Cy9fAvsXGZA' },
+            { tipo: 'Tutorial', nombre: 'Prometheus + Grafana Monitoring', url: 'https://prometheus.io/docs/tutorials/getting_started/' },
+            { tipo: 'Curso', nombre: 'Event-Driven Architecture - Udemy', url: 'https://www.udemy.com/course/event-driven-microservices-spring-boot-kafka/' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-12%20-%20Desarrollo%20Fullstack%20II%2C%20Cloud%20Computing/Desarrollo%20Fullstack%20II' }
         ],
         color: 'teal',
         area: 'programacion'
@@ -3478,68 +3987,92 @@ export const asignaturas: Record<string, Asignatura> = {
             'Implementar disaster recovery'
         ],
         competencias: [
-            'AWS/Azure/GCP services',
-            'Terraform y IaC',
-            'Serverless architecture',
-            'Cloud security',
-            'Cost management'
+            'Diseño de arquitecturas cloud multi-tier con alta disponibilidad y tolerancia a fallos',
+            'Dominio de servicios AWS core: EC2, S3, RDS, Lambda, VPC, IAM, CloudWatch',
+            'Implementación de Infrastructure as Code con Terraform incluyendo módulos y workspaces',
+            'Desarrollo de aplicaciones serverless con Lambda, API Gateway y Step Functions',
+            'Configuración de networking avanzado: VPCs, subnets, NAT, Transit Gateway, PrivateLink',
+            'Aplicación de Well-Architected Framework: security, reliability, performance, cost, sustainability',
+            'Gestión de costos cloud con Reserved Instances, Savings Plans, Spot y right-sizing',
+            'Implementación de disaster recovery con RTO/RPO definidos y multi-region failover'
         ],
         experiencias: [
             {
                 numero: 1,
                 titulo: 'Servicios Cloud Core',
                 semanas: 'Semana 1-3',
-                descripcion: 'Servicios fundamentales de cloud.',
+                descripcion: 'Servicios fundamentales de AWS y arquitecturas cloud.',
                 contenidos: [
-                    'Compute: EC2, Lambda, ECS',
-                    'Storage: S3, EBS, EFS',
-                    'Networking: VPC, subnets, security groups',
-                    'Database: RDS, DynamoDB',
-                    'IAM y security',
-                    'CloudWatch monitoring'
+                    'Compute services: EC2 instance types, AMIs, Auto Scaling Groups, Launch Templates',
+                    'Container services: ECS, EKS, Fargate, task definitions, service discovery',
+                    'Storage services: S3 storage classes, lifecycle policies, versioning, replication',
+                    'Block storage: EBS volume types, snapshots, encryption, IOPS optimization',
+                    'Networking fundamentals: VPC design, subnets (public/private), route tables, NAT Gateway',
+                    'Security groups vs NACLs: stateful vs stateless, rule evaluation, best practices',
+                    'Database services: RDS multi-AZ, read replicas, Aurora, DynamoDB capacity modes',
+                    'IAM deep dive: policies, roles, instance profiles, permission boundaries, STS',
+                    'CloudWatch: metrics, logs, alarms, dashboards, Log Insights queries',
+                    'AWS CLI y SDK: configuration, profiles, programmatic access, boto3 basics'
                 ],
                 actividades: [
-                    'Arquitectura VPC completa',
-                    'Setup de servicios managed',
-                    'Configuración de IAM'
+                    'Diseño e implementación de VPC multi-tier con subnets públicas y privadas',
+                    'Configuración de Auto Scaling Group con Launch Template y scaling policies',
+                    'Setup de RDS con multi-AZ y read replica con failover testing',
+                    'Implementación de políticas IAM siguiendo principio de least privilege',
+                    'Configuración de CloudWatch dashboards y alarmas para aplicación web',
+                    'Proyecto parcial: Arquitectura 3-tier con alta disponibilidad en 2 AZs'
                 ]
             },
             {
                 numero: 2,
                 titulo: 'Infrastructure as Code',
                 semanas: 'Semana 4-5',
-                descripcion: 'Automatización de infraestructura.',
+                descripcion: 'Automatización de infraestructura con Terraform y GitOps.',
                 contenidos: [
-                    'Terraform fundamentals',
-                    'Modules y workspaces',
-                    'State management',
-                    'AWS CDK introduction',
-                    'GitOps con infraestructura',
-                    'Drift detection'
+                    'Terraform fundamentals: providers, resources, data sources, locals, outputs',
+                    'HCL syntax: variables, types, expressions, functions, dynamic blocks',
+                    'Terraform modules: structure, inputs/outputs, versioning, registry, composition',
+                    'State management: remote backends (S3), state locking (DynamoDB), workspaces',
+                    'Terraform workflows: init, plan, apply, destroy, import, state commands',
+                    'AWS CDK: constructs, stacks, apps, assets, context, synthesis',
+                    'CDK patterns: L1/L2/L3 constructs, custom constructs, best practices',
+                    'GitOps for infrastructure: Atlantis, Terraform Cloud, drift detection',
+                    'Testing IaC: terraform validate, tflint, checkov, infracost, terratest',
+                    'Secrets management: AWS Secrets Manager, Parameter Store, external-secrets'
                 ],
                 actividades: [
-                    'Infraestructura con Terraform',
-                    'Módulos reutilizables',
-                    'Pipeline de IaC'
+                    'Desarrollo de módulos Terraform reutilizables para VPC, EC2 y RDS',
+                    'Configuración de remote state con S3 y DynamoDB locking',
+                    'Implementación de múltiples environments con workspaces',
+                    'Setup de pipeline CI/CD para Terraform con plan y apply automatizado',
+                    'Desarrollo de stack CDK para aplicación serverless',
+                    'Integración de checkov y tflint en pipeline de validación'
                 ]
             },
             {
                 numero: 3,
                 titulo: 'Serverless y Optimización',
                 semanas: 'Semana 6-8',
-                descripcion: 'Arquitecturas serverless y costos.',
+                descripcion: 'Arquitecturas serverless, cost optimization y disaster recovery.',
                 contenidos: [
-                    'Lambda functions avanzado',
-                    'API Gateway',
-                    'Step Functions',
-                    'Event-driven serverless',
-                    'Cost Explorer y budgets',
-                    'Reserved instances y Savings Plans'
+                    'Lambda deep dive: layers, extensions, provisioned concurrency, SnapStart',
+                    'Lambda optimization: cold starts, memory/CPU, packaging, container images',
+                    'API Gateway: REST vs HTTP APIs, authorizers, throttling, caching, custom domains',
+                    'Step Functions: state machines, Express vs Standard, error handling, parallel execution',
+                    'EventBridge: event buses, rules, targets, schema registry, archive/replay',
+                    'SQS y SNS: queues, topics, FIFO, message filtering, fan-out patterns',
+                    'Cost optimization: Cost Explorer, budgets, anomaly detection, rightsizing',
+                    'Reserved capacity: Reserved Instances, Savings Plans, Spot instances, Spot Fleet',
+                    'Disaster recovery: RTO/RPO, backup strategies, pilot light, warm standby, multi-region',
+                    'Well-Architected: security, reliability, performance, cost optimization pillars'
                 ],
                 actividades: [
-                    'API serverless completa',
-                    'Workflow con Step Functions',
-                    'Proyecto: App cloud-native'
+                    'Desarrollo de API REST serverless con Lambda, API Gateway y DynamoDB',
+                    'Implementación de workflow de procesamiento con Step Functions',
+                    'Configuración de event-driven architecture con EventBridge y SQS',
+                    'Análisis de costos y plan de optimización con Reserved Instances',
+                    'Setup de disaster recovery con backup cross-region',
+                    'Proyecto integrador: Aplicación cloud-native serverless con CI/CD'
                 ]
             }
         ],
@@ -3548,7 +4081,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Terraform', icon: 'terraform-plain', iconType: 'devicon' },
             { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' },
             { nombre: 'Kubernetes', icon: 'kubernetes-plain', iconType: 'devicon' },
-            { nombre: 'Ansible', icon: 'ansible-plain', iconType: 'devicon' },
+            { nombre: 'AWS CDK', icon: 'fa-layer-group', iconType: 'fontawesome' },
+            { nombre: 'CloudWatch', icon: 'fa-chart-line', iconType: 'fontawesome' },
+            { nombre: 'Lambda', icon: 'fa-bolt', iconType: 'fontawesome' },
             { nombre: 'GitHub Actions', icon: 'github-original', iconType: 'devicon' }
         ],
         evaluaciones: [
@@ -3561,10 +4096,14 @@ export const asignaturas: Record<string, Asignatura> = {
         conexiones: ['Fullstack II', 'Cloud Native I'],
         recursos: [
             { tipo: 'Certificación', nombre: 'AWS Cloud Practitioner', url: 'https://aws.amazon.com/certification/certified-cloud-practitioner/' },
-            { tipo: 'Documentación', nombre: 'Terraform Docs', url: 'https://developer.hashicorp.com/terraform/docs' },
-            { tipo: 'Tutorial', nombre: 'AWS Free Tier', url: 'https://aws.amazon.com/free/' },
-            { tipo: 'Video', nombre: 'AWS Course for Beginners - freeCodeCamp', url: 'https://www.youtube.com/watch?v=ulprqHHWlng' },
-            { tipo: 'Tutorial', nombre: 'Terraform on AWS - HashiCorp Learn', url: 'https://developer.hashicorp.com/terraform/tutorials/aws-get-started' }
+            { tipo: 'Certificación', nombre: 'AWS Solutions Architect Associate', url: 'https://aws.amazon.com/certification/certified-solutions-architect-associate/' },
+            { tipo: 'Documentación', nombre: 'AWS Documentation', url: 'https://docs.aws.amazon.com/' },
+            { tipo: 'Documentación', nombre: 'Terraform AWS Provider', url: 'https://registry.terraform.io/providers/hashicorp/aws/latest/docs' },
+            { tipo: 'Tutorial', nombre: 'AWS Well-Architected Labs', url: 'https://www.wellarchitectedlabs.com/' },
+            { tipo: 'Video', nombre: 'AWS Full Course - freeCodeCamp', url: 'https://www.youtube.com/watch?v=ulprqHHWlng' },
+            { tipo: 'Curso', nombre: 'Terraform Associate Certification', url: 'https://developer.hashicorp.com/terraform/tutorials/certification' },
+            { tipo: 'Práctica', nombre: 'AWS Free Tier Account', url: 'https://aws.amazon.com/free/' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-12%20-%20Desarrollo%20Fullstack%20II%2C%20Cloud%20Computing/Cloud%20Computing' }
         ],
         color: 'orange',
         area: 'infraestructura'
@@ -3595,68 +4134,92 @@ export const asignaturas: Record<string, Asignatura> = {
             'Liderar equipos de desarrollo fullstack'
         ],
         competencias: [
-            'GraphQL y Apollo',
-            'Real-time systems',
-            'Performance engineering',
-            'Advanced patterns',
-            'Technical leadership'
+            'Diseño e implementación de APIs GraphQL con schema-first approach y federation',
+            'Desarrollo de sistemas real-time escalables con WebSockets, SSE y GraphQL subscriptions',
+            'Performance engineering: profiling, bundle optimization, lazy loading y caching strategies',
+            'Aplicación de patrones de arquitectura avanzados: Hexagonal, DDD tactical patterns, CQRS',
+            'Implementación de multi-tenancy con data isolation y configuración por tenant',
+            'Dominio de deployment strategies: blue-green, canary, feature flags y A/B testing',
+            'Liderazgo técnico: code reviews, pair programming, mentoring y technical writing',
+            'Quality engineering: automated testing, SonarQube, technical debt management'
         ],
         experiencias: [
             {
                 numero: 1,
                 titulo: 'GraphQL y APIs Avanzadas',
                 semanas: 'Semana 1-3',
-                descripcion: 'APIs modernas con GraphQL.',
+                descripcion: 'Diseño e implementación de APIs modernas con GraphQL y Apollo.',
                 contenidos: [
-                    'GraphQL schema design',
-                    'Queries, mutations, subscriptions',
-                    'Apollo Server y Client',
-                    'DataLoaders y N+1 problem',
-                    'Federation y supergraphs',
-                    'GraphQL vs REST trade-offs'
+                    'GraphQL schema design: types, interfaces, unions, enums, input types, directives',
+                    'Query design: arguments, aliases, fragments, variables, inline fragments',
+                    'Mutations: input validation, error handling, optimistic updates, file uploads',
+                    'Subscriptions: WebSocket transport, pub/sub patterns, subscription filtering',
+                    'Apollo Server: context, plugins, data sources, error formatting, caching',
+                    'Apollo Client: cache policies, reactive variables, local state, cache manipulation',
+                    'DataLoaders: batching, caching, per-request instances, N+1 problem resolution',
+                    'Apollo Federation: subgraphs, entities, @key directive, supergraph composition',
+                    'GraphQL security: query depth limiting, query complexity, persisted queries, rate limiting',
+                    'GraphQL vs REST: trade-offs, migration strategies, hybrid approaches, BFF pattern'
                 ],
                 actividades: [
-                    'API GraphQL completa',
-                    'Cliente Apollo React',
-                    'Real-time subscriptions'
+                    'Diseño de schema GraphQL para dominio e-commerce con tipos complejos',
+                    'Implementación de Apollo Server con data sources para REST y database',
+                    'Desarrollo de cliente Apollo React con cache optimizado y optimistic UI',
+                    'Configuración de subscriptions real-time para notificaciones',
+                    'Implementación de DataLoaders para resolver N+1 queries',
+                    'Proyecto parcial: API GraphQL federada con 2 subgraphs'
                 ]
             },
             {
                 numero: 2,
                 titulo: 'Performance Engineering',
                 semanas: 'Semana 4-5',
-                descripcion: 'Optimización de rendimiento.',
+                descripcion: 'Optimización de rendimiento fullstack y load testing.',
                 contenidos: [
-                    'Frontend: bundle optimization, lazy loading',
-                    'Backend: query optimization, caching',
-                    'Database: indexing, connection pooling',
-                    'CDN y edge computing',
-                    'Load testing con k6',
-                    'Profiling y bottleneck detection'
+                    'Frontend performance: bundle analysis, code splitting, tree shaking, lazy loading',
+                    'Core Web Vitals: LCP, FID, CLS optimization strategies, Lighthouse audits',
+                    'Image optimization: formats (WebP, AVIF), responsive images, lazy loading, CDN',
+                    'Backend optimization: connection pooling, query optimization, async processing',
+                    'Caching strategies: HTTP caching, CDN, Redis, application-level caching, cache invalidation',
+                    'Database performance: query analysis, indexing strategies, query plans, N+1 detection',
+                    'Load testing: k6 scripts, scenarios, thresholds, virtual users, ramp-up patterns',
+                    'Profiling: Chrome DevTools, Node.js profiler, flame graphs, memory leaks',
+                    'APM tools: New Relic, Datadog, distributed tracing, bottleneck identification',
+                    'Edge computing: Cloudflare Workers, Vercel Edge Functions, edge caching'
                 ],
                 actividades: [
-                    'Auditoría de performance',
-                    'Optimización de aplicación existente',
-                    'Load testing y tuning'
+                    'Auditoría de performance con Lighthouse y análisis de Core Web Vitals',
+                    'Optimización de bundle con code splitting y lazy loading',
+                    'Implementación de caching multi-nivel (CDN, Redis, HTTP headers)',
+                    'Análisis y optimización de queries lentas con explain plans',
+                    'Suite de load testing con k6 para endpoints críticos',
+                    'Proyecto: Optimización completa reduciendo LCP 50%'
                 ]
             },
             {
                 numero: 3,
                 titulo: 'Arquitecturas Avanzadas',
                 semanas: 'Semana 6-8',
-                descripcion: 'Patrones enterprise y liderazgo.',
+                descripcion: 'Patrones de arquitectura enterprise y liderazgo técnico.',
                 contenidos: [
-                    'Hexagonal architecture implementation',
-                    'DDD tactical patterns',
-                    'Multi-tenant architectures',
-                    'Blue-green y canary deployments',
-                    'Technical documentation',
-                    'Code review y mentoring'
+                    'Hexagonal architecture: ports, adapters, domain isolation, dependency inversion',
+                    'DDD tactical patterns: aggregates, entities, value objects, domain events, repositories',
+                    'Multi-tenant architectures: database per tenant, schema per tenant, shared database',
+                    'Feature flags: LaunchDarkly, Unleash, trunk-based development, experimentation',
+                    'Deployment strategies: blue-green, canary releases, progressive rollouts, rollback',
+                    'Technical documentation: ADRs, C4 diagrams, API docs, runbooks, onboarding guides',
+                    'Code quality: SonarQube, ESLint custom rules, pre-commit hooks, quality gates',
+                    'Technical debt: identification, prioritization, refactoring strategies, boy scout rule',
+                    'Code review best practices: review checklist, constructive feedback, PR templates',
+                    'Team leadership: pair programming, mob programming, knowledge sharing, mentoring'
                 ],
                 actividades: [
-                    'Refactoring a arquitectura hexagonal',
-                    'Documentación técnica completa',
-                    'Proyecto: Capstone fullstack'
+                    'Refactoring de aplicación existente a arquitectura hexagonal',
+                    'Implementación de bounded context con DDD tactical patterns',
+                    'Configuración de multi-tenancy con aislamiento de datos',
+                    'Setup de feature flags con LaunchDarkly para releases graduales',
+                    'Creación de documentación técnica completa (ADRs, C4, runbooks)',
+                    'Proyecto capstone: Sistema fullstack enterprise-grade con documentación'
                 ]
             }
         ],
@@ -3665,8 +4228,10 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Apollo', icon: 'fa-project-diagram', iconType: 'fontawesome' },
             { nombre: 'Redis', icon: 'redis-plain', iconType: 'devicon' },
             { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' },
+            { nombre: 'k6', icon: 'fa-chart-bar', iconType: 'fontawesome' },
             { nombre: 'Lighthouse', icon: 'fa-tachometer-alt', iconType: 'fontawesome' },
-            { nombre: 'SonarQube', icon: 'sonarqube-plain', iconType: 'devicon' }
+            { nombre: 'SonarQube', icon: 'sonarqube-plain', iconType: 'devicon' },
+            { nombre: 'LaunchDarkly', icon: 'fa-flag', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs Avanzados', ponderacion: 0, descripcion: 'Prácticas especializadas' },
@@ -3677,11 +4242,15 @@ export const asignaturas: Record<string, Asignatura> = {
         prerrequisitos: ['Fullstack II'],
         conexiones: ['Cloud Native I', 'App Móviles'],
         recursos: [
-            { tipo: 'Documentación', nombre: 'GraphQL Docs', url: 'https://graphql.org/learn/' },
-            { tipo: 'Documentación', nombre: 'Apollo Docs', url: 'https://www.apollographql.com/docs/' },
+            { tipo: 'Documentación', nombre: 'GraphQL Official Docs', url: 'https://graphql.org/learn/' },
+            { tipo: 'Documentación', nombre: 'Apollo GraphQL Docs', url: 'https://www.apollographql.com/docs/' },
+            { tipo: 'Tutorial', nombre: 'Apollo Federation Guide', url: 'https://www.apollographql.com/docs/federation/' },
             { tipo: 'Herramienta', nombre: 'k6 Load Testing', url: 'https://k6.io/docs/' },
             { tipo: 'Video', nombre: 'GraphQL Full Course - freeCodeCamp', url: 'https://www.youtube.com/watch?v=ed8SzALpx1Q' },
-            { tipo: 'Tutorial', nombre: 'web.dev Performance Guide', url: 'https://web.dev/learn/performance' }
+            { tipo: 'Tutorial', nombre: 'web.dev Performance Guide', url: 'https://web.dev/learn/performance' },
+            { tipo: 'Libro', nombre: 'Learning GraphQL (Eve Porcello)', url: 'https://www.oreilly.com/library/view/learning-graphql/9781492030706/' },
+            { tipo: 'Curso', nombre: 'GraphQL by Example - Udemy', url: 'https://www.udemy.com/course/graphql-by-example/' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-13%20-%20Desarrollo%20Fullstack%20III%2C%20DevOps/Desarrollo%20Fullstack%20III' }
         ],
         color: 'teal',
         area: 'programacion'
@@ -3712,68 +4281,92 @@ export const asignaturas: Record<string, Asignatura> = {
             'Optimizar rendimiento móvil'
         ],
         competencias: [
-            'Flutter y Dart',
-            'Mobile architectures',
-            'Offline-first design',
-            'Native integrations',
-            'Store publishing'
+            'Dominio de Flutter framework y lenguaje Dart para desarrollo multiplataforma',
+            'Implementación de state management avanzado con Riverpod, Bloc y Provider',
+            'Diseño de arquitecturas móviles escalables: Clean Architecture, MVVM, Repository pattern',
+            'Desarrollo de aplicaciones offline-first con sincronización y conflict resolution',
+            'Integración con servicios nativos: cámara, GPS, biometría, notificaciones push',
+            'Optimización de rendimiento móvil: rendering, memoria, batería, startup time',
+            'Publicación en App Store y Play Store con CI/CD automatizado (Codemagic, Fastlane)',
+            'Testing móvil: widget tests, integration tests, golden tests, device labs'
         ],
         experiencias: [
             {
                 numero: 1,
                 titulo: 'Flutter Development',
                 semanas: 'Semana 1-3',
-                descripcion: 'Fundamentos de Flutter y Dart.',
+                descripcion: 'Fundamentos de Flutter framework y lenguaje Dart.',
                 contenidos: [
-                    'Dart language fundamentals',
-                    'Flutter widgets y layouts',
-                    'State management: Riverpod, Bloc',
-                    'Navigation 2.0',
-                    'Flutter DevTools',
-                    'Hot reload y debugging'
+                    'Dart fundamentals: null safety, async/await, streams, extensions, mixins',
+                    'Dart advanced: isolates, generics, code generation, annotations',
+                    'Flutter widget tree: StatelessWidget, StatefulWidget, InheritedWidget, lifecycle',
+                    'Layout system: Row, Column, Stack, Expanded, Flexible, constraints, overflow',
+                    'State management: Provider, Riverpod, Bloc/Cubit, GetX comparison',
+                    'Riverpod deep dive: providers, modifiers, families, autodispose, dependency injection',
+                    'Navigation: GoRouter, Navigator 2.0, deep linking, URL strategies',
+                    'Flutter DevTools: widget inspector, performance overlay, memory profiler',
+                    'Hot reload vs hot restart: cuando usar cada uno, limitaciones',
+                    'Custom widgets: CustomPainter, RenderObject, platform views'
                 ],
                 actividades: [
-                    'App Flutter básica',
-                    'Implementación de estado',
-                    'Navegación compleja'
+                    'Desarrollo de app Flutter con arquitectura limpia y Riverpod',
+                    'Implementación de navegación compleja con GoRouter y deep linking',
+                    'Creación de custom widgets con CustomPainter',
+                    'Profiling y optimización con Flutter DevTools',
+                    'Testing: widget tests, golden tests, integration tests',
+                    'Proyecto parcial: App Flutter con state management y navegación'
                 ]
             },
             {
                 numero: 2,
                 titulo: 'Offline y Sincronización',
                 semanas: 'Semana 4-5',
-                descripcion: 'Aplicaciones offline-first.',
+                descripcion: 'Aplicaciones offline-first con sincronización y manejo de conflictos.',
                 contenidos: [
-                    'SQLite y Hive local storage',
-                    'Sync strategies',
-                    'Conflict resolution',
-                    'Background sync',
-                    'Push notifications',
-                    'Firebase integration'
+                    'Local storage options: SharedPreferences, Hive, Isar, SQLite (drift/sqflite)',
+                    'Drift (moor): DAOs, type converters, migrations, reactive streams',
+                    'Offline-first architecture: repository pattern, sync queue, optimistic updates',
+                    'Sync strategies: pull-based, push-based, real-time sync, delta sync',
+                    'Conflict resolution: last-write-wins, merge strategies, CRDTs basics',
+                    'Background processing: WorkManager, background fetch, isolates for heavy tasks',
+                    'Push notifications: FCM, APNs, local notifications, notification channels',
+                    'Firebase integration: Firestore offline, Realtime Database, Cloud Functions',
+                    'Connectivity handling: network monitoring, retry logic, exponential backoff',
+                    'Data serialization: JSON, Protobuf, code generation con freezed y json_serializable'
                 ],
                 actividades: [
-                    'App offline-first',
-                    'Sistema de sincronización',
-                    'Notificaciones push'
+                    'Implementación de capa de persistencia con Drift y migrations',
+                    'Desarrollo de sync engine con cola de operaciones y retry logic',
+                    'Sistema de resolución de conflictos con timestamps y merge',
+                    'Integración de push notifications con FCM y notificaciones locales',
+                    'Manejo de conectividad con indicadores visuales y offline queue',
+                    'Proyecto: App offline-first con sincronización bidireccional'
                 ]
             },
             {
                 numero: 3,
                 titulo: 'Nativo y Publicación',
                 semanas: 'Semana 6-8',
-                descripcion: 'Integraciones nativas y stores.',
+                descripcion: 'Integraciones nativas, optimización y publicación en stores.',
                 contenidos: [
-                    'Platform channels',
-                    'Biometrics y secure storage',
-                    'Camera y sensors avanzados',
-                    'App signing y certificates',
-                    'Play Store submission',
-                    'App Store review guidelines'
+                    'Platform channels: MethodChannel, EventChannel, BasicMessageChannel',
+                    'Federated plugins: platform interface, implementations, endorsement',
+                    'Biometrics: local_auth, secure storage con flutter_secure_storage',
+                    'Camera y media: camera package, image_picker, video_player, caching',
+                    'Sensors y device: geolocation, accelerometer, gyroscope, battery',
+                    'App signing: Android keystore, iOS certificates, profiles, entitlements',
+                    'Play Store: release build, app bundle, staged rollout, A/B testing',
+                    'App Store: Archive, App Store Connect, review guidelines, TestFlight',
+                    'CI/CD móvil: Codemagic, Fastlane, GitHub Actions para mobile',
+                    'Analytics y crashes: Firebase Analytics, Crashlytics, performance monitoring'
                 ],
                 actividades: [
-                    'Integración de biometrics',
-                    'Preparación para stores',
-                    'Proyecto: App publicable'
+                    'Desarrollo de plugin Flutter con platform channels',
+                    'Implementación de autenticación biométrica y secure storage',
+                    'Integración de cámara con preview y procesamiento de imagen',
+                    'Configuración de app signing para Android y iOS',
+                    'Setup de CI/CD con Codemagic para builds automatizados',
+                    'Proyecto integrador: App publicable en ambas stores con CI/CD'
                 ]
             }
         ],
@@ -3783,7 +4376,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Firebase', icon: 'firebase-plain', iconType: 'devicon' },
             { nombre: 'SQLite', icon: 'sqlite-plain', iconType: 'devicon' },
             { nombre: 'Android Studio', icon: 'androidstudio-plain', iconType: 'devicon' },
-            { nombre: 'Xcode', icon: 'xcode-plain', iconType: 'devicon' }
+            { nombre: 'Xcode', icon: 'xcode-plain', iconType: 'devicon' },
+            { nombre: 'Codemagic', icon: 'fa-rocket', iconType: 'fontawesome' },
+            { nombre: 'Fastlane', icon: 'fa-road', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs Flutter', ponderacion: 0, descripcion: 'Prácticas móviles' },
@@ -3794,11 +4389,15 @@ export const asignaturas: Record<string, Asignatura> = {
         prerrequisitos: ['Mobile II'],
         conexiones: ['Cloud Native I'],
         recursos: [
-            { tipo: 'Documentación', nombre: 'Flutter Docs', url: 'https://docs.flutter.dev/' },
+            { tipo: 'Documentación', nombre: 'Flutter Official Docs', url: 'https://docs.flutter.dev/' },
+            { tipo: 'Documentación', nombre: 'Dart Language Guide', url: 'https://dart.dev/guides' },
             { tipo: 'Tutorial', nombre: 'Flutter Codelabs', url: 'https://docs.flutter.dev/codelabs' },
-            { tipo: 'Curso', nombre: 'Flutter Complete Course', url: 'https://www.udemy.com/course/learn-flutter-dart-to-build-ios-android-apps/' },
-            { tipo: 'Video', nombre: 'Flutter Course for Beginners - freeCodeCamp', url: 'https://www.youtube.com/watch?v=VPvVD8t02U8' },
-            { tipo: 'Tutorial', nombre: 'Flutter by Example', url: 'https://flutterbyexample.com/' }
+            { tipo: 'Curso', nombre: 'Flutter Complete Course - Udemy', url: 'https://www.udemy.com/course/learn-flutter-dart-to-build-ios-android-apps/' },
+            { tipo: 'Video', nombre: 'Flutter Course - freeCodeCamp', url: 'https://www.youtube.com/watch?v=VPvVD8t02U8' },
+            { tipo: 'Tutorial', nombre: 'Riverpod Documentation', url: 'https://riverpod.dev/docs/introduction/getting_started' },
+            { tipo: 'Herramienta', nombre: 'Codemagic CI/CD', url: 'https://codemagic.io/' },
+            { tipo: 'Libro', nombre: 'Flutter in Action (Eric Windmill)', url: 'https://www.manning.com/books/flutter-in-action' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-14%20-%20Desarrollo%20App%20Moviles%2C%20Cloud%20Native%20I/Desarrollo%20App%20Moviles' }
         ],
         color: 'blue',
         area: 'mobile'
@@ -3825,68 +4424,92 @@ export const asignaturas: Record<string, Asignatura> = {
             'Implementar auto-scaling'
         ],
         competencias: [
-            'Kubernetes operations',
-            'Helm charts',
-            'Service mesh',
-            'GitOps',
-            'Cloud-native observability'
+            'Dominio de arquitectura y operaciones de Kubernetes: deployments, services, networking',
+            'Desarrollo y gestión de Helm charts para packaging de aplicaciones cloud-native',
+            'Implementación de GitOps workflows con ArgoCD para continuous deployment',
+            'Configuración de service mesh con Istio: traffic management, security, observability',
+            'Gestión de secrets y configuration management con External Secrets y ConfigMaps',
+            'Implementación de auto-scaling: HPA, VPA, KEDA para event-driven scaling',
+            'Observabilidad cloud-native: Prometheus, Grafana, Jaeger, alerting avanzado',
+            'Troubleshooting de clusters: debugging pods, network policies, resource issues'
         ],
         experiencias: [
             {
                 numero: 1,
                 titulo: 'Kubernetes Fundamentals',
                 semanas: 'Semana 1-3',
-                descripcion: 'Fundamentos de Kubernetes.',
+                descripcion: 'Arquitectura y operaciones fundamentales de Kubernetes.',
                 contenidos: [
-                    'K8s architecture: nodes, pods, services',
-                    'Deployments y ReplicaSets',
-                    'ConfigMaps y Secrets',
-                    'Persistent Volumes',
-                    'Ingress controllers',
-                    'kubectl y k9s'
+                    'K8s architecture: control plane, nodes, kubelet, kube-proxy, container runtime',
+                    'Pods: lifecycle, init containers, sidecar pattern, resource requests/limits',
+                    'Workloads: Deployments, ReplicaSets, StatefulSets, DaemonSets, Jobs, CronJobs',
+                    'Services: ClusterIP, NodePort, LoadBalancer, ExternalName, headless services',
+                    'ConfigMaps y Secrets: creation, mounting, environment variables, immutable configs',
+                    'Storage: PersistentVolumes, PersistentVolumeClaims, StorageClasses, dynamic provisioning',
+                    'Networking: CNI plugins, DNS, Network Policies, pod-to-pod communication',
+                    'Ingress: NGINX Ingress Controller, path-based routing, TLS termination, annotations',
+                    'kubectl: essential commands, contexts, output formatting, port-forward, exec',
+                    'k9s y Lens: GUI tools for cluster management, resource monitoring, log viewing'
                 ],
                 actividades: [
-                    'Cluster local con kind/minikube',
-                    'Deployment de aplicación',
-                    'Configuración de Ingress'
+                    'Setup de cluster local con kind y múltiples nodes',
+                    'Deployment de aplicación multi-tier con services y networking',
+                    'Configuración de Ingress con TLS usando cert-manager',
+                    'Gestión de storage con PV/PVC para base de datos',
+                    'Implementación de Network Policies para aislamiento',
+                    'Proyecto parcial: Aplicación 3-tier desplegada en K8s'
                 ]
             },
             {
                 numero: 2,
                 titulo: 'Helm y GitOps',
                 semanas: 'Semana 4-5',
-                descripcion: 'Packaging y deployment automatizado.',
+                descripcion: 'Packaging de aplicaciones y deployment automatizado con GitOps.',
                 contenidos: [
-                    'Helm charts: templates, values',
-                    'Chart repositories',
-                    'ArgoCD fundamentals',
-                    'GitOps workflows',
-                    'Progressive delivery',
-                    'Rollback strategies'
+                    'Helm architecture: charts, templates, values, releases, hooks',
+                    'Template syntax: built-in objects, functions, pipelines, control structures',
+                    'Chart development: dependencies, library charts, chart testing, linting',
+                    'Chart repositories: hosting, OCI registries, artifacthub.io',
+                    'ArgoCD architecture: Application CRD, sync policies, health checks',
+                    'GitOps principles: declarative, versioned, automated, auditable',
+                    'ApplicationSets: cluster generator, git generator, matrix generator',
+                    'Sync strategies: auto-sync, manual, selective sync, prune policies',
+                    'Progressive delivery: Argo Rollouts, canary, blue-green, analysis runs',
+                    'Secrets in GitOps: Sealed Secrets, SOPS, External Secrets Operator'
                 ],
                 actividades: [
-                    'Creación de Helm chart',
-                    'Setup de ArgoCD',
-                    'Pipeline GitOps'
+                    'Desarrollo de Helm chart con templates parametrizados',
+                    'Publicación de chart en OCI registry (GitHub Container Registry)',
+                    'Setup de ArgoCD y configuración de Applications',
+                    'Implementación de ApplicationSet para multi-environment',
+                    'Canary deployment con Argo Rollouts y análisis automatizado',
+                    'Gestión de secrets con External Secrets Operator'
                 ]
             },
             {
                 numero: 3,
                 titulo: 'Service Mesh y Observability',
                 semanas: 'Semana 6-8',
-                descripcion: 'Networking avanzado y monitoring.',
+                descripcion: 'Networking avanzado con Istio y observability stack cloud-native.',
                 contenidos: [
-                    'Istio basics',
-                    'Traffic management',
-                    'mTLS y security policies',
-                    'Prometheus y Grafana en K8s',
-                    'Jaeger distributed tracing',
-                    'Kiali dashboard'
+                    'Service mesh concepts: sidecar proxy, control plane, data plane',
+                    'Istio architecture: Pilot, Envoy, Istiod, Ingress/Egress Gateway',
+                    'Traffic management: VirtualService, DestinationRule, traffic splitting, mirroring',
+                    'Resilience: timeouts, retries, circuit breakers, outlier detection',
+                    'Security: mTLS, PeerAuthentication, AuthorizationPolicy, RequestAuthentication',
+                    'Prometheus in K8s: ServiceMonitor, PodMonitor, rules, recording rules',
+                    'Grafana dashboards: K8s dashboards, custom dashboards, alerting',
+                    'Distributed tracing: Jaeger, trace context propagation, sampling strategies',
+                    'Kiali: service mesh visualization, traffic flow, configuration validation',
+                    'Auto-scaling: HPA, VPA, KEDA, custom metrics scaling'
                 ],
                 actividades: [
-                    'Setup de Istio',
-                    'Observability stack',
-                    'Proyecto: App cloud-native'
+                    'Instalación y configuración de Istio con istioctl',
+                    'Implementación de traffic management: canary, A/B testing',
+                    'Configuración de mTLS strict mode y AuthorizationPolicies',
+                    'Setup de Prometheus stack con ServiceMonitors',
+                    'Creación de Grafana dashboards para métricas de aplicación',
+                    'Proyecto integrador: App cloud-native con service mesh y observability'
                 ]
             }
         ],
@@ -3896,7 +4519,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'ArgoCD', icon: 'argocd-original', iconType: 'devicon' },
             { nombre: 'Prometheus', icon: 'prometheus-original', iconType: 'devicon' },
             { nombre: 'Grafana', icon: 'grafana-original', iconType: 'devicon' },
-            { nombre: 'Istio', icon: 'fa-network-wired', iconType: 'fontawesome' }
+            { nombre: 'Istio', icon: 'fa-network-wired', iconType: 'fontawesome' },
+            { nombre: 'Jaeger', icon: 'fa-project-diagram', iconType: 'fontawesome' },
+            { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs K8s', ponderacion: 0, descripcion: 'Prácticas en cluster' },
@@ -3907,11 +4532,15 @@ export const asignaturas: Record<string, Asignatura> = {
         prerrequisitos: ['Cloud Computing', 'DevOps'],
         conexiones: ['Cloud Native II'],
         recursos: [
-            { tipo: 'Documentación', nombre: 'Kubernetes Docs', url: 'https://kubernetes.io/docs/' },
-            { tipo: 'Tutorial', nombre: 'Helm Docs', url: 'https://helm.sh/docs/' },
-            { tipo: 'Certificación', nombre: 'CKA Exam', url: 'https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/' },
-            { tipo: 'Video', nombre: 'Kubernetes Tutorial - TechWorld with Nana', url: 'https://www.youtube.com/watch?v=X48VuDVv0do' },
-            { tipo: 'Tutorial', nombre: 'CKAD Exercises - GitHub', url: 'https://github.com/dgkanatsios/CKAD-exercises' }
+            { tipo: 'Documentación', nombre: 'Kubernetes Official Docs', url: 'https://kubernetes.io/docs/' },
+            { tipo: 'Documentación', nombre: 'Helm Documentation', url: 'https://helm.sh/docs/' },
+            { tipo: 'Documentación', nombre: 'ArgoCD Docs', url: 'https://argo-cd.readthedocs.io/' },
+            { tipo: 'Certificación', nombre: 'CKA Certification', url: 'https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/' },
+            { tipo: 'Certificación', nombre: 'CKAD Certification', url: 'https://training.linuxfoundation.org/certification/certified-kubernetes-application-developer-ckad/' },
+            { tipo: 'Video', nombre: 'Kubernetes Full Course - TechWorld with Nana', url: 'https://www.youtube.com/watch?v=X48VuDVv0do' },
+            { tipo: 'Tutorial', nombre: 'CKAD Exercises - GitHub', url: 'https://github.com/dgkanatsios/CKAD-exercises' },
+            { tipo: 'Práctica', nombre: 'Killercoda K8s Labs', url: 'https://killercoda.com/playgrounds/scenario/kubernetes' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-14%20-%20Desarrollo%20App%20Moviles%2C%20Cloud%20Native%20I/Cloud%20Native%20I' }
         ],
         color: 'blue',
         area: 'infraestructura'
@@ -3942,68 +4571,92 @@ export const asignaturas: Record<string, Asignatura> = {
             'Liderar iniciativas cloud-native'
         ],
         competencias: [
-            'Multi-cluster management',
-            'Disaster recovery',
-            'Cloud security',
-            'Platform engineering',
-            'FinOps'
+            'Gestión de arquitecturas multi-cluster con federation y cross-cluster networking',
+            'Implementación de disaster recovery con Velero, backup strategies y failover automatizado',
+            'Aplicación de Kubernetes security: Pod Security Standards, OPA Gatekeeper, Falco',
+            'Integración de HashiCorp Vault para secrets management y PKI automation',
+            'Desarrollo de Internal Developer Platforms (IDP) con Backstage y service catalogs',
+            'Implementación de FinOps: cost allocation, chargebacks, resource optimization',
+            'Definición y gestión de SLOs, error budgets y reliability engineering',
+            'Liderazgo en iniciativas de platform engineering y DevEx optimization'
         ],
         experiencias: [
             {
                 numero: 1,
                 titulo: 'Multi-Cluster y HA',
                 semanas: 'Semana 1-3',
-                descripcion: 'Gestión de múltiples clusters.',
+                descripcion: 'Gestión de múltiples clusters y alta disponibilidad.',
                 contenidos: [
-                    'Multi-cluster architectures',
-                    'Federation concepts',
-                    'Cross-cluster networking',
-                    'Disaster recovery strategies',
-                    'Backup con Velero',
-                    'RTO y RPO planning'
+                    'Multi-cluster architectures: hub-spoke, mesh, hierarchical topologies',
+                    'Kubernetes Federation v2: kubefed, resource propagation, scheduling policies',
+                    'Cross-cluster networking: Submariner, Cilium Cluster Mesh, Linkerd multi-cluster',
+                    'Service discovery: cross-cluster DNS, service export/import, locality awareness',
+                    'Disaster recovery strategies: active-active, active-passive, pilot light',
+                    'Velero: backup schedules, restore workflows, resource filtering, hooks',
+                    'RTO/RPO planning: impact analysis, recovery procedures, testing schedules',
+                    'Storage replication: CSI drivers, cross-region replication, data consistency',
+                    'Global load balancing: DNS-based, anycast, traffic management policies',
+                    'Chaos engineering: Litmus, Chaos Mesh, fault injection, game days'
                 ],
                 actividades: [
-                    'Setup multi-cluster',
-                    'Backup y restore',
-                    'DR simulation'
+                    'Setup de arquitectura multi-cluster con Cilium Cluster Mesh',
+                    'Configuración de cross-cluster service discovery',
+                    'Implementación de backup automatizado con Velero y schedules',
+                    'Simulación de disaster recovery con failover entre clusters',
+                    'Definición de RTO/RPO y documentación de runbooks',
+                    'Proyecto parcial: Multi-cluster con DR automatizado'
                 ]
             },
             {
                 numero: 2,
                 titulo: 'Security y Compliance',
                 semanas: 'Semana 4-5',
-                descripcion: 'Seguridad en Kubernetes.',
+                descripcion: 'Seguridad avanzada en Kubernetes y compliance.',
                 contenidos: [
-                    'Pod Security Standards',
-                    'Network Policies',
-                    'OPA Gatekeeper',
-                    'Vault integration',
-                    'Image scanning',
-                    'Compliance frameworks'
+                    'Pod Security Standards: Privileged, Baseline, Restricted enforcement',
+                    'Pod Security Admission: namespace labels, modes (enforce, audit, warn)',
+                    'OPA Gatekeeper: ConstraintTemplates, Constraints, audit mode, dry-run',
+                    'Kyverno: policies as K8s resources, mutating, validating, generating',
+                    'Network Policies avanzadas: egress rules, CIDR blocks, named ports',
+                    'Vault integration: Kubernetes auth, secrets injection, PKI management',
+                    'Image security: Trivy, Harbor, admission webhooks, signature verification',
+                    'Runtime security: Falco, syscall monitoring, anomaly detection',
+                    'Compliance frameworks: SOC 2, PCI-DSS, HIPAA mappings to K8s controls',
+                    'Security auditing: CIS benchmarks, kube-bench, kubescape, audit logging'
                 ],
                 actividades: [
-                    'Implementación de policies',
-                    'Secrets con Vault',
-                    'Security audit'
+                    'Implementación de Pod Security Standards con admission controller',
+                    'Desarrollo de Gatekeeper policies para compliance requirements',
+                    'Integración de Vault con Kubernetes para secrets injection',
+                    'Configuración de image scanning en pipeline con admission webhook',
+                    'Setup de Falco para detección de anomalías en runtime',
+                    'Auditoría de cluster con kube-bench y plan de remediación'
                 ]
             },
             {
                 numero: 3,
                 titulo: 'Platform Engineering',
                 semanas: 'Semana 6-8',
-                descripcion: 'Internal Developer Platforms.',
+                descripcion: 'Internal Developer Platforms y FinOps.',
                 contenidos: [
-                    'Platform engineering principles',
-                    'Developer experience (DevEx)',
-                    'Self-service portals',
-                    'Backstage introduction',
-                    'Cost management y chargebacks',
-                    'SLOs y error budgets'
+                    'Platform engineering principles: self-service, golden paths, guardrails',
+                    'Developer experience (DevEx): cognitive load, flow state, developer portals',
+                    'Backstage architecture: core, plugins, software catalog, templates',
+                    'Software catalog: entities, relations, ownership, TechDocs integration',
+                    'Software templates: scaffolding, parameters, actions, cookiecutter',
+                    'Crossplane: compositions, claims, providers, infrastructure abstraction',
+                    'FinOps fundamentals: showback, chargeback, cost allocation, unit economics',
+                    'Kubecost: cost monitoring, allocation, optimization recommendations',
+                    'SLOs y SLIs: definition, measurement, error budgets, burn rate alerts',
+                    'Reliability engineering: toil reduction, automation, capacity planning'
                 ],
                 actividades: [
-                    'Developer portal básico',
-                    'Cost attribution',
-                    'Proyecto: Platform MVP'
+                    'Setup de Backstage con software catalog y ownership model',
+                    'Desarrollo de software templates para onboarding de servicios',
+                    'Implementación de Crossplane para infrastructure self-service',
+                    'Configuración de Kubecost con cost allocation por team',
+                    'Definición de SLOs y dashboards de error budget',
+                    'Proyecto integrador: Internal Developer Platform completa'
                 ]
             }
         ],
@@ -4012,8 +4665,10 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Vault', icon: 'vault-original', iconType: 'devicon' },
             { nombre: 'Terraform', icon: 'terraform-plain', iconType: 'devicon' },
             { nombre: 'Grafana', icon: 'grafana-original', iconType: 'devicon' },
-            { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' },
-            { nombre: 'GitHub Actions', icon: 'github-original', iconType: 'devicon' }
+            { nombre: 'Backstage', icon: 'fa-puzzle-piece', iconType: 'fontawesome' },
+            { nombre: 'Crossplane', icon: 'fa-cubes', iconType: 'fontawesome' },
+            { nombre: 'Falco', icon: 'fa-eye', iconType: 'fontawesome' },
+            { nombre: 'Velero', icon: 'fa-archive', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs Avanzados', ponderacion: 0, descripcion: 'Prácticas enterprise' },
@@ -4024,11 +4679,15 @@ export const asignaturas: Record<string, Asignatura> = {
         prerrequisitos: ['Cloud Native I'],
         conexiones: ['Seguridad y Calidad'],
         recursos: [
-            { tipo: 'Certificación', nombre: 'CKS Exam', url: 'https://training.linuxfoundation.org/certification/certified-kubernetes-security-specialist/' },
-            { tipo: 'Documentación', nombre: 'Vault Docs', url: 'https://developer.hashicorp.com/vault/docs' },
-            { tipo: 'Framework', nombre: 'Backstage', url: 'https://backstage.io/docs/overview/what-is-backstage' },
-            { tipo: 'Video', nombre: 'DevOps Engineering Course - freeCodeCamp', url: 'https://www.youtube.com/watch?v=j5Zsa_eOXeY' },
-            { tipo: 'Tutorial', nombre: 'Platform Engineering with Backstage', url: 'https://backstage.io/docs/getting-started/' }
+            { tipo: 'Certificación', nombre: 'CKS Certification', url: 'https://training.linuxfoundation.org/certification/certified-kubernetes-security-specialist/' },
+            { tipo: 'Documentación', nombre: 'HashiCorp Vault Docs', url: 'https://developer.hashicorp.com/vault/docs' },
+            { tipo: 'Documentación', nombre: 'Backstage Docs', url: 'https://backstage.io/docs/overview/what-is-backstage' },
+            { tipo: 'Documentación', nombre: 'Crossplane Docs', url: 'https://docs.crossplane.io/' },
+            { tipo: 'Video', nombre: 'Platform Engineering - CNCF', url: 'https://www.youtube.com/watch?v=ghzsBm8vOms' },
+            { tipo: 'Tutorial', nombre: 'FinOps with Kubecost', url: 'https://www.kubecost.com/kubernetes-cost-optimization/' },
+            { tipo: 'Libro', nombre: 'Platform Engineering on Kubernetes', url: 'https://www.manning.com/books/platform-engineering-on-kubernetes' },
+            { tipo: 'Curso', nombre: 'Site Reliability Engineering - Google', url: 'https://sre.google/sre-book/table-of-contents/' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-15%20-%20Cloud%20Native%20II%2C%20Seguridad%20y%20Calidad/Cloud%20Native%20II' }
         ],
         color: 'blue',
         area: 'infraestructura'
@@ -4055,68 +4714,92 @@ export const asignaturas: Record<string, Asignatura> = {
             'Gestionar vulnerabilidades'
         ],
         competencias: [
-            'Application security',
-            'SAST/DAST tools',
-            'Security testing',
-            'Quality metrics',
-            'DevSecOps'
+            'Dominio de OWASP Top 10 y aplicación de secure coding practices',
+            'Implementación de SAST/DAST/SCA en pipelines CI/CD con SonarQube, Snyk y ZAP',
+            'Realización de security code reviews y threat modeling con STRIDE',
+            'Configuración de quality gates y enforcement de métricas de calidad',
+            'Gestión de vulnerabilidades: priorización, tracking, SLAs de remediación',
+            'Implementación de DevSecOps: shift-left security, security champions program',
+            'Testing de seguridad avanzado: penetration testing basics, fuzzing, API security',
+            'Compliance automation: CIS benchmarks, SOC 2 controls, audit trails'
         ],
         experiencias: [
             {
                 numero: 1,
                 titulo: 'Application Security',
                 semanas: 'Semana 1-3',
-                descripcion: 'Fundamentos de seguridad de aplicaciones.',
+                descripcion: 'Fundamentos de seguridad de aplicaciones y secure coding.',
                 contenidos: [
-                    'OWASP Top 10 2021',
-                    'Injection attacks y prevención',
-                    'Authentication y session management',
-                    'XSS y CSRF',
-                    'Security headers',
-                    'Secure coding practices'
+                    'OWASP Top 10 2021: A01-Broken Access Control a A10-SSRF con ejemplos',
+                    'Injection attacks: SQL, NoSQL, LDAP, Command injection - prevención y sanitización',
+                    'Authentication security: password policies, MFA, OAuth 2.0/OIDC, JWT best practices',
+                    'Session management: secure cookies, token rotation, session fixation prevention',
+                    'XSS prevention: input validation, output encoding, CSP, trusted types',
+                    'CSRF protection: tokens, SameSite cookies, double-submit pattern',
+                    'Security headers: CSP, HSTS, X-Frame-Options, X-Content-Type-Options',
+                    'Secure coding: input validation, parameterized queries, error handling',
+                    'Cryptography basics: hashing (bcrypt, Argon2), encryption, key management',
+                    'Threat modeling: STRIDE methodology, attack trees, data flow diagrams'
                 ],
                 actividades: [
-                    'Análisis de vulnerabilidades',
-                    'Hardening de aplicación',
-                    'Security headers implementation'
+                    'Análisis de código vulnerable y desarrollo de fixes para OWASP Top 10',
+                    'Implementación de autenticación segura con OAuth 2.0 y MFA',
+                    'Configuración completa de security headers con análisis en SecurityHeaders.com',
+                    'Desarrollo de input validation layer con sanitización',
+                    'Threat modeling de aplicación usando STRIDE y diagramas de flujo',
+                    'Proyecto parcial: Hardening de aplicación web existente'
                 ]
             },
             {
                 numero: 2,
                 titulo: 'Security Testing',
                 semanas: 'Semana 4-5',
-                descripcion: 'Testing de seguridad automatizado.',
+                descripcion: 'Testing de seguridad automatizado en pipelines CI/CD.',
                 contenidos: [
-                    'SAST: SonarQube, Snyk',
-                    'DAST: OWASP ZAP',
-                    'Dependency scanning',
-                    'Container scanning',
-                    'Secrets detection',
-                    'Penetration testing basics'
+                    'SAST: SonarQube rules, custom rules, quality profiles, taint analysis',
+                    'SCA: Snyk, Dependabot, license compliance, vulnerability prioritization',
+                    'DAST: OWASP ZAP automation, active scan, passive scan, API scanning',
+                    'Container scanning: Trivy, Grype, base image analysis, vulnerability layers',
+                    'IaC scanning: checkov, tfsec, terrascan, compliance as code',
+                    'Secrets detection: GitLeaks, TruffleHog, pre-commit hooks, remediation',
+                    'API security testing: OWASP API Top 10, Postman security tests, fuzzing',
+                    'Penetration testing basics: reconnaissance, vulnerability scanning, exploitation intro',
+                    'Security testing in CI/CD: pipeline integration, fail thresholds, reporting',
+                    'Bug bounty basics: responsible disclosure, triage, reward programs'
                 ],
                 actividades: [
-                    'Pipeline con SAST',
-                    'Scan de vulnerabilidades',
-                    'Remediation workflow'
+                    'Configuración de SonarQube con quality gates y reglas de seguridad',
+                    'Integración de Snyk en pipeline con políticas de bloqueo',
+                    'Automatización de OWASP ZAP scans con baseline y full scans',
+                    'Implementación de container scanning en CI/CD con Trivy',
+                    'Configuración de secrets detection en pre-commit y CI',
+                    'Security testing E2E: SAST, SCA, DAST integrados en pipeline'
                 ]
             },
             {
                 numero: 3,
                 titulo: 'Calidad y DevSecOps',
                 semanas: 'Semana 6-8',
-                descripcion: 'Métricas de calidad y DevSecOps.',
+                descripcion: 'Métricas de calidad, DevSecOps y gestión de vulnerabilidades.',
                 contenidos: [
-                    'Quality gates en CI/CD',
-                    'Code coverage y mutation testing',
-                    'Technical debt management',
-                    'Security Champions program',
-                    'Incident response',
-                    'Compliance automation'
+                    'Quality gates: definition, metrics thresholds, enforcement policies',
+                    'Code coverage: line, branch, mutation testing con Stryker/PIT',
+                    'Technical debt: identification, quantification, remediation prioritization',
+                    'Security Champions program: roles, training, embedding security culture',
+                    'Vulnerability management: CVSS scoring, prioritization matrix, SLAs',
+                    'Security dashboards: metrics visualization, trend analysis, executive reporting',
+                    'Incident response: playbooks, communication, post-mortem analysis',
+                    'Compliance automation: CIS benchmarks, SOC 2 controls, evidence collection',
+                    'Secure SDLC: requirements, design reviews, code reviews, testing, deployment',
+                    'DevSecOps culture: shifting left, automation, collaboration, continuous improvement'
                 ],
                 actividades: [
-                    'Quality gates completos',
-                    'Dashboard de métricas',
-                    'Proyecto: DevSecOps pipeline'
+                    'Configuración de quality gates completos con métricas de seguridad',
+                    'Implementación de mutation testing para validar test effectiveness',
+                    'Desarrollo de security dashboard con métricas y tendencias',
+                    'Diseño de vulnerability management workflow con SLAs',
+                    'Creación de incident response playbook para tipos de incidentes comunes',
+                    'Proyecto integrador: Pipeline DevSecOps completo con todas las herramientas'
                 ]
             }
         ],
@@ -4124,9 +4807,11 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'SonarQube', icon: 'sonarqube-plain', iconType: 'devicon' },
             { nombre: 'Snyk', icon: 'fa-shield-alt', iconType: 'fontawesome' },
             { nombre: 'OWASP ZAP', icon: 'fa-bug', iconType: 'fontawesome' },
+            { nombre: 'Trivy', icon: 'fa-search', iconType: 'fontawesome' },
             { nombre: 'GitHub Actions', icon: 'github-original', iconType: 'devicon' },
             { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' },
-            { nombre: 'Burp Suite', icon: 'fa-user-secret', iconType: 'fontawesome' }
+            { nombre: 'Burp Suite', icon: 'fa-user-secret', iconType: 'fontawesome' },
+            { nombre: 'Checkov', icon: 'fa-check-circle', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs Security', ponderacion: 0, descripcion: 'Prácticas de seguridad' },
@@ -4137,11 +4822,15 @@ export const asignaturas: Record<string, Asignatura> = {
         prerrequisitos: ['Ing. Software II', 'DevOps'],
         conexiones: ['Cloud Native II'],
         recursos: [
-            { tipo: 'Documentación', nombre: 'OWASP', url: 'https://owasp.org/' },
-            { tipo: 'Herramienta', nombre: 'SonarQube', url: 'https://www.sonarsource.com/products/sonarqube/' },
-            { tipo: 'Tutorial', nombre: 'Snyk Learn', url: 'https://learn.snyk.io/' },
-            { tipo: 'Video', nombre: 'Web Security Course - Computerphile', url: 'https://www.youtube.com/playlist?list=PLzH6n4zXuckrLBxd2MVWH_a6mlN0cYuOL' },
-            { tipo: 'Certificación', nombre: 'CompTIA Security+', url: 'https://www.comptia.org/certifications/security' }
+            { tipo: 'Documentación', nombre: 'OWASP Foundation', url: 'https://owasp.org/' },
+            { tipo: 'Curso', nombre: 'OWASP Top 10 Training', url: 'https://owasp.org/www-project-web-security-testing-guide/' },
+            { tipo: 'Herramienta', nombre: 'SonarQube Documentation', url: 'https://docs.sonarqube.org/' },
+            { tipo: 'Tutorial', nombre: 'Snyk Learn Security', url: 'https://learn.snyk.io/' },
+            { tipo: 'Video', nombre: 'Web Security - Computerphile', url: 'https://www.youtube.com/playlist?list=PLzH6n4zXuckrLBxd2MVWH_a6mlN0cYuOL' },
+            { tipo: 'Certificación', nombre: 'CompTIA Security+', url: 'https://www.comptia.org/certifications/security' },
+            { tipo: 'Práctica', nombre: 'OWASP WebGoat', url: 'https://owasp.org/www-project-webgoat/' },
+            { tipo: 'Libro', nombre: 'The Web Application Hackers Handbook', url: 'https://www.wiley.com/en-us/The+Web+Application+Hacker%27s+Handbook%3A+Finding+and+Exploiting+Security+Flaws%2C+2nd+Edition-p-9781118026472' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-15%20-%20Cloud%20Native%20II%2C%20Seguridad%20y%20Calidad/Seguridad%20y%20Calidad' }
         ],
         color: 'red',
         area: 'seguridad'
@@ -4172,68 +4861,92 @@ export const asignaturas: Record<string, Asignatura> = {
             'Liderar transformaciones técnicas'
         ],
         competencias: [
-            'Agile at scale',
-            'Project estimation',
-            'Team leadership',
-            'Stakeholder management',
-            'Technical communication'
+            'Aplicación de frameworks de Agile a escala: SAFe, LeSS, Nexus para organizaciones',
+            'Dominio de técnicas de estimación: story points, planning poker, function points, COCOMO',
+            'Liderazgo de equipos de desarrollo: 1:1s, feedback, coaching, performance management',
+            'Gestión de stakeholders: expectativas, comunicación, negociación, reporting',
+            'Métricas de proyecto y DevOps: velocity, lead time, cycle time, DORA metrics',
+            'Technical writing: ADRs, RFCs, design docs, documentation as code',
+            'Facilitación de ceremonias ágiles: sprint planning, retrospectives, PI planning',
+            'Gestión de riesgos y dependencias: identificación, mitigación, tracking'
         ],
         experiencias: [
             {
                 numero: 1,
                 titulo: 'Agile a Escala',
                 semanas: 'Semana 1-3',
-                descripcion: 'Metodologías ágiles para organizaciones.',
+                descripcion: 'Metodologías ágiles para organizaciones y múltiples equipos.',
                 contenidos: [
-                    'SAFe fundamentals',
-                    'LeSS y Nexus',
-                    'Program Increment planning',
-                    'Release trains',
-                    'Agile portfolio management',
-                    'Value stream mapping'
+                    'SAFe fundamentals: values, principles, competencies, configurations',
+                    'SAFe roles: Release Train Engineer, Product Manager, System Architect',
+                    'Program Increment planning: preparation, execution, objectives, risks',
+                    'Agile Release Trains: cadence, synchronization, inspect and adapt',
+                    'LeSS: principles, structure, Sprint, Product Backlog refinement',
+                    'Nexus: integration team, refinement, retrospective, daily scrum',
+                    'Agile portfolio management: portfolio kanban, value streams, strategic themes',
+                    'Value stream mapping: current state, future state, waste identification',
+                    'OKRs: objectives, key results, alignment, tracking, review cadence',
+                    'Agile transformation: change management, coaching, maturity models'
                 ],
                 actividades: [
-                    'PI Planning simulation',
-                    'Value stream analysis',
-                    'Portfolio prioritization'
+                    'Simulación de PI Planning con múltiples equipos',
+                    'Mapeo de value stream de proceso de desarrollo actual',
+                    'Definición de OKRs para departamento de desarrollo',
+                    'Diseño de estructura de Agile Release Train',
+                    'Análisis de caso: transformación ágil en organización',
+                    'Proyecto parcial: Propuesta de adopción SAFe'
                 ]
             },
             {
                 numero: 2,
                 titulo: 'Estimación y Métricas',
                 semanas: 'Semana 4-5',
-                descripcion: 'Estimación y tracking de proyectos.',
+                descripcion: 'Técnicas de estimación y métricas para tracking de proyectos.',
                 contenidos: [
-                    'Story points y velocity',
-                    'Function points',
-                    'COCOMO basics',
-                    'Burndown y burnup charts',
-                    'Lead time y cycle time',
-                    'DORA metrics'
+                    'Story points: relative sizing, planning poker, reference stories',
+                    'Velocity: calculation, stabilization, forecasting, anti-patterns',
+                    'Function points: IFPUG method, counting rules, adjustment factors',
+                    'COCOMO II: effort estimation, scale factors, cost drivers',
+                    'Burndown y burnup charts: construction, interpretation, forecasting',
+                    'Cumulative flow diagrams: WIP, bottlenecks, flow efficiency',
+                    'Lead time y cycle time: measurement, optimization, SLAs',
+                    'DORA metrics: deployment frequency, lead time, MTTR, change failure rate',
+                    'Engineering productivity: SPACE framework, developer experience metrics',
+                    'Project health dashboards: KPIs, traffic lights, trend analysis'
                 ],
                 actividades: [
-                    'Estimación de proyecto real',
-                    'Dashboard de métricas',
-                    'Forecasting'
+                    'Sesión de planning poker con calibración de referencias',
+                    'Cálculo de function points para sistema de ejemplo',
+                    'Construcción de dashboard de métricas con Jira/Azure DevOps',
+                    'Análisis de flow metrics y propuesta de mejoras',
+                    'Implementación de tracking de DORA metrics',
+                    'Forecasting de entrega usando Monte Carlo simulation'
                 ]
             },
             {
                 numero: 3,
                 titulo: 'Liderazgo y Comunicación',
                 semanas: 'Semana 6-8',
-                descripcion: 'Soft skills para líderes técnicos.',
+                descripcion: 'Soft skills y comunicación técnica para líderes.',
                 contenidos: [
-                    '1:1s y feedback',
-                    'Technical interviews',
-                    'Architecture Decision Records',
-                    'RFCs y design docs',
-                    'Presentations y demos',
-                    'Conflict resolution'
+                    '1:1 meetings: structure, topics, feedback, career conversations',
+                    'Performance management: goal setting, reviews, PIPs, recognition',
+                    'Technical interviews: system design, coding, behavioral, evaluation',
+                    'Architecture Decision Records: template, status, consequences',
+                    'RFCs y design docs: problem statement, proposal, alternatives, decision',
+                    'Technical presentations: storytelling, visuals, demos, Q&A handling',
+                    'Conflict resolution: sources, styles, mediation, escalation',
+                    'Stakeholder management: mapping, communication plans, expectation management',
+                    'Cross-functional collaboration: product, design, QA, operations',
+                    'Remote leadership: async communication, timezone management, culture'
                 ],
                 actividades: [
-                    'Mock technical interview',
-                    'Design doc writing',
-                    'Proyecto: Plan de proyecto completo'
+                    'Role-play de 1:1 meeting con feedback y coaching',
+                    'Mock system design interview como entrevistador y candidato',
+                    'Escritura de ADR para decisión arquitectónica real',
+                    'Presentación técnica de 10 minutos con feedback',
+                    'Diseño de stakeholder communication plan',
+                    'Proyecto integrador: Plan de proyecto completo con roadmap'
                 ]
             }
         ],
@@ -4243,7 +4956,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Notion', icon: 'notion-plain', iconType: 'devicon' },
             { nombre: 'Miro', icon: 'fa-chalkboard', iconType: 'fontawesome' },
             { nombre: 'Slack', icon: 'slack-plain', iconType: 'devicon' },
-            { nombre: 'Azure DevOps', icon: 'azure-plain', iconType: 'devicon' }
+            { nombre: 'Azure DevOps', icon: 'azure-plain', iconType: 'devicon' },
+            { nombre: 'Trello', icon: 'trello-plain', iconType: 'devicon' },
+            { nombre: 'Linear', icon: 'fa-clipboard-list', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Workshops', ponderacion: 0, descripcion: 'Dinámicas grupales' },
@@ -4254,11 +4969,15 @@ export const asignaturas: Record<string, Asignatura> = {
         prerrequisitos: ['Ing. Software II'],
         conexiones: ['Taller Aplicado Software'],
         recursos: [
-            { tipo: 'Framework', nombre: 'SAFe', url: 'https://www.scaledagileframework.com/' },
-            { tipo: 'Métricas', nombre: 'DORA Metrics', url: 'https://dora.dev/' },
-            { tipo: 'Curso', nombre: 'Atlassian Agile', url: 'https://www.atlassian.com/agile' },
-            { tipo: 'Video', nombre: 'Agile Project Management - Google', url: 'https://www.coursera.org/learn/agile-project-management' },
-            { tipo: 'Certificación', nombre: 'PMI-ACP', url: 'https://www.pmi.org/certifications/agile-acp' }
+            { tipo: 'Framework', nombre: 'SAFe Official Site', url: 'https://www.scaledagileframework.com/' },
+            { tipo: 'Métricas', nombre: 'DORA Research', url: 'https://dora.dev/' },
+            { tipo: 'Curso', nombre: 'Atlassian Agile Coach', url: 'https://www.atlassian.com/agile' },
+            { tipo: 'Certificación', nombre: 'PMI-ACP Certification', url: 'https://www.pmi.org/certifications/agile-acp' },
+            { tipo: 'Certificación', nombre: 'SAFe Agilist', url: 'https://scaledagile.com/training/leading-safe/' },
+            { tipo: 'Video', nombre: 'Google Project Management - Coursera', url: 'https://www.coursera.org/professional-certificates/google-project-management' },
+            { tipo: 'Libro', nombre: 'Accelerate (Forsgren, Humble, Kim)', url: 'https://itrevolution.com/book/accelerate/' },
+            { tipo: 'Tutorial', nombre: 'Engineering Metrics SPACE Framework', url: 'https://queue.acm.org/detail.cfm?id=3454124' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-16%20-%20Evaluacion%20y%20Gestion%20Proyectos%20SW/Evaluacion%20y%20Gestion%20Proyectos' }
         ],
         color: 'purple',
         area: 'gestion'
@@ -4289,78 +5008,104 @@ export const asignaturas: Record<string, Asignatura> = {
             'Practicar responsabilidad profesional'
         ],
         competencias: [
-            'Ética tecnológica',
-            'Privacidad y compliance',
-            'Responsabilidad social',
-            'AI ethics',
-            'Professional responsibility'
+            'Aplicación de marcos éticos profesionales: ACM Code of Ethics, IEEE Code of Ethics, Software Engineering Code of Ethics',
+            'Dominio de regulaciones de privacidad: GDPR, CCPA, LGPD, Privacy by Design, Data Protection Impact Assessments',
+            'Gestión de propiedad intelectual: copyright, patents, trade secrets, open source licensing, fair use',
+            'Ética en inteligencia artificial: bias detection, fairness metrics, explainability, human oversight, AI governance',
+            'Responsabilidad social corporativa: digital divide, accessibility, environmental impact, sustainable computing',
+            'Compliance y auditoría: SOC 2, ISO 27001, HIPAA, PCI-DSS, regulatory frameworks',
+            'Gestión de dilemas éticos: whistleblowing, conflicts of interest, professional boundaries, ethical decision frameworks',
+            'Diversidad e inclusión en tecnología: inclusive design, bias-free hiring, equitable systems, cultural sensitivity'
         ],
         experiencias: [
             {
                 numero: 1,
                 titulo: 'Fundamentos Éticos',
                 semanas: 'Semana 1-3',
-                descripcion: 'Principios éticos en tecnología.',
+                descripcion: 'Principios éticos fundamentales para profesionales de tecnología.',
                 contenidos: [
-                    'Códigos de ética: ACM, IEEE',
-                    'Responsabilidad profesional',
-                    'Conflictos de interés',
-                    'Propiedad intelectual',
-                    'Open source ethics',
-                    'Whistleblowing'
+                    'ACM Code of Ethics: 7 principios generales, 9 responsabilidades profesionales, compliance',
+                    'IEEE Code of Ethics: 10 principios, safety commitment, honesty, avoiding conflicts',
+                    'Software Engineering Code of Ethics: public interest, client, product, judgment, management, profession',
+                    'Responsabilidad profesional: due diligence, duty of care, professional boundaries, competence',
+                    'Conflictos de interés: identificación, disclosure, recusal, organizational policies, independence',
+                    'Propiedad intelectual: copyright law, patent basics, trade secrets, NDAs, work-for-hire',
+                    'Open source licensing: GPL, MIT, Apache, BSD, Creative Commons, license compatibility',
+                    'Whistleblowing: legal protections, internal vs external, anonymous reporting, retaliation prevention',
+                    'Professional liability: malpractice, negligence, errors and omissions, insurance',
+                    'Ethical decision frameworks: utilitarian, deontological, virtue ethics, stakeholder analysis'
                 ],
                 actividades: [
-                    'Análisis de casos éticos',
-                    'Debate sobre dilemas',
-                    'Código de ética personal'
+                    'Análisis de casos éticos reales en la industria tecnológica',
+                    'Debate estructurado sobre dilemas éticos con posiciones asignadas',
+                    'Redacción de código de ética personal con principios fundamentales',
+                    'Evaluación de compatibilidad de licencias open source para proyecto',
+                    'Role-play de situación de whistleblowing con decisión fundamentada',
+                    'Aplicación de framework de decisión ética a caso de estudio'
                 ]
             },
             {
                 numero: 2,
                 titulo: 'Privacidad y Regulaciones',
                 semanas: 'Semana 4-5',
-                descripcion: 'Marco legal y privacidad.',
+                descripcion: 'Marco regulatorio global de privacidad y protección de datos.',
                 contenidos: [
-                    'GDPR principles',
-                    'Privacy by design',
-                    'Data protection impact assessment',
-                    'User consent management',
-                    'Data breach response',
-                    'Legislación local'
+                    'GDPR: 7 principios, bases legales, derechos del titular, DPO, multas, transferencias internacionales',
+                    'Privacy by Design: 7 principios de Cavoukian, privacy engineering, privacy patterns, PETs',
+                    'Data Protection Impact Assessment: cuándo es obligatorio, metodología, risk assessment, mitigations',
+                    'Consent management: opt-in vs opt-out, granular consent, consent withdrawal, CMPs, dark patterns',
+                    'Data breach response: detection, notification timelines, incident response plan, communication',
+                    'CCPA/CPRA: California rights, categories of personal info, opt-out of sale, private right of action',
+                    'Sector-specific: HIPAA (health), FERPA (education), COPPA (children), PCI-DSS (payments)',
+                    'Data minimization: collection limitation, purpose limitation, storage limitation, data retention policies',
+                    'International data transfers: adequacy decisions, SCCs, BCRs, Privacy Shield, data localization',
+                    'Privacy compliance programs: audits, documentation, training, vendor management, continuous monitoring'
                 ],
                 actividades: [
-                    'DPIA de sistema',
-                    'Privacy policy analysis',
-                    'Compliance checklist'
+                    'Realización de DPIA completo para sistema con datos sensibles',
+                    'Análisis y mejora de privacy policy de empresa real',
+                    'Diseño de consent management flow según regulaciones',
+                    'Simulación de data breach con respuesta en 72 horas',
+                    'Creación de programa de compliance con checklist verificable',
+                    'Evaluación de transferencia internacional de datos con solución legal'
                 ]
             },
             {
                 numero: 3,
                 titulo: 'Impacto Social y AI Ethics',
                 semanas: 'Semana 6-8',
-                descripcion: 'Responsabilidad social y ética en IA.',
+                descripcion: 'Responsabilidad social corporativa y ética en inteligencia artificial.',
                 contenidos: [
-                    'Bias en algoritmos',
-                    'Fairness en ML',
-                    'Explicabilidad de IA',
-                    'Impacto ambiental de tech',
-                    'Digital divide',
-                    'Accessibility y inclusion'
+                    'Algorithmic bias: types (historical, representation, measurement), sources, detection, mitigation strategies',
+                    'Fairness in ML: definitions (demographic parity, equalized odds, calibration), fairness-accuracy tradeoffs',
+                    'Explainable AI: interpretability vs explainability, LIME, SHAP, attention visualization, model cards',
+                    'AI governance: EU AI Act risk categories, algorithmic accountability, human oversight requirements',
+                    'Environmental impact: carbon footprint of training, Green AI, sustainable computing, energy-efficient algorithms',
+                    'Digital divide: access inequality, digital literacy, infrastructure gaps, inclusive technology design',
+                    'Accessibility: WCAG 2.1 guidelines, assistive technologies, inclusive UX, disability considerations',
+                    'Diversity in tech: representation, bias-free hiring, inclusive workplace, pay equity, mentorship',
+                    'AI safety: alignment problem, control problem, robustness, adversarial attacks, value alignment',
+                    'Tech for social good: humanitarian tech, crisis response, civic tech, responsible innovation'
                 ],
                 actividades: [
-                    'Audit de bias en modelo',
-                    'Sustainability assessment',
-                    'Proyecto: Ethical review'
+                    'Auditoría de bias en modelo ML con Fairlearn y AIF360',
+                    'Evaluación de sustainability y carbon footprint de sistema cloud',
+                    'Diseño de sistema inclusivo siguiendo WCAG 2.1 AA',
+                    'Análisis de impacto social de tecnología emergente',
+                    'Implementación de explicabilidad en modelo con SHAP',
+                    'Proyecto integrador: Ethical review completo de sistema AI'
                 ]
             }
         ],
         tecnologias: [
             { nombre: 'Fairlearn', icon: 'fa-balance-scale', iconType: 'fontawesome' },
-            { nombre: 'AI Explainability', icon: 'fa-brain', iconType: 'fontawesome' },
-            { nombre: 'GDPR Tools', icon: 'fa-shield-alt', iconType: 'fontawesome' },
-            { nombre: 'Accessibility', icon: 'fa-universal-access', iconType: 'fontawesome' },
+            { nombre: 'AIF360', icon: 'fa-balance-scale-left', iconType: 'fontawesome' },
+            { nombre: 'SHAP', icon: 'fa-chart-bar', iconType: 'fontawesome' },
+            { nombre: 'OneTrust', icon: 'fa-shield-alt', iconType: 'fontawesome' },
             { nombre: 'Python', icon: 'python-plain', iconType: 'devicon' },
-            { nombre: 'VS Code', icon: 'vscode-plain', iconType: 'devicon' }
+            { nombre: 'Jupyter', icon: 'jupyter-plain', iconType: 'devicon' },
+            { nombre: 'WAVE', icon: 'fa-universal-access', iconType: 'fontawesome' },
+            { nombre: 'Lighthouse', icon: 'fa-lightbulb', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Debates', ponderacion: 0, descripcion: 'Discusiones éticas' },
@@ -4372,10 +5117,14 @@ export const asignaturas: Record<string, Asignatura> = {
         conexiones: ['Taller Aplicado Software'],
         recursos: [
             { tipo: 'Código', nombre: 'ACM Code of Ethics', url: 'https://www.acm.org/code-of-ethics' },
-            { tipo: 'Documentación', nombre: 'GDPR Info', url: 'https://gdpr.eu/' },
-            { tipo: 'Framework', nombre: 'AI Ethics Guidelines', url: 'https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai' },
-            { tipo: 'Video', nombre: 'Ethics in Technology - TED', url: 'https://www.ted.com/topics/technology' },
-            { tipo: 'Tutorial', nombre: 'Responsible AI - Microsoft', url: 'https://www.microsoft.com/en-us/ai/responsible-ai' }
+            { tipo: 'Código', nombre: 'IEEE Code of Ethics', url: 'https://www.ieee.org/about/corporate/governance/p7-8.html' },
+            { tipo: 'Documentación', nombre: 'GDPR Official Portal', url: 'https://gdpr.eu/' },
+            { tipo: 'Framework', nombre: 'EU Trustworthy AI Guidelines', url: 'https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai' },
+            { tipo: 'Tutorial', nombre: 'Microsoft Responsible AI', url: 'https://www.microsoft.com/en-us/ai/responsible-ai' },
+            { tipo: 'Herramienta', nombre: 'Fairlearn Documentation', url: 'https://fairlearn.org/' },
+            { tipo: 'Herramienta', nombre: 'IBM AI Fairness 360', url: 'https://aif360.mybluemix.net/' },
+            { tipo: 'Video', nombre: 'Ethics in Tech - TED Talks', url: 'https://www.ted.com/topics/technology' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-17%20-%20Etica%20Profesional%2C%20Taller%20Aplicado%20SW/Etica%20Profesional%20en%20TI' }
         ],
         color: 'slate',
         area: 'general'
@@ -4402,78 +5151,104 @@ export const asignaturas: Record<string, Asignatura> = {
             'Demostrar profesionalismo y ética'
         ],
         competencias: [
-            'Desarrollo end-to-end',
-            'Client management',
-            'Technical documentation',
-            'Project presentation',
-            'Professional ethics'
+            'Desarrollo end-to-end de producto software: desde requirements hasta deployment y handoff a cliente',
+            'Gestión de cliente y stakeholders: expectativas, comunicación, demos, feedback, negociación de alcance',
+            'Documentación técnica profesional: ADRs, design docs, API documentation, user guides, runbooks',
+            'Presentación y defensa de proyecto: storytelling técnico, demo efectiva, Q&A, elevator pitch',
+            'Liderazgo técnico de equipo: code reviews, pair programming, mentoring, technical decisions',
+            'Metodologías ágiles aplicadas: Scrum ceremonies, sprint planning, backlog refinement, velocity tracking',
+            'DevOps y entrega continua: CI/CD pipelines, automated testing, deployment strategies, monitoring',
+            'Ética profesional aplicada: calidad, honestidad en estimaciones, manejo de deuda técnica, responsabilidad'
         ],
         experiencias: [
             {
                 numero: 1,
                 titulo: 'Inception y Arquitectura',
                 semanas: 'Semana 1-3',
-                descripcion: 'Definición del proyecto y diseño.',
+                descripcion: 'Discovery, definición del proyecto y diseño arquitectónico.',
                 contenidos: [
-                    'Client discovery y requirements',
-                    'User story mapping',
-                    'Architecture design',
-                    'Tech stack selection',
-                    'MVP definition',
-                    'Project roadmap'
+                    'Client discovery: stakeholder interviews, pain points, business goals, success metrics, constraints',
+                    'Requirements engineering: functional vs non-functional, user stories, acceptance criteria, DoD',
+                    'User story mapping: backbone, walking skeleton, release planning, MVP identification',
+                    'Architecture design: C4 model (context, container, component, code), ADRs, quality attributes',
+                    'Tech stack selection: evaluation criteria, POCs, risk assessment, team capabilities, constraints',
+                    'MVP definition: minimum viable product, hypothesis testing, lean startup principles, scope negotiation',
+                    'Project roadmap: milestones, dependencies, risk register, communication plan, escalation paths',
+                    'Team formation: roles (PO, SM, Dev), working agreements, collaboration tools, communication channels',
+                    'Infrastructure setup: repository, CI/CD pipeline, environments, monitoring, documentation platform',
+                    'Sprint 0: technical spikes, environment setup, team onboarding, initial backlog refinement'
                 ],
                 actividades: [
-                    'Kickoff con cliente',
-                    'Documentación de arquitectura',
-                    'Sprint 0 planning'
+                    'Kickoff meeting con cliente real con levantamiento de requisitos',
+                    'User story mapping workshop con cliente y equipo',
+                    'Diseño de arquitectura con C4 model y ADRs documentados',
+                    'Evaluación y selección de tech stack con matriz de decisión',
+                    'Presentación de MVP y roadmap al cliente para aprobación',
+                    'Sprint 0 planning con backlog inicial priorizado'
                 ]
             },
             {
                 numero: 2,
                 titulo: 'Desarrollo Iterativo',
                 semanas: 'Semana 4-5',
-                descripcion: 'Implementación con sprints.',
+                descripcion: 'Implementación ágil con sprints y feedback continuo del cliente.',
                 contenidos: [
-                    'Sprint execution',
-                    'Daily standups',
-                    'Code reviews',
-                    'CI/CD implementation',
-                    'Client demos',
-                    'Feedback incorporation'
+                    'Sprint execution: sprint goal, daily progress, impediment removal, scope protection, commitment',
+                    'Daily standups: timeboxing, three questions, walking the board, async alternatives, effectiveness',
+                    'Code reviews: PR templates, review checklist, constructive feedback, approval workflows, pair review',
+                    'CI/CD implementation: build automation, test automation, deployment pipelines, environment promotion',
+                    'Client demos: demo preparation, storytelling, feature showcasing, feedback collection, next steps',
+                    'Feedback incorporation: backlog updates, reprioritization, scope changes, technical debt management',
+                    'Sprint retrospectives: formats (sailboat, starfish, 4Ls), action items, improvement tracking',
+                    'Backlog refinement: story splitting, estimation, acceptance criteria, ready criteria, prioritization',
+                    'Quality assurance: testing strategy, test coverage, bug triage, regression testing, UAT preparation',
+                    'Technical debt management: identification, quantification, prioritization, payoff strategies'
                 ],
                 actividades: [
-                    'Sprints de desarrollo',
-                    'Demos quincenales',
-                    'Retrospectivas'
+                    'Ejecución de 2-3 sprints completos con todas las ceremonias',
+                    'Sprint demos quincenales con cliente y feedback documentado',
+                    'Retrospectivas con action items tracked y mejora continua',
+                    'Code reviews con checklist y métricas de calidad',
+                    'Implementación de CI/CD con deployment automatizado',
+                    'Gestión de backlog con refinement sessions documentadas'
                 ]
             },
             {
                 numero: 3,
                 titulo: 'Entrega y Defensa',
                 semanas: 'Semana 6-8',
-                descripcion: 'Finalización y presentación.',
+                descripcion: 'Finalización, deployment a producción, handoff y defensa del proyecto.',
                 contenidos: [
-                    'Feature completion',
-                    'Testing y QA final',
-                    'Documentation completion',
-                    'Deployment a producción',
-                    'Client handoff',
-                    'Project defense'
+                    'Feature completion: feature freeze, bug fixing, polish, performance optimization, final testing',
+                    'Quality assurance final: regression testing, UAT, load testing, security scanning, accessibility check',
+                    'Documentation completion: user documentation, admin guide, API docs, runbook, troubleshooting guide',
+                    'Deployment to production: deployment checklist, rollback plan, smoke testing, monitoring setup',
+                    'Client handoff: training sessions, knowledge transfer, support transition, maintenance documentation',
+                    'Project defense preparation: presentation structure, demo script, technical deep-dives, anticipated questions',
+                    'Defense execution: project overview, architecture walkthrough, live demo, lessons learned, Q&A',
+                    'Post-mortem: what went well, what could improve, metrics review, recommendations, team feedback',
+                    'Project closure: final sign-off, asset transfer, repository handoff, support agreement, retrospective',
+                    'Career reflection: skills developed, portfolio update, LinkedIn update, lessons for future projects'
                 ],
                 actividades: [
-                    'Release final',
-                    'Entrega a cliente',
-                    'Defensa de proyecto'
+                    'Release final con checklist de calidad completado',
+                    'UAT con cliente y sign-off de aceptación',
+                    'Deployment a producción con monitoring configurado',
+                    'Sesión de training y handoff a cliente',
+                    'Defensa formal del proyecto ante comité evaluador',
+                    'Post-mortem y documentación de lecciones aprendidas'
                 ]
             }
         ],
         tecnologias: [
-            { nombre: 'Stack completo', icon: 'fa-layer-group', iconType: 'fontawesome' },
-            { nombre: 'CI/CD', icon: 'fa-sync', iconType: 'fontawesome' },
-            { nombre: 'Cloud', icon: 'fa-cloud', iconType: 'fontawesome' },
-            { nombre: 'Agile', icon: 'fa-tasks', iconType: 'fontawesome' },
             { nombre: 'GitHub', icon: 'github-original', iconType: 'devicon' },
-            { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' }
+            { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' },
+            { nombre: 'GitHub Actions', icon: 'githubactions-plain', iconType: 'devicon' },
+            { nombre: 'Vercel', icon: 'vercel-plain', iconType: 'devicon' },
+            { nombre: 'Jira', icon: 'jira-plain', iconType: 'devicon' },
+            { nombre: 'Notion', icon: 'notion-plain', iconType: 'devicon' },
+            { nombre: 'Figma', icon: 'figma-plain', iconType: 'devicon' },
+            { nombre: 'Slack', icon: 'slack-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Sprint reviews', ponderacion: 0, descripcion: 'Demos de sprint' },
@@ -4485,10 +5260,14 @@ export const asignaturas: Record<string, Asignatura> = {
         conexiones: [],
         recursos: [
             { tipo: 'Template', nombre: 'Architecture Decision Records', url: 'https://adr.github.io/' },
-            { tipo: 'Framework', nombre: 'Scrum Guide', url: 'https://scrumguides.org/' },
+            { tipo: 'Framework', nombre: 'Scrum Guide Official', url: 'https://scrumguides.org/' },
+            { tipo: 'Tutorial', nombre: 'User Story Mapping - Jeff Patton', url: 'https://www.jpattonassociates.com/user-story-mapping/' },
             { tipo: 'Tool', nombre: 'Notion for Teams', url: 'https://www.notion.so/product/teams' },
-            { tipo: 'Video', nombre: 'How to Present a Technical Project', url: 'https://www.youtube.com/watch?v=Unzc731iCUY' },
-            { tipo: 'Tutorial', nombre: 'Git Best Practices for Teams', url: 'https://www.atlassian.com/git/tutorials/comparing-workflows' }
+            { tipo: 'Tool', nombre: 'Miro for Collaboration', url: 'https://miro.com/' },
+            { tipo: 'Video', nombre: 'How to Present Technical Projects', url: 'https://www.youtube.com/watch?v=Unzc731iCUY' },
+            { tipo: 'Tutorial', nombre: 'Git Workflows - Atlassian', url: 'https://www.atlassian.com/git/tutorials/comparing-workflows' },
+            { tipo: 'Libro', nombre: 'The Pragmatic Programmer', url: 'https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-17%20-%20Etica%20Profesional%2C%20Taller%20Aplicado%20SW/Taller%20Aplicado%20de%20Software' }
         ],
         color: 'emerald',
         area: 'proyecto'
