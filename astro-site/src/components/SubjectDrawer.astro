@@ -1,0 +1,1099 @@
+---
+/**
+ * SubjectDrawer.astro
+ * Panel lateral sofisticado para mostrar información detallada de asignaturas
+ * Se activa al hacer clic en una asignatura desde la página Malla
+ */
+import { asignaturas, nombreCortoToId, type Asignatura } from '../data/asignaturas';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<!-- Overlay para cerrar el drawer al hacer clic fuera -->
+<div id="subject-drawer-overlay" class="drawer-overlay"></div>
+
+<!-- Drawer Panel -->
+<aside id="subject-drawer" class="subject-drawer" aria-hidden="true" role="dialog" aria-labelledby="drawer-title">
+    <!-- Header del Drawer -->
+    <header class="drawer-header">
+        <div class="drawer-header-content">
+            <span class="drawer-badge" id="drawer-bimestre">B01</span>
+            <span class="drawer-code" id="drawer-codigo">PRY1101</span>
+        </div>
+        <button class="drawer-close" aria-label="Cerrar panel" id="drawer-close-btn">
+            <i class="fas fa-times"></i>
+        </button>
+    </header>
+
+    <!-- Contenido scrolleable -->
+    <div class="drawer-body">
+        <!-- Título y Créditos -->
+        <div class="drawer-title-section">
+            <h2 class="drawer-title" id="drawer-title">Nombre de la Asignatura</h2>
+            <div class="drawer-credits">
+                <span class="credit-item" id="drawer-creditos">
+                    <i class="fas fa-graduation-cap"></i> 4 créditos
+                </span>
+                <span class="credit-item" id="drawer-horas">
+                    <i class="fas fa-clock"></i> 6 hrs/sem
+                </span>
+            </div>
+        </div>
+
+        <!-- Descripción y Propósito -->
+        <section class="drawer-section">
+            <h3 class="section-title">
+                <i class="fas fa-info-circle"></i> Descripción
+            </h3>
+            <p class="section-content" id="drawer-descripcion">
+                Descripción de la asignatura...
+            </p>
+            <div class="proposito-box" id="drawer-proposito-box">
+                <strong><i class="fas fa-bullseye"></i> Propósito:</strong>
+                <span id="drawer-proposito">Propósito de la asignatura...</span>
+            </div>
+        </section>
+
+        <!-- Objetivos de Aprendizaje -->
+        <section class="drawer-section">
+            <h3 class="section-title">
+                <i class="fas fa-target"></i> Objetivos de Aprendizaje
+            </h3>
+            <ul class="objectives-list" id="drawer-objetivos">
+                <li>Objetivo 1</li>
+                <li>Objetivo 2</li>
+            </ul>
+        </section>
+
+        <!-- Competencias -->
+        <section class="drawer-section">
+            <h3 class="section-title">
+                <i class="fas fa-award"></i> Competencias
+            </h3>
+            <div class="competencias-tags" id="drawer-competencias">
+                <span class="competencia-tag">Competencia 1</span>
+            </div>
+        </section>
+
+        <!-- Experiencias de Aprendizaje -->
+        <section class="drawer-section experiencias-section">
+            <h3 class="section-title">
+                <i class="fas fa-route"></i> Experiencias de Aprendizaje
+            </h3>
+            <div class="experiencias-accordion" id="drawer-experiencias">
+                <!-- Se llenan dinámicamente -->
+            </div>
+        </section>
+
+        <!-- Tecnologías -->
+        <section class="drawer-section">
+            <h3 class="section-title">
+                <i class="fas fa-code"></i> Tecnologías
+            </h3>
+            <div class="tech-grid" id="drawer-tecnologias">
+                <!-- Se llenan dinámicamente -->
+            </div>
+        </section>
+
+        <!-- Evaluaciones -->
+        <section class="drawer-section">
+            <h3 class="section-title">
+                <i class="fas fa-clipboard-check"></i> Sistema de Evaluación
+            </h3>
+            <div class="evaluaciones-list" id="drawer-evaluaciones">
+                <!-- Se llenan dinámicamente -->
+            </div>
+        </section>
+
+        <!-- Prerrequisitos y Conexiones -->
+        <section class="drawer-section">
+            <h3 class="section-title">
+                <i class="fas fa-project-diagram"></i> Prerrequisitos y Conexiones
+            </h3>
+            <div class="connections-grid" id="drawer-conexiones">
+                <div class="connection-box prereq-box">
+                    <h4><i class="fas fa-arrow-left"></i> Prerrequisitos</h4>
+                    <div id="drawer-prerrequisitos" class="connection-items">
+                        <span class="no-prereq">Sin prerrequisitos</span>
+                    </div>
+                </div>
+                <div class="connection-box next-box">
+                    <h4><i class="fas fa-arrow-right"></i> Habilita para</h4>
+                    <div id="drawer-habilita" class="connection-items">
+                        <span class="connection-item">POO II</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recursos -->
+        <section class="drawer-section">
+            <h3 class="section-title">
+                <i class="fas fa-book-open"></i> Recursos de Aprendizaje
+            </h3>
+            <div class="recursos-grid" id="drawer-recursos">
+                <!-- Se llenan dinámicamente -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer del Drawer -->
+    <footer class="drawer-footer">
+        <a href="#" class="drawer-cta" id="drawer-github-link" target="_blank">
+            <i class="fab fa-github"></i> Ver materiales en GitHub
+        </a>
+    </footer>
+</aside>
+
+<style>
+    /* ============================================
+       DRAWER OVERLAY
+    ============================================ */
+    .drawer-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+        z-index: 9998;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .drawer-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* ============================================
+       DRAWER PANEL
+    ============================================ */
+    .subject-drawer {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 520px;
+        max-width: 95vw;
+        height: 100vh;
+        background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+        border-left: 1px solid rgba(6, 182, 212, 0.3);
+        z-index: 9999;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        display: flex;
+        flex-direction: column;
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .subject-drawer.open {
+        transform: translateX(0);
+    }
+
+    /* ============================================
+       DRAWER HEADER
+    ============================================ */
+    .drawer-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(139, 92, 246, 0.15));
+        border-bottom: 1px solid rgba(6, 182, 212, 0.2);
+        flex-shrink: 0;
+    }
+
+    .drawer-header-content {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .drawer-badge {
+        background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+        color: white;
+        padding: 0.35rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        font-family: 'Space Grotesk', monospace;
+    }
+
+    .drawer-code {
+        color: #94a3b8;
+        font-family: 'Space Grotesk', monospace;
+        font-size: 0.9rem;
+        padding: 0.25rem 0.5rem;
+        background: rgba(148, 163, 184, 0.1);
+        border-radius: 4px;
+    }
+
+    .drawer-close {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        background: rgba(239, 68, 68, 0.1);
+        color: #ef4444;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+    }
+
+    .drawer-close:hover {
+        background: rgba(239, 68, 68, 0.2);
+        border-color: #ef4444;
+        transform: rotate(90deg);
+    }
+
+    /* ============================================
+       DRAWER BODY (Scrollable)
+    ============================================ */
+    .drawer-body {
+        flex: 1;
+        overflow-y: auto;
+        padding: 1.5rem;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(6, 182, 212, 0.3) transparent;
+    }
+
+    .drawer-body::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .drawer-body::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .drawer-body::-webkit-scrollbar-thumb {
+        background: rgba(6, 182, 212, 0.3);
+        border-radius: 3px;
+    }
+
+    /* ============================================
+       TITLE SECTION
+    ============================================ */
+    .drawer-title-section {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .drawer-title {
+        font-family: 'Sora', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #f8fafc;
+        margin: 0 0 0.75rem 0;
+        line-height: 1.3;
+    }
+
+    .drawer-credits {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .credit-item {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        color: #94a3b8;
+        font-size: 0.9rem;
+    }
+
+    .credit-item i {
+        color: #06b6d4;
+    }
+
+    /* ============================================
+       SECTIONS
+    ============================================ */
+    .drawer-section {
+        margin-bottom: 1.75rem;
+    }
+
+    .section-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #e2e8f0;
+        margin: 0 0 0.75rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .section-title i {
+        color: #06b6d4;
+        font-size: 0.9rem;
+    }
+
+    .section-content {
+        color: #cbd5e1;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin: 0;
+    }
+
+    /* Propósito Box */
+    .proposito-box {
+        margin-top: 1rem;
+        padding: 0.875rem 1rem;
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(139, 92, 246, 0.1));
+        border-radius: 8px;
+        border-left: 3px solid #06b6d4;
+    }
+
+    .proposito-box strong {
+        color: #06b6d4;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        margin-bottom: 0.4rem;
+        font-size: 0.85rem;
+    }
+
+    .proposito-box span {
+        color: #e2e8f0;
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    /* Objectives List */
+    .objectives-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .objectives-list li {
+        position: relative;
+        padding-left: 1.5rem;
+        margin-bottom: 0.6rem;
+        color: #cbd5e1;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .objectives-list li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.5rem;
+        width: 8px;
+        height: 8px;
+        background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+        border-radius: 50%;
+    }
+
+    /* Competencias Tags */
+    .competencias-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .competencia-tag {
+        background: rgba(6, 182, 212, 0.1);
+        border: 1px solid rgba(6, 182, 212, 0.3);
+        color: #67e8f9;
+        padding: 0.4rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+
+    /* ============================================
+       EXPERIENCIAS ACCORDION
+    ============================================ */
+    .experiencias-accordion {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .exp-card {
+        background: rgba(30, 41, 59, 0.5);
+        border: 1px solid rgba(148, 163, 184, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .exp-card:hover {
+        border-color: rgba(6, 182, 212, 0.3);
+    }
+
+    .exp-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.875rem 1rem;
+        cursor: pointer;
+        transition: background 0.2s ease;
+    }
+
+    .exp-header:hover {
+        background: rgba(6, 182, 212, 0.05);
+    }
+
+    .exp-header-left {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .exp-number {
+        width: 28px;
+        height: 28px;
+        background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: white;
+    }
+
+    .exp-info h4 {
+        margin: 0;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #f1f5f9;
+    }
+
+    .exp-info span {
+        font-size: 0.75rem;
+        color: #94a3b8;
+    }
+
+    .exp-toggle {
+        color: #64748b;
+        transition: transform 0.3s ease;
+    }
+
+    .exp-card.expanded .exp-toggle {
+        transform: rotate(180deg);
+        color: #06b6d4;
+    }
+
+    .exp-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+    }
+
+    .exp-card.expanded .exp-content {
+        max-height: 500px;
+    }
+
+    .exp-content-inner {
+        padding: 0 1rem 1rem;
+    }
+
+    .exp-description {
+        color: #94a3b8;
+        font-size: 0.85rem;
+        margin-bottom: 0.75rem;
+        font-style: italic;
+    }
+
+    .exp-subsection {
+        margin-bottom: 0.75rem;
+    }
+
+    .exp-subsection h5 {
+        color: #e2e8f0;
+        font-size: 0.8rem;
+        margin: 0 0 0.4rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+    .exp-subsection h5 i {
+        color: #06b6d4;
+        font-size: 0.7rem;
+    }
+
+    .exp-subsection ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .exp-subsection li {
+        position: relative;
+        padding-left: 1rem;
+        font-size: 0.8rem;
+        color: #cbd5e1;
+        margin-bottom: 0.3rem;
+    }
+
+    .exp-subsection li::before {
+        content: '›';
+        position: absolute;
+        left: 0;
+        color: #06b6d4;
+        font-weight: bold;
+    }
+
+    /* ============================================
+       TECNOLOGÍAS GRID
+    ============================================ */
+    .tech-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+    }
+
+    .tech-chip {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 0.875rem;
+        background: rgba(30, 41, 59, 0.7);
+        border: 1px solid rgba(148, 163, 184, 0.15);
+        border-radius: 8px;
+        transition: all 0.2s ease;
+    }
+
+    .tech-chip:hover {
+        border-color: rgba(6, 182, 212, 0.4);
+        background: rgba(6, 182, 212, 0.1);
+        transform: translateY(-2px);
+    }
+
+    .tech-chip i,
+    .tech-chip img {
+        font-size: 1.2rem;
+        width: 20px;
+        height: 20px;
+    }
+
+    .tech-chip span {
+        color: #e2e8f0;
+        font-size: 0.85rem;
+        font-weight: 500;
+    }
+
+    /* ============================================
+       EVALUACIONES
+    ============================================ */
+    .evaluaciones-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    .eval-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 1rem;
+        background: rgba(30, 41, 59, 0.5);
+        border-radius: 8px;
+        border-left: 3px solid var(--eval-color, #06b6d4);
+    }
+
+    .eval-item.formativa {
+        --eval-color: #22c55e;
+    }
+
+    .eval-item.sumativa {
+        --eval-color: #f59e0b;
+    }
+
+    .eval-item.prueba {
+        --eval-color: #ef4444;
+    }
+
+    .eval-info h4 {
+        margin: 0;
+        font-size: 0.9rem;
+        color: #f1f5f9;
+        font-weight: 600;
+    }
+
+    .eval-info span {
+        font-size: 0.75rem;
+        color: #94a3b8;
+    }
+
+    .eval-percent {
+        font-family: 'Space Grotesk', monospace;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--eval-color, #06b6d4);
+    }
+
+    /* ============================================
+       CONEXIONES
+    ============================================ */
+    .connections-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .connection-box {
+        padding: 1rem;
+        background: rgba(30, 41, 59, 0.5);
+        border-radius: 10px;
+        border: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .connection-box h4 {
+        margin: 0 0 0.75rem 0;
+        font-size: 0.85rem;
+        color: #94a3b8;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+    .prereq-box h4 i { color: #f59e0b; }
+    .next-box h4 i { color: #22c55e; }
+
+    .connection-items {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+
+    .connection-item {
+        padding: 0.35rem 0.6rem;
+        background: rgba(6, 182, 212, 0.1);
+        border-radius: 4px;
+        font-size: 0.8rem;
+        color: #67e8f9;
+    }
+
+    .no-prereq {
+        color: #64748b;
+        font-size: 0.8rem;
+        font-style: italic;
+    }
+
+    /* ============================================
+       RECURSOS
+    ============================================ */
+    .recursos-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .recurso-link {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        background: rgba(30, 41, 59, 0.5);
+        border: 1px solid rgba(148, 163, 184, 0.1);
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+    }
+
+    .recurso-link:hover {
+        border-color: rgba(6, 182, 212, 0.4);
+        background: rgba(6, 182, 212, 0.1);
+        transform: translateX(4px);
+    }
+
+    .recurso-icon {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(139, 92, 246, 0.2));
+        border-radius: 8px;
+    }
+
+    .recurso-icon i {
+        color: #06b6d4;
+    }
+
+    .recurso-info h5 {
+        margin: 0;
+        font-size: 0.9rem;
+        color: #f1f5f9;
+    }
+
+    .recurso-info span {
+        font-size: 0.75rem;
+        color: #64748b;
+    }
+
+    /* ============================================
+       DRAWER FOOTER
+    ============================================ */
+    .drawer-footer {
+        padding: 1rem 1.5rem;
+        border-top: 1px solid rgba(148, 163, 184, 0.1);
+        flex-shrink: 0;
+    }
+
+    .drawer-cta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 0.875rem;
+        background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+        border-radius: 10px;
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+    }
+
+    .drawer-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(6, 182, 212, 0.3);
+    }
+
+    /* ============================================
+       LIGHT MODE
+    ============================================ */
+    :global([data-theme="light"]) .drawer-overlay {
+        background: rgba(0, 0, 0, 0.4);
+    }
+
+    :global([data-theme="light"]) .subject-drawer {
+        background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+        border-left-color: rgba(6, 182, 212, 0.4);
+    }
+
+    :global([data-theme="light"]) .drawer-header {
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(139, 92, 246, 0.1));
+    }
+
+    :global([data-theme="light"]) .drawer-code {
+        color: #475569;
+        background: rgba(71, 85, 105, 0.1);
+    }
+
+    :global([data-theme="light"]) .drawer-title {
+        color: #0f172a;
+    }
+
+    :global([data-theme="light"]) .credit-item {
+        color: #475569;
+    }
+
+    :global([data-theme="light"]) .section-title {
+        color: #1e293b;
+    }
+
+    :global([data-theme="light"]) .section-content {
+        color: #475569;
+    }
+
+    :global([data-theme="light"]) .proposito-box {
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(139, 92, 246, 0.08));
+    }
+
+    :global([data-theme="light"]) .proposito-box span {
+        color: #334155;
+    }
+
+    :global([data-theme="light"]) .objectives-list li {
+        color: #475569;
+    }
+
+    :global([data-theme="light"]) .competencia-tag {
+        background: rgba(6, 182, 212, 0.1);
+        color: #0891b2;
+    }
+
+    :global([data-theme="light"]) .exp-card {
+        background: rgba(241, 245, 249, 0.8);
+        border-color: rgba(148, 163, 184, 0.2);
+    }
+
+    :global([data-theme="light"]) .exp-info h4 {
+        color: #1e293b;
+    }
+
+    :global([data-theme="light"]) .exp-description {
+        color: #64748b;
+    }
+
+    :global([data-theme="light"]) .exp-subsection h5 {
+        color: #334155;
+    }
+
+    :global([data-theme="light"]) .exp-subsection li {
+        color: #475569;
+    }
+
+    :global([data-theme="light"]) .tech-chip {
+        background: rgba(241, 245, 249, 0.9);
+        border-color: rgba(148, 163, 184, 0.2);
+    }
+
+    :global([data-theme="light"]) .tech-chip span {
+        color: #334155;
+    }
+
+    :global([data-theme="light"]) .eval-item {
+        background: rgba(241, 245, 249, 0.8);
+    }
+
+    :global([data-theme="light"]) .eval-info h4 {
+        color: #1e293b;
+    }
+
+    :global([data-theme="light"]) .connection-box {
+        background: rgba(241, 245, 249, 0.8);
+    }
+
+    :global([data-theme="light"]) .connection-item {
+        background: rgba(6, 182, 212, 0.1);
+        color: #0891b2;
+    }
+
+    :global([data-theme="light"]) .recurso-link {
+        background: rgba(241, 245, 249, 0.8);
+    }
+
+    :global([data-theme="light"]) .recurso-info h5 {
+        color: #1e293b;
+    }
+
+    :global([data-theme="light"]) .drawer-footer {
+        background: #f8fafc;
+    }
+
+    /* ============================================
+       RESPONSIVE
+    ============================================ */
+    @media (max-width: 600px) {
+        .subject-drawer {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .drawer-title {
+            font-size: 1.25rem;
+        }
+
+        .connections-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .drawer-credits {
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+    }
+</style>
+
+<script define:vars={{ asignaturasData: asignaturas, nombreCortoToIdMap: nombreCortoToId }}>
+    // Estado global del drawer
+    window.subjectDrawerData = {
+        asignaturas: asignaturasData,
+        nombreCortoToId: nombreCortoToIdMap,
+        currentSubject: null
+    };
+
+    // Función para abrir el drawer con una asignatura
+    window.openSubjectDrawer = function(subjectId) {
+        const data = window.subjectDrawerData;
+        const asignatura = data.asignaturas.find(a => a.id === subjectId);
+
+        if (!asignatura) {
+            console.warn('Asignatura no encontrada:', subjectId);
+            return;
+        }
+
+        data.currentSubject = asignatura;
+
+        // Actualizar contenido del drawer
+        updateDrawerContent(asignatura);
+
+        // Abrir el drawer
+        const drawer = document.getElementById('subject-drawer');
+        const overlay = document.getElementById('subject-drawer-overlay');
+
+        drawer?.classList.add('open');
+        drawer?.setAttribute('aria-hidden', 'false');
+        overlay?.classList.add('active');
+
+        // Prevenir scroll del body
+        document.body.style.overflow = 'hidden';
+    };
+
+    // Función para cerrar el drawer
+    window.closeSubjectDrawer = function() {
+        const drawer = document.getElementById('subject-drawer');
+        const overlay = document.getElementById('subject-drawer-overlay');
+
+        drawer?.classList.remove('open');
+        drawer?.setAttribute('aria-hidden', 'true');
+        overlay?.classList.remove('active');
+
+        // Restaurar scroll del body
+        document.body.style.overflow = '';
+    };
+
+    // Función para actualizar el contenido del drawer
+    function updateDrawerContent(asignatura) {
+        // Header
+        document.getElementById('drawer-bimestre').textContent = `B${asignatura.bimestre.toString().padStart(2, '0')}`;
+        document.getElementById('drawer-codigo').textContent = asignatura.codigo;
+
+        // Título y créditos
+        document.getElementById('drawer-title').textContent = asignatura.nombre;
+        document.getElementById('drawer-creditos').innerHTML = `<i class="fas fa-graduation-cap"></i> ${asignatura.creditos} créditos`;
+        const horasTotales = asignatura.horasTeoricas + asignatura.horasPracticas;
+        document.getElementById('drawer-horas').innerHTML = `<i class="fas fa-clock"></i> ${horasTotales} hrs/sem`;
+
+        // Descripción y propósito
+        document.getElementById('drawer-descripcion').textContent = asignatura.descripcion;
+        document.getElementById('drawer-proposito').textContent = asignatura.proposito;
+
+        // Objetivos
+        const objetivosHtml = asignatura.objetivos.map(obj => `<li>${obj}</li>`).join('');
+        document.getElementById('drawer-objetivos').innerHTML = objetivosHtml;
+
+        // Competencias
+        const competenciasHtml = asignatura.competencias.map(comp =>
+            `<span class="competencia-tag">${comp}</span>`
+        ).join('');
+        document.getElementById('drawer-competencias').innerHTML = competenciasHtml;
+
+        // Experiencias
+        const experienciasHtml = asignatura.experiencias.map((exp, index) => `
+            <div class="exp-card" data-exp="${index}">
+                <div class="exp-header" onclick="toggleExpCard(${index})">
+                    <div class="exp-header-left">
+                        <span class="exp-number">${exp.numero}</span>
+                        <div class="exp-info">
+                            <h4>${exp.titulo}</h4>
+                            <span>${exp.semanas}</span>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-down exp-toggle"></i>
+                </div>
+                <div class="exp-content">
+                    <div class="exp-content-inner">
+                        <p class="exp-description">${exp.descripcion}</p>
+                        <div class="exp-subsection">
+                            <h5><i class="fas fa-book"></i> Contenidos</h5>
+                            <ul>
+                                ${exp.contenidos.map(c => `<li>${c}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div class="exp-subsection">
+                            <h5><i class="fas fa-tasks"></i> Actividades</h5>
+                            <ul>
+                                ${exp.actividades.map(a => `<li>${a}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+        document.getElementById('drawer-experiencias').innerHTML = experienciasHtml;
+
+        // Tecnologías
+        const techHtml = asignatura.tecnologias.map(tech => {
+            let iconHtml = '';
+            if (tech.iconType === 'devicon') {
+                iconHtml = `<i class="devicon-${tech.icon}"></i>`;
+            } else if (tech.iconType === 'fontawesome') {
+                iconHtml = `<i class="${tech.icon}"></i>`;
+            } else if (tech.iconType === 'simple') {
+                iconHtml = `<img src="https://cdn.simpleicons.org/${tech.icon}" alt="${tech.nombre}">`;
+            }
+            return `<div class="tech-chip">${iconHtml}<span>${tech.nombre}</span></div>`;
+        }).join('');
+        document.getElementById('drawer-tecnologias').innerHTML = techHtml;
+
+        // Evaluaciones
+        const evalHtml = asignatura.evaluaciones.map(ev => {
+            const tipoClass = ev.tipo.toLowerCase().includes('formativa') ? 'formativa' :
+                             ev.tipo.toLowerCase().includes('sumativa') ? 'sumativa' : 'prueba';
+            return `
+                <div class="eval-item ${tipoClass}">
+                    <div class="eval-info">
+                        <h4>${ev.nombre}</h4>
+                        <span>${ev.tipo}</span>
+                    </div>
+                    <span class="eval-percent">${ev.ponderacion}%</span>
+                </div>
+            `;
+        }).join('');
+        document.getElementById('drawer-evaluaciones').innerHTML = evalHtml;
+
+        // Prerrequisitos
+        const prereqHtml = asignatura.prerrequisitos.length > 0
+            ? asignatura.prerrequisitos.map(p => `<span class="connection-item">${p}</span>`).join('')
+            : '<span class="no-prereq">Sin prerrequisitos</span>';
+        document.getElementById('drawer-prerrequisitos').innerHTML = prereqHtml;
+
+        // Conexiones (habilita para)
+        const conexHtml = asignatura.conexiones.length > 0
+            ? asignatura.conexiones.map(c => `<span class="connection-item">${c}</span>`).join('')
+            : '<span class="no-prereq">-</span>';
+        document.getElementById('drawer-habilita').innerHTML = conexHtml;
+
+        // Recursos
+        const recursosHtml = asignatura.recursos.map(rec => {
+            const iconClass = rec.tipo === 'GitHub' ? 'fab fa-github' :
+                             rec.tipo === 'Documentación' ? 'fas fa-book' :
+                             rec.tipo === 'Tutorial' ? 'fas fa-play-circle' : 'fas fa-link';
+            return `
+                <a href="${rec.url}" target="_blank" rel="noopener" class="recurso-link">
+                    <div class="recurso-icon"><i class="${iconClass}"></i></div>
+                    <div class="recurso-info">
+                        <h5>${rec.nombre}</h5>
+                        <span>${rec.tipo}</span>
+                    </div>
+                </a>
+            `;
+        }).join('');
+        document.getElementById('drawer-recursos').innerHTML = recursosHtml;
+
+        // Link de GitHub en footer
+        const bimestreNum = asignatura.bimestre.toString().padStart(2, '0');
+        document.getElementById('drawer-github-link').href =
+            `https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-${bimestreNum}%20-%20`;
+    }
+
+    // Toggle para las cards de experiencias
+    window.toggleExpCard = function(index) {
+        const card = document.querySelector(`.exp-card[data-exp="${index}"]`);
+        card?.classList.toggle('expanded');
+    };
+
+    // Inicializar eventos
+    document.addEventListener('DOMContentLoaded', initDrawer);
+    document.addEventListener('astro:page-load', initDrawer);
+
+    function initDrawer() {
+        // Cerrar con botón X
+        document.getElementById('drawer-close-btn')?.addEventListener('click', window.closeSubjectDrawer);
+
+        // Cerrar con overlay
+        document.getElementById('subject-drawer-overlay')?.addEventListener('click', window.closeSubjectDrawer);
+
+        // Cerrar con Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                window.closeSubjectDrawer();
+            }
+        });
+    }
+</script>
