@@ -4840,113 +4840,256 @@ export const asignaturas: Record<string, Asignatura> = {
     // BIMESTRE 16 - GESTIÓN DE PROYECTOS SW
     // =============================================
 
-    // GPR16201 - Evaluación y Gestión de Proyectos
-    'gestion-proyectos': {
-        id: 'gestion-proyectos',
-        codigo: 'GPR16201',
-        nombre: 'Evaluación y Gestión de Proyectos de Software',
-        nombreCorto: 'Evaluacion y Gestion Proyectos',
+    // EVP16201 - Evaluación de Proyectos de Software
+    'evaluacion-proyectos-sw': {
+        id: 'evaluacion-proyectos-sw',
+        codigo: 'EVP16201',
+        nombre: 'Evaluación de Proyectos de Software',
+        nombreCorto: 'Evaluación Proyectos SW',
         bimestre: 16,
-        creditos: 4,
+        creditos: 2,
         horasTeoricas: 2,
-        horasPracticas: 4,
-        descripcion: 'Asignatura que cubre gestión de proyectos de software, metodologías ágiles avanzadas, estimación, métricas y liderazgo técnico.',
-        proposito: 'Desarrollar competencias de gestión y liderazgo técnico, preparando al estudiante para liderar equipos y proyectos de desarrollo de software.',
+        horasPracticas: 2,
+        descripcion: 'Asignatura enfocada en técnicas de estimación, métricas de calidad y evaluación de proyectos de software. Incluye análisis de viabilidad, ROI, TCO y metodologías de valoración técnica.',
+        proposito: 'Desarrollar competencias para evaluar proyectos de software de manera objetiva, utilizando métricas, indicadores y técnicas de estimación profesionales.',
         objetivos: [
-            'Aplicar metodologías ágiles a escala',
-            'Estimar proyectos de software',
-            'Gestionar equipos de desarrollo',
-            'Definir y seguir métricas de proyecto',
-            'Comunicar efectivamente con stakeholders',
-            'Liderar transformaciones técnicas'
+            'Aplicar técnicas de estimación de esfuerzo y costos',
+            'Calcular métricas de calidad de software',
+            'Evaluar viabilidad técnica y económica de proyectos',
+            'Diseñar dashboards de métricas de proyecto',
+            'Analizar ROI y TCO de soluciones de software',
+            'Implementar sistemas de monitoreo y evaluación continua'
+        ],
+        competencias: [
+            'Dominio de técnicas de estimación: story points, planning poker, function points, COCOMO II',
+            'Cálculo de métricas de calidad: cobertura de tests, complejidad ciclomática, deuda técnica',
+            'Análisis financiero de proyectos TI: ROI, TCO, NPV, payback period, break-even analysis',
+            'Evaluación de viabilidad técnica: proof of concept, spikes, arquitectura decision records',
+            'Construcción de dashboards: KPIs, burndown/burnup charts, CFDs, traffic lights',
+            'DORA metrics: deployment frequency, lead time, MTTR, change failure rate',
+            'Engineering productivity: SPACE framework, developer experience metrics',
+            'Forecasting: Monte Carlo simulation, probabilistic estimation, cone of uncertainty'
+        ],
+        experiencias: [
+            {
+                numero: 1,
+                titulo: 'Técnicas de Estimación',
+                semanas: 'Semana 1-3',
+                descripcion: 'Metodologías profesionales de estimación de proyectos de software.',
+                contenidos: [
+                    'Story points: relative sizing, planning poker, reference stories, calibration',
+                    'Velocity: calculation, stabilization, forecasting, common anti-patterns',
+                    'Function points: IFPUG method, counting rules, adjustment factors, automation',
+                    'COCOMO II: effort estimation, scale factors, cost drivers, COCOMO variants',
+                    'Three-point estimation: optimistic, pessimistic, most likely, PERT formula',
+                    'T-shirt sizing: quick estimation for roadmap planning, portfolio level',
+                    'Cone of uncertainty: how estimates improve over time, re-estimation triggers',
+                    'Monte Carlo simulation: probabilistic forecasting, confidence intervals',
+                    'Estimation anti-patterns: anchoring, padding, commitment vs forecast',
+                    '#NoEstimates movement: when estimation adds value and when it does not'
+                ],
+                actividades: [
+                    'Sesión de planning poker con calibración de historias de referencia',
+                    'Cálculo de function points para sistema ERP de ejemplo',
+                    'Estimación COCOMO II para proyecto de modernización',
+                    'Simulación Monte Carlo con herramienta de forecasting',
+                    'Análisis comparativo: story points vs horas para mismo proyecto',
+                    'Proyecto parcial: Plan de estimación para proyecto real'
+                ]
+            },
+            {
+                numero: 2,
+                titulo: 'Métricas y KPIs',
+                semanas: 'Semana 4-5',
+                descripcion: 'Indicadores clave de rendimiento y métricas de calidad de software.',
+                contenidos: [
+                    'DORA metrics: deployment frequency, lead time for changes, MTTR, change failure rate',
+                    'SPACE framework: satisfaction, performance, activity, communication, efficiency',
+                    'Code quality metrics: cyclomatic complexity, code coverage, duplications, tech debt',
+                    'Burndown y burnup charts: construction, interpretation, forecasting capacity',
+                    'Cumulative flow diagrams: WIP limits, bottlenecks, flow efficiency, lead time',
+                    'Lead time y cycle time: measurement, optimization, service level agreements',
+                    'Defect metrics: defect density, escape rate, MTBF, severity distribution',
+                    'Test metrics: coverage, flakiness, execution time, test pyramid balance',
+                    'Team health metrics: happiness surveys, turnover, onboarding time',
+                    'Business metrics: feature adoption, user satisfaction, NPS, churn'
+                ],
+                actividades: [
+                    'Configuración de dashboard DORA metrics en Azure DevOps',
+                    'Análisis de CFD para identificar bottlenecks en proceso',
+                    'Cálculo de métricas de calidad con SonarQube',
+                    'Diseño de engineering productivity dashboard',
+                    'Implementación de tracking automatizado de lead time',
+                    'Correlación de métricas técnicas con outcomes de negocio'
+                ]
+            },
+            {
+                numero: 3,
+                titulo: 'Evaluación Financiera',
+                semanas: 'Semana 6-8',
+                descripcion: 'Análisis económico y viabilidad de proyectos de software.',
+                contenidos: [
+                    'ROI de proyectos de software: direct benefits, indirect benefits, risk-adjusted ROI',
+                    'TCO (Total Cost of Ownership): licensing, infrastructure, maintenance, hidden costs',
+                    'NPV (Net Present Value): discount rate, cash flow projection, sensitivity analysis',
+                    'Payback period: simple payback, discounted payback, when to use each',
+                    'Break-even analysis: fixed vs variable costs, scaling economics',
+                    'Build vs Buy analysis: evaluation criteria, scoring matrix, total cost comparison',
+                    'Technical debt quantification: interest rate, principal, repayment strategies',
+                    'Value stream mapping: waste identification, process efficiency, improvement ROI',
+                    'Business case construction: problem statement, solution options, recommendation',
+                    'Risk-adjusted evaluation: sensitivity analysis, scenario planning, contingencies'
+                ],
+                actividades: [
+                    'Cálculo de ROI para proyecto de automatización',
+                    'Análisis TCO: on-premise vs cloud migration',
+                    'Construcción de business case para modernización de sistema',
+                    'Evaluación Build vs Buy para herramienta de CI/CD',
+                    'Cuantificación de deuda técnica con SonarQube y costo de remediación',
+                    'Proyecto integrador: Evaluación completa de proyecto con recomendación'
+                ]
+            }
+        ],
+        tecnologias: [
+            { nombre: 'Jira', icon: 'jira-plain', iconType: 'devicon' },
+            { nombre: 'Azure DevOps', icon: 'azure-plain', iconType: 'devicon' },
+            { nombre: 'SonarQube', icon: 'sonarqube-plain', iconType: 'devicon' },
+            { nombre: 'Excel/Sheets', icon: 'fa-file-excel', iconType: 'fontawesome' },
+            { nombre: 'Power BI', icon: 'fa-chart-bar', iconType: 'fontawesome' },
+            { nombre: 'Grafana', icon: 'grafana-plain', iconType: 'devicon' },
+            { nombre: 'Datadog', icon: 'fa-chart-line', iconType: 'fontawesome' },
+            { nombre: 'Tableau', icon: 'fa-chart-area', iconType: 'fontawesome' }
+        ],
+        evaluaciones: [
+            { tipo: 'Formativa', nombre: 'Labs de métricas', ponderacion: 0, descripcion: 'Prácticas de medición' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 1', ponderacion: 30, descripcion: 'Técnicas de estimación' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 2', ponderacion: 30, descripcion: 'Métricas y dashboards' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 3', ponderacion: 40, descripcion: 'Business case completo' }
+        ],
+        prerrequisitos: ['Ing. Software II'],
+        conexiones: ['Gestión Proyectos SW', 'Taller Aplicado SW'],
+        recursos: [
+            { tipo: 'Métricas', nombre: 'DORA Research', url: 'https://dora.dev/' },
+            { tipo: 'Framework', nombre: 'SPACE Productivity Framework', url: 'https://queue.acm.org/detail.cfm?id=3454124' },
+            { tipo: 'Libro', nombre: 'Accelerate (Forsgren, Humble, Kim)', url: 'https://itrevolution.com/book/accelerate/' },
+            { tipo: 'Libro', nombre: 'Software Estimation: Demystifying the Black Art', url: 'https://www.amazon.com/Software-Estimation-Demystifying-Black-Art/dp/0735605351' },
+            { tipo: 'Herramienta', nombre: 'SonarQube Documentation', url: 'https://docs.sonarqube.org/' },
+            { tipo: 'Certificación', nombre: 'PMI-ACP Certification', url: 'https://www.pmi.org/certifications/agile-acp' },
+            { tipo: 'Video', nombre: 'Agile Estimating - Mountain Goat Software', url: 'https://www.mountaingoatsoftware.com/presentations/agile-estimating' },
+            { tipo: 'Tutorial', nombre: 'COCOMO II Model Tutorial', url: 'https://csse.usc.edu/csse/research/COCOMOII/cocomo_main.html' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-16%20-%20Evaluacion%20y%20Gestion%20Proyectos%20SW/Evaluacion%20Proyectos%20SW' }
+        ],
+        color: 'purple',
+        area: 'gestion'
+    },
+
+    // GSP16201 - Gestión de Proyectos de Software
+    'gestion-proyectos-sw': {
+        id: 'gestion-proyectos-sw',
+        codigo: 'GSP16201',
+        nombre: 'Gestión de Proyectos de Software',
+        nombreCorto: 'Gestión Proyectos SW',
+        bimestre: 16,
+        creditos: 2,
+        horasTeoricas: 2,
+        horasPracticas: 2,
+        descripcion: 'Asignatura enfocada en metodologías ágiles a escala, liderazgo de equipos técnicos, gestión de stakeholders y comunicación efectiva en proyectos de desarrollo de software.',
+        proposito: 'Desarrollar competencias de liderazgo y gestión para dirigir equipos de desarrollo de software, aplicando frameworks ágiles y técnicas de comunicación profesional.',
+        objetivos: [
+            'Aplicar metodologías ágiles a escala (SAFe, LeSS, Nexus)',
+            'Liderar equipos de desarrollo de software',
+            'Gestionar stakeholders y expectativas',
+            'Facilitar ceremonias ágiles efectivamente',
+            'Comunicar técnicamente con audiencias diversas',
+            'Manejar conflictos y negociaciones en proyectos'
         ],
         competencias: [
             'Aplicación de frameworks de Agile a escala: SAFe, LeSS, Nexus para organizaciones',
-            'Dominio de técnicas de estimación: story points, planning poker, function points, COCOMO',
-            'Liderazgo de equipos de desarrollo: 1:1s, feedback, coaching, performance management',
-            'Gestión de stakeholders: expectativas, comunicación, negociación, reporting',
-            'Métricas de proyecto y DevOps: velocity, lead time, cycle time, DORA metrics',
-            'Technical writing: ADRs, RFCs, design docs, documentation as code',
-            'Facilitación de ceremonias ágiles: sprint planning, retrospectives, PI planning',
-            'Gestión de riesgos y dependencias: identificación, mitigación, tracking'
+            'Liderazgo de equipos técnicos: 1:1s, feedback efectivo, coaching, mentoring, growth plans',
+            'Gestión de stakeholders: mapping, expectativas, comunicación, negociación, reporting',
+            'Facilitación de ceremonias ágiles: sprint planning, daily, review, retrospective, PI planning',
+            'Technical writing: ADRs, RFCs, design docs, runbooks, documentation as code',
+            'Presentaciones técnicas: storytelling, visualización de datos, demos, manejo de Q&A',
+            'Gestión de riesgos y dependencias: identificación, mitigación, tracking, escalamiento',
+            'Remote leadership: comunicación asíncrona, gestión de timezones, cultura de equipo remoto'
         ],
         experiencias: [
             {
                 numero: 1,
                 titulo: 'Agile a Escala',
                 semanas: 'Semana 1-3',
-                descripcion: 'Metodologías ágiles para organizaciones y múltiples equipos.',
+                descripcion: 'Metodologías ágiles para organizaciones con múltiples equipos.',
                 contenidos: [
-                    'SAFe fundamentals: values, principles, competencies, configurations',
-                    'SAFe roles: Release Train Engineer, Product Manager, System Architect',
-                    'Program Increment planning: preparation, execution, objectives, risks',
-                    'Agile Release Trains: cadence, synchronization, inspect and adapt',
-                    'LeSS: principles, structure, Sprint, Product Backlog refinement',
-                    'Nexus: integration team, refinement, retrospective, daily scrum',
-                    'Agile portfolio management: portfolio kanban, value streams, strategic themes',
-                    'Value stream mapping: current state, future state, waste identification',
-                    'OKRs: objectives, key results, alignment, tracking, review cadence',
-                    'Agile transformation: change management, coaching, maturity models'
+                    'SAFe fundamentals: core values, principles, competencies, configurations (Essential, Large)',
+                    'SAFe roles: Release Train Engineer, Product Manager, System Architect responsibilities',
+                    'Program Increment planning: preparation, execution, business objectives, risks, confidence',
+                    'Agile Release Trains: cadence, synchronization, inspect and adapt, innovation sprints',
+                    'LeSS: principles, structure, Sprint, Product Backlog refinement, coordination',
+                    'Nexus: integration team, refinement, retrospective, daily scrum, increment',
+                    'Agile portfolio management: portfolio kanban, value streams, strategic themes, budgeting',
+                    'Value stream mapping: current state, future state, waste identification, improvement plan',
+                    'OKRs: objectives, key results, alignment cascade, tracking, review cadence',
+                    'Agile transformation: change management, coaching patterns, maturity models, roadmap'
                 ],
                 actividades: [
-                    'Simulación de PI Planning con múltiples equipos',
+                    'Simulación de PI Planning con 4 equipos y roles asignados',
                     'Mapeo de value stream de proceso de desarrollo actual',
-                    'Definición de OKRs para departamento de desarrollo',
-                    'Diseño de estructura de Agile Release Train',
-                    'Análisis de caso: transformación ágil en organización',
-                    'Proyecto parcial: Propuesta de adopción SAFe'
+                    'Definición de OKRs para departamento de ingeniería',
+                    'Diseño de estructura de Agile Release Train para organización',
+                    'Análisis de caso: transformación ágil en empresa real',
+                    'Proyecto parcial: Propuesta de adopción SAFe para organización'
                 ]
             },
             {
                 numero: 2,
-                titulo: 'Estimación y Métricas',
+                titulo: 'Liderazgo Técnico',
                 semanas: 'Semana 4-5',
-                descripcion: 'Técnicas de estimación y métricas para tracking de proyectos.',
+                descripcion: 'Habilidades de liderazgo para managers y tech leads.',
                 contenidos: [
-                    'Story points: relative sizing, planning poker, reference stories',
-                    'Velocity: calculation, stabilization, forecasting, anti-patterns',
-                    'Function points: IFPUG method, counting rules, adjustment factors',
-                    'COCOMO II: effort estimation, scale factors, cost drivers',
-                    'Burndown y burnup charts: construction, interpretation, forecasting',
-                    'Cumulative flow diagrams: WIP, bottlenecks, flow efficiency',
-                    'Lead time y cycle time: measurement, optimization, SLAs',
-                    'DORA metrics: deployment frequency, lead time, MTTR, change failure rate',
-                    'Engineering productivity: SPACE framework, developer experience metrics',
-                    'Project health dashboards: KPIs, traffic lights, trend analysis'
+                    '1:1 meetings: estructura, temas, feedback, career conversations, skip levels',
+                    'Performance management: goal setting, reviews, improvement plans, recognition programs',
+                    'Hiring: job descriptions, technical interviews, system design, behavioral, scorecards',
+                    'Onboarding: 30-60-90 day plans, buddy system, documentation, ramp-up metrics',
+                    'Team building: norming, storming, performing, retrospectives, team health checks',
+                    'Delegation: levels of delegation, accountability, autonomy, trust building',
+                    'Conflict resolution: sources of conflict, management styles, mediation, escalation',
+                    'Growth frameworks: career ladders, skills matrix, individual development plans',
+                    'Difficult conversations: feedback frameworks (SBI, COIN), terminations, PIPs',
+                    'Engineering culture: values, practices, decision making, psychological safety'
                 ],
                 actividades: [
-                    'Sesión de planning poker con calibración de referencias',
-                    'Cálculo de function points para sistema de ejemplo',
-                    'Construcción de dashboard de métricas con Jira/Azure DevOps',
-                    'Análisis de flow metrics y propuesta de mejoras',
-                    'Implementación de tracking de DORA metrics',
-                    'Forecasting de entrega usando Monte Carlo simulation'
+                    'Role-play de 1:1 meeting con feedback y coaching',
+                    'Diseño de career ladder para equipo de desarrollo',
+                    'Mock technical interview como entrevistador',
+                    'Creación de onboarding plan para nuevo developer',
+                    'Facilitación de retrospectiva con técnica nueva',
+                    'Manejo de conflicto simulado entre miembros de equipo'
                 ]
             },
             {
                 numero: 3,
-                titulo: 'Liderazgo y Comunicación',
+                titulo: 'Comunicación y Stakeholders',
                 semanas: 'Semana 6-8',
-                descripcion: 'Soft skills y comunicación técnica para líderes.',
+                descripcion: 'Comunicación técnica efectiva y gestión de stakeholders.',
                 contenidos: [
-                    '1:1 meetings: structure, topics, feedback, career conversations',
-                    'Performance management: goal setting, reviews, PIPs, recognition',
-                    'Technical interviews: system design, coding, behavioral, evaluation',
-                    'Architecture Decision Records: template, status, consequences',
-                    'RFCs y design docs: problem statement, proposal, alternatives, decision',
-                    'Technical presentations: storytelling, visuals, demos, Q&A handling',
-                    'Conflict resolution: sources, styles, mediation, escalation',
-                    'Stakeholder management: mapping, communication plans, expectation management',
-                    'Cross-functional collaboration: product, design, QA, operations',
-                    'Remote leadership: async communication, timezone management, culture'
+                    'Stakeholder mapping: identification, power/interest matrix, engagement strategies',
+                    'Communication planning: channels, frequency, format, tailoring to audience',
+                    'Executive communication: executive summary, BLUF, so-what test, action items',
+                    'Architecture Decision Records: template, context, decision, consequences, status',
+                    'RFCs y design docs: problem statement, proposal, alternatives, trade-offs, decision',
+                    'Technical presentations: storytelling, visualization, demos, handling tough questions',
+                    'Status reporting: traffic lights, risks, blockers, asks, wins, metrics',
+                    'Negotiation: principled negotiation, BATNA, trade-offs, win-win solutions',
+                    'Cross-functional collaboration: product, design, QA, ops, security partnerships',
+                    'Remote communication: async writing, timezone management, video calls, documentation'
                 ],
                 actividades: [
-                    'Role-play de 1:1 meeting con feedback y coaching',
-                    'Mock system design interview como entrevistador y candidato',
-                    'Escritura de ADR para decisión arquitectónica real',
-                    'Presentación técnica de 10 minutos con feedback',
-                    'Diseño de stakeholder communication plan',
-                    'Proyecto integrador: Plan de proyecto completo con roadmap'
+                    'Creación de stakeholder map para proyecto real',
+                    'Escritura de ADR para decisión arquitectónica',
+                    'Presentación técnica de 10 minutos con Q&A',
+                    'Redacción de executive summary para iniciativa técnica',
+                    'Diseño de communication plan para proyecto de 6 meses',
+                    'Proyecto integrador: Plan de gestión de proyecto completo'
                 ]
             }
         ],
@@ -4957,27 +5100,27 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Miro', icon: 'fa-chalkboard', iconType: 'fontawesome' },
             { nombre: 'Slack', icon: 'slack-plain', iconType: 'devicon' },
             { nombre: 'Azure DevOps', icon: 'azure-plain', iconType: 'devicon' },
-            { nombre: 'Trello', icon: 'trello-plain', iconType: 'devicon' },
-            { nombre: 'Linear', icon: 'fa-clipboard-list', iconType: 'fontawesome' }
+            { nombre: 'Linear', icon: 'fa-clipboard-list', iconType: 'fontawesome' },
+            { nombre: 'Loom', icon: 'fa-video', iconType: 'fontawesome' }
         ],
         evaluaciones: [
-            { tipo: 'Formativa', nombre: 'Workshops', ponderacion: 0, descripcion: 'Dinámicas grupales' },
+            { tipo: 'Formativa', nombre: 'Workshops', ponderacion: 0, descripcion: 'Dinámicas de liderazgo' },
             { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 1', ponderacion: 30, descripcion: 'Agile at scale' },
-            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 2', ponderacion: 30, descripcion: 'Estimación' },
-            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 3', ponderacion: 40, descripcion: 'Plan de proyecto' }
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 2', ponderacion: 30, descripcion: 'Liderazgo técnico' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 3', ponderacion: 40, descripcion: 'Plan de gestión completo' }
         ],
         prerrequisitos: ['Ing. Software II'],
-        conexiones: ['Taller Aplicado Software'],
+        conexiones: ['Evaluación Proyectos SW', 'Taller Aplicado SW'],
         recursos: [
             { tipo: 'Framework', nombre: 'SAFe Official Site', url: 'https://www.scaledagileframework.com/' },
-            { tipo: 'Métricas', nombre: 'DORA Research', url: 'https://dora.dev/' },
             { tipo: 'Curso', nombre: 'Atlassian Agile Coach', url: 'https://www.atlassian.com/agile' },
-            { tipo: 'Certificación', nombre: 'PMI-ACP Certification', url: 'https://www.pmi.org/certifications/agile-acp' },
+            { tipo: 'Libro', nombre: 'The Managers Path (Camille Fournier)', url: 'https://www.oreilly.com/library/view/the-managers-path/9781491973882/' },
+            { tipo: 'Libro', nombre: 'An Elegant Puzzle (Will Larson)', url: 'https://press.stripe.com/an-elegant-puzzle' },
             { tipo: 'Certificación', nombre: 'SAFe Agilist', url: 'https://scaledagile.com/training/leading-safe/' },
             { tipo: 'Video', nombre: 'Google Project Management - Coursera', url: 'https://www.coursera.org/professional-certificates/google-project-management' },
-            { tipo: 'Libro', nombre: 'Accelerate (Forsgren, Humble, Kim)', url: 'https://itrevolution.com/book/accelerate/' },
-            { tipo: 'Tutorial', nombre: 'Engineering Metrics SPACE Framework', url: 'https://queue.acm.org/detail.cfm?id=3454124' },
-            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-16%20-%20Evaluacion%20y%20Gestion%20Proyectos%20SW/Evaluacion%20y%20Gestion%20Proyectos' }
+            { tipo: 'Podcast', nombre: 'Software Engineering Daily', url: 'https://softwareengineeringdaily.com/' },
+            { tipo: 'Blog', nombre: 'Will Larson - Staff Engineer', url: 'https://staffeng.com/' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-16%20-%20Evaluacion%20y%20Gestion%20Proyectos%20SW/Gestion%20Proyectos%20SW' }
         ],
         color: 'purple',
         area: 'gestion'
@@ -4992,7 +5135,7 @@ export const asignaturas: Record<string, Asignatura> = {
         id: 'etica-profesional',
         codigo: 'ETI17201',
         nombre: 'Ética Profesional en TI',
-        nombreCorto: 'Etica Profesional',
+        nombreCorto: 'Ética Profesional',
         bimestre: 17,
         creditos: 2,
         horasTeoricas: 2,
@@ -5135,7 +5278,7 @@ export const asignaturas: Record<string, Asignatura> = {
         id: 'taller-aplicado-sw',
         codigo: 'TAS17201',
         nombre: 'Taller Aplicado de Software',
-        nombreCorto: 'Taller Aplicado Software',
+        nombreCorto: 'Taller Aplicado SW',
         bimestre: 17,
         creditos: 8,
         horasTeoricas: 2,
@@ -5340,8 +5483,9 @@ export const nombreCortoToId: Record<string, string> = {
     'Cloud Native II': 'cloud-native-ii',
     'Seguridad y Calidad': 'seguridad-calidad',
     // Bimestre 16
-    'Evaluacion y Gestion Proyectos': 'gestion-proyectos',
+    'Evaluación Proyectos SW': 'evaluacion-proyectos-sw',
+    'Gestión Proyectos SW': 'gestion-proyectos-sw',
     // Bimestre 17
-    'Etica Profesional': 'etica-profesional',
-    'Taller Aplicado Software': 'taller-aplicado-sw'
+    'Ética Profesional': 'etica-profesional',
+    'Taller Aplicado SW': 'taller-aplicado-sw'
 };
