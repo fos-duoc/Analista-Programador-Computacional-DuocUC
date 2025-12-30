@@ -1724,7 +1724,36 @@ const subjectLinks: Record<string, string> = {
         });
     }
 
+    // Asegurar que el drawer y AI Tutor estén cerrados al cargar la página
+    function ensureDrawersClosed() {
+        // Cerrar SubjectDrawer
+        const drawer = document.getElementById('subject-drawer');
+        const overlay = document.getElementById('subject-drawer-overlay');
+        if (drawer) {
+            drawer.classList.remove('open');
+            drawer.setAttribute('aria-hidden', 'true');
+        }
+        if (overlay) {
+            overlay.classList.remove('active');
+        }
+
+        // Cerrar AI Tutor
+        const tutorPanel = document.getElementById('ai-tutor-panel');
+        if (tutorPanel) {
+            tutorPanel.classList.remove('visible');
+        }
+
+        // Restaurar scroll del body
+        document.body.style.overflow = '';
+    }
+
     // Inicializar en carga inicial y View Transitions
-    document.addEventListener('DOMContentLoaded', initSubjectChips);
-    document.addEventListener('astro:page-load', initSubjectChips);
+    document.addEventListener('DOMContentLoaded', () => {
+        ensureDrawersClosed();
+        initSubjectChips();
+    });
+    document.addEventListener('astro:page-load', () => {
+        ensureDrawersClosed();
+        initSubjectChips();
+    });
 </script>
