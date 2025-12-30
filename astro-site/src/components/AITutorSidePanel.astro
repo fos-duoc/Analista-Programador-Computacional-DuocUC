@@ -14,7 +14,7 @@ const base = import.meta.env.BASE_URL;
 ---
 
 <!-- AI Tutor Side Panel - Coursera Coach Style -->
-<aside id="ai-tutor-panel" class="ai-tutor-panel" aria-label="Tutor IA" role="complementary">
+<aside id="ai-tutor-panel" class="ai-tutor-panel visible half-height" aria-label="Tutor IA" role="complementary">
     <!-- Header with minimize/close -->
     <header class="tutor-header">
         <div class="tutor-branding">
@@ -30,6 +30,12 @@ const base = import.meta.env.BASE_URL;
             </div>
         </div>
         <div class="tutor-controls">
+            <button class="tutor-size-btn" id="tutor-expand" aria-label="Expandir" title="Expandir">
+                <i class="fas fa-chevron-up"></i>
+            </button>
+            <button class="tutor-size-btn" id="tutor-collapse" aria-label="Colapsar" title="Colapsar">
+                <i class="fas fa-chevron-down"></i>
+            </button>
             <button class="tutor-minimize" id="tutor-minimize" aria-label="Minimizar">
                 <i class="fas fa-minus"></i>
             </button>
@@ -171,15 +177,15 @@ const base = import.meta.env.BASE_URL;
     .ai-tutor-panel {
         position: fixed;
         top: 70px; /* Below header */
-        right: 520px; /* Position to the left of the drawer (520px width) */
-        width: 380px;
+        right: 0; /* Position to the left of the drawer (520px width) */
+        width: 300px;
         height: calc(100vh - 70px);
         background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
         border-left: 1px solid rgba(139, 92, 246, 0.3);
         border-right: 1px solid rgba(139, 92, 246, 0.2);
         display: flex;
         flex-direction: column;
-        z-index: 997; /* Below drawer (1001) */
+        z-index: 1002; /* Below drawer (1001) */
         transform: translateX(100%);
         transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3);
@@ -189,6 +195,33 @@ const base = import.meta.env.BASE_URL;
         transform: translateX(0);
     }
 
+    .ai-tutor-panel.collapsed {
+        height: 54px !important;
+        top: auto !important;
+        bottom: 0 !important;
+        border-top: 1px solid rgba(139, 92, 246, 0.4);
+        border-radius: 12px 12px 0 0;
+    }
+
+    .ai-tutor-panel.collapsed .tutor-header {
+        border-radius: 12px 12px 0 0;
+    }
+
+    .ai-tutor-panel.collapsed .tutor-context,
+    .ai-tutor-panel.collapsed .tutor-body,
+    .ai-tutor-panel.collapsed .tutor-quick-actions,
+    .ai-tutor-panel.collapsed .tutor-input-area {
+        display: none !important;
+    }
+
+    /* Half height mode */
+    .ai-tutor-panel.half-height {
+        height: 50vh !important;
+        top: auto !important;
+        bottom: 0 !important;
+    }
+
+    /* Old horizontal minimized - keeping for compatibility */
     .ai-tutor-panel.minimized {
         transform: translateX(calc(100% - 60px));
     }
@@ -275,6 +308,7 @@ const base = import.meta.env.BASE_URL;
         gap: 0.5rem;
     }
 
+    .tutor-size-btn,
     .tutor-minimize,
     .tutor-close {
         width: 26px;
@@ -291,6 +325,7 @@ const base = import.meta.env.BASE_URL;
         font-size: 0.7rem;
     }
 
+    .tutor-size-btn:hover,
     .tutor-minimize:hover {
         background: rgba(139, 92, 246, 0.2);
         border-color: rgba(139, 92, 246, 0.4);
@@ -831,7 +866,8 @@ const base = import.meta.env.BASE_URL;
         color: #7c3aed;
     }
 
-    :global([data-theme="light"]) .tutor-minimize,
+    :global([data-theme="light"]) .tutor-size-btn,
+    .tutor-minimize,
     :global([data-theme="light"]) .tutor-close {
         background: rgba(241, 245, 249, 0.8);
         color: #64748b;
@@ -934,6 +970,8 @@ const base = import.meta.env.BASE_URL;
         const minimizeBtn = document.getElementById('tutor-minimize');
         const closeBtn = document.getElementById('tutor-close');
         const expandBtn = document.getElementById('tutor-expand-btn');
+        const verticalExpandBtn = document.getElementById('tutor-expand');
+        const verticalCollapseBtn = document.getElementById('tutor-collapse');
         const saveKeyBtn = document.getElementById('save-api-key-btn');
         const sendBtn = document.getElementById('send-message-btn');
         const chatInput = document.getElementById('tutor-chat-input');
@@ -956,6 +994,18 @@ const base = import.meta.env.BASE_URL;
             panel?.classList.remove('visible', 'minimized');
             currentSubject = null;
             updateQuickActionsState(false);
+        });
+
+        // Vertical expand (full height)
+        verticalExpandBtn?.addEventListener('click', () => {
+            panel?.classList.remove('collapsed', 'half-height');
+            panel?.classList.add('full-height');
+        });
+
+        // Vertical collapse (header only)
+        verticalCollapseBtn?.addEventListener('click', () => {
+            panel?.classList.remove('full-height', 'half-height');
+            panel?.classList.add('collapsed');
         });
 
         // Expand from minimized
@@ -1143,7 +1193,7 @@ Mantén respuestas concisas pero completas.`;
         };
 
         // Try multiple models in order of preference
-        const models = ['gemini-2.0-flash-exp', 'gemini-1.5-flash-latest', 'gemini-pro'];
+        const models = ['gemini-2.0-flash', 'gemini-1.5-flash', 'gemini-1.5-pro'];
         let response = null;
         let lastError = null;
 

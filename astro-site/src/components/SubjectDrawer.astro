@@ -178,7 +178,7 @@ const base = import.meta.env.BASE_URL;
     .subject-drawer {
         position: fixed;
         top: 70px; /* Below header */
-        right: 0;
+        right: 300px; /* Position to the left of AI Tutor */
         width: 520px;
         max-width: 95vw;
         height: calc(100vh - 70px);
@@ -882,6 +882,14 @@ const base = import.meta.env.BASE_URL;
     /* ============================================
        RESPONSIVE
     ============================================ */
+    @media (max-width: 900px) {
+        .subject-drawer {
+            right: 0 !important;
+            width: 100%;
+            max-width: 520px;
+        }
+    }
+
     @media (max-width: 600px) {
         .subject-drawer {
             width: 100%;
