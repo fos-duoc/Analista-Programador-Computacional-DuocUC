@@ -81,11 +81,14 @@ export const asignaturas: Record<string, Asignatura> = {
             'Documentar código siguiendo estándares de la industria'
         ],
         competencias: [
-            'Pensamiento algorítmico y lógico',
-            'Resolución de problemas computacionales',
+            'Pensamiento algorítmico y resolución de problemas',
+            'Diseño de algoritmos con pseudocódigo y diagramas de flujo',
             'Programación estructurada en Python',
-            'Trabajo con estructuras de datos lineales',
-            'Debugging y testing básico'
+            'Implementación de estructuras de control',
+            'Modularización con funciones reutilizables',
+            'Manipulación de estructuras de datos lineales',
+            'Persistencia de datos en archivos',
+            'Debugging y pruebas básicas de código'
         ],
         experiencias: [
             {
@@ -94,17 +97,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 1-3',
                 descripcion: 'Fundamentos del pensamiento computacional, diseño de algoritmos y primeros pasos en Python.',
                 contenidos: [
-                    'Conceptos básicos: variable, constante, tipo de dato',
-                    'Operadores aritméticos, lógicos y relacionales',
-                    'Entrada/salida de datos (input, print)',
-                    'Pseudocódigo y diagramas de flujo',
-                    'Instalación y configuración del entorno Python',
-                    'Sintaxis básica de Python'
+                    'Pensamiento computacional y resolución de problemas',
+                    'Conceptos básicos: variable, constante, identificador',
+                    'Tipos de datos primitivos: int, float, str, bool',
+                    'Operadores aritméticos (+, -, *, /, //, %, **)',
+                    'Operadores relacionales y lógicos (and, or, not)',
+                    'Entrada/salida de datos: input(), print(), f-strings',
+                    'Pseudocódigo: estructuras y convenciones',
+                    'Diagramas de flujo con símbolos estándar',
+                    'Instalación de Python y configuración de VS Code',
+                    'Sintaxis básica: indentación, comentarios, PEP 8'
                 ],
                 actividades: [
-                    'Ejercicios de pseudocódigo y diagramas de flujo',
-                    'Primeros programas en Python: calculadora básica',
-                    'Resolución de problemas matemáticos simples'
+                    'Diseño de algoritmos en pseudocódigo para problemas cotidianos',
+                    'Creación de diagramas de flujo con Draw.io',
+                    'Primeros programas: calculadora con operaciones básicas',
+                    'Conversión de unidades (temperatura, distancia, moneda)',
+                    'Cálculo de áreas y perímetros de figuras geométricas',
+                    'Ejercicios de debugging: encontrar errores en código dado'
                 ]
             },
             {
@@ -114,17 +124,23 @@ export const asignaturas: Record<string, Asignatura> = {
                 descripcion: 'Control de flujo del programa mediante condicionales, bucles y modularización con funciones.',
                 contenidos: [
                     'Estructuras condicionales: if, elif, else',
-                    'Estructuras repetitivas: while, for',
-                    'Bucles anidados y control de iteración',
-                    'Definición y llamada de funciones',
-                    'Parámetros, argumentos y retorno de valores',
-                    'Alcance de variables (scope)'
+                    'Operador ternario y expresiones condicionales',
+                    'Estructuras repetitivas: while y for',
+                    'Función range() y sus variantes',
+                    'Control de bucles: break, continue, else en loops',
+                    'Bucles anidados y patrones de iteración',
+                    'Definición de funciones: def, parámetros, return',
+                    'Argumentos posicionales, keyword y valores por defecto',
+                    'Alcance de variables: local, global, nonlocal',
+                    'Funciones lambda y expresiones anónimas'
                 ],
                 actividades: [
-                    'Programas con validación de datos',
-                    'Menús interactivos con bucles',
-                    'Refactorización de código en funciones',
-                    'Mini-proyecto: Sistema de calificaciones'
+                    'Validación de datos con condicionales múltiples',
+                    'Menús interactivos con bucles y validación de opciones',
+                    'Algoritmos clásicos: factorial, fibonacci, números primos',
+                    'Refactorización de código repetitivo en funciones',
+                    'Mini-proyecto: Sistema de calificaciones con promedio',
+                    'Ejercicios de patrones: pirámides, cuadrados con asteriscos'
                 ]
             },
             {
@@ -133,17 +149,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 6-8',
                 descripcion: 'Trabajo con colecciones de datos y desarrollo de un proyecto integrador.',
                 contenidos: [
-                    'Listas: creación, acceso, modificación',
-                    'Métodos de listas: append, remove, sort',
-                    'Tuplas y sus características',
-                    'Diccionarios: claves y valores',
-                    'Comprensión de listas (list comprehension)',
-                    'Manejo básico de archivos de texto'
+                    'Listas: creación, indexación, slicing',
+                    'Métodos de listas: append, extend, insert, remove, pop, sort',
+                    'Tuplas: inmutabilidad, desempaquetado, usos comunes',
+                    'Diccionarios: claves, valores, métodos get, keys, values, items',
+                    'Sets: conjuntos, operaciones de unión, intersección, diferencia',
+                    'Comprensión de listas, diccionarios y sets',
+                    'Manejo de archivos: open, read, write, with statement',
+                    'Módulos útiles: random, math, datetime',
+                    'Manejo básico de excepciones: try, except, finally',
+                    'Documentación de código: docstrings y type hints básicos'
                 ],
                 actividades: [
-                    'CRUD con listas y diccionarios',
-                    'Lectura y escritura de archivos',
-                    'Proyecto integrador: Sistema de inventario'
+                    'CRUD completo con listas y diccionarios',
+                    'Manipulación de datos: filtrar, ordenar, buscar',
+                    'Lectura y escritura de archivos CSV simples',
+                    'Generación de reportes en archivos de texto',
+                    'Mini-juego: Ahorcado o Piedra-Papel-Tijera',
+                    'Proyecto integrador: Sistema de inventario con persistencia'
                 ]
             }
         ],
@@ -152,7 +175,10 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'VS Code', icon: 'vscode-plain', iconType: 'devicon' },
             { nombre: 'Git', icon: 'git-plain', iconType: 'devicon' },
             { nombre: 'Jupyter', icon: 'jupyter-plain', iconType: 'devicon' },
-            { nombre: 'GitHub', icon: 'github-original', iconType: 'devicon' }
+            { nombre: 'GitHub', icon: 'github-original', iconType: 'devicon' },
+            { nombre: 'PyCharm', icon: 'pycharm-plain', iconType: 'devicon' },
+            { nombre: 'Terminal', icon: 'fa-terminal', iconType: 'fontawesome' },
+            { nombre: 'Draw.io', icon: 'fa-project-diagram', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Actividad Formativa 1', ponderacion: 0, descripcion: 'Ejercicios de pseudocódigo y primeros programas' },
@@ -167,8 +193,11 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Documentación', nombre: 'Python Official Docs', url: 'https://docs.python.org/3/' },
             { tipo: 'Tutorial', nombre: 'Real Python', url: 'https://realpython.com/' },
             { tipo: 'Práctica', nombre: 'HackerRank Python', url: 'https://www.hackerrank.com/domains/python' },
-            { tipo: 'Práctica', nombre: 'LeetCode Python', url: 'https://leetcode.com/problemset/' },
+            { tipo: 'Práctica', nombre: 'Exercism Python Track', url: 'https://exercism.org/tracks/python' },
             { tipo: 'Curso', nombre: 'Python for Everybody', url: 'https://www.py4e.com/' },
+            { tipo: 'Video', nombre: 'Curso Python - Pildoras Informaticas', url: 'https://www.youtube.com/playlist?list=PLU8oAlHdN5BlvPxziopYZRd55pdqFwkeS' },
+            { tipo: 'Libro', nombre: 'Automate the Boring Stuff', url: 'https://automatetheboringstuff.com/' },
+            { tipo: 'Herramienta', nombre: 'Python Tutor - Visualizer', url: 'https://pythontutor.com/' },
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-01%20-%20Antropologia%2C%20Fundamentos%20Prog.%2C%20Modelamiento%20BD/Fundamentos-Programacion' }
         ],
         color: 'cyan',
@@ -196,11 +225,14 @@ export const asignaturas: Record<string, Asignatura> = {
             'Documentar diccionarios de datos profesionales'
         ],
         competencias: [
-            'Análisis de requerimientos de datos',
-            'Modelamiento Entidad-Relación',
-            'Normalización de bases de datos',
-            'Diseño de esquemas relacionales',
-            'Documentación técnica de bases de datos'
+            'Levantamiento y análisis de requerimientos de datos',
+            'Diseño de modelos conceptuales Entidad-Relación',
+            'Aplicación de técnicas de normalización (1FN-3FN)',
+            'Transformación de modelos conceptuales a lógicos',
+            'Implementación de modelos físicos en SGBD',
+            'Diseño de integridad referencial y restricciones',
+            'Documentación técnica con diccionarios de datos',
+            'Uso de herramientas CASE para modelamiento'
         ],
         experiencias: [
             {
@@ -209,17 +241,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 1-3',
                 descripcion: 'Introducción a las bases de datos y diseño del modelo Entidad-Relación.',
                 contenidos: [
-                    'Conceptos básicos: dato, información, base de datos',
-                    'Tipos de bases de datos: relacional, NoSQL',
-                    'Modelo Entidad-Relación (E-R)',
-                    'Entidades fuertes y débiles',
-                    'Atributos: simples, compuestos, derivados, multivaluados',
-                    'Relaciones y cardinalidad (1:1, 1:N, N:M)'
+                    'Conceptos fundamentales: dato, información, conocimiento',
+                    'Sistema de Gestión de Bases de Datos (SGBD): funciones y componentes',
+                    'Evolución histórica: jerárquico, red, relacional, NoSQL',
+                    'Modelo relacional: tablas, filas, columnas, dominios',
+                    'Modelo Entidad-Relación (E-R): origen y propósito',
+                    'Entidades fuertes, débiles e identificadoras',
+                    'Atributos: simples, compuestos, derivados, multivaluados, clave',
+                    'Relaciones: binarias, ternarias, reflexivas',
+                    'Cardinalidad y participación: (1:1), (1:N), (N:M)',
+                    'Notaciones: Chen, Crow\'s Foot, UML'
                 ],
                 actividades: [
-                    'Análisis de casos de estudio empresariales',
-                    'Diseño de diagramas E-R con herramientas CASE',
-                    'Identificación de entidades y relaciones'
+                    'Análisis de casos empresariales: retail, salud, educación',
+                    'Identificación de entidades y atributos en escenarios reales',
+                    'Diseño de diagramas E-R con Draw.io y Lucidchart',
+                    'Determinación de cardinalidades y participación',
+                    'Comparación de notaciones en un mismo modelo',
+                    'Presentación grupal de modelo conceptual'
                 ]
             },
             {
@@ -228,17 +267,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 4-5',
                 descripcion: 'Técnicas de normalización y transformación al modelo relacional.',
                 contenidos: [
-                    'Dependencias funcionales',
-                    'Primera Forma Normal (1FN)',
-                    'Segunda Forma Normal (2FN)',
-                    'Tercera Forma Normal (3FN)',
-                    'Transformación E-R a modelo relacional',
-                    'Claves primarias y foráneas'
+                    'Anomalías de datos: inserción, actualización, eliminación',
+                    'Dependencias funcionales: definición y notación',
+                    'Dependencias parciales y transitivas',
+                    'Primera Forma Normal (1FN): atomicidad',
+                    'Segunda Forma Normal (2FN): dependencia completa',
+                    'Tercera Forma Normal (3FN): eliminación de transitivas',
+                    'Forma Normal de Boyce-Codd (BCNF) - introducción',
+                    'Transformación de E-R a modelo relacional',
+                    'Claves primarias: naturales vs surrogadas',
+                    'Claves foráneas e integridad referencial'
                 ],
                 actividades: [
-                    'Ejercicios de normalización paso a paso',
-                    'Transformación de modelos E-R a tablas',
-                    'Identificación de dependencias funcionales'
+                    'Identificación de dependencias funcionales en tablas',
+                    'Ejercicios progresivos de normalización (1FN → 2FN → 3FN)',
+                    'Transformación de entidades fuertes y débiles a tablas',
+                    'Resolución de relaciones N:M con tablas puente',
+                    'Análisis de trade-offs: normalización vs rendimiento',
+                    'Taller práctico de normalización con casos reales'
                 ]
             },
             {
@@ -247,17 +293,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 6-8',
                 descripcion: 'Implementación del modelo en SGBD y documentación profesional.',
                 contenidos: [
-                    'DDL: CREATE TABLE, ALTER, DROP',
-                    'Restricciones: PRIMARY KEY, FOREIGN KEY, UNIQUE, CHECK',
-                    'Tipos de datos en Oracle/PostgreSQL',
-                    'Diccionario de datos',
-                    'Documentación de modelos',
-                    'Introducción a herramientas CASE'
+                    'DDL: CREATE TABLE, ALTER TABLE, DROP TABLE',
+                    'Tipos de datos: VARCHAR2, NUMBER, DATE, CLOB, BLOB',
+                    'Restricciones: PRIMARY KEY, FOREIGN KEY, UNIQUE, NOT NULL, CHECK',
+                    'Acciones referenciales: CASCADE, SET NULL, RESTRICT',
+                    'Secuencias y autoincremento',
+                    'Índices: B-tree, conceptos básicos',
+                    'Diccionario de datos: estructura y contenido',
+                    'Documentación de modelos: metadatos y descripciones',
+                    'Herramientas CASE: Oracle Data Modeler, pgModeler',
+                    'Versionamiento de esquemas de base de datos'
                 ],
                 actividades: [
-                    'Creación de esquemas en Oracle/PostgreSQL',
-                    'Elaboración de diccionario de datos',
-                    'Proyecto: Modelo completo para caso empresarial'
+                    'Creación de esquemas completos en Oracle y PostgreSQL',
+                    'Implementación de restricciones de integridad',
+                    'Elaboración de diccionario de datos profesional',
+                    'Ingeniería inversa de base de datos existente',
+                    'Generación de scripts DDL desde herramienta CASE',
+                    'Proyecto final: Modelo completo para sistema empresarial'
                 ]
             }
         ],
@@ -267,7 +320,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'SQL Developer', icon: 'fa-database', iconType: 'fontawesome' },
             { nombre: 'Draw.io', icon: 'fa-project-diagram', iconType: 'fontawesome' },
             { nombre: 'MySQL', icon: 'mysql-plain', iconType: 'devicon' },
-            { nombre: 'DBeaver', icon: 'fa-table', iconType: 'fontawesome' }
+            { nombre: 'DBeaver', icon: 'fa-table', iconType: 'fontawesome' },
+            { nombre: 'Lucidchart', icon: 'fa-sitemap', iconType: 'fontawesome' },
+            { nombre: 'pgModeler', icon: 'postgresql-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Actividad Formativa 1', ponderacion: 0, descripcion: 'Diseño de diagrama E-R básico' },
@@ -282,8 +337,11 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Documentación', nombre: 'Oracle Database Docs', url: 'https://docs.oracle.com/en/database/' },
             { tipo: 'Tutorial', nombre: 'PostgreSQL Tutorial', url: 'https://www.postgresqltutorial.com/' },
             { tipo: 'Herramienta', nombre: 'Draw.io', url: 'https://app.diagrams.net/' },
-            { tipo: 'Curso', nombre: 'Database Design - freeCodeCamp', url: 'https://www.freecodecamp.org/news/database-design-course/' },
+            { tipo: 'Curso', nombre: 'Database Design - freeCodeCamp', url: 'https://www.youtube.com/watch?v=ztHopE5Wnpc' },
             { tipo: 'Tutorial', nombre: 'Lucidchart ER Diagrams', url: 'https://www.lucidchart.com/pages/er-diagrams' },
+            { tipo: 'Libro', nombre: 'Database Design for Mere Mortals', url: 'https://www.amazon.com/Database-Design-Mere-Mortals-Hands/dp/0136788041' },
+            { tipo: 'Video', nombre: 'Normalización Explicada', url: 'https://www.youtube.com/watch?v=GFQaEYEc8_8' },
+            { tipo: 'Práctica', nombre: 'SQL Practice - W3Schools', url: 'https://www.w3schools.com/sql/' },
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-01%20-%20Antropologia%2C%20Fundamentos%20Prog.%2C%20Modelamiento%20BD/Modelamiento-Datos' }
         ],
         color: 'amber',
@@ -310,11 +368,14 @@ export const asignaturas: Record<string, Asignatura> = {
             'Valorar el trabajo en equipo y la comunicación intercultural'
         ],
         competencias: [
-            'Pensamiento crítico y reflexivo',
-            'Sensibilidad intercultural',
-            'Comunicación efectiva',
-            'Trabajo colaborativo',
-            'Responsabilidad ética y social'
+            'Pensamiento crítico y reflexión filosófica',
+            'Análisis de la condición humana desde múltiples perspectivas',
+            'Sensibilidad y competencia intercultural',
+            'Comunicación efectiva en contextos diversos',
+            'Trabajo colaborativo en equipos multidisciplinarios',
+            'Responsabilidad ética en el ejercicio profesional',
+            'Conciencia social y ciudadanía activa',
+            'Apertura al diálogo y respeto por la diversidad'
         ],
         experiencias: [
             {
@@ -323,16 +384,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 1-3',
                 descripcion: 'Exploración de las dimensiones fundamentales de la condición humana.',
                 contenidos: [
-                    'Concepto de antropología y sus ramas',
-                    'Dimensiones del ser humano: biológica, psicológica, social',
-                    'El ser humano como ser cultural',
-                    'Identidad personal y colectiva',
-                    'El trabajo como dimensión humana'
+                    'Antropología: definición, objeto de estudio y ramas',
+                    'Antropología filosófica vs antropología cultural',
+                    'Dimensiones del ser humano: biológica, psicológica, social, espiritual',
+                    'El ser humano como ser cultural y simbólico',
+                    'Concepto de persona: dignidad y derechos fundamentales',
+                    'Identidad personal: construcción y desarrollo',
+                    'Identidad colectiva: nación, comunidad, grupos',
+                    'El trabajo como dimensión constitutiva del ser humano',
+                    'Sentido de vida y trascendencia',
+                    'La tecnología como extensión de lo humano'
                 ],
                 actividades: [
-                    'Análisis de textos filosóficos',
-                    'Debate sobre la naturaleza humana',
-                    'Reflexión personal sobre identidad'
+                    'Lectura y análisis de textos filosóficos clásicos',
+                    'Debate estructurado sobre la naturaleza humana',
+                    'Ensayo reflexivo: ¿Qué significa ser humano hoy?',
+                    'Autobiografía reflexiva: mi identidad y valores',
+                    'Análisis de película: La condición humana en el cine',
+                    'Foro de discusión: Tecnología y humanidad'
                 ]
             },
             {
@@ -341,16 +410,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 4-5',
                 descripcion: 'Análisis de la diversidad cultural y sus manifestaciones.',
                 contenidos: [
-                    'Concepto de cultura y sus elementos',
-                    'Diversidad cultural y globalización',
-                    'Etnocentrismo y relativismo cultural',
-                    'Interculturalidad en el mundo profesional',
-                    'Tecnología y transformación cultural'
+                    'Concepto de cultura: definiciones y elementos',
+                    'Componentes de la cultura: símbolos, lenguaje, valores, normas',
+                    'Cultura material e inmaterial',
+                    'Diversidad cultural en el mundo globalizado',
+                    'Etnocentrismo: definición y manifestaciones',
+                    'Relativismo cultural: alcances y límites',
+                    'Interculturalidad: diálogo entre culturas',
+                    'Multiculturalismo en el ámbito laboral tech',
+                    'Equipos de trabajo globales y distribuidos',
+                    'Tecnología y transformación cultural digital'
                 ],
                 actividades: [
-                    'Investigación sobre culturas del mundo',
-                    'Análisis de casos de diversidad en empresas tech',
-                    'Presentación grupal sobre interculturalidad'
+                    'Investigación etnográfica básica de una subcultura',
+                    'Análisis de casos de diversidad en empresas tech globales',
+                    'Presentación grupal sobre una cultura del mundo',
+                    'Simulación de trabajo en equipo multicultural',
+                    'Mapa conceptual de elementos culturales',
+                    'Entrevista a profesional de otra cultura'
                 ]
             },
             {
@@ -359,25 +436,36 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 6-8',
                 descripcion: 'Reflexión ética sobre los desafíos del mundo actual.',
                 contenidos: [
-                    'Fundamentos de ética y moral',
-                    'Ética profesional en tecnología',
-                    'Responsabilidad social empresarial',
+                    'Fundamentos de ética: distinción ética-moral',
+                    'Principales corrientes éticas: deontología, utilitarismo, ética de virtudes',
+                    'Ética aplicada y ética profesional',
+                    'Códigos de ética en tecnología (ACM, IEEE)',
+                    'Responsabilidad Social Empresarial (RSE)',
                     'Desafíos éticos de la inteligencia artificial',
-                    'Sostenibilidad y medio ambiente'
+                    'Privacidad, vigilancia y datos personales',
+                    'Sesgos algorítmicos y discriminación digital',
+                    'Sostenibilidad ambiental y tecnología verde',
+                    'Ciudadanía digital y participación cívica'
                 ],
                 actividades: [
-                    'Análisis de dilemas éticos en TI',
-                    'Debate sobre IA y ética',
-                    'Proyecto: Propuesta de RSE para empresa tech'
+                    'Análisis de dilemas éticos reales en la industria tech',
+                    'Debate Oxford sobre IA y empleo',
+                    'Estudio de caso: Escándalos éticos en Big Tech',
+                    'Propuesta de código de ética para startup',
+                    'Proyecto final: Plan de RSE para empresa tecnológica',
+                    'Reflexión escrita sobre ética personal y profesional'
                 ]
             }
         ],
         tecnologias: [
-            { nombre: 'Presentaciones', icon: 'fa-file-powerpoint', iconType: 'fontawesome' },
-            { nombre: 'Investigación', icon: 'fa-search', iconType: 'fontawesome' },
-            { nombre: 'Colaboración', icon: 'fa-users', iconType: 'fontawesome' },
-            { nombre: 'Google Docs', icon: 'google-plain', iconType: 'devicon' },
-            { nombre: 'Canva', icon: 'canva-original', iconType: 'devicon' }
+            { nombre: 'Google Slides', icon: 'google-plain', iconType: 'devicon' },
+            { nombre: 'Canva', icon: 'canva-original', iconType: 'devicon' },
+            { nombre: 'Notion', icon: 'notion-plain', iconType: 'devicon' },
+            { nombre: 'Miro', icon: 'fa-chalkboard', iconType: 'fontawesome' },
+            { nombre: 'Padlet', icon: 'fa-sticky-note', iconType: 'fontawesome' },
+            { nombre: 'Zoom', icon: 'fa-video', iconType: 'fontawesome' },
+            { nombre: 'Mentimeter', icon: 'fa-poll', iconType: 'fontawesome' },
+            { nombre: 'Google Docs', icon: 'google-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Participación en clases', ponderacion: 0, descripcion: 'Aportes en debates y reflexiones' },
@@ -388,10 +476,15 @@ export const asignaturas: Record<string, Asignatura> = {
         prerrequisitos: [],
         conexiones: ['Ética', 'Comunicación', 'Ética Profesional'],
         recursos: [
-            { tipo: 'Lectura', nombre: 'Material de estudio DuocUC', url: '#' },
             { tipo: 'Video', nombre: 'TED Talks sobre cultura', url: 'https://www.ted.com/topics/culture' },
             { tipo: 'Video', nombre: 'Crash Course Philosophy', url: 'https://www.youtube.com/playlist?list=PL8dPuuaLjXtNgK6MZucdYldNkMybYIHKR' },
-            { tipo: 'Artículo', nombre: 'Stanford Encyclopedia of Philosophy', url: 'https://plato.stanford.edu/' }
+            { tipo: 'Artículo', nombre: 'Stanford Encyclopedia of Philosophy', url: 'https://plato.stanford.edu/' },
+            { tipo: 'Video', nombre: 'School of Life - Philosophy', url: 'https://www.youtube.com/c/theschooloflifetv' },
+            { tipo: 'Documental', nombre: 'The Social Dilemma', url: 'https://www.thesocialdilemma.com/' },
+            { tipo: 'Libro', nombre: 'Homo Deus - Yuval Noah Harari', url: 'https://www.ynharari.com/book/homo-deus/' },
+            { tipo: 'Artículo', nombre: 'AI Ethics Guidelines - UNESCO', url: 'https://www.unesco.org/en/artificial-intelligence/recommendation-ethics' },
+            { tipo: 'Podcast', nombre: 'Philosophize This!', url: 'https://www.philosophizethis.org/' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-01%20-%20Antropologia%2C%20Fundamentos%20Prog.%2C%20Modelamiento%20BD/Antropologia' }
         ],
         color: 'rose',
         area: 'transversal'
@@ -422,11 +515,14 @@ export const asignaturas: Record<string, Asignatura> = {
             'Trabajar con colecciones genéricas en Java'
         ],
         competencias: [
-            'Diseño orientado a objetos',
-            'Programación en Java',
-            'Modelado con UML básico',
-            'Manejo de excepciones',
-            'Uso de colecciones genéricas'
+            'Análisis y diseño orientado a objetos',
+            'Programación en Java SE',
+            'Modelado con diagramas UML de clases',
+            'Implementación de los 4 pilares de POO',
+            'Diseño de jerarquías de herencia efectivas',
+            'Uso de interfaces para abstracción',
+            'Manejo robusto de excepciones',
+            'Trabajo con colecciones genéricas'
         ],
         experiencias: [
             {
@@ -435,17 +531,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 1-3',
                 descripcion: 'Introducción al paradigma OO y creación de clases básicas en Java.',
                 contenidos: [
-                    'Paradigma orientado a objetos vs estructurado',
-                    'Clases y objetos: definición y diferencias',
-                    'Atributos y métodos',
-                    'Constructores y sobrecarga',
-                    'Modificadores de acceso: public, private, protected',
-                    'Encapsulamiento: getters y setters'
+                    'Historia y evolución de la POO: Simula, Smalltalk, C++, Java',
+                    'Paradigma orientado a objetos vs estructurado: comparación',
+                    'Clases y objetos: definición, instanciación, ciclo de vida',
+                    'Atributos: tipos primitivos, referencias, inicialización',
+                    'Métodos: firma, parámetros, sobrecarga, return',
+                    'Constructores: default, parametrizados, this()',
+                    'Modificadores de acceso: public, private, protected, package-private',
+                    'Encapsulamiento: getters, setters, validaciones',
+                    'Palabra clave static: atributos y métodos de clase',
+                    'Palabra clave final: constantes y prevención de herencia'
                 ],
                 actividades: [
-                    'Creación de clases básicas con atributos y métodos',
-                    'Implementación de constructores y sobrecarga',
-                    'Práctica de encapsulamiento con validaciones'
+                    'Diseño de clase Persona con atributos y validaciones',
+                    'Implementación de clase Producto con múltiples constructores',
+                    'Clase CuentaBancaria con encapsulamiento y operaciones',
+                    'Ejercicio de sobrecarga de métodos en clase Calculadora',
+                    'Práctica de atributos y métodos estáticos',
+                    'Mini-proyecto: Sistema de registro de estudiantes'
                 ]
             },
             {
@@ -454,17 +557,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 4-5',
                 descripcion: 'Relaciones entre clases: herencia simple y composición de objetos.',
                 contenidos: [
-                    'Herencia: extends y super',
-                    'Sobrescritura de métodos (@Override)',
-                    'Clases abstractas y métodos abstractos',
-                    'Composición vs herencia',
-                    'Agregación y asociación',
-                    'Diagramas de clase UML básicos'
+                    'Herencia: concepto, beneficios y problemas',
+                    'Palabra clave extends y acceso a miembros heredados',
+                    'Constructor de superclase: super() y cadena de constructores',
+                    'Sobrescritura de métodos: @Override y reglas',
+                    'Clases abstractas: abstract class y métodos abstractos',
+                    'Composición: "tiene-un" vs herencia "es-un"',
+                    'Agregación vs composición: ciclo de vida de objetos',
+                    'Asociación: relaciones entre objetos independientes',
+                    'Diagramas de clase UML: notación y herramientas',
+                    'Principio de sustitución de Liskov (introducción)'
                 ],
                 actividades: [
-                    'Diseño de jerarquías de herencia',
-                    'Implementación de clases compuestas',
-                    'Modelado UML de sistema simple'
+                    'Jerarquía de clases: Empleado → Gerente, Desarrollador',
+                    'Sistema de figuras geométricas con clase abstracta',
+                    'Implementación de composición: Auto contiene Motor',
+                    'Modelado UML de sistema de biblioteca',
+                    'Refactorización de herencia a composición',
+                    'Mini-proyecto: Sistema de nómina con herencia'
                 ]
             },
             {
@@ -473,17 +583,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 6-8',
                 descripcion: 'Polimorfismo, interfaces y trabajo con colecciones genéricas.',
                 contenidos: [
-                    'Polimorfismo: tipos y aplicaciones',
-                    'Interfaces: definición e implementación',
-                    'Colecciones genéricas: List, ArrayList',
-                    'Manejo de excepciones: try-catch-finally',
-                    'Excepciones personalizadas',
-                    'Lectura y escritura de archivos'
+                    'Polimorfismo de subtipo: upcasting y binding dinámico',
+                    'Polimorfismo paramétrico: introducción a genéricos',
+                    'Interfaces: definición, implementación múltiple',
+                    'Interfaces funcionales y expresiones lambda (introducción)',
+                    'Colecciones: Collection, List, Set, Map',
+                    'ArrayList vs LinkedList: características y uso',
+                    'Iteración: for-each, Iterator, streams básicos',
+                    'Excepciones: jerarquía, checked vs unchecked',
+                    'Try-catch-finally y try-with-resources',
+                    'Excepciones personalizadas: cuándo y cómo crearlas'
                 ],
                 actividades: [
-                    'Implementación de interfaces funcionales',
-                    'Gestión de listas de objetos',
-                    'Proyecto integrador: Sistema de gestión con POO'
+                    'Sistema de pagos polimórfico: diferentes métodos de pago',
+                    'Implementación de interfaces Comparable y Comparator',
+                    'Gestión de colección de productos con ArrayList',
+                    'Sistema de archivos con manejo de excepciones',
+                    'Excepciones personalizadas para validación de negocio',
+                    'Proyecto integrador: Sistema de gestión de inventario'
                 ]
             }
         ],
@@ -493,7 +610,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Maven', icon: 'maven-plain', iconType: 'devicon' },
             { nombre: 'Git', icon: 'git-plain', iconType: 'devicon' },
             { nombre: 'GitHub', icon: 'github-original', iconType: 'devicon' },
-            { nombre: 'UML', icon: 'fa-sitemap', iconType: 'fontawesome' }
+            { nombre: 'JUnit', icon: 'junit-plain', iconType: 'devicon' },
+            { nombre: 'Draw.io', icon: 'fa-project-diagram', iconType: 'fontawesome' },
+            { nombre: 'PlantUML', icon: 'fa-sitemap', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Actividad Formativa 1', ponderacion: 0, descripcion: 'Creación de clases básicas' },
@@ -510,6 +629,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Práctica', nombre: 'Exercism Java Track', url: 'https://exercism.org/tracks/java' },
             { tipo: 'Curso', nombre: 'Java Programming - MOOC.fi', url: 'https://java-programming.mooc.fi/' },
             { tipo: 'Video', nombre: 'Java Full Course - Bro Code', url: 'https://www.youtube.com/watch?v=xk4_1vDrzzo' },
+            { tipo: 'Libro', nombre: 'Head First Java', url: 'https://www.oreilly.com/library/view/head-first-java/9781492091646/' },
+            { tipo: 'Práctica', nombre: 'CodingBat Java', url: 'https://codingbat.com/java' },
+            { tipo: 'Video', nombre: 'OOP in Java - freeCodeCamp', url: 'https://www.youtube.com/watch?v=Qmt0QwzEmh0' },
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-02%20-%20POO%20I%2C%20Cloud%2C%20Comunicacion/Programacion-OO-I' }
         ],
         color: 'orange',
@@ -537,11 +659,14 @@ export const asignaturas: Record<string, Asignatura> = {
             'Aplicar conceptos básicos de seguridad cloud'
         ],
         competencias: [
-            'Administración de servicios cloud',
-            'Despliegue de aplicaciones en AWS',
-            'Gestión de almacenamiento cloud',
-            'Configuración de redes virtuales',
-            'Seguridad básica en cloud'
+            'Comprensión de arquitecturas cloud y modelos de servicio',
+            'Administración de servicios de cómputo AWS EC2',
+            'Gestión de almacenamiento con Amazon S3',
+            'Configuración de redes virtuales con Amazon VPC',
+            'Despliegue de aplicaciones en la nube',
+            'Gestión de bases de datos con Amazon RDS',
+            'Implementación de seguridad básica con IAM',
+            'Monitoreo y optimización de costos cloud'
         ],
         experiencias: [
             {
@@ -550,17 +675,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 1-3',
                 descripcion: 'Introducción a los conceptos y modelos de computación en la nube.',
                 contenidos: [
-                    'Historia y evolución del cloud computing',
-                    'Modelos de servicio: IaaS, PaaS, SaaS',
-                    'Modelos de despliegue: público, privado, híbrido',
-                    'Principales proveedores: AWS, Azure, GCP',
-                    'Introducción a AWS y creación de cuenta',
-                    'Consola de administración AWS'
+                    'Historia del cloud computing: de mainframes a la nube',
+                    'Definición NIST de cloud computing',
+                    'Modelos de servicio: IaaS, PaaS, SaaS, FaaS',
+                    'Modelos de despliegue: público, privado, híbrido, multi-cloud',
+                    'Comparativa de proveedores: AWS, Azure, GCP',
+                    'Economía del cloud: CapEx vs OpEx',
+                    'Introducción a AWS: historia y servicios principales',
+                    'Regiones y zonas de disponibilidad',
+                    'Consola de administración AWS',
+                    'AWS CLI: instalación y configuración básica'
                 ],
                 actividades: [
-                    'Exploración de servicios cloud de diferentes proveedores',
-                    'Creación de cuenta AWS Academy',
-                    'Navegación por la consola AWS'
+                    'Comparación de precios entre proveedores cloud',
+                    'Creación de cuenta AWS Academy/Free Tier',
+                    'Exploración de la consola AWS',
+                    'Instalación y configuración de AWS CLI',
+                    'Ejercicio: Identificar servicios para casos de uso',
+                    'Quiz de conceptos fundamentales de cloud'
                 ]
             },
             {
@@ -569,17 +701,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 4-5',
                 descripcion: 'Servicios de cómputo EC2 y almacenamiento S3.',
                 contenidos: [
-                    'Amazon EC2: tipos de instancias',
-                    'Creación y configuración de instancias',
-                    'Grupos de seguridad y acceso SSH',
-                    'Amazon S3: buckets y objetos',
-                    'Políticas de acceso y permisos',
-                    'Ciclo de vida de objetos'
+                    'Amazon EC2: arquitectura y componentes',
+                    'Tipos de instancias: familias y casos de uso',
+                    'AMIs: Amazon Machine Images',
+                    'Creación y configuración de instancias EC2',
+                    'Grupos de seguridad: reglas inbound/outbound',
+                    'Key pairs y acceso SSH',
+                    'Amazon S3: buckets, objetos, versionamiento',
+                    'Clases de almacenamiento S3: Standard, IA, Glacier',
+                    'Políticas de bucket y ACLs',
+                    'Ciclo de vida de objetos y replicación'
                 ],
                 actividades: [
-                    'Lanzamiento de instancias EC2',
-                    'Configuración de servidor web en EC2',
-                    'Gestión de archivos en S3'
+                    'Lanzamiento de instancia EC2 Linux',
+                    'Conexión SSH y configuración básica',
+                    'Instalación de servidor web Apache/Nginx',
+                    'Creación de bucket S3 y carga de archivos',
+                    'Configuración de bucket público para web estática',
+                    'Mini-proyecto: Sitio web estático en S3'
                 ]
             },
             {
@@ -588,17 +727,24 @@ export const asignaturas: Record<string, Asignatura> = {
                 semanas: 'Semana 6-8',
                 descripcion: 'Servicios de red, bases de datos y despliegue de aplicaciones.',
                 contenidos: [
-                    'Amazon VPC: subredes y routing',
+                    'Amazon VPC: conceptos fundamentales',
+                    'Subredes públicas y privadas',
+                    'Internet Gateway y NAT Gateway',
+                    'Tablas de ruteo y Network ACLs',
                     'Amazon RDS: bases de datos administradas',
-                    'Elastic Beanstalk: despliegue simplificado',
-                    'IAM: gestión de identidades',
-                    'CloudWatch: monitoreo básico',
-                    'Buenas prácticas y costos'
+                    'Motores soportados: MySQL, PostgreSQL, etc.',
+                    'IAM: usuarios, grupos, roles, políticas',
+                    'Elastic Beanstalk: PaaS de AWS',
+                    'CloudWatch: métricas, logs, alarmas',
+                    'AWS Pricing Calculator y optimización de costos'
                 ],
                 actividades: [
-                    'Configuración de VPC básica',
-                    'Despliegue de aplicación web completa',
-                    'Proyecto: Aplicación cloud-native simple'
+                    'Diseño e implementación de VPC personalizada',
+                    'Creación de instancia RDS MySQL/PostgreSQL',
+                    'Conexión de EC2 a RDS en VPC privada',
+                    'Configuración de IAM para equipo de desarrollo',
+                    'Despliegue de aplicación con Elastic Beanstalk',
+                    'Proyecto final: Aplicación web completa en AWS'
                 ]
             }
         ],
@@ -608,7 +754,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'SSH', icon: 'ssh-original', iconType: 'devicon' },
             { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' },
             { nombre: 'Bash', icon: 'bash-plain', iconType: 'devicon' },
-            { nombre: 'Terraform', icon: 'terraform-plain', iconType: 'devicon' }
+            { nombre: 'Nginx', icon: 'nginx-original', iconType: 'devicon' },
+            { nombre: 'MySQL', icon: 'mysql-plain', iconType: 'devicon' },
+            { nombre: 'AWS CLI', icon: 'fa-terminal', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs AWS Academy', ponderacion: 0, descripcion: 'Laboratorios prácticos guiados' },
@@ -624,6 +772,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Tutorial', nombre: 'AWS Skill Builder', url: 'https://skillbuilder.aws/' },
             { tipo: 'Curso', nombre: 'AWS Cloud Practitioner - freeCodeCamp', url: 'https://www.youtube.com/watch?v=SOTamWNgDKc' },
             { tipo: 'Guía', nombre: 'AWS Well-Architected', url: 'https://aws.amazon.com/architecture/well-architected/' },
+            { tipo: 'Certificación', nombre: 'AWS Certified Cloud Practitioner', url: 'https://aws.amazon.com/certification/certified-cloud-practitioner/' },
+            { tipo: 'Práctica', nombre: 'AWS Workshops', url: 'https://workshops.aws/' },
+            { tipo: 'Herramienta', nombre: 'AWS Pricing Calculator', url: 'https://calculator.aws/' },
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-02%20-%20POO%20I%2C%20Cloud%2C%20Comunicacion/Computacion-Nube' }
         ],
         color: 'yellow',
@@ -650,65 +801,92 @@ export const asignaturas: Record<string, Asignatura> = {
             'Aplicar técnicas de presentación profesional'
         ],
         competencias: [
-            'Comprensión lectora avanzada',
-            'Redacción técnica y profesional',
-            'Comunicación oral efectiva',
-            'Argumentación lógica',
-            'Presentaciones profesionales'
+            'Comprensión lectora avanzada de textos técnicos',
+            'Redacción técnica y profesional de documentación',
+            'Comunicación oral efectiva en contextos profesionales',
+            'Argumentación lógica y estructurada',
+            'Diseño y ejecución de presentaciones profesionales',
+            'Síntesis y análisis crítico de información',
+            'Comunicación asertiva en equipos de trabajo',
+            'Adaptación del mensaje según audiencia y contexto'
         ],
         experiencias: [
             {
                 numero: 1,
                 titulo: 'Comprensión Lectora',
                 semanas: 'Semana 1-3',
-                descripcion: 'Técnicas de lectura comprensiva y análisis de textos.',
+                descripcion: 'Técnicas de lectura comprensiva, análisis crítico y síntesis de textos técnicos y profesionales.',
                 contenidos: [
-                    'Estrategias de lectura comprensiva',
-                    'Identificación de ideas principales y secundarias',
-                    'Análisis de textos técnicos',
-                    'Síntesis y resumen de información',
-                    'Lectura crítica y evaluativa'
+                    'Estrategias de lectura comprensiva y técnicas de skimming/scanning',
+                    'Identificación de ideas principales, secundarias y de apoyo',
+                    'Análisis de textos técnicos: documentación de software y manuales',
+                    'Síntesis y resumen de información técnica compleja',
+                    'Lectura crítica y evaluativa de fuentes digitales',
+                    'Comprensión de documentación técnica en inglés',
+                    'Identificación de sesgos y evaluación de credibilidad',
+                    'Mapas conceptuales y organizadores gráficos',
+                    'Técnicas de subrayado y anotación efectiva',
+                    'Vocabulario técnico y terminología del área TI'
                 ],
                 actividades: [
-                    'Análisis de artículos técnicos de TI',
-                    'Elaboración de resúmenes ejecutivos',
-                    'Ejercicios de comprensión lectora'
+                    'Análisis de artículos técnicos de TI y blogs especializados',
+                    'Elaboración de resúmenes ejecutivos de documentación',
+                    'Ejercicios de comprensión lectora con textos técnicos',
+                    'Creación de mapas conceptuales de contenido técnico',
+                    'Análisis comparativo de fuentes de información',
+                    'Presentación oral de síntesis de lecturas'
                 ]
             },
             {
                 numero: 2,
                 titulo: 'Producción Escrita',
                 semanas: 'Semana 4-5',
-                descripcion: 'Redacción de documentos profesionales y técnicos.',
+                descripcion: 'Redacción de documentos profesionales, técnicos y comunicación escrita en entornos laborales.',
                 contenidos: [
-                    'Estructura de documentos profesionales',
-                    'Coherencia y cohesión textual',
-                    'Redacción de informes técnicos',
-                    'Correos profesionales y minutas',
-                    'Citación y referencias'
+                    'Estructura de documentos profesionales y técnicos',
+                    'Coherencia y cohesión textual: conectores y marcadores',
+                    'Redacción de informes técnicos: estructura IMRyD',
+                    'Correos electrónicos profesionales y formales',
+                    'Minutas de reunión y actas de acuerdos',
+                    'Citación APA y referencias bibliográficas',
+                    'Documentación de software: README, CHANGELOG, wikis',
+                    'Escritura colaborativa y control de versiones en docs',
+                    'Redacción de propuestas de proyecto',
+                    'Revisión, edición y corrección de estilo'
                 ],
                 actividades: [
-                    'Redacción de informe técnico',
-                    'Elaboración de documentación de proyecto',
-                    'Práctica de comunicación escrita formal'
+                    'Redacción de informe técnico de proyecto de software',
+                    'Elaboración de documentación README profesional',
+                    'Práctica de redacción de correos formales (solicitudes, reportes)',
+                    'Creación de minutas de reuniones de equipo simuladas',
+                    'Revisión y edición entre pares con rúbrica',
+                    'Taller de citación y manejo de referencias APA'
                 ]
             },
             {
                 numero: 3,
                 titulo: 'Comunicación Oral y Presentaciones',
                 semanas: 'Semana 6-8',
-                descripcion: 'Técnicas de presentación y comunicación oral efectiva.',
+                descripcion: 'Técnicas de presentación profesional, comunicación oral efectiva y manejo de audiencias.',
                 contenidos: [
-                    'Técnicas de comunicación oral',
-                    'Estructura de presentaciones efectivas',
-                    'Uso de recursos visuales',
-                    'Manejo del nerviosismo',
-                    'Comunicación no verbal'
+                    'Técnicas de comunicación oral: claridad, dicción, volumen',
+                    'Estructura de presentaciones efectivas: inicio, desarrollo, cierre',
+                    'Diseño de recursos visuales: principios de diseño de slides',
+                    'Manejo del nerviosismo y técnicas de respiración',
+                    'Comunicación no verbal: postura, gestos, contacto visual',
+                    'Storytelling técnico: contar historias con datos',
+                    'Pitch de proyectos: elevator pitch y demo day',
+                    'Manejo de preguntas y objeciones de la audiencia',
+                    'Presentaciones en entornos virtuales (Zoom, Meet, Teams)',
+                    'Retroalimentación constructiva: dar y recibir feedback'
                 ],
                 actividades: [
-                    'Presentación de proyecto técnico',
-                    'Práctica de pitch de ideas',
-                    'Retroalimentación entre pares'
+                    'Presentación de proyecto técnico ante panel evaluador',
+                    'Práctica de pitch de ideas de 3 minutos (elevator pitch)',
+                    'Sesiones de retroalimentación entre pares grabadas',
+                    'Simulación de demo day de startup tecnológica',
+                    'Presentación virtual con compartición de pantalla',
+                    'Taller de manejo de preguntas difíciles'
                 ]
             }
         ],
@@ -717,7 +895,10 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Google Docs', icon: 'google-plain', iconType: 'devicon' },
             { nombre: 'Canva', icon: 'canva-original', iconType: 'devicon' },
             { nombre: 'Notion', icon: 'notion-plain', iconType: 'devicon' },
-            { nombre: 'Slack', icon: 'slack-plain', iconType: 'devicon' }
+            { nombre: 'Slack', icon: 'slack-plain', iconType: 'devicon' },
+            { nombre: 'Grammarly', icon: 'fa-spell-check', iconType: 'fontawesome' },
+            { nombre: 'Google Slides', icon: 'google-plain', iconType: 'devicon' },
+            { nombre: 'Zoom', icon: 'fa-video', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Ejercicios de comprensión', ponderacion: 0, descripcion: 'Análisis de textos técnicos' },
@@ -729,9 +910,13 @@ export const asignaturas: Record<string, Asignatura> = {
         conexiones: ['Antropología', 'Ética', 'Gestión de Proyectos'],
         recursos: [
             { tipo: 'Guía', nombre: 'Material de estudio DuocUC', url: '#' },
-            { tipo: 'Herramienta', nombre: 'Grammarly', url: 'https://www.grammarly.com/' },
-            { tipo: 'Tutorial', nombre: 'Technical Writing - Google', url: 'https://developers.google.com/tech-writing' },
+            { tipo: 'Herramienta', nombre: 'Grammarly - Corrector de gramática', url: 'https://www.grammarly.com/' },
+            { tipo: 'Tutorial', nombre: 'Technical Writing - Google Developers', url: 'https://developers.google.com/tech-writing' },
             { tipo: 'Curso', nombre: 'Writing in the Sciences - Stanford', url: 'https://www.coursera.org/learn/sciwrite' },
+            { tipo: 'Video', nombre: 'TED Talks - Communication Skills', url: 'https://www.ted.com/topics/communication' },
+            { tipo: 'Herramienta', nombre: 'Hemingway Editor - Claridad de escritura', url: 'https://hemingwayapp.com/' },
+            { tipo: 'Guía', nombre: 'Purdue OWL - Writing Lab', url: 'https://owl.purdue.edu/owl/general_writing/' },
+            { tipo: 'Curso', nombre: 'Public Speaking - Coursera', url: 'https://www.coursera.org/specializations/public-speaking' },
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-02%20-%20POO%20I%2C%20Cloud%2C%20Comunicacion/Comunicacion' }
         ],
         color: 'pink',
@@ -763,68 +948,92 @@ export const asignaturas: Record<string, Asignatura> = {
             'Aplicar buenas prácticas de código limpio'
         ],
         competencias: [
-            'Principios SOLID',
-            'Patrones de diseño GoF',
-            'Persistencia con JDBC',
-            'Interfaces gráficas JavaFX',
-            'Testing unitario con JUnit'
+            'Aplicación rigurosa de principios SOLID en diseño de software',
+            'Implementación de patrones de diseño GoF (creacionales, estructurales, comportamiento)',
+            'Diseño e implementación de capa de persistencia con JDBC',
+            'Desarrollo de interfaces gráficas profesionales con JavaFX',
+            'Testing unitario sistemático con JUnit 5 y Mockito',
+            'Gestión de dependencias y ciclo de vida con Maven',
+            'Refactorización de código legacy aplicando clean code',
+            'Diseño de arquitecturas MVC para aplicaciones de escritorio'
         ],
         experiencias: [
             {
                 numero: 1,
                 titulo: 'Principios SOLID y Patrones Creacionales',
                 semanas: 'Semana 1-3',
-                descripcion: 'Fundamentos de diseño de software y patrones creacionales.',
+                descripcion: 'Fundamentos de diseño de software orientado a objetos, principios SOLID y patrones creacionales GoF.',
                 contenidos: [
-                    'Principio de Responsabilidad Única (SRP)',
-                    'Principio Abierto/Cerrado (OCP)',
-                    'Principio de Sustitución de Liskov (LSP)',
-                    'Principio de Segregación de Interfaces (ISP)',
-                    'Principio de Inversión de Dependencias (DIP)',
-                    'Patrones: Singleton, Factory Method, Abstract Factory'
+                    'Principio de Responsabilidad Única (SRP): cohesión y separación de concerns',
+                    'Principio Abierto/Cerrado (OCP): extensión vs modificación',
+                    'Principio de Sustitución de Liskov (LSP): contratos y subtipos',
+                    'Principio de Segregación de Interfaces (ISP): interfaces cohesivas',
+                    'Principio de Inversión de Dependencias (DIP): abstracciones vs implementaciones',
+                    'Patrón Singleton: instancia única, thread-safety, lazy initialization',
+                    'Patrón Factory Method: creación polimórfica de objetos',
+                    'Patrón Abstract Factory: familias de objetos relacionados',
+                    'Patrón Builder: construcción paso a paso de objetos complejos',
+                    'Code smells y técnicas de refactorización'
                 ],
                 actividades: [
-                    'Refactorización de código aplicando SOLID',
-                    'Implementación de patrones creacionales',
-                    'Code review con criterios SOLID'
+                    'Análisis de código legacy identificando violaciones SOLID',
+                    'Refactorización de clase monolítica aplicando SRP y DIP',
+                    'Implementación de Factory Method para crear diferentes tipos de reportes',
+                    'Implementación de Singleton thread-safe para configuración de app',
+                    'Code review grupal con rúbrica de criterios SOLID',
+                    'Kata de refactorización: transformar código proceduralOOP'
                 ]
             },
             {
                 numero: 2,
                 titulo: 'JDBC y Patrones de Acceso a Datos',
                 semanas: 'Semana 4-5',
-                descripcion: 'Conexión a bases de datos y patrones estructurales.',
+                descripcion: 'Conexión a bases de datos relacionales con JDBC, patrones de persistencia y manejo de transacciones.',
                 contenidos: [
-                    'JDBC: Connection, Statement, ResultSet',
-                    'PreparedStatement y prevención de SQL Injection',
-                    'Patrón DAO (Data Access Object)',
-                    'Patrón Repository',
-                    'Connection Pooling con HikariCP',
-                    'Transacciones y manejo de errores'
+                    'JDBC API: DriverManager, Connection, Statement, ResultSet',
+                    'PreparedStatement: parámetros seguros y prevención de SQL Injection',
+                    'Manejo de excepciones SQLException y try-with-resources',
+                    'Patrón DAO (Data Access Object): abstracción de persistencia',
+                    'Patrón Repository: colección de objetos de dominio',
+                    'Connection Pooling con HikariCP: configuración y tuning',
+                    'Transacciones: ACID, commit, rollback, savepoints',
+                    'Batch processing para operaciones masivas',
+                    'Mapeo objeto-relacional manual vs frameworks',
+                    'Logging de queries con SLF4J para debugging'
                 ],
                 actividades: [
-                    'CRUD completo con JDBC y DAO',
-                    'Implementación de pool de conexiones',
-                    'Testing de capa de persistencia'
+                    'Implementación de CRUD completo con patrón DAO',
+                    'Configuración de HikariCP connection pool en proyecto Maven',
+                    'Testing de capa de persistencia con H2 database en memoria',
+                    'Implementación de transacciones con rollback en caso de error',
+                    'Comparación de rendimiento: Statement vs PreparedStatement',
+                    'Refactorización de DAO a Repository con abstracciones genéricas'
                 ]
             },
             {
                 numero: 3,
                 titulo: 'JavaFX y Arquitectura MVC',
                 semanas: 'Semana 6-8',
-                descripcion: 'Desarrollo de interfaces gráficas con patrón MVC.',
+                descripcion: 'Desarrollo de interfaces gráficas profesionales con JavaFX, Scene Builder y patrón MVC.',
                 contenidos: [
-                    'JavaFX: Scene, Stage, controles básicos',
-                    'FXML y Scene Builder',
-                    'Patrón MVC en aplicaciones desktop',
-                    'Data binding y eventos',
-                    'Patrón Observer para actualización de UI',
-                    'Empaquetado de aplicaciones'
+                    'JavaFX: Scene, Stage, Scene Graph y ciclo de vida',
+                    'Controles básicos: Button, TextField, TableView, ListView',
+                    'FXML: separación de vista y Scene Builder visual',
+                    'Patrón MVC en aplicaciones desktop: responsabilidades de cada capa',
+                    'Data binding bidireccional: Properties y Bindings API',
+                    'Event handling: ActionEvent, MouseEvent, KeyEvent',
+                    'Patrón Observer para actualización automática de UI',
+                    'CSS en JavaFX: estilos personalizados y temas',
+                    'Diálogos: Alert, TextInputDialog, FileChooser',
+                    'Empaquetado de aplicaciones: JAR ejecutable y jpackage'
                 ],
                 actividades: [
-                    'Diseño de interfaces con Scene Builder',
-                    'Proyecto: Aplicación CRUD con JavaFX + JDBC',
-                    'Testing con JUnit 5'
+                    'Diseño de interfaz completa con Scene Builder y FXML',
+                    'Implementación de TableView con datos desde base de datos',
+                    'Binding de formulario de edición con modelo de datos',
+                    'Proyecto integrador: Aplicación CRUD completa JavaFX + JDBC',
+                    'Testing de controllers con JUnit 5 y TestFX',
+                    'Aplicación de CSS personalizado para look & feel profesional'
                 ]
             }
         ],
@@ -834,7 +1043,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Maven', icon: 'maven-plain', iconType: 'devicon' },
             { nombre: 'PostgreSQL', icon: 'postgresql-plain', iconType: 'devicon' },
             { nombre: 'JUnit', icon: 'junit-plain', iconType: 'devicon' },
-            { nombre: 'Scene Builder', icon: 'fa-paint-brush', iconType: 'fontawesome' }
+            { nombre: 'Scene Builder', icon: 'fa-paint-brush', iconType: 'fontawesome' },
+            { nombre: 'IntelliJ IDEA', icon: 'intellij-plain', iconType: 'devicon' },
+            { nombre: 'Git', icon: 'git-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs de patrones', ponderacion: 0, descripcion: 'Práctica de patrones de diseño' },
@@ -846,10 +1057,14 @@ export const asignaturas: Record<string, Asignatura> = {
         conexiones: ['Backend I', 'Frontend I', 'Arquitectura Software'],
         recursos: [
             { tipo: 'Documentación', nombre: 'JavaFX Documentation', url: 'https://openjfx.io/' },
-            { tipo: 'Tutorial', nombre: 'Refactoring Guru - Patrones', url: 'https://refactoring.guru/es/design-patterns' },
-            { tipo: 'Práctica', nombre: 'JDBC Tutorial', url: 'https://www.baeldung.com/java-jdbc' },
-            { tipo: 'Video', nombre: 'Design Patterns in Java', url: 'https://www.youtube.com/watch?v=NU_1StN5Tkk' },
-            { tipo: 'Libro', nombre: 'Clean Code - Robert Martin', url: 'https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882' }
+            { tipo: 'Tutorial', nombre: 'Refactoring Guru - Patrones de Diseño', url: 'https://refactoring.guru/es/design-patterns' },
+            { tipo: 'Práctica', nombre: 'Baeldung - JDBC Tutorial', url: 'https://www.baeldung.com/java-jdbc' },
+            { tipo: 'Video', nombre: 'Design Patterns in Java - Derek Banas', url: 'https://www.youtube.com/watch?v=NU_1StN5Tkk' },
+            { tipo: 'Libro', nombre: 'Clean Code - Robert C. Martin', url: 'https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882' },
+            { tipo: 'Libro', nombre: 'Head First Design Patterns', url: 'https://www.amazon.com/Head-First-Design-Patterns-Brain-Friendly/dp/0596007124' },
+            { tipo: 'Tutorial', nombre: 'JUnit 5 User Guide', url: 'https://junit.org/junit5/docs/current/user-guide/' },
+            { tipo: 'Práctica', nombre: 'Exercism - Java Track', url: 'https://exercism.org/tracks/java' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-03%20-%20POO%20II%2C%20DevOps%2C%20Etica/Desarrollo%20Orientado%20a%20Objetos%20II' }
         ],
         color: 'orange',
         area: 'programacion'
@@ -876,68 +1091,92 @@ export const asignaturas: Record<string, Asignatura> = {
             'Implementar monitoreo básico de aplicaciones'
         ],
         competencias: [
-            'Cultura DevOps',
-            'Containerización con Docker',
-            'CI/CD con GitHub Actions',
-            'Infrastructure as Code',
-            'Monitoreo y logging'
+            'Adopción de cultura y principios DevOps (CALMS)',
+            'Containerización de aplicaciones con Docker y Docker Compose',
+            'Diseño e implementación de pipelines CI/CD con GitHub Actions',
+            'Gestión de Infrastructure as Code con herramientas modernas',
+            'Implementación de monitoreo, logging y observabilidad',
+            'Automatización de tareas con scripts Bash y workflows',
+            'Gestión de configuraciones y secretos de forma segura',
+            'Estrategias de deployment y rollback en producción'
         ],
         experiencias: [
             {
                 numero: 1,
                 titulo: 'Fundamentos DevOps y Control de Versiones',
                 semanas: 'Semana 1-3',
-                descripcion: 'Cultura DevOps, Git avanzado y automatización básica.',
+                descripcion: 'Cultura y principios DevOps, Git avanzado, estrategias de branching y automatización inicial.',
                 contenidos: [
-                    'Principios DevOps: CALMS',
-                    'Git Flow y estrategias de branching',
-                    'Pull Requests y Code Review',
-                    'Semantic Versioning',
-                    'Introducción a GitHub Actions',
-                    'Automatización de tareas con scripts'
+                    'Principios DevOps: Culture, Automation, Lean, Measurement, Sharing (CALMS)',
+                    'Three Ways: Flow, Feedback, Continuous Learning',
+                    'Git Flow: feature branches, release branches, hotfixes',
+                    'Trunk-based development y GitHub Flow',
+                    'Pull Requests: templates, reviews, protección de ramas',
+                    'Semantic Versioning (SemVer): MAJOR.MINOR.PATCH',
+                    'Conventional Commits: feat, fix, docs, chore',
+                    'Introducción a GitHub Actions: events, jobs, steps',
+                    'Automatización básica con scripts Bash/PowerShell',
+                    'Pre-commit hooks con Husky para validaciones locales'
                 ],
                 actividades: [
-                    'Configuración de flujo Git en equipo',
-                    'Primer workflow de GitHub Actions',
-                    'Automatización de validaciones de código'
+                    'Configuración de flujo Git Flow en repositorio de equipo',
+                    'Implementación de branch protection rules en GitHub',
+                    'Creación de primer workflow de GitHub Actions (CI básico)',
+                    'Configuración de pre-commit hooks con linting y formatting',
+                    'Práctica de code review con checklist de calidad',
+                    'Automatización de changelog con Conventional Commits'
                 ]
             },
             {
                 numero: 2,
                 titulo: 'Docker y Containerización',
                 semanas: 'Semana 4-5',
-                descripcion: 'Containerización de aplicaciones con Docker.',
+                descripcion: 'Containerización de aplicaciones con Docker, Docker Compose y mejores prácticas de imágenes.',
                 contenidos: [
-                    'Contenedores vs máquinas virtuales',
-                    'Docker: imágenes, contenedores, volúmenes',
-                    'Dockerfile: multi-stage builds',
-                    'Docker Compose para multi-contenedor',
-                    'Docker Hub y registros privados',
-                    'Best practices para imágenes'
+                    'Contenedores vs máquinas virtuales: arquitectura y beneficios',
+                    'Docker architecture: daemon, client, registry',
+                    'Docker images: layers, caching, tagging strategies',
+                    'Docker containers: lifecycle, networking, volumes',
+                    'Dockerfile: instructions, multi-stage builds, .dockerignore',
+                    'Docker Compose: services, networks, volumes, depends_on',
+                    'Docker Hub: public/private repos, automated builds',
+                    'Container security: non-root users, image scanning',
+                    'Best practices: slim images, layer optimization, BuildKit',
+                    'Docker networking: bridge, host, overlay'
                 ],
                 actividades: [
-                    'Containerización de aplicación Java/Python',
-                    'Orquestación con Docker Compose',
-                    'Push de imágenes a Docker Hub'
+                    'Containerización de aplicación Java con multi-stage build',
+                    'Containerización de aplicación Python con requirements.txt',
+                    'Orquestación multi-servicio con Docker Compose (app + db)',
+                    'Push de imágenes a Docker Hub con tags versionados',
+                    'Análisis de seguridad de imagen con docker scan',
+                    'Optimización de Dockerfile para reducir tamaño de imagen'
                 ]
             },
             {
                 numero: 3,
                 titulo: 'CI/CD y Deployment',
                 semanas: 'Semana 6-8',
-                descripcion: 'Pipelines completos de integración y despliegue continuo.',
+                descripcion: 'Pipelines completos de CI/CD, deployment automatizado y monitoreo básico de aplicaciones.',
                 contenidos: [
-                    'Pipeline CI: build, test, lint, security scan',
-                    'Pipeline CD: staging, production',
-                    'Secrets y variables de entorno',
-                    'Deploy a servicios cloud (Render, Railway)',
-                    'Monitoreo con logs y métricas básicas',
-                    'Rollback y estrategias de deployment'
+                    'Pipeline CI: checkout, build, test, lint, security scan',
+                    'Pipeline CD: environments, staging, production',
+                    'GitHub Actions: secrets, variables, contexts',
+                    'Matrix builds para múltiples versiones/plataformas',
+                    'Caching de dependencias para acelerar builds',
+                    'Deploy a PaaS: Render, Railway, Vercel, Heroku',
+                    'Blue-green deployment y canary releases',
+                    'Rollback strategies y feature flags',
+                    'Monitoreo básico: health checks, logging estructurado',
+                    'Notificaciones: Slack, email, GitHub status checks'
                 ],
                 actividades: [
-                    'Pipeline CI/CD completo',
-                    'Deploy automatizado a la nube',
-                    'Proyecto: Aplicación con DevOps completo'
+                    'Pipeline CI/CD completo con testing y linting',
+                    'Configuración de environments staging y production',
+                    'Deploy automatizado a Render/Railway con Docker',
+                    'Implementación de health check endpoint',
+                    'Configuración de notificaciones en Slack/Discord',
+                    'Proyecto integrador: App full-stack con DevOps completo'
                 ]
             }
         ],
@@ -947,7 +1186,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Linux', icon: 'linux-plain', iconType: 'devicon' },
             { nombre: 'Bash', icon: 'bash-plain', iconType: 'devicon' },
             { nombre: 'YAML', icon: 'fa-file-code', iconType: 'fontawesome' },
-            { nombre: 'Git', icon: 'git-plain', iconType: 'devicon' }
+            { nombre: 'Git', icon: 'git-plain', iconType: 'devicon' },
+            { nombre: 'VS Code', icon: 'vscode-plain', iconType: 'devicon' },
+            { nombre: 'Render', icon: 'fa-cloud', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs Docker', ponderacion: 0, descripcion: 'Prácticas de containerización' },
@@ -958,11 +1199,15 @@ export const asignaturas: Record<string, Asignatura> = {
         prerrequisitos: ['Computación en la Nube'],
         conexiones: ['Cloud Native', 'Backend I', 'Arquitectura Software'],
         recursos: [
-            { tipo: 'Documentación', nombre: 'Docker Docs', url: 'https://docs.docker.com/' },
-            { tipo: 'Tutorial', nombre: 'GitHub Actions Docs', url: 'https://docs.github.com/en/actions' },
-            { tipo: 'Curso', nombre: 'DevOps Roadmap', url: 'https://roadmap.sh/devops' },
+            { tipo: 'Documentación', nombre: 'Docker Documentation', url: 'https://docs.docker.com/' },
+            { tipo: 'Tutorial', nombre: 'GitHub Actions Documentation', url: 'https://docs.github.com/en/actions' },
+            { tipo: 'Roadmap', nombre: 'DevOps Roadmap 2025', url: 'https://roadmap.sh/devops' },
             { tipo: 'Video', nombre: 'Docker Tutorial - TechWorld with Nana', url: 'https://www.youtube.com/watch?v=3c-iBn73dDE' },
-            { tipo: 'Práctica', nombre: 'Play with Docker', url: 'https://labs.play-with-docker.com/' }
+            { tipo: 'Práctica', nombre: 'Play with Docker Labs', url: 'https://labs.play-with-docker.com/' },
+            { tipo: 'Curso', nombre: 'Docker & Kubernetes - Udemy', url: 'https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/' },
+            { tipo: 'Libro', nombre: 'The DevOps Handbook', url: 'https://www.amazon.com/DevOps-Handbook-World-Class-Reliability-Organizations/dp/1950508404' },
+            { tipo: 'Tutorial', nombre: 'Learn GitHub Actions', url: 'https://learn.microsoft.com/en-us/training/paths/automate-workflow-github-actions/' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-03%20-%20POO%20II%2C%20DevOps%2C%20Etica/DevOps' }
         ],
         color: 'blue',
         area: 'cloud'
@@ -988,74 +1233,104 @@ export const asignaturas: Record<string, Asignatura> = {
             'Aplicar códigos de ética profesional en TI'
         ],
         competencias: [
-            'Razonamiento ético',
-            'Responsabilidad profesional',
-            'Pensamiento crítico',
-            'Conciencia social',
-            'Integridad profesional'
+            'Razonamiento ético basado en teorías filosóficas',
+            'Responsabilidad profesional en el desarrollo de software',
+            'Pensamiento crítico ante dilemas tecnológicos',
+            'Conciencia social sobre el impacto de la tecnología',
+            'Integridad profesional y códigos de conducta',
+            'Análisis de sesgos algorítmicos y fairness en IA',
+            'Evaluación ética de privacidad y protección de datos',
+            'Compromiso con tecnología sostenible y responsable'
         ],
         experiencias: [
             {
                 numero: 1,
                 titulo: 'Fundamentos de Ética',
                 semanas: 'Semana 1-3',
-                descripcion: 'Bases filosóficas y teorías éticas aplicadas.',
+                descripcion: 'Bases filosóficas, teorías éticas y su aplicación al ámbito profesional tecnológico.',
                 contenidos: [
-                    'Ética, moral y valores',
-                    'Teorías éticas: deontología, utilitarismo, virtudes',
-                    'Relativismo vs universalismo ético',
-                    'Códigos de ética profesional (ACM, IEEE)',
-                    'Responsabilidad del profesional TI'
+                    'Ética, moral y valores: definiciones y diferencias',
+                    'Teoría deontológica de Kant: deber y universalidad',
+                    'Utilitarismo de Bentham y Mill: consecuencias y bienestar',
+                    'Ética de las virtudes de Aristóteles: carácter y excelencia',
+                    'Relativismo vs universalismo ético: debate contemporáneo',
+                    'Códigos de ética profesional: ACM Code of Ethics',
+                    'Código de ética IEEE y responsabilidad del ingeniero',
+                    'Responsabilidad del profesional TI ante la sociedad',
+                    'Conflictos de interés en el desarrollo de software',
+                    'Casos históricos de fallos éticos en tecnología'
                 ],
                 actividades: [
-                    'Análisis de códigos de ética profesional',
-                    'Debate sobre teorías éticas',
-                    'Reflexión sobre valores profesionales'
+                    'Análisis comparativo de códigos ACM vs IEEE',
+                    'Debate estructurado sobre teorías éticas aplicadas',
+                    'Reflexión escrita sobre valores profesionales personales',
+                    'Estudio de caso: Volkswagen Dieselgate y ética ingenieril',
+                    'Elaboración de código de ética personal del programador',
+                    'Discusión grupal sobre responsabilidad profesional'
                 ]
             },
             {
                 numero: 2,
                 titulo: 'Ética en Tecnología',
                 semanas: 'Semana 4-5',
-                descripcion: 'Dilemas éticos específicos del sector tecnológico.',
+                descripcion: 'Dilemas éticos específicos del sector tecnológico: privacidad, IA, propiedad intelectual.',
                 contenidos: [
-                    'Privacidad y protección de datos (GDPR, LGPD)',
-                    'Sesgos en algoritmos e IA',
-                    'Propiedad intelectual y software libre',
-                    'Ciberseguridad y hacking ético',
-                    'Impacto ambiental de la tecnología'
+                    'Privacidad y protección de datos: GDPR, LGPD, Ley 19.628 Chile',
+                    'Sesgos algorítmicos: racial, género, socioeconómico',
+                    'Fairness en Machine Learning: métricas y trade-offs',
+                    'Propiedad intelectual: copyright, patentes de software',
+                    'Software libre vs propietario: filosofía y licencias (GPL, MIT)',
+                    'Ciberseguridad y hacking ético: límites y responsabilidades',
+                    'Dark patterns en UX: manipulación del usuario',
+                    'Impacto ambiental de data centers y Green IT',
+                    'Adicción tecnológica y diseño persuasivo',
+                    'Fake news, desinformación y responsabilidad de plataformas'
                 ],
                 actividades: [
-                    'Análisis de casos de violación de privacidad',
-                    'Debate sobre sesgos algorítmicos',
-                    'Investigación sobre green IT'
+                    'Análisis de casos de violación de privacidad (Cambridge Analytica)',
+                    'Debate sobre sesgos algorítmicos en sistemas de contratación',
+                    'Investigación sobre iniciativas de Green IT en la industria',
+                    'Evaluación de dark patterns en apps populares',
+                    'Comparación de licencias de software libre',
+                    'Análisis del impacto social de redes sociales'
                 ]
             },
             {
                 numero: 3,
                 titulo: 'Ética Aplicada y Proyecto',
                 semanas: 'Semana 6-8',
-                descripcion: 'Aplicación práctica de principios éticos en proyectos.',
+                descripcion: 'Aplicación práctica de principios éticos en proyectos tecnológicos y tech for good.',
                 contenidos: [
-                    'Toma de decisiones éticas en proyectos',
-                    'Whistleblowing y conflictos de interés',
-                    'Responsabilidad social empresarial en tech',
-                    'Futuro del trabajo y automatización',
-                    'Tecnología para el bien social'
+                    'Framework para toma de decisiones éticas en proyectos',
+                    'Whistleblowing: protección y dilemas del denunciante',
+                    'Conflictos de interés: identificación y gestión',
+                    'Responsabilidad social empresarial (RSE) en tech',
+                    'Futuro del trabajo: automatización y desplazamiento laboral',
+                    'Tecnología para el bien social: ejemplos y oportunidades',
+                    'Diseño inclusivo y accesibilidad web (WCAG)',
+                    'IA responsable: principios y governance',
+                    'Sostenibilidad digital y economía circular',
+                    'El rol del desarrollador como agente de cambio social'
                 ],
                 actividades: [
-                    'Análisis de dilemas éticos reales',
-                    'Proyecto: Propuesta de tech for good',
-                    'Presentación de caso ético'
+                    'Análisis de dilemas éticos reales en empresas tech',
+                    'Proyecto grupal: Propuesta de tech for good para Chile',
+                    'Presentación y defensa de caso ético ante panel',
+                    'Evaluación de accesibilidad de sitio web existente',
+                    'Elaboración de framework de decisión ética para equipo',
+                    'Simulación de comité de ética empresarial'
                 ]
             }
         ],
         tecnologias: [
-            { nombre: 'Investigación', icon: 'fa-search', iconType: 'fontawesome' },
-            { nombre: 'Presentaciones', icon: 'fa-file-powerpoint', iconType: 'fontawesome' },
-            { nombre: 'Colaboración', icon: 'fa-users', iconType: 'fontawesome' },
             { nombre: 'Google Docs', icon: 'google-plain', iconType: 'devicon' },
-            { nombre: 'Miro', icon: 'fa-object-group', iconType: 'fontawesome' }
+            { nombre: 'Presentaciones', icon: 'fa-file-powerpoint', iconType: 'fontawesome' },
+            { nombre: 'Miro', icon: 'fa-object-group', iconType: 'fontawesome' },
+            { nombre: 'Notion', icon: 'notion-plain', iconType: 'devicon' },
+            { nombre: 'Canva', icon: 'canva-original', iconType: 'devicon' },
+            { nombre: 'Zoom', icon: 'fa-video', iconType: 'fontawesome' },
+            { nombre: 'Mentimeter', icon: 'fa-chart-bar', iconType: 'fontawesome' },
+            { nombre: 'Padlet', icon: 'fa-sticky-note', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Participación en debates', ponderacion: 0, descripcion: 'Aportes en discusiones éticas' },
@@ -1066,11 +1341,15 @@ export const asignaturas: Record<string, Asignatura> = {
         prerrequisitos: ['Antropología'],
         conexiones: ['Ética Profesional', 'Seguridad Informática'],
         recursos: [
-            { tipo: 'Lectura', nombre: 'ACM Code of Ethics', url: 'https://www.acm.org/code-of-ethics' },
-            { tipo: 'Curso', nombre: 'Ethics in AI - Google', url: 'https://ai.google/responsibility/responsible-ai-practices/' },
-            { tipo: 'Artículo', nombre: 'IEEE Code of Ethics', url: 'https://www.ieee.org/about/corporate/governance/p7-8.html' },
+            { tipo: 'Código', nombre: 'ACM Code of Ethics', url: 'https://www.acm.org/code-of-ethics' },
+            { tipo: 'Código', nombre: 'IEEE Code of Ethics', url: 'https://www.ieee.org/about/corporate/governance/p7-8.html' },
+            { tipo: 'Curso', nombre: 'Responsible AI Practices - Google', url: 'https://ai.google/responsibility/responsible-ai-practices/' },
+            { tipo: 'Curso', nombre: 'Responsible AI - Microsoft', url: 'https://www.microsoft.com/en-us/ai/responsible-ai' },
             { tipo: 'Video', nombre: 'The Social Dilemma (Netflix)', url: 'https://www.thesocialdilemma.com/' },
-            { tipo: 'Curso', nombre: 'AI Ethics - Microsoft', url: 'https://www.microsoft.com/en-us/ai/responsible-ai' }
+            { tipo: 'Video', nombre: 'TED: The Era of Blind Faith in Big Data - Cathy O\'Neil', url: 'https://www.ted.com/talks/cathy_o_neil_the_era_of_blind_faith_in_big_data_must_end' },
+            { tipo: 'Libro', nombre: 'Weapons of Math Destruction - Cathy O\'Neil', url: 'https://www.amazon.com/Weapons-Math-Destruction-Increases-Inequality/dp/0553418815' },
+            { tipo: 'Artículo', nombre: 'AI Ethics Guidelines - EU', url: 'https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-03%20-%20POO%20II%2C%20DevOps%2C%20Etica/Etica' }
         ],
         color: 'rose',
         area: 'transversal'
@@ -1101,77 +1380,104 @@ export const asignaturas: Record<string, Asignatura> = {
             'Utilizar funciones de ventana (Window Functions)'
         ],
         competencias: [
-            'SQL DQL avanzado',
-            'JOINs y relaciones',
-            'Funciones de agregación',
-            'Subconsultas y CTEs',
-            'Optimización de queries'
+            'Dominio de sintaxis SQL DQL estándar (SELECT, JOINs, aggregations)',
+            'Diseño y ejecución de JOINs complejos entre múltiples tablas',
+            'Aplicación de funciones de agregación para análisis de datos',
+            'Implementación de subconsultas escalares, correlacionadas y CTEs',
+            'Optimización de consultas mediante análisis de plan de ejecución',
+            'Uso de Window Functions para cálculos analíticos avanzados',
+            'Extracción de insights de negocio mediante SQL analítico',
+            'Resolución de problemas de datos complejos con SQL'
         ],
         experiencias: [
             {
                 numero: 1,
                 titulo: 'Fundamentos SQL y Consultas Básicas',
                 semanas: 'Semana 1-3',
-                descripcion: 'Sintaxis SQL básica y consultas sobre tablas individuales.',
+                descripcion: 'Sintaxis SQL básica, filtrado, ordenamiento y funciones integradas sobre tablas individuales.',
                 contenidos: [
-                    'SELECT, FROM, WHERE, DISTINCT',
-                    'Operadores de comparación y lógicos',
-                    'ORDER BY, LIMIT, OFFSET',
-                    'Funciones de texto: UPPER, LOWER, CONCAT',
-                    'Funciones de fecha: DATE, EXTRACT',
-                    'NULL y operador COALESCE'
+                    'SELECT, FROM, WHERE, DISTINCT: anatomía de una consulta',
+                    'Operadores de comparación: =, <>, <, >, <=, >=, BETWEEN, LIKE',
+                    'Operadores lógicos: AND, OR, NOT y precedencia',
+                    'ORDER BY ASC/DESC, LIMIT, OFFSET para paginación',
+                    'Funciones de texto: UPPER, LOWER, CONCAT, SUBSTRING, TRIM',
+                    'Funciones de fecha: CURRENT_DATE, EXTRACT, DATE_PART, AGE',
+                    'NULL handling: IS NULL, IS NOT NULL, COALESCE, NULLIF',
+                    'CASE WHEN para lógica condicional en SELECT',
+                    'Alias de columnas y tablas para legibilidad',
+                    'Comentarios y formato de código SQL'
                 ],
                 actividades: [
-                    'Consultas sobre base de datos de ejemplo',
-                    'Filtrado y ordenamiento de datos',
-                    'Ejercicios de funciones integradas'
+                    'Consultas sobre base de datos Northwind/Sakila',
+                    'Filtrado avanzado con operadores combinados',
+                    'Ejercicios de funciones de texto para limpieza de datos',
+                    'Consultas con funciones de fecha para análisis temporal',
+                    'Transformación de datos con CASE WHEN',
+                    'Práctica en SQLZoo y HackerRank SQL'
                 ]
             },
             {
                 numero: 2,
                 titulo: 'JOINs y Agregaciones',
                 semanas: 'Semana 4-5',
-                descripcion: 'Consultas multi-tabla y funciones de agregación.',
+                descripcion: 'Consultas multi-tabla con diferentes tipos de JOIN y funciones de agregación para análisis.',
                 contenidos: [
-                    'INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL JOIN',
-                    'Self-joins y cross joins',
-                    'COUNT, SUM, AVG, MIN, MAX',
-                    'GROUP BY y HAVING',
-                    'Agregaciones con múltiples tablas',
-                    'Optimización de JOINs'
+                    'INNER JOIN: registros coincidentes en ambas tablas',
+                    'LEFT/RIGHT OUTER JOIN: registros con o sin coincidencia',
+                    'FULL OUTER JOIN: unión completa de registros',
+                    'Self-joins para relaciones jerárquicas',
+                    'CROSS JOIN para productos cartesianos',
+                    'COUNT, SUM, AVG, MIN, MAX: funciones de agregación',
+                    'GROUP BY: agrupación para cálculos agregados',
+                    'HAVING: filtrado sobre grupos agregados',
+                    'JOINs con múltiples tablas (3+)',
+                    'Análisis de planes de ejecución con EXPLAIN'
                 ],
                 actividades: [
-                    'Consultas con múltiples JOINs',
-                    'Reportes con agregaciones',
-                    'Análisis de datos con GROUP BY'
+                    'Consultas con múltiples JOINs encadenados',
+                    'Reportes de ventas con agregaciones por período',
+                    'Análisis de datos con GROUP BY y HAVING',
+                    'Self-join para estructura organizacional',
+                    'Identificación de registros huérfanos con LEFT JOIN',
+                    'Optimización de JOINs con análisis EXPLAIN'
                 ]
             },
             {
                 numero: 3,
                 titulo: 'Subconsultas y Funciones Avanzadas',
                 semanas: 'Semana 6-8',
-                descripcion: 'Subconsultas, CTEs y funciones de ventana.',
+                descripcion: 'Subconsultas, CTEs, funciones de ventana y técnicas avanzadas para análisis de datos.',
                 contenidos: [
-                    'Subconsultas escalares y de tabla',
-                    'EXISTS, IN, ANY, ALL',
-                    'Common Table Expressions (CTEs)',
-                    'CTEs recursivos',
-                    'Window Functions: ROW_NUMBER, RANK, LAG, LEAD',
-                    'Particionamiento con OVER'
+                    'Subconsultas escalares en SELECT y WHERE',
+                    'Subconsultas de tabla (derived tables)',
+                    'Subconsultas correlacionadas: referencia a query externo',
+                    'EXISTS, NOT EXISTS para verificación de existencia',
+                    'IN, ANY, ALL para comparaciones con conjuntos',
+                    'Common Table Expressions (CTEs): WITH clause',
+                    'CTEs recursivos para estructuras jerárquicas',
+                    'Window Functions: ROW_NUMBER, RANK, DENSE_RANK',
+                    'LAG, LEAD, FIRST_VALUE, LAST_VALUE para análisis temporal',
+                    'OVER con PARTITION BY y ORDER BY para particionamiento'
                 ],
                 actividades: [
-                    'Consultas complejas con subconsultas',
-                    'Análisis de rankings con Window Functions',
-                    'Proyecto: Dashboard de análisis SQL'
+                    'Consultas con subconsultas correlacionadas',
+                    'CTEs para simplificar queries complejos',
+                    'CTE recursivo para árbol organizacional',
+                    'Ranking de productos con Window Functions',
+                    'Análisis de tendencias con LAG/LEAD',
+                    'Proyecto integrador: Dashboard de análisis SQL'
                 ]
             }
         ],
         tecnologias: [
             { nombre: 'PostgreSQL', icon: 'postgresql-plain', iconType: 'devicon' },
             { nombre: 'Oracle', icon: 'oracle-original', iconType: 'devicon' },
-            { nombre: 'DBeaver', icon: 'fa-database', iconType: 'fontawesome' },
             { nombre: 'MySQL', icon: 'mysql-plain', iconType: 'devicon' },
-            { nombre: 'DataGrip', icon: 'fa-table', iconType: 'fontawesome' }
+            { nombre: 'DBeaver', icon: 'fa-database', iconType: 'fontawesome' },
+            { nombre: 'DataGrip', icon: 'intellij-plain', iconType: 'devicon' },
+            { nombre: 'pgAdmin', icon: 'postgresql-plain', iconType: 'devicon' },
+            { nombre: 'SQL Server', icon: 'microsoftsqlserver-plain', iconType: 'devicon' },
+            { nombre: 'SQLite', icon: 'sqlite-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Ejercicios SQL', ponderacion: 0, descripcion: 'Práctica de consultas' },
@@ -1182,11 +1488,15 @@ export const asignaturas: Record<string, Asignatura> = {
         prerrequisitos: ['Modelamiento de Datos'],
         conexiones: ['SQL Programación', 'Backend I', 'BD Aplicada'],
         recursos: [
-            { tipo: 'Práctica', nombre: 'SQLZoo', url: 'https://sqlzoo.net/' },
+            { tipo: 'Práctica', nombre: 'SQLZoo - Interactive Tutorial', url: 'https://sqlzoo.net/' },
             { tipo: 'Tutorial', nombre: 'Mode SQL Tutorial', url: 'https://mode.com/sql-tutorial/' },
-            { tipo: 'Documentación', nombre: 'PostgreSQL Docs', url: 'https://www.postgresql.org/docs/' },
-            { tipo: 'Práctica', nombre: 'LeetCode SQL', url: 'https://leetcode.com/problemset/database/' },
-            { tipo: 'Curso', nombre: 'SQL for Data Science - Coursera', url: 'https://www.coursera.org/learn/sql-for-data-science' }
+            { tipo: 'Documentación', nombre: 'PostgreSQL Documentation', url: 'https://www.postgresql.org/docs/' },
+            { tipo: 'Práctica', nombre: 'LeetCode SQL Problems', url: 'https://leetcode.com/problemset/database/' },
+            { tipo: 'Curso', nombre: 'SQL for Data Science - Coursera', url: 'https://www.coursera.org/learn/sql-for-data-science' },
+            { tipo: 'Práctica', nombre: 'HackerRank SQL', url: 'https://www.hackerrank.com/domains/sql' },
+            { tipo: 'Video', nombre: 'SQL Tutorial - freeCodeCamp', url: 'https://www.youtube.com/watch?v=HXV3zeQKqGY' },
+            { tipo: 'Libro', nombre: 'Learning SQL - Alan Beaulieu', url: 'https://www.amazon.com/Learning-SQL-Generate-Manipulate-Retrieve/dp/1492057614' },
+            { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-04%20-%20SQL%20Consultas%2C%20Seguridad/SQL%20Consultas' }
         ],
         color: 'amber',
         area: 'datos'
