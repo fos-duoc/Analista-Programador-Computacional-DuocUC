@@ -25,11 +25,9 @@ Documentos oficiales del plan de estudios de las carreras de la Escuela de Infor
 ### 3. Ingeniería en Ciencia de Datos
 **Código**: 1445501 | **Duración**: 8 semestres (4 años)
 
-> ⚠️ **Nota**: Esta malla solo está disponible en formato PDF.
+[![Malla Ing. Ciencia de Datos Online](malla-ingenieria-en-ciencia-de-datos-FOL-2025.png)](malla-ingenieria-en-ciencia-de-datos-FOL-2025.png)
 
-| 📄 **Documento** | **Descargar** |
-|------------------|---------------|
-| Malla Curricular Completa | [**Ver PDF** (1.6 MB)](1445501-Ing-en-Ciencia-de-Datos-FOL.pdf) |
+📄 [Descargar PDF detallado](1445501-Ing-en-Ciencia-de-Datos-FOL.pdf)
 
 ---
 
