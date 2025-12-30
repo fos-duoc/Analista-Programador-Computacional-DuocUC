@@ -309,12 +309,12 @@ const base = import.meta.env.BASE_URL;
     }
 
     /* ============================================
-       DRAWER BODY (Scrollable) - Ultra Compact
+       DRAWER BODY (Scrollable) - Structured Layout
     ============================================ */
     .drawer-body {
         flex: 1;
         overflow-y: auto;
-        padding: 0.5rem 0.75rem;
+        padding: 0.85rem 1rem;
         scrollbar-width: thin;
         scrollbar-color: rgba(6, 182, 212, 0.3) transparent;
     }
@@ -333,21 +333,21 @@ const base = import.meta.env.BASE_URL;
     }
 
     /* ============================================
-       TITLE SECTION - Ultra Compact Typography
+       TITLE SECTION - Clean & Structured
     ============================================ */
     .drawer-title-section {
-        margin-bottom: 0.4rem;
-        padding-bottom: 0.35rem;
-        border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.6rem;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.15);
     }
 
     .drawer-title {
         font-family: 'Sora', sans-serif;
-        font-size: 1.05rem;
+        font-size: 1.15rem;
         font-weight: 700;
         color: #f8fafc;
-        margin: 0 0 0.2rem 0;
-        line-height: 1.2;
+        margin: 0 0 0.4rem 0;
+        line-height: 1.25;
         letter-spacing: -0.02em;
         background: linear-gradient(135deg, #f8fafc 0%, #cbd5e1 100%);
         -webkit-background-clip: text;
@@ -357,133 +357,139 @@ const base = import.meta.env.BASE_URL;
 
     .drawer-credits {
         display: flex;
-        gap: 0.75rem;
+        gap: 1rem;
     }
 
     .credit-item {
         display: inline-flex;
         align-items: center;
-        gap: 0.2rem;
+        gap: 0.35rem;
         color: #94a3b8;
-        font-size: 0.65rem;
+        font-size: 0.75rem;
         font-weight: 500;
         font-family: 'Space Grotesk', sans-serif;
-        letter-spacing: 0.01em;
     }
 
     .credit-item i {
         color: #06b6d4;
-        font-size: 0.58rem;
+        font-size: 0.7rem;
     }
 
     /* ============================================
-       SECTIONS - Ultra Compact, Premium Typography
+       SECTIONS - Structured Premium Typography
     ============================================ */
     .drawer-section {
-        margin-bottom: 0.35rem;
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.06);
     }
 
     .drawer-section:last-child {
         margin-bottom: 0;
+        border-bottom: none;
     }
 
     .section-title {
         font-family: 'Sora', 'Space Grotesk', sans-serif;
-        font-size: 0.58rem;
+        font-size: 0.72rem;
         font-weight: 700;
         color: #64748b;
-        margin: 0 0 0.2rem 0;
+        margin: 0 0 0.45rem 0;
         display: inline-flex;
         align-items: center;
-        gap: 0.25rem;
-        letter-spacing: 0.1em;
+        gap: 0.35rem;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
     }
 
     .section-title i {
         color: #06b6d4;
-        font-size: 0.52rem;
-        opacity: 0.8;
+        font-size: 0.65rem;
+        opacity: 0.85;
     }
 
     .section-content {
         color: #e2e8f0;
-        font-size: 0.7rem;
-        line-height: 1.45;
+        font-size: 0.82rem;
+        line-height: 1.55;
         margin: 0;
         font-family: 'Inter', system-ui, sans-serif;
         letter-spacing: -0.01em;
     }
 
-    /* Propósito Box - Compact Inline */
+    /* Propósito Box - Structured Highlight */
     .proposito-box {
-        margin-top: 0.25rem;
-        padding: 0.3rem 0.5rem;
-        background: rgba(6, 182, 212, 0.04);
-        border-radius: 4px;
-        border-left: 2px solid rgba(6, 182, 212, 0.5);
+        margin-top: 0.5rem;
+        padding: 0.55rem 0.75rem;
+        background: rgba(6, 182, 212, 0.05);
+        border-radius: 6px;
+        border-left: 3px solid rgba(6, 182, 212, 0.5);
     }
 
     .proposito-box strong {
         color: #22d3ee;
         display: inline;
-        font-size: 0.52rem;
+        font-size: 0.65rem;
         font-family: 'Space Grotesk', sans-serif;
         text-transform: uppercase;
-        letter-spacing: 0.08em;
-        margin-right: 0.3rem;
+        letter-spacing: 0.06em;
+        margin-right: 0.4rem;
     }
 
     .proposito-box strong i {
-        margin-right: 0.15rem;
-        font-size: 0.48rem;
+        margin-right: 0.2rem;
+        font-size: 0.58rem;
     }
 
     .proposito-box span {
         color: #cbd5e1;
-        font-size: 0.68rem;
-        line-height: 1.4;
+        font-size: 0.78rem;
+        line-height: 1.5;
         font-family: 'Inter', system-ui, sans-serif;
         display: inline;
     }
 
-    /* Objectives List - Ultra Compact Numbered */
+    /* Objectives List - Structured Numbered */
     .objectives-list {
         list-style: none;
         padding: 0;
         margin: 0;
         display: flex;
         flex-direction: column;
-        gap: 0.1rem;
+        gap: 0.35rem;
         counter-reset: obj;
     }
 
     .objectives-list li {
         position: relative;
-        padding: 0.15rem 0.3rem 0.15rem 1.2rem;
+        padding: 0.25rem 0.4rem 0.25rem 1.6rem;
         color: #cbd5e1;
-        font-size: 0.65rem;
-        line-height: 1.35;
+        font-size: 0.78rem;
+        line-height: 1.45;
         font-family: 'Inter', system-ui, sans-serif;
         transition: color 0.15s ease;
         letter-spacing: -0.01em;
         counter-increment: obj;
+        background: rgba(30, 41, 59, 0.15);
+        border-radius: 4px;
     }
 
     .objectives-list li:hover {
         color: #f1f5f9;
+        background: rgba(30, 41, 59, 0.25);
     }
 
     .objectives-list li::before {
         content: counter(obj);
         position: absolute;
-        left: 0;
-        top: 0.12rem;
-        width: 12px;
-        height: 12px;
-        background: rgba(6, 182, 212, 0.15);
-        border-radius: 2px;
-        font-size: 0.45rem;
+        left: 0.4rem;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 16px;
+        height: 16px;
+        background: rgba(6, 182, 212, 0.18);
+        border-radius: 4px;
+        font-size: 0.55rem;
         font-weight: 700;
         color: #22d3ee;
         display: flex;
@@ -492,87 +498,91 @@ const base = import.meta.env.BASE_URL;
         font-family: 'JetBrains Mono', monospace;
     }
 
-    /* Competencias Tags - Micro Pills */
+    /* Competencias Tags - Structured Pills */
     .competencias-tags {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.15rem;
+        gap: 0.4rem;
     }
 
     .competencia-tag {
-        background: rgba(139, 92, 246, 0.08);
+        background: rgba(139, 92, 246, 0.1);
         color: #a5b4fc;
-        padding: 0.12rem 0.35rem;
-        border-radius: 3px;
-        font-size: 0.55rem;
+        padding: 0.32rem 0.6rem;
+        border-radius: 6px;
+        font-size: 0.72rem;
         font-weight: 600;
         font-family: 'Inter', system-ui, sans-serif;
         letter-spacing: 0.01em;
-        border: none;
+        border: 1px solid rgba(139, 92, 246, 0.15);
+        transition: all 0.2s ease;
     }
 
     .competencia-tag:hover {
-        background: rgba(139, 92, 246, 0.15);
+        background: rgba(139, 92, 246, 0.18);
         color: #c7d2fe;
+        border-color: rgba(139, 92, 246, 0.3);
     }
 
     /* ============================================
-       EXPERIENCIAS ACCORDION - Micro Compact
+       EXPERIENCIAS ACCORDION - Structured Design
     ============================================ */
     .experiencias-accordion {
         display: flex;
         flex-direction: column;
-        gap: 0.12rem;
+        gap: 0.45rem;
     }
 
     .exp-card {
-        background: rgba(30, 41, 59, 0.25);
-        border-radius: 4px;
+        background: rgba(30, 41, 59, 0.3);
+        border-radius: 8px;
         overflow: hidden;
+        border: 1px solid rgba(148, 163, 184, 0.08);
     }
 
     .exp-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0.25rem 0.4rem;
+        padding: 0.55rem 0.65rem;
         cursor: pointer;
     }
 
     .exp-header:hover {
-        background: rgba(6, 182, 212, 0.04);
+        background: rgba(6, 182, 212, 0.06);
     }
 
     .exp-header-left {
         display: flex;
         align-items: center;
-        gap: 0.3rem;
+        gap: 0.55rem;
     }
 
     .exp-number {
-        width: 16px;
-        height: 16px;
+        width: 24px;
+        height: 24px;
         background: linear-gradient(135deg, #06b6d4, #8b5cf6);
-        border-radius: 3px;
+        border-radius: 6px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 0.5rem;
+        font-size: 0.7rem;
         font-weight: 700;
         color: white;
         flex-shrink: 0;
+        box-shadow: 0 2px 6px rgba(6, 182, 212, 0.2);
     }
 
     .exp-info h4 {
         margin: 0;
-        font-size: 0.62rem;
+        font-size: 0.78rem;
         font-weight: 600;
         color: #e2e8f0;
-        line-height: 1.15;
+        line-height: 1.25;
     }
 
     .exp-info span {
-        font-size: 0.48rem;
+        font-size: 0.62rem;
         color: #64748b;
         font-family: 'JetBrains Mono', monospace;
     }
@@ -580,7 +590,7 @@ const base = import.meta.env.BASE_URL;
     .exp-toggle {
         color: #475569;
         transition: transform 0.2s ease;
-        font-size: 0.48rem;
+        font-size: 0.65rem;
     }
 
     .exp-card.expanded .exp-toggle {
@@ -595,25 +605,25 @@ const base = import.meta.env.BASE_URL;
     }
 
     .exp-card.expanded .exp-content {
-        max-height: 350px;
+        max-height: 400px;
     }
 
     .exp-content-inner {
-        padding: 0.2rem 0.4rem 0.3rem 1.6rem;
-        border-left: 1px solid rgba(6, 182, 212, 0.12);
-        margin-left: 0.5rem;
+        padding: 0.5rem 0.65rem 0.65rem 2.2rem;
+        border-left: 2px solid rgba(6, 182, 212, 0.2);
+        margin-left: 0.75rem;
     }
 
     .exp-description {
         color: #94a3b8;
-        font-size: 0.58rem;
-        margin-bottom: 0.2rem;
+        font-size: 0.72rem;
+        margin-bottom: 0.55rem;
         font-style: italic;
-        line-height: 1.35;
+        line-height: 1.45;
     }
 
     .exp-subsection {
-        margin-bottom: 0.15rem;
+        margin-bottom: 0.5rem;
     }
 
     .exp-subsection:last-child {
@@ -622,20 +632,20 @@ const base = import.meta.env.BASE_URL;
 
     .exp-subsection h5 {
         color: #64748b;
-        font-size: 0.48rem;
-        margin: 0 0 0.1rem 0;
+        font-size: 0.62rem;
+        margin: 0 0 0.3rem 0;
         display: inline-flex;
         align-items: center;
-        gap: 0.15rem;
+        gap: 0.25rem;
         text-transform: uppercase;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.06em;
         font-weight: 600;
     }
 
     .exp-subsection h5 i {
         color: #06b6d4;
-        font-size: 0.42rem;
-        opacity: 0.7;
+        font-size: 0.55rem;
+        opacity: 0.8;
     }
 
     .exp-subsection ul {
@@ -646,71 +656,77 @@ const base = import.meta.env.BASE_URL;
 
     .exp-subsection li {
         position: relative;
-        padding-left: 0.55rem;
-        font-size: 0.56rem;
+        padding-left: 0.75rem;
+        font-size: 0.72rem;
         color: #cbd5e1;
-        margin-bottom: 0.05rem;
-        line-height: 1.3;
+        margin-bottom: 0.25rem;
+        line-height: 1.4;
     }
 
     .exp-subsection li::before {
         content: '›';
         position: absolute;
         left: 0;
-        color: #475569;
-        font-size: 0.55rem;
+        color: #06b6d4;
+        font-size: 0.72rem;
+        font-weight: 600;
     }
 
     /* ============================================
-       TECNOLOGÍAS GRID - Micro Inline
+       TECNOLOGÍAS GRID - Structured Chips
     ============================================ */
     .tech-grid {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.12rem;
+        gap: 0.45rem;
     }
 
     .tech-chip {
         display: inline-flex;
         align-items: center;
-        gap: 0.2rem;
-        padding: 0.12rem 0.3rem;
-        background: rgba(30, 41, 59, 0.3);
-        border-radius: 3px;
+        gap: 0.4rem;
+        padding: 0.35rem 0.55rem;
+        background: rgba(30, 41, 59, 0.35);
+        border-radius: 6px;
+        border: 1px solid rgba(148, 163, 184, 0.08);
+        transition: all 0.2s ease;
     }
 
     .tech-chip:hover {
-        background: rgba(6, 182, 212, 0.08);
+        background: rgba(6, 182, 212, 0.1);
+        border-color: rgba(6, 182, 212, 0.2);
     }
 
     .tech-chip i,
     .tech-chip img {
-        font-size: 0.75rem;
-        width: 12px;
-        height: 12px;
+        font-size: 1rem;
+        width: 16px;
+        height: 16px;
     }
 
     .tech-chip span {
         color: #cbd5e1;
-        font-size: 0.55rem;
+        font-size: 0.72rem;
         font-weight: 500;
     }
 
     /* ============================================
-       EVALUACIONES - Ultra Compact Row Style
+       EVALUACIONES - Structured Row Style
     ============================================ */
     .evaluaciones-list {
         display: flex;
         flex-direction: column;
-        gap: 0.08rem;
+        gap: 0.35rem;
     }
 
     .eval-item {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0.2rem 0.35rem;
-        border-left: 2px solid var(--eval-color, #06b6d4);
+        padding: 0.45rem 0.55rem;
+        border-left: 3px solid var(--eval-color, #06b6d4);
+        background: rgba(30, 41, 59, 0.2);
+        border-radius: 0 6px 6px 0;
     }
 
     .eval-item.formativa { --eval-color: #22c55e; }
@@ -720,18 +736,18 @@ const base = import.meta.env.BASE_URL;
     .eval-info {
         display: flex;
         align-items: baseline;
-        gap: 0.3rem;
+        gap: 0.5rem;
     }
 
     .eval-info h4 {
         margin: 0;
-        font-size: 0.58rem;
+        font-size: 0.75rem;
         color: #e2e8f0;
         font-weight: 500;
     }
 
     .eval-info span {
-        font-size: 0.45rem;
+        font-size: 0.58rem;
         color: #64748b;
         text-transform: uppercase;
         letter-spacing: 0.04em;
@@ -739,108 +755,112 @@ const base = import.meta.env.BASE_URL;
 
     .eval-percent {
         font-family: 'JetBrains Mono', monospace;
-        font-size: 0.58rem;
+        font-size: 0.78rem;
         font-weight: 700;
         color: var(--eval-color, #06b6d4);
     }
 
     /* ============================================
-       CONEXIONES - Ultra Compact Two-Column
+       CONEXIONES - Structured Two-Column
     ============================================ */
     .connections-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 0.25rem;
+        gap: 0.55rem;
     }
 
     .connection-box {
-        padding: 0.25rem 0.35rem;
+        padding: 0.5rem 0.55rem;
+        background: rgba(30, 41, 59, 0.2);
+        border-radius: 6px;
     }
 
     .connection-box h4 {
-        margin: 0 0 0.12rem 0;
-        font-size: 0.45rem;
+        margin: 0 0 0.4rem 0;
+        font-size: 0.62rem;
         color: #64748b;
         display: inline-flex;
         align-items: center;
-        gap: 0.15rem;
+        gap: 0.3rem;
         text-transform: uppercase;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.06em;
         font-weight: 600;
     }
 
-    .prereq-box h4 i { color: #f59e0b; font-size: 0.42rem; }
-    .next-box h4 i { color: #22c55e; font-size: 0.42rem; }
+    .prereq-box h4 i { color: #f59e0b; font-size: 0.55rem; }
+    .next-box h4 i { color: #22c55e; font-size: 0.55rem; }
 
     .connection-items {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.1rem;
+        gap: 0.35rem;
     }
 
     .connection-item {
-        padding: 0.1rem 0.25rem;
-        background: rgba(6, 182, 212, 0.08);
-        border-radius: 2px;
-        font-size: 0.5rem;
+        padding: 0.25rem 0.45rem;
+        background: rgba(6, 182, 212, 0.1);
+        border-radius: 4px;
+        font-size: 0.68rem;
         color: #67e8f9;
         font-weight: 500;
     }
 
     .no-prereq {
         color: #475569;
-        font-size: 0.5rem;
+        font-size: 0.68rem;
         font-style: italic;
     }
 
     /* ============================================
-       RECURSOS - Ultra Compact Links
+       RECURSOS - Structured Links
     ============================================ */
     .recursos-grid {
         display: flex;
         flex-direction: column;
-        gap: 0.08rem;
+        gap: 0.35rem;
     }
 
     .recurso-link {
         display: flex;
         align-items: center;
-        gap: 0.25rem;
-        padding: 0.2rem 0.35rem;
+        gap: 0.5rem;
+        padding: 0.45rem 0.55rem;
         text-decoration: none;
-        border-radius: 3px;
+        border-radius: 6px;
+        background: rgba(30, 41, 59, 0.15);
+        transition: all 0.2s ease;
     }
 
     .recurso-link:hover {
-        background: rgba(6, 182, 212, 0.05);
+        background: rgba(6, 182, 212, 0.08);
     }
 
     .recurso-icon {
-        width: 18px;
-        height: 18px;
+        width: 28px;
+        height: 28px;
         display: flex;
         align-items: center;
         justify-content: center;
-        background: rgba(6, 182, 212, 0.1);
-        border-radius: 3px;
+        background: rgba(6, 182, 212, 0.12);
+        border-radius: 6px;
         flex-shrink: 0;
     }
 
     .recurso-icon i {
         color: #06b6d4;
-        font-size: 0.52rem;
+        font-size: 0.72rem;
     }
 
     .recurso-info {
         display: flex;
         align-items: baseline;
-        gap: 0.25rem;
+        gap: 0.4rem;
         min-width: 0;
     }
 
     .recurso-info h5 {
         margin: 0;
-        font-size: 0.55rem;
+        font-size: 0.72rem;
         color: #e2e8f0;
         white-space: nowrap;
         overflow: hidden;
@@ -848,7 +868,7 @@ const base = import.meta.env.BASE_URL;
     }
 
     .recurso-info span {
-        font-size: 0.42rem;
+        font-size: 0.55rem;
         color: #475569;
         text-transform: uppercase;
         letter-spacing: 0.05em;
@@ -856,39 +876,39 @@ const base = import.meta.env.BASE_URL;
     }
 
     /* ============================================
-       DRAWER FOOTER - Compact Design
+       DRAWER FOOTER - Structured Design
     ============================================ */
     .drawer-footer {
-        padding: 0.4rem 0.75rem;
-        border-top: 1px solid rgba(148, 163, 184, 0.08);
+        padding: 0.65rem 0.85rem;
+        border-top: 1px solid rgba(148, 163, 184, 0.1);
         flex-shrink: 0;
-        background: rgba(15, 23, 42, 0.2);
+        background: rgba(15, 23, 42, 0.25);
     }
 
     .drawer-cta {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 0.35rem;
+        gap: 0.5rem;
         width: 100%;
-        padding: 0.45rem;
+        padding: 0.65rem;
         background: linear-gradient(135deg, #06b6d4, #8b5cf6);
-        border-radius: 6px;
+        border-radius: 8px;
         color: white;
         text-decoration: none;
         font-weight: 600;
-        font-size: 0.65rem;
+        font-size: 0.78rem;
         transition: all 0.2s ease;
-        box-shadow: 0 2px 6px rgba(6, 182, 212, 0.15);
+        box-shadow: 0 3px 10px rgba(6, 182, 212, 0.2);
     }
 
     .drawer-cta:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(6, 182, 212, 0.25);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(6, 182, 212, 0.3);
     }
 
     /* ============================================
-       LIGHT MODE - Ultra Compact Styles
+       LIGHT MODE - Structured Styles
     ============================================ */
     :global([data-theme="light"]) .drawer-overlay {
         background: rgba(0, 0, 0, 0.35);
@@ -921,6 +941,10 @@ const base = import.meta.env.BASE_URL;
         border-bottom-color: rgba(148, 163, 184, 0.15);
     }
 
+    :global([data-theme="light"]) .drawer-section {
+        border-bottom-color: rgba(148, 163, 184, 0.08);
+    }
+
     :global([data-theme="light"]) .section-title {
         color: #475569;
     }
@@ -948,6 +972,11 @@ const base = import.meta.env.BASE_URL;
 
     :global([data-theme="light"]) .objectives-list li {
         color: #334155;
+        background: rgba(241, 245, 249, 0.6);
+    }
+
+    :global([data-theme="light"]) .objectives-list li:hover {
+        background: rgba(241, 245, 249, 0.9);
     }
 
     :global([data-theme="light"]) .objectives-list li::before {
@@ -958,10 +987,12 @@ const base = import.meta.env.BASE_URL;
     :global([data-theme="light"]) .competencia-tag {
         background: rgba(139, 92, 246, 0.08);
         color: #7c3aed;
+        border-color: rgba(139, 92, 246, 0.12);
     }
 
     :global([data-theme="light"]) .exp-card {
         background: rgba(241, 245, 249, 0.6);
+        border-color: rgba(148, 163, 184, 0.12);
     }
 
     :global([data-theme="light"]) .exp-number {
@@ -977,7 +1008,7 @@ const base = import.meta.env.BASE_URL;
     }
 
     :global([data-theme="light"]) .exp-content-inner {
-        border-left-color: rgba(6, 182, 212, 0.2);
+        border-left-color: rgba(6, 182, 212, 0.25);
     }
 
     :global([data-theme="light"]) .exp-description {
@@ -992,12 +1023,21 @@ const base = import.meta.env.BASE_URL;
         color: #334155;
     }
 
+    :global([data-theme="light"]) .exp-subsection li::before {
+        color: #0891b2;
+    }
+
     :global([data-theme="light"]) .tech-chip {
         background: rgba(241, 245, 249, 0.8);
+        border-color: rgba(148, 163, 184, 0.15);
     }
 
     :global([data-theme="light"]) .tech-chip span {
         color: #334155;
+    }
+
+    :global([data-theme="light"]) .eval-item {
+        background: rgba(241, 245, 249, 0.5);
     }
 
     :global([data-theme="light"]) .eval-info h4 {
@@ -1006,6 +1046,10 @@ const base = import.meta.env.BASE_URL;
 
     :global([data-theme="light"]) .eval-info span {
         color: #64748b;
+    }
+
+    :global([data-theme="light"]) .connection-box {
+        background: rgba(241, 245, 249, 0.6);
     }
 
     :global([data-theme="light"]) .connection-box h4 {
@@ -1017,8 +1061,16 @@ const base = import.meta.env.BASE_URL;
         color: #0891b2;
     }
 
+    :global([data-theme="light"]) .recurso-link {
+        background: rgba(241, 245, 249, 0.6);
+    }
+
     :global([data-theme="light"]) .recurso-link:hover {
-        background: rgba(6, 182, 212, 0.06);
+        background: rgba(6, 182, 212, 0.08);
+    }
+
+    :global([data-theme="light"]) .recurso-icon {
+        background: rgba(6, 182, 212, 0.08);
     }
 
     :global([data-theme="light"]) .recurso-info h5 {
