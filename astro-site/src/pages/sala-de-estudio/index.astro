@@ -200,11 +200,12 @@ const subjectLinks: Record<string, string> = {
                                     {bim.subjects.map((subject) => {
                                         const subjectId = nombreCortoToId[subject.name];
                                         const hasData = !!subjectId;
-                                        return hasData ? (
+                                        return (
                                             <button
                                                 type="button"
                                                 class="subject-chip clickable"
                                                 data-subject-id={subjectId}
+                                                data-subject-name={subject.name}
                                                 aria-label={`Ver detalles de ${subject.name}`}
                                             >
                                                 {subject.iconType === 'fontawesome' ? (
@@ -215,15 +216,6 @@ const subjectLinks: Record<string, string> = {
                                                 <span>{subject.name}</span>
                                                 <i class="fas fa-chevron-right chip-arrow"></i>
                                             </button>
-                                        ) : (
-                                            <div class="subject-chip">
-                                                {subject.iconType === 'fontawesome' ? (
-                                                    <i class={subject.icon}></i>
-                                                ) : (
-                                                    <i class={`devicon-${subject.icon}`}></i>
-                                                )}
-                                                <span>{subject.name}</span>
-                                            </div>
                                         );
                                     })}
                                 </div>
@@ -255,11 +247,12 @@ const subjectLinks: Record<string, string> = {
                                     {bim.subjects.map((subject) => {
                                         const subjectId = nombreCortoToId[subject.name];
                                         const hasData = !!subjectId;
-                                        return hasData ? (
+                                        return (
                                             <button
                                                 type="button"
                                                 class="subject-chip clickable"
                                                 data-subject-id={subjectId}
+                                                data-subject-name={subject.name}
                                                 aria-label={`Ver detalles de ${subject.name}`}
                                             >
                                                 {subject.iconType === 'fontawesome' ? (
@@ -270,15 +263,6 @@ const subjectLinks: Record<string, string> = {
                                                 <span>{subject.name}</span>
                                                 <i class="fas fa-chevron-right chip-arrow"></i>
                                             </button>
-                                        ) : (
-                                            <div class="subject-chip">
-                                                {subject.iconType === 'fontawesome' ? (
-                                                    <i class={subject.icon}></i>
-                                                ) : (
-                                                    <i class={`devicon-${subject.icon}`}></i>
-                                                )}
-                                                <span>{subject.name}</span>
-                                            </div>
                                         );
                                     })}
                                 </div>
@@ -344,11 +328,12 @@ const subjectLinks: Record<string, string> = {
                                     {bim.subjects.map((subject) => {
                                         const subjectId = nombreCortoToId[subject.name];
                                         const hasData = !!subjectId;
-                                        return hasData ? (
+                                        return (
                                             <button
                                                 type="button"
                                                 class="subject-chip clickable"
                                                 data-subject-id={subjectId}
+                                                data-subject-name={subject.name}
                                                 aria-label={`Ver detalles de ${subject.name}`}
                                             >
                                                 {subject.iconType === 'fontawesome' ? (
@@ -359,15 +344,6 @@ const subjectLinks: Record<string, string> = {
                                                 <span>{subject.name}</span>
                                                 <i class="fas fa-chevron-right chip-arrow"></i>
                                             </button>
-                                        ) : (
-                                            <div class="subject-chip">
-                                                {subject.iconType === 'fontawesome' ? (
-                                                    <i class={subject.icon}></i>
-                                                ) : (
-                                                    <i class={`devicon-${subject.icon}`}></i>
-                                                )}
-                                                <span>{subject.name}</span>
-                                            </div>
                                         );
                                     })}
                                 </div>
@@ -398,11 +374,12 @@ const subjectLinks: Record<string, string> = {
                                     {bim.subjects.map((subject) => {
                                         const subjectId = nombreCortoToId[subject.name];
                                         const hasData = !!subjectId;
-                                        return hasData ? (
+                                        return (
                                             <button
                                                 type="button"
                                                 class="subject-chip clickable"
                                                 data-subject-id={subjectId}
+                                                data-subject-name={subject.name}
                                                 aria-label={`Ver detalles de ${subject.name}`}
                                             >
                                                 {subject.iconType === 'fontawesome' ? (
@@ -413,15 +390,6 @@ const subjectLinks: Record<string, string> = {
                                                 <span>{subject.name}</span>
                                                 <i class="fas fa-chevron-right chip-arrow"></i>
                                             </button>
-                                        ) : (
-                                            <div class="subject-chip">
-                                                {subject.iconType === 'fontawesome' ? (
-                                                    <i class={subject.icon}></i>
-                                                ) : (
-                                                    <i class={`devicon-${subject.icon}`}></i>
-                                                )}
-                                                <span>{subject.name}</span>
-                                            </div>
                                         );
                                     })}
                                 </div>
@@ -1711,13 +1679,17 @@ const subjectLinks: Record<string, string> = {
             chip.addEventListener('click', (e) => {
                 e.preventDefault();
                 const subjectId = chip.getAttribute('data-subject-id');
+                const subjectName = chip.getAttribute('data-subject-name') || '';
                 if (subjectId && typeof window.openSubjectDrawer === 'function') {
-                    window.openSubjectDrawer(subjectId);
+                    window.openSubjectDrawer(subjectId, subjectName);
 
                     // Show AI Tutor side panel with subject context
                     const asignatura = asignaturasData[subjectId];
-                    if (asignatura && typeof window.showAITutor === 'function') {
-                        window.showAITutor(asignatura.nombre, asignatura.codigo);
+                    if (typeof window.showAITutor === 'function') {
+                        // Usar datos de asignatura si existen, o el nombre del chip
+                        const tutorName = asignatura?.nombre || subjectName;
+                        const tutorCode = asignatura?.codigo || 'TBD';
+                        window.showAITutor(tutorName, tutorCode);
                     }
                 }
             });

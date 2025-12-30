@@ -730,12 +730,59 @@ export function getAsignaturasByArea(area: Asignatura['area']): Asignatura[] {
     return Object.values(asignaturas).filter(a => a.area === area);
 }
 
-// Mapeo de nombres cortos a IDs
+// Mapeo de nombres cortos a IDs - Todos los bimestres (B01-B17)
 export const nombreCortoToId: Record<string, string> = {
+    // Bimestre 01
     'Fundamentos Prog.': 'fundamentos-programacion',
     'Modelamiento BD': 'modelamiento-datos',
     'Antropologia': 'antropologia',
+    // Bimestre 02
     'POO I': 'poo-i',
     'Computacion Nube': 'computacion-nube',
-    'Comunicacion': 'comunicacion'
+    'Comunicacion': 'comunicacion',
+    // Bimestre 03
+    'POO II': 'poo-ii',
+    'DevOps': 'devops',
+    'Etica': 'etica',
+    // Bimestre 04
+    'SQL Consultas': 'sql-consultas',
+    'Seguridad Informatica': 'seguridad-informatica',
+    // Bimestre 05
+    'SQL Programacion': 'sql-programacion',
+    'Cloud Native': 'cloud-native',
+    'Ing. Requisitos': 'ingenieria-requisitos',
+    // Bimestre 06
+    'Backend I': 'backend-i',
+    'Ing. Software I': 'ingenieria-software-i',
+    // Bimestre 07
+    'Backend II-III': 'backend-ii-iii',
+    'Ing. Software II': 'ingenieria-software-ii',
+    // Bimestre 08
+    'Frontend I-II': 'frontend-i-ii',
+    'Arquitectura Software': 'arquitectura-software',
+    // Bimestre 09
+    'Mobile I': 'mobile-i',
+    'Frontend III': 'frontend-iii',
+    // Bimestre 10
+    'Mobile II': 'mobile-ii',
+    'Taller de Titulo': 'taller-titulo',
+    // Bimestre 11 - Ingeniería
+    'Desarrollo Fullstack I': 'fullstack-i',
+    'BD Aplicada': 'bd-aplicada',
+    // Bimestre 12
+    'Desarrollo Fullstack II': 'fullstack-ii',
+    'Cloud Computing': 'cloud-computing',
+    // Bimestre 13
+    'Desarrollo Fullstack III': 'fullstack-iii',
+    // Bimestre 14
+    'Desarrollo App Móviles': 'app-moviles',
+    'Cloud Native I': 'cloud-native-i',
+    // Bimestre 15
+    'Cloud Native II': 'cloud-native-ii',
+    'Seguridad y Calidad': 'seguridad-calidad',
+    // Bimestre 16
+    'Evaluacion y Gestion Proyectos': 'gestion-proyectos',
+    // Bimestre 17
+    'Etica Profesional': 'etica-profesional',
+    'Taller Aplicado Software': 'taller-aplicado-sw'
 };
