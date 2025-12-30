@@ -171,14 +171,15 @@ const base = import.meta.env.BASE_URL;
     .ai-tutor-panel {
         position: fixed;
         top: 70px; /* Below header */
-        right: 0;
+        right: 520px; /* Position to the left of the drawer (520px width) */
         width: 380px;
         height: calc(100vh - 70px);
         background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
         border-left: 1px solid rgba(139, 92, 246, 0.3);
+        border-right: 1px solid rgba(139, 92, 246, 0.2);
         display: flex;
         flex-direction: column;
-        z-index: 998;
+        z-index: 997; /* Below drawer (1001) */
         transform: translateX(100%);
         transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3);

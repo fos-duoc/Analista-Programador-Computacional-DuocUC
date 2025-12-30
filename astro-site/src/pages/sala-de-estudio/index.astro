@@ -6,6 +6,8 @@
  * - Ingeniería en Desarrollo de Software (+14 meses, B11-B17)
  */
 import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
 import SubjectDrawer from '../../components/SubjectDrawer.astro';
 import AITutorSidePanel from '../../components/AITutorSidePanel.astro';
 import { bimestresYear1, bimestresYear2, bimestresYear3, bimestresYear4 } from '../../data/bimestres';
@@ -58,6 +60,7 @@ const subjectLinks: Record<string, string> = {
 ---
 
 <Layout title="Sala de Estudio | DuocUC Informática">
+    <Header />
     <main class="malla-page">
         <!-- Hero Section -->
         <section class="malla-hero">
@@ -558,6 +561,7 @@ const subjectLinks: Record<string, string> = {
         <!-- AI Tutor Side Panel (Coursera Coach Style) -->
         <AITutorSidePanel />
     </main>
+    <Footer />
 </Layout>
 
 <style>
