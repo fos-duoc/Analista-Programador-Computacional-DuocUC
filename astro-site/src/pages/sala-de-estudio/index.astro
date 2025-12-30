@@ -2005,8 +2005,9 @@ const subjectLinks: Record<string, string> = {
     }
 
     // Asegurar que el drawer y AI Tutor estén cerrados al cargar la página
+    // PERO respetar el estado persistido del AI Tutor en sessionStorage
     function ensureDrawersClosed() {
-        // Cerrar SubjectDrawer
+        // Cerrar SubjectDrawer (siempre - no persiste entre navegaciones)
         const drawer = document.getElementById('subject-drawer');
         const overlay = document.getElementById('subject-drawer-overlay');
         if (drawer) {
@@ -2017,10 +2018,14 @@ const subjectLinks: Record<string, string> = {
             overlay.classList.remove('active');
         }
 
-        // Cerrar AI Tutor
-        const tutorPanel = document.getElementById('ai-tutor-panel');
-        if (tutorPanel) {
-            tutorPanel.classList.remove('visible');
+        // AI Tutor: Solo cerrar si NO hay estado guardado en sessionStorage
+        // Esto permite que el tutor persista entre View Transitions
+        const savedTutorState = sessionStorage.getItem('aiTutorState');
+        if (!savedTutorState) {
+            const tutorPanel = document.getElementById('ai-tutor-panel');
+            if (tutorPanel) {
+                tutorPanel.classList.remove('visible');
+            }
         }
 
         // Restaurar scroll del body

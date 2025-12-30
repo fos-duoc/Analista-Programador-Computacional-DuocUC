@@ -166,7 +166,7 @@ const base = import.meta.env.BASE_URL;
                 <textarea
                     id="tutor-chat-input"
                     placeholder="Escribe tu pregunta..."
-                    rows="1"
+                    rows="2"
                 ></textarea>
                 <button class="send-btn" id="send-message-btn" disabled>
                     <i class="fas fa-arrow-up"></i>
@@ -204,8 +204,9 @@ const base = import.meta.env.BASE_URL;
         flex-direction: column;
         z-index: 1002;
         transform: translateX(100%);
+        visibility: hidden; /* Prevent flash on page load */
         /* Animation: 250ms (faster than 500ms per Material Design 3 guidelines) */
-        transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1), width 0.2s ease;
+        transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1), visibility 0.25s, width 0.2s ease;
         box-shadow: -12px 0 48px rgba(0, 0, 0, 0.5), -4px 0 16px rgba(139, 92, 246, 0.05);
         font-size: 0.89rem;
         font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -213,6 +214,7 @@ const base = import.meta.env.BASE_URL;
 
     .ai-tutor-panel.visible {
         transform: translateX(0);
+        visibility: visible;
     }
 
     /* ============================================
@@ -601,134 +603,296 @@ const base = import.meta.env.BASE_URL;
 
     .message-bubble {
         max-width: 100%;
-        padding: 0.5rem 0.7rem;
+        padding: 0.7rem 0.9rem;
         border-radius: 10px;
-        font-size: 0.67rem;
-        line-height: 1.55;
-        font-family: 'Inter', system-ui, sans-serif;
-        letter-spacing: -0.01em;
+        font-size: 0.78rem;
+        line-height: 1.75;
+        font-family: 'Merriweather', 'Georgia', 'Cambria', serif;
+        letter-spacing: 0.01em;
+        font-weight: 400;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
     }
 
     .message.assistant .message-bubble {
-        background: rgba(30, 41, 59, 0.55);
-        border: 1px solid rgba(139, 92, 246, 0.15);
+        background: linear-gradient(135deg, rgba(30, 41, 59, 0.6), rgba(30, 41, 59, 0.4));
+        border: 1px solid rgba(139, 92, 246, 0.18);
         color: #e2e8f0;
         border-radius: 12px 12px 12px 4px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Prominent greeting state - visible for 8 seconds on first open */
+    .message.greeting-prominent {
+        animation: greetingPulse 2s ease-in-out infinite;
+    }
+
+    .message.greeting-prominent .message-bubble {
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(6, 182, 212, 0.15));
+        border: 1px solid rgba(139, 92, 246, 0.35);
+        box-shadow: 0 4px 20px rgba(139, 92, 246, 0.25), 0 0 40px rgba(6, 182, 212, 0.1);
+        transform: scale(1.02);
+        transition: all 0.5s ease;
+    }
+
+    @keyframes greetingPulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.92; }
     }
 
     .message.user .message-bubble {
-        background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(6, 182, 212, 0.08));
-        border: 1px solid rgba(6, 182, 212, 0.2);
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.22), rgba(6, 182, 212, 0.1));
+        border: 1px solid rgba(6, 182, 212, 0.25);
         color: #f1f5f9;
         border-radius: 12px 12px 4px 12px;
+        box-shadow: 0 2px 8px rgba(6, 182, 212, 0.1);
     }
 
     /* ============================================
        ENHANCED MARKDOWN RENDERING STYLES
        Premium typography for AI responses
+       VSCode-inspired code blocks
+       Study-Focused hierarchy
     ============================================ */
 
-    /* Code blocks with language label */
+    /* =============================================
+       CODE BLOCKS - VSCode Dark+ Theme Inspired
+       Premium developer experience
+    ============================================= */
     .message-bubble .code-block {
         position: relative;
-        margin: 0.6rem 0;
+        margin: 0.75rem 0;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow:
+            0 4px 12px rgba(0, 0, 0, 0.25),
+            0 2px 4px rgba(0, 0, 0, 0.15),
+            inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    }
+
+    /* VSCode-style title bar */
+    .message-bubble .code-block .code-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.4rem 0.75rem;
+        background: linear-gradient(180deg, #2d2d30 0%, #252526 100%);
+        border-bottom: 1px solid #3c3c3c;
     }
 
     .message-bubble .code-block .code-lang {
-        position: absolute;
-        top: 0;
-        right: 0;
-        padding: 0.2rem 0.5rem;
-        background: rgba(139, 92, 246, 0.2);
-        color: #a78bfa;
-        font-size: 0.55rem;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.18rem 0.5rem;
+        background: rgba(139, 92, 246, 0.15);
+        color: #c4b5fd;
+        font-size: 0.58rem;
         font-family: 'JetBrains Mono', monospace;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
-        border-radius: 0 8px 0 6px;
+        letter-spacing: 0.06em;
+        font-weight: 600;
+        border-radius: 4px;
+        border: 1px solid rgba(139, 92, 246, 0.2);
     }
 
+    .message-bubble .code-block .code-lang::before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+        box-shadow: 0 0 4px rgba(139, 92, 246, 0.4);
+    }
+
+    /* Copy button */
+    .message-bubble .code-block .code-copy {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        padding: 0.2rem 0.45rem;
+        background: transparent;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: 4px;
+        color: #858585;
+        font-size: 0.52rem;
+        font-family: 'Inter', sans-serif;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .message-bubble .code-block .code-copy:hover {
+        background: rgba(139, 92, 246, 0.15);
+        border-color: rgba(139, 92, 246, 0.3);
+        color: #c4b5fd;
+    }
+
+    .message-bubble .code-block .code-copy.copied {
+        background: rgba(34, 197, 94, 0.15);
+        border-color: rgba(34, 197, 94, 0.3);
+        color: #4ade80;
+    }
+
+    /* Code content area */
     .message-bubble pre {
-        background: rgba(0, 0, 0, 0.5);
-        padding: 0.7rem 0.85rem;
-        border-radius: 8px;
-        overflow-x: auto;
+        background: linear-gradient(180deg, #1e1e1e 0%, #1a1a1a 100%);
+        padding: 0.85rem 1rem;
         margin: 0;
-        border: 1px solid rgba(139, 92, 246, 0.1);
+        overflow-x: auto;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(139, 92, 246, 0.3) transparent;
+    }
+
+    .message-bubble pre::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .message-bubble pre::-webkit-scrollbar-thumb {
+        background: rgba(139, 92, 246, 0.3);
+        border-radius: 3px;
     }
 
     .message-bubble code {
-        font-family: 'JetBrains Mono', 'Fira Code', monospace;
-        font-size: 0.62rem;
+        font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+        font-size: 0.68rem;
+        line-height: 1.65;
+        color: #d4d4d4;
+        font-feature-settings: 'liga' 1, 'calt' 1;
     }
 
-    /* Inline code */
+    /* Line numbers effect via gradient */
+    .message-bubble pre code {
+        display: block;
+        padding-left: 0.5rem;
+        border-left: 2px solid rgba(139, 92, 246, 0.2);
+    }
+
+    /* Inline code - refined */
     .message-bubble .inline-code {
-        background: rgba(139, 92, 246, 0.15);
-        color: #c4b5fd;
-        padding: 0.12rem 0.35rem;
-        border-radius: 4px;
-        font-size: 0.62rem;
-        border: 1px solid rgba(139, 92, 246, 0.1);
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.12), rgba(139, 92, 246, 0.08));
+        color: #e0b0ff;
+        padding: 0.15rem 0.4rem;
+        border-radius: 5px;
+        font-size: 0.65rem;
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 500;
+        border: 1px solid rgba(139, 92, 246, 0.15);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     }
 
-    /* Headers - properly sized hierarchy */
+    /* =============================================
+       HEADERS - Study-Focused Typography
+       Clear visual hierarchy for learning
+    ============================================= */
+    .message-bubble .md-h2 {
+        color: #f1f5f9;
+        margin: 0.9rem 0 0.45rem;
+        font-size: 0.92rem;
+        font-family: 'Sora', 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.025em;
+        padding-bottom: 0.35rem;
+        border-bottom: 2px solid linear-gradient(90deg, #8b5cf6, #06b6d4);
+        background: linear-gradient(135deg, #f8fafc 0%, #c4b5fd 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
     .message-bubble .md-h3 {
-        color: #c4b5fd;
-        margin: 0.7rem 0 0.35rem;
-        font-size: 0.82rem;
-        font-family: 'Space Grotesk', sans-serif;
+        color: #e0e7ff;
+        margin: 0.8rem 0 0.4rem;
+        font-size: 0.85rem;
+        font-family: 'Sora', 'Space Grotesk', sans-serif;
         font-weight: 700;
         letter-spacing: -0.02em;
-        border-bottom: 1px solid rgba(139, 92, 246, 0.15);
-        padding-bottom: 0.25rem;
+        padding-bottom: 0.3rem;
+        border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+    .message-bubble .md-h3::before {
+        content: '';
+        width: 4px;
+        height: 0.9em;
+        background: linear-gradient(180deg, #8b5cf6, #06b6d4);
+        border-radius: 2px;
     }
 
     .message-bubble .md-h4 {
-        color: #a78bfa;
-        margin: 0.55rem 0 0.25rem;
-        font-size: 0.75rem;
+        color: #c4b5fd;
+        margin: 0.65rem 0 0.3rem;
+        font-size: 0.78rem;
         font-family: 'Space Grotesk', sans-serif;
         font-weight: 600;
         letter-spacing: -0.015em;
+        padding-left: 0.5rem;
+        border-left: 3px solid rgba(139, 92, 246, 0.4);
     }
 
     .message-bubble .md-h5 {
         color: #94a3b8;
-        margin: 0.45rem 0 0.2rem;
-        font-size: 0.7rem;
+        margin: 0.5rem 0 0.25rem;
+        font-size: 0.68rem;
         font-family: 'Space Grotesk', sans-serif;
         font-weight: 600;
         text-transform: uppercase;
-        letter-spacing: 0.03em;
+        letter-spacing: 0.05em;
+        padding: 0.15rem 0.4rem;
+        background: rgba(148, 163, 184, 0.08);
+        border-radius: 3px;
+        display: inline-block;
     }
 
-    /* Unordered lists */
+    .message-bubble .md-h6 {
+        color: #64748b;
+        margin: 0.4rem 0 0.2rem;
+        font-size: 0.62rem;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        font-style: italic;
+    }
+
+    /* =============================================
+       LISTS - Enhanced Study-Focused (Compact)
+    ============================================= */
     .message-bubble .md-ul {
-        margin: 0.4rem 0;
+        margin: 0.35rem 0;
         padding-left: 0;
         list-style: none;
     }
 
     .message-bubble .md-ul li.bullet {
         position: relative;
-        padding-left: 1rem;
-        margin-bottom: 0.3rem;
+        padding: 0.2rem 0.35rem 0.2rem 1.1rem;
+        margin-bottom: 0.25rem;
         line-height: 1.5;
+        background: rgba(30, 41, 59, 0.2);
+        border-radius: 5px;
+        transition: background 0.15s ease;
+        font-size: 0.7rem;
+    }
+
+    .message-bubble .md-ul li.bullet:hover {
+        background: rgba(30, 41, 59, 0.35);
     }
 
     .message-bubble .md-ul li.bullet::before {
         content: '›';
         position: absolute;
-        left: 0;
-        color: #06b6d4;
+        left: 0.4rem;
+        color: #22d3ee;
         font-weight: 700;
-        font-size: 0.75rem;
+        font-size: 0.85rem;
     }
 
-    /* Ordered lists */
+    /* Ordered lists with numbered badges (Compact) */
     .message-bubble .md-ol {
-        margin: 0.4rem 0;
+        margin: 0.35rem 0;
         padding-left: 0;
         list-style: none;
         counter-reset: item;
@@ -736,90 +900,299 @@ const base = import.meta.env.BASE_URL;
 
     .message-bubble .md-ol li.numbered {
         position: relative;
-        padding-left: 1.5rem;
-        margin-bottom: 0.35rem;
+        padding: 0.22rem 0.35rem 0.22rem 1.6rem;
+        margin-bottom: 0.28rem;
         line-height: 1.5;
+        background: rgba(30, 41, 59, 0.2);
+        border-radius: 5px;
         counter-increment: item;
+        transition: background 0.15s ease;
+        font-size: 0.7rem;
+    }
+
+    .message-bubble .md-ol li.numbered:hover {
+        background: rgba(30, 41, 59, 0.35);
     }
 
     .message-bubble .md-ol li.numbered::before {
-        content: counter(item) ".";
+        content: counter(item);
         position: absolute;
-        left: 0;
+        left: 0.35rem;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 18px;
+        height: 18px;
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.25), rgba(6, 182, 212, 0.1));
+        border: 1px solid rgba(6, 182, 212, 0.3);
+        border-radius: 5px;
         color: #22d3ee;
         font-weight: 700;
         font-family: 'JetBrains Mono', monospace;
-        font-size: 0.65rem;
+        font-size: 0.58rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
-    /* Blockquotes */
+    /* =============================================
+       BLOCKQUOTES - Premium Callout Style (Compact)
+    ============================================= */
     .message-bubble .md-quote {
-        margin: 0.5rem 0;
+        margin: 0.4rem 0;
         padding: 0.45rem 0.65rem;
-        background: rgba(6, 182, 212, 0.08);
-        border-left: 3px solid rgba(6, 182, 212, 0.5);
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(6, 182, 212, 0.03));
+        border-left: 3px solid #22d3ee;
         border-radius: 0 6px 6px 0;
         color: #94a3b8;
         font-style: italic;
+        font-size: 0.7rem;
+        line-height: 1.5;
+        position: relative;
     }
 
-    /* Horizontal rule */
+    .message-bubble .md-quote::before {
+        content: '"';
+        position: absolute;
+        top: -0.2rem;
+        left: 0.5rem;
+        font-size: 1.5rem;
+        color: rgba(34, 211, 238, 0.3);
+        font-family: Georgia, serif;
+    }
+
+    /* =============================================
+       HORIZONTAL RULE
+    ============================================= */
     .message-bubble .md-hr {
-        margin: 0.6rem 0;
+        margin: 0.75rem 0;
         border: none;
         height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.3), transparent);
+        background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.4), rgba(6, 182, 212, 0.4), transparent);
     }
 
-    /* Links */
+    /* =============================================
+       LINKS - Premium Interactive
+    ============================================= */
     .message-bubble .md-link {
         color: #22d3ee;
-        text-decoration: underline;
-        text-decoration-color: rgba(34, 211, 238, 0.3);
-        text-underline-offset: 2px;
+        text-decoration: none;
+        font-weight: 500;
+        padding-bottom: 1px;
+        border-bottom: 1px dashed rgba(34, 211, 238, 0.4);
         transition: all 0.2s ease;
     }
 
     .message-bubble .md-link:hover {
         color: #67e8f9;
-        text-decoration-color: rgba(34, 211, 238, 0.6);
+        border-bottom-style: solid;
+        border-bottom-color: rgba(34, 211, 238, 0.8);
     }
 
-    /* Strong/Bold */
+    .message-bubble .md-link::after {
+        content: ' ↗';
+        font-size: 0.6em;
+        opacity: 0.6;
+    }
+
+    /* =============================================
+       TEXT EMPHASIS - Academic Typography
+    ============================================= */
     .message-bubble strong {
-        color: #f1f5f9;
+        color: #f8fafc;
         font-weight: 700;
+        font-family: 'Inter', 'Helvetica Neue', sans-serif;
+        background: linear-gradient(180deg, transparent 55%, rgba(6, 182, 212, 0.25) 55%);
+        padding: 0.05rem 0.2rem;
+        border-radius: 2px;
     }
 
-    /* Emphasis/Italic */
     .message-bubble em {
-        color: #c4b5fd;
+        color: #d4d0f9;
         font-style: italic;
+        font-weight: 500;
+        letter-spacing: 0.02em;
     }
 
-    /* Strikethrough */
     .message-bubble del {
         color: #64748b;
         text-decoration: line-through;
+        opacity: 0.7;
     }
 
-    /* Legacy styles for backwards compatibility */
+    /* Academic highlight style - textbook marker effect */
+    .message-bubble mark,
+    .message-bubble .highlight {
+        background: linear-gradient(180deg, transparent 35%, rgba(250, 204, 21, 0.35) 35%);
+        color: inherit;
+        padding: 0.08rem 0.25rem;
+        border-radius: 2px;
+        font-weight: 500;
+    }
+
+    /* Academic underline - scholarly emphasis */
+    .message-bubble u {
+        text-decoration: none;
+        border-bottom: 2px solid rgba(139, 92, 246, 0.6);
+        padding-bottom: 2px;
+        font-weight: 500;
+    }
+
+    /* Double underline for important terms */
+    .message-bubble u strong {
+        border-bottom: 2px double rgba(6, 182, 212, 0.7);
+    }
+
+    /* =============================================
+       LEGACY STYLES (backwards compatibility - Compact)
+    ============================================= */
     .message-bubble h3, .message-bubble h4 {
         color: #c4b5fd;
-        margin: 0.5rem 0 0.25rem;
+        margin: 0.45rem 0 0.2rem;
         font-size: 0.75rem;
         font-family: 'Space Grotesk', sans-serif;
         font-weight: 600;
         letter-spacing: -0.02em;
+        padding-bottom: 0.15rem;
+        border-bottom: 1px solid rgba(139, 92, 246, 0.15);
+    }
+
+    .message-bubble h5, .message-bubble h6 {
+        color: #94a3b8;
+        margin: 0.35rem 0 0.15rem;
+        font-size: 0.68rem;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
     }
 
     .message-bubble ul, .message-bubble ol {
-        margin: 0.4rem 0;
-        padding-left: 1.1rem;
+        margin: 0.6rem 0;
+        padding-left: 1.2rem;
+    }
+
+    .message-bubble ul {
+        list-style-type: disc;
+    }
+
+    .message-bubble ul ul {
+        list-style-type: circle;
+        margin: 0.3rem 0;
+    }
+
+    .message-bubble ol {
+        list-style-type: decimal;
     }
 
     .message-bubble li {
-        margin-bottom: 0.25rem;
+        margin-bottom: 0.35rem;
+        line-height: 1.6;
+        font-size: 0.76rem;
+        padding-left: 0.3rem;
+    }
+
+    .message-bubble li::marker {
+        color: #22d3ee;
+        font-weight: 600;
+    }
+
+    /* =============================================
+       SEGMENT SEPARATORS - Visual Hierarchy
+       Clear boundaries between content segments
+    ============================================= */
+    .message-bubble p {
+        margin: 0.5rem 0;
+        line-height: 1.65;
+    }
+
+    /* Major section breaks (h3 after content) */
+    .message-bubble p + .md-h3,
+    .message-bubble ul + .md-h3,
+    .message-bubble ol + .md-h3,
+    .message-bubble .md-quote + .md-h3,
+    .message-bubble .code-block + .md-h3 {
+        margin-top: 0.7rem;
+        padding-top: 0.5rem;
+        border-top: 1px solid rgba(139, 92, 246, 0.15);
+    }
+
+    /* Sub-section breaks (h4 after content) */
+    .message-bubble p + .md-h4,
+    .message-bubble ul + .md-h4,
+    .message-bubble ol + .md-h4 {
+        margin-top: 0.5rem;
+        padding-top: 0.35rem;
+        border-top: 1px dashed rgba(148, 163, 184, 0.1);
+    }
+
+    /* Micro-section breaks (h5 after content) */
+    .message-bubble p + .md-h5,
+    .message-bubble ul + .md-h5,
+    .message-bubble ol + .md-h5 {
+        margin-top: 0.4rem;
+    }
+
+    /* List after paragraph spacing */
+    .message-bubble p + .md-ul,
+    .message-bubble p + .md-ol {
+        margin-top: 0.25rem;
+    }
+
+    /* Code block spacing */
+    .message-bubble p + .code-block,
+    .message-bubble .md-h3 + .code-block,
+    .message-bubble .md-h4 + .code-block {
+        margin-top: 0.5rem;
+    }
+
+    /* Consecutive paragraphs - generous spacing for readability */
+    .message-bubble p + p {
+        margin-top: 1rem;
+    }
+
+    /* Blockquote after content */
+    .message-bubble p + .md-quote,
+    .message-bubble ul + .md-quote {
+        margin-top: 0.45rem;
+    }
+
+    /* =============================================
+       TABLES (if generated by AI)
+    ============================================= */
+    .message-bubble table {
+        width: 100%;
+        margin: 0.6rem 0;
+        border-collapse: collapse;
+        font-size: 0.68rem;
+        background: rgba(30, 41, 59, 0.3);
+        border-radius: 6px;
+        overflow: hidden;
+    }
+
+    .message-bubble th {
+        background: rgba(139, 92, 246, 0.15);
+        color: #c4b5fd;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        font-size: 0.6rem;
+        padding: 0.45rem 0.6rem;
+        text-align: left;
+        border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+    }
+
+    .message-bubble td {
+        padding: 0.4rem 0.6rem;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+        color: #e2e8f0;
+    }
+
+    .message-bubble tr:last-child td {
+        border-bottom: none;
+    }
+
+    .message-bubble tr:hover td {
+        background: rgba(139, 92, 246, 0.05);
     }
 
     /* Loading */
@@ -1065,7 +1438,7 @@ const base = import.meta.env.BASE_URL;
         resize: none;
         line-height: 1.45;
         transition: all 0.25s ease;
-        min-height: 34px;
+        min-height: 50px; /* 2 rows of text */
         max-height: 90px;
     }
 
@@ -1228,77 +1601,162 @@ const base = import.meta.env.BASE_URL;
     }
 
     /* Light mode Markdown styles */
+    /* Light mode code blocks - VSCode Light Theme */
+    :global([data-theme="light"]) .message-bubble .code-block {
+        box-shadow:
+            0 2px 8px rgba(0, 0, 0, 0.08),
+            0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    :global([data-theme="light"]) .message-bubble .code-block .code-header {
+        background: linear-gradient(180deg, #f3f3f3 0%, #e8e8e8 100%);
+        border-bottom-color: #d4d4d4;
+    }
+
     :global([data-theme="light"]) .message-bubble .code-block .code-lang {
-        background: rgba(139, 92, 246, 0.15);
+        background: rgba(139, 92, 246, 0.12);
+        color: #7c3aed;
+        border-color: rgba(139, 92, 246, 0.2);
+    }
+
+    :global([data-theme="light"]) .message-bubble .code-block .code-copy {
+        color: #6b7280;
+        border-color: rgba(107, 114, 128, 0.2);
+    }
+
+    :global([data-theme="light"]) .message-bubble .code-block .code-copy:hover {
+        background: rgba(139, 92, 246, 0.1);
         color: #7c3aed;
     }
 
     :global([data-theme="light"]) .message-bubble pre {
-        background: rgba(0, 0, 0, 0.04);
-        border-color: rgba(0, 0, 0, 0.08);
+        background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
     }
 
     :global([data-theme="light"]) .message-bubble code {
         color: #1e293b;
     }
 
+    :global([data-theme="light"]) .message-bubble pre code {
+        border-left-color: rgba(139, 92, 246, 0.25);
+    }
+
     :global([data-theme="light"]) .message-bubble .inline-code {
-        background: rgba(139, 92, 246, 0.1);
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(139, 92, 246, 0.04));
         color: #7c3aed;
-        border-color: rgba(139, 92, 246, 0.15);
+        border-color: rgba(139, 92, 246, 0.12);
+    }
+
+    /* Light mode headers */
+    :global([data-theme="light"]) .message-bubble .md-h2 {
+        background: linear-gradient(135deg, #1e293b 0%, #6d28d9 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
 
     :global([data-theme="light"]) .message-bubble .md-h3 {
-        color: #6d28d9;
-        border-bottom-color: rgba(139, 92, 246, 0.12);
+        color: #1e293b;
+        border-bottom-color: rgba(139, 92, 246, 0.15);
+    }
+
+    :global([data-theme="light"]) .message-bubble .md-h3::before {
+        background: linear-gradient(180deg, #7c3aed, #0891b2);
     }
 
     :global([data-theme="light"]) .message-bubble .md-h4 {
-        color: #7c3aed;
+        color: #6d28d9;
     }
 
     :global([data-theme="light"]) .message-bubble .md-h5 {
         color: #475569;
     }
 
+    /* Light mode lists */
+    :global([data-theme="light"]) .message-bubble .md-ul li.bullet {
+        background: rgba(248, 250, 252, 0.8);
+    }
+
+    :global([data-theme="light"]) .message-bubble .md-ul li.bullet:hover {
+        background: rgba(241, 245, 249, 1);
+    }
+
     :global([data-theme="light"]) .message-bubble .md-ul li.bullet::before {
         color: #0891b2;
     }
 
+    :global([data-theme="light"]) .message-bubble .md-ol li.numbered {
+        background: rgba(248, 250, 252, 0.8);
+    }
+
+    :global([data-theme="light"]) .message-bubble .md-ol li.numbered:hover {
+        background: rgba(241, 245, 249, 1);
+    }
+
     :global([data-theme="light"]) .message-bubble .md-ol li.numbered::before {
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(6, 182, 212, 0.08));
+        border-color: rgba(6, 182, 212, 0.25);
         color: #0891b2;
     }
 
+    /* Light mode blockquotes */
     :global([data-theme="light"]) .message-bubble .md-quote {
-        background: rgba(6, 182, 212, 0.06);
-        border-left-color: rgba(6, 182, 212, 0.4);
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.05), rgba(6, 182, 212, 0.02));
+        border-left-color: #0891b2;
         color: #475569;
     }
 
-    :global([data-theme="light"]) .message-bubble .md-hr {
-        background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.2), transparent);
+    :global([data-theme="light"]) .message-bubble .md-quote::before {
+        color: rgba(8, 145, 178, 0.25);
     }
 
+    :global([data-theme="light"]) .message-bubble .md-hr {
+        background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.25), rgba(6, 182, 212, 0.25), transparent);
+    }
+
+    /* Light mode links */
     :global([data-theme="light"]) .message-bubble .md-link {
         color: #0891b2;
-        text-decoration-color: rgba(8, 145, 178, 0.3);
+        border-bottom-color: rgba(8, 145, 178, 0.3);
     }
 
     :global([data-theme="light"]) .message-bubble .md-link:hover {
         color: #0e7490;
-        text-decoration-color: rgba(14, 116, 144, 0.5);
+        border-bottom-color: rgba(14, 116, 144, 0.6);
     }
 
+    /* Light mode text emphasis */
     :global([data-theme="light"]) .message-bubble strong {
         color: #0f172a;
+        text-shadow: none;
     }
 
     :global([data-theme="light"]) .message-bubble em {
-        color: #7c3aed;
+        color: #6d28d9;
     }
 
     :global([data-theme="light"]) .message-bubble del {
         color: #94a3b8;
+    }
+
+    /* Light mode tables */
+    :global([data-theme="light"]) .message-bubble table {
+        background: rgba(248, 250, 252, 0.8);
+    }
+
+    :global([data-theme="light"]) .message-bubble th {
+        background: rgba(139, 92, 246, 0.1);
+        color: #6d28d9;
+        border-bottom-color: rgba(139, 92, 246, 0.15);
+    }
+
+    :global([data-theme="light"]) .message-bubble td {
+        color: #334155;
+        border-bottom-color: rgba(148, 163, 184, 0.12);
+    }
+
+    :global([data-theme="light"]) .message-bubble tr:hover td {
+        background: rgba(139, 92, 246, 0.03);
     }
 
     /* Light mode gradient scrim */
@@ -1708,10 +2166,9 @@ const base = import.meta.env.BASE_URL;
             showChatInput();
         }
 
-        // Close panel
+        // Close panel - use hideAITutor to properly clear state
         closeBtn?.addEventListener('click', () => {
-            panel?.classList.remove('visible');
-            currentSubject = null;
+            window.hideAITutor();
             updateQuickActionsState(false);
         });
 
@@ -1772,9 +2229,9 @@ const base = import.meta.env.BASE_URL;
             subjectLabel.textContent = subjectName;
         }
 
-        // Clear messages and show welcome
+        // Clear messages - DON'T show welcome since we'll add greeting immediately
         if (messages) messages.innerHTML = '';
-        if (welcome) welcome.style.display = 'block';
+        if (welcome) welcome.style.display = 'none';
 
         // Show panel
         panel?.classList.add('visible');
@@ -1783,10 +2240,30 @@ const base = import.meta.env.BASE_URL;
         // Enable quick actions
         updateQuickActionsState(true);
 
-        // Add initial assistant message
-        setTimeout(() => {
-            addMessage('assistant', `¡Hola! 👋 Tutor de **${subjectName}** a tu servicio. Resúmenes, código, ejercicios, dudas... ¡pregunta lo que quieras!`);
-        }, 500);
+        // Add initial assistant message with prominent greeting state
+        const greetingMsg = `¡Hola! 👋 Tutor de **${subjectName}** a tu servicio. Resúmenes, código, ejercicios, dudas... ¡pregunta lo que quieras!`;
+        addMessage('assistant', greetingMsg);
+
+        // Make the greeting prominent for 8 seconds
+        // Use requestAnimationFrame to ensure DOM is updated after addMessage
+        requestAnimationFrame(() => {
+            const greetingElement = messages?.querySelector('.message.assistant:last-child');
+            if (greetingElement) {
+                greetingElement.classList.add('greeting-prominent');
+                setTimeout(() => {
+                    greetingElement.classList.remove('greeting-prominent');
+                }, 8000);
+            }
+        });
+
+        // Save state to sessionStorage for persistence across View Transitions
+        // Include timestamp to prevent astro:page-load from re-adding the greeting
+        sessionStorage.setItem('aiTutorState', JSON.stringify({
+            visible: true,
+            subject: currentSubject,
+            greeting: greetingMsg,
+            timestamp: Date.now()
+        }));
     };
 
     // Hide panel
@@ -1794,6 +2271,8 @@ const base = import.meta.env.BASE_URL;
         const panel = document.getElementById('ai-tutor-panel');
         panel?.classList.remove('visible', 'minimized');
         currentSubject = null;
+        // Clear persisted state
+        sessionStorage.removeItem('aiTutorState');
     };
 
     function showChatInput() {
@@ -1998,21 +2477,32 @@ Mantén respuestas concisas pero completas.`;
         // Enhanced Markdown to HTML conversion
         let formattedContent = content;
 
-        // 1. Code blocks (must be first to preserve content)
+        // 1. Code blocks (VSCode-style with header and copy button)
         formattedContent = formattedContent.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
             const langClass = lang ? ` class="language-${lang}"` : '';
-            const langLabel = lang ? `<span class="code-lang">${lang}</span>` : '';
-            return `<div class="code-block">${langLabel}<pre><code${langClass}>${escapeHtml(code.trim())}</code></pre></div>`;
+            const langDisplay = lang || 'code';
+            const codeId = 'code-' + Math.random().toString(36).substr(2, 9);
+            return `<div class="code-block">
+                <div class="code-header">
+                    <span class="code-lang">${langDisplay}</span>
+                    <button class="code-copy" data-code-id="${codeId}" title="Copiar código">
+                        <i class="fas fa-copy"></i> Copiar
+                    </button>
+                </div>
+                <pre><code${langClass} id="${codeId}">${escapeHtml(code.trim())}</code></pre>
+            </div>`;
         });
 
         // 2. Inline code (before other formatting)
         formattedContent = formattedContent.replace(/`([^`]+)`/g, '<code class="inline-code">$1</code>');
 
-        // 3. Headers (must check for # at start of line)
+        // 3. Headers (must check for # at start of line, process from most to least specific)
+        formattedContent = formattedContent.replace(/^###### (.+)$/gm, '<h6 class="md-h6">$1</h6>');
+        formattedContent = formattedContent.replace(/^##### (.+)$/gm, '<h6 class="md-h6">$1</h6>');
         formattedContent = formattedContent.replace(/^#### (.+)$/gm, '<h5 class="md-h5">$1</h5>');
         formattedContent = formattedContent.replace(/^### (.+)$/gm, '<h4 class="md-h4">$1</h4>');
         formattedContent = formattedContent.replace(/^## (.+)$/gm, '<h3 class="md-h3">$1</h3>');
-        formattedContent = formattedContent.replace(/^# (.+)$/gm, '<h3 class="md-h3">$1</h3>');
+        formattedContent = formattedContent.replace(/^# (.+)$/gm, '<h2 class="md-h2">$1</h2>');
 
         // 4. Bold and italic (order matters)
         formattedContent = formattedContent.replace(/\*\*\*([^*]+)\*\*\*/g, '<strong><em>$1</em></strong>');
@@ -2061,6 +2551,28 @@ Mantén respuestas concisas pero completas.`;
 
         messagesContainer.appendChild(messageDiv);
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+        // Attach copy button event listeners for code blocks
+        const copyButtons = messageDiv.querySelectorAll('.code-copy');
+        copyButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const codeId = this.getAttribute('data-code-id');
+                const codeElement = document.getElementById(codeId);
+                if (codeElement) {
+                    navigator.clipboard.writeText(codeElement.textContent).then(() => {
+                        // Success feedback
+                        this.classList.add('copied');
+                        this.innerHTML = '<i class="fas fa-check"></i> Copiado';
+                        setTimeout(() => {
+                            this.classList.remove('copied');
+                            this.innerHTML = '<i class="fas fa-copy"></i> Copiar';
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Error copying:', err);
+                    });
+                }
+            });
+        });
     }
 
     // Helper function to escape HTML in code blocks
@@ -2090,7 +2602,71 @@ Mantén respuestas concisas pero completas.`;
     // Initialize on page load
     document.addEventListener('DOMContentLoaded', initAITutorPanel);
     document.addEventListener('astro:page-load', () => {
+        // FIRST: Check for saved state BEFORE reinitializing
+        const savedState = sessionStorage.getItem('aiTutorState');
+
         tutorInitialized = false;
         initAITutorPanel();
+
+        // Restore state from sessionStorage (persists across View Transitions)
+        if (savedState) {
+            try {
+                const state = JSON.parse(savedState);
+                if (state.visible && state.subject) {
+                    // Check if this state was just saved by showAITutor (within 1 second)
+                    // If so, skip re-adding the greeting to avoid flash/flicker
+                    const isRecentlySaved = state.timestamp && (Date.now() - state.timestamp < 1000);
+
+                    // Use requestAnimationFrame to ensure DOM is ready
+                    requestAnimationFrame(() => {
+                        currentSubject = state.subject;
+                        chatHistory = [];
+
+                        // Restore panel visibility
+                        const panel = document.getElementById('ai-tutor-panel');
+                        panel?.classList.add('visible');
+                        panel?.classList.remove('minimized');
+
+                        // Restore subject label
+                        const subjectLabel = document.getElementById('tutor-subject-name');
+                        if (subjectLabel) subjectLabel.textContent = state.subject.name;
+
+                        // Hide welcome
+                        const welcome = document.getElementById('tutor-welcome');
+                        if (welcome) welcome.style.display = 'none';
+
+                        // Always restore greeting if messages container is empty
+                        // View Transitions may have cleared the DOM
+                        const messagesContainer = document.getElementById('tutor-messages');
+                        const hasMessages = messagesContainer && messagesContainer.children.length > 0;
+
+                        if (messagesContainer && state.greeting && !hasMessages) {
+                            addMessage('assistant', state.greeting);
+
+                            // Apply greeting-prominent effect for remaining time
+                            if (isRecentlySaved) {
+                                requestAnimationFrame(() => {
+                                    const greetingElement = messagesContainer.querySelector('.message.assistant:last-child');
+                                    if (greetingElement) {
+                                        greetingElement.classList.add('greeting-prominent');
+                                        // Calculate remaining time (8 seconds - elapsed)
+                                        const elapsed = Date.now() - state.timestamp;
+                                        const remaining = Math.max(0, 8000 - elapsed);
+                                        setTimeout(() => {
+                                            greetingElement.classList.remove('greeting-prominent');
+                                        }, remaining);
+                                    }
+                                });
+                            }
+                        }
+
+                        // Enable quick actions
+                        updateQuickActionsState(true);
+                    });
+                }
+            } catch (e) {
+                console.warn('Error restoring AI Tutor state:', e);
+            }
+        }
     });
 </script>
