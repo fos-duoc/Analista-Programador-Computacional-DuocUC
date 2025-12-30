@@ -4,7 +4,7 @@ const currentPath = Astro.url.pathname;
 
 // Determinar qué enlace está activo basado en la ruta actual
 const isHome = currentPath.includes('/inicio');
-const isMalla = currentPath.includes('/malla');
+const isSalaEstudio = currentPath.includes('/sala-de-estudio');
 const isStack = currentPath.includes('/stack');
 const isArquitectura = currentPath.includes('/arquitectura');
 const isRecursos = currentPath.includes('/recursos');
@@ -43,7 +43,7 @@ const isComunidad = currentPath.includes('/comunidad');
         <nav class="nav" id="main-nav">
             <a href={`${base}/inicio`} class={`nav-link ${isHome ? 'active' : ''}`}
                data-premium-tooltip="Inicio|Dashboard principal con Plan de Estudios y visión general de la carrera|17 Bimestres,2 Carreras,Stats|navigation|fa-home|NAVEGACIÓN">Inicio</a>
-            <a href={`${base}/malla`} class={`nav-link ${isMalla ? 'active' : ''}`}
+            <a href={`${base}/sala-de-estudio`} class={`nav-link ${isSalaEstudio ? 'active' : ''}`}
                data-premium-tooltip="Sala de Estudio|Explora las asignaturas con información detallada: contenidos, evaluaciones, tecnologías y recursos|APC,IDS,40+ Asignaturas|navigation|fa-book-reader|ESTUDIO">Sala de Estudio</a>
             <a href={`${base}/stack`} class={`nav-link ${isStack ? 'active' : ''}`}
                data-premium-tooltip="Stack Tecnológico|150+ tecnologías con rankings de Stack Overflow y GitHub Octoverse 2024|Cloud DW,Terminal CLI,AI/LLM|navigation|fa-layer-group|TECNOLOGÍAS">Stack</a>
@@ -119,7 +119,7 @@ const isComunidad = currentPath.includes('/comunidad');
                 <a href={`${base}/inicio`} class={`mobile-nav-link ${isHome ? 'active' : ''}`}>
                     <i class="fas fa-home"></i> Inicio
                 </a>
-                <a href={`${base}/malla`} class={`mobile-nav-link ${isMalla ? 'active' : ''}`}>
+                <a href={`${base}/sala-de-estudio`} class={`mobile-nav-link ${isSalaEstudio ? 'active' : ''}`}>
                     <i class="fas fa-book-reader"></i> Sala de Estudio
                 </a>
                 <a href={`${base}/stack`} class={`mobile-nav-link ${isStack ? 'active' : ''}`}>
@@ -374,7 +374,7 @@ const isComunidad = currentPath.includes('/comunidad');
             if (href) {
                 if (currentPath.includes('/inicio') && href.includes('/inicio')) {
                     link.classList.add('active');
-                } else if (currentPath.includes('/malla') && href.includes('/malla')) {
+                } else if (currentPath.includes('/sala-de-estudio') && href.includes('/sala-de-estudio')) {
                     link.classList.add('active');
                 } else if (currentPath.includes('/stack') && href.includes('/stack')) {
                     link.classList.add('active');
