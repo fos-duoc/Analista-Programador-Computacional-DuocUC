@@ -1133,22 +1133,53 @@ const base = import.meta.env.BASE_URL;
         card?.classList.toggle('expanded');
     };
 
-    // Inicializar eventos
-    document.addEventListener('DOMContentLoaded', initDrawer);
-    document.addEventListener('astro:page-load', initDrawer);
+</script>
 
-    function initDrawer() {
-        // Cerrar con botón X
-        document.getElementById('drawer-close-btn')?.addEventListener('click', window.closeSubjectDrawer);
+<!-- Script inline separado para event listeners - se ejecuta en cada View Transition -->
+<script is:inline>
+    (function initSubjectDrawerEvents() {
+        // Flag para evitar múltiples listeners de Escape
+        if (window._subjectDrawerEventsInitialized) return;
 
-        // Cerrar con overlay
-        document.getElementById('subject-drawer-overlay')?.addEventListener('click', window.closeSubjectDrawer);
+        function attachDrawerEvents() {
+            const closeBtn = document.getElementById('drawer-close-btn');
+            const overlay = document.getElementById('subject-drawer-overlay');
 
-        // Cerrar con Escape
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                window.closeSubjectDrawer();
+            // Usar onclick directo para evitar duplicados
+            if (closeBtn) {
+                closeBtn.onclick = function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (window.closeSubjectDrawer) {
+                        window.closeSubjectDrawer();
+                    }
+                };
             }
-        });
-    }
+
+            if (overlay) {
+                overlay.onclick = function(e) {
+                    e.preventDefault();
+                    if (window.closeSubjectDrawer) {
+                        window.closeSubjectDrawer();
+                    }
+                };
+            }
+        }
+
+        // Escape key - solo una vez
+        if (!window._subjectDrawerEventsInitialized) {
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && window.closeSubjectDrawer) {
+                    window.closeSubjectDrawer();
+                }
+            });
+            window._subjectDrawerEventsInitialized = true;
+        }
+
+        // Ejecutar inmediatamente
+        attachDrawerEvents();
+
+        // Re-attach después de View Transitions
+        document.addEventListener('astro:page-load', attachDrawerEvents);
+    })();
 </script>
