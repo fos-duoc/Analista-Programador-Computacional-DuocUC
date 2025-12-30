@@ -536,6 +536,7 @@ body,
 .nav-link {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.4rem;
   color: var(--text-secondary);
   font-size: 0.9rem;
