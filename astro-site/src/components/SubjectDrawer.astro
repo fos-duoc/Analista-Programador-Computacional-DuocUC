@@ -910,10 +910,11 @@ const base = import.meta.env.BASE_URL;
     // Función para abrir el drawer con una asignatura
     window.openSubjectDrawer = function(subjectId) {
         const data = window.subjectDrawerData;
-        const asignatura = data.asignaturas.find(a => a.id === subjectId);
+        // asignaturas es un objeto Record, no un array - acceder por clave directamente
+        const asignatura = data.asignaturas[subjectId];
 
         if (!asignatura) {
-            console.warn('Asignatura no encontrada:', subjectId);
+            console.warn('Asignatura no encontrada:', subjectId, 'Disponibles:', Object.keys(data.asignaturas));
             return;
         }
 
