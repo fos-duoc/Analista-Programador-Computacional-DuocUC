@@ -206,7 +206,7 @@ const base = import.meta.env.BASE_URL;
         transform: translateX(100%);
         transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), width 0.3s ease;
         box-shadow: -12px 0 48px rgba(0, 0, 0, 0.5), -4px 0 16px rgba(139, 92, 246, 0.05);
-        font-size: 0.88rem;
+        font-size: 0.89rem;
         font-family: 'Inter', system-ui, -apple-system, sans-serif;
     }
 
@@ -585,7 +585,7 @@ const base = import.meta.env.BASE_URL;
         max-width: 100%;
         padding: 0.5rem 0.7rem;
         border-radius: 10px;
-        font-size: 0.68rem;
+        font-size: 0.67rem;
         line-height: 1.55;
         font-family: 'Inter', system-ui, sans-serif;
         letter-spacing: -0.01em;
@@ -875,7 +875,7 @@ const base = import.meta.env.BASE_URL;
         border: 1px solid rgba(139, 92, 246, 0.15);
         border-radius: 8px;
         color: #e2e8f0;
-        font-size: 0.68rem;
+        font-size: 0.67rem;
         font-family: 'Inter', system-ui, sans-serif;
         resize: none;
         line-height: 1.45;
@@ -1424,6 +1424,7 @@ const base = import.meta.env.BASE_URL;
     let currentSubject = null;
     let chatHistory = [];
     let tutorInitialized = false;
+    let isSending = false;
 
     function initAITutorPanel() {
         if (tutorInitialized) return;
@@ -1603,6 +1604,9 @@ const base = import.meta.env.BASE_URL;
     }
 
     async function sendMessage() {
+        // Prevent duplicate submissions
+        if (isSending) return;
+
         const input = document.getElementById('tutor-chat-input');
         const message = input?.value?.trim();
         const apiKey = localStorage.getItem('gemini_api_key');
@@ -1612,6 +1616,9 @@ const base = import.meta.env.BASE_URL;
             addMessage('assistant', 'Por favor, configura tu API Key de Gemini primero.');
             return;
         }
+
+        // Lock to prevent duplicates
+        isSending = true;
 
         // Add user message
         addMessage('user', message);
@@ -1629,6 +1636,7 @@ const base = import.meta.env.BASE_URL;
             addMessage('assistant', `Error: ${error.message || 'No se pudo conectar con Gemini. Verifica tu API Key.'}`);
         } finally {
             showLoading(false);
+            isSending = false;
         }
     }
 
