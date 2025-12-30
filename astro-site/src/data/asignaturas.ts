@@ -150,7 +150,9 @@ export const asignaturas: Record<string, Asignatura> = {
         tecnologias: [
             { nombre: 'Python', icon: 'python-plain', iconType: 'devicon' },
             { nombre: 'VS Code', icon: 'vscode-plain', iconType: 'devicon' },
-            { nombre: 'Git', icon: 'git-plain', iconType: 'devicon' }
+            { nombre: 'Git', icon: 'git-plain', iconType: 'devicon' },
+            { nombre: 'Jupyter', icon: 'jupyter-plain', iconType: 'devicon' },
+            { nombre: 'GitHub', icon: 'github-original', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Actividad Formativa 1', ponderacion: 0, descripcion: 'Ejercicios de pseudocódigo y primeros programas' },
@@ -165,6 +167,8 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Documentación', nombre: 'Python Official Docs', url: 'https://docs.python.org/3/' },
             { tipo: 'Tutorial', nombre: 'Real Python', url: 'https://realpython.com/' },
             { tipo: 'Práctica', nombre: 'HackerRank Python', url: 'https://www.hackerrank.com/domains/python' },
+            { tipo: 'Práctica', nombre: 'LeetCode Python', url: 'https://leetcode.com/problemset/' },
+            { tipo: 'Curso', nombre: 'Python for Everybody', url: 'https://www.py4e.com/' },
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-01%20-%20Antropologia%2C%20Fundamentos%20Prog.%2C%20Modelamiento%20BD/Fundamentos-Programacion' }
         ],
         color: 'cyan',
@@ -261,7 +265,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Oracle', icon: 'oracle-original', iconType: 'devicon' },
             { nombre: 'PostgreSQL', icon: 'postgresql-plain', iconType: 'devicon' },
             { nombre: 'SQL Developer', icon: 'fa-database', iconType: 'fontawesome' },
-            { nombre: 'Draw.io', icon: 'fa-project-diagram', iconType: 'fontawesome' }
+            { nombre: 'Draw.io', icon: 'fa-project-diagram', iconType: 'fontawesome' },
+            { nombre: 'MySQL', icon: 'mysql-plain', iconType: 'devicon' },
+            { nombre: 'DBeaver', icon: 'fa-table', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Actividad Formativa 1', ponderacion: 0, descripcion: 'Diseño de diagrama E-R básico' },
@@ -276,6 +282,8 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Documentación', nombre: 'Oracle Database Docs', url: 'https://docs.oracle.com/en/database/' },
             { tipo: 'Tutorial', nombre: 'PostgreSQL Tutorial', url: 'https://www.postgresqltutorial.com/' },
             { tipo: 'Herramienta', nombre: 'Draw.io', url: 'https://app.diagrams.net/' },
+            { tipo: 'Curso', nombre: 'Database Design - freeCodeCamp', url: 'https://www.freecodecamp.org/news/database-design-course/' },
+            { tipo: 'Tutorial', nombre: 'Lucidchart ER Diagrams', url: 'https://www.lucidchart.com/pages/er-diagrams' },
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-01%20-%20Antropologia%2C%20Fundamentos%20Prog.%2C%20Modelamiento%20BD/Modelamiento-Datos' }
         ],
         color: 'amber',
@@ -367,7 +375,9 @@ export const asignaturas: Record<string, Asignatura> = {
         tecnologias: [
             { nombre: 'Presentaciones', icon: 'fa-file-powerpoint', iconType: 'fontawesome' },
             { nombre: 'Investigación', icon: 'fa-search', iconType: 'fontawesome' },
-            { nombre: 'Colaboración', icon: 'fa-users', iconType: 'fontawesome' }
+            { nombre: 'Colaboración', icon: 'fa-users', iconType: 'fontawesome' },
+            { nombre: 'Google Docs', icon: 'google-plain', iconType: 'devicon' },
+            { nombre: 'Canva', icon: 'canva-original', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Participación en clases', ponderacion: 0, descripcion: 'Aportes en debates y reflexiones' },
@@ -379,7 +389,9 @@ export const asignaturas: Record<string, Asignatura> = {
         conexiones: ['Ética', 'Comunicación', 'Ética Profesional'],
         recursos: [
             { tipo: 'Lectura', nombre: 'Material de estudio DuocUC', url: '#' },
-            { tipo: 'Video', nombre: 'TED Talks sobre cultura', url: 'https://www.ted.com/topics/culture' }
+            { tipo: 'Video', nombre: 'TED Talks sobre cultura', url: 'https://www.ted.com/topics/culture' },
+            { tipo: 'Video', nombre: 'Crash Course Philosophy', url: 'https://www.youtube.com/playlist?list=PL8dPuuaLjXtNgK6MZucdYldNkMybYIHKR' },
+            { tipo: 'Artículo', nombre: 'Stanford Encyclopedia of Philosophy', url: 'https://plato.stanford.edu/' }
         ],
         color: 'rose',
         area: 'transversal'
@@ -479,7 +491,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Java', icon: 'java-plain', iconType: 'devicon' },
             { nombre: 'IntelliJ IDEA', icon: 'intellij-plain', iconType: 'devicon' },
             { nombre: 'Maven', icon: 'maven-plain', iconType: 'devicon' },
-            { nombre: 'Git', icon: 'git-plain', iconType: 'devicon' }
+            { nombre: 'Git', icon: 'git-plain', iconType: 'devicon' },
+            { nombre: 'GitHub', icon: 'github-original', iconType: 'devicon' },
+            { nombre: 'UML', icon: 'fa-sitemap', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Actividad Formativa 1', ponderacion: 0, descripcion: 'Creación de clases básicas' },
@@ -494,6 +508,8 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Documentación', nombre: 'Java SE Documentation', url: 'https://docs.oracle.com/en/java/' },
             { tipo: 'Tutorial', nombre: 'Baeldung Java', url: 'https://www.baeldung.com/' },
             { tipo: 'Práctica', nombre: 'Exercism Java Track', url: 'https://exercism.org/tracks/java' },
+            { tipo: 'Curso', nombre: 'Java Programming - MOOC.fi', url: 'https://java-programming.mooc.fi/' },
+            { tipo: 'Video', nombre: 'Java Full Course - Bro Code', url: 'https://www.youtube.com/watch?v=xk4_1vDrzzo' },
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-02%20-%20POO%20I%2C%20Cloud%2C%20Comunicacion/Programacion-OO-I' }
         ],
         color: 'orange',
@@ -590,7 +606,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'AWS', icon: 'amazonwebservices-plain-wordmark', iconType: 'devicon' },
             { nombre: 'Linux', icon: 'linux-plain', iconType: 'devicon' },
             { nombre: 'SSH', icon: 'ssh-original', iconType: 'devicon' },
-            { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' }
+            { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' },
+            { nombre: 'Bash', icon: 'bash-plain', iconType: 'devicon' },
+            { nombre: 'Terraform', icon: 'terraform-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs AWS Academy', ponderacion: 0, descripcion: 'Laboratorios prácticos guiados' },
@@ -604,6 +622,8 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Plataforma', nombre: 'AWS Academy', url: 'https://aws.amazon.com/es/training/awsacademy/' },
             { tipo: 'Documentación', nombre: 'AWS Documentation', url: 'https://docs.aws.amazon.com/' },
             { tipo: 'Tutorial', nombre: 'AWS Skill Builder', url: 'https://skillbuilder.aws/' },
+            { tipo: 'Curso', nombre: 'AWS Cloud Practitioner - freeCodeCamp', url: 'https://www.youtube.com/watch?v=SOTamWNgDKc' },
+            { tipo: 'Guía', nombre: 'AWS Well-Architected', url: 'https://aws.amazon.com/architecture/well-architected/' },
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-02%20-%20POO%20I%2C%20Cloud%2C%20Comunicacion/Computacion-Nube' }
         ],
         color: 'yellow',
@@ -695,7 +715,9 @@ export const asignaturas: Record<string, Asignatura> = {
         tecnologias: [
             { nombre: 'PowerPoint', icon: 'fa-file-powerpoint', iconType: 'fontawesome' },
             { nombre: 'Google Docs', icon: 'google-plain', iconType: 'devicon' },
-            { nombre: 'Canva', icon: 'canva-original', iconType: 'devicon' }
+            { nombre: 'Canva', icon: 'canva-original', iconType: 'devicon' },
+            { nombre: 'Notion', icon: 'notion-plain', iconType: 'devicon' },
+            { nombre: 'Slack', icon: 'slack-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Ejercicios de comprensión', ponderacion: 0, descripcion: 'Análisis de textos técnicos' },
@@ -708,6 +730,8 @@ export const asignaturas: Record<string, Asignatura> = {
         recursos: [
             { tipo: 'Guía', nombre: 'Material de estudio DuocUC', url: '#' },
             { tipo: 'Herramienta', nombre: 'Grammarly', url: 'https://www.grammarly.com/' },
+            { tipo: 'Tutorial', nombre: 'Technical Writing - Google', url: 'https://developers.google.com/tech-writing' },
+            { tipo: 'Curso', nombre: 'Writing in the Sciences - Stanford', url: 'https://www.coursera.org/learn/sciwrite' },
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-02%20-%20POO%20I%2C%20Cloud%2C%20Comunicacion/Comunicacion' }
         ],
         color: 'pink',
@@ -809,7 +833,8 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'JavaFX', icon: 'java-plain', iconType: 'devicon' },
             { nombre: 'Maven', icon: 'maven-plain', iconType: 'devicon' },
             { nombre: 'PostgreSQL', icon: 'postgresql-plain', iconType: 'devicon' },
-            { nombre: 'JUnit', icon: 'junit-plain', iconType: 'devicon' }
+            { nombre: 'JUnit', icon: 'junit-plain', iconType: 'devicon' },
+            { nombre: 'Scene Builder', icon: 'fa-paint-brush', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs de patrones', ponderacion: 0, descripcion: 'Práctica de patrones de diseño' },
@@ -822,7 +847,9 @@ export const asignaturas: Record<string, Asignatura> = {
         recursos: [
             { tipo: 'Documentación', nombre: 'JavaFX Documentation', url: 'https://openjfx.io/' },
             { tipo: 'Tutorial', nombre: 'Refactoring Guru - Patrones', url: 'https://refactoring.guru/es/design-patterns' },
-            { tipo: 'Práctica', nombre: 'JDBC Tutorial', url: 'https://www.baeldung.com/java-jdbc' }
+            { tipo: 'Práctica', nombre: 'JDBC Tutorial', url: 'https://www.baeldung.com/java-jdbc' },
+            { tipo: 'Video', nombre: 'Design Patterns in Java', url: 'https://www.youtube.com/watch?v=NU_1StN5Tkk' },
+            { tipo: 'Libro', nombre: 'Clean Code - Robert Martin', url: 'https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882' }
         ],
         color: 'orange',
         area: 'programacion'
@@ -918,7 +945,9 @@ export const asignaturas: Record<string, Asignatura> = {
             { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' },
             { nombre: 'GitHub Actions', icon: 'github-original', iconType: 'devicon' },
             { nombre: 'Linux', icon: 'linux-plain', iconType: 'devicon' },
-            { nombre: 'Bash', icon: 'bash-plain', iconType: 'devicon' }
+            { nombre: 'Bash', icon: 'bash-plain', iconType: 'devicon' },
+            { nombre: 'YAML', icon: 'fa-file-code', iconType: 'fontawesome' },
+            { nombre: 'Git', icon: 'git-plain', iconType: 'devicon' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs Docker', ponderacion: 0, descripcion: 'Prácticas de containerización' },
@@ -931,7 +960,9 @@ export const asignaturas: Record<string, Asignatura> = {
         recursos: [
             { tipo: 'Documentación', nombre: 'Docker Docs', url: 'https://docs.docker.com/' },
             { tipo: 'Tutorial', nombre: 'GitHub Actions Docs', url: 'https://docs.github.com/en/actions' },
-            { tipo: 'Curso', nombre: 'DevOps Roadmap', url: 'https://roadmap.sh/devops' }
+            { tipo: 'Curso', nombre: 'DevOps Roadmap', url: 'https://roadmap.sh/devops' },
+            { tipo: 'Video', nombre: 'Docker Tutorial - TechWorld with Nana', url: 'https://www.youtube.com/watch?v=3c-iBn73dDE' },
+            { tipo: 'Práctica', nombre: 'Play with Docker', url: 'https://labs.play-with-docker.com/' }
         ],
         color: 'blue',
         area: 'cloud'
@@ -1022,7 +1053,9 @@ export const asignaturas: Record<string, Asignatura> = {
         tecnologias: [
             { nombre: 'Investigación', icon: 'fa-search', iconType: 'fontawesome' },
             { nombre: 'Presentaciones', icon: 'fa-file-powerpoint', iconType: 'fontawesome' },
-            { nombre: 'Colaboración', icon: 'fa-users', iconType: 'fontawesome' }
+            { nombre: 'Colaboración', icon: 'fa-users', iconType: 'fontawesome' },
+            { nombre: 'Google Docs', icon: 'google-plain', iconType: 'devicon' },
+            { nombre: 'Miro', icon: 'fa-object-group', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Participación en debates', ponderacion: 0, descripcion: 'Aportes en discusiones éticas' },
@@ -1034,7 +1067,10 @@ export const asignaturas: Record<string, Asignatura> = {
         conexiones: ['Ética Profesional', 'Seguridad Informática'],
         recursos: [
             { tipo: 'Lectura', nombre: 'ACM Code of Ethics', url: 'https://www.acm.org/code-of-ethics' },
-            { tipo: 'Curso', nombre: 'Ethics in AI - Google', url: 'https://ai.google/responsibility/responsible-ai-practices/' }
+            { tipo: 'Curso', nombre: 'Ethics in AI - Google', url: 'https://ai.google/responsibility/responsible-ai-practices/' },
+            { tipo: 'Artículo', nombre: 'IEEE Code of Ethics', url: 'https://www.ieee.org/about/corporate/governance/p7-8.html' },
+            { tipo: 'Video', nombre: 'The Social Dilemma (Netflix)', url: 'https://www.thesocialdilemma.com/' },
+            { tipo: 'Curso', nombre: 'AI Ethics - Microsoft', url: 'https://www.microsoft.com/en-us/ai/responsible-ai' }
         ],
         color: 'rose',
         area: 'transversal'
@@ -1133,7 +1169,9 @@ export const asignaturas: Record<string, Asignatura> = {
         tecnologias: [
             { nombre: 'PostgreSQL', icon: 'postgresql-plain', iconType: 'devicon' },
             { nombre: 'Oracle', icon: 'oracle-original', iconType: 'devicon' },
-            { nombre: 'DBeaver', icon: 'fa-database', iconType: 'fontawesome' }
+            { nombre: 'DBeaver', icon: 'fa-database', iconType: 'fontawesome' },
+            { nombre: 'MySQL', icon: 'mysql-plain', iconType: 'devicon' },
+            { nombre: 'DataGrip', icon: 'fa-table', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Ejercicios SQL', ponderacion: 0, descripcion: 'Práctica de consultas' },
@@ -1146,7 +1184,9 @@ export const asignaturas: Record<string, Asignatura> = {
         recursos: [
             { tipo: 'Práctica', nombre: 'SQLZoo', url: 'https://sqlzoo.net/' },
             { tipo: 'Tutorial', nombre: 'Mode SQL Tutorial', url: 'https://mode.com/sql-tutorial/' },
-            { tipo: 'Documentación', nombre: 'PostgreSQL Docs', url: 'https://www.postgresql.org/docs/' }
+            { tipo: 'Documentación', nombre: 'PostgreSQL Docs', url: 'https://www.postgresql.org/docs/' },
+            { tipo: 'Práctica', nombre: 'LeetCode SQL', url: 'https://leetcode.com/problemset/database/' },
+            { tipo: 'Curso', nombre: 'SQL for Data Science - Coursera', url: 'https://www.coursera.org/learn/sql-for-data-science' }
         ],
         color: 'amber',
         area: 'datos'
@@ -1241,7 +1281,9 @@ export const asignaturas: Record<string, Asignatura> = {
         tecnologias: [
             { nombre: 'OWASP ZAP', icon: 'fa-shield-alt', iconType: 'fontawesome' },
             { nombre: 'Burp Suite', icon: 'fa-bug', iconType: 'fontawesome' },
-            { nombre: 'Linux', icon: 'linux-plain', iconType: 'devicon' }
+            { nombre: 'Linux', icon: 'linux-plain', iconType: 'devicon' },
+            { nombre: 'Kali Linux', icon: 'linux-plain', iconType: 'devicon' },
+            { nombre: 'Wireshark', icon: 'fa-network-wired', iconType: 'fontawesome' }
         ],
         evaluaciones: [
             { tipo: 'Formativa', nombre: 'Labs de seguridad', ponderacion: 0, descripcion: 'Prácticas en WebGoat' },
@@ -1254,7 +1296,9 @@ export const asignaturas: Record<string, Asignatura> = {
         recursos: [
             { tipo: 'Documentación', nombre: 'OWASP Top 10', url: 'https://owasp.org/Top10/' },
             { tipo: 'Práctica', nombre: 'OWASP WebGoat', url: 'https://owasp.org/www-project-webgoat/' },
-            { tipo: 'Curso', nombre: 'PortSwigger Academy', url: 'https://portswigger.net/web-security' }
+            { tipo: 'Curso', nombre: 'PortSwigger Academy', url: 'https://portswigger.net/web-security' },
+            { tipo: 'Práctica', nombre: 'TryHackMe', url: 'https://tryhackme.com/' },
+            { tipo: 'Curso', nombre: 'Cybersecurity - Google', url: 'https://grow.google/certificates/cybersecurity/' }
         ],
         color: 'red',
         area: 'arquitectura'
