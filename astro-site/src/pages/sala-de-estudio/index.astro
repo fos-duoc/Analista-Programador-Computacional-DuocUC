@@ -1676,6 +1676,10 @@ const subjectLinks: Record<string, string> = {
         const chips = document.querySelectorAll('button.subject-chip.clickable');
 
         chips.forEach(chip => {
+            // Prevenir doble inicialización usando data attribute
+            if (chip.hasAttribute('data-listener-attached')) return;
+            chip.setAttribute('data-listener-attached', 'true');
+
             chip.addEventListener('click', (e) => {
                 e.preventDefault();
                 const subjectId = chip.getAttribute('data-subject-id');
