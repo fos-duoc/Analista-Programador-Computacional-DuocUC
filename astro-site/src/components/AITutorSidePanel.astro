@@ -1,80 +1,92 @@
 ---
 /**
  * AITutorSidePanel.astro
- * Side panel persistente estilo Coursera Coach
+ * Premium AI Tutor Panel - Enterprise-grade design
  * Aparece a la derecha cuando se selecciona una asignatura
  *
- * Basado en:
- * - Coursera Coach AI (sidebar design)
- * - Every Layout Sidebar Pattern
- * - MDN CSS Grid Layout
+ * Rediseño sofisticado con:
+ * - Controles simplificados (solo close)
+ * - API Key setup elegante como primer paso de onboarding
+ * - Welcome message premium con animaciones
+ * - Quick actions contextuales
+ * - Chat UI moderno estilo ChatGPT/Claude
  */
 
 const base = import.meta.env.BASE_URL;
 ---
 
-<!-- AI Tutor Side Panel - Coursera Coach Style -->
+<!-- AI Tutor Side Panel - Premium Design -->
 <aside id="ai-tutor-panel" class="ai-tutor-panel" aria-label="Tutor IA" role="complementary">
-    <!-- Header with minimize/close -->
+    <!-- Premium Header -->
     <header class="tutor-header">
         <div class="tutor-branding">
-            <div class="tutor-icon">
+            <div class="tutor-logo">
+                <div class="logo-glow"></div>
                 <img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg" alt="Gemini" />
             </div>
             <div class="tutor-title">
                 <h3>Tutor IA</h3>
-                <span class="tutor-badge">
-                    <span class="badge-dot"></span>
-                    Powered by Gemini
-                </span>
+                <div class="tutor-status">
+                    <span class="status-dot"></span>
+                    <span>Online</span>
+                </div>
             </div>
         </div>
-        <div class="tutor-controls">
-            <button class="tutor-size-btn" id="tutor-width-toggle" aria-label="Expandir ancho" title="Expandir/Contraer ancho">
-                <i class="fas fa-arrows-alt-h"></i>
-            </button>
-            <button class="tutor-size-btn" id="tutor-expand" aria-label="Expandir altura" title="Expandir altura">
-                <i class="fas fa-chevron-up"></i>
-            </button>
-            <button class="tutor-size-btn" id="tutor-collapse" aria-label="Colapsar" title="Colapsar">
-                <i class="fas fa-chevron-down"></i>
-            </button>
-            <button class="tutor-minimize" id="tutor-minimize" aria-label="Minimizar">
-                <i class="fas fa-minus"></i>
-            </button>
-            <button class="tutor-close" id="tutor-close" aria-label="Cerrar">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
+        <button class="tutor-close" id="tutor-close" aria-label="Cerrar panel" title="Cerrar">
+            <i class="fas fa-times"></i>
+        </button>
     </header>
 
-    <!-- Subject Context Banner -->
+    <!-- Subject Context Banner (más elegante) -->
     <div class="tutor-context" id="tutor-context">
-        <div class="context-icon">
-            <i class="fas fa-book-open"></i>
+        <div class="context-badge">
+            <i class="fas fa-graduation-cap"></i>
         </div>
         <div class="context-info">
-            <span class="context-label">Asignatura activa</span>
+            <span class="context-label">Estudiando</span>
             <span class="context-subject" id="tutor-subject-name">Selecciona una asignatura</span>
+        </div>
+        <div class="context-indicator">
+            <i class="fas fa-circle"></i>
         </div>
     </div>
 
     <!-- Main Chat Area -->
     <div class="tutor-body">
-        <!-- Welcome Message -->
+        <!-- Premium Welcome Message -->
         <div class="tutor-welcome" id="tutor-welcome">
-            <div class="welcome-icon">
-                <img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg" alt="Gemini" />
+            <div class="welcome-hero">
+                <div class="welcome-avatar">
+                    <div class="avatar-ring"></div>
+                    <img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg" alt="AI" />
+                </div>
+                <h4>Tu Asistente de Estudio Personal</h4>
+                <p class="welcome-subtitle">Powered by Google Gemini</p>
             </div>
-            <h4>¡Hola! Soy tu Tutor IA</h4>
-            <p>Estoy aquí para ayudarte a aprender. Puedo:</p>
-            <ul>
-                <li><i class="fas fa-check"></i> Explicar conceptos difíciles</li>
-                <li><i class="fas fa-check"></i> Generar ejemplos de código</li>
-                <li><i class="fas fa-check"></i> Crear ejercicios de práctica</li>
-                <li><i class="fas fa-check"></i> Prepararte para evaluaciones</li>
-            </ul>
-            <p class="welcome-cta">Selecciona una asignatura para comenzar</p>
+
+            <div class="welcome-capabilities">
+                <div class="capability-card">
+                    <i class="fas fa-brain"></i>
+                    <span>Explico conceptos</span>
+                </div>
+                <div class="capability-card">
+                    <i class="fas fa-code"></i>
+                    <span>Genero código</span>
+                </div>
+                <div class="capability-card">
+                    <i class="fas fa-tasks"></i>
+                    <span>Creo ejercicios</span>
+                </div>
+                <div class="capability-card">
+                    <i class="fas fa-clipboard-check"></i>
+                    <span>Preparo evaluaciones</span>
+                </div>
+            </div>
+
+            <p class="welcome-hint">
+                <i class="fas fa-hand-pointer"></i>
+                Haz clic en una asignatura para comenzar
+            </p>
         </div>
 
         <!-- Chat Messages Container -->
@@ -84,439 +96,457 @@ const base = import.meta.env.BASE_URL;
 
         <!-- Loading Indicator -->
         <div class="tutor-loading" id="tutor-loading" style="display: none;">
-            <div class="loading-animation">
+            <div class="loading-dots">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            <span>Pensando...</span>
+            <span class="loading-text">Generando respuesta...</span>
         </div>
     </div>
 
-    <!-- Quick Actions -->
+    <!-- Quick Actions (solo visibles cuando hay asignatura) -->
     <div class="tutor-quick-actions" id="tutor-quick-actions">
-        <button class="quick-action" data-action="resume" disabled>
-            <i class="fas fa-compress-alt"></i>
-            <span>Resumen</span>
-        </button>
-        <button class="quick-action" data-action="examples" disabled>
-            <i class="fas fa-code"></i>
-            <span>Ejemplos</span>
-        </button>
-        <button class="quick-action" data-action="practice" disabled>
-            <i class="fas fa-dumbbell"></i>
-            <span>Ejercicios</span>
-        </button>
-        <button class="quick-action" data-action="explain" disabled>
-            <i class="fas fa-lightbulb"></i>
-            <span>Explicar</span>
-        </button>
+        <div class="actions-label">Acciones rápidas</div>
+        <div class="actions-grid">
+            <button class="quick-action" data-action="resume" disabled>
+                <i class="fas fa-file-alt"></i>
+                <span>Resumen</span>
+            </button>
+            <button class="quick-action" data-action="examples" disabled>
+                <i class="fas fa-laptop-code"></i>
+                <span>Ejemplos</span>
+            </button>
+            <button class="quick-action" data-action="practice" disabled>
+                <i class="fas fa-pencil-alt"></i>
+                <span>Ejercicios</span>
+            </button>
+            <button class="quick-action" data-action="explain" disabled>
+                <i class="fas fa-question-circle"></i>
+                <span>Explicar</span>
+            </button>
+        </div>
     </div>
 
-    <!-- Input Area -->
+    <!-- Input Area - Diseño Premium -->
     <div class="tutor-input-area">
-        <!-- API Key Setup (shown first) -->
+        <!-- API Key Setup (elegante onboarding) -->
         <div class="api-key-container" id="api-key-container">
-            <div class="api-key-header">
-                <i class="fas fa-key"></i>
-                <span>Configura tu API Key de Gemini</span>
+            <div class="api-key-card">
+                <div class="api-key-icon">
+                    <i class="fas fa-key"></i>
+                </div>
+                <div class="api-key-content">
+                    <h5>Conecta con Gemini</h5>
+                    <p>Ingresa tu API Key para activar el tutor</p>
+                </div>
             </div>
             <div class="api-key-form">
-                <input
-                    type="password"
-                    id="gemini-api-key-input"
-                    placeholder="AIzaSy..."
-                    class="api-key-input"
-                />
-                <button class="api-key-save-btn" id="save-api-key-btn">
-                    <i class="fas fa-save"></i>
-                </button>
+                <div class="input-group">
+                    <input
+                        type="password"
+                        id="gemini-api-key-input"
+                        placeholder="Pega tu API Key aquí..."
+                        class="api-key-input"
+                    />
+                    <button class="api-key-save-btn" id="save-api-key-btn">
+                        <i class="fas fa-check"></i>
+                    </button>
+                </div>
+                <a href="https://aistudio.google.com/app/apikey" target="_blank" class="api-key-link">
+                    <i class="fas fa-external-link-alt"></i>
+                    Obtener API Key gratis en Google AI Studio
+                </a>
             </div>
-            <a href="https://aistudio.google.com/app/apikey" target="_blank" class="api-key-link">
-                <i class="fas fa-external-link-alt"></i> Obtener API Key gratis
-            </a>
         </div>
 
-        <!-- Chat Input (shown after API key is set) -->
+        <!-- Chat Input (estilo premium) -->
         <div class="chat-input-container" id="chat-input-container" style="display: none;">
             <div class="chat-input-wrapper">
                 <textarea
                     id="tutor-chat-input"
-                    placeholder="Pregúntame algo sobre la asignatura..."
-                    rows="2"
+                    placeholder="Escribe tu pregunta..."
+                    rows="1"
                 ></textarea>
                 <button class="send-btn" id="send-message-btn" disabled>
-                    <i class="fas fa-paper-plane"></i>
+                    <i class="fas fa-arrow-up"></i>
                 </button>
             </div>
             <div class="input-footer">
-                <span class="model-info">
-                    <img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg" alt="" class="model-icon" />
-                    Gemini 2.0 Flash
-                </span>
-                <button class="clear-chat-btn" id="clear-chat-btn">
-                    <i class="fas fa-trash-alt"></i> Limpiar
+                <div class="model-badge">
+                    <img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg" alt="" />
+                    <span>Gemini 2.0</span>
+                </div>
+                <button class="settings-btn" id="settings-btn" title="Configuración">
+                    <i class="fas fa-cog"></i>
                 </button>
             </div>
         </div>
-    </div>
-
-    <!-- Minimized State -->
-    <div class="tutor-minimized" id="tutor-minimized" style="display: none;">
-        <button class="expand-btn" id="tutor-expand-btn">
-            <img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg" alt="Gemini" />
-            <span>Tutor IA</span>
-            <i class="fas fa-chevron-up"></i>
-        </button>
     </div>
 </aside>
 
 <style>
     /* ============================================
-       AI TUTOR SIDE PANEL - Coursera Coach Style
-       Enterprise-grade design with Gemini branding
+       AI TUTOR SIDE PANEL - Premium Enterprise Design
+       Sophisticated, useful, and elegant
     ============================================ */
 
     .ai-tutor-panel {
         position: fixed;
-        top: 70px; /* Below header */
+        top: 70px;
         right: 0;
-        width: 280px;
+        width: 320px;
         height: calc(100vh - 70px);
-        background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
-        border-left: 1px solid rgba(139, 92, 246, 0.3);
+        background: linear-gradient(180deg, #0a0f1a 0%, #111827 50%, #0f172a 100%);
+        border-left: 1px solid rgba(139, 92, 246, 0.2);
         display: flex;
         flex-direction: column;
         z-index: 1002;
         transform: translateX(100%);
-        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), width 0.3s ease;
-        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3);
-        font-size: 0.8rem;
+        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: -8px 0 40px rgba(0, 0, 0, 0.4);
+        font-size: 0.85rem;
     }
 
     .ai-tutor-panel.visible {
         transform: translateX(0);
     }
 
-    /* Expanded width mode */
-    .ai-tutor-panel.expanded-width {
-        width: 420px;
-    }
-
-    .ai-tutor-panel.collapsed {
-        height: 54px !important;
-        top: auto !important;
-        bottom: 0 !important;
-        border-top: 1px solid rgba(139, 92, 246, 0.4);
-        border-radius: 12px 12px 0 0;
-    }
-
-    .ai-tutor-panel.collapsed .tutor-header {
-        border-radius: 12px 12px 0 0;
-    }
-
-    .ai-tutor-panel.collapsed .tutor-context,
-    .ai-tutor-panel.collapsed .tutor-body,
-    .ai-tutor-panel.collapsed .tutor-quick-actions,
-    .ai-tutor-panel.collapsed .tutor-input-area {
-        display: none !important;
-    }
-
-    /* Half height mode */
-    .ai-tutor-panel.half-height {
-        height: 50vh !important;
-        top: auto !important;
-        bottom: 0 !important;
-    }
-
-    /* Old horizontal minimized - keeping for compatibility */
-    .ai-tutor-panel.minimized {
-        transform: translateX(calc(100% - 60px));
-    }
-
-    .ai-tutor-panel.minimized .tutor-header,
-    .ai-tutor-panel.minimized .tutor-context,
-    .ai-tutor-panel.minimized .tutor-body,
-    .ai-tutor-panel.minimized .tutor-quick-actions,
-    .ai-tutor-panel.minimized .tutor-input-area {
-        display: none;
-    }
-
-    .ai-tutor-panel.minimized .tutor-minimized {
-        display: flex !important;
-    }
-
     /* ============================================
-       HEADER - Compact Premium
+       PREMIUM HEADER
     ============================================ */
     .tutor-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0.5rem 0.75rem;
-        background: linear-gradient(135deg, rgba(139, 92, 246, 0.12), rgba(59, 130, 246, 0.12));
-        border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+        padding: 0.875rem 1rem;
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(59, 130, 246, 0.05));
+        border-bottom: 1px solid rgba(139, 92, 246, 0.15);
         flex-shrink: 0;
     }
 
     .tutor-branding {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 0.75rem;
     }
 
-    .tutor-icon {
-        width: 26px;
-        height: 26px;
-        background: linear-gradient(135deg, #4285f4, #8b5cf6);
-        border-radius: 8px;
+    .tutor-logo {
+        position: relative;
+        width: 36px;
+        height: 36px;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 3px 10px rgba(139, 92, 246, 0.25);
     }
 
-    .tutor-icon img {
-        width: 14px;
-        height: 14px;
+    .logo-glow {
+        position: absolute;
+        inset: -4px;
+        background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+        border-radius: 12px;
+        opacity: 0.3;
+        filter: blur(8px);
+        animation: logoGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes logoGlow {
+        0%, 100% { opacity: 0.3; transform: scale(1); }
+        50% { opacity: 0.5; transform: scale(1.1); }
+    }
+
+    .tutor-logo img {
+        position: relative;
+        width: 24px;
+        height: 24px;
+        z-index: 1;
+        filter: drop-shadow(0 2px 4px rgba(139, 92, 246, 0.3));
     }
 
     .tutor-title h3 {
         margin: 0;
-        font-size: 0.82rem;
+        font-size: 1rem;
         font-weight: 700;
         font-family: 'Sora', sans-serif;
         color: #f8fafc;
-        letter-spacing: -0.01em;
+        letter-spacing: -0.02em;
     }
 
-    .tutor-badge {
+    .tutor-status {
         display: flex;
         align-items: center;
-        gap: 0.25rem;
-        font-size: 0.55rem;
-        color: #a78bfa;
-        font-weight: 500;
+        gap: 0.35rem;
+        font-size: 0.7rem;
+        color: #94a3b8;
     }
 
-    .badge-dot {
+    .status-dot {
         width: 6px;
         height: 6px;
         background: #22c55e;
         border-radius: 50%;
-        animation: pulse 2s infinite;
+        animation: statusPulse 2s infinite;
+        box-shadow: 0 0 8px rgba(34, 197, 94, 0.5);
     }
 
-    @keyframes pulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.5; }
+    @keyframes statusPulse {
+        0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(34, 197, 94, 0.5); }
+        50% { opacity: 0.7; box-shadow: 0 0 12px rgba(34, 197, 94, 0.8); }
     }
 
-    .tutor-controls {
-        display: flex;
-        gap: 0.35rem;
-    }
-
-    .tutor-size-btn,
-    .tutor-minimize,
     .tutor-close {
-        width: 22px;
-        height: 22px;
-        border-radius: 5px;
-        border: 1px solid rgba(148, 163, 184, 0.2);
-        background: rgba(30, 41, 59, 0.5);
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        border: 1px solid rgba(148, 163, 184, 0.15);
+        background: rgba(30, 41, 59, 0.4);
         color: #94a3b8;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: all 0.2s ease;
-        font-size: 0.6rem;
-    }
-
-    .tutor-size-btn:hover,
-    .tutor-minimize:hover {
-        background: rgba(139, 92, 246, 0.2);
-        border-color: rgba(139, 92, 246, 0.4);
-        color: #a78bfa;
-    }
-
-    .tutor-size-btn.active {
-        background: rgba(139, 92, 246, 0.3);
-        border-color: rgba(139, 92, 246, 0.5);
-        color: #c4b5fd;
+        transition: all 0.25s ease;
+        font-size: 0.85rem;
     }
 
     .tutor-close:hover {
-        background: rgba(239, 68, 68, 0.2);
-        border-color: rgba(239, 68, 68, 0.4);
+        background: rgba(239, 68, 68, 0.15);
+        border-color: rgba(239, 68, 68, 0.3);
         color: #f87171;
+        transform: rotate(90deg);
     }
 
     /* ============================================
-       CONTEXT BANNER - Compact
+       CONTEXT BANNER - Elegant
     ============================================ */
     .tutor-context {
         display: flex;
         align-items: center;
-        gap: 0.4rem;
-        padding: 0.35rem 0.75rem;
-        background: rgba(6, 182, 212, 0.08);
-        border-bottom: 1px solid rgba(6, 182, 212, 0.15);
+        gap: 0.75rem;
+        padding: 0.625rem 1rem;
+        background: linear-gradient(90deg, rgba(6, 182, 212, 0.08), transparent);
+        border-bottom: 1px solid rgba(6, 182, 212, 0.1);
         flex-shrink: 0;
     }
 
-    .context-icon {
-        width: 20px;
-        height: 20px;
-        background: rgba(6, 182, 212, 0.2);
-        border-radius: 5px;
+    .context-badge {
+        width: 28px;
+        height: 28px;
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(6, 182, 212, 0.05));
+        border: 1px solid rgba(6, 182, 212, 0.25);
+        border-radius: 8px;
         display: flex;
         align-items: center;
         justify-content: center;
         color: #22d3ee;
-        font-size: 0.6rem;
+        font-size: 0.75rem;
     }
 
     .context-info {
+        flex: 1;
         display: flex;
         flex-direction: column;
-        gap: 0.1rem;
+        gap: 0.15rem;
     }
 
     .context-label {
-        font-size: 0.5rem;
+        font-size: 0.6rem;
         color: #64748b;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.08em;
+        font-weight: 500;
     }
 
     .context-subject {
-        font-size: 0.68rem;
+        font-size: 0.8rem;
         font-weight: 600;
         color: #f1f5f9;
         font-family: 'Space Grotesk', sans-serif;
     }
 
+    .context-indicator {
+        color: #22c55e;
+        font-size: 0.4rem;
+        animation: contextPulse 2s infinite;
+    }
+
+    @keyframes contextPulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.4; }
+    }
+
     /* ============================================
-       BODY / CHAT AREA - Compact
+       BODY / CHAT AREA
     ============================================ */
     .tutor-body {
         flex: 1;
         overflow-y: auto;
-        padding: 0.75rem 0.85rem;
+        padding: 1rem;
         scrollbar-width: thin;
-        scrollbar-color: rgba(139, 92, 246, 0.3) transparent;
+        scrollbar-color: rgba(139, 92, 246, 0.25) transparent;
     }
 
     .tutor-body::-webkit-scrollbar {
-        width: 5px;
+        width: 6px;
     }
 
     .tutor-body::-webkit-scrollbar-thumb {
-        background: rgba(139, 92, 246, 0.3);
+        background: rgba(139, 92, 246, 0.25);
         border-radius: 3px;
     }
 
-    /* Welcome Message - Compact */
+    /* Premium Welcome Message */
     .tutor-welcome {
-        text-align: center;
-        padding: 0.6rem;
+        padding: 0.5rem;
     }
 
-    .welcome-icon {
-        width: 38px;
-        height: 38px;
-        margin: 0 auto 0.5rem;
-        background: linear-gradient(135deg, #4285f4, #8b5cf6);
-        border-radius: 50%;
+    .welcome-hero {
+        text-align: center;
+        margin-bottom: 1.25rem;
+    }
+
+    .welcome-avatar {
+        position: relative;
+        width: 56px;
+        height: 56px;
+        margin: 0 auto 0.875rem;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 4px 15px rgba(139, 92, 246, 0.25);
     }
 
-    .welcome-icon img {
-        width: 20px;
-        height: 20px;
+    .avatar-ring {
+        position: absolute;
+        inset: -3px;
+        border: 2px solid transparent;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #8b5cf6, #3b82f6) border-box;
+        -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        animation: ringRotate 4s linear infinite;
     }
 
-    .tutor-welcome h4 {
+    @keyframes ringRotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+    .welcome-avatar img {
+        width: 32px;
+        height: 32px;
+        filter: drop-shadow(0 4px 12px rgba(139, 92, 246, 0.3));
+    }
+
+    .welcome-hero h4 {
         font-family: 'Sora', sans-serif;
-        font-size: 0.85rem;
+        font-size: 1.1rem;
+        font-weight: 700;
         color: #f8fafc;
-        margin: 0 0 0.35rem 0;
+        margin: 0 0 0.25rem 0;
+        letter-spacing: -0.02em;
     }
 
-    .tutor-welcome > p {
-        color: #94a3b8;
-        font-size: 0.68rem;
-        margin-bottom: 0.5rem;
+    .welcome-subtitle {
+        font-size: 0.75rem;
+        color: #a78bfa;
+        font-weight: 500;
+        margin: 0;
     }
 
-    .tutor-welcome ul {
-        list-style: none;
-        padding: 0;
-        margin: 0 0 0.6rem 0;
-        text-align: left;
+    .welcome-capabilities {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+        margin-bottom: 1.25rem;
     }
 
-    .tutor-welcome li {
+    .capability-card {
         display: flex;
         align-items: center;
-        gap: 0.4rem;
-        padding: 0.25rem 0;
-        color: #cbd5e1;
-        font-size: 0.65rem;
+        gap: 0.5rem;
+        padding: 0.625rem 0.75rem;
+        background: rgba(30, 41, 59, 0.4);
+        border: 1px solid rgba(139, 92, 246, 0.12);
+        border-radius: 10px;
+        transition: all 0.25s ease;
     }
 
-    .tutor-welcome li i {
-        color: #22c55e;
-        font-size: 0.55rem;
+    .capability-card:hover {
+        background: rgba(139, 92, 246, 0.1);
+        border-color: rgba(139, 92, 246, 0.25);
+        transform: translateY(-1px);
     }
 
-    .welcome-cta {
-        color: #a78bfa !important;
+    .capability-card i {
+        font-size: 0.9rem;
+        color: #a78bfa;
+    }
+
+    .capability-card span {
+        font-size: 0.72rem;
+        color: #e2e8f0;
         font-weight: 500;
-        font-size: 0.65rem !important;
     }
 
-    /* Chat Messages - Side by Side Layout */
+    .welcome-hint {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        font-size: 0.75rem;
+        color: #64748b;
+        padding: 0.75rem;
+        background: rgba(100, 116, 139, 0.08);
+        border-radius: 8px;
+        margin: 0;
+    }
+
+    .welcome-hint i {
+        color: #a78bfa;
+        animation: pointBounce 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pointBounce {
+        0%, 100% { transform: translateX(0); }
+        50% { transform: translateX(3px); }
+    }
+
+    /* Chat Messages */
     .tutor-messages {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 0.75rem;
     }
 
     .message {
         display: flex;
-        gap: 0.4rem;
-        animation: fadeIn 0.3s ease;
-        max-width: 92%;
+        gap: 0.5rem;
+        animation: messageSlide 0.35s ease;
+        max-width: 95%;
     }
 
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(8px); }
+    @keyframes messageSlide {
+        from { opacity: 0; transform: translateY(12px); }
         to { opacity: 1; transform: translateY(0); }
     }
 
-    /* User messages aligned to the right */
     .message.user {
         flex-direction: row-reverse;
         align-self: flex-end;
         margin-left: auto;
     }
 
-    /* Assistant messages aligned to the left */
     .message.assistant {
         align-self: flex-start;
         margin-right: auto;
     }
 
     .message-avatar {
-        width: 22px;
-        height: 22px;
-        border-radius: 50%;
+        width: 28px;
+        height: 28px;
+        border-radius: 8px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -524,63 +554,67 @@ const base = import.meta.env.BASE_URL;
     }
 
     .message.assistant .message-avatar {
-        background: linear-gradient(135deg, #4285f4, #8b5cf6);
+        background: linear-gradient(135deg, #8b5cf6, #6366f1);
+        box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
     }
 
     .message.assistant .message-avatar img {
-        width: 12px;
-        height: 12px;
+        width: 16px;
+        height: 16px;
     }
 
     .message.user .message-avatar {
-        background: linear-gradient(135deg, #06b6d4, #22d3ee);
+        background: linear-gradient(135deg, #06b6d4, #0891b2);
+        box-shadow: 0 2px 8px rgba(6, 182, 212, 0.3);
     }
 
     .message.user .message-avatar i {
         color: white;
-        font-size: 0.6rem;
+        font-size: 0.7rem;
     }
 
     .message-bubble {
-        max-width: 88%;
-        padding: 0.5rem 0.7rem;
-        border-radius: 10px;
-        font-size: 0.72rem;
-        line-height: 1.45;
+        max-width: 85%;
+        padding: 0.75rem 1rem;
+        border-radius: 14px;
+        font-size: 0.8rem;
+        line-height: 1.55;
         font-family: 'Inter', system-ui, sans-serif;
     }
 
     .message.assistant .message-bubble {
-        background: rgba(30, 41, 59, 0.8);
-        border: 1px solid rgba(139, 92, 246, 0.2);
+        background: rgba(30, 41, 59, 0.6);
+        border: 1px solid rgba(139, 92, 246, 0.15);
         color: #e2e8f0;
-        border-radius: 10px 10px 10px 3px;
+        border-radius: 14px 14px 14px 4px;
     }
 
     .message.user .message-bubble {
-        background: linear-gradient(135deg, rgba(6, 182, 212, 0.25), rgba(6, 182, 212, 0.08));
-        border: 1px solid rgba(6, 182, 212, 0.25);
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(6, 182, 212, 0.08));
+        border: 1px solid rgba(6, 182, 212, 0.2);
         color: #f1f5f9;
-        border-radius: 10px 10px 3px 10px;
+        border-radius: 14px 14px 4px 14px;
     }
 
     .message-bubble pre {
-        background: rgba(0, 0, 0, 0.4);
-        padding: 0.875rem;
-        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 1rem;
+        border-radius: 10px;
         overflow-x: auto;
-        margin: 0.75rem 0;
+        margin: 0.875rem 0;
+        border: 1px solid rgba(139, 92, 246, 0.1);
     }
 
     .message-bubble code {
         font-family: 'JetBrains Mono', 'Fira Code', monospace;
-        font-size: 0.8rem;
+        font-size: 0.78rem;
     }
 
     .message-bubble h3, .message-bubble h4 {
-        color: #a78bfa;
-        margin: 0.75rem 0 0.5rem;
+        color: #c4b5fd;
+        margin: 1rem 0 0.5rem;
         font-size: 0.95rem;
+        font-family: 'Space Grotesk', sans-serif;
     }
 
     .message-bubble ul, .message-bubble ol {
@@ -589,216 +623,284 @@ const base = import.meta.env.BASE_URL;
     }
 
     .message-bubble li {
-        margin-bottom: 0.25rem;
+        margin-bottom: 0.35rem;
     }
 
     /* Loading */
     .tutor-loading {
         display: flex;
         align-items: center;
-        gap: 0.75rem;
-        padding: 0.75rem;
+        gap: 0.875rem;
+        padding: 1rem;
+        background: rgba(30, 41, 59, 0.4);
+        border-radius: 12px;
+        border: 1px solid rgba(139, 92, 246, 0.1);
     }
 
-    .loading-animation {
+    .loading-dots {
         display: flex;
-        gap: 4px;
+        gap: 5px;
     }
 
-    .loading-animation span {
+    .loading-dots span {
         width: 8px;
         height: 8px;
-        background: #a78bfa;
+        background: linear-gradient(135deg, #a78bfa, #8b5cf6);
         border-radius: 50%;
-        animation: bounce 1.4s infinite ease-in-out;
+        animation: loadingBounce 1.4s infinite ease-in-out;
     }
 
-    .loading-animation span:nth-child(1) { animation-delay: -0.32s; }
-    .loading-animation span:nth-child(2) { animation-delay: -0.16s; }
+    .loading-dots span:nth-child(1) { animation-delay: -0.32s; }
+    .loading-dots span:nth-child(2) { animation-delay: -0.16s; }
 
-    @keyframes bounce {
-        0%, 80%, 100% { transform: scale(0); }
-        40% { transform: scale(1); }
+    @keyframes loadingBounce {
+        0%, 80%, 100% { transform: scale(0.6); opacity: 0.5; }
+        40% { transform: scale(1); opacity: 1; }
     }
 
-    .tutor-loading > span {
+    .loading-text {
         color: #94a3b8;
-        font-size: 0.85rem;
+        font-size: 0.8rem;
+        font-weight: 500;
     }
 
     /* ============================================
-       QUICK ACTIONS - Compact
+       QUICK ACTIONS
     ============================================ */
     .tutor-quick-actions {
+        padding: 0.75rem 1rem;
+        border-top: 1px solid rgba(148, 163, 184, 0.08);
+        flex-shrink: 0;
+    }
+
+    .actions-label {
+        font-size: 0.65rem;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+    }
+
+    .actions-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 0.35rem;
-        padding: 0.5rem 0.75rem;
-        border-top: 1px solid rgba(148, 163, 184, 0.1);
-        flex-shrink: 0;
+        gap: 0.5rem;
     }
 
     .quick-action {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 0.2rem;
-        padding: 0.4rem 0.3rem;
-        background: rgba(30, 41, 59, 0.5);
-        border: 1px solid rgba(139, 92, 246, 0.2);
-        border-radius: 8px;
+        gap: 0.35rem;
+        padding: 0.625rem 0.5rem;
+        background: rgba(30, 41, 59, 0.4);
+        border: 1px solid rgba(139, 92, 246, 0.12);
+        border-radius: 10px;
         color: #c4b5fd;
         cursor: pointer;
-        transition: all 0.2s ease;
+        transition: all 0.25s ease;
     }
 
     .quick-action:hover:not(:disabled) {
-        background: rgba(139, 92, 246, 0.2);
-        border-color: rgba(139, 92, 246, 0.4);
-        transform: translateY(-1px);
+        background: rgba(139, 92, 246, 0.15);
+        border-color: rgba(139, 92, 246, 0.3);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15);
     }
 
     .quick-action:disabled {
-        opacity: 0.4;
+        opacity: 0.35;
         cursor: not-allowed;
     }
 
     .quick-action i {
-        font-size: 0.8rem;
+        font-size: 0.95rem;
     }
 
     .quick-action span {
-        font-size: 0.55rem;
-        font-weight: 500;
+        font-size: 0.62rem;
+        font-weight: 600;
     }
 
     /* ============================================
-       INPUT AREA - Compact
+       INPUT AREA - Premium
     ============================================ */
     .tutor-input-area {
-        padding: 0.6rem 0.75rem;
-        background: rgba(30, 41, 59, 0.5);
-        border-top: 1px solid rgba(139, 92, 246, 0.2);
+        padding: 0.875rem 1rem;
+        background: linear-gradient(180deg, rgba(30, 41, 59, 0.3), rgba(30, 41, 59, 0.5));
+        border-top: 1px solid rgba(139, 92, 246, 0.12);
         flex-shrink: 0;
     }
 
-    /* API Key Setup */
+    /* API Key Setup - Elegant Card */
     .api-key-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .api-key-card {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem;
+        background: rgba(139, 92, 246, 0.08);
+        border: 1px solid rgba(139, 92, 246, 0.15);
+        border-radius: 10px;
+    }
+
+    .api-key-icon {
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 0.9rem;
+        flex-shrink: 0;
+    }
+
+    .api-key-content h5 {
+        margin: 0 0 0.15rem 0;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #f1f5f9;
+    }
+
+    .api-key-content p {
+        margin: 0;
+        font-size: 0.7rem;
+        color: #94a3b8;
+    }
+
+    .api-key-form {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
     }
 
-    .api-key-header {
+    .input-group {
         display: flex;
-        align-items: center;
-        gap: 0.4rem;
-        color: #a78bfa;
-        font-size: 0.68rem;
-        font-weight: 500;
-    }
-
-    .api-key-form {
-        display: flex;
-        gap: 0.4rem;
+        gap: 0.5rem;
     }
 
     .api-key-input {
         flex: 1;
-        padding: 0.45rem 0.65rem;
-        background: rgba(15, 23, 42, 0.8);
-        border: 1px solid rgba(139, 92, 246, 0.3);
-        border-radius: 6px;
+        padding: 0.625rem 0.875rem;
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid rgba(139, 92, 246, 0.2);
+        border-radius: 8px;
         color: #e2e8f0;
-        font-size: 0.72rem;
+        font-size: 0.8rem;
         font-family: 'JetBrains Mono', monospace;
+        transition: all 0.25s ease;
     }
 
     .api-key-input:focus {
         outline: none;
-        border-color: rgba(139, 92, 246, 0.6);
-        box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.1);
+        border-color: rgba(139, 92, 246, 0.5);
+        box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
     }
 
     .api-key-save-btn {
-        padding: 0.45rem 0.65rem;
+        width: 40px;
+        height: 40px;
         background: linear-gradient(135deg, #8b5cf6, #6d28d9);
         border: none;
-        border-radius: 6px;
+        border-radius: 8px;
         color: white;
         cursor: pointer;
-        transition: all 0.2s ease;
-        font-size: 0.7rem;
+        transition: all 0.25s ease;
+        font-size: 0.85rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .api-key-save-btn:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 3px 10px rgba(139, 92, 246, 0.4);
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
     }
 
     .api-key-link {
         display: flex;
         align-items: center;
-        gap: 0.3rem;
-        font-size: 0.62rem;
+        gap: 0.4rem;
+        font-size: 0.72rem;
         color: #a78bfa;
         text-decoration: none;
+        padding: 0.5rem;
+        background: rgba(139, 92, 246, 0.05);
+        border-radius: 6px;
+        transition: all 0.2s ease;
     }
 
     .api-key-link:hover {
-        text-decoration: underline;
+        background: rgba(139, 92, 246, 0.1);
+        color: #c4b5fd;
     }
 
-    /* Chat Input */
+    /* Chat Input - Premium */
     .chat-input-container {
         display: flex;
         flex-direction: column;
-        gap: 0.35rem;
+        gap: 0.5rem;
     }
 
     .chat-input-wrapper {
         display: flex;
-        gap: 0.4rem;
+        gap: 0.5rem;
         align-items: flex-end;
     }
 
     .chat-input-wrapper textarea {
         flex: 1;
-        padding: 0.5rem 0.7rem;
-        background: rgba(15, 23, 42, 0.8);
-        border: 1px solid rgba(139, 92, 246, 0.3);
-        border-radius: 8px;
+        padding: 0.75rem 1rem;
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid rgba(139, 92, 246, 0.2);
+        border-radius: 12px;
         color: #e2e8f0;
-        font-size: 0.72rem;
+        font-size: 0.85rem;
         font-family: 'Inter', system-ui, sans-serif;
         resize: none;
-        line-height: 1.45;
+        line-height: 1.5;
+        transition: all 0.25s ease;
+        min-height: 44px;
+        max-height: 120px;
     }
 
     .chat-input-wrapper textarea:focus {
         outline: none;
-        border-color: rgba(139, 92, 246, 0.6);
-        box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.1);
+        border-color: rgba(139, 92, 246, 0.5);
+        box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
     }
 
     .send-btn {
-        padding: 0.5rem 0.7rem;
+        width: 44px;
+        height: 44px;
         background: linear-gradient(135deg, #8b5cf6, #6d28d9);
         border: none;
-        border-radius: 8px;
+        border-radius: 12px;
         color: white;
         cursor: pointer;
-        transition: all 0.2s ease;
-        font-size: 0.7rem;
+        transition: all 0.25s ease;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
     }
 
     .send-btn:hover:not(:disabled) {
-        transform: translateY(-1px);
-        box-shadow: 0 3px 10px rgba(139, 92, 246, 0.4);
+        transform: scale(1.05);
+        box-shadow: 0 4px 16px rgba(139, 92, 246, 0.4);
     }
 
     .send-btn:disabled {
-        opacity: 0.5;
+        opacity: 0.4;
         cursor: not-allowed;
     }
 
@@ -808,150 +910,173 @@ const base = import.meta.env.BASE_URL;
         align-items: center;
     }
 
-    .model-info {
+    .model-badge {
         display: flex;
         align-items: center;
-        gap: 0.25rem;
-        font-size: 0.58rem;
-        color: #64748b;
+        gap: 0.35rem;
+        padding: 0.35rem 0.625rem;
+        background: rgba(139, 92, 246, 0.1);
+        border-radius: 20px;
     }
 
-    .model-icon {
-        width: 10px;
-        height: 10px;
+    .model-badge img {
+        width: 12px;
+        height: 12px;
     }
 
-    .clear-chat-btn {
-        display: flex;
-        align-items: center;
-        gap: 0.25rem;
-        padding: 0.25rem 0.45rem;
+    .model-badge span {
+        font-size: 0.65rem;
+        color: #a78bfa;
+        font-weight: 500;
+    }
+
+    .settings-btn {
+        width: 28px;
+        height: 28px;
+        border-radius: 6px;
+        border: 1px solid rgba(148, 163, 184, 0.15);
         background: transparent;
-        border: 1px solid rgba(239, 68, 68, 0.3);
-        border-radius: 5px;
-        color: #f87171;
-        font-size: 0.58rem;
+        color: #64748b;
         cursor: pointer;
-        transition: all 0.2s ease;
-    }
-
-    .clear-chat-btn:hover {
-        background: rgba(239, 68, 68, 0.1);
-        border-color: rgba(239, 68, 68, 0.5);
-    }
-
-    /* ============================================
-       MINIMIZED STATE
-    ============================================ */
-    .tutor-minimized {
-        position: absolute;
-        bottom: 1rem;
-        right: 0.75rem;
-        display: none;
-    }
-
-    .expand-btn {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
-        padding: 0.75rem 1rem;
-        background: linear-gradient(135deg, #4285f4, #8b5cf6);
-        border: none;
-        border-radius: 30px;
-        color: white;
-        font-weight: 600;
-        font-size: 0.85rem;
-        cursor: pointer;
-        box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
+        justify-content: center;
         transition: all 0.2s ease;
+        font-size: 0.75rem;
     }
 
-    .expand-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 25px rgba(139, 92, 246, 0.5);
-    }
-
-    .expand-btn img {
-        width: 20px;
-        height: 20px;
+    .settings-btn:hover {
+        background: rgba(148, 163, 184, 0.1);
+        color: #94a3b8;
     }
 
     /* ============================================
        LIGHT MODE
     ============================================ */
     :global([data-theme="light"]) .ai-tutor-panel {
-        background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-        border-left-color: rgba(139, 92, 246, 0.2);
+        background: linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+        border-left-color: rgba(139, 92, 246, 0.15);
+        box-shadow: -8px 0 40px rgba(0, 0, 0, 0.08);
     }
 
     :global([data-theme="light"]) .tutor-header {
-        background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1));
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.06), rgba(59, 130, 246, 0.03));
     }
 
     :global([data-theme="light"]) .tutor-title h3 {
         color: #0f172a;
     }
 
-    :global([data-theme="light"]) .tutor-badge {
-        color: #7c3aed;
+    :global([data-theme="light"]) .tutor-status {
+        color: #64748b;
     }
 
-    :global([data-theme="light"]) .tutor-size-btn,
-    .tutor-minimize,
     :global([data-theme="light"]) .tutor-close {
         background: rgba(241, 245, 249, 0.8);
+        border-color: rgba(0, 0, 0, 0.08);
         color: #64748b;
     }
 
     :global([data-theme="light"]) .tutor-context {
-        background: rgba(6, 182, 212, 0.08);
-        border-bottom-color: rgba(6, 182, 212, 0.15);
+        background: linear-gradient(90deg, rgba(6, 182, 212, 0.06), transparent);
+        border-color: rgba(6, 182, 212, 0.1);
+    }
+
+    :global([data-theme="light"]) .context-badge {
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(6, 182, 212, 0.05));
+        border-color: rgba(6, 182, 212, 0.2);
+        color: #0891b2;
     }
 
     :global([data-theme="light"]) .context-subject {
         color: #0f172a;
     }
 
-    :global([data-theme="light"]) .tutor-welcome h4 {
+    :global([data-theme="light"]) .welcome-hero h4 {
         color: #0f172a;
     }
 
-    :global([data-theme="light"]) .tutor-welcome > p {
-        color: #475569;
+    :global([data-theme="light"]) .welcome-subtitle {
+        color: #7c3aed;
     }
 
-    :global([data-theme="light"]) .tutor-welcome li {
+    :global([data-theme="light"]) .capability-card {
+        background: rgba(255, 255, 255, 0.8);
+        border-color: rgba(139, 92, 246, 0.1);
+    }
+
+    :global([data-theme="light"]) .capability-card i {
+        color: #7c3aed;
+    }
+
+    :global([data-theme="light"]) .capability-card span {
         color: #334155;
     }
 
-    :global([data-theme="light"]) .welcome-cta {
-        color: #7c3aed !important;
+    :global([data-theme="light"]) .welcome-hint {
+        background: rgba(0, 0, 0, 0.03);
+        color: #475569;
     }
 
     :global([data-theme="light"]) .message.assistant .message-bubble {
-        background: rgba(248, 250, 252, 0.9);
-        border-color: rgba(139, 92, 246, 0.15);
+        background: rgba(255, 255, 255, 0.9);
+        border-color: rgba(139, 92, 246, 0.12);
         color: #1e293b;
     }
 
     :global([data-theme="light"]) .message.user .message-bubble {
-        background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(6, 182, 212, 0.05));
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.12), rgba(6, 182, 212, 0.05));
+        border-color: rgba(6, 182, 212, 0.15);
         color: #0f172a;
     }
 
-    :global([data-theme="light"]) .quick-action {
+    :global([data-theme="light"]) .tutor-loading {
         background: rgba(248, 250, 252, 0.9);
+        border-color: rgba(139, 92, 246, 0.1);
+    }
+
+    :global([data-theme="light"]) .loading-text {
+        color: #475569;
+    }
+
+    :global([data-theme="light"]) .quick-action {
+        background: rgba(255, 255, 255, 0.8);
+        border-color: rgba(139, 92, 246, 0.1);
         color: #6d28d9;
     }
 
     :global([data-theme="light"]) .tutor-input-area {
-        background: rgba(248, 250, 252, 0.9);
+        background: linear-gradient(180deg, rgba(248, 250, 252, 0.8), rgba(241, 245, 249, 0.9));
+        border-color: rgba(0, 0, 0, 0.06);
+    }
+
+    :global([data-theme="light"]) .api-key-card {
+        background: rgba(139, 92, 246, 0.05);
+        border-color: rgba(139, 92, 246, 0.12);
+    }
+
+    :global([data-theme="light"]) .api-key-content h5 {
+        color: #0f172a;
     }
 
     :global([data-theme="light"]) .api-key-input,
     :global([data-theme="light"]) .chat-input-wrapper textarea {
         background: white;
+        border-color: rgba(0, 0, 0, 0.1);
         color: #0f172a;
+    }
+
+    :global([data-theme="light"]) .api-key-link {
+        background: rgba(139, 92, 246, 0.03);
+        color: #7c3aed;
+    }
+
+    :global([data-theme="light"]) .model-badge {
+        background: rgba(139, 92, 246, 0.08);
+    }
+
+    :global([data-theme="light"]) .model-badge span {
+        color: #7c3aed;
     }
 
     /* ============================================
@@ -959,7 +1084,7 @@ const base = import.meta.env.BASE_URL;
     ============================================ */
     @media (max-width: 1200px) {
         .ai-tutor-panel {
-            width: 340px;
+            width: 350px;
         }
     }
 
@@ -976,8 +1101,12 @@ const base = import.meta.env.BASE_URL;
             max-width: 100%;
         }
 
-        .tutor-quick-actions {
+        .actions-grid {
             grid-template-columns: repeat(2, 1fr);
+        }
+
+        .welcome-capabilities {
+            grid-template-columns: 1fr;
         }
     }
 </style>
@@ -985,7 +1114,7 @@ const base = import.meta.env.BASE_URL;
 <script is:inline>
     // ============================================
     // AI TUTOR SIDE PANEL - JAVASCRIPT
-    // Coursera Coach Style Implementation
+    // Premium Enterprise Design
     // ============================================
 
     let currentSubject = null;
@@ -997,15 +1126,11 @@ const base = import.meta.env.BASE_URL;
         tutorInitialized = true;
 
         const panel = document.getElementById('ai-tutor-panel');
-        const minimizeBtn = document.getElementById('tutor-minimize');
         const closeBtn = document.getElementById('tutor-close');
-        const expandBtn = document.getElementById('tutor-expand-btn');
-        const verticalExpandBtn = document.getElementById('tutor-expand');
-        const verticalCollapseBtn = document.getElementById('tutor-collapse');
         const saveKeyBtn = document.getElementById('save-api-key-btn');
         const sendBtn = document.getElementById('send-message-btn');
         const chatInput = document.getElementById('tutor-chat-input');
-        const clearBtn = document.getElementById('clear-chat-btn');
+        const settingsBtn = document.getElementById('settings-btn');
         const quickActions = document.querySelectorAll('.quick-action');
 
         // Check for saved API key
@@ -1014,40 +1139,11 @@ const base = import.meta.env.BASE_URL;
             showChatInput();
         }
 
-        // Minimize panel
-        minimizeBtn?.addEventListener('click', () => {
-            panel?.classList.add('minimized');
-        });
-
         // Close panel
         closeBtn?.addEventListener('click', () => {
-            panel?.classList.remove('visible', 'minimized');
+            panel?.classList.remove('visible');
             currentSubject = null;
             updateQuickActionsState(false);
-        });
-
-        // Horizontal width toggle
-        const widthToggleBtn = document.getElementById('tutor-width-toggle');
-        widthToggleBtn?.addEventListener('click', () => {
-            panel?.classList.toggle('expanded-width');
-            widthToggleBtn?.classList.toggle('active');
-        });
-
-        // Vertical expand (full height)
-        verticalExpandBtn?.addEventListener('click', () => {
-            panel?.classList.remove('collapsed', 'half-height');
-            panel?.classList.add('full-height');
-        });
-
-        // Vertical collapse (header only)
-        verticalCollapseBtn?.addEventListener('click', () => {
-            panel?.classList.remove('full-height', 'half-height');
-            panel?.classList.add('collapsed');
-        });
-
-        // Expand from minimized
-        expandBtn?.addEventListener('click', () => {
-            panel?.classList.remove('minimized');
         });
 
         // Save API key
@@ -1064,8 +1160,8 @@ const base = import.meta.env.BASE_URL;
             }
         });
 
-        // Clear chat
-        clearBtn?.addEventListener('click', clearChat);
+        // Settings button - show API key configuration
+        settingsBtn?.addEventListener('click', showApiKeySetup);
 
         // Quick actions
         quickActions.forEach(btn => {
@@ -1076,9 +1172,17 @@ const base = import.meta.env.BASE_URL;
             });
         });
 
-        // Input state
+        // Input state - enable/disable send button
         chatInput?.addEventListener('input', () => {
-            sendBtn.disabled = !chatInput.value.trim();
+            if (sendBtn) {
+                sendBtn.disabled = !chatInput.value.trim();
+            }
+        });
+
+        // Auto-resize textarea
+        chatInput?.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = Math.min(this.scrollHeight, 120) + 'px';
         });
     }
 
@@ -1129,15 +1233,38 @@ const base = import.meta.env.BASE_URL;
         if (chatContainer) chatContainer.style.display = 'flex';
     }
 
+    function showApiKeySetup() {
+        const apiKeyContainer = document.getElementById('api-key-container');
+        const chatContainer = document.getElementById('chat-input-container');
+        const apiKeyInput = document.getElementById('gemini-api-key-input');
+
+        if (chatContainer) chatContainer.style.display = 'none';
+        if (apiKeyContainer) apiKeyContainer.style.display = 'flex';
+
+        // Pre-fill with masked current key if exists
+        const savedKey = localStorage.getItem('gemini_api_key');
+        if (savedKey && apiKeyInput) {
+            apiKeyInput.value = '';
+            apiKeyInput.placeholder = 'Cambia tu API Key o déjalo vacío para mantener la actual...';
+        }
+    }
+
     function saveApiKey() {
         const input = document.getElementById('gemini-api-key-input');
         const key = input?.value?.trim();
+        const existingKey = localStorage.getItem('gemini_api_key');
+
+        // If no new key but existing key, just go back to chat
+        if (!key && existingKey) {
+            showChatInput();
+            return;
+        }
 
         if (key && key.startsWith('AIza')) {
             localStorage.setItem('gemini_api_key', key);
             showChatInput();
             addMessage('assistant', '¡API Key guardada correctamente! Ya puedes empezar a preguntarme.');
-        } else {
+        } else if (key) {
             addMessage('assistant', 'Por favor, ingresa una API Key válida de Gemini. Debe comenzar con "AIza..."');
         }
     }
