@@ -2702,6 +2702,1342 @@ export const asignaturas: Record<string, Asignatura> = {
         ],
         color: 'emerald',
         area: 'gestion'
+    },
+
+    // =============================================
+    // BIMESTRE 11 - FULLSTACK I & BD APLICADA
+    // =============================================
+
+    // FST11201 - Desarrollo Fullstack I
+    'fullstack-i': {
+        id: 'fullstack-i',
+        codigo: 'FST11201',
+        nombre: 'Desarrollo Fullstack I',
+        nombreCorto: 'Desarrollo Fullstack I',
+        bimestre: 11,
+        creditos: 6,
+        horasTeoricas: 2,
+        horasPracticas: 6,
+        descripcion: 'Asignatura que integra desarrollo frontend y backend, cubriendo arquitecturas modernas, APIs RESTful avanzadas y patrones de integración fullstack.',
+        proposito: 'Desarrollar competencias integrales en desarrollo fullstack, capacitando al estudiante para construir aplicaciones web completas desde el frontend hasta el backend.',
+        objetivos: [
+            'Integrar frontend y backend en aplicaciones completas',
+            'Implementar autenticación y autorización end-to-end',
+            'Diseñar arquitecturas fullstack escalables',
+            'Aplicar patrones de comunicación cliente-servidor',
+            'Gestionar estado compartido entre capas',
+            'Desplegar aplicaciones fullstack en producción'
+        ],
+        competencias: [
+            'Arquitectura fullstack',
+            'Autenticación JWT/OAuth',
+            'APIs RESTful avanzadas',
+            'State management',
+            'Deployment integrado'
+        ],
+        experiencias: [
+            {
+                numero: 1,
+                titulo: 'Arquitectura Fullstack',
+                semanas: 'Semana 1-3',
+                descripcion: 'Fundamentos de integración frontend-backend.',
+                contenidos: [
+                    'Arquitectura cliente-servidor moderna',
+                    'Monorepos con Turborepo/Nx',
+                    'Shared types entre front y back',
+                    'Environment configuration',
+                    'CORS y seguridad cross-origin',
+                    'API versioning strategies'
+                ],
+                actividades: [
+                    'Setup de monorepo fullstack',
+                    'Configuración de tipos compartidos',
+                    'Implementación de CORS seguro'
+                ]
+            },
+            {
+                numero: 2,
+                titulo: 'Autenticación End-to-End',
+                semanas: 'Semana 4-5',
+                descripcion: 'Implementación de autenticación completa.',
+                contenidos: [
+                    'JWT tokens: access y refresh',
+                    'OAuth 2.0 y OpenID Connect',
+                    'Social login: Google, GitHub',
+                    'Session management seguro',
+                    'Protected routes frontend',
+                    'Guards y middleware backend'
+                ],
+                actividades: [
+                    'Sistema de login completo',
+                    'Integración OAuth con Google',
+                    'Refresh token rotation'
+                ]
+            },
+            {
+                numero: 3,
+                titulo: 'Integración y Deployment',
+                semanas: 'Semana 6-8',
+                descripcion: 'Patrones avanzados y despliegue.',
+                contenidos: [
+                    'Real-time con WebSockets',
+                    'Server-Sent Events (SSE)',
+                    'Optimistic updates',
+                    'Error handling unificado',
+                    'Logging y monitoring',
+                    'Deploy: Vercel + Railway/Render'
+                ],
+                actividades: [
+                    'Chat real-time',
+                    'Sistema de notificaciones',
+                    'Proyecto: App fullstack completa'
+                ]
+            }
+        ],
+        tecnologias: [
+            { nombre: 'Next.js', icon: 'nextjs-original', iconType: 'devicon' },
+            { nombre: 'NestJS', icon: 'nestjs-original', iconType: 'devicon' },
+            { nombre: 'TypeScript', icon: 'typescript-plain', iconType: 'devicon' },
+            { nombre: 'PostgreSQL', icon: 'postgresql-plain', iconType: 'devicon' }
+        ],
+        evaluaciones: [
+            { tipo: 'Formativa', nombre: 'Labs Fullstack', ponderacion: 0, descripcion: 'Integraciones prácticas' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 1', ponderacion: 30, descripcion: 'Arquitectura fullstack' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 2', ponderacion: 30, descripcion: 'Autenticación E2E' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 3', ponderacion: 40, descripcion: 'Proyecto fullstack' }
+        ],
+        prerrequisitos: ['Frontend III', 'Backend II-III'],
+        conexiones: ['Fullstack II', 'Cloud Computing'],
+        recursos: [
+            { tipo: 'Documentación', nombre: 'Next.js Docs', url: 'https://nextjs.org/docs' },
+            { tipo: 'Documentación', nombre: 'NestJS Docs', url: 'https://docs.nestjs.com/' },
+            { tipo: 'Tutorial', nombre: 'Fullstack Guide', url: 'https://www.freecodecamp.org/news/full-stack-development/' }
+        ],
+        color: 'teal',
+        area: 'programacion'
+    },
+
+    // BDA11201 - BD Aplicada
+    'bd-aplicada': {
+        id: 'bd-aplicada',
+        codigo: 'BDA11201',
+        nombre: 'Bases de Datos Aplicada',
+        nombreCorto: 'BD Aplicada',
+        bimestre: 11,
+        creditos: 4,
+        horasTeoricas: 2,
+        horasPracticas: 4,
+        descripcion: 'Asignatura que profundiza en bases de datos NoSQL, data modeling avanzado, optimización de queries y gestión de datos a escala.',
+        proposito: 'Desarrollar competencias avanzadas en diseño y gestión de bases de datos, incluyendo NoSQL, optimización y arquitecturas de datos modernas.',
+        objetivos: [
+            'Diseñar schemas NoSQL eficientes',
+            'Implementar bases de datos documentales y key-value',
+            'Optimizar queries y performance',
+            'Aplicar patrones de data modeling',
+            'Gestionar migraciones y versioning',
+            'Implementar estrategias de caching'
+        ],
+        competencias: [
+            'MongoDB y bases documentales',
+            'Redis y caching',
+            'Data modeling avanzado',
+            'Query optimization',
+            'Database migrations'
+        ],
+        experiencias: [
+            {
+                numero: 1,
+                titulo: 'Bases de Datos NoSQL',
+                semanas: 'Semana 1-3',
+                descripcion: 'Fundamentos de bases de datos NoSQL.',
+                contenidos: [
+                    'NoSQL vs SQL: casos de uso',
+                    'MongoDB: documentos, colecciones',
+                    'Schema design patterns',
+                    'Embedded vs Referenced documents',
+                    'Indexes en MongoDB',
+                    'Aggregation pipeline'
+                ],
+                actividades: [
+                    'Setup MongoDB Atlas',
+                    'Modelado de datos NoSQL',
+                    'Queries y aggregations'
+                ]
+            },
+            {
+                numero: 2,
+                titulo: 'Caching y Key-Value',
+                semanas: 'Semana 4-5',
+                descripcion: 'Redis y estrategias de caching.',
+                contenidos: [
+                    'Redis: strings, hashes, lists, sets',
+                    'Cache-aside pattern',
+                    'Write-through y write-behind',
+                    'TTL y eviction policies',
+                    'Pub/Sub con Redis',
+                    'Session storage'
+                ],
+                actividades: [
+                    'Implementación de cache layer',
+                    'Session management con Redis',
+                    'Real-time features'
+                ]
+            },
+            {
+                numero: 3,
+                titulo: 'Optimización y Escalabilidad',
+                semanas: 'Semana 6-8',
+                descripcion: 'Performance y arquitecturas de datos.',
+                contenidos: [
+                    'Query optimization techniques',
+                    'Explain plans y profiling',
+                    'Sharding y replication',
+                    'Database migrations con herramientas',
+                    'Backup y disaster recovery',
+                    'Multi-database architectures'
+                ],
+                actividades: [
+                    'Optimización de queries lentas',
+                    'Setup de replicación',
+                    'Proyecto: Sistema con múltiples DBs'
+                ]
+            }
+        ],
+        tecnologias: [
+            { nombre: 'MongoDB', icon: 'mongodb-plain', iconType: 'devicon' },
+            { nombre: 'Redis', icon: 'redis-plain', iconType: 'devicon' },
+            { nombre: 'PostgreSQL', icon: 'postgresql-plain', iconType: 'devicon' },
+            { nombre: 'Prisma', icon: 'prisma-original', iconType: 'devicon' }
+        ],
+        evaluaciones: [
+            { tipo: 'Formativa', nombre: 'Labs NoSQL', ponderacion: 0, descripcion: 'Prácticas de modelado' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 1', ponderacion: 30, descripcion: 'MongoDB y NoSQL' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 2', ponderacion: 30, descripcion: 'Redis y caching' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 3', ponderacion: 40, descripcion: 'Proyecto multi-DB' }
+        ],
+        prerrequisitos: ['SQL Programación'],
+        conexiones: ['Fullstack I', 'Cloud Computing'],
+        recursos: [
+            { tipo: 'Documentación', nombre: 'MongoDB Docs', url: 'https://www.mongodb.com/docs/' },
+            { tipo: 'Documentación', nombre: 'Redis Docs', url: 'https://redis.io/docs/' },
+            { tipo: 'Curso', nombre: 'MongoDB University', url: 'https://university.mongodb.com/' }
+        ],
+        color: 'amber',
+        area: 'datos'
+    },
+
+    // =============================================
+    // BIMESTRE 12 - FULLSTACK II & CLOUD COMPUTING
+    // =============================================
+
+    // FST12201 - Desarrollo Fullstack II
+    'fullstack-ii': {
+        id: 'fullstack-ii',
+        codigo: 'FST12201',
+        nombre: 'Desarrollo Fullstack II',
+        nombreCorto: 'Desarrollo Fullstack II',
+        bimestre: 12,
+        creditos: 6,
+        horasTeoricas: 2,
+        horasPracticas: 6,
+        descripcion: 'Asignatura avanzada de desarrollo fullstack que cubre microservicios, event-driven architecture, testing E2E y observabilidad.',
+        proposito: 'Profundizar en arquitecturas fullstack avanzadas, preparando al estudiante para desarrollar sistemas distribuidos y aplicaciones enterprise.',
+        objetivos: [
+            'Diseñar arquitecturas de microservicios',
+            'Implementar comunicación asíncrona entre servicios',
+            'Aplicar testing E2E en fullstack',
+            'Configurar observabilidad y monitoring',
+            'Implementar feature flags y A/B testing',
+            'Gestionar configuración distribuida'
+        ],
+        competencias: [
+            'Microservicios architecture',
+            'Event-driven systems',
+            'E2E testing',
+            'Observability',
+            'Feature management'
+        ],
+        experiencias: [
+            {
+                numero: 1,
+                titulo: 'Microservicios Fullstack',
+                semanas: 'Semana 1-3',
+                descripcion: 'Arquitectura de microservicios para fullstack.',
+                contenidos: [
+                    'Descomposición de monolito',
+                    'API Gateway patterns',
+                    'Service discovery',
+                    'gRPC vs REST',
+                    'Inter-service communication',
+                    'Distributed tracing'
+                ],
+                actividades: [
+                    'Diseño de microservicios',
+                    'Implementación de API Gateway',
+                    'Service mesh básico'
+                ]
+            },
+            {
+                numero: 2,
+                titulo: 'Event-Driven Architecture',
+                semanas: 'Semana 4-5',
+                descripcion: 'Sistemas basados en eventos.',
+                contenidos: [
+                    'Message queues: RabbitMQ, SQS',
+                    'Event streaming: Kafka basics',
+                    'Saga pattern',
+                    'Event sourcing introduction',
+                    'CQRS patterns',
+                    'Eventual consistency'
+                ],
+                actividades: [
+                    'Setup de message queue',
+                    'Implementación de Saga',
+                    'Sistema event-driven'
+                ]
+            },
+            {
+                numero: 3,
+                titulo: 'Testing y Observabilidad',
+                semanas: 'Semana 6-8',
+                descripcion: 'Testing E2E y monitoring.',
+                contenidos: [
+                    'E2E testing con Playwright',
+                    'Contract testing',
+                    'Logging centralizado (ELK)',
+                    'Metrics con Prometheus',
+                    'Dashboards con Grafana',
+                    'Alerting y on-call'
+                ],
+                actividades: [
+                    'Suite de tests E2E',
+                    'Setup de observability stack',
+                    'Proyecto: Sistema distribuido'
+                ]
+            }
+        ],
+        tecnologias: [
+            { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' },
+            { nombre: 'RabbitMQ', icon: 'rabbitmq-original', iconType: 'devicon' },
+            { nombre: 'Playwright', icon: 'playwright-plain', iconType: 'devicon' },
+            { nombre: 'Grafana', icon: 'grafana-original', iconType: 'devicon' }
+        ],
+        evaluaciones: [
+            { tipo: 'Formativa', nombre: 'Labs Microservicios', ponderacion: 0, descripcion: 'Prácticas distribuidas' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 1', ponderacion: 30, descripcion: 'Microservicios' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 2', ponderacion: 30, descripcion: 'Event-driven' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 3', ponderacion: 40, descripcion: 'Sistema completo' }
+        ],
+        prerrequisitos: ['Fullstack I'],
+        conexiones: ['Fullstack III', 'Cloud Computing'],
+        recursos: [
+            { tipo: 'Libro', nombre: 'Building Microservices', url: 'https://www.oreilly.com/library/view/building-microservices-2nd/9781492034018/' },
+            { tipo: 'Documentación', nombre: 'RabbitMQ Tutorials', url: 'https://www.rabbitmq.com/tutorials' },
+            { tipo: 'Tutorial', nombre: 'Playwright Docs', url: 'https://playwright.dev/docs/intro' }
+        ],
+        color: 'teal',
+        area: 'programacion'
+    },
+
+    // CLC12201 - Cloud Computing
+    'cloud-computing': {
+        id: 'cloud-computing',
+        codigo: 'CLC12201',
+        nombre: 'Cloud Computing',
+        nombreCorto: 'Cloud Computing',
+        bimestre: 12,
+        creditos: 4,
+        horasTeoricas: 2,
+        horasPracticas: 4,
+        descripcion: 'Asignatura que profundiza en servicios cloud, IaC (Infrastructure as Code), serverless y arquitecturas cloud-native.',
+        proposito: 'Desarrollar competencias avanzadas en cloud computing, preparando al estudiante para diseñar e implementar soluciones escalables en la nube.',
+        objetivos: [
+            'Diseñar arquitecturas cloud escalables',
+            'Implementar Infrastructure as Code',
+            'Desarrollar aplicaciones serverless',
+            'Configurar servicios managed de cloud',
+            'Aplicar cost optimization',
+            'Implementar disaster recovery'
+        ],
+        competencias: [
+            'AWS/Azure/GCP services',
+            'Terraform y IaC',
+            'Serverless architecture',
+            'Cloud security',
+            'Cost management'
+        ],
+        experiencias: [
+            {
+                numero: 1,
+                titulo: 'Servicios Cloud Core',
+                semanas: 'Semana 1-3',
+                descripcion: 'Servicios fundamentales de cloud.',
+                contenidos: [
+                    'Compute: EC2, Lambda, ECS',
+                    'Storage: S3, EBS, EFS',
+                    'Networking: VPC, subnets, security groups',
+                    'Database: RDS, DynamoDB',
+                    'IAM y security',
+                    'CloudWatch monitoring'
+                ],
+                actividades: [
+                    'Arquitectura VPC completa',
+                    'Setup de servicios managed',
+                    'Configuración de IAM'
+                ]
+            },
+            {
+                numero: 2,
+                titulo: 'Infrastructure as Code',
+                semanas: 'Semana 4-5',
+                descripcion: 'Automatización de infraestructura.',
+                contenidos: [
+                    'Terraform fundamentals',
+                    'Modules y workspaces',
+                    'State management',
+                    'AWS CDK introduction',
+                    'GitOps con infraestructura',
+                    'Drift detection'
+                ],
+                actividades: [
+                    'Infraestructura con Terraform',
+                    'Módulos reutilizables',
+                    'Pipeline de IaC'
+                ]
+            },
+            {
+                numero: 3,
+                titulo: 'Serverless y Optimización',
+                semanas: 'Semana 6-8',
+                descripcion: 'Arquitecturas serverless y costos.',
+                contenidos: [
+                    'Lambda functions avanzado',
+                    'API Gateway',
+                    'Step Functions',
+                    'Event-driven serverless',
+                    'Cost Explorer y budgets',
+                    'Reserved instances y Savings Plans'
+                ],
+                actividades: [
+                    'API serverless completa',
+                    'Workflow con Step Functions',
+                    'Proyecto: App cloud-native'
+                ]
+            }
+        ],
+        tecnologias: [
+            { nombre: 'AWS', icon: 'amazonwebservices-plain-wordmark', iconType: 'devicon' },
+            { nombre: 'Terraform', icon: 'terraform-plain', iconType: 'devicon' },
+            { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' },
+            { nombre: 'Kubernetes', icon: 'kubernetes-plain', iconType: 'devicon' }
+        ],
+        evaluaciones: [
+            { tipo: 'Formativa', nombre: 'Labs Cloud', ponderacion: 0, descripcion: 'Prácticas en AWS' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 1', ponderacion: 30, descripcion: 'Servicios core' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 2', ponderacion: 30, descripcion: 'IaC con Terraform' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 3', ponderacion: 40, descripcion: 'Proyecto serverless' }
+        ],
+        prerrequisitos: ['DevOps', 'Cloud Native'],
+        conexiones: ['Fullstack II', 'Cloud Native I'],
+        recursos: [
+            { tipo: 'Certificación', nombre: 'AWS Cloud Practitioner', url: 'https://aws.amazon.com/certification/certified-cloud-practitioner/' },
+            { tipo: 'Documentación', nombre: 'Terraform Docs', url: 'https://developer.hashicorp.com/terraform/docs' },
+            { tipo: 'Tutorial', nombre: 'AWS Free Tier', url: 'https://aws.amazon.com/free/' }
+        ],
+        color: 'orange',
+        area: 'infraestructura'
+    },
+
+    // =============================================
+    // BIMESTRE 13 - FULLSTACK III
+    // =============================================
+
+    // FST13201 - Desarrollo Fullstack III
+    'fullstack-iii': {
+        id: 'fullstack-iii',
+        codigo: 'FST13201',
+        nombre: 'Desarrollo Fullstack III',
+        nombreCorto: 'Desarrollo Fullstack III',
+        bimestre: 13,
+        creditos: 6,
+        horasTeoricas: 2,
+        horasPracticas: 6,
+        descripcion: 'Asignatura de especialización fullstack que cubre GraphQL, real-time systems, performance optimization y arquitecturas avanzadas.',
+        proposito: 'Consolidar y especializar las competencias fullstack del estudiante, preparándolo para liderar proyectos de desarrollo complejo.',
+        objetivos: [
+            'Implementar APIs GraphQL',
+            'Desarrollar sistemas real-time escalables',
+            'Optimizar performance frontend y backend',
+            'Aplicar patrones de arquitectura avanzados',
+            'Implementar CI/CD completo',
+            'Liderar equipos de desarrollo fullstack'
+        ],
+        competencias: [
+            'GraphQL y Apollo',
+            'Real-time systems',
+            'Performance engineering',
+            'Advanced patterns',
+            'Technical leadership'
+        ],
+        experiencias: [
+            {
+                numero: 1,
+                titulo: 'GraphQL y APIs Avanzadas',
+                semanas: 'Semana 1-3',
+                descripcion: 'APIs modernas con GraphQL.',
+                contenidos: [
+                    'GraphQL schema design',
+                    'Queries, mutations, subscriptions',
+                    'Apollo Server y Client',
+                    'DataLoaders y N+1 problem',
+                    'Federation y supergraphs',
+                    'GraphQL vs REST trade-offs'
+                ],
+                actividades: [
+                    'API GraphQL completa',
+                    'Cliente Apollo React',
+                    'Real-time subscriptions'
+                ]
+            },
+            {
+                numero: 2,
+                titulo: 'Performance Engineering',
+                semanas: 'Semana 4-5',
+                descripcion: 'Optimización de rendimiento.',
+                contenidos: [
+                    'Frontend: bundle optimization, lazy loading',
+                    'Backend: query optimization, caching',
+                    'Database: indexing, connection pooling',
+                    'CDN y edge computing',
+                    'Load testing con k6',
+                    'Profiling y bottleneck detection'
+                ],
+                actividades: [
+                    'Auditoría de performance',
+                    'Optimización de aplicación existente',
+                    'Load testing y tuning'
+                ]
+            },
+            {
+                numero: 3,
+                titulo: 'Arquitecturas Avanzadas',
+                semanas: 'Semana 6-8',
+                descripcion: 'Patrones enterprise y liderazgo.',
+                contenidos: [
+                    'Hexagonal architecture implementation',
+                    'DDD tactical patterns',
+                    'Multi-tenant architectures',
+                    'Blue-green y canary deployments',
+                    'Technical documentation',
+                    'Code review y mentoring'
+                ],
+                actividades: [
+                    'Refactoring a arquitectura hexagonal',
+                    'Documentación técnica completa',
+                    'Proyecto: Capstone fullstack'
+                ]
+            }
+        ],
+        tecnologias: [
+            { nombre: 'GraphQL', icon: 'graphql-plain', iconType: 'devicon' },
+            { nombre: 'Apollo', icon: 'fa-project-diagram', iconType: 'fontawesome' },
+            { nombre: 'Redis', icon: 'redis-plain', iconType: 'devicon' },
+            { nombre: 'Docker', icon: 'docker-plain', iconType: 'devicon' }
+        ],
+        evaluaciones: [
+            { tipo: 'Formativa', nombre: 'Labs Avanzados', ponderacion: 0, descripcion: 'Prácticas especializadas' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 1', ponderacion: 30, descripcion: 'GraphQL' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 2', ponderacion: 30, descripcion: 'Performance' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 3', ponderacion: 40, descripcion: 'Capstone project' }
+        ],
+        prerrequisitos: ['Fullstack II'],
+        conexiones: ['Cloud Native I', 'App Móviles'],
+        recursos: [
+            { tipo: 'Documentación', nombre: 'GraphQL Docs', url: 'https://graphql.org/learn/' },
+            { tipo: 'Documentación', nombre: 'Apollo Docs', url: 'https://www.apollographql.com/docs/' },
+            { tipo: 'Herramienta', nombre: 'k6 Load Testing', url: 'https://k6.io/docs/' }
+        ],
+        color: 'teal',
+        area: 'programacion'
+    },
+
+    // =============================================
+    // BIMESTRE 14 - APP MÓVILES & CLOUD NATIVE I
+    // =============================================
+
+    // MOB14201 - Desarrollo App Móviles
+    'app-moviles': {
+        id: 'app-moviles',
+        codigo: 'MOB14201',
+        nombre: 'Desarrollo de Aplicaciones Móviles',
+        nombreCorto: 'Desarrollo App Móviles',
+        bimestre: 14,
+        creditos: 4,
+        horasTeoricas: 2,
+        horasPracticas: 4,
+        descripcion: 'Asignatura avanzada de desarrollo móvil que cubre Flutter, desarrollo nativo avanzado, offline-first y publicación en stores.',
+        proposito: 'Especializar al estudiante en desarrollo móvil multiplataforma, preparándolo para crear aplicaciones móviles profesionales.',
+        objetivos: [
+            'Desarrollar aplicaciones con Flutter',
+            'Implementar arquitecturas móviles avanzadas',
+            'Crear aplicaciones offline-first',
+            'Integrar con servicios nativos',
+            'Publicar en App Store y Play Store',
+            'Optimizar rendimiento móvil'
+        ],
+        competencias: [
+            'Flutter y Dart',
+            'Mobile architectures',
+            'Offline-first design',
+            'Native integrations',
+            'Store publishing'
+        ],
+        experiencias: [
+            {
+                numero: 1,
+                titulo: 'Flutter Development',
+                semanas: 'Semana 1-3',
+                descripcion: 'Fundamentos de Flutter y Dart.',
+                contenidos: [
+                    'Dart language fundamentals',
+                    'Flutter widgets y layouts',
+                    'State management: Riverpod, Bloc',
+                    'Navigation 2.0',
+                    'Flutter DevTools',
+                    'Hot reload y debugging'
+                ],
+                actividades: [
+                    'App Flutter básica',
+                    'Implementación de estado',
+                    'Navegación compleja'
+                ]
+            },
+            {
+                numero: 2,
+                titulo: 'Offline y Sincronización',
+                semanas: 'Semana 4-5',
+                descripcion: 'Aplicaciones offline-first.',
+                contenidos: [
+                    'SQLite y Hive local storage',
+                    'Sync strategies',
+                    'Conflict resolution',
+                    'Background sync',
+                    'Push notifications',
+                    'Firebase integration'
+                ],
+                actividades: [
+                    'App offline-first',
+                    'Sistema de sincronización',
+                    'Notificaciones push'
+                ]
+            },
+            {
+                numero: 3,
+                titulo: 'Nativo y Publicación',
+                semanas: 'Semana 6-8',
+                descripcion: 'Integraciones nativas y stores.',
+                contenidos: [
+                    'Platform channels',
+                    'Biometrics y secure storage',
+                    'Camera y sensors avanzados',
+                    'App signing y certificates',
+                    'Play Store submission',
+                    'App Store review guidelines'
+                ],
+                actividades: [
+                    'Integración de biometrics',
+                    'Preparación para stores',
+                    'Proyecto: App publicable'
+                ]
+            }
+        ],
+        tecnologias: [
+            { nombre: 'Flutter', icon: 'flutter-plain', iconType: 'devicon' },
+            { nombre: 'Dart', icon: 'dart-plain', iconType: 'devicon' },
+            { nombre: 'Firebase', icon: 'firebase-plain', iconType: 'devicon' },
+            { nombre: 'SQLite', icon: 'sqlite-plain', iconType: 'devicon' }
+        ],
+        evaluaciones: [
+            { tipo: 'Formativa', nombre: 'Labs Flutter', ponderacion: 0, descripcion: 'Prácticas móviles' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 1', ponderacion: 30, descripcion: 'Flutter basics' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 2', ponderacion: 30, descripcion: 'Offline-first' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 3', ponderacion: 40, descripcion: 'App completa' }
+        ],
+        prerrequisitos: ['Mobile II'],
+        conexiones: ['Cloud Native I'],
+        recursos: [
+            { tipo: 'Documentación', nombre: 'Flutter Docs', url: 'https://docs.flutter.dev/' },
+            { tipo: 'Tutorial', nombre: 'Flutter Codelabs', url: 'https://docs.flutter.dev/codelabs' },
+            { tipo: 'Curso', nombre: 'Flutter Complete Course', url: 'https://www.udemy.com/course/learn-flutter-dart-to-build-ios-android-apps/' }
+        ],
+        color: 'blue',
+        area: 'mobile'
+    },
+
+    // CLN14201 - Cloud Native I
+    'cloud-native-i': {
+        id: 'cloud-native-i',
+        codigo: 'CLN14201',
+        nombre: 'Cloud Native I',
+        nombreCorto: 'Cloud Native I',
+        bimestre: 14,
+        creditos: 4,
+        horasTeoricas: 2,
+        horasPracticas: 4,
+        descripcion: 'Asignatura que introduce desarrollo cloud-native con Kubernetes, service mesh y observabilidad avanzada.',
+        proposito: 'Desarrollar competencias en arquitecturas cloud-native, preparando al estudiante para operar aplicaciones en Kubernetes.',
+        objetivos: [
+            'Desplegar aplicaciones en Kubernetes',
+            'Implementar service mesh',
+            'Configurar observabilidad cloud-native',
+            'Aplicar GitOps workflows',
+            'Gestionar secrets y configuration',
+            'Implementar auto-scaling'
+        ],
+        competencias: [
+            'Kubernetes operations',
+            'Helm charts',
+            'Service mesh',
+            'GitOps',
+            'Cloud-native observability'
+        ],
+        experiencias: [
+            {
+                numero: 1,
+                titulo: 'Kubernetes Fundamentals',
+                semanas: 'Semana 1-3',
+                descripcion: 'Fundamentos de Kubernetes.',
+                contenidos: [
+                    'K8s architecture: nodes, pods, services',
+                    'Deployments y ReplicaSets',
+                    'ConfigMaps y Secrets',
+                    'Persistent Volumes',
+                    'Ingress controllers',
+                    'kubectl y k9s'
+                ],
+                actividades: [
+                    'Cluster local con kind/minikube',
+                    'Deployment de aplicación',
+                    'Configuración de Ingress'
+                ]
+            },
+            {
+                numero: 2,
+                titulo: 'Helm y GitOps',
+                semanas: 'Semana 4-5',
+                descripcion: 'Packaging y deployment automatizado.',
+                contenidos: [
+                    'Helm charts: templates, values',
+                    'Chart repositories',
+                    'ArgoCD fundamentals',
+                    'GitOps workflows',
+                    'Progressive delivery',
+                    'Rollback strategies'
+                ],
+                actividades: [
+                    'Creación de Helm chart',
+                    'Setup de ArgoCD',
+                    'Pipeline GitOps'
+                ]
+            },
+            {
+                numero: 3,
+                titulo: 'Service Mesh y Observability',
+                semanas: 'Semana 6-8',
+                descripcion: 'Networking avanzado y monitoring.',
+                contenidos: [
+                    'Istio basics',
+                    'Traffic management',
+                    'mTLS y security policies',
+                    'Prometheus y Grafana en K8s',
+                    'Jaeger distributed tracing',
+                    'Kiali dashboard'
+                ],
+                actividades: [
+                    'Setup de Istio',
+                    'Observability stack',
+                    'Proyecto: App cloud-native'
+                ]
+            }
+        ],
+        tecnologias: [
+            { nombre: 'Kubernetes', icon: 'kubernetes-plain', iconType: 'devicon' },
+            { nombre: 'Helm', icon: 'helm-original', iconType: 'devicon' },
+            { nombre: 'ArgoCD', icon: 'argocd-original', iconType: 'devicon' },
+            { nombre: 'Prometheus', icon: 'prometheus-original', iconType: 'devicon' }
+        ],
+        evaluaciones: [
+            { tipo: 'Formativa', nombre: 'Labs K8s', ponderacion: 0, descripcion: 'Prácticas en cluster' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 1', ponderacion: 30, descripcion: 'Kubernetes basics' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 2', ponderacion: 30, descripcion: 'Helm y GitOps' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 3', ponderacion: 40, descripcion: 'Cloud-native app' }
+        ],
+        prerrequisitos: ['Cloud Computing', 'DevOps'],
+        conexiones: ['Cloud Native II'],
+        recursos: [
+            { tipo: 'Documentación', nombre: 'Kubernetes Docs', url: 'https://kubernetes.io/docs/' },
+            { tipo: 'Tutorial', nombre: 'Helm Docs', url: 'https://helm.sh/docs/' },
+            { tipo: 'Certificación', nombre: 'CKA Exam', url: 'https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/' }
+        ],
+        color: 'blue',
+        area: 'infraestructura'
+    },
+
+    // =============================================
+    // BIMESTRE 15 - CLOUD NATIVE II & SEGURIDAD
+    // =============================================
+
+    // CLN15201 - Cloud Native II
+    'cloud-native-ii': {
+        id: 'cloud-native-ii',
+        codigo: 'CLN15201',
+        nombre: 'Cloud Native II',
+        nombreCorto: 'Cloud Native II',
+        bimestre: 15,
+        creditos: 4,
+        horasTeoricas: 2,
+        horasPracticas: 4,
+        descripcion: 'Asignatura avanzada de cloud-native que cubre multi-cluster, disaster recovery, security y platform engineering.',
+        proposito: 'Profundizar en operaciones cloud-native avanzadas, preparando al estudiante para roles de SRE y Platform Engineering.',
+        objetivos: [
+            'Gestionar múltiples clusters',
+            'Implementar disaster recovery',
+            'Aplicar security best practices',
+            'Desarrollar internal developer platforms',
+            'Implementar FinOps',
+            'Liderar iniciativas cloud-native'
+        ],
+        competencias: [
+            'Multi-cluster management',
+            'Disaster recovery',
+            'Cloud security',
+            'Platform engineering',
+            'FinOps'
+        ],
+        experiencias: [
+            {
+                numero: 1,
+                titulo: 'Multi-Cluster y HA',
+                semanas: 'Semana 1-3',
+                descripcion: 'Gestión de múltiples clusters.',
+                contenidos: [
+                    'Multi-cluster architectures',
+                    'Federation concepts',
+                    'Cross-cluster networking',
+                    'Disaster recovery strategies',
+                    'Backup con Velero',
+                    'RTO y RPO planning'
+                ],
+                actividades: [
+                    'Setup multi-cluster',
+                    'Backup y restore',
+                    'DR simulation'
+                ]
+            },
+            {
+                numero: 2,
+                titulo: 'Security y Compliance',
+                semanas: 'Semana 4-5',
+                descripcion: 'Seguridad en Kubernetes.',
+                contenidos: [
+                    'Pod Security Standards',
+                    'Network Policies',
+                    'OPA Gatekeeper',
+                    'Vault integration',
+                    'Image scanning',
+                    'Compliance frameworks'
+                ],
+                actividades: [
+                    'Implementación de policies',
+                    'Secrets con Vault',
+                    'Security audit'
+                ]
+            },
+            {
+                numero: 3,
+                titulo: 'Platform Engineering',
+                semanas: 'Semana 6-8',
+                descripcion: 'Internal Developer Platforms.',
+                contenidos: [
+                    'Platform engineering principles',
+                    'Developer experience (DevEx)',
+                    'Self-service portals',
+                    'Backstage introduction',
+                    'Cost management y chargebacks',
+                    'SLOs y error budgets'
+                ],
+                actividades: [
+                    'Developer portal básico',
+                    'Cost attribution',
+                    'Proyecto: Platform MVP'
+                ]
+            }
+        ],
+        tecnologias: [
+            { nombre: 'Kubernetes', icon: 'kubernetes-plain', iconType: 'devicon' },
+            { nombre: 'Vault', icon: 'vault-original', iconType: 'devicon' },
+            { nombre: 'Terraform', icon: 'terraform-plain', iconType: 'devicon' },
+            { nombre: 'Grafana', icon: 'grafana-original', iconType: 'devicon' }
+        ],
+        evaluaciones: [
+            { tipo: 'Formativa', nombre: 'Labs Avanzados', ponderacion: 0, descripcion: 'Prácticas enterprise' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 1', ponderacion: 30, descripcion: 'Multi-cluster' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 2', ponderacion: 30, descripcion: 'Security' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 3', ponderacion: 40, descripcion: 'Platform project' }
+        ],
+        prerrequisitos: ['Cloud Native I'],
+        conexiones: ['Seguridad y Calidad'],
+        recursos: [
+            { tipo: 'Certificación', nombre: 'CKS Exam', url: 'https://training.linuxfoundation.org/certification/certified-kubernetes-security-specialist/' },
+            { tipo: 'Documentación', nombre: 'Vault Docs', url: 'https://developer.hashicorp.com/vault/docs' },
+            { tipo: 'Framework', nombre: 'Backstage', url: 'https://backstage.io/docs/overview/what-is-backstage' }
+        ],
+        color: 'blue',
+        area: 'infraestructura'
+    },
+
+    // SEG15201 - Seguridad y Calidad
+    'seguridad-calidad': {
+        id: 'seguridad-calidad',
+        codigo: 'SEG15201',
+        nombre: 'Seguridad y Calidad de Software',
+        nombreCorto: 'Seguridad y Calidad',
+        bimestre: 15,
+        creditos: 4,
+        horasTeoricas: 2,
+        horasPracticas: 4,
+        descripcion: 'Asignatura que integra seguridad de aplicaciones (AppSec) y calidad de software, cubriendo OWASP, SAST/DAST y métricas de calidad.',
+        proposito: 'Desarrollar competencias en seguridad y calidad de software, preparando al estudiante para crear aplicaciones seguras y de alta calidad.',
+        objetivos: [
+            'Aplicar OWASP Top 10 y security best practices',
+            'Implementar SAST y DAST en pipelines',
+            'Definir y medir métricas de calidad',
+            'Realizar security code reviews',
+            'Implementar DevSecOps',
+            'Gestionar vulnerabilidades'
+        ],
+        competencias: [
+            'Application security',
+            'SAST/DAST tools',
+            'Security testing',
+            'Quality metrics',
+            'DevSecOps'
+        ],
+        experiencias: [
+            {
+                numero: 1,
+                titulo: 'Application Security',
+                semanas: 'Semana 1-3',
+                descripcion: 'Fundamentos de seguridad de aplicaciones.',
+                contenidos: [
+                    'OWASP Top 10 2021',
+                    'Injection attacks y prevención',
+                    'Authentication y session management',
+                    'XSS y CSRF',
+                    'Security headers',
+                    'Secure coding practices'
+                ],
+                actividades: [
+                    'Análisis de vulnerabilidades',
+                    'Hardening de aplicación',
+                    'Security headers implementation'
+                ]
+            },
+            {
+                numero: 2,
+                titulo: 'Security Testing',
+                semanas: 'Semana 4-5',
+                descripcion: 'Testing de seguridad automatizado.',
+                contenidos: [
+                    'SAST: SonarQube, Snyk',
+                    'DAST: OWASP ZAP',
+                    'Dependency scanning',
+                    'Container scanning',
+                    'Secrets detection',
+                    'Penetration testing basics'
+                ],
+                actividades: [
+                    'Pipeline con SAST',
+                    'Scan de vulnerabilidades',
+                    'Remediation workflow'
+                ]
+            },
+            {
+                numero: 3,
+                titulo: 'Calidad y DevSecOps',
+                semanas: 'Semana 6-8',
+                descripcion: 'Métricas de calidad y DevSecOps.',
+                contenidos: [
+                    'Quality gates en CI/CD',
+                    'Code coverage y mutation testing',
+                    'Technical debt management',
+                    'Security Champions program',
+                    'Incident response',
+                    'Compliance automation'
+                ],
+                actividades: [
+                    'Quality gates completos',
+                    'Dashboard de métricas',
+                    'Proyecto: DevSecOps pipeline'
+                ]
+            }
+        ],
+        tecnologias: [
+            { nombre: 'SonarQube', icon: 'sonarqube-plain', iconType: 'devicon' },
+            { nombre: 'Snyk', icon: 'fa-shield-alt', iconType: 'fontawesome' },
+            { nombre: 'OWASP ZAP', icon: 'fa-bug', iconType: 'fontawesome' },
+            { nombre: 'GitHub Actions', icon: 'github-original', iconType: 'devicon' }
+        ],
+        evaluaciones: [
+            { tipo: 'Formativa', nombre: 'Labs Security', ponderacion: 0, descripcion: 'Prácticas de seguridad' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 1', ponderacion: 30, descripcion: 'AppSec fundamentals' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 2', ponderacion: 30, descripcion: 'Security testing' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 3', ponderacion: 40, descripcion: 'DevSecOps pipeline' }
+        ],
+        prerrequisitos: ['Ing. Software II', 'DevOps'],
+        conexiones: ['Cloud Native II'],
+        recursos: [
+            { tipo: 'Documentación', nombre: 'OWASP', url: 'https://owasp.org/' },
+            { tipo: 'Herramienta', nombre: 'SonarQube', url: 'https://www.sonarsource.com/products/sonarqube/' },
+            { tipo: 'Tutorial', nombre: 'Snyk Learn', url: 'https://learn.snyk.io/' }
+        ],
+        color: 'red',
+        area: 'seguridad'
+    },
+
+    // =============================================
+    // BIMESTRE 16 - GESTIÓN DE PROYECTOS SW
+    // =============================================
+
+    // GPR16201 - Evaluación y Gestión de Proyectos
+    'gestion-proyectos': {
+        id: 'gestion-proyectos',
+        codigo: 'GPR16201',
+        nombre: 'Evaluación y Gestión de Proyectos de Software',
+        nombreCorto: 'Evaluacion y Gestion Proyectos',
+        bimestre: 16,
+        creditos: 4,
+        horasTeoricas: 2,
+        horasPracticas: 4,
+        descripcion: 'Asignatura que cubre gestión de proyectos de software, metodologías ágiles avanzadas, estimación, métricas y liderazgo técnico.',
+        proposito: 'Desarrollar competencias de gestión y liderazgo técnico, preparando al estudiante para liderar equipos y proyectos de desarrollo de software.',
+        objetivos: [
+            'Aplicar metodologías ágiles a escala',
+            'Estimar proyectos de software',
+            'Gestionar equipos de desarrollo',
+            'Definir y seguir métricas de proyecto',
+            'Comunicar efectivamente con stakeholders',
+            'Liderar transformaciones técnicas'
+        ],
+        competencias: [
+            'Agile at scale',
+            'Project estimation',
+            'Team leadership',
+            'Stakeholder management',
+            'Technical communication'
+        ],
+        experiencias: [
+            {
+                numero: 1,
+                titulo: 'Agile a Escala',
+                semanas: 'Semana 1-3',
+                descripcion: 'Metodologías ágiles para organizaciones.',
+                contenidos: [
+                    'SAFe fundamentals',
+                    'LeSS y Nexus',
+                    'Program Increment planning',
+                    'Release trains',
+                    'Agile portfolio management',
+                    'Value stream mapping'
+                ],
+                actividades: [
+                    'PI Planning simulation',
+                    'Value stream analysis',
+                    'Portfolio prioritization'
+                ]
+            },
+            {
+                numero: 2,
+                titulo: 'Estimación y Métricas',
+                semanas: 'Semana 4-5',
+                descripcion: 'Estimación y tracking de proyectos.',
+                contenidos: [
+                    'Story points y velocity',
+                    'Function points',
+                    'COCOMO basics',
+                    'Burndown y burnup charts',
+                    'Lead time y cycle time',
+                    'DORA metrics'
+                ],
+                actividades: [
+                    'Estimación de proyecto real',
+                    'Dashboard de métricas',
+                    'Forecasting'
+                ]
+            },
+            {
+                numero: 3,
+                titulo: 'Liderazgo y Comunicación',
+                semanas: 'Semana 6-8',
+                descripcion: 'Soft skills para líderes técnicos.',
+                contenidos: [
+                    '1:1s y feedback',
+                    'Technical interviews',
+                    'Architecture Decision Records',
+                    'RFCs y design docs',
+                    'Presentations y demos',
+                    'Conflict resolution'
+                ],
+                actividades: [
+                    'Mock technical interview',
+                    'Design doc writing',
+                    'Proyecto: Plan de proyecto completo'
+                ]
+            }
+        ],
+        tecnologias: [
+            { nombre: 'Jira', icon: 'jira-plain', iconType: 'devicon' },
+            { nombre: 'Confluence', icon: 'confluence-plain', iconType: 'devicon' },
+            { nombre: 'Notion', icon: 'notion-plain', iconType: 'devicon' },
+            { nombre: 'Miro', icon: 'fa-chalkboard', iconType: 'fontawesome' }
+        ],
+        evaluaciones: [
+            { tipo: 'Formativa', nombre: 'Workshops', ponderacion: 0, descripcion: 'Dinámicas grupales' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 1', ponderacion: 30, descripcion: 'Agile at scale' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 2', ponderacion: 30, descripcion: 'Estimación' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 3', ponderacion: 40, descripcion: 'Plan de proyecto' }
+        ],
+        prerrequisitos: ['Ing. Software II'],
+        conexiones: ['Taller Aplicado Software'],
+        recursos: [
+            { tipo: 'Framework', nombre: 'SAFe', url: 'https://www.scaledagileframework.com/' },
+            { tipo: 'Métricas', nombre: 'DORA Metrics', url: 'https://dora.dev/' },
+            { tipo: 'Curso', nombre: 'Atlassian Agile', url: 'https://www.atlassian.com/agile' }
+        ],
+        color: 'purple',
+        area: 'gestion'
+    },
+
+    // =============================================
+    // BIMESTRE 17 - ÉTICA & TALLER APLICADO
+    // =============================================
+
+    // ETI17201 - Ética Profesional
+    'etica-profesional': {
+        id: 'etica-profesional',
+        codigo: 'ETI17201',
+        nombre: 'Ética Profesional en TI',
+        nombreCorto: 'Etica Profesional',
+        bimestre: 17,
+        creditos: 2,
+        horasTeoricas: 2,
+        horasPracticas: 2,
+        descripcion: 'Asignatura que profundiza en ética profesional, responsabilidad social, privacidad de datos y aspectos legales en tecnología.',
+        proposito: 'Formar profesionales éticos y responsables, conscientes del impacto social de la tecnología y las regulaciones vigentes.',
+        objetivos: [
+            'Aplicar principios éticos en decisiones tecnológicas',
+            'Comprender regulaciones de privacidad (GDPR, etc.)',
+            'Evaluar impacto social de sistemas',
+            'Gestionar dilemas éticos en IA',
+            'Promover diversidad e inclusión en tech',
+            'Practicar responsabilidad profesional'
+        ],
+        competencias: [
+            'Ética tecnológica',
+            'Privacidad y compliance',
+            'Responsabilidad social',
+            'AI ethics',
+            'Professional responsibility'
+        ],
+        experiencias: [
+            {
+                numero: 1,
+                titulo: 'Fundamentos Éticos',
+                semanas: 'Semana 1-3',
+                descripcion: 'Principios éticos en tecnología.',
+                contenidos: [
+                    'Códigos de ética: ACM, IEEE',
+                    'Responsabilidad profesional',
+                    'Conflictos de interés',
+                    'Propiedad intelectual',
+                    'Open source ethics',
+                    'Whistleblowing'
+                ],
+                actividades: [
+                    'Análisis de casos éticos',
+                    'Debate sobre dilemas',
+                    'Código de ética personal'
+                ]
+            },
+            {
+                numero: 2,
+                titulo: 'Privacidad y Regulaciones',
+                semanas: 'Semana 4-5',
+                descripcion: 'Marco legal y privacidad.',
+                contenidos: [
+                    'GDPR principles',
+                    'Privacy by design',
+                    'Data protection impact assessment',
+                    'User consent management',
+                    'Data breach response',
+                    'Legislación local'
+                ],
+                actividades: [
+                    'DPIA de sistema',
+                    'Privacy policy analysis',
+                    'Compliance checklist'
+                ]
+            },
+            {
+                numero: 3,
+                titulo: 'Impacto Social y AI Ethics',
+                semanas: 'Semana 6-8',
+                descripcion: 'Responsabilidad social y ética en IA.',
+                contenidos: [
+                    'Bias en algoritmos',
+                    'Fairness en ML',
+                    'Explicabilidad de IA',
+                    'Impacto ambiental de tech',
+                    'Digital divide',
+                    'Accessibility y inclusion'
+                ],
+                actividades: [
+                    'Audit de bias en modelo',
+                    'Sustainability assessment',
+                    'Proyecto: Ethical review'
+                ]
+            }
+        ],
+        tecnologias: [
+            { nombre: 'Fairlearn', icon: 'fa-balance-scale', iconType: 'fontawesome' },
+            { nombre: 'AI Explainability', icon: 'fa-brain', iconType: 'fontawesome' },
+            { nombre: 'GDPR Tools', icon: 'fa-shield-alt', iconType: 'fontawesome' },
+            { nombre: 'Accessibility', icon: 'fa-universal-access', iconType: 'fontawesome' }
+        ],
+        evaluaciones: [
+            { tipo: 'Formativa', nombre: 'Debates', ponderacion: 0, descripcion: 'Discusiones éticas' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 1', ponderacion: 30, descripcion: 'Fundamentos éticos' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 2', ponderacion: 30, descripcion: 'Privacidad' },
+            { tipo: 'Sumativa', nombre: 'Evaluación Sumativa 3', ponderacion: 40, descripcion: 'Ethical review' }
+        ],
+        prerrequisitos: ['Ética (B03)'],
+        conexiones: ['Taller Aplicado Software'],
+        recursos: [
+            { tipo: 'Código', nombre: 'ACM Code of Ethics', url: 'https://www.acm.org/code-of-ethics' },
+            { tipo: 'Documentación', nombre: 'GDPR Info', url: 'https://gdpr.eu/' },
+            { tipo: 'Framework', nombre: 'AI Ethics Guidelines', url: 'https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai' }
+        ],
+        color: 'slate',
+        area: 'general'
+    },
+
+    // TAS17201 - Taller Aplicado Software
+    'taller-aplicado-sw': {
+        id: 'taller-aplicado-sw',
+        codigo: 'TAS17201',
+        nombre: 'Taller Aplicado de Software',
+        nombreCorto: 'Taller Aplicado Software',
+        bimestre: 17,
+        creditos: 8,
+        horasTeoricas: 2,
+        horasPracticas: 10,
+        descripcion: 'Asignatura de cierre de carrera donde los estudiantes desarrollan un proyecto integrador de ingeniería de software con cliente real.',
+        proposito: 'Consolidar todas las competencias de la carrera mediante el desarrollo de un proyecto real que demuestre las habilidades del ingeniero de software.',
+        objetivos: [
+            'Desarrollar proyecto de software con cliente real',
+            'Aplicar metodologías ágiles en contexto real',
+            'Integrar todas las competencias técnicas',
+            'Documentar arquitectura y decisiones',
+            'Presentar y defender el proyecto',
+            'Demostrar profesionalismo y ética'
+        ],
+        competencias: [
+            'Desarrollo end-to-end',
+            'Client management',
+            'Technical documentation',
+            'Project presentation',
+            'Professional ethics'
+        ],
+        experiencias: [
+            {
+                numero: 1,
+                titulo: 'Inception y Arquitectura',
+                semanas: 'Semana 1-3',
+                descripcion: 'Definición del proyecto y diseño.',
+                contenidos: [
+                    'Client discovery y requirements',
+                    'User story mapping',
+                    'Architecture design',
+                    'Tech stack selection',
+                    'MVP definition',
+                    'Project roadmap'
+                ],
+                actividades: [
+                    'Kickoff con cliente',
+                    'Documentación de arquitectura',
+                    'Sprint 0 planning'
+                ]
+            },
+            {
+                numero: 2,
+                titulo: 'Desarrollo Iterativo',
+                semanas: 'Semana 4-5',
+                descripcion: 'Implementación con sprints.',
+                contenidos: [
+                    'Sprint execution',
+                    'Daily standups',
+                    'Code reviews',
+                    'CI/CD implementation',
+                    'Client demos',
+                    'Feedback incorporation'
+                ],
+                actividades: [
+                    'Sprints de desarrollo',
+                    'Demos quincenales',
+                    'Retrospectivas'
+                ]
+            },
+            {
+                numero: 3,
+                titulo: 'Entrega y Defensa',
+                semanas: 'Semana 6-8',
+                descripcion: 'Finalización y presentación.',
+                contenidos: [
+                    'Feature completion',
+                    'Testing y QA final',
+                    'Documentation completion',
+                    'Deployment a producción',
+                    'Client handoff',
+                    'Project defense'
+                ],
+                actividades: [
+                    'Release final',
+                    'Entrega a cliente',
+                    'Defensa de proyecto'
+                ]
+            }
+        ],
+        tecnologias: [
+            { nombre: 'Stack completo', icon: 'fa-layer-group', iconType: 'fontawesome' },
+            { nombre: 'CI/CD', icon: 'fa-sync', iconType: 'fontawesome' },
+            { nombre: 'Cloud', icon: 'fa-cloud', iconType: 'fontawesome' },
+            { nombre: 'Agile', icon: 'fa-tasks', iconType: 'fontawesome' }
+        ],
+        evaluaciones: [
+            { tipo: 'Formativa', nombre: 'Sprint reviews', ponderacion: 0, descripcion: 'Demos de sprint' },
+            { tipo: 'Sumativa', nombre: 'Avance 1', ponderacion: 20, descripcion: 'Arquitectura y MVP' },
+            { tipo: 'Sumativa', nombre: 'Avance 2', ponderacion: 30, descripcion: 'Desarrollo iterativo' },
+            { tipo: 'Sumativa', nombre: 'Entrega Final', ponderacion: 50, descripcion: 'Proyecto completo y defensa' }
+        ],
+        prerrequisitos: ['Fullstack III', 'Gestión de Proyectos'],
+        conexiones: [],
+        recursos: [
+            { tipo: 'Template', nombre: 'Architecture Decision Records', url: 'https://adr.github.io/' },
+            { tipo: 'Framework', nombre: 'Scrum Guide', url: 'https://scrumguides.org/' },
+            { tipo: 'Tool', nombre: 'Notion for Teams', url: 'https://www.notion.so/product/teams' }
+        ],
+        color: 'emerald',
+        area: 'proyecto'
     }
 };
 
