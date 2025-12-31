@@ -673,6 +673,11 @@ const subjectLinks: Record<string, string> = {
        MALLA CURRICULAR PAGE - Premium Design
        ============================================= */
 
+    /* Hide scroll-to-bottom button to avoid overlap with AI Tutor expand button */
+    :global(#scroll-to-bottom) {
+        display: none !important;
+    }
+
     .malla-page {
         min-height: 100vh;
         padding-top: 80px;
