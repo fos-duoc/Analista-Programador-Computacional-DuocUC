@@ -384,8 +384,8 @@ const base = import.meta.env.BASE_URL;
        Premium typography for professional learning
     ============================================ */
     .drawer-title-section {
-        margin-bottom: 0.55rem;
-        padding-bottom: 0.45rem;
+        margin-bottom: 0.25rem;
+        padding-bottom: 0.2rem;
         border-bottom: 2px solid transparent;
         border-image: linear-gradient(90deg, rgba(6, 182, 212, 0.4), rgba(139, 92, 246, 0.3), transparent) 1;
         position: relative;
@@ -526,13 +526,13 @@ const base = import.meta.env.BASE_URL;
     }
 
     /* ============================================
-       SECTIONS - Study-Focused Typography (Compact)
-       Tight spacing for better visual flow
+       SECTIONS - Ultra-Compact Typography
+       Minimal spacing for dense information display
     ============================================ */
     .drawer-section {
-        margin-bottom: 0.35rem;
-        padding-bottom: 0.25rem;
-        border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+        margin-bottom: 0.15rem;
+        padding-bottom: 0.1rem;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.06);
         position: relative;
     }
 
@@ -547,8 +547,8 @@ const base = import.meta.env.BASE_URL;
         font-size: 0.62rem;
         font-weight: 700;
         color: #cbd5e1;
-        margin: 0 0 0.2rem 0;
-        padding: 0.22rem 0.45rem 0.22rem 0.4rem;
+        margin: 0 0 0.1rem 0;
+        padding: 0.18rem 0.4rem 0.18rem 0.35rem;
         display: inline-flex;
         align-items: center;
         gap: 0.35rem;
@@ -579,12 +579,12 @@ const base = import.meta.env.BASE_URL;
         filter: drop-shadow(0 0 3px rgba(34, 211, 238, 0.3));
     }
 
-    /* Main content typography - Premium Study Reading */
+    /* Main content typography - Compact Study Reading */
     .section-content {
         color: #e2e8f0;
-        font-size: 0.76rem;
-        line-height: 1.65;
-        margin: 0 0 0.4rem 0;
+        font-size: 0.74rem;
+        line-height: 1.5;
+        margin: 0;
         font-family: 'Inter', 'Roboto', system-ui, sans-serif;
         letter-spacing: -0.005em;
         text-rendering: optimizeLegibility;
@@ -611,11 +611,11 @@ const base = import.meta.env.BASE_URL;
 
     /* Propósito Box - Structured Highlight (Ultra-Compact) */
     .proposito-box {
-        margin-top: 0.15rem;
-        padding: 0.22rem 0.45rem;
+        margin-top: 0.1rem;
+        padding: 0.15rem 0.35rem;
         background: rgba(6, 182, 212, 0.05);
-        border-radius: 5px;
-        border-left: 3px solid rgba(6, 182, 212, 0.5);
+        border-radius: 4px;
+        border-left: 2px solid rgba(6, 182, 212, 0.5);
     }
 
     .proposito-box strong {
@@ -648,7 +648,7 @@ const base = import.meta.env.BASE_URL;
         margin: 0;
         display: flex;
         flex-direction: column;
-        gap: 0.15rem;
+        gap: 0.08rem;
         counter-reset: obj;
     }
 
@@ -695,7 +695,7 @@ const base = import.meta.env.BASE_URL;
     .competencias-tags {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.3rem;
+        gap: 0.2rem;
     }
 
     .competencia-tag {
@@ -738,7 +738,7 @@ const base = import.meta.env.BASE_URL;
     .experiencias-accordion {
         display: flex;
         flex-direction: column;
-        gap: 0.25rem;
+        gap: 0.15rem;
     }
 
     .exp-card {
@@ -916,7 +916,7 @@ const base = import.meta.env.BASE_URL;
     .tech-grid {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.35rem;
+        gap: 0.2rem;
     }
 
     .tech-chip {
@@ -985,7 +985,7 @@ const base = import.meta.env.BASE_URL;
     .evaluaciones-list {
         display: flex;
         flex-direction: column;
-        gap: 0.25rem;
+        gap: 0.15rem;
     }
 
     .eval-item {
@@ -1072,7 +1072,7 @@ const base = import.meta.env.BASE_URL;
     .connections-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 0.4rem;
+        gap: 0.25rem;
     }
 
     .connection-box {
@@ -1166,7 +1166,7 @@ const base = import.meta.env.BASE_URL;
     .recursos-grid {
         display: flex;
         flex-direction: column;
-        gap: 0.4rem;
+        gap: 0.2rem;
     }
 
     .recurso-link {
@@ -2181,10 +2181,10 @@ const base = import.meta.env.BASE_URL;
         ).join('');
         document.getElementById('drawer-competencias').innerHTML = competenciasHtml;
 
-        // Experiencias
+        // Experiencias - con onclick inline para máxima compatibilidad
         const experienciasHtml = asignatura.experiencias.map((exp, index) => `
-            <div class="exp-card" data-exp="${index}">
-                <div class="exp-header" data-exp-toggle="${index}">
+            <div class="exp-card" id="exp-card-${index}">
+                <div class="exp-header" onclick="(function(e){e.stopPropagation();var card=document.getElementById('exp-card-${index}');if(card){card.classList.toggle('expanded');console.log('Toggle exp ${index}:',card.classList.contains('expanded'))}})(event)">
                     <div class="exp-header-left">
                         <span class="exp-number">${exp.numero}</span>
                         <div class="exp-info">

@@ -3204,27 +3204,52 @@ Mantén respuestas concisas pero completas.`;
         loadVoices() {
             this.voices = this.synth.getVoices();
 
-            // Prefer Spanish voices, especially from Latin America or Spain
+            // Get Spanish voices
             const spanishVoices = this.voices.filter(v =>
                 v.lang.startsWith('es') || v.lang.includes('ES')
             );
 
-            // Priority: es-MX, es-CL, es-419 (Latin America), es-ES, then any Spanish
-            const priorities = ['es-MX', 'es-CL', 'es-419', 'es-ES', 'es'];
-            for (const lang of priorities) {
-                const voice = spanishVoices.find(v => v.lang.startsWith(lang));
-                if (voice) {
-                    this.preferredVoice = voice;
-                    console.log('TTS: Selected voice:', voice.name, voice.lang);
-                    break;
-                }
-            }
+            // Score voices by quality (higher is better)
+            const scoreVoice = (voice) => {
+                let score = 0;
+                const name = voice.name.toLowerCase();
 
-            // Fallback to any available voice if no Spanish
-            if (!this.preferredVoice && this.voices.length > 0) {
-                this.preferredVoice = spanishVoices[0] || this.voices[0];
+                // Prefer online/cloud voices (usually higher quality)
+                if (!voice.localService) score += 100;
+
+                // Prefer specific high-quality voice engines
+                if (name.includes('google')) score += 50;
+                if (name.includes('wavenet') || name.includes('neural')) score += 40;
+                if (name.includes('microsoft') && name.includes('online')) score += 35;
+                if (name.includes('natural') || name.includes('premium')) score += 30;
+                if (name.includes('enhanced')) score += 20;
+
+                // Language priority for Spanish variants
+                if (voice.lang === 'es-MX') score += 10;
+                else if (voice.lang === 'es-CL') score += 9;
+                else if (voice.lang === 'es-419') score += 8;
+                else if (voice.lang === 'es-ES') score += 7;
+                else if (voice.lang.startsWith('es')) score += 5;
+
+                return score;
+            };
+
+            // Sort Spanish voices by quality score
+            const sortedSpanish = [...spanishVoices].sort((a, b) => scoreVoice(b) - scoreVoice(a));
+
+            // Select the best quality voice
+            if (sortedSpanish.length > 0) {
+                this.preferredVoice = sortedSpanish[0];
+                console.log('TTS: Selected best voice:', this.preferredVoice.name, this.preferredVoice.lang, 'Score:', scoreVoice(this.preferredVoice));
+            } else if (this.voices.length > 0) {
+                // Fallback to any voice, preferring online
+                const sortedAll = [...this.voices].sort((a, b) => scoreVoice(b) - scoreVoice(a));
+                this.preferredVoice = sortedAll[0];
                 console.log('TTS: Fallback voice:', this.preferredVoice?.name);
             }
+
+            // Store sorted voices for UI
+            this.sortedVoices = [...this.voices].sort((a, b) => scoreVoice(b) - scoreVoice(a));
 
             // Populate voice list UI
             this.populateVoiceList();
@@ -3235,41 +3260,57 @@ Mantén respuestas concisas pero completas.`;
             const voiceBtn = document.getElementById('tts-voice-btn');
             if (!voiceList) return;
 
-            // Group voices by language
-            const spanishVoices = this.voices.filter(v =>
+            // Use sorted voices if available
+            const voices = this.sortedVoices || this.voices;
+
+            // Quality indicator based on voice properties
+            const getQualityBadge = (voice) => {
+                const name = voice.name.toLowerCase();
+                if (name.includes('wavenet') || name.includes('neural')) return '★★★';
+                if (!voice.localService) return '★★';
+                if (name.includes('enhanced') || name.includes('natural')) return '★★';
+                return '★';
+            };
+
+            // Group: Spanish first, then others
+            const spanishVoices = voices.filter(v =>
                 v.lang.startsWith('es') || v.lang.includes('ES')
             );
-            const otherVoices = this.voices.filter(v =>
+            const otherVoices = voices.filter(v =>
                 !v.lang.startsWith('es') && !v.lang.includes('ES')
             );
 
             let html = '';
 
-            // Spanish voices first
+            // Spanish voices first (best quality first due to sorting)
             if (spanishVoices.length > 0) {
-                spanishVoices.forEach((voice, index) => {
+                spanishVoices.forEach((voice) => {
                     const isActive = this.preferredVoice && voice.name === this.preferredVoice.name;
-                    const shortName = voice.name.replace(/Microsoft|Google|Apple|Enhanced|Premium/gi, '').trim();
+                    const shortName = voice.name.replace(/Microsoft|Google|Apple/gi, '').replace(/Online|Natural|Neural/gi, '').trim();
+                    const quality = getQualityBadge(voice);
+                    const typeLabel = voice.localService ? 'local' : 'online';
                     html += `
                         <button class="tts-voice-option ${isActive ? 'active' : ''}" data-voice-index="${this.voices.indexOf(voice)}">
-                            <span class="voice-name">${shortName}</span>
-                            <span class="voice-lang">${voice.lang} ${voice.localService ? '(local)' : '(online)'}</span>
+                            <span class="voice-name">${shortName} <span style="color: #fbbf24; font-size: 0.5rem;">${quality}</span></span>
+                            <span class="voice-lang">${voice.lang} · ${typeLabel}</span>
                         </button>
                     `;
                 });
             }
 
-            // Other voices (limited to first 10)
-            if (otherVoices.length > 0 && spanishVoices.length < 5) {
-                const limit = Math.min(10 - spanishVoices.length, otherVoices.length);
+            // Other high-quality voices (limited)
+            if (otherVoices.length > 0) {
+                const limit = Math.min(8, otherVoices.length);
                 for (let i = 0; i < limit; i++) {
                     const voice = otherVoices[i];
                     const isActive = this.preferredVoice && voice.name === this.preferredVoice.name;
-                    const shortName = voice.name.replace(/Microsoft|Google|Apple|Enhanced|Premium/gi, '').trim();
+                    const shortName = voice.name.replace(/Microsoft|Google|Apple/gi, '').replace(/Online|Natural|Neural/gi, '').trim();
+                    const quality = getQualityBadge(voice);
+                    const typeLabel = voice.localService ? 'local' : 'online';
                     html += `
                         <button class="tts-voice-option ${isActive ? 'active' : ''}" data-voice-index="${this.voices.indexOf(voice)}">
-                            <span class="voice-name">${shortName}</span>
-                            <span class="voice-lang">${voice.lang}</span>
+                            <span class="voice-name">${shortName} <span style="color: #fbbf24; font-size: 0.5rem;">${quality}</span></span>
+                            <span class="voice-lang">${voice.lang} · ${typeLabel}</span>
                         </button>
                     `;
                 }
