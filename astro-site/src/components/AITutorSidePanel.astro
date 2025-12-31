@@ -64,6 +64,19 @@ const base = import.meta.env.BASE_URL;
                 <i class="fas fa-stop"></i>
             </button>
         </div>
+        <!-- Zoom Controls -->
+        <div class="zoom-controls" id="zoom-controls">
+            <button class="zoom-btn zoom-out" id="zoom-out-btn" title="Reducir texto (Ctrl+-)">
+                <i class="fas fa-minus"></i>
+            </button>
+            <span class="zoom-level" id="zoom-level">100%</span>
+            <button class="zoom-btn zoom-in" id="zoom-in-btn" title="Ampliar texto (Ctrl++)">
+                <i class="fas fa-plus"></i>
+            </button>
+            <button class="zoom-btn zoom-reset" id="zoom-reset-btn" title="Restablecer zoom">
+                <i class="fas fa-undo"></i>
+            </button>
+        </div>
         <button class="tutor-close" id="tutor-close" aria-label="Cerrar panel" title="Cerrar">
             <i class="fas fa-times"></i>
         </button>
@@ -1481,6 +1494,68 @@ const base = import.meta.env.BASE_URL;
     }
 
     /* ============================================
+       ZOOM CONTROLS - Text Size Adjustment
+    ============================================ */
+    .zoom-controls {
+        display: flex;
+        align-items: center;
+        gap: 0.2rem;
+        margin-right: 0.4rem;
+        padding: 0.2rem 0.35rem;
+        background: rgba(30, 41, 59, 0.5);
+        border: 1px solid rgba(148, 163, 184, 0.12);
+        border-radius: 8px;
+    }
+
+    .zoom-btn {
+        width: 22px;
+        height: 22px;
+        border-radius: 5px;
+        border: none;
+        background: transparent;
+        color: #94a3b8;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        font-size: 0.6rem;
+    }
+
+    .zoom-btn:hover {
+        background: rgba(139, 92, 246, 0.2);
+        color: #c4b5fd;
+    }
+
+    .zoom-btn:active {
+        transform: scale(0.92);
+    }
+
+    .zoom-btn.zoom-reset {
+        font-size: 0.55rem;
+    }
+
+    .zoom-level {
+        font-size: 0.58rem;
+        font-family: 'JetBrains Mono', 'SF Mono', monospace;
+        font-weight: 600;
+        color: #a5b4fc;
+        min-width: 32px;
+        text-align: center;
+        padding: 0 0.15rem;
+    }
+
+    /* Zoom applied to content */
+    .tutor-body.zoom-80 { font-size: 0.71rem; }
+    .tutor-body.zoom-90 { font-size: 0.80rem; }
+    .tutor-body.zoom-100 { font-size: 0.89rem; }
+    .tutor-body.zoom-110 { font-size: 0.98rem; }
+    .tutor-body.zoom-120 { font-size: 1.07rem; }
+    .tutor-body.zoom-130 { font-size: 1.16rem; }
+    .tutor-body.zoom-140 { font-size: 1.25rem; }
+    .tutor-body.zoom-150 { font-size: 1.34rem; }
+
+    /* ============================================
        CONTEXT BANNER - Refined & Elegant
     ============================================ */
     .tutor-context {
@@ -2707,6 +2782,25 @@ const base = import.meta.env.BASE_URL;
         color: #64748b;
     }
 
+    /* Light mode Zoom Controls */
+    :global([data-theme="light"]) .zoom-controls {
+        background: rgba(241, 245, 249, 0.8);
+        border-color: rgba(0, 0, 0, 0.08);
+    }
+
+    :global([data-theme="light"]) .zoom-btn {
+        color: #64748b;
+    }
+
+    :global([data-theme="light"]) .zoom-btn:hover {
+        background: rgba(139, 92, 246, 0.12);
+        color: #7c3aed;
+    }
+
+    :global([data-theme="light"]) .zoom-level {
+        color: #6366f1;
+    }
+
     /* Light mode TTS Controls */
     :global([data-theme="light"]) .tts-speed-btn {
         background: rgba(139, 92, 246, 0.08);
@@ -3587,6 +3681,11 @@ const base = import.meta.env.BASE_URL;
 
             panel.style.width = newWidth + 'px';
             updateWidthIndicator(Math.round(newWidth), clientX);
+
+            // Dispatch event for Split Pane sync
+            window.dispatchEvent(new CustomEvent('tutorPanelResize', {
+                detail: { width: newWidth }
+            }));
         }
 
         // Stop resize
@@ -3601,6 +3700,11 @@ const base = import.meta.env.BASE_URL;
             const finalWidth = panel.offsetWidth;
             localStorage.setItem('tutor_panel_width', finalWidth.toString());
 
+            // Dispatch final resize event
+            window.dispatchEvent(new CustomEvent('tutorPanelResize', {
+                detail: { width: finalWidth, final: true }
+            }));
+
             removeWidthIndicator();
 
             document.removeEventListener('mousemove', doResize);
@@ -3613,11 +3717,133 @@ const base = import.meta.env.BASE_URL;
         resizeHandle.addEventListener('dblclick', () => {
             panel.style.width = DEFAULT_WIDTH + 'px';
             localStorage.setItem('tutor_panel_width', DEFAULT_WIDTH.toString());
+            window.dispatchEvent(new CustomEvent('tutorPanelResize', {
+                detail: { width: DEFAULT_WIDTH, final: true }
+            }));
         });
 
         // Event listeners
         resizeHandle.addEventListener('mousedown', startResize);
         resizeHandle.addEventListener('touchstart', startResize, { passive: false });
+
+        // Dispatch initial width on load
+        const currentWidth = panel.offsetWidth;
+        window.dispatchEvent(new CustomEvent('tutorPanelResize', {
+            detail: { width: currentWidth, initial: true }
+        }));
+    }
+
+    // ============================================
+    // ZOOM FUNCTIONALITY
+    // Text size adjustment for AI Tutor
+    // ============================================
+    function initZoomControls() {
+        const tutorBody = document.querySelector('.tutor-body');
+        const zoomInBtn = document.getElementById('zoom-in-btn');
+        const zoomOutBtn = document.getElementById('zoom-out-btn');
+        const zoomResetBtn = document.getElementById('zoom-reset-btn');
+        const zoomLevelDisplay = document.getElementById('zoom-level');
+
+        if (!tutorBody || !zoomInBtn || !zoomOutBtn) return;
+
+        const ZOOM_LEVELS = [80, 90, 100, 110, 120, 130, 140, 150];
+        const DEFAULT_ZOOM = 100;
+        let currentZoomIndex = ZOOM_LEVELS.indexOf(DEFAULT_ZOOM);
+
+        // Restore saved zoom level
+        const savedZoom = localStorage.getItem('tutor_zoom_level');
+        if (savedZoom) {
+            const zoom = parseInt(savedZoom, 10);
+            const idx = ZOOM_LEVELS.indexOf(zoom);
+            if (idx !== -1) {
+                currentZoomIndex = idx;
+            }
+        }
+
+        // Apply zoom
+        function applyZoom() {
+            const zoom = ZOOM_LEVELS[currentZoomIndex];
+
+            // Remove all zoom classes
+            ZOOM_LEVELS.forEach(z => tutorBody.classList.remove(`zoom-${z}`));
+
+            // Add current zoom class
+            tutorBody.classList.add(`zoom-${zoom}`);
+
+            // Update display
+            if (zoomLevelDisplay) {
+                zoomLevelDisplay.textContent = `${zoom}%`;
+            }
+
+            // Update button states
+            zoomOutBtn.disabled = currentZoomIndex === 0;
+            zoomInBtn.disabled = currentZoomIndex === ZOOM_LEVELS.length - 1;
+
+            zoomOutBtn.style.opacity = currentZoomIndex === 0 ? '0.4' : '1';
+            zoomInBtn.style.opacity = currentZoomIndex === ZOOM_LEVELS.length - 1 ? '0.4' : '1';
+
+            // Save preference
+            localStorage.setItem('tutor_zoom_level', zoom.toString());
+        }
+
+        // Initial apply
+        applyZoom();
+
+        // Zoom in
+        zoomInBtn.addEventListener('click', () => {
+            if (currentZoomIndex < ZOOM_LEVELS.length - 1) {
+                currentZoomIndex++;
+                applyZoom();
+            }
+        });
+
+        // Zoom out
+        zoomOutBtn.addEventListener('click', () => {
+            if (currentZoomIndex > 0) {
+                currentZoomIndex--;
+                applyZoom();
+            }
+        });
+
+        // Reset zoom
+        zoomResetBtn?.addEventListener('click', () => {
+            currentZoomIndex = ZOOM_LEVELS.indexOf(DEFAULT_ZOOM);
+            applyZoom();
+        });
+
+        // Keyboard shortcuts (Ctrl+Plus, Ctrl+Minus)
+        document.addEventListener('keydown', (e) => {
+            // Only when panel is visible
+            const panel = document.getElementById('ai-tutor-panel');
+            if (!panel?.classList.contains('visible')) return;
+
+            if (e.ctrlKey || e.metaKey) {
+                if (e.key === '=' || e.key === '+') {
+                    e.preventDefault();
+                    if (currentZoomIndex < ZOOM_LEVELS.length - 1) {
+                        currentZoomIndex++;
+                        applyZoom();
+                    }
+                } else if (e.key === '-') {
+                    e.preventDefault();
+                    if (currentZoomIndex > 0) {
+                        currentZoomIndex--;
+                        applyZoom();
+                    }
+                } else if (e.key === '0') {
+                    e.preventDefault();
+                    currentZoomIndex = ZOOM_LEVELS.indexOf(DEFAULT_ZOOM);
+                    applyZoom();
+                }
+            }
+        });
+    }
+
+    // Initialize zoom on load
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initZoomControls);
+    } else {
+        initZoomControls();
     }
 
     // Show panel for a subject
