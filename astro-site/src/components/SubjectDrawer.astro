@@ -2776,8 +2776,16 @@ const base = import.meta.env.BASE_URL;
         const indicatorsSection = document.getElementById('drawer-indicators-section');
         const keywordsSection = document.getElementById('drawer-keywords-section');
 
-        if (asignatura.dificultad || asignatura.horasEstudioSemanal) {
+        if (asignatura.dificultad || asignatura.horasEstudioSemanal || (asignatura.palabrasClave && asignatura.palabrasClave.length > 0)) {
             indicatorsSection.style.display = 'block';
+
+            // Mostrar/ocultar premium-indicators según si hay datos
+            const premiumIndicators = document.getElementById('drawer-premium-indicators');
+            if (asignatura.dificultad || asignatura.horasEstudioSemanal) {
+                premiumIndicators.style.display = 'flex';
+            } else {
+                premiumIndicators.style.display = 'none';
+            }
 
             // Dificultad
             if (asignatura.dificultad) {
