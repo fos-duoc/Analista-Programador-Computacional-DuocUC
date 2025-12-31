@@ -2043,8 +2043,23 @@ const subjectLinks: Record<string, string> = {
         });
     }
 
+    // Clear AI Tutor state on initial page navigation (not View Transitions)
+    // This ensures the page loads clean without any pre-opened panels
+    function clearInitialState() {
+        // Only run on initial navigation TO sala-de-estudio
+        // Check if this is a fresh navigation (not a View Transition within the page)
+        const isInitialLoad = !document.startViewTransition;
+        const lastPage = sessionStorage.getItem('lastSalaPage');
+        const currentPage = window.location.pathname;
+
+        // If coming from a different page, clear the AI Tutor state
+        if (lastPage !== currentPage) {
+            sessionStorage.removeItem('aiTutorState');
+        }
+        sessionStorage.setItem('lastSalaPage', currentPage);
+    }
+
     // Asegurar que el drawer y AI Tutor estén cerrados al cargar la página
-    // PERO respetar el estado persistido del AI Tutor en sessionStorage
     function ensureDrawersClosed() {
         // Cerrar SubjectDrawer (siempre - no persiste entre navegaciones)
         const drawer = document.getElementById('subject-drawer');
@@ -2057,14 +2072,16 @@ const subjectLinks: Record<string, string> = {
             overlay.classList.remove('active');
         }
 
-        // AI Tutor: Solo cerrar si NO hay estado guardado en sessionStorage
-        // Esto permite que el tutor persista entre View Transitions
-        const savedTutorState = sessionStorage.getItem('aiTutorState');
-        if (!savedTutorState) {
-            const tutorPanel = document.getElementById('ai-tutor-panel');
-            if (tutorPanel) {
-                tutorPanel.classList.remove('visible');
-            }
+        // AI Tutor: cerrado por defecto (estado ya limpiado por clearInitialState)
+        const tutorPanel = document.getElementById('ai-tutor-panel');
+        if (tutorPanel) {
+            tutorPanel.classList.remove('visible');
+        }
+
+        // Mostrar el botón expand del AI Tutor
+        const aiExpandBtn = document.getElementById('ai-tutor-expand-btn');
+        if (aiExpandBtn) {
+            aiExpandBtn.classList.add('visible');
         }
 
         // Restaurar scroll del body
@@ -2150,6 +2167,7 @@ const subjectLinks: Record<string, string> = {
 
     // Inicializar en carga inicial y View Transitions
     document.addEventListener('DOMContentLoaded', () => {
+        clearInitialState();
         ensureDrawersClosed();
         initSubjectChips();
         initBestPracticeIcons();
@@ -2157,6 +2175,7 @@ const subjectLinks: Record<string, string> = {
         initSidebarLayoutSync();
     });
     document.addEventListener('astro:page-load', () => {
+        clearInitialState();
         ensureDrawersClosed();
         initSubjectChips();
         initBestPracticeIcons();
