@@ -263,23 +263,51 @@ const base = import.meta.env.BASE_URL;
                     <label class="tts-label">Idioma</label>
                     <select class="tts-select" id="tts-puter-lang">
                         <optgroup label="🇪🇸 Español">
-                            <option value="es-ES">España - Lucía, Sergio, Conchita</option>
-                            <option value="es-MX" selected>México - Mia, Andrés</option>
-                            <option value="es-US">US Spanish - Lupe, Pedro, Penélope</option>
+                            <option value="es-ES">🇪🇸 España - Lucía, Sergio, Conchita</option>
+                            <option value="es-MX" selected>🇲🇽 México - Mia, Andrés</option>
+                            <option value="es-US">🇺🇸 US Spanish - Lupe, Pedro, Penélope</option>
                         </optgroup>
-                        <optgroup label="🇨🇳 中文">
-                            <option value="cmn-CN">普通话 (Mandarin) - Zhiyu</option>
-                            <option value="yue-CN">粤语 (Cantonese) - Hiujin</option>
+                        <optgroup label="🇬🇧 English">
+                            <option value="en-US">🇺🇸 English (US) - Joanna, Matthew, Ivy</option>
+                            <option value="en-GB">🇬🇧 English (UK) - Amy, Brian, Emma</option>
+                            <option value="en-AU">🇦🇺 English (Australia) - Nicole, Russell</option>
+                            <option value="en-IN">🇮🇳 English (India) - Aditi, Raveena</option>
                         </optgroup>
-                        <optgroup label="🌍 Other Languages">
-                            <option value="en-US">English (US)</option>
-                            <option value="en-GB">English (UK)</option>
-                            <option value="pt-BR">Português (Brasil)</option>
-                            <option value="fr-FR">Français</option>
-                            <option value="de-DE">Deutsch</option>
-                            <option value="it-IT">Italiano</option>
-                            <option value="ja-JP">日本語 (Japanese)</option>
-                            <option value="ko-KR">한국어 (Korean)</option>
+                        <optgroup label="🇨🇳 中文 Chinese">
+                            <option value="cmn-CN">🇨🇳 普通话 Mandarin - Zhiyu</option>
+                            <option value="yue-CN">🇭🇰 粤语 Cantonese - Hiujin</option>
+                        </optgroup>
+                        <optgroup label="🇧🇷 Português">
+                            <option value="pt-BR">🇧🇷 Brasil - Camila, Ricardo, Vitória</option>
+                            <option value="pt-PT">🇵🇹 Portugal - Inês, Cristiano</option>
+                        </optgroup>
+                        <optgroup label="🇫🇷 Français">
+                            <option value="fr-FR">🇫🇷 France - Léa, Mathieu, Céline</option>
+                            <option value="fr-CA">🇨🇦 Canada - Chantal, Gabrielle</option>
+                        </optgroup>
+                        <optgroup label="🇩🇪 Deutsch">
+                            <option value="de-DE">🇩🇪 Deutschland - Vicki, Hans, Marlene</option>
+                            <option value="de-AT">🇦🇹 Österreich - Hannah</option>
+                        </optgroup>
+                        <optgroup label="🌍 More Languages">
+                            <option value="it-IT">🇮🇹 Italiano - Carla, Giorgio, Bianca</option>
+                            <option value="ja-JP">🇯🇵 日本語 Japanese - Mizuki, Takumi</option>
+                            <option value="ko-KR">🇰🇷 한국어 Korean - Seoyeon</option>
+                            <option value="ru-RU">🇷🇺 Русский Russian - Tatyana, Maxim</option>
+                            <option value="ar-XA">🇸🇦 العربية Arabic - Zeina</option>
+                            <option value="hi-IN">🇮🇳 हिन्दी Hindi - Aditi</option>
+                            <option value="nl-NL">🇳🇱 Nederlands Dutch - Lotte, Ruben</option>
+                            <option value="pl-PL">🇵🇱 Polski Polish - Ewa, Maja, Jacek</option>
+                            <option value="sv-SE">🇸🇪 Svenska Swedish - Astrid</option>
+                            <option value="tr-TR">🇹🇷 Türkçe Turkish - Filiz</option>
+                            <option value="da-DK">🇩🇰 Dansk Danish - Naja, Mads</option>
+                            <option value="nb-NO">🇳🇴 Norsk Norwegian - Liv</option>
+                            <option value="fi-FI">🇫🇮 Suomi Finnish - Suvi</option>
+                            <option value="el-GR">🇬🇷 Ελληνικά Greek - Zoe</option>
+                            <option value="he-IL">🇮🇱 עברית Hebrew - Yael</option>
+                            <option value="id-ID">🇮🇩 Bahasa Indonesia - Indah</option>
+                            <option value="vi-VN">🇻🇳 Tiếng Việt Vietnamese - Chi</option>
+                            <option value="th-TH">🇹🇭 ไทย Thai - Pensri</option>
                         </optgroup>
                     </select>
                 </div>
@@ -979,9 +1007,9 @@ const base = import.meta.env.BASE_URL;
     }
 
     .tts-puter-engines {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.4rem;
+        display: flex;
+        justify-content: center;
+        gap: 0.6rem;
     }
 
     .tts-puter-engine {
@@ -4123,16 +4151,36 @@ Mantén respuestas concisas pero completas.`;
                 'es-ES': 'Hola, soy tu asistente de estudio personal desde España.',
                 'es-MX': 'Hola, soy tu asistente de estudio personal desde México.',
                 'es-US': 'Hola, soy tu asistente de estudio personal. ¡Bienvenido!',
+                'en-US': 'Hello, I am your personal study assistant from the United States.',
+                'en-GB': 'Hello, I am your personal study assistant from the United Kingdom.',
+                'en-AU': 'Hello, I am your personal study assistant from Australia.',
+                'en-IN': 'Hello, I am your personal study assistant from India.',
                 'cmn-CN': '你好，我是你的学习助手。',
                 'yue-CN': '你好，我係你嘅學習助手。',
-                'en-US': 'Hello, I am your personal study assistant.',
-                'en-GB': 'Hello, I am your personal study assistant.',
-                'pt-BR': 'Olá, sou seu assistente de estudos pessoal.',
-                'fr-FR': 'Bonjour, je suis votre assistant d\'études personnel.',
-                'de-DE': 'Hallo, ich bin Ihr persönlicher Lernassistent.',
-                'it-IT': 'Ciao, sono il tuo assistente di studio personale.',
+                'pt-BR': 'Olá, sou seu assistente de estudos pessoal do Brasil.',
+                'pt-PT': 'Olá, sou o seu assistente de estudos pessoal de Portugal.',
+                'fr-FR': 'Bonjour, je suis votre assistant d\'études personnel de France.',
+                'fr-CA': 'Bonjour, je suis votre assistant d\'études personnel du Canada.',
+                'de-DE': 'Hallo, ich bin Ihr persönlicher Lernassistent aus Deutschland.',
+                'de-AT': 'Hallo, ich bin Ihr persönlicher Lernassistent aus Österreich.',
+                'it-IT': 'Ciao, sono il tuo assistente di studio personale dall\'Italia.',
                 'ja-JP': 'こんにちは、私はあなたの学習アシスタントです。',
-                'ko-KR': '안녕하세요, 저는 당신의 학습 도우미입니다.'
+                'ko-KR': '안녕하세요, 저는 당신의 학습 도우미입니다.',
+                'ru-RU': 'Привет, я ваш личный помощник по учёбе.',
+                'ar-XA': 'مرحباً، أنا مساعدك الشخصي للدراسة.',
+                'hi-IN': 'नमस्ते, मैं आपका निजी अध्ययन सहायक हूं।',
+                'nl-NL': 'Hallo, ik ben je persoonlijke studieassistent.',
+                'pl-PL': 'Cześć, jestem twoim osobistym asystentem nauki.',
+                'sv-SE': 'Hej, jag är din personliga studieassistent.',
+                'tr-TR': 'Merhaba, ben senin kişisel çalışma asistanınım.',
+                'da-DK': 'Hej, jeg er din personlige studieassistent.',
+                'nb-NO': 'Hei, jeg er din personlige studieassistent.',
+                'fi-FI': 'Hei, olen henkilökohtainen opiskeluavustajasi.',
+                'el-GR': 'Γεια σου, είμαι ο προσωπικός σου βοηθός μελέτης.',
+                'he-IL': 'שלום, אני העוזר האישי שלך ללימודים.',
+                'id-ID': 'Halo, saya asisten belajar pribadi Anda.',
+                'vi-VN': 'Xin chào, tôi là trợ lý học tập cá nhân của bạn.',
+                'th-TH': 'สวัสดี ฉันคือผู้ช่วยการเรียนส่วนตัวของคุณ'
             };
             const previewText = previewTexts[lang] || previewTexts['es-MX'];
 
