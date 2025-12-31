@@ -73,6 +73,38 @@ const base = import.meta.env.BASE_URL;
             </div>
         </div>
 
+        <!-- Indicadores Premium (Dificultad, Horas Estudio, Keywords) -->
+        <section class="drawer-section indicators-section" id="drawer-indicators-section">
+            <div class="premium-indicators" id="drawer-premium-indicators">
+                <div class="indicator-card difficulty-card" id="drawer-difficulty-card">
+                    <div class="indicator-icon"><i class="fas fa-signal"></i></div>
+                    <div class="indicator-info">
+                        <span class="indicator-label">Dificultad</span>
+                        <span class="indicator-value" id="drawer-dificultad">Básico</span>
+                    </div>
+                    <div class="difficulty-bar" id="drawer-difficulty-bar">
+                        <span class="diff-dot active"></span>
+                        <span class="diff-dot"></span>
+                        <span class="diff-dot"></span>
+                        <span class="diff-dot"></span>
+                    </div>
+                </div>
+                <div class="indicator-card study-card">
+                    <div class="indicator-icon"><i class="fas fa-book-reader"></i></div>
+                    <div class="indicator-info">
+                        <span class="indicator-label">Estudio Semanal</span>
+                        <span class="indicator-value"><span id="drawer-horas-estudio">8</span> hrs</span>
+                    </div>
+                </div>
+            </div>
+            <div class="keywords-cloud" id="drawer-keywords-section">
+                <div class="keywords-label"><i class="fas fa-tags"></i> Palabras Clave</div>
+                <div class="keywords-list" id="drawer-palabras-clave">
+                    <!-- Se llenan dinámicamente -->
+                </div>
+            </div>
+        </section>
+
         <!-- Descripción y Propósito -->
         <section class="drawer-section">
             <h3 class="section-title" data-tooltip="Resumen general de la asignatura y su contexto en el plan de estudios">
@@ -165,6 +197,36 @@ const base = import.meta.env.BASE_URL;
                 <i class="fas fa-book-open"></i> Recursos de Aprendizaje
             </h3>
             <div class="recursos-grid" id="drawer-recursos">
+                <!-- Se llenan dinámicamente -->
+            </div>
+        </section>
+
+        <!-- Tips de Estudio -->
+        <section class="drawer-section tips-section" id="drawer-tips-section">
+            <h3 class="section-title" data-tooltip="Consejos prácticos para maximizar tu aprendizaje en esta asignatura">
+                <i class="fas fa-lightbulb"></i> Tips de Estudio
+            </h3>
+            <div class="tips-list" id="drawer-tips">
+                <!-- Se llenan dinámicamente -->
+            </div>
+        </section>
+
+        <!-- Proyectos Sugeridos -->
+        <section class="drawer-section projects-section" id="drawer-projects-section">
+            <h3 class="section-title" data-tooltip="Ideas de proyectos para aplicar lo aprendido y fortalecer tu portafolio">
+                <i class="fas fa-rocket"></i> Proyectos Sugeridos
+            </h3>
+            <div class="projects-grid" id="drawer-proyectos">
+                <!-- Se llenan dinámicamente -->
+            </div>
+        </section>
+
+        <!-- Relevancia Profesional -->
+        <section class="drawer-section relevance-section" id="drawer-relevance-section">
+            <h3 class="section-title" data-tooltip="Cómo esta asignatura aplica a diferentes roles profesionales en la industria">
+                <i class="fas fa-briefcase"></i> Relevancia Profesional
+            </h3>
+            <div class="relevance-grid" id="drawer-relevancia">
                 <!-- Se llenan dinámicamente -->
             </div>
         </section>
@@ -1265,6 +1327,393 @@ const base = import.meta.env.BASE_URL;
     }
 
     /* ============================================
+       PREMIUM INDICATORS - Dificultad, Estudio, Keywords
+       Enterprise learning dashboard metrics
+    ============================================ */
+    .indicators-section {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.6rem !important;
+    }
+
+    .premium-indicators {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.6rem;
+        margin-bottom: 0.7rem;
+    }
+
+    .indicator-card {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.55rem 0.65rem;
+        background: linear-gradient(135deg, rgba(30, 41, 59, 0.4), rgba(30, 41, 59, 0.2));
+        border-radius: 10px;
+        border: 1px solid rgba(148, 163, 184, 0.1);
+        transition: all 0.25s ease;
+    }
+
+    .indicator-card:hover {
+        border-color: rgba(6, 182, 212, 0.3);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .indicator-icon {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        flex-shrink: 0;
+    }
+
+    .difficulty-card .indicator-icon {
+        background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.1));
+        color: #22c55e;
+    }
+
+    .study-card .indicator-icon {
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(139, 92, 246, 0.1));
+        color: #a78bfa;
+    }
+
+    .indicator-icon i {
+        font-size: 0.85rem;
+    }
+
+    .indicator-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.1rem;
+        flex: 1;
+    }
+
+    .indicator-label {
+        font-size: 0.55rem;
+        color: #94a3b8;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-weight: 600;
+    }
+
+    .indicator-value {
+        font-size: 0.82rem;
+        color: #f1f5f9;
+        font-weight: 700;
+        font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    .difficulty-bar {
+        display: flex;
+        gap: 3px;
+        margin-left: auto;
+    }
+
+    .diff-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: rgba(148, 163, 184, 0.2);
+        transition: all 0.2s ease;
+    }
+
+    .diff-dot.active {
+        background: #22c55e;
+        box-shadow: 0 0 6px rgba(34, 197, 94, 0.5);
+    }
+
+    /* Difficulty levels colors */
+    .difficulty-card[data-level="basico"] .diff-dot.active { background: #22c55e; box-shadow: 0 0 6px rgba(34, 197, 94, 0.5); }
+    .difficulty-card[data-level="intermedio"] .diff-dot.active { background: #eab308; box-shadow: 0 0 6px rgba(234, 179, 8, 0.5); }
+    .difficulty-card[data-level="avanzado"] .diff-dot.active { background: #f97316; box-shadow: 0 0 6px rgba(249, 115, 22, 0.5); }
+    .difficulty-card[data-level="experto"] .diff-dot.active { background: #ef4444; box-shadow: 0 0 6px rgba(239, 68, 68, 0.5); }
+
+    /* Keywords Cloud */
+    .keywords-cloud {
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.2));
+        border-radius: 10px;
+        padding: 0.6rem;
+        border: 1px solid rgba(148, 163, 184, 0.08);
+    }
+
+    .keywords-label {
+        font-size: 0.6rem;
+        color: #94a3b8;
+        font-weight: 600;
+        margin-bottom: 0.45rem;
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+    }
+
+    .keywords-label i {
+        color: #22d3ee;
+        font-size: 0.65rem;
+    }
+
+    .keywords-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+    }
+
+    .keyword-tag {
+        padding: 0.2rem 0.5rem;
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.12), rgba(6, 182, 212, 0.05));
+        border: 1px solid rgba(6, 182, 212, 0.15);
+        border-radius: 12px;
+        font-size: 0.58rem;
+        color: #67e8f9;
+        font-weight: 500;
+        transition: all 0.2s ease;
+    }
+
+    .keyword-tag:hover {
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(6, 182, 212, 0.1));
+        border-color: rgba(6, 182, 212, 0.3);
+        transform: translateY(-1px);
+    }
+
+    /* ============================================
+       TIPS DE ESTUDIO - Academic Advice Cards
+    ============================================ */
+    .tips-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+
+    .tip-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: 0.5rem 0.6rem;
+        background: linear-gradient(135deg, rgba(234, 179, 8, 0.08), rgba(234, 179, 8, 0.03));
+        border-radius: 8px;
+        border-left: 3px solid #eab308;
+        transition: all 0.25s ease;
+    }
+
+    .tip-item:hover {
+        background: linear-gradient(135deg, rgba(234, 179, 8, 0.12), rgba(234, 179, 8, 0.05));
+        transform: translateX(3px);
+    }
+
+    .tip-icon {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(234, 179, 8, 0.15);
+        border-radius: 50%;
+        flex-shrink: 0;
+        margin-top: 0.1rem;
+    }
+
+    .tip-icon i {
+        font-size: 0.55rem;
+        color: #fbbf24;
+    }
+
+    .tip-text {
+        font-size: 0.7rem;
+        color: #e2e8f0;
+        line-height: 1.45;
+        font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    /* ============================================
+       PROYECTOS SUGERIDOS - Portfolio Builder
+    ============================================ */
+    .projects-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .project-card {
+        padding: 0.65rem;
+        background: linear-gradient(135deg, rgba(30, 41, 59, 0.35), rgba(30, 41, 59, 0.15));
+        border-radius: 10px;
+        border: 1px solid rgba(148, 163, 184, 0.08);
+        transition: all 0.25s ease;
+    }
+
+    .project-card:hover {
+        border-color: rgba(139, 92, 246, 0.3);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(139, 92, 246, 0.1);
+    }
+
+    .project-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.35rem;
+    }
+
+    .project-name {
+        font-size: 0.75rem;
+        color: #f1f5f9;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+    .project-name i {
+        color: #a78bfa;
+        font-size: 0.7rem;
+    }
+
+    .project-level {
+        padding: 0.15rem 0.45rem;
+        border-radius: 10px;
+        font-size: 0.5rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+    }
+
+    .project-level.principiante {
+        background: rgba(34, 197, 94, 0.15);
+        color: #4ade80;
+        border: 1px solid rgba(34, 197, 94, 0.25);
+    }
+
+    .project-level.intermedio {
+        background: rgba(234, 179, 8, 0.15);
+        color: #fbbf24;
+        border: 1px solid rgba(234, 179, 8, 0.25);
+    }
+
+    .project-level.avanzado {
+        background: rgba(239, 68, 68, 0.15);
+        color: #f87171;
+        border: 1px solid rgba(239, 68, 68, 0.25);
+    }
+
+    .project-desc {
+        font-size: 0.65rem;
+        color: #94a3b8;
+        line-height: 1.4;
+        margin-bottom: 0.3rem;
+    }
+
+    .project-duration {
+        font-size: 0.55rem;
+        color: #64748b;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+    }
+
+    .project-duration i {
+        color: #22d3ee;
+        font-size: 0.5rem;
+    }
+
+    /* ============================================
+       RELEVANCIA PROFESIONAL - Career Pathways
+    ============================================ */
+    .relevance-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+
+    .relevance-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 0.6rem;
+        background: linear-gradient(135deg, rgba(30, 41, 59, 0.3), rgba(30, 41, 59, 0.1));
+        border-radius: 8px;
+        border: 1px solid rgba(148, 163, 184, 0.06);
+        transition: all 0.25s ease;
+    }
+
+    .relevance-item:hover {
+        border-color: rgba(6, 182, 212, 0.25);
+        transform: translateX(3px);
+    }
+
+    .relevance-icon {
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        flex-shrink: 0;
+    }
+
+    .relevance-item[data-importance="alta"] .relevance-icon {
+        background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.1));
+        color: #22c55e;
+    }
+
+    .relevance-item[data-importance="media"] .relevance-icon {
+        background: linear-gradient(135deg, rgba(234, 179, 8, 0.2), rgba(234, 179, 8, 0.1));
+        color: #eab308;
+    }
+
+    .relevance-item[data-importance="baja"] .relevance-icon {
+        background: linear-gradient(135deg, rgba(148, 163, 184, 0.2), rgba(148, 163, 184, 0.1));
+        color: #94a3b8;
+    }
+
+    .relevance-icon i {
+        font-size: 0.7rem;
+    }
+
+    .relevance-info {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .relevance-role {
+        font-size: 0.72rem;
+        color: #f1f5f9;
+        font-weight: 600;
+        margin-bottom: 0.1rem;
+    }
+
+    .relevance-desc {
+        font-size: 0.58rem;
+        color: #94a3b8;
+        line-height: 1.35;
+    }
+
+    .relevance-badge {
+        padding: 0.15rem 0.4rem;
+        border-radius: 8px;
+        font-size: 0.48rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        flex-shrink: 0;
+    }
+
+    .relevance-badge.alta {
+        background: rgba(34, 197, 94, 0.15);
+        color: #4ade80;
+    }
+
+    .relevance-badge.media {
+        background: rgba(234, 179, 8, 0.15);
+        color: #fbbf24;
+    }
+
+    .relevance-badge.baja {
+        background: rgba(148, 163, 184, 0.15);
+        color: #94a3b8;
+    }
+
+    /* ============================================
        DRAWER FOOTER - Premium Study Action
        Professional learning platform style CTA
     ============================================ */
@@ -2281,6 +2730,115 @@ const base = import.meta.env.BASE_URL;
             `;
         }).join('');
         document.getElementById('drawer-recursos').innerHTML = recursosHtml;
+
+        // ============================================
+        // NUEVAS SECCIONES PREMIUM - Contenido Enriquecido
+        // ============================================
+
+        // Indicadores Premium (Dificultad y Horas de Estudio)
+        const indicatorsSection = document.getElementById('drawer-indicators-section');
+        const keywordsSection = document.getElementById('drawer-keywords-section');
+
+        if (asignatura.dificultad || asignatura.horasEstudioSemanal) {
+            indicatorsSection.style.display = 'block';
+
+            // Dificultad
+            if (asignatura.dificultad) {
+                const diffCard = document.getElementById('drawer-difficulty-card');
+                const diffLabel = {
+                    'basico': 'Básico',
+                    'intermedio': 'Intermedio',
+                    'avanzado': 'Avanzado',
+                    'experto': 'Experto'
+                };
+                const diffDots = {
+                    'basico': 1,
+                    'intermedio': 2,
+                    'avanzado': 3,
+                    'experto': 4
+                };
+
+                document.getElementById('drawer-dificultad').textContent = diffLabel[asignatura.dificultad] || 'N/A';
+                diffCard.setAttribute('data-level', asignatura.dificultad);
+
+                // Actualizar dots de dificultad
+                const dotsHtml = Array.from({length: 4}, (_, i) =>
+                    `<span class="diff-dot ${i < diffDots[asignatura.dificultad] ? 'active' : ''}"></span>`
+                ).join('');
+                document.getElementById('drawer-difficulty-bar').innerHTML = dotsHtml;
+            }
+
+            // Horas de estudio semanal
+            if (asignatura.horasEstudioSemanal) {
+                document.getElementById('drawer-horas-estudio').textContent = asignatura.horasEstudioSemanal;
+            }
+        } else {
+            indicatorsSection.style.display = 'none';
+        }
+
+        // Palabras Clave
+        if (asignatura.palabrasClave && asignatura.palabrasClave.length > 0) {
+            keywordsSection.style.display = 'block';
+            const keywordsHtml = asignatura.palabrasClave.map(kw =>
+                `<span class="keyword-tag">${kw}</span>`
+            ).join('');
+            document.getElementById('drawer-palabras-clave').innerHTML = keywordsHtml;
+        } else {
+            keywordsSection.style.display = 'none';
+        }
+
+        // Tips de Estudio
+        const tipsSection = document.getElementById('drawer-tips-section');
+        if (asignatura.tips && asignatura.tips.length > 0) {
+            tipsSection.style.display = 'block';
+            const tipsHtml = asignatura.tips.map(tip => `
+                <div class="tip-item">
+                    <div class="tip-icon"><i class="fas fa-lightbulb"></i></div>
+                    <span class="tip-text">${tip}</span>
+                </div>
+            `).join('');
+            document.getElementById('drawer-tips').innerHTML = tipsHtml;
+        } else {
+            tipsSection.style.display = 'none';
+        }
+
+        // Proyectos Sugeridos
+        const projectsSection = document.getElementById('drawer-projects-section');
+        if (asignatura.proyectosSugeridos && asignatura.proyectosSugeridos.length > 0) {
+            projectsSection.style.display = 'block';
+            const projectsHtml = asignatura.proyectosSugeridos.map(proj => `
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-name"><i class="fas fa-code-branch"></i> ${proj.nombre}</span>
+                        <span class="project-level ${proj.nivel}">${proj.nivel}</span>
+                    </div>
+                    <p class="project-desc">${proj.descripcion}</p>
+                    ${proj.duracionEstimada ? `<span class="project-duration"><i class="fas fa-clock"></i> ${proj.duracionEstimada}</span>` : ''}
+                </div>
+            `).join('');
+            document.getElementById('drawer-proyectos').innerHTML = projectsHtml;
+        } else {
+            projectsSection.style.display = 'none';
+        }
+
+        // Relevancia Profesional
+        const relevanceSection = document.getElementById('drawer-relevance-section');
+        if (asignatura.relevanciaProfesional && asignatura.relevanciaProfesional.length > 0) {
+            relevanceSection.style.display = 'block';
+            const relevanceHtml = asignatura.relevanciaProfesional.map(rel => `
+                <div class="relevance-item" data-importance="${rel.importancia}">
+                    <div class="relevance-icon"><i class="fas fa-user-tie"></i></div>
+                    <div class="relevance-info">
+                        <span class="relevance-role">${rel.rol}</span>
+                        ${rel.descripcion ? `<span class="relevance-desc">${rel.descripcion}</span>` : ''}
+                    </div>
+                    <span class="relevance-badge ${rel.importancia}">${rel.importancia}</span>
+                </div>
+            `).join('');
+            document.getElementById('drawer-relevancia').innerHTML = relevanceHtml;
+        } else {
+            relevanceSection.style.display = 'none';
+        }
 
         // Link de GitHub en footer
         const bimestreNum = asignatura.bimestre.toString().padStart(2, '0');

@@ -24,6 +24,19 @@ export interface Evaluacion {
     descripcion: string;
 }
 
+export interface ProyectoSugerido {
+    nombre: string;
+    descripcion: string;
+    nivel: 'principiante' | 'intermedio' | 'avanzado';
+    duracionEstimada?: string;
+}
+
+export interface RelevanciaProfesional {
+    rol: string;
+    importancia: 'alta' | 'media' | 'baja';
+    descripcion?: string;
+}
+
 export interface Asignatura {
     id: string;
     codigo: string;
@@ -53,6 +66,13 @@ export interface Asignatura {
     }[];
     color: string;
     area: 'programacion' | 'datos' | 'cloud' | 'transversal' | 'arquitectura' | 'mobile' | 'gestion';
+    // Campos opcionales para contenido enriquecido
+    dificultad?: 'basico' | 'intermedio' | 'avanzado' | 'experto';
+    horasEstudioSemanal?: number;
+    tips?: string[];
+    palabrasClave?: string[];
+    proyectosSugeridos?: ProyectoSugerido[];
+    relevanciaProfesional?: RelevanciaProfesional[];
 }
 
 // =============================================
@@ -201,7 +221,55 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-01%20-%20Antropologia%2C%20Fundamentos%20Prog.%2C%20Modelamiento%20BD/Fundamentos-Programacion' }
         ],
         color: 'cyan',
-        area: 'programacion'
+        area: 'programacion',
+        // Contenido enriquecido
+        dificultad: 'basico',
+        horasEstudioSemanal: 8,
+        tips: [
+            'Practica todos los dias al menos 30 minutos escribiendo codigo',
+            'No copies y pegues: escribe el codigo tu mismo para internalizar la sintaxis',
+            'Cuando te bloquees, usa Python Tutor para visualizar paso a paso',
+            'Participa en foros como Stack Overflow o Reddit r/learnpython',
+            'Documenta tu aprendizaje en un repositorio personal de GitHub',
+            'Resuelve problemas en plataformas como HackerRank antes de cada clase'
+        ],
+        palabrasClave: [
+            'Python', 'algoritmos', 'variables', 'funciones', 'bucles',
+            'condicionales', 'listas', 'diccionarios', 'debugging', 'PEP8',
+            'pseudocodigo', 'diagramas de flujo', 'estructuras de control'
+        ],
+        proyectosSugeridos: [
+            {
+                nombre: 'Calculadora Cientifica',
+                descripcion: 'Calculadora con operaciones basicas y avanzadas (raiz, potencia, trigonometria)',
+                nivel: 'principiante',
+                duracionEstimada: '1 semana'
+            },
+            {
+                nombre: 'Gestor de Tareas CLI',
+                descripcion: 'Aplicacion de linea de comandos para crear, listar y completar tareas con persistencia',
+                nivel: 'intermedio',
+                duracionEstimada: '2 semanas'
+            },
+            {
+                nombre: 'Analizador de Texto',
+                descripcion: 'Herramienta que analiza archivos de texto: cuenta palabras, frecuencia, estadisticas',
+                nivel: 'intermedio',
+                duracionEstimada: '2 semanas'
+            },
+            {
+                nombre: 'Juego Ahorcado',
+                descripcion: 'Clasico juego del ahorcado con categorias de palabras y sistema de puntuacion',
+                nivel: 'principiante',
+                duracionEstimada: '1 semana'
+            }
+        ],
+        relevanciaProfesional: [
+            { rol: 'Desarrollador Backend', importancia: 'alta', descripcion: 'Python es uno de los lenguajes mas demandados para backend' },
+            { rol: 'Data Scientist', importancia: 'alta', descripcion: 'Base fundamental para analisis de datos y ML' },
+            { rol: 'DevOps Engineer', importancia: 'media', descripcion: 'Scripts de automatizacion y herramientas CLI' },
+            { rol: 'QA Automation', importancia: 'alta', descripcion: 'Python es el lenguaje preferido para testing automatizado' }
+        ]
     },
 
     // MDY1101 - Modelamiento de Datos
@@ -635,7 +703,49 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-02%20-%20POO%20I%2C%20Cloud%2C%20Comunicacion/Programacion-OO-I' }
         ],
         color: 'orange',
-        area: 'programacion'
+        area: 'programacion',
+        // Contenido enriquecido
+        dificultad: 'intermedio',
+        horasEstudioSemanal: 10,
+        tips: [
+            'Domina los 4 pilares de POO: encapsulamiento, herencia, polimorfismo, abstraccion',
+            'Dibuja diagramas de clases UML antes de escribir codigo',
+            'Practica creando jerarquias de clases con herencia y composicion',
+            'Usa el debugger de tu IDE para entender el flujo de ejecucion',
+            'Revisa codigo open source en GitHub para ver patrones reales',
+            'Implementa los patrones de diseno mas comunes: Singleton, Factory, Observer'
+        ],
+        palabrasClave: [
+            'Java', 'clases', 'objetos', 'herencia', 'polimorfismo',
+            'encapsulamiento', 'abstraccion', 'interfaces', 'UML',
+            'patrones de diseno', 'colecciones', 'excepciones'
+        ],
+        proyectosSugeridos: [
+            {
+                nombre: 'Sistema de Biblioteca',
+                descripcion: 'Sistema para gestionar libros, prestamos y usuarios usando herencia y polimorfismo',
+                nivel: 'intermedio',
+                duracionEstimada: '3 semanas'
+            },
+            {
+                nombre: 'Juego de Cartas',
+                descripcion: 'Implementar un juego de cartas usando clases abstractas e interfaces',
+                nivel: 'intermedio',
+                duracionEstimada: '2 semanas'
+            },
+            {
+                nombre: 'Sistema de Empleados',
+                descripcion: 'Jerarquia de empleados con diferentes roles y calculo de salarios polimorfico',
+                nivel: 'principiante',
+                duracionEstimada: '1 semana'
+            }
+        ],
+        relevanciaProfesional: [
+            { rol: 'Desarrollador Backend Java', importancia: 'alta', descripcion: 'Base fundamental para Spring Boot y frameworks empresariales' },
+            { rol: 'Desarrollador Android', importancia: 'alta', descripcion: 'Java es uno de los lenguajes principales para Android' },
+            { rol: 'Arquitecto de Software', importancia: 'alta', descripcion: 'POO es esencial para disenar sistemas escalables' },
+            { rol: 'Full Stack Developer', importancia: 'media', descripcion: 'Conocimientos transferibles a cualquier lenguaje OO' }
+        ]
     },
 
     // CLD2201 - Computación en la Nube
@@ -778,7 +888,49 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-02%20-%20POO%20I%2C%20Cloud%2C%20Comunicacion/Computacion-Nube' }
         ],
         color: 'yellow',
-        area: 'cloud'
+        area: 'cloud',
+        // Contenido enriquecido
+        dificultad: 'intermedio',
+        horasEstudioSemanal: 8,
+        tips: [
+            'Aprovecha el Free Tier de AWS para practicar sin costo',
+            'Sigue el principio de minimo privilegio con IAM desde el inicio',
+            'Documenta tu arquitectura con diagramas de AWS Architecture Icons',
+            'Usa AWS CLI para automatizar tareas repetitivas',
+            'Practica con labs de AWS Skill Builder y Workshops',
+            'Prepara la certificacion Cloud Practitioner mientras estudias'
+        ],
+        palabrasClave: [
+            'AWS', 'EC2', 'S3', 'VPC', 'IAM', 'RDS',
+            'cloud computing', 'IaaS', 'PaaS', 'SaaS',
+            'seguridad cloud', 'escalabilidad', 'alta disponibilidad'
+        ],
+        proyectosSugeridos: [
+            {
+                nombre: 'Website Estatico en S3',
+                descripcion: 'Hosting de sitio web estatico con S3, CloudFront y Route53',
+                nivel: 'principiante',
+                duracionEstimada: '1 semana'
+            },
+            {
+                nombre: 'App Serverless',
+                descripcion: 'API REST con Lambda, API Gateway y DynamoDB',
+                nivel: 'intermedio',
+                duracionEstimada: '2 semanas'
+            },
+            {
+                nombre: 'Arquitectura Multi-Tier',
+                descripcion: 'Aplicacion web con EC2, RDS, Load Balancer y Auto Scaling',
+                nivel: 'avanzado',
+                duracionEstimada: '3 semanas'
+            }
+        ],
+        relevanciaProfesional: [
+            { rol: 'Cloud Engineer', importancia: 'alta', descripcion: 'AWS es el proveedor cloud mas demandado del mercado' },
+            { rol: 'DevOps Engineer', importancia: 'alta', descripcion: 'Infraestructura cloud es fundamental para CI/CD' },
+            { rol: 'Solutions Architect', importancia: 'alta', descripcion: 'Disenar soluciones cloud escalables y eficientes' },
+            { rol: 'Backend Developer', importancia: 'media', descripcion: 'Desplegar y gestionar aplicaciones en la nube' }
+        ]
     },
 
     // PLC2201 - Habilidades de Comunicación
