@@ -2151,18 +2151,10 @@ const subjectLinks: Record<string, string> = {
             }
         });
 
-        // Restore sidebar state from localStorage
-        const savedWidth = localStorage.getItem('navSidebarWidth');
-        const savedCollapsed = localStorage.getItem('navSidebarCollapsed');
-
-        if (savedWidth) {
-            document.documentElement.style.setProperty('--nav-sidebar-width', `${savedWidth}px`);
-        }
-
-        if (savedCollapsed === 'true') {
-            mallaPage.classList.add('sidebar-collapsed');
-            document.body.classList.add('sidebar-collapsed');
-        }
+        // Start with sidebar collapsed by default (clean page load)
+        // The sidebar will toggle this when opened by the user
+        mallaPage.classList.add('sidebar-collapsed');
+        document.body.classList.add('sidebar-collapsed');
     }
 
     // Inicializar en carga inicial y View Transitions

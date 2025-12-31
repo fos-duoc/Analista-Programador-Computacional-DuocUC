@@ -26,6 +26,16 @@ const clientData = {
     bimestres: allBimestres,
     nombreCortoToId
 };
+
+// Helper to generate tooltip for a subject
+function getSubjectTooltip(subject: Asignatura): string {
+    const desc = subject.descripcion?.substring(0, 100) + (subject.descripcion?.length > 100 ? '...' : '') || 'Asignatura del programa';
+    const expCount = subject.experiencias?.length || 0;
+    const keywords = `${expCount} experiencias,B${String(subject.bimestre).padStart(2, '0')},${subject.creditos || 4} créditos`;
+    const bimNum = String(subject.bimestre).padStart(2, '0');
+    const category = parseInt(bimNum) <= 10 ? 'APC' : 'IDS';
+    return `${subject.nombreCorto}|${desc}|${keywords}|subject|fa-book|${category} - BIMESTRE ${bimNum}`;
+}
 ---
 
 <aside id="subject-nav-sidebar" class="subject-nav-sidebar" aria-label="Navegacion de asignaturas">
@@ -96,6 +106,7 @@ const clientData = {
                                     data-subject-id={subject.id}
                                     data-subject-name={subject.nombreCorto}
                                     data-subject-code={subject.codigo}
+                                    data-tooltip={getSubjectTooltip(subject)}
                                 >
                                     <span class="subject-code">{subject.codigo}</span>
                                     <span class="subject-name">{subject.nombreCorto}</span>
@@ -134,6 +145,7 @@ const clientData = {
                                                 data-subject-id={subject.id}
                                                 data-subject-name={subject.nombreCorto}
                                                 data-subject-code={subject.codigo}
+                                                data-tooltip={getSubjectTooltip(subject)}
                                             >
                                                 <span class="subject-code">{subject.codigo}</span>
                                                 <span class="subject-name">{subject.nombreCorto}</span>
@@ -968,9 +980,9 @@ const clientData = {
         if (sidebar.dataset.initialized === 'true') return;
         sidebar.dataset.initialized = 'true';
 
-        // State
+        // State - sidebar starts CLOSED by default
         const state = {
-            isOpen: true,
+            isOpen: false,
             currentFilter: 'bimestre',
             selectedBimestre: '01',
             selectedSubjectId: null,
@@ -1019,7 +1031,8 @@ const clientData = {
                 const saved = localStorage.getItem('subject_nav_state');
                 if (saved) {
                     const data = JSON.parse(saved);
-                    state.isOpen = data.isOpen ?? true;
+                    // DO NOT restore isOpen - always start closed for clean page load
+                    // state.isOpen = data.isOpen ?? false;
                     state.currentFilter = data.currentFilter || 'bimestre';
                     state.selectedBimestre = data.selectedBimestre || '01';
                     state.width = data.width || 280;
@@ -1217,12 +1230,19 @@ const clientData = {
                             <i class="fas fa-chevron-down group-chevron"></i>
                         </button>
                         <div class="week-content">
-                            ${items.length > 0 ? items.map(item => `
-                                <div class="week-item" data-subject-id="${item.subject.id}">
-                                    <span class="week-subject">${item.subject.nombreCorto}</span>
+                            ${items.length > 0 ? items.map(item => {
+                                const subj = item.subject;
+                                const desc = (subj.descripcion || 'Asignatura del programa').substring(0, 100);
+                                const expCount = subj.experiencias?.length || 0;
+                                const bimNum = String(subj.bimestre).padStart(2, '0');
+                                const category = parseInt(bimNum) <= 10 ? 'APC' : 'IDS';
+                                const tooltip = `${subj.nombreCorto}|${desc}${desc.length >= 100 ? '...' : ''}|${expCount} experiencias,B${bimNum},${subj.creditos || 4} créditos|subject|fa-book|${category} - BIMESTRE ${bimNum}`;
+                                return `
+                                <div class="week-item" data-subject-id="${subj.id}" data-tooltip="${tooltip.replace(/"/g, '&quot;')}">
+                                    <span class="week-subject">${subj.nombreCorto}</span>
                                     <span class="week-exp">Exp ${item.experiencia.numero}: ${item.experiencia.titulo}</span>
                                 </div>
-                            `).join('') : '<span class="week-empty">Sin contenido programado</span>'}
+                            `}).join('') : '<span class="week-empty">Sin contenido programado</span>'}
                         </div>
                     </div>
                 `;
