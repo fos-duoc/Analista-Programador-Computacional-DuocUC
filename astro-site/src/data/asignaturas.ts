@@ -413,7 +413,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-01%20-%20Antropologia%2C%20Fundamentos%20Prog.%2C%20Modelamiento%20BD/Modelamiento-Datos' }
         ],
         color: 'amber',
-        area: 'datos'
+        area: 'datos',
+        palabrasClave: [
+            'bases de datos', 'modelo E-R', 'normalizacion', 'SQL',
+            'diagramas', 'entidades', 'relaciones', 'cardinalidad',
+            'DDL', 'integridad referencial', 'claves primarias', 'SGBD'
+        ]
     },
 
     // ANT1101 - Antropología
@@ -555,7 +560,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-01%20-%20Antropologia%2C%20Fundamentos%20Prog.%2C%20Modelamiento%20BD/Antropologia' }
         ],
         color: 'rose',
-        area: 'transversal'
+        area: 'transversal',
+        palabrasClave: [
+            'cultura', 'identidad', 'etica', 'diversidad cultural',
+            'filosofia', 'valores', 'sociedad', 'ciudadania',
+            'pensamiento critico', 'interculturalidad', 'humanismo'
+        ]
     },
 
     // =============================================
@@ -1072,7 +1082,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-02%20-%20POO%20I%2C%20Cloud%2C%20Comunicacion/Comunicacion' }
         ],
         color: 'pink',
-        area: 'transversal'
+        area: 'transversal',
+        palabrasClave: [
+            'redaccion tecnica', 'presentaciones', 'comunicacion oral',
+            'documentacion', 'informes', 'argumentacion', 'sintesis',
+            'comprension lectora', 'storytelling', 'pitch', 'feedback'
+        ]
     },
 
     // =============================================
@@ -1219,7 +1234,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-03%20-%20POO%20II%2C%20DevOps%2C%20Etica/Desarrollo%20Orientado%20a%20Objetos%20II' }
         ],
         color: 'orange',
-        area: 'programacion'
+        area: 'programacion',
+        palabrasClave: [
+            'Java', 'patrones de diseno', 'SOLID', 'JDBC', 'JavaFX',
+            'Singleton', 'Factory', 'Observer', 'MVC', 'DAO',
+            'testing', 'JUnit', 'clean code', 'refactoring'
+        ]
     },
 
     // DVP3201 - DevOps
@@ -1362,7 +1382,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-03%20-%20POO%20II%2C%20DevOps%2C%20Etica/DevOps' }
         ],
         color: 'blue',
-        area: 'cloud'
+        area: 'cloud',
+        palabrasClave: [
+            'Docker', 'CI/CD', 'GitHub Actions', 'contenedores',
+            'pipelines', 'automatizacion', 'Git Flow', 'deployment',
+            'Docker Compose', 'Linux', 'Bash', 'infraestructura como codigo'
+        ]
     },
 
     // ETI3201 - Ética
@@ -1504,7 +1529,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-03%20-%20POO%20II%2C%20DevOps%2C%20Etica/Etica' }
         ],
         color: 'rose',
-        area: 'transversal'
+        area: 'transversal',
+        palabrasClave: [
+            'etica profesional', 'dilemas eticos', 'IA responsable',
+            'privacidad', 'sesgos algoritmicos', 'codigo de etica',
+            'responsabilidad social', 'tecnologia etica', 'derechos digitales'
+        ]
     },
 
     // =============================================
@@ -1651,7 +1681,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-04%20-%20SQL%20Consultas%2C%20Seguridad/SQL%20Consultas' }
         ],
         color: 'amber',
-        area: 'datos'
+        area: 'datos',
+        palabrasClave: [
+            'SQL', 'SELECT', 'JOIN', 'WHERE', 'GROUP BY',
+            'subconsultas', 'funciones de agregacion', 'Window Functions',
+            'CTE', 'optimizacion', 'plan de ejecucion', 'indices'
+        ]
     },
 
     // SEG4201 - Seguridad Informática
@@ -1794,7 +1829,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-04%20-%20SQL%20Consultas%2C%20Seguridad/Seguridad%20Informatica' }
         ],
         color: 'red',
-        area: 'arquitectura'
+        area: 'arquitectura',
+        palabrasClave: [
+            'ciberseguridad', 'OWASP Top 10', 'SQL Injection', 'XSS',
+            'autenticacion', 'criptografia', 'vulnerabilidades',
+            'penetration testing', 'seguridad web', 'HTTPS', 'CIA triad'
+        ]
     },
 
     // =============================================
@@ -1941,7 +1981,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-05%20-%20SQL%20Avanzado%2C%20Cloud%20Native/Programacion%20SQL' }
         ],
         color: 'amber',
-        area: 'datos'
+        area: 'datos',
+        palabrasClave: [
+            'PL/pgSQL', 'PL/SQL', 'stored procedures', 'funciones',
+            'triggers', 'cursores', 'transacciones', 'ACID',
+            'optimizacion', 'indices', 'plan de ejecucion', 'deadlocks'
+        ]
     },
 
     // CLD5201 - Cloud Native
@@ -2084,7 +2129,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-05%20-%20SQL%20Avanzado%2C%20Cloud%20Native/Cloud%20Native' }
         ],
         color: 'blue',
-        area: 'cloud'
+        area: 'cloud',
+        palabrasClave: [
+            'Kubernetes', 'microservicios', 'contenedores', '12-Factor Apps',
+            'CNCF', 'Prometheus', 'Grafana', 'observabilidad',
+            'serverless', 'API Gateway', 'service mesh', 'GitOps'
+        ]
     },
 
     // IRS5201 - Ingeniería de Requisitos
@@ -2227,7 +2277,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-05%20-%20SQL%20Avanzado%2C%20Cloud%20Native/Ingenieria%20de%20Requisitos' }
         ],
         color: 'purple',
-        area: 'gestion'
+        area: 'gestion',
+        palabrasClave: [
+            'requisitos', 'elicitacion', 'casos de uso', 'User Stories',
+            'SRS', 'IEEE 830', 'stakeholders', 'trazabilidad',
+            'validacion', 'priorizacion', 'MoSCoW', 'Gherkin'
+        ]
     },
 
     // =============================================
@@ -2374,7 +2429,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-06%20-%20Backend%20I%2C%20Ing.%20Software%20I/Backend%20I' }
         ],
         color: 'green',
-        area: 'programacion'
+        area: 'programacion',
+        palabrasClave: [
+            'Spring Boot', 'REST API', 'JPA', 'Hibernate',
+            'microservicios', 'DTOs', 'validacion', 'Swagger',
+            'inyeccion de dependencias', 'Maven', 'arquitectura capas'
+        ]
     },
 
     // ISW6201 - Ingeniería de Software I
@@ -2517,7 +2577,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-06%20-%20Backend%20I%2C%20Ing.%20Software%20I/Ingenieria%20Software%20I' }
         ],
         color: 'purple',
-        area: 'gestion'
+        area: 'gestion',
+        palabrasClave: [
+            'Scrum', 'metodologias agiles', 'Sprint', 'Product Backlog',
+            'Jira', 'Planning Poker', 'retrospectiva', 'velocity',
+            'burndown', 'Product Owner', 'Scrum Master', 'ceremonies'
+        ]
     },
 
     // =============================================
@@ -2664,7 +2729,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-07%20-%20Backend%20II-III%2C%20Ing.%20Software%20II/Backend%20II-III' }
         ],
         color: 'green',
-        area: 'programacion'
+        area: 'programacion',
+        palabrasClave: [
+            'Spring Security', 'JWT', 'OAuth2', 'testing',
+            'JUnit', 'Mockito', 'Redis', 'caching',
+            'RabbitMQ', 'Kafka', 'mensajeria asincrona', 'SonarQube'
+        ]
     },
 
     // ISW7201 - Ingeniería de Software II
@@ -2807,7 +2877,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-07%20-%20Backend%20II-III%2C%20Ing.%20Software%20II/Ingenieria%20Software%20II' }
         ],
         color: 'purple',
-        area: 'gestion'
+        area: 'gestion',
+        palabrasClave: [
+            'testing', 'QA', 'Selenium', 'Cypress', 'Playwright',
+            'TDD', 'BDD', 'Cucumber', 'JMeter', 'performance testing',
+            'quality gates', 'CI/CD', 'cobertura de codigo'
+        ]
     },
 
     // =============================================
@@ -2954,7 +3029,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-08%20-%20Frontend%20I-II%2C%20Arquitectura%20SW/Frontend%20I-II' }
         ],
         color: 'cyan',
-        area: 'programacion'
+        area: 'programacion',
+        palabrasClave: [
+            'React', 'JavaScript', 'TypeScript', 'hooks', 'componentes',
+            'SPA', 'estado', 'React Router', 'TanStack Query',
+            'Tailwind CSS', 'responsive design', 'Vite'
+        ]
     },
 
     // ARQ8201 - Arquitectura de Software
@@ -3097,7 +3177,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-08%20-%20Frontend%20I-II%2C%20Arquitectura%20SW/Arquitectura%20Software' }
         ],
         color: 'indigo',
-        area: 'arquitectura'
+        area: 'arquitectura',
+        palabrasClave: [
+            'Clean Architecture', 'microservicios', 'DDD', 'CQRS',
+            'patrones de diseno', 'C4 Model', 'ADR', 'API Gateway',
+            'event-driven', 'Hexagonal', 'resiliencia', 'escalabilidad'
+        ]
     },
 
     // =============================================
@@ -3244,7 +3329,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-09%20-%20Mobile%20I%2C%20Frontend%20III/Mobile%20I' }
         ],
         color: 'blue',
-        area: 'mobile'
+        area: 'mobile',
+        palabrasClave: [
+            'React Native', 'Expo', 'mobile', 'iOS', 'Android',
+            'navegacion', 'componentes nativos', 'Zustand',
+            'APIs nativas', 'publicacion', 'App Store', 'Play Store'
+        ]
     },
 
     // FRE9201 - Frontend III
@@ -3387,7 +3477,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-09%20-%20Mobile%20I%2C%20Frontend%20III/Frontend%20III' }
         ],
         color: 'cyan',
-        area: 'programacion'
+        area: 'programacion',
+        palabrasClave: [
+            'Next.js', 'SSR', 'SSG', 'ISR', 'Server Components',
+            'Vercel', 'Prisma', 'accesibilidad', 'Core Web Vitals',
+            'i18n', 'Server Actions', 'App Router', 'Playwright'
+        ]
     },
 
     // =============================================
@@ -3534,7 +3629,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-10%20-%20Mobile%20II%2C%20Taller%20de%20Titulo/Mobile%20II' }
         ],
         color: 'blue',
-        area: 'mobile'
+        area: 'mobile',
+        palabrasClave: [
+            'arquitectura mobile', 'Clean Architecture', 'MVVM',
+            'testing', 'Detox', 'CI/CD', 'EAS Build',
+            'offline-first', 'Firebase', 'analytics', 'monetizacion'
+        ]
     },
 
     // TTL10201 - Taller de Título
@@ -3678,7 +3778,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-10%20-%20Mobile%20II%2C%20Taller%20de%20Titulo/Taller%20de%20Titulo' }
         ],
         color: 'emerald',
-        area: 'gestion'
+        area: 'gestion',
+        palabrasClave: [
+            'proyecto de titulo', 'metodologia Scrum', 'MVP',
+            'documentacion tecnica', 'defensa de proyecto', 'trabajo en equipo',
+            'gestion de proyectos', 'CI/CD', 'produccion', 'portafolio'
+        ]
     },
 
     // =============================================
@@ -3825,7 +3930,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-11%20-%20Desarrollo%20Fullstack%20I%2C%20BD%20Aplicada/Desarrollo%20Fullstack%20I' }
         ],
         color: 'teal',
-        area: 'programacion'
+        area: 'programacion',
+        palabrasClave: [
+            'fullstack', 'NestJS', 'Next.js', 'monorepo', 'Turborepo',
+            'autenticacion', 'JWT', 'OAuth2', 'WebSockets',
+            'API REST', 'TypeScript', 'integracion frontend-backend'
+        ]
     },
 
     // BDA11201 - BD Aplicada
@@ -3968,7 +4078,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-11%20-%20Desarrollo%20Fullstack%20I%2C%20BD%20Aplicada/BD%20Aplicada' }
         ],
         color: 'amber',
-        area: 'datos'
+        area: 'datos',
+        palabrasClave: [
+            'MongoDB', 'NoSQL', 'Redis', 'caching',
+            'aggregation pipeline', 'sharding', 'replicacion',
+            'optimizacion queries', 'polyglot persistence', 'Elasticsearch'
+        ]
     },
 
     // =============================================
@@ -4115,7 +4230,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-12%20-%20Desarrollo%20Fullstack%20II%2C%20Cloud%20Computing/Desarrollo%20Fullstack%20II' }
         ],
         color: 'teal',
-        area: 'programacion'
+        area: 'programacion',
+        palabrasClave: [
+            'microservicios', 'gRPC', 'RabbitMQ', 'Kafka',
+            'event-driven', 'CQRS', 'Saga pattern', 'observabilidad',
+            'Prometheus', 'Grafana', 'distributed tracing', 'Playwright'
+        ]
     },
 
     // CLC12201 - Cloud Computing
@@ -4258,7 +4378,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-12%20-%20Desarrollo%20Fullstack%20II%2C%20Cloud%20Computing/Cloud%20Computing' }
         ],
         color: 'orange',
-        area: 'infraestructura'
+        area: 'infraestructura',
+        palabrasClave: [
+            'AWS', 'Terraform', 'IaC', 'serverless', 'Lambda',
+            'EC2', 'S3', 'VPC', 'API Gateway', 'Step Functions',
+            'disaster recovery', 'Well-Architected', 'cost optimization'
+        ]
     },
 
     // =============================================
@@ -4405,7 +4530,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-13%20-%20Desarrollo%20Fullstack%20III%2C%20DevOps/Desarrollo%20Fullstack%20III' }
         ],
         color: 'teal',
-        area: 'programacion'
+        area: 'programacion',
+        palabrasClave: [
+            'GraphQL', 'Apollo', 'real-time', 'WebSockets',
+            'performance', 'Core Web Vitals', 'k6', 'load testing',
+            'multi-tenancy', 'DDD', 'Hexagonal', 'liderazgo tecnico'
+        ]
     },
 
     // =============================================
@@ -4552,7 +4682,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-14%20-%20Desarrollo%20App%20Moviles%2C%20Cloud%20Native%20I/Desarrollo%20App%20Moviles' }
         ],
         color: 'blue',
-        area: 'mobile'
+        area: 'mobile',
+        palabrasClave: [
+            'Flutter', 'Dart', 'Riverpod', 'state management',
+            'offline-first', 'push notifications', 'App Store',
+            'Play Store', 'CI/CD movil', 'Codemagic', 'Fastlane'
+        ]
     },
 
     // CLN14201 - Cloud Native I
@@ -4695,7 +4830,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-14%20-%20Desarrollo%20App%20Moviles%2C%20Cloud%20Native%20I/Cloud%20Native%20I' }
         ],
         color: 'blue',
-        area: 'infraestructura'
+        area: 'infraestructura',
+        palabrasClave: [
+            'Kubernetes', 'Helm', 'ArgoCD', 'GitOps',
+            'Istio', 'service mesh', 'observabilidad',
+            'Prometheus', 'Grafana', 'Jaeger', 'CI/CD'
+        ]
     },
 
     // =============================================
@@ -4842,7 +4982,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-15%20-%20Cloud%20Native%20II%2C%20Seguridad%20y%20Calidad/Cloud%20Native%20II' }
         ],
         color: 'blue',
-        area: 'infraestructura'
+        area: 'infraestructura',
+        palabrasClave: [
+            'multi-cluster', 'disaster recovery', 'Velero',
+            'security K8s', 'Vault', 'Backstage', 'platform engineering',
+            'FinOps', 'SRE', 'SLOs', 'chaos engineering'
+        ]
     },
 
     // SEG15201 - Seguridad y Calidad
@@ -4985,7 +5130,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-15%20-%20Cloud%20Native%20II%2C%20Seguridad%20y%20Calidad/Seguridad%20y%20Calidad' }
         ],
         color: 'red',
-        area: 'seguridad'
+        area: 'seguridad',
+        palabrasClave: [
+            'OWASP Top 10', 'SAST', 'DAST', 'SonarQube',
+            'Snyk', 'DevSecOps', 'seguridad aplicaciones',
+            'quality gates', 'vulnerabilidades', 'threat modeling'
+        ]
     },
 
     // =============================================
@@ -5132,7 +5282,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-16%20-%20Evaluacion%20y%20Gestion%20Proyectos%20SW/Evaluacion%20Proyectos%20SW' }
         ],
         color: 'purple',
-        area: 'gestion'
+        area: 'gestion',
+        palabrasClave: [
+            'estimacion software', 'COCOMO', 'story points', 'planning poker',
+            'DORA metrics', 'KPIs', 'ROI', 'TCO', 'NPV', 'business case',
+            'SonarQube', 'metricas calidad', 'lead time', 'velocity'
+        ]
     },
 
     // GSP16201 - Gestión de Proyectos de Software
@@ -5275,7 +5430,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-16%20-%20Evaluacion%20y%20Gestion%20Proyectos%20SW/Gestion%20Proyectos%20SW' }
         ],
         color: 'purple',
-        area: 'gestion'
+        area: 'gestion',
+        palabrasClave: [
+            'SAFe', 'LeSS', 'Nexus', 'agile at scale', 'PI Planning',
+            'liderazgo tecnico', '1:1 meetings', 'stakeholder management',
+            'OKRs', 'ADRs', 'RFCs', 'comunicacion ejecutiva', 'Scrum Master'
+        ]
     },
 
     // =============================================
@@ -5422,7 +5582,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-17%20-%20Etica%20Profesional%2C%20Taller%20Aplicado%20SW/Etica%20Profesional%20en%20TI' }
         ],
         color: 'slate',
-        area: 'general'
+        area: 'general',
+        palabrasClave: [
+            'ACM Code of Ethics', 'GDPR', 'CCPA', 'privacidad datos',
+            'AI ethics', 'bias ML', 'Fairlearn', 'WCAG', 'accesibilidad',
+            'propiedad intelectual', 'open source licensing', 'compliance'
+        ]
     },
 
     // TAS17201 - Taller Aplicado Software
@@ -5565,7 +5730,12 @@ export const asignaturas: Record<string, Asignatura> = {
             { tipo: 'Repositorio', nombre: 'Materiales del Curso', url: 'https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/tree/main/Bimestre-17%20-%20Etica%20Profesional%2C%20Taller%20Aplicado%20SW/Taller%20Aplicado%20de%20Software' }
         ],
         color: 'emerald',
-        area: 'proyecto'
+        area: 'proyecto',
+        palabrasClave: [
+            'proyecto integrador', 'cliente real', 'Scrum', 'sprint',
+            'MVP', 'C4 model', 'user story mapping', 'CI/CD',
+            'defensa proyecto', 'handoff', 'UAT', 'produccion'
+        ]
     }
 };
 
