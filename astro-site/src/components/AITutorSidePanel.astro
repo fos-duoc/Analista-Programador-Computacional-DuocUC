@@ -34,6 +34,17 @@ const base = import.meta.env.BASE_URL;
         </div>
         <!-- TTS Controls -->
         <div class="tts-controls" id="tts-controls">
+            <!-- Voice Selector -->
+            <button class="tts-voice-btn" id="tts-voice-btn" title="Seleccionar voz">
+                <i class="fas fa-user-circle"></i>
+            </button>
+            <div class="tts-voice-dropdown" id="tts-voice-dropdown">
+                <div class="tts-voice-header">Voces disponibles</div>
+                <div class="tts-voice-list" id="tts-voice-list">
+                    <!-- Se llena dinámicamente -->
+                </div>
+            </div>
+            <!-- Speed Selector -->
             <button class="tts-speed-btn" id="tts-speed-btn" title="Velocidad de lectura">
                 <i class="fas fa-tachometer-alt"></i>
                 <span id="tts-speed-label">1x</span>
@@ -397,6 +408,121 @@ const base = import.meta.env.BASE_URL;
         background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(6, 182, 212, 0.15));
         color: #e0d4ff;
         font-weight: 600;
+    }
+
+    /* Voice selector button */
+    .tts-voice-btn {
+        width: 28px;
+        height: 28px;
+        border-radius: 6px;
+        border: 1px solid rgba(6, 182, 212, 0.25);
+        background: rgba(6, 182, 212, 0.1);
+        color: #67e8f9;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        font-size: 0.7rem;
+    }
+
+    .tts-voice-btn:hover {
+        background: rgba(6, 182, 212, 0.2);
+        border-color: rgba(6, 182, 212, 0.4);
+        color: #a5f3fc;
+    }
+
+    .tts-voice-btn.has-voice {
+        border-color: rgba(34, 197, 94, 0.4);
+        background: rgba(34, 197, 94, 0.12);
+        color: #86efac;
+    }
+
+    .tts-voice-dropdown {
+        position: absolute;
+        top: calc(100% + 4px);
+        left: 0;
+        background: linear-gradient(135deg, #1e293b, #0f172a);
+        border: 1px solid rgba(6, 182, 212, 0.3);
+        border-radius: 10px;
+        padding: 0;
+        display: none;
+        flex-direction: column;
+        z-index: 100;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(6, 182, 212, 0.1);
+        min-width: 200px;
+        max-width: 280px;
+        overflow: hidden;
+    }
+
+    .tts-voice-dropdown.visible {
+        display: flex;
+    }
+
+    .tts-voice-header {
+        padding: 0.5rem 0.7rem;
+        font-size: 0.6rem;
+        font-weight: 600;
+        color: #94a3b8;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        background: rgba(15, 23, 42, 0.5);
+    }
+
+    .tts-voice-list {
+        max-height: 200px;
+        overflow-y: auto;
+        padding: 0.3rem;
+    }
+
+    .tts-voice-list::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    .tts-voice-list::-webkit-scrollbar-thumb {
+        background: rgba(6, 182, 212, 0.3);
+        border-radius: 2px;
+    }
+
+    .tts-voice-option {
+        display: flex;
+        flex-direction: column;
+        gap: 0.1rem;
+        padding: 0.45rem 0.6rem;
+        border: none;
+        border-radius: 6px;
+        background: transparent;
+        color: #e2e8f0;
+        font-size: 0.68rem;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        text-align: left;
+        width: 100%;
+    }
+
+    .tts-voice-option:hover {
+        background: rgba(6, 182, 212, 0.12);
+    }
+
+    .tts-voice-option.active {
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(139, 92, 246, 0.1));
+        border-left: 2px solid #22d3ee;
+    }
+
+    .tts-voice-option .voice-name {
+        font-weight: 600;
+        color: #f1f5f9;
+    }
+
+    .tts-voice-option .voice-lang {
+        font-size: 0.55rem;
+        color: #64748b;
+        font-family: 'JetBrains Mono', monospace;
+    }
+
+    .tts-voice-option.active .voice-lang {
+        color: #67e8f9;
     }
 
     .tts-stop-btn {
@@ -1795,6 +1921,59 @@ const base = import.meta.env.BASE_URL;
         color: #7c3aed;
     }
 
+    :global([data-theme="light"]) .tts-voice-btn {
+        background: rgba(6, 182, 212, 0.08);
+        border-color: rgba(6, 182, 212, 0.2);
+        color: #0891b2;
+    }
+
+    :global([data-theme="light"]) .tts-voice-btn:hover {
+        background: rgba(6, 182, 212, 0.15);
+        color: #0e7490;
+    }
+
+    :global([data-theme="light"]) .tts-voice-btn.has-voice {
+        border-color: rgba(34, 197, 94, 0.3);
+        background: rgba(34, 197, 94, 0.1);
+        color: #16a34a;
+    }
+
+    :global([data-theme="light"]) .tts-voice-dropdown {
+        background: linear-gradient(135deg, #ffffff, #f8fafc);
+        border-color: rgba(6, 182, 212, 0.2);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    :global([data-theme="light"]) .tts-voice-header {
+        color: #475569;
+        border-bottom-color: rgba(148, 163, 184, 0.15);
+        background: rgba(241, 245, 249, 0.8);
+    }
+
+    :global([data-theme="light"]) .tts-voice-option {
+        color: #334155;
+    }
+
+    :global([data-theme="light"]) .tts-voice-option:hover {
+        background: rgba(6, 182, 212, 0.08);
+    }
+
+    :global([data-theme="light"]) .tts-voice-option.active {
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(139, 92, 246, 0.08));
+    }
+
+    :global([data-theme="light"]) .tts-voice-option .voice-name {
+        color: #1e293b;
+    }
+
+    :global([data-theme="light"]) .tts-voice-option .voice-lang {
+        color: #64748b;
+    }
+
+    :global([data-theme="light"]) .tts-voice-option.active .voice-lang {
+        color: #0891b2;
+    }
+
     :global([data-theme="light"]) .tts-stop-btn {
         background: rgba(239, 68, 68, 0.1);
         border-color: rgba(239, 68, 68, 0.25);
@@ -3007,14 +3186,18 @@ Mantén respuestas concisas pero completas.`;
             this.isSpeaking = false;
             this.voices = [];
             this.preferredVoice = null;
+            this._controlsInitialized = false;
 
             // Load voices (async on some browsers)
             this.loadVoices();
             if (this.synth.onvoiceschanged !== undefined) {
-                this.synth.onvoiceschanged = () => this.loadVoices();
+                this.synth.onvoiceschanged = () => {
+                    this.loadVoices();
+                    this.populateVoiceList();
+                };
             }
 
-            // Initialize UI controls
+            // Initialize UI controls with event delegation
             this.initControls();
         }
 
@@ -3040,56 +3223,166 @@ Mantén respuestas concisas pero completas.`;
             // Fallback to any available voice if no Spanish
             if (!this.preferredVoice && this.voices.length > 0) {
                 this.preferredVoice = spanishVoices[0] || this.voices[0];
-                console.log('TTS: Fallback voice:', this.preferredVoice.name);
+                console.log('TTS: Fallback voice:', this.preferredVoice?.name);
+            }
+
+            // Populate voice list UI
+            this.populateVoiceList();
+        }
+
+        populateVoiceList() {
+            const voiceList = document.getElementById('tts-voice-list');
+            const voiceBtn = document.getElementById('tts-voice-btn');
+            if (!voiceList) return;
+
+            // Group voices by language
+            const spanishVoices = this.voices.filter(v =>
+                v.lang.startsWith('es') || v.lang.includes('ES')
+            );
+            const otherVoices = this.voices.filter(v =>
+                !v.lang.startsWith('es') && !v.lang.includes('ES')
+            );
+
+            let html = '';
+
+            // Spanish voices first
+            if (spanishVoices.length > 0) {
+                spanishVoices.forEach((voice, index) => {
+                    const isActive = this.preferredVoice && voice.name === this.preferredVoice.name;
+                    const shortName = voice.name.replace(/Microsoft|Google|Apple|Enhanced|Premium/gi, '').trim();
+                    html += `
+                        <button class="tts-voice-option ${isActive ? 'active' : ''}" data-voice-index="${this.voices.indexOf(voice)}">
+                            <span class="voice-name">${shortName}</span>
+                            <span class="voice-lang">${voice.lang} ${voice.localService ? '(local)' : '(online)'}</span>
+                        </button>
+                    `;
+                });
+            }
+
+            // Other voices (limited to first 10)
+            if (otherVoices.length > 0 && spanishVoices.length < 5) {
+                const limit = Math.min(10 - spanishVoices.length, otherVoices.length);
+                for (let i = 0; i < limit; i++) {
+                    const voice = otherVoices[i];
+                    const isActive = this.preferredVoice && voice.name === this.preferredVoice.name;
+                    const shortName = voice.name.replace(/Microsoft|Google|Apple|Enhanced|Premium/gi, '').trim();
+                    html += `
+                        <button class="tts-voice-option ${isActive ? 'active' : ''}" data-voice-index="${this.voices.indexOf(voice)}">
+                            <span class="voice-name">${shortName}</span>
+                            <span class="voice-lang">${voice.lang}</span>
+                        </button>
+                    `;
+                }
+            }
+
+            voiceList.innerHTML = html || '<div style="padding: 0.5rem; color: #64748b; font-size: 0.65rem;">No hay voces disponibles</div>';
+
+            // Update voice button state
+            if (voiceBtn && this.preferredVoice) {
+                voiceBtn.classList.add('has-voice');
             }
         }
 
         initControls() {
-            // Speed button dropdown toggle
-            const speedBtn = document.getElementById('tts-speed-btn');
-            const speedDropdown = document.getElementById('tts-speed-dropdown');
-            const stopBtn = document.getElementById('tts-stop-btn');
+            // Use event delegation - attach to document once
+            if (this._controlsInitialized) return;
+            this._controlsInitialized = true;
 
-            speedBtn?.addEventListener('click', (e) => {
-                e.stopPropagation();
-                speedDropdown?.classList.toggle('visible');
-            });
+            const self = this;
 
-            // Close dropdown when clicking outside
-            document.addEventListener('click', () => {
-                speedDropdown?.classList.remove('visible');
-            });
+            // Global click handler using event delegation
+            document.addEventListener('click', function(e) {
+                const speedBtn = document.getElementById('tts-speed-btn');
+                const speedDropdown = document.getElementById('tts-speed-dropdown');
+                const voiceBtn = document.getElementById('tts-voice-btn');
+                const voiceDropdown = document.getElementById('tts-voice-dropdown');
+                const stopBtn = document.getElementById('tts-stop-btn');
 
-            // Speed options
-            const speedOptions = document.querySelectorAll('.tts-speed-option');
-            speedOptions.forEach(opt => {
-                opt.addEventListener('click', (e) => {
+                // Speed button click
+                if (e.target.closest('#tts-speed-btn')) {
                     e.stopPropagation();
-                    const speed = parseFloat(opt.dataset.speed);
-                    this.setSpeed(speed);
+                    speedDropdown?.classList.toggle('visible');
+                    voiceDropdown?.classList.remove('visible');
+                    return;
+                }
+
+                // Voice button click
+                if (e.target.closest('#tts-voice-btn')) {
+                    e.stopPropagation();
+                    voiceDropdown?.classList.toggle('visible');
+                    speedDropdown?.classList.remove('visible');
+                    return;
+                }
+
+                // Speed option click
+                const speedOption = e.target.closest('.tts-speed-option');
+                if (speedOption) {
+                    e.stopPropagation();
+                    const speed = parseFloat(speedOption.dataset.speed);
+                    self.setSpeed(speed);
 
                     // Update UI
-                    speedOptions.forEach(o => o.classList.remove('active'));
-                    opt.classList.add('active');
-                    document.getElementById('tts-speed-label').textContent = speed + 'x';
+                    document.querySelectorAll('.tts-speed-option').forEach(o => o.classList.remove('active'));
+                    speedOption.classList.add('active');
+                    const label = document.getElementById('tts-speed-label');
+                    if (label) label.textContent = speed + 'x';
                     speedDropdown?.classList.remove('visible');
 
                     // If currently speaking, restart with new speed
-                    if (this.isSpeaking && this.currentMessageElement) {
-                        const text = this.currentSpeakBtn?.getAttribute('data-tts-text');
+                    if (self.isSpeaking && self.currentMessageElement) {
+                        const text = self.currentSpeakBtn?.getAttribute('data-tts-text');
                         if (text) {
-                            this.stop();
+                            self.stop();
                             setTimeout(() => {
-                                this.speak(text, this.currentMessageElement);
+                                self.speak(text, self.currentMessageElement);
                             }, 100);
                         }
                     }
-                });
-            });
+                    return;
+                }
 
-            // Stop button
-            stopBtn?.addEventListener('click', () => {
-                this.stop();
+                // Voice option click
+                const voiceOption = e.target.closest('.tts-voice-option');
+                if (voiceOption) {
+                    e.stopPropagation();
+                    const voiceIndex = parseInt(voiceOption.dataset.voiceIndex);
+                    if (!isNaN(voiceIndex) && self.voices[voiceIndex]) {
+                        self.preferredVoice = self.voices[voiceIndex];
+                        console.log('TTS: Changed voice to:', self.preferredVoice.name, self.preferredVoice.lang);
+
+                        // Update UI
+                        document.querySelectorAll('.tts-voice-option').forEach(o => o.classList.remove('active'));
+                        voiceOption.classList.add('active');
+                        voiceDropdown?.classList.remove('visible');
+
+                        // Mark voice button as having a selection
+                        voiceBtn?.classList.add('has-voice');
+
+                        // If currently speaking, restart with new voice
+                        if (self.isSpeaking && self.currentMessageElement) {
+                            const text = self.currentSpeakBtn?.getAttribute('data-tts-text');
+                            if (text) {
+                                self.stop();
+                                setTimeout(() => {
+                                    self.speak(text, self.currentMessageElement);
+                                }, 100);
+                            }
+                        }
+                    }
+                    return;
+                }
+
+                // Stop button click
+                if (e.target.closest('#tts-stop-btn')) {
+                    self.stop();
+                    return;
+                }
+
+                // Click outside - close dropdowns
+                if (!e.target.closest('.tts-speed-dropdown') && !e.target.closest('.tts-voice-dropdown')) {
+                    speedDropdown?.classList.remove('visible');
+                    voiceDropdown?.classList.remove('visible');
+                }
             });
         }
 

@@ -527,11 +527,11 @@ const base = import.meta.env.BASE_URL;
 
     /* ============================================
        SECTIONS - Study-Focused Typography (Compact)
-       Enhanced hierarchy with tight spacing
+       Tight spacing for better visual flow
     ============================================ */
     .drawer-section {
-        margin-bottom: 0.5rem;
-        padding-bottom: 0.35rem;
+        margin-bottom: 0.35rem;
+        padding-bottom: 0.25rem;
         border-bottom: 1px solid rgba(148, 163, 184, 0.08);
         position: relative;
     }
@@ -547,7 +547,7 @@ const base = import.meta.env.BASE_URL;
         font-size: 0.62rem;
         font-weight: 700;
         color: #cbd5e1;
-        margin: 0 0 0.3rem 0;
+        margin: 0 0 0.2rem 0;
         padding: 0.22rem 0.45rem 0.22rem 0.4rem;
         display: inline-flex;
         align-items: center;
@@ -579,12 +579,12 @@ const base = import.meta.env.BASE_URL;
         filter: drop-shadow(0 0 3px rgba(34, 211, 238, 0.3));
     }
 
-    /* Main content typography - Premium Study Reading with generous spacing */
+    /* Main content typography - Premium Study Reading */
     .section-content {
         color: #e2e8f0;
         font-size: 0.76rem;
-        line-height: 1.85;
-        margin: 0 0 1.5rem 0;
+        line-height: 1.65;
+        margin: 0 0 0.4rem 0;
         font-family: 'Inter', 'Roboto', system-ui, sans-serif;
         letter-spacing: -0.005em;
         text-rendering: optimizeLegibility;
@@ -834,7 +834,8 @@ const base = import.meta.env.BASE_URL;
     }
 
     .exp-card.expanded .exp-content {
-        max-height: 400px;
+        max-height: 800px;
+        overflow-y: auto;
     }
 
     .exp-content-inner {
@@ -901,11 +902,11 @@ const base = import.meta.env.BASE_URL;
         font-weight: 600;
     }
 
-    /* Separator line between description/contenidos/actividades - 2 líneas de separación */
+    /* Separator line between description/contenidos/actividades */
     .exp-separator {
         height: 1px;
         background: linear-gradient(90deg, rgba(6, 182, 212, 0.3), rgba(139, 92, 246, 0.15), transparent);
-        margin: 1.5rem 0;
+        margin: 0.5rem 0;
         border-radius: 1px;
     }
 
