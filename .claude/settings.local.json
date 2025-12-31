@@ -457,7 +457,21 @@
       "Bash(dir:*)",
       "Bash(git mv:*)",
       "Bash(git reset:*)",
-      "Bash(timeout 10 npm run dev:*)"
+      "Bash(timeout 10 npm run dev:*)",
+      "Bash(gh:*)",
+      "Bash(glab --version:*)",
+      "Bash(glab auth status:*)",
+      "Bash(az:*)",
+      "Bash(az account:*)",
+      "Bash(glab api:*)",
+      "Bash(glab auth login:*)",
+      "Bash(glab repo create:*)",
+      "Bash(git remote:*)",
+      "Bash(GIT_TERMINAL_PROMPT=0 git push:*)",
+      "Bash(echo \"url=https://bitbucket.org/fuadonates/analista-programador-computacional-duocuc.git\nusername=x-token-auth\npassword=ATCTT3xFfGN0HjSXQOuz3oUlkTiWkCuhmBGdvX73NcuU1iI53ShNwZE1_D7Xx-zjsmvBI1m0Kk10bAmCoJ1ZU13-W8SA5hgrVJRKyXDQH15jk21IpRwsoOeL8orf1IZDdabk4CRRi0kxQevZevc3HLB320I8Itoy5UJfbrYR5GrwoSLPWYsEHqs=805454A4\")",
+      "Bash(git credential approve:*)",
+      "Bash(cmdkey /list:*)",
+      "Bash(taskkill:*)"
     ]
   }
 }

@@ -964,6 +964,10 @@ const clientData = {
 
         if (!sidebar) return;
 
+        // Prevent duplicate initialization
+        if (sidebar.dataset.initialized === 'true') return;
+        sidebar.dataset.initialized = 'true';
+
         // State
         const state = {
             isOpen: true,
@@ -1116,12 +1120,15 @@ const clientData = {
         }
 
         function initAccordions() {
-            const headers = sidebar.querySelectorAll('.group-header, .week-header');
-            headers.forEach(header => {
-                header.addEventListener('click', () => {
+            // Use event delegation to handle accordion clicks
+            // This prevents duplicate listeners on View Transitions
+            sidebar.addEventListener('click', (e) => {
+                const header = e.target.closest('.group-header, .week-header');
+                if (header) {
+                    e.stopPropagation();
                     const isExpanded = header.getAttribute('aria-expanded') === 'true';
                     header.setAttribute('aria-expanded', (!isExpanded).toString());
-                });
+                }
             });
         }
 
