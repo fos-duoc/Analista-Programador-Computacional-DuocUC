@@ -34,16 +34,10 @@ const base = import.meta.env.BASE_URL;
         </div>
         <!-- TTS Controls -->
         <div class="tts-controls" id="tts-controls">
-            <!-- Voice Selector -->
-            <button class="tts-voice-btn" id="tts-voice-btn" title="Seleccionar voz">
-                <i class="fas fa-user-circle"></i>
+            <!-- Voice Selector Button -->
+            <button class="tts-voice-btn" id="tts-voice-btn" title="Configurar voz">
+                <i class="fas fa-microphone-alt"></i>
             </button>
-            <div class="tts-voice-dropdown" id="tts-voice-dropdown">
-                <div class="tts-voice-header">Voces disponibles</div>
-                <div class="tts-voice-list" id="tts-voice-list">
-                    <!-- Se llena dinámicamente -->
-                </div>
-            </div>
             <!-- Speed Selector -->
             <button class="tts-speed-btn" id="tts-speed-btn" title="Velocidad de lectura">
                 <i class="fas fa-tachometer-alt"></i>
@@ -213,6 +207,143 @@ const base = import.meta.env.BASE_URL;
         </div>
     </div>
 </aside>
+
+<!-- Voice Settings Modal - Premium Design -->
+<div class="tts-modal-overlay" id="tts-modal-overlay">
+    <div class="tts-modal" id="tts-modal">
+        <div class="tts-modal-header">
+            <div class="tts-modal-title">
+                <i class="fas fa-microphone-alt"></i>
+                <span>Configuración de Voz</span>
+            </div>
+            <button class="tts-modal-close" id="tts-modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="tts-modal-body">
+            <!-- Engine Selector Tabs -->
+            <div class="tts-engine-tabs">
+                <button class="tts-engine-tab active" data-engine="puter">
+                    <i class="fas fa-robot"></i>
+                    <span>Voces IA</span>
+                    <span class="engine-badge neural">Neural</span>
+                </button>
+                <button class="tts-engine-tab" data-engine="browser">
+                    <i class="fas fa-globe"></i>
+                    <span>Navegador</span>
+                    <span class="engine-badge local">Local</span>
+                </button>
+            </div>
+
+            <!-- Puter AI Voices Section -->
+            <div class="tts-engine-content active" id="tts-puter-content">
+                <div class="tts-engine-info">
+                    <div class="engine-logo">
+                        <img src="https://puter.com/favicon.ico" alt="Puter" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22%238b5cf6%22><path d=%22M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z%22/></svg>'">
+                    </div>
+                    <div class="engine-description">
+                        <h4>Puter.js - Voces Neurales Gratuitas</h4>
+                        <p>Voces de alta calidad similares a Amazon Polly. Sin límites, sin API key.</p>
+                    </div>
+                </div>
+
+                <div class="tts-voice-group">
+                    <label class="tts-label">Motor de Síntesis</label>
+                    <div class="tts-puter-engines">
+                        <button class="tts-puter-engine active" data-puter-engine="neural">
+                            <i class="fas fa-brain"></i>
+                            <span>Neural</span>
+                            <small>Natural y fluido</small>
+                        </button>
+                        <button class="tts-puter-engine" data-puter-engine="generative">
+                            <i class="fas fa-magic"></i>
+                            <span>Generativo</span>
+                            <small>Más expresivo</small>
+                        </button>
+                        <button class="tts-puter-engine" data-puter-engine="standard">
+                            <i class="fas fa-volume-up"></i>
+                            <span>Estándar</span>
+                            <small>Rápido</small>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="tts-voice-group">
+                    <label class="tts-label">Idioma</label>
+                    <select class="tts-select" id="tts-puter-lang">
+                        <option value="es-ES">Español (España)</option>
+                        <option value="es-MX" selected>Español (México)</option>
+                        <option value="es-419">Español (Latinoamérica)</option>
+                        <option value="en-US">English (US)</option>
+                        <option value="en-GB">English (UK)</option>
+                        <option value="pt-BR">Português (Brasil)</option>
+                        <option value="fr-FR">Français</option>
+                        <option value="de-DE">Deutsch</option>
+                        <option value="it-IT">Italiano</option>
+                    </select>
+                </div>
+
+                <div class="tts-preview-section">
+                    <button class="tts-preview-btn" id="tts-puter-preview">
+                        <i class="fas fa-play"></i>
+                        <span>Probar voz</span>
+                    </button>
+                    <span class="tts-preview-text">Hola, soy tu asistente de estudio.</span>
+                </div>
+            </div>
+
+            <!-- Browser Voices Section -->
+            <div class="tts-engine-content" id="tts-browser-content">
+                <div class="tts-engine-info browser">
+                    <div class="engine-logo">
+                        <i class="fas fa-chrome"></i>
+                    </div>
+                    <div class="engine-description">
+                        <h4>Voces del Navegador</h4>
+                        <p>Voces integradas en tu sistema. Calidad variable según el navegador.</p>
+                    </div>
+                </div>
+
+                <div class="tts-voice-group">
+                    <label class="tts-label">Voces en Español</label>
+                    <div class="tts-browser-voices" id="tts-browser-voices-es">
+                        <!-- Se llena dinámicamente -->
+                    </div>
+                </div>
+
+                <div class="tts-voice-group">
+                    <label class="tts-label">Otras Voces</label>
+                    <div class="tts-browser-voices collapsed" id="tts-browser-voices-other">
+                        <!-- Se llena dinámicamente -->
+                    </div>
+                    <button class="tts-show-more" id="tts-show-more-voices">
+                        <i class="fas fa-chevron-down"></i>
+                        <span>Mostrar más voces</span>
+                    </button>
+                </div>
+
+                <div class="tts-preview-section">
+                    <button class="tts-preview-btn" id="tts-browser-preview">
+                        <i class="fas fa-play"></i>
+                        <span>Probar voz</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="tts-modal-footer">
+            <div class="tts-current-engine">
+                <span class="tts-current-label">Motor activo:</span>
+                <span class="tts-current-value" id="tts-current-engine">Puter Neural</span>
+            </div>
+            <button class="tts-save-btn" id="tts-save-settings">
+                <i class="fas fa-check"></i>
+                <span>Guardar</span>
+            </button>
+        </div>
+    </div>
+</div>
 
 <style>
     /* ============================================
@@ -638,6 +769,501 @@ const base = import.meta.env.BASE_URL;
     @keyframes ttsWave {
         0%, 100% { transform: scaleY(0.4); }
         50% { transform: scaleY(1); }
+    }
+
+    /* ============================================
+       TTS VOICE MODAL - Premium Design
+       Sophisticated voice configuration
+    ============================================ */
+    .tts-modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(4px);
+        z-index: 2000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+    }
+
+    .tts-modal-overlay.visible {
+        display: flex;
+    }
+
+    .tts-modal {
+        background: linear-gradient(180deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+        border: 1px solid rgba(139, 92, 246, 0.3);
+        border-radius: 16px;
+        width: 100%;
+        max-width: 420px;
+        max-height: 85vh;
+        overflow: hidden;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 80px rgba(139, 92, 246, 0.1);
+        animation: modalSlideIn 0.25s ease;
+    }
+
+    @keyframes modalSlideIn {
+        from { opacity: 0; transform: scale(0.95) translateY(-10px); }
+        to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .tts-modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.2rem;
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(59, 130, 246, 0.08));
+        border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+    }
+
+    .tts-modal-title {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        color: #f8fafc;
+        font-size: 1rem;
+        font-weight: 700;
+        font-family: 'Sora', sans-serif;
+    }
+
+    .tts-modal-title i {
+        color: #a78bfa;
+        font-size: 1.1rem;
+    }
+
+    .tts-modal-close {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        background: rgba(30, 41, 59, 0.5);
+        color: #94a3b8;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+    }
+
+    .tts-modal-close:hover {
+        background: rgba(239, 68, 68, 0.15);
+        border-color: rgba(239, 68, 68, 0.3);
+        color: #f87171;
+    }
+
+    .tts-modal-body {
+        padding: 1rem;
+        max-height: 60vh;
+        overflow-y: auto;
+    }
+
+    .tts-engine-tabs {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .tts-engine-tab {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.75rem 0.5rem;
+        border: 1px solid rgba(148, 163, 184, 0.15);
+        border-radius: 10px;
+        background: rgba(30, 41, 59, 0.3);
+        color: #94a3b8;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .tts-engine-tab:hover {
+        background: rgba(139, 92, 246, 0.1);
+        border-color: rgba(139, 92, 246, 0.3);
+    }
+
+    .tts-engine-tab.active {
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.1));
+        border-color: rgba(139, 92, 246, 0.5);
+        color: #e0d4ff;
+    }
+
+    .tts-engine-tab i {
+        font-size: 1.2rem;
+    }
+
+    .tts-engine-tab span:not(.engine-badge) {
+        font-size: 0.75rem;
+        font-weight: 600;
+    }
+
+    .engine-badge {
+        font-size: 0.55rem;
+        padding: 0.15rem 0.4rem;
+        border-radius: 4px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+    }
+
+    .engine-badge.neural {
+        background: linear-gradient(135deg, #8b5cf6, #6366f1);
+        color: white;
+    }
+
+    .engine-badge.local {
+        background: rgba(148, 163, 184, 0.2);
+        color: #94a3b8;
+    }
+
+    .tts-engine-content {
+        display: none;
+    }
+
+    .tts-engine-content.active {
+        display: block;
+    }
+
+    .tts-engine-info {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 0.75rem;
+        background: rgba(139, 92, 246, 0.08);
+        border-radius: 10px;
+        border: 1px solid rgba(139, 92, 246, 0.15);
+        margin-bottom: 1rem;
+    }
+
+    .tts-engine-info.browser {
+        background: rgba(59, 130, 246, 0.08);
+        border-color: rgba(59, 130, 246, 0.15);
+    }
+
+    .engine-logo {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.1));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .engine-logo img {
+        width: 24px;
+        height: 24px;
+        border-radius: 4px;
+    }
+
+    .engine-logo i {
+        font-size: 1.2rem;
+        color: #60a5fa;
+    }
+
+    .engine-description h4 {
+        margin: 0 0 0.2rem 0;
+        font-size: 0.8rem;
+        color: #e2e8f0;
+        font-weight: 600;
+    }
+
+    .engine-description p {
+        margin: 0;
+        font-size: 0.68rem;
+        color: #94a3b8;
+        line-height: 1.4;
+    }
+
+    .tts-voice-group {
+        margin-bottom: 0.9rem;
+    }
+
+    .tts-label {
+        display: block;
+        font-size: 0.65rem;
+        font-weight: 600;
+        color: #94a3b8;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.5rem;
+    }
+
+    .tts-puter-engines {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.4rem;
+    }
+
+    .tts-puter-engine {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.2rem;
+        padding: 0.6rem 0.4rem;
+        border: 1px solid rgba(148, 163, 184, 0.12);
+        border-radius: 8px;
+        background: rgba(30, 41, 59, 0.3);
+        color: #94a3b8;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .tts-puter-engine:hover {
+        background: rgba(139, 92, 246, 0.12);
+        border-color: rgba(139, 92, 246, 0.3);
+    }
+
+    .tts-puter-engine.active {
+        background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(6, 182, 212, 0.1));
+        border-color: rgba(34, 197, 94, 0.4);
+        color: #86efac;
+    }
+
+    .tts-puter-engine i {
+        font-size: 1rem;
+    }
+
+    .tts-puter-engine span {
+        font-size: 0.7rem;
+        font-weight: 600;
+    }
+
+    .tts-puter-engine small {
+        font-size: 0.55rem;
+        color: #64748b;
+    }
+
+    .tts-puter-engine.active small {
+        color: #4ade80;
+    }
+
+    .tts-select {
+        width: 100%;
+        padding: 0.55rem 0.75rem;
+        border: 1px solid rgba(148, 163, 184, 0.15);
+        border-radius: 8px;
+        background: rgba(30, 41, 59, 0.5);
+        color: #e2e8f0;
+        font-size: 0.78rem;
+        font-family: 'Inter', sans-serif;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .tts-select:hover, .tts-select:focus {
+        border-color: rgba(139, 92, 246, 0.4);
+        outline: none;
+    }
+
+    .tts-browser-voices {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        max-height: 150px;
+        overflow-y: auto;
+        padding-right: 0.25rem;
+    }
+
+    .tts-browser-voices.collapsed {
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    .tts-browser-voice {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.45rem 0.6rem;
+        border: 1px solid rgba(148, 163, 184, 0.1);
+        border-radius: 6px;
+        background: rgba(30, 41, 59, 0.3);
+        color: #cbd5e1;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        font-size: 0.72rem;
+    }
+
+    .tts-browser-voice:hover {
+        background: rgba(59, 130, 246, 0.12);
+        border-color: rgba(59, 130, 246, 0.3);
+    }
+
+    .tts-browser-voice.active {
+        background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(6, 182, 212, 0.1));
+        border-color: rgba(34, 197, 94, 0.4);
+        color: #86efac;
+    }
+
+    .tts-browser-voice .voice-quality {
+        font-size: 0.5rem;
+        color: #fbbf24;
+        margin-left: auto;
+    }
+
+    .tts-show-more {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
+        width: 100%;
+        padding: 0.45rem;
+        margin-top: 0.4rem;
+        border: 1px dashed rgba(148, 163, 184, 0.2);
+        border-radius: 6px;
+        background: transparent;
+        color: #64748b;
+        font-size: 0.68rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .tts-show-more:hover {
+        border-color: rgba(139, 92, 246, 0.3);
+        color: #a78bfa;
+    }
+
+    .tts-show-more.expanded i {
+        transform: rotate(180deg);
+    }
+
+    .tts-preview-section {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.65rem;
+        background: rgba(30, 41, 59, 0.4);
+        border-radius: 8px;
+        border: 1px solid rgba(148, 163, 184, 0.08);
+    }
+
+    .tts-preview-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.5rem 0.9rem;
+        border: 1px solid rgba(34, 197, 94, 0.35);
+        border-radius: 6px;
+        background: rgba(34, 197, 94, 0.12);
+        color: #4ade80;
+        font-size: 0.72rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        flex-shrink: 0;
+    }
+
+    .tts-preview-btn:hover {
+        background: rgba(34, 197, 94, 0.2);
+        border-color: rgba(34, 197, 94, 0.5);
+        transform: scale(1.02);
+    }
+
+    .tts-preview-btn.playing {
+        background: rgba(239, 68, 68, 0.15);
+        border-color: rgba(239, 68, 68, 0.35);
+        color: #f87171;
+    }
+
+    .tts-preview-btn.playing i::before {
+        content: "\f04d";
+    }
+
+    .tts-preview-text {
+        font-size: 0.68rem;
+        color: #64748b;
+        font-style: italic;
+    }
+
+    .tts-modal-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.9rem 1.2rem;
+        background: rgba(15, 23, 42, 0.6);
+        border-top: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .tts-current-engine {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.7rem;
+    }
+
+    .tts-current-label {
+        color: #64748b;
+    }
+
+    .tts-current-value {
+        color: #a78bfa;
+        font-weight: 600;
+    }
+
+    .tts-save-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.55rem 1rem;
+        border: none;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #8b5cf6, #6366f1);
+        color: white;
+        font-size: 0.78rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+    }
+
+    .tts-save-btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(139, 92, 246, 0.4);
+    }
+
+    /* Light mode for modal */
+    :global([data-theme="light"]) .tts-modal-overlay {
+        background: rgba(255, 255, 255, 0.8);
+    }
+
+    :global([data-theme="light"]) .tts-modal {
+        background: linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+        border-color: rgba(139, 92, 246, 0.2);
+    }
+
+    :global([data-theme="light"]) .tts-modal-header {
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(59, 130, 246, 0.04));
+    }
+
+    :global([data-theme="light"]) .tts-modal-title {
+        color: #1e293b;
+    }
+
+    :global([data-theme="light"]) .tts-engine-tab {
+        background: rgba(241, 245, 249, 0.8);
+        border-color: rgba(148, 163, 184, 0.2);
+        color: #64748b;
+    }
+
+    :global([data-theme="light"]) .tts-engine-tab.active {
+        background: rgba(139, 92, 246, 0.1);
+        color: #7c3aed;
+    }
+
+    :global([data-theme="light"]) .tts-puter-engine,
+    :global([data-theme="light"]) .tts-browser-voice {
+        background: rgba(241, 245, 249, 0.8);
+        color: #475569;
+    }
+
+    :global([data-theme="light"]) .tts-select {
+        background: #ffffff;
+        color: #334155;
+        border-color: rgba(148, 163, 184, 0.3);
     }
 
     .tutor-close {
@@ -3171,372 +3797,481 @@ Mantén respuestas concisas pero completas.`;
 
     // ============================================
     // TEXT-TO-SPEECH (TTS) MANAGER
-    // Premium voice reading experience
-    // Uses Web Speech API (SpeechSynthesis)
+    // Premium voice experience with Puter.js + Web Speech API
+    // Puter.js: Free neural voices (no API key)
+    // Web Speech API: Browser fallback
     // ============================================
 
     class TTSManager {
         constructor() {
+            // Engine settings
+            this.engine = 'puter'; // 'puter' or 'browser'
+            this.puterEngine = 'neural'; // 'neural', 'generative', 'standard'
+            this.puterLang = 'es-MX';
+
+            // Browser TTS
             this.synth = window.speechSynthesis;
             this.utterance = null;
+            this.voices = [];
+            this.preferredVoice = null;
+
+            // State
             this.currentMessageElement = null;
             this.currentSpeakBtn = null;
             this.speed = 1;
             this.isPaused = false;
             this.isSpeaking = false;
-            this.voices = [];
-            this.preferredVoice = null;
             this._controlsInitialized = false;
+            this.currentAudio = null;
 
-            // Load voices (async on some browsers)
-            this.loadVoices();
-            if (this.synth.onvoiceschanged !== undefined) {
+            // Load settings from localStorage
+            this.loadSettings();
+
+            // Load Puter.js
+            this.loadPuterJS();
+
+            // Load browser voices
+            this.loadBrowserVoices();
+            if (this.synth?.onvoiceschanged !== undefined) {
                 this.synth.onvoiceschanged = () => {
-                    this.loadVoices();
-                    this.populateVoiceList();
+                    this.loadBrowserVoices();
+                    this.populateBrowserVoices();
                 };
             }
 
-            // Initialize UI controls with event delegation
+            // Initialize UI
             this.initControls();
+            this.updateCurrentEngineDisplay();
         }
 
-        loadVoices() {
+        loadSettings() {
+            try {
+                const saved = localStorage.getItem('tts-settings');
+                if (saved) {
+                    const settings = JSON.parse(saved);
+                    this.engine = settings.engine || 'puter';
+                    this.puterEngine = settings.puterEngine || 'neural';
+                    this.puterLang = settings.puterLang || 'es-MX';
+                    this.speed = settings.speed || 1;
+                    console.log('TTS: Loaded settings', settings);
+                }
+            } catch (e) {
+                console.warn('TTS: Could not load settings', e);
+            }
+        }
+
+        saveSettings() {
+            try {
+                const settings = {
+                    engine: this.engine,
+                    puterEngine: this.puterEngine,
+                    puterLang: this.puterLang,
+                    speed: this.speed
+                };
+                localStorage.setItem('tts-settings', JSON.stringify(settings));
+                console.log('TTS: Saved settings', settings);
+            } catch (e) {
+                console.warn('TTS: Could not save settings', e);
+            }
+        }
+
+        loadPuterJS() {
+            if (window.puter) {
+                console.log('TTS: Puter.js already loaded');
+                return;
+            }
+
+            const script = document.createElement('script');
+            script.src = 'https://js.puter.com/v2/';
+            script.async = true;
+            script.onload = () => {
+                console.log('TTS: Puter.js loaded successfully');
+            };
+            script.onerror = () => {
+                console.warn('TTS: Failed to load Puter.js, using browser fallback');
+                this.engine = 'browser';
+            };
+            document.head.appendChild(script);
+        }
+
+        loadBrowserVoices() {
+            if (!this.synth) return;
             this.voices = this.synth.getVoices();
 
-            // Get Spanish voices
+            // Get Spanish voices for preferred selection
             const spanishVoices = this.voices.filter(v =>
                 v.lang.startsWith('es') || v.lang.includes('ES')
             );
 
-            // Score voices by quality (higher is better)
-            const scoreVoice = (voice) => {
-                let score = 0;
-                const name = voice.name.toLowerCase();
-
-                // Prefer online/cloud voices (usually higher quality)
-                if (!voice.localService) score += 100;
-
-                // Prefer specific high-quality voice engines
-                if (name.includes('google')) score += 50;
-                if (name.includes('wavenet') || name.includes('neural')) score += 40;
-                if (name.includes('microsoft') && name.includes('online')) score += 35;
-                if (name.includes('natural') || name.includes('premium')) score += 30;
-                if (name.includes('enhanced')) score += 20;
-
-                // Language priority for Spanish variants
-                if (voice.lang === 'es-MX') score += 10;
-                else if (voice.lang === 'es-CL') score += 9;
-                else if (voice.lang === 'es-419') score += 8;
-                else if (voice.lang === 'es-ES') score += 7;
-                else if (voice.lang.startsWith('es')) score += 5;
-
-                return score;
-            };
-
-            // Sort Spanish voices by quality score
-            const sortedSpanish = [...spanishVoices].sort((a, b) => scoreVoice(b) - scoreVoice(a));
-
-            // Select the best quality voice
-            if (sortedSpanish.length > 0) {
-                this.preferredVoice = sortedSpanish[0];
-                console.log('TTS: Selected best voice:', this.preferredVoice.name, this.preferredVoice.lang, 'Score:', scoreVoice(this.preferredVoice));
-            } else if (this.voices.length > 0) {
-                // Fallback to any voice, preferring online
-                const sortedAll = [...this.voices].sort((a, b) => scoreVoice(b) - scoreVoice(a));
-                this.preferredVoice = sortedAll[0];
-                console.log('TTS: Fallback voice:', this.preferredVoice?.name);
+            if (spanishVoices.length > 0 && !this.preferredVoice) {
+                // Prefer online voices
+                const online = spanishVoices.filter(v => !v.localService);
+                this.preferredVoice = online[0] || spanishVoices[0];
             }
 
-            // Store sorted voices for UI
-            this.sortedVoices = [...this.voices].sort((a, b) => scoreVoice(b) - scoreVoice(a));
-
-            // Populate voice list UI
-            this.populateVoiceList();
+            this.populateBrowserVoices();
         }
 
-        populateVoiceList() {
-            const voiceList = document.getElementById('tts-voice-list');
-            const voiceBtn = document.getElementById('tts-voice-btn');
-            if (!voiceList) return;
+        populateBrowserVoices() {
+            const esContainer = document.getElementById('tts-browser-voices-es');
+            const otherContainer = document.getElementById('tts-browser-voices-other');
+            if (!esContainer || !otherContainer) return;
 
-            // Use sorted voices if available
-            const voices = this.sortedVoices || this.voices;
-
-            // Quality indicator based on voice properties
-            const getQualityBadge = (voice) => {
-                const name = voice.name.toLowerCase();
-                if (name.includes('wavenet') || name.includes('neural')) return '★★★';
-                if (!voice.localService) return '★★';
-                if (name.includes('enhanced') || name.includes('natural')) return '★★';
-                return '★';
-            };
-
-            // Group: Spanish first, then others
-            const spanishVoices = voices.filter(v =>
+            const spanishVoices = this.voices.filter(v =>
                 v.lang.startsWith('es') || v.lang.includes('ES')
             );
-            const otherVoices = voices.filter(v =>
+            const otherVoices = this.voices.filter(v =>
                 !v.lang.startsWith('es') && !v.lang.includes('ES')
             );
 
-            let html = '';
+            const getQuality = (v) => {
+                const name = v.name.toLowerCase();
+                if (name.includes('wavenet') || name.includes('neural')) return '★★★';
+                if (!v.localService) return '★★';
+                return '★';
+            };
 
-            // Spanish voices first (best quality first due to sorting)
-            if (spanishVoices.length > 0) {
-                spanishVoices.forEach((voice) => {
-                    const isActive = this.preferredVoice && voice.name === this.preferredVoice.name;
-                    const shortName = voice.name.replace(/Microsoft|Google|Apple/gi, '').replace(/Online|Natural|Neural/gi, '').trim();
-                    const quality = getQualityBadge(voice);
-                    const typeLabel = voice.localService ? 'local' : 'online';
-                    html += `
-                        <button class="tts-voice-option ${isActive ? 'active' : ''}" data-voice-index="${this.voices.indexOf(voice)}">
-                            <span class="voice-name">${shortName} <span style="color: #fbbf24; font-size: 0.5rem;">${quality}</span></span>
-                            <span class="voice-lang">${voice.lang} · ${typeLabel}</span>
-                        </button>
-                    `;
-                });
-            }
+            esContainer.innerHTML = spanishVoices.length > 0
+                ? spanishVoices.map((v, i) => `
+                    <button class="tts-browser-voice ${this.preferredVoice?.name === v.name ? 'active' : ''}"
+                            data-voice-index="${this.voices.indexOf(v)}">
+                        ${v.name.replace(/Microsoft|Google|Apple/gi, '').trim()}
+                        <span class="voice-quality">${getQuality(v)}</span>
+                    </button>
+                `).join('')
+                : '<div style="padding: 0.5rem; color: #64748b; font-size: 0.65rem;">No hay voces en español</div>';
 
-            // Other high-quality voices (limited)
-            if (otherVoices.length > 0) {
-                const limit = Math.min(8, otherVoices.length);
-                for (let i = 0; i < limit; i++) {
-                    const voice = otherVoices[i];
-                    const isActive = this.preferredVoice && voice.name === this.preferredVoice.name;
-                    const shortName = voice.name.replace(/Microsoft|Google|Apple/gi, '').replace(/Online|Natural|Neural/gi, '').trim();
-                    const quality = getQualityBadge(voice);
-                    const typeLabel = voice.localService ? 'local' : 'online';
-                    html += `
-                        <button class="tts-voice-option ${isActive ? 'active' : ''}" data-voice-index="${this.voices.indexOf(voice)}">
-                            <span class="voice-name">${shortName} <span style="color: #fbbf24; font-size: 0.5rem;">${quality}</span></span>
-                            <span class="voice-lang">${voice.lang} · ${typeLabel}</span>
-                        </button>
-                    `;
-                }
-            }
-
-            voiceList.innerHTML = html || '<div style="padding: 0.5rem; color: #64748b; font-size: 0.65rem;">No hay voces disponibles</div>';
-
-            // Update voice button state
-            if (voiceBtn && this.preferredVoice) {
-                voiceBtn.classList.add('has-voice');
-            }
+            otherContainer.innerHTML = otherVoices.slice(0, 15).map((v, i) => `
+                <button class="tts-browser-voice ${this.preferredVoice?.name === v.name ? 'active' : ''}"
+                        data-voice-index="${this.voices.indexOf(v)}">
+                    ${v.name.replace(/Microsoft|Google|Apple/gi, '').trim()} (${v.lang})
+                    <span class="voice-quality">${getQuality(v)}</span>
+                </button>
+            `).join('');
         }
 
         initControls() {
-            // Use event delegation - attach to document once
             if (this._controlsInitialized) return;
             this._controlsInitialized = true;
 
             const self = this;
 
-            // Global click handler using event delegation
             document.addEventListener('click', function(e) {
-                const speedBtn = document.getElementById('tts-speed-btn');
                 const speedDropdown = document.getElementById('tts-speed-dropdown');
-                const voiceBtn = document.getElementById('tts-voice-btn');
-                const voiceDropdown = document.getElementById('tts-voice-dropdown');
-                const stopBtn = document.getElementById('tts-stop-btn');
+                const modalOverlay = document.getElementById('tts-modal-overlay');
 
-                // Speed button click
+                // Voice button - open modal
+                if (e.target.closest('#tts-voice-btn')) {
+                    e.stopPropagation();
+                    self.openModal();
+                    return;
+                }
+
+                // Speed button
                 if (e.target.closest('#tts-speed-btn')) {
                     e.stopPropagation();
                     speedDropdown?.classList.toggle('visible');
-                    voiceDropdown?.classList.remove('visible');
                     return;
                 }
 
-                // Voice button click
-                if (e.target.closest('#tts-voice-btn')) {
-                    e.stopPropagation();
-                    voiceDropdown?.classList.toggle('visible');
-                    speedDropdown?.classList.remove('visible');
-                    return;
-                }
-
-                // Speed option click
+                // Speed option
                 const speedOption = e.target.closest('.tts-speed-option');
                 if (speedOption) {
                     e.stopPropagation();
                     const speed = parseFloat(speedOption.dataset.speed);
-                    self.setSpeed(speed);
-
-                    // Update UI
+                    self.speed = speed;
                     document.querySelectorAll('.tts-speed-option').forEach(o => o.classList.remove('active'));
                     speedOption.classList.add('active');
                     const label = document.getElementById('tts-speed-label');
                     if (label) label.textContent = speed + 'x';
                     speedDropdown?.classList.remove('visible');
-
-                    // If currently speaking, restart with new speed
-                    if (self.isSpeaking && self.currentMessageElement) {
-                        const text = self.currentSpeakBtn?.getAttribute('data-tts-text');
-                        if (text) {
-                            self.stop();
-                            setTimeout(() => {
-                                self.speak(text, self.currentMessageElement);
-                            }, 100);
-                        }
-                    }
+                    self.saveSettings();
                     return;
                 }
 
-                // Voice option click
-                const voiceOption = e.target.closest('.tts-voice-option');
-                if (voiceOption) {
-                    e.stopPropagation();
-                    const voiceIndex = parseInt(voiceOption.dataset.voiceIndex);
-                    if (!isNaN(voiceIndex) && self.voices[voiceIndex]) {
-                        self.preferredVoice = self.voices[voiceIndex];
-                        console.log('TTS: Changed voice to:', self.preferredVoice.name, self.preferredVoice.lang);
-
-                        // Update UI
-                        document.querySelectorAll('.tts-voice-option').forEach(o => o.classList.remove('active'));
-                        voiceOption.classList.add('active');
-                        voiceDropdown?.classList.remove('visible');
-
-                        // Mark voice button as having a selection
-                        voiceBtn?.classList.add('has-voice');
-
-                        // If currently speaking, restart with new voice
-                        if (self.isSpeaking && self.currentMessageElement) {
-                            const text = self.currentSpeakBtn?.getAttribute('data-tts-text');
-                            if (text) {
-                                self.stop();
-                                setTimeout(() => {
-                                    self.speak(text, self.currentMessageElement);
-                                }, 100);
-                            }
-                        }
-                    }
-                    return;
-                }
-
-                // Stop button click
+                // Stop button
                 if (e.target.closest('#tts-stop-btn')) {
                     self.stop();
                     return;
                 }
 
-                // Click outside - close dropdowns
-                if (!e.target.closest('.tts-speed-dropdown') && !e.target.closest('.tts-voice-dropdown')) {
+                // Modal close
+                if (e.target.closest('#tts-modal-close') || e.target === modalOverlay) {
+                    self.closeModal();
+                    return;
+                }
+
+                // Engine tabs
+                const engineTab = e.target.closest('.tts-engine-tab');
+                if (engineTab) {
+                    const engine = engineTab.dataset.engine;
+                    document.querySelectorAll('.tts-engine-tab').forEach(t => t.classList.remove('active'));
+                    engineTab.classList.add('active');
+                    document.querySelectorAll('.tts-engine-content').forEach(c => c.classList.remove('active'));
+                    document.getElementById(`tts-${engine}-content`)?.classList.add('active');
+                    return;
+                }
+
+                // Puter engine selection
+                const puterEngine = e.target.closest('.tts-puter-engine');
+                if (puterEngine) {
+                    document.querySelectorAll('.tts-puter-engine').forEach(p => p.classList.remove('active'));
+                    puterEngine.classList.add('active');
+                    return;
+                }
+
+                // Browser voice selection
+                const browserVoice = e.target.closest('.tts-browser-voice');
+                if (browserVoice) {
+                    const idx = parseInt(browserVoice.dataset.voiceIndex);
+                    if (!isNaN(idx) && self.voices[idx]) {
+                        self.preferredVoice = self.voices[idx];
+                        document.querySelectorAll('.tts-browser-voice').forEach(v => v.classList.remove('active'));
+                        browserVoice.classList.add('active');
+                    }
+                    return;
+                }
+
+                // Show more voices
+                if (e.target.closest('#tts-show-more-voices')) {
+                    const btn = document.getElementById('tts-show-more-voices');
+                    const container = document.getElementById('tts-browser-voices-other');
+                    btn?.classList.toggle('expanded');
+                    container?.classList.toggle('collapsed');
+                    const span = btn?.querySelector('span');
+                    if (span) span.textContent = btn?.classList.contains('expanded') ? 'Ocultar voces' : 'Mostrar más voces';
+                    return;
+                }
+
+                // Puter preview
+                if (e.target.closest('#tts-puter-preview')) {
+                    self.previewPuter();
+                    return;
+                }
+
+                // Browser preview
+                if (e.target.closest('#tts-browser-preview')) {
+                    self.previewBrowser();
+                    return;
+                }
+
+                // Save settings
+                if (e.target.closest('#tts-save-settings')) {
+                    self.saveModalSettings();
+                    return;
+                }
+
+                // Close dropdown if clicking outside
+                if (!e.target.closest('.tts-speed-dropdown')) {
                     speedDropdown?.classList.remove('visible');
-                    voiceDropdown?.classList.remove('visible');
                 }
             });
         }
 
-        setSpeed(speed) {
-            this.speed = Math.max(0.5, Math.min(2, speed));
+        openModal() {
+            const overlay = document.getElementById('tts-modal-overlay');
+            overlay?.classList.add('visible');
+
+            // Sync UI with current settings
+            const langSelect = document.getElementById('tts-puter-lang');
+            if (langSelect) langSelect.value = this.puterLang;
+
+            document.querySelectorAll('.tts-puter-engine').forEach(p => {
+                p.classList.toggle('active', p.dataset.puterEngine === this.puterEngine);
+            });
+
+            document.querySelectorAll('.tts-engine-tab').forEach(t => {
+                t.classList.toggle('active', t.dataset.engine === this.engine);
+            });
+
+            document.querySelectorAll('.tts-engine-content').forEach(c => {
+                c.classList.toggle('active', c.id === `tts-${this.engine}-content`);
+            });
+        }
+
+        closeModal() {
+            document.getElementById('tts-modal-overlay')?.classList.remove('visible');
+        }
+
+        saveModalSettings() {
+            // Get selected engine
+            const activeTab = document.querySelector('.tts-engine-tab.active');
+            this.engine = activeTab?.dataset.engine || 'puter';
+
+            // Get Puter settings
+            const activePuterEngine = document.querySelector('.tts-puter-engine.active');
+            this.puterEngine = activePuterEngine?.dataset.puterEngine || 'neural';
+            const langSelect = document.getElementById('tts-puter-lang');
+            this.puterLang = langSelect?.value || 'es-MX';
+
+            this.saveSettings();
+            this.updateCurrentEngineDisplay();
+            this.closeModal();
+        }
+
+        updateCurrentEngineDisplay() {
+            const display = document.getElementById('tts-current-engine');
+            if (display) {
+                if (this.engine === 'puter') {
+                    const engineName = this.puterEngine.charAt(0).toUpperCase() + this.puterEngine.slice(1);
+                    display.textContent = `Puter ${engineName}`;
+                } else {
+                    display.textContent = 'Navegador';
+                }
+            }
+        }
+
+        async previewPuter() {
+            const btn = document.getElementById('tts-puter-preview');
+            if (!window.puter) {
+                alert('Puter.js no está disponible. Intenta recargar la página.');
+                return;
+            }
+
+            const activePuterEngine = document.querySelector('.tts-puter-engine.active');
+            const engine = activePuterEngine?.dataset.puterEngine || 'neural';
+            const langSelect = document.getElementById('tts-puter-lang');
+            const lang = langSelect?.value || 'es-MX';
+
+            btn?.classList.add('playing');
+            try {
+                const audio = await puter.ai.txt2speech('Hola, soy tu asistente de estudio personal.', {
+                    engine: engine,
+                    language: lang
+                });
+                audio.play();
+                audio.onended = () => btn?.classList.remove('playing');
+            } catch (e) {
+                console.error('Puter TTS error:', e);
+                btn?.classList.remove('playing');
+            }
+        }
+
+        previewBrowser() {
+            if (!this.synth) return;
+            this.synth.cancel();
+
+            const utterance = new SpeechSynthesisUtterance('Hola, soy tu asistente de estudio personal.');
+            if (this.preferredVoice) utterance.voice = this.preferredVoice;
+            utterance.rate = 1;
+
+            const btn = document.getElementById('tts-browser-preview');
+            btn?.classList.add('playing');
+            utterance.onend = () => btn?.classList.remove('playing');
+            this.synth.speak(utterance);
         }
 
         cleanTextForSpeech(text) {
-            // Remove markdown formatting for cleaner speech
             return text
-                // Remove code blocks
                 .replace(/```[\s\S]*?```/g, '')
-                // Remove inline code
                 .replace(/`[^`]+`/g, '')
-                // Remove markdown links, keep text
                 .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
-                // Remove headers markers
                 .replace(/^#{1,6}\s+/gm, '')
-                // Remove bold/italic markers
                 .replace(/\*\*([^*]+)\*\*/g, '$1')
                 .replace(/\*([^*]+)\*/g, '$1')
                 .replace(/__([^_]+)__/g, '$1')
                 .replace(/_([^_]+)_/g, '$1')
-                // Remove strikethrough
                 .replace(/~~([^~]+)~~/g, '$1')
-                // Remove blockquote markers
                 .replace(/^>\s+/gm, '')
-                // Remove list markers
                 .replace(/^[\-\*\+]\s+/gm, '')
                 .replace(/^\d+\.\s+/gm, '')
-                // Remove horizontal rules
                 .replace(/^---+$/gm, '')
-                // Clean up multiple spaces and newlines
                 .replace(/\n+/g, '. ')
                 .replace(/\s+/g, ' ')
-                // Remove emojis (optional, can keep them)
-                // .replace(/[\u{1F300}-\u{1F9FF}]/gu, '')
                 .trim();
         }
 
-        speak(text, messageElement) {
-            if (!this.synth) {
-                console.warn('TTS: SpeechSynthesis not supported');
-                return;
-            }
-
-            // Stop any current speech
+        async speak(text, messageElement) {
             this.stop();
 
-            // Clean text for speech
             const cleanText = this.cleanTextForSpeech(text);
+            if (!cleanText) return;
 
-            if (!cleanText) {
-                console.warn('TTS: No text to speak');
-                return;
-            }
-
-            // Create utterance
-            this.utterance = new SpeechSynthesisUtterance(cleanText);
-            this.utterance.rate = this.speed;
-            this.utterance.pitch = 1;
-            this.utterance.volume = 1;
-
-            if (this.preferredVoice) {
-                this.utterance.voice = this.preferredVoice;
-            }
-
-            // Store references
             this.currentMessageElement = messageElement;
             this.currentSpeakBtn = messageElement?.querySelector('.tts-speak-btn');
 
-            // Event handlers
+            if (this.engine === 'puter' && window.puter) {
+                await this.speakWithPuter(cleanText);
+            } else {
+                this.speakWithBrowser(cleanText);
+            }
+        }
+
+        async speakWithPuter(text) {
+            try {
+                this.updateUI('speaking');
+                this.isSpeaking = true;
+
+                this.currentAudio = await puter.ai.txt2speech(text, {
+                    engine: this.puterEngine,
+                    language: this.puterLang
+                });
+
+                this.currentAudio.playbackRate = this.speed;
+                this.currentAudio.onended = () => {
+                    this.isSpeaking = false;
+                    this.updateUI('idle');
+                };
+                this.currentAudio.onerror = () => {
+                    this.isSpeaking = false;
+                    this.updateUI('idle');
+                };
+                this.currentAudio.play();
+            } catch (e) {
+                console.error('Puter TTS error:', e);
+                // Fallback to browser
+                this.speakWithBrowser(text);
+            }
+        }
+
+        speakWithBrowser(text) {
+            if (!this.synth) return;
+
+            this.utterance = new SpeechSynthesisUtterance(text);
+            this.utterance.rate = this.speed;
+            if (this.preferredVoice) this.utterance.voice = this.preferredVoice;
+
             this.utterance.onstart = () => {
                 this.isSpeaking = true;
                 this.isPaused = false;
                 this.updateUI('speaking');
             };
-
             this.utterance.onend = () => {
                 this.isSpeaking = false;
-                this.isPaused = false;
                 this.updateUI('idle');
             };
-
-            this.utterance.onerror = (e) => {
-                console.error('TTS Error:', e);
+            this.utterance.onerror = () => {
                 this.isSpeaking = false;
-                this.isPaused = false;
                 this.updateUI('idle');
             };
-
             this.utterance.onpause = () => {
                 this.isPaused = true;
                 this.updateUI('paused');
             };
-
             this.utterance.onresume = () => {
                 this.isPaused = false;
                 this.updateUI('speaking');
             };
 
-            // Start speaking
             this.synth.speak(this.utterance);
         }
 
         pause() {
-            if (this.synth && this.isSpeaking && !this.isPaused) {
+            if (this.currentAudio && !this.currentAudio.paused) {
+                this.currentAudio.pause();
+                this.isPaused = true;
+                this.updateUI('paused');
+            } else if (this.synth && this.isSpeaking && !this.isPaused) {
                 this.synth.pause();
             }
         }
 
         resume() {
-            if (this.synth && this.isPaused) {
+            if (this.currentAudio && this.currentAudio.paused) {
+                this.currentAudio.play();
+                this.isPaused = false;
+                this.updateUI('speaking');
+            } else if (this.synth && this.isPaused) {
                 this.synth.resume();
             }
         }
@@ -3550,6 +4285,11 @@ Mantén respuestas concisas pero completas.`;
         }
 
         stop() {
+            if (this.currentAudio) {
+                this.currentAudio.pause();
+                this.currentAudio.currentTime = 0;
+                this.currentAudio = null;
+            }
             if (this.synth) {
                 this.synth.cancel();
             }
@@ -3562,20 +4302,18 @@ Mantén respuestas concisas pero completas.`;
             const stopBtn = document.getElementById('tts-stop-btn');
             const allSpeakBtns = document.querySelectorAll('.tts-speak-btn');
 
-            // Reset all speak buttons
             allSpeakBtns.forEach(btn => {
                 btn.classList.remove('speaking', 'paused');
                 btn.innerHTML = '<i class="fas fa-volume-up"></i>';
             });
 
-            // Reset all messages
             document.querySelectorAll('.message.tts-reading').forEach(msg => {
                 msg.classList.remove('tts-reading');
             });
 
             switch (state) {
                 case 'speaking':
-                    stopBtn.style.display = 'flex';
+                    if (stopBtn) stopBtn.style.display = 'flex';
                     if (this.currentSpeakBtn) {
                         this.currentSpeakBtn.classList.add('speaking');
                         this.currentSpeakBtn.innerHTML = `
@@ -3587,19 +4325,17 @@ Mantén respuestas concisas pero completas.`;
                     }
                     this.currentMessageElement?.classList.add('tts-reading');
                     break;
-
                 case 'paused':
-                    stopBtn.style.display = 'flex';
+                    if (stopBtn) stopBtn.style.display = 'flex';
                     if (this.currentSpeakBtn) {
                         this.currentSpeakBtn.classList.add('paused');
                         this.currentSpeakBtn.innerHTML = '<i class="fas fa-play"></i>';
                     }
                     this.currentMessageElement?.classList.add('tts-reading');
                     break;
-
                 case 'idle':
                 default:
-                    stopBtn.style.display = 'none';
+                    if (stopBtn) stopBtn.style.display = 'none';
                     break;
             }
         }
@@ -3608,11 +4344,12 @@ Mantén respuestas concisas pero completas.`;
     // Initialize TTS Manager globally
     window.ttsManager = new TTSManager();
 
-    // Re-initialize TTS controls after View Transitions
+    // Re-initialize after View Transitions
     document.addEventListener('astro:page-load', () => {
         if (window.ttsManager) {
             window.ttsManager.stop();
             window.ttsManager.initControls();
+            window.ttsManager.populateBrowserVoices();
         }
     });
 </script>
