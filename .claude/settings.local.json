@@ -454,7 +454,8 @@
       "Bash(git pull:*)",
       "Bash(git stash pop:*)",
       "Bash(git commit -m \"$\\(cat <<''EOF''\nfeat: mejorar TTS con selector de voz y arreglar SubjectDrawer\n\nTTS Tutor Panel:\n- Agregar selector de voz con lista de voces disponibles\n- Usar event delegation para controles TTS \\(mejor compatibilidad View Transitions\\)\n- Mostrar voces españolas prioritariamente\n- Indicador visual de voz seleccionada\n\nSubjectDrawer:\n- Aumentar max-height del acordeón de experiencias \\(800px\\)\n- Reducir espaciado entre secciones para layout más compacto\n- Reducir margin y padding en section-content, section-title, exp-separator\nEOF\n\\)\")",
-      "Bash(dir:*)"
+      "Bash(dir:*)",
+      "Bash(git mv:*)"
     ]
   }
 }
