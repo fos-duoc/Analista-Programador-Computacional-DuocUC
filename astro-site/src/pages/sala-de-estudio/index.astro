@@ -12,6 +12,7 @@ import SubjectDrawer from '../../components/SubjectDrawer.astro';
 import AITutorSidePanel from '../../components/AITutorSidePanel.astro';
 import BestPracticeDrawer from '../../components/BestPracticeDrawer.astro';
 import TechDrawer from '../../components/TechDrawer.astro';
+import SubjectNavigationSidebar from '../../components/SubjectNavigationSidebar.astro';
 import { bimestresYear1, bimestresYear2, bimestresYear3, bimestresYear4 } from '../../data/bimestres';
 import { nombreCortoToId, asignaturas } from '../../data/asignaturas';
 import { subjectToBestPractices, bestPractices } from '../../data/bestPractices';
@@ -65,6 +66,7 @@ const subjectLinks: Record<string, string> = {
 
 <Layout title="Sala de Estudio | DuocUC Informática">
     <Header />
+    <SubjectNavigationSidebar />
     <main class="malla-page">
         <!-- Hero Section -->
         <section class="malla-hero">
@@ -674,6 +676,26 @@ const subjectLinks: Record<string, string> = {
     .malla-page {
         min-height: 100vh;
         padding-top: 80px;
+        margin-left: var(--nav-sidebar-width, 280px);
+        transition: margin-left 0.3s ease;
+    }
+
+    /* When sidebar is collapsed */
+    .malla-page.sidebar-collapsed {
+        margin-left: 0;
+    }
+
+    /* Adjust quick-nav for sidebar */
+    .quick-nav {
+        left: var(--nav-sidebar-width, 280px);
+        width: calc(100% - var(--nav-sidebar-width, 280px));
+        transition: left 0.3s ease, width 0.3s ease;
+    }
+
+    .malla-page.sidebar-collapsed .quick-nav,
+    body.sidebar-collapsed .quick-nav {
+        left: 0;
+        width: 100%;
     }
 
     /* Hero Section */
@@ -1893,6 +1915,18 @@ const subjectLinks: Record<string, string> = {
     /* =============================================
        RESPONSIVE
        ============================================= */
+    /* Sidebar hidden on smaller screens */
+    @media (max-width: 1200px) {
+        .malla-page {
+            margin-left: 0 !important;
+        }
+
+        .quick-nav {
+            left: 0 !important;
+            width: 100% !important;
+        }
+    }
+
     @media (max-width: 768px) {
         .malla-hero {
             padding: 3rem 1.5rem 4rem;
@@ -2072,17 +2106,56 @@ const subjectLinks: Record<string, string> = {
         });
     }
 
+    // Handle sidebar resize events
+    function initSidebarLayoutSync() {
+        const mallaPage = document.querySelector('.malla-page');
+        if (!mallaPage) return;
+
+        // Listen for sidebar resize
+        window.addEventListener('navSidebarResize', (e) => {
+            const width = e.detail?.width || 280;
+            document.documentElement.style.setProperty('--nav-sidebar-width', `${width}px`);
+        });
+
+        // Listen for sidebar toggle
+        window.addEventListener('navSidebarToggle', (e) => {
+            const isOpen = e.detail?.isOpen;
+            if (isOpen) {
+                mallaPage.classList.remove('sidebar-collapsed');
+                document.body.classList.remove('sidebar-collapsed');
+            } else {
+                mallaPage.classList.add('sidebar-collapsed');
+                document.body.classList.add('sidebar-collapsed');
+            }
+        });
+
+        // Restore sidebar state from localStorage
+        const savedWidth = localStorage.getItem('navSidebarWidth');
+        const savedCollapsed = localStorage.getItem('navSidebarCollapsed');
+
+        if (savedWidth) {
+            document.documentElement.style.setProperty('--nav-sidebar-width', `${savedWidth}px`);
+        }
+
+        if (savedCollapsed === 'true') {
+            mallaPage.classList.add('sidebar-collapsed');
+            document.body.classList.add('sidebar-collapsed');
+        }
+    }
+
     // Inicializar en carga inicial y View Transitions
     document.addEventListener('DOMContentLoaded', () => {
         ensureDrawersClosed();
         initSubjectChips();
         initBestPracticeIcons();
         initTechIcons();
+        initSidebarLayoutSync();
     });
     document.addEventListener('astro:page-load', () => {
         ensureDrawersClosed();
         initSubjectChips();
         initBestPracticeIcons();
         initTechIcons();
+        initSidebarLayoutSync();
     });
 </script>
