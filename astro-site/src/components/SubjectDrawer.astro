@@ -831,12 +831,17 @@ const base = import.meta.env.BASE_URL;
     .exp-content {
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.3s ease;
+        opacity: 0;
+        visibility: hidden;
+        padding: 0;
+        transition: max-height 0.3s ease, opacity 0.2s ease, visibility 0.2s ease;
     }
 
     .exp-card.expanded .exp-content {
         max-height: 800px;
         overflow-y: auto;
+        opacity: 1;
+        visibility: visible;
     }
 
     .exp-content-inner {
@@ -2288,23 +2293,68 @@ const base = import.meta.env.BASE_URL;
 <!-- Script inline separado para event listeners - se ejecuta en cada View Transition -->
 <script is:inline>
     (function initSubjectDrawerEvents() {
-        // Toggle de experiencias usando event delegation
-        // Removemos cualquier listener previo y añadimos uno nuevo
+        // Toggle de experiencias - Usar múltiples estrategias para máxima compatibilidad
+
+        // Estrategia 1: Event delegation en document con capture
         if (!window._expToggleHandler) {
             window._expToggleHandler = function(e) {
-                // Buscar si el click fue en un header de experiencia o sus hijos
                 const header = e.target.closest('[data-exp-toggle]');
                 if (header) {
                     e.preventDefault();
                     e.stopPropagation();
-                    const index = header.getAttribute('data-exp-toggle');
                     const card = header.closest('.exp-card');
                     if (card) {
                         card.classList.toggle('expanded');
+                        console.log('[SubjectDrawer] Toggled exp-card:', card.id, 'expanded:', card.classList.contains('expanded'));
                     }
                 }
             };
             document.addEventListener('click', window._expToggleHandler, true);
+        }
+
+        // Estrategia 2: Función global para toggle manual
+        window.toggleExperiencia = function(index) {
+            const card = document.getElementById('exp-card-' + index);
+            if (card) {
+                card.classList.toggle('expanded');
+                console.log('[SubjectDrawer] Manual toggle exp-card-' + index, 'expanded:', card.classList.contains('expanded'));
+            }
+        };
+
+        // Estrategia 3: Attach directo a los headers existentes
+        function attachExpToggleHandlers() {
+            const headers = document.querySelectorAll('[data-exp-toggle]');
+            headers.forEach(header => {
+                // Evitar duplicados usando data attribute
+                if (!header.hasAttribute('data-toggle-attached')) {
+                    header.setAttribute('data-toggle-attached', 'true');
+                    header.style.cursor = 'pointer';
+                    header.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const card = this.closest('.exp-card');
+                        if (card) {
+                            card.classList.toggle('expanded');
+                            console.log('[SubjectDrawer] Direct handler toggled:', card.id);
+                        }
+                    });
+                }
+            });
+            if (headers.length > 0) {
+                console.log('[SubjectDrawer] Attached direct handlers to', headers.length, 'exp-headers');
+            }
+        }
+
+        // Ejecutar attach después de un pequeño delay para asegurar que el DOM está listo
+        setTimeout(attachExpToggleHandlers, 100);
+
+        // También ejecutar cuando se actualiza el contenido del drawer
+        const originalUpdateDrawerContent = window.updateDrawerContent;
+        if (typeof originalUpdateDrawerContent === 'function') {
+            window.updateDrawerContent = function(...args) {
+                originalUpdateDrawerContent.apply(this, args);
+                setTimeout(attachExpToggleHandlers, 50);
+            };
         }
 
         function attachDrawerEvents() {
