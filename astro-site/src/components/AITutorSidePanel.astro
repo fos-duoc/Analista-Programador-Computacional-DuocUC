@@ -32,6 +32,24 @@ const base = import.meta.env.BASE_URL;
                 </div>
             </div>
         </div>
+        <!-- TTS Controls -->
+        <div class="tts-controls" id="tts-controls">
+            <button class="tts-speed-btn" id="tts-speed-btn" title="Velocidad de lectura">
+                <i class="fas fa-tachometer-alt"></i>
+                <span id="tts-speed-label">1x</span>
+            </button>
+            <div class="tts-speed-dropdown" id="tts-speed-dropdown">
+                <button class="tts-speed-option" data-speed="0.75">0.75x</button>
+                <button class="tts-speed-option active" data-speed="1">1x</button>
+                <button class="tts-speed-option" data-speed="1.25">1.25x</button>
+                <button class="tts-speed-option" data-speed="1.5">1.5x</button>
+                <button class="tts-speed-option" data-speed="1.75">1.75x</button>
+                <button class="tts-speed-option" data-speed="2">2x</button>
+            </div>
+            <button class="tts-stop-btn" id="tts-stop-btn" title="Detener lectura" style="display: none;">
+                <i class="fas fa-stop"></i>
+            </button>
+        </div>
         <button class="tutor-close" id="tutor-close" aria-label="Cerrar panel" title="Cerrar">
             <i class="fas fa-times"></i>
         </button>
@@ -299,6 +317,203 @@ const base = import.meta.env.BASE_URL;
         50% { opacity: 0.7; box-shadow: 0 0 12px rgba(34, 197, 94, 0.8); }
     }
 
+    /* ============================================
+       TTS CONTROLS - Text-to-Speech
+       Premium voice reading experience
+    ============================================ */
+    .tts-controls {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        margin-right: 0.5rem;
+        position: relative;
+    }
+
+    .tts-speed-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        padding: 0.3rem 0.5rem;
+        border-radius: 6px;
+        border: 1px solid rgba(139, 92, 246, 0.25);
+        background: rgba(139, 92, 246, 0.1);
+        color: #c4b5fd;
+        cursor: pointer;
+        font-size: 0.6rem;
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 500;
+        transition: all 0.2s ease;
+    }
+
+    .tts-speed-btn:hover {
+        background: rgba(139, 92, 246, 0.2);
+        border-color: rgba(139, 92, 246, 0.4);
+        color: #e0d4ff;
+    }
+
+    .tts-speed-btn i {
+        font-size: 0.58rem;
+    }
+
+    .tts-speed-dropdown {
+        position: absolute;
+        top: calc(100% + 4px);
+        right: 0;
+        background: linear-gradient(135deg, #1e293b, #0f172a);
+        border: 1px solid rgba(139, 92, 246, 0.3);
+        border-radius: 8px;
+        padding: 0.3rem;
+        display: none;
+        flex-direction: column;
+        gap: 0.2rem;
+        z-index: 100;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(139, 92, 246, 0.1);
+        min-width: 70px;
+    }
+
+    .tts-speed-dropdown.visible {
+        display: flex;
+    }
+
+    .tts-speed-option {
+        padding: 0.35rem 0.5rem;
+        border: none;
+        border-radius: 5px;
+        background: transparent;
+        color: #94a3b8;
+        font-size: 0.62rem;
+        font-family: 'JetBrains Mono', monospace;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        text-align: center;
+    }
+
+    .tts-speed-option:hover {
+        background: rgba(139, 92, 246, 0.15);
+        color: #c4b5fd;
+    }
+
+    .tts-speed-option.active {
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(6, 182, 212, 0.15));
+        color: #e0d4ff;
+        font-weight: 600;
+    }
+
+    .tts-stop-btn {
+        width: 26px;
+        height: 26px;
+        border-radius: 6px;
+        border: 1px solid rgba(239, 68, 68, 0.35);
+        background: rgba(239, 68, 68, 0.15);
+        color: #f87171;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        font-size: 0.58rem;
+        animation: ttsStopPulse 1.5s ease-in-out infinite;
+    }
+
+    .tts-stop-btn:hover {
+        background: rgba(239, 68, 68, 0.25);
+        border-color: rgba(239, 68, 68, 0.5);
+        transform: scale(1.05);
+    }
+
+    @keyframes ttsStopPulse {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.3); }
+        50% { box-shadow: 0 0 8px 2px rgba(239, 68, 68, 0.2); }
+    }
+
+    /* TTS Speaker button on messages */
+    .tts-speak-btn {
+        position: absolute;
+        top: 0.4rem;
+        right: 0.4rem;
+        width: 24px;
+        height: 24px;
+        border-radius: 5px;
+        border: 1px solid rgba(139, 92, 246, 0.2);
+        background: rgba(30, 41, 59, 0.6);
+        color: #94a3b8;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        font-size: 0.58rem;
+        opacity: 0;
+        z-index: 5;
+    }
+
+    .message:hover .tts-speak-btn {
+        opacity: 1;
+    }
+
+    .tts-speak-btn:hover {
+        background: rgba(139, 92, 246, 0.2);
+        border-color: rgba(139, 92, 246, 0.4);
+        color: #c4b5fd;
+        transform: scale(1.1);
+    }
+
+    .tts-speak-btn.speaking {
+        opacity: 1;
+        background: linear-gradient(135deg, rgba(34, 197, 94, 0.25), rgba(6, 182, 212, 0.15));
+        border-color: rgba(34, 197, 94, 0.4);
+        color: #4ade80;
+        animation: ttsSpeaking 1s ease-in-out infinite;
+    }
+
+    .tts-speak-btn.paused {
+        opacity: 1;
+        background: rgba(251, 191, 36, 0.15);
+        border-color: rgba(251, 191, 36, 0.35);
+        color: #fbbf24;
+    }
+
+    @keyframes ttsSpeaking {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.08); }
+    }
+
+    /* Visual feedback - Message being read */
+    .message.tts-reading .message-bubble {
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(6, 182, 212, 0.08)) !important;
+        border-color: rgba(139, 92, 246, 0.35) !important;
+        box-shadow: 0 0 20px rgba(139, 92, 246, 0.15), 0 4px 12px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+    }
+
+    /* Audio visualizer wave effect */
+    .tts-wave {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        height: 12px;
+        margin-left: 0.3rem;
+    }
+
+    .tts-wave span {
+        width: 2px;
+        height: 100%;
+        background: currentColor;
+        border-radius: 1px;
+        animation: ttsWave 0.8s ease-in-out infinite;
+    }
+
+    .tts-wave span:nth-child(1) { animation-delay: 0s; height: 40%; }
+    .tts-wave span:nth-child(2) { animation-delay: 0.1s; height: 70%; }
+    .tts-wave span:nth-child(3) { animation-delay: 0.2s; height: 100%; }
+    .tts-wave span:nth-child(4) { animation-delay: 0.3s; height: 70%; }
+    .tts-wave span:nth-child(5) { animation-delay: 0.4s; height: 40%; }
+
+    @keyframes ttsWave {
+        0%, 100% { transform: scaleY(0.4); }
+        50% { transform: scaleY(1); }
+    }
+
     .tutor-close {
         width: 28px;
         height: 28px;
@@ -550,6 +765,7 @@ const base = import.meta.env.BASE_URL;
         gap: 0.5rem;
         animation: messageSlide 0.35s ease;
         max-width: 90%;
+        position: relative;
     }
 
     @keyframes messageSlide {
@@ -1545,6 +1761,73 @@ const base = import.meta.env.BASE_URL;
         background: rgba(241, 245, 249, 0.8);
         border-color: rgba(0, 0, 0, 0.08);
         color: #64748b;
+    }
+
+    /* Light mode TTS Controls */
+    :global([data-theme="light"]) .tts-speed-btn {
+        background: rgba(139, 92, 246, 0.08);
+        border-color: rgba(139, 92, 246, 0.2);
+        color: #7c3aed;
+    }
+
+    :global([data-theme="light"]) .tts-speed-btn:hover {
+        background: rgba(139, 92, 246, 0.15);
+        color: #6d28d9;
+    }
+
+    :global([data-theme="light"]) .tts-speed-dropdown {
+        background: linear-gradient(135deg, #ffffff, #f8fafc);
+        border-color: rgba(139, 92, 246, 0.2);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    :global([data-theme="light"]) .tts-speed-option {
+        color: #475569;
+    }
+
+    :global([data-theme="light"]) .tts-speed-option:hover {
+        background: rgba(139, 92, 246, 0.1);
+        color: #7c3aed;
+    }
+
+    :global([data-theme="light"]) .tts-speed-option.active {
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(6, 182, 212, 0.1));
+        color: #7c3aed;
+    }
+
+    :global([data-theme="light"]) .tts-stop-btn {
+        background: rgba(239, 68, 68, 0.1);
+        border-color: rgba(239, 68, 68, 0.25);
+        color: #dc2626;
+    }
+
+    :global([data-theme="light"]) .tts-speak-btn {
+        background: rgba(255, 255, 255, 0.8);
+        border-color: rgba(139, 92, 246, 0.15);
+        color: #64748b;
+    }
+
+    :global([data-theme="light"]) .tts-speak-btn:hover {
+        background: rgba(139, 92, 246, 0.1);
+        color: #7c3aed;
+    }
+
+    :global([data-theme="light"]) .tts-speak-btn.speaking {
+        background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(6, 182, 212, 0.1));
+        border-color: rgba(34, 197, 94, 0.3);
+        color: #16a34a;
+    }
+
+    :global([data-theme="light"]) .tts-speak-btn.paused {
+        background: rgba(251, 191, 36, 0.1);
+        border-color: rgba(251, 191, 36, 0.25);
+        color: #d97706;
+    }
+
+    :global([data-theme="light"]) .message.tts-reading .message-bubble {
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(6, 182, 212, 0.04)) !important;
+        border-color: rgba(139, 92, 246, 0.2) !important;
+        box-shadow: 0 0 15px rgba(139, 92, 246, 0.1), 0 2px 8px rgba(0, 0, 0, 0.05);
     }
 
     :global([data-theme="light"]) .tutor-context {
@@ -2544,13 +2827,40 @@ Mantén respuestas concisas pero completas.`;
             ? '<img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg" alt="AI" />'
             : '<i class="fas fa-user"></i>';
 
+        // TTS speaker button for assistant messages only
+        const ttsButton = role === 'assistant'
+            ? `<button class="tts-speak-btn" title="Escuchar mensaje" data-tts-text="${escapeHtmlAttr(content)}">
+                <i class="fas fa-volume-up"></i>
+               </button>`
+            : '';
+
         messageDiv.innerHTML = `
             <div class="message-avatar">${avatarContent}</div>
             <div class="message-bubble">${formattedContent}</div>
+            ${ttsButton}
         `;
 
         messagesContainer.appendChild(messageDiv);
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+        // Attach TTS speak button event listener
+        const speakBtn = messageDiv.querySelector('.tts-speak-btn');
+        if (speakBtn) {
+            speakBtn.addEventListener('click', function() {
+                const tts = window.ttsManager;
+                if (!tts) return;
+
+                // If this button is speaking, toggle pause/resume
+                if (tts.currentSpeakBtn === this && tts.isSpeaking) {
+                    tts.toggle();
+                    return;
+                }
+
+                // Otherwise, start speaking this message
+                const text = this.getAttribute('data-tts-text');
+                tts.speak(text, messageDiv);
+            });
+        }
 
         // Attach copy button event listeners for code blocks
         const copyButtons = messageDiv.querySelectorAll('.code-copy');
@@ -2580,6 +2890,16 @@ Mantén respuestas concisas pero completas.`;
         const div = document.createElement('div');
         div.textContent = text;
         return div.innerHTML;
+    }
+
+    // Helper function to escape HTML attributes (for data attributes)
+    function escapeHtmlAttr(text) {
+        return text
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
     }
 
     function showLoading(show) {
@@ -2667,6 +2987,298 @@ Mantén respuestas concisas pero completas.`;
             } catch (e) {
                 console.warn('Error restoring AI Tutor state:', e);
             }
+        }
+    });
+
+    // ============================================
+    // TEXT-TO-SPEECH (TTS) MANAGER
+    // Premium voice reading experience
+    // Uses Web Speech API (SpeechSynthesis)
+    // ============================================
+
+    class TTSManager {
+        constructor() {
+            this.synth = window.speechSynthesis;
+            this.utterance = null;
+            this.currentMessageElement = null;
+            this.currentSpeakBtn = null;
+            this.speed = 1;
+            this.isPaused = false;
+            this.isSpeaking = false;
+            this.voices = [];
+            this.preferredVoice = null;
+
+            // Load voices (async on some browsers)
+            this.loadVoices();
+            if (this.synth.onvoiceschanged !== undefined) {
+                this.synth.onvoiceschanged = () => this.loadVoices();
+            }
+
+            // Initialize UI controls
+            this.initControls();
+        }
+
+        loadVoices() {
+            this.voices = this.synth.getVoices();
+
+            // Prefer Spanish voices, especially from Latin America or Spain
+            const spanishVoices = this.voices.filter(v =>
+                v.lang.startsWith('es') || v.lang.includes('ES')
+            );
+
+            // Priority: es-MX, es-CL, es-419 (Latin America), es-ES, then any Spanish
+            const priorities = ['es-MX', 'es-CL', 'es-419', 'es-ES', 'es'];
+            for (const lang of priorities) {
+                const voice = spanishVoices.find(v => v.lang.startsWith(lang));
+                if (voice) {
+                    this.preferredVoice = voice;
+                    console.log('TTS: Selected voice:', voice.name, voice.lang);
+                    break;
+                }
+            }
+
+            // Fallback to any available voice if no Spanish
+            if (!this.preferredVoice && this.voices.length > 0) {
+                this.preferredVoice = spanishVoices[0] || this.voices[0];
+                console.log('TTS: Fallback voice:', this.preferredVoice.name);
+            }
+        }
+
+        initControls() {
+            // Speed button dropdown toggle
+            const speedBtn = document.getElementById('tts-speed-btn');
+            const speedDropdown = document.getElementById('tts-speed-dropdown');
+            const stopBtn = document.getElementById('tts-stop-btn');
+
+            speedBtn?.addEventListener('click', (e) => {
+                e.stopPropagation();
+                speedDropdown?.classList.toggle('visible');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', () => {
+                speedDropdown?.classList.remove('visible');
+            });
+
+            // Speed options
+            const speedOptions = document.querySelectorAll('.tts-speed-option');
+            speedOptions.forEach(opt => {
+                opt.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const speed = parseFloat(opt.dataset.speed);
+                    this.setSpeed(speed);
+
+                    // Update UI
+                    speedOptions.forEach(o => o.classList.remove('active'));
+                    opt.classList.add('active');
+                    document.getElementById('tts-speed-label').textContent = speed + 'x';
+                    speedDropdown?.classList.remove('visible');
+
+                    // If currently speaking, restart with new speed
+                    if (this.isSpeaking && this.currentMessageElement) {
+                        const text = this.currentSpeakBtn?.getAttribute('data-tts-text');
+                        if (text) {
+                            this.stop();
+                            setTimeout(() => {
+                                this.speak(text, this.currentMessageElement);
+                            }, 100);
+                        }
+                    }
+                });
+            });
+
+            // Stop button
+            stopBtn?.addEventListener('click', () => {
+                this.stop();
+            });
+        }
+
+        setSpeed(speed) {
+            this.speed = Math.max(0.5, Math.min(2, speed));
+        }
+
+        cleanTextForSpeech(text) {
+            // Remove markdown formatting for cleaner speech
+            return text
+                // Remove code blocks
+                .replace(/```[\s\S]*?```/g, '')
+                // Remove inline code
+                .replace(/`[^`]+`/g, '')
+                // Remove markdown links, keep text
+                .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+                // Remove headers markers
+                .replace(/^#{1,6}\s+/gm, '')
+                // Remove bold/italic markers
+                .replace(/\*\*([^*]+)\*\*/g, '$1')
+                .replace(/\*([^*]+)\*/g, '$1')
+                .replace(/__([^_]+)__/g, '$1')
+                .replace(/_([^_]+)_/g, '$1')
+                // Remove strikethrough
+                .replace(/~~([^~]+)~~/g, '$1')
+                // Remove blockquote markers
+                .replace(/^>\s+/gm, '')
+                // Remove list markers
+                .replace(/^[\-\*\+]\s+/gm, '')
+                .replace(/^\d+\.\s+/gm, '')
+                // Remove horizontal rules
+                .replace(/^---+$/gm, '')
+                // Clean up multiple spaces and newlines
+                .replace(/\n+/g, '. ')
+                .replace(/\s+/g, ' ')
+                // Remove emojis (optional, can keep them)
+                // .replace(/[\u{1F300}-\u{1F9FF}]/gu, '')
+                .trim();
+        }
+
+        speak(text, messageElement) {
+            if (!this.synth) {
+                console.warn('TTS: SpeechSynthesis not supported');
+                return;
+            }
+
+            // Stop any current speech
+            this.stop();
+
+            // Clean text for speech
+            const cleanText = this.cleanTextForSpeech(text);
+
+            if (!cleanText) {
+                console.warn('TTS: No text to speak');
+                return;
+            }
+
+            // Create utterance
+            this.utterance = new SpeechSynthesisUtterance(cleanText);
+            this.utterance.rate = this.speed;
+            this.utterance.pitch = 1;
+            this.utterance.volume = 1;
+
+            if (this.preferredVoice) {
+                this.utterance.voice = this.preferredVoice;
+            }
+
+            // Store references
+            this.currentMessageElement = messageElement;
+            this.currentSpeakBtn = messageElement?.querySelector('.tts-speak-btn');
+
+            // Event handlers
+            this.utterance.onstart = () => {
+                this.isSpeaking = true;
+                this.isPaused = false;
+                this.updateUI('speaking');
+            };
+
+            this.utterance.onend = () => {
+                this.isSpeaking = false;
+                this.isPaused = false;
+                this.updateUI('idle');
+            };
+
+            this.utterance.onerror = (e) => {
+                console.error('TTS Error:', e);
+                this.isSpeaking = false;
+                this.isPaused = false;
+                this.updateUI('idle');
+            };
+
+            this.utterance.onpause = () => {
+                this.isPaused = true;
+                this.updateUI('paused');
+            };
+
+            this.utterance.onresume = () => {
+                this.isPaused = false;
+                this.updateUI('speaking');
+            };
+
+            // Start speaking
+            this.synth.speak(this.utterance);
+        }
+
+        pause() {
+            if (this.synth && this.isSpeaking && !this.isPaused) {
+                this.synth.pause();
+            }
+        }
+
+        resume() {
+            if (this.synth && this.isPaused) {
+                this.synth.resume();
+            }
+        }
+
+        toggle() {
+            if (this.isPaused) {
+                this.resume();
+            } else if (this.isSpeaking) {
+                this.pause();
+            }
+        }
+
+        stop() {
+            if (this.synth) {
+                this.synth.cancel();
+            }
+            this.isSpeaking = false;
+            this.isPaused = false;
+            this.updateUI('idle');
+        }
+
+        updateUI(state) {
+            const stopBtn = document.getElementById('tts-stop-btn');
+            const allSpeakBtns = document.querySelectorAll('.tts-speak-btn');
+
+            // Reset all speak buttons
+            allSpeakBtns.forEach(btn => {
+                btn.classList.remove('speaking', 'paused');
+                btn.innerHTML = '<i class="fas fa-volume-up"></i>';
+            });
+
+            // Reset all messages
+            document.querySelectorAll('.message.tts-reading').forEach(msg => {
+                msg.classList.remove('tts-reading');
+            });
+
+            switch (state) {
+                case 'speaking':
+                    stopBtn.style.display = 'flex';
+                    if (this.currentSpeakBtn) {
+                        this.currentSpeakBtn.classList.add('speaking');
+                        this.currentSpeakBtn.innerHTML = `
+                            <i class="fas fa-pause"></i>
+                            <div class="tts-wave">
+                                <span></span><span></span><span></span><span></span><span></span>
+                            </div>
+                        `;
+                    }
+                    this.currentMessageElement?.classList.add('tts-reading');
+                    break;
+
+                case 'paused':
+                    stopBtn.style.display = 'flex';
+                    if (this.currentSpeakBtn) {
+                        this.currentSpeakBtn.classList.add('paused');
+                        this.currentSpeakBtn.innerHTML = '<i class="fas fa-play"></i>';
+                    }
+                    this.currentMessageElement?.classList.add('tts-reading');
+                    break;
+
+                case 'idle':
+                default:
+                    stopBtn.style.display = 'none';
+                    break;
+            }
+        }
+    }
+
+    // Initialize TTS Manager globally
+    window.ttsManager = new TTSManager();
+
+    // Re-initialize TTS controls after View Transitions
+    document.addEventListener('astro:page-load', () => {
+        if (window.ttsManager) {
+            window.ttsManager.stop();
+            window.ttsManager.initControls();
         }
     });
 </script>
