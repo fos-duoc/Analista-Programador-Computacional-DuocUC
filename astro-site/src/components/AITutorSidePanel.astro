@@ -208,6 +208,10 @@ const base = import.meta.env.BASE_URL;
                     <i class="fas fa-external-link-alt"></i>
                     Obtener API Key gratis en Google AI Studio
                 </a>
+                <p class="api-key-note">
+                    <i class="fas fa-info-circle"></i>
+                    Chat IA: ~15 req/min en free tier. Voz TTS: ilimitada (Puter.js).
+                </p>
             </div>
         </div>
 
@@ -2832,6 +2836,24 @@ const base = import.meta.env.BASE_URL;
         color: #c4b5fd;
     }
 
+    .api-key-note {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        font-size: 0.5rem;
+        color: #64748b;
+        margin: 0;
+        padding: 0.25rem 0.35rem;
+        background: rgba(100, 116, 139, 0.05);
+        border-radius: 4px;
+        border-left: 2px solid rgba(100, 116, 139, 0.2);
+    }
+
+    .api-key-note i {
+        font-size: 0.45rem;
+        opacity: 0.7;
+    }
+
     /* Chat Input - Compact Premium */
     .chat-input-container {
         display: flex;
@@ -3376,6 +3398,12 @@ const base = import.meta.env.BASE_URL;
     :global([data-theme="light"]) .api-key-link {
         background: rgba(139, 92, 246, 0.03);
         color: #7c3aed;
+    }
+
+    :global([data-theme="light"]) .api-key-note {
+        color: #475569;
+        background: rgba(71, 85, 105, 0.05);
+        border-left-color: rgba(71, 85, 105, 0.25);
     }
 
     :global([data-theme="light"]) .model-badge {
@@ -4214,6 +4242,11 @@ const base = import.meta.env.BASE_URL;
         }
     }
 
+    // ============================================
+    // GEMINI API - Límites de uso
+    // Cada estudiante debe usar su propia API Key (gratis en aistudio.google.com)
+    // Free tier: ~15 requests/min - Con +10 usuarios simultáneos podría saturarse
+    // ============================================
     async function callGeminiAPI(message, apiKey) {
         const subjectContext = currentSubject
             ? `la asignatura "${currentSubject.name}" (código: ${currentSubject.code})`
