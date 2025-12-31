@@ -222,18 +222,13 @@ const base = import.meta.env.BASE_URL;
         </div>
 
         <div class="tts-modal-body">
-            <!-- Engine Selector Tabs -->
-            <div class="tts-engine-tabs">
-                <button class="tts-engine-tab active" data-engine="puter">
+            <!-- Engine Header -->
+            <div class="tts-engine-header">
+                <div class="tts-engine-active">
                     <i class="fas fa-robot"></i>
-                    <span>Voces IA</span>
-                    <span class="engine-badge neural">Neural</span>
-                </button>
-                <button class="tts-engine-tab" data-engine="browser">
-                    <i class="fas fa-globe"></i>
-                    <span>Navegador</span>
-                    <span class="engine-badge local">Local</span>
-                </button>
+                    <span>Voces IA Neural</span>
+                    <span class="engine-badge neural">Puter.js</span>
+                </div>
             </div>
 
             <!-- Puter AI Voices Section -->
@@ -260,11 +255,6 @@ const base = import.meta.env.BASE_URL;
                             <i class="fas fa-magic"></i>
                             <span>Generativo</span>
                             <small>Más expresivo</small>
-                        </button>
-                        <button class="tts-puter-engine" data-puter-engine="standard">
-                            <i class="fas fa-volume-up"></i>
-                            <span>Estándar</span>
-                            <small>Rápido</small>
                         </button>
                     </div>
                 </div>
@@ -303,43 +293,6 @@ const base = import.meta.env.BASE_URL;
                 </div>
             </div>
 
-            <!-- Browser Voices Section -->
-            <div class="tts-engine-content" id="tts-browser-content">
-                <div class="tts-engine-info browser">
-                    <div class="engine-logo">
-                        <i class="fas fa-chrome"></i>
-                    </div>
-                    <div class="engine-description">
-                        <h4>Voces del Navegador</h4>
-                        <p>Voces integradas en tu sistema. Calidad variable según el navegador.</p>
-                    </div>
-                </div>
-
-                <div class="tts-voice-group">
-                    <label class="tts-label">Voces en Español</label>
-                    <div class="tts-browser-voices" id="tts-browser-voices-es">
-                        <!-- Se llena dinámicamente -->
-                    </div>
-                </div>
-
-                <div class="tts-voice-group">
-                    <label class="tts-label">Otras Voces</label>
-                    <div class="tts-browser-voices collapsed" id="tts-browser-voices-other">
-                        <!-- Se llena dinámicamente -->
-                    </div>
-                    <button class="tts-show-more" id="tts-show-more-voices">
-                        <i class="fas fa-chevron-down"></i>
-                        <span>Mostrar más voces</span>
-                    </button>
-                </div>
-
-                <div class="tts-preview-section">
-                    <button class="tts-preview-btn" id="tts-browser-preview">
-                        <i class="fas fa-play"></i>
-                        <span>Probar voz</span>
-                    </button>
-                </div>
-            </div>
         </div>
 
         <div class="tts-modal-footer">
@@ -868,10 +821,32 @@ const base = import.meta.env.BASE_URL;
         overflow-y: auto;
     }
 
-    .tts-engine-tabs {
+    .tts-engine-header {
         display: flex;
-        gap: 0.5rem;
+        justify-content: center;
         margin-bottom: 1rem;
+    }
+
+    .tts-engine-active {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 1rem;
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(6, 182, 212, 0.1));
+        border: 1px solid rgba(139, 92, 246, 0.3);
+        border-radius: 10px;
+        color: #e2e8f0;
+        font-family: 'Inter', sans-serif;
+        font-weight: 600;
+    }
+
+    .tts-engine-active i {
+        color: #8b5cf6;
+        font-size: 1rem;
+    }
+
+    .tts-engine-tabs {
+        display: none;
     }
 
     .tts-engine-tab {
