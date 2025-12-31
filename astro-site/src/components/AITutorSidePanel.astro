@@ -17,6 +17,15 @@ const base = import.meta.env.BASE_URL;
 
 <!-- AI Tutor Side Panel - Premium Design -->
 <aside id="ai-tutor-panel" class="ai-tutor-panel" aria-label="Tutor IA" role="complementary">
+    <!-- Resize Handle - Left Edge -->
+    <div class="panel-resize-handle" id="panel-resize-handle" title="Arrastrar para redimensionar">
+        <div class="resize-grip">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
     <!-- Premium Header -->
     <header class="tutor-header">
         <div class="tutor-branding">
@@ -366,6 +375,109 @@ const base = import.meta.env.BASE_URL;
     .ai-tutor-panel.visible {
         transform: translateX(0);
         visibility: visible;
+    }
+
+    /* ============================================
+       RESIZE HANDLE - Sophisticated Horizontal Resizing
+    ============================================ */
+    .panel-resize-handle {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6px;
+        height: 100%;
+        cursor: ew-resize;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        transition: background 0.2s ease, width 0.15s ease;
+    }
+
+    .panel-resize-handle:hover {
+        background: linear-gradient(90deg,
+            rgba(139, 92, 246, 0.3) 0%,
+            rgba(139, 92, 246, 0.1) 50%,
+            transparent 100%);
+        width: 8px;
+    }
+
+    .panel-resize-handle:active,
+    .ai-tutor-panel.resizing .panel-resize-handle {
+        background: linear-gradient(90deg,
+            rgba(139, 92, 246, 0.5) 0%,
+            rgba(139, 92, 246, 0.2) 50%,
+            transparent 100%);
+        width: 8px;
+    }
+
+    .resize-grip {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        pointer-events: none;
+    }
+
+    .panel-resize-handle:hover .resize-grip,
+    .ai-tutor-panel.resizing .resize-grip {
+        opacity: 1;
+    }
+
+    .resize-grip span {
+        width: 3px;
+        height: 3px;
+        background: rgba(139, 92, 246, 0.8);
+        border-radius: 50%;
+        box-shadow: 0 0 4px rgba(139, 92, 246, 0.4);
+    }
+
+    /* Resizing state - disable transitions for smooth resize */
+    .ai-tutor-panel.resizing {
+        transition: none !important;
+        user-select: none;
+    }
+
+    /* Global cursor during resize */
+    body.panel-resizing {
+        cursor: ew-resize !important;
+        user-select: none;
+    }
+
+    body.panel-resizing * {
+        cursor: ew-resize !important;
+    }
+
+    /* Width indicator tooltip during resize */
+    .resize-width-indicator {
+        position: fixed;
+        top: 50%;
+        background: rgba(139, 92, 246, 0.95);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        font-family: 'SF Mono', 'Fira Code', monospace;
+        box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+        z-index: 10000;
+        transform: translateY(-50%);
+        pointer-events: none;
+        white-space: nowrap;
+    }
+
+    /* Light mode resize handle */
+    :global([data-theme="light"]) .panel-resize-handle:hover {
+        background: linear-gradient(90deg,
+            rgba(139, 92, 246, 0.2) 0%,
+            rgba(139, 92, 246, 0.05) 50%,
+            transparent 100%);
+    }
+
+    :global([data-theme="light"]) .resize-grip span {
+        background: rgba(139, 92, 246, 0.7);
     }
 
     /* ============================================
@@ -3047,11 +3159,16 @@ const base = import.meta.env.BASE_URL;
 
     @media (max-width: 900px) {
         .ai-tutor-panel {
-            width: 100%;
+            width: 100% !important;
             max-width: 380px;
             right: 0 !important;
             border-left: none;
             border-top: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        /* Hide resize handle on mobile */
+        .panel-resize-handle {
+            display: none;
         }
 
         .tutor-header {
@@ -3380,6 +3497,127 @@ const base = import.meta.env.BASE_URL;
             this.style.height = 'auto';
             this.style.height = Math.min(this.scrollHeight, 120) + 'px';
         });
+
+        // Initialize panel resize functionality
+        initPanelResize();
+    }
+
+    // ============================================
+    // PANEL RESIZE FUNCTIONALITY
+    // Sophisticated horizontal manual resizing
+    // ============================================
+    function initPanelResize() {
+        const panel = document.getElementById('ai-tutor-panel');
+        const resizeHandle = document.getElementById('panel-resize-handle');
+
+        if (!panel || !resizeHandle) return;
+
+        // Resize constraints
+        const MIN_WIDTH = 340;  // Minimum panel width
+        const MAX_WIDTH = 700;  // Maximum panel width
+        const DEFAULT_WIDTH = 382;
+
+        let isResizing = false;
+        let startX = 0;
+        let startWidth = 0;
+        let widthIndicator = null;
+
+        // Restore saved width
+        const savedWidth = localStorage.getItem('tutor_panel_width');
+        if (savedWidth) {
+            const width = parseInt(savedWidth, 10);
+            if (width >= MIN_WIDTH && width <= MAX_WIDTH) {
+                panel.style.width = width + 'px';
+            }
+        }
+
+        // Create width indicator element
+        function createWidthIndicator() {
+            widthIndicator = document.createElement('div');
+            widthIndicator.className = 'resize-width-indicator';
+            document.body.appendChild(widthIndicator);
+        }
+
+        // Update width indicator position and value
+        function updateWidthIndicator(width, mouseX) {
+            if (!widthIndicator) return;
+            widthIndicator.textContent = `${width}px`;
+            widthIndicator.style.left = (mouseX - 60) + 'px';
+        }
+
+        // Remove width indicator
+        function removeWidthIndicator() {
+            if (widthIndicator) {
+                widthIndicator.remove();
+                widthIndicator = null;
+            }
+        }
+
+        // Start resize
+        function startResize(e) {
+            e.preventDefault();
+            isResizing = true;
+            startX = e.clientX || e.touches?.[0]?.clientX || 0;
+            startWidth = panel.offsetWidth;
+
+            panel.classList.add('resizing');
+            document.body.classList.add('panel-resizing');
+
+            createWidthIndicator();
+            updateWidthIndicator(startWidth, startX);
+
+            document.addEventListener('mousemove', doResize);
+            document.addEventListener('mouseup', stopResize);
+            document.addEventListener('touchmove', doResize, { passive: false });
+            document.addEventListener('touchend', stopResize);
+        }
+
+        // Perform resize
+        function doResize(e) {
+            if (!isResizing) return;
+            e.preventDefault();
+
+            const clientX = e.clientX || e.touches?.[0]?.clientX || 0;
+            // Since panel is on the right, dragging left increases width
+            const deltaX = startX - clientX;
+            let newWidth = startWidth + deltaX;
+
+            // Apply constraints
+            newWidth = Math.max(MIN_WIDTH, Math.min(MAX_WIDTH, newWidth));
+
+            panel.style.width = newWidth + 'px';
+            updateWidthIndicator(Math.round(newWidth), clientX);
+        }
+
+        // Stop resize
+        function stopResize() {
+            if (!isResizing) return;
+            isResizing = false;
+
+            panel.classList.remove('resizing');
+            document.body.classList.remove('panel-resizing');
+
+            // Save width to localStorage
+            const finalWidth = panel.offsetWidth;
+            localStorage.setItem('tutor_panel_width', finalWidth.toString());
+
+            removeWidthIndicator();
+
+            document.removeEventListener('mousemove', doResize);
+            document.removeEventListener('mouseup', stopResize);
+            document.removeEventListener('touchmove', doResize);
+            document.removeEventListener('touchend', stopResize);
+        }
+
+        // Double-click to reset to default width
+        resizeHandle.addEventListener('dblclick', () => {
+            panel.style.width = DEFAULT_WIDTH + 'px';
+            localStorage.setItem('tutor_panel_width', DEFAULT_WIDTH.toString());
+        });
+
+        // Event listeners
+        resizeHandle.addEventListener('mousedown', startResize);
+        resizeHandle.addEventListener('touchstart', startResize, { passive: false });
     }
 
     // Show panel for a subject
