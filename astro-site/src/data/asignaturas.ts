@@ -234,9 +234,9 @@ export const asignaturas: Record<string, Asignatura> = {
             'Resuelve problemas en plataformas como HackerRank antes de cada clase'
         ],
         palabrasClave: [
-            'Python', 'algoritmos', 'variables', 'funciones', 'bucles',
-            'condicionales', 'listas', 'diccionarios', 'debugging', 'PEP8',
-            'pseudocodigo', 'diagramas de flujo', 'estructuras de control'
+            'Python 3', 'Pseudocódigo', 'Diagrama de Flujo', 'VS Code',
+            'Variables', 'Funciones', 'Bucles For/While', 'Condicionales',
+            'Listas', 'Diccionarios', 'PEP 8', 'Debugging', 'Type Hints'
         ],
         proyectosSugeridos: [
             {
@@ -415,9 +415,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'amber',
         area: 'datos',
         palabrasClave: [
-            'bases de datos', 'modelo E-R', 'normalizacion', 'SQL',
-            'diagramas', 'entidades', 'relaciones', 'cardinalidad',
-            'DDL', 'integridad referencial', 'claves primarias', 'SGBD'
+            'Modelo E-R', 'Normalización 1FN-3FN', 'Oracle', 'PostgreSQL',
+            'DDL', 'Claves Primarias', 'Claves Foráneas', 'Cardinalidad',
+            'Crow\'s Foot', 'Diccionario de Datos', 'SGBD', 'Draw.io'
         ]
     },
 
@@ -562,9 +562,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'rose',
         area: 'transversal',
         palabrasClave: [
-            'cultura', 'identidad', 'etica', 'diversidad cultural',
-            'filosofia', 'valores', 'sociedad', 'ciudadania',
-            'pensamiento critico', 'interculturalidad', 'humanismo'
+            'Ética Profesional', 'Diversidad Cultural', 'Interculturalidad',
+            'RSE', 'ACM Code of Ethics', 'Sesgos Algorítmicos', 'Privacidad',
+            'Ciudadanía Digital', 'Pensamiento Crítico', 'Humanismo Digital'
         ]
     },
 
@@ -726,9 +726,9 @@ export const asignaturas: Record<string, Asignatura> = {
             'Implementa los patrones de diseno mas comunes: Singleton, Factory, Observer'
         ],
         palabrasClave: [
-            'Java', 'clases', 'objetos', 'herencia', 'polimorfismo',
-            'encapsulamiento', 'abstraccion', 'interfaces', 'UML',
-            'patrones de diseno', 'colecciones', 'excepciones'
+            'Java 17+', 'Clases', 'Objetos', 'Herencia', 'Polimorfismo',
+            'Encapsulamiento', 'Abstracción', 'Interfaces', 'UML',
+            'ArrayList', 'HashMap', 'Excepciones', 'IntelliJ IDEA'
         ],
         proyectosSugeridos: [
             {
@@ -911,9 +911,9 @@ export const asignaturas: Record<string, Asignatura> = {
             'Prepara la certificacion Cloud Practitioner mientras estudias'
         ],
         palabrasClave: [
-            'AWS', 'EC2', 'S3', 'VPC', 'IAM', 'RDS',
-            'cloud computing', 'IaaS', 'PaaS', 'SaaS',
-            'seguridad cloud', 'escalabilidad', 'alta disponibilidad'
+            'AWS', 'Amazon EC2', 'Amazon S3', 'Amazon VPC', 'IAM',
+            'Amazon RDS', 'IaaS', 'PaaS', 'SaaS', 'CloudWatch',
+            'Auto Scaling', 'Elastic Load Balancer', 'Free Tier'
         ],
         proyectosSugeridos: [
             {
@@ -1084,9 +1084,10 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'pink',
         area: 'transversal',
         palabrasClave: [
-            'redaccion tecnica', 'presentaciones', 'comunicacion oral',
-            'documentacion', 'informes', 'argumentacion', 'sintesis',
-            'comprension lectora', 'storytelling', 'pitch', 'feedback'
+            'Redacción Técnica', 'Technical Writing', 'Presentaciones Efectivas',
+            'Elevator Pitch', 'Documentación README', 'Formato APA',
+            'Google Docs', 'Canva', 'Storytelling', 'Comunicación Asertiva',
+            'Grammarly', 'Minutas', 'Informes IMRyD', 'Feedback 360°'
         ]
     },
 
@@ -1236,9 +1237,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'orange',
         area: 'programacion',
         palabrasClave: [
-            'Java', 'patrones de diseno', 'SOLID', 'JDBC', 'JavaFX',
-            'Singleton', 'Factory', 'Observer', 'MVC', 'DAO',
-            'testing', 'JUnit', 'clean code', 'refactoring'
+            'Java 17+', 'Principios SOLID', 'Design Patterns GoF', 'JDBC',
+            'JavaFX', 'Singleton', 'Factory Method', 'Observer', 'MVC',
+            'DAO Pattern', 'JUnit 5', 'Mockito', 'Clean Code', 'Maven'
         ]
     },
 
@@ -1384,9 +1385,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'blue',
         area: 'cloud',
         palabrasClave: [
-            'Docker', 'CI/CD', 'GitHub Actions', 'contenedores',
-            'pipelines', 'automatizacion', 'Git Flow', 'deployment',
-            'Docker Compose', 'Linux', 'Bash', 'infraestructura como codigo'
+            'Docker', 'Docker Compose', 'GitHub Actions', 'CI/CD Pipelines',
+            'Git Flow', 'Linux CLI', 'Bash Scripting', 'Nginx',
+            'Infrastructure as Code', 'YAML', 'Containers', 'DevOps Culture'
         ]
     },
 
@@ -1531,9 +1532,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'rose',
         area: 'transversal',
         palabrasClave: [
-            'etica profesional', 'dilemas eticos', 'IA responsable',
-            'privacidad', 'sesgos algoritmicos', 'codigo de etica',
-            'responsabilidad social', 'tecnologia etica', 'derechos digitales'
+            'ACM Code of Ethics', 'IEEE Ethics', 'Responsible AI', 'Privacidad de Datos',
+            'Sesgos Algorítmicos', 'GDPR', 'Derechos Digitales', 'Ética Profesional',
+            'Dilemas Éticos TI', 'Propiedad Intelectual', 'Open Source Licensing'
         ]
     },
 
@@ -1683,9 +1684,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'amber',
         area: 'datos',
         palabrasClave: [
-            'SQL', 'SELECT', 'JOIN', 'WHERE', 'GROUP BY',
-            'subconsultas', 'funciones de agregacion', 'Window Functions',
-            'CTE', 'optimizacion', 'plan de ejecucion', 'indices'
+            'SQL Avanzado', 'SELECT', 'JOIN', 'WHERE', 'GROUP BY',
+            'Subqueries', 'Aggregate Functions', 'Window Functions',
+            'CTEs', 'Query Optimization', 'Execution Plan', 'Índices B-Tree'
         ]
     },
 
@@ -1831,9 +1832,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'red',
         area: 'arquitectura',
         palabrasClave: [
-            'ciberseguridad', 'OWASP Top 10', 'SQL Injection', 'XSS',
-            'autenticacion', 'criptografia', 'vulnerabilidades',
-            'penetration testing', 'seguridad web', 'HTTPS', 'CIA triad'
+            'OWASP Top 10', 'SQL Injection', 'Cross-Site Scripting (XSS)',
+            'CSRF', 'Criptografía AES/RSA', 'Hashing bcrypt', 'TLS/HTTPS',
+            'CIA Triad', 'Penetration Testing', 'Burp Suite', 'Zero Trust'
         ]
     },
 
@@ -1983,9 +1984,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'amber',
         area: 'datos',
         palabrasClave: [
-            'PL/pgSQL', 'PL/SQL', 'stored procedures', 'funciones',
-            'triggers', 'cursores', 'transacciones', 'ACID',
-            'optimizacion', 'indices', 'plan de ejecucion', 'deadlocks'
+            'PL/pgSQL', 'PL/SQL', 'Stored Procedures', 'Functions',
+            'Triggers', 'Cursores', 'Transacciones ACID', 'PostgreSQL',
+            'Oracle Database', 'Índices B-Tree/Hash', 'Deadlocks', 'Explain Analyze'
         ]
     },
 
@@ -2131,9 +2132,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'blue',
         area: 'cloud',
         palabrasClave: [
-            'Kubernetes', 'microservicios', 'contenedores', '12-Factor Apps',
-            'CNCF', 'Prometheus', 'Grafana', 'observabilidad',
-            'serverless', 'API Gateway', 'service mesh', 'GitOps'
+            'Kubernetes', 'CNCF', 'Containers', '12-Factor Apps',
+            'Prometheus', 'Grafana', 'Observability', 'Serverless',
+            'AWS Lambda', 'API Gateway', 'Service Mesh', 'GitOps', 'Helm'
         ]
     },
 
@@ -2279,9 +2280,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'purple',
         area: 'gestion',
         palabrasClave: [
-            'requisitos', 'elicitacion', 'casos de uso', 'User Stories',
-            'SRS', 'IEEE 830', 'stakeholders', 'trazabilidad',
-            'validacion', 'priorizacion', 'MoSCoW', 'Gherkin'
+            'Requirements Engineering', 'Elicitación', 'User Stories', 'Use Cases',
+            'IEEE 830 SRS', 'Stakeholders', 'MoSCoW Prioritization', 'Gherkin',
+            'BDD', 'User Story Mapping', 'Acceptance Criteria', 'Jira', 'Miro'
         ]
     },
 
@@ -2431,9 +2432,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'green',
         area: 'programacion',
         palabrasClave: [
-            'Spring Boot', 'REST API', 'JPA', 'Hibernate',
-            'microservicios', 'DTOs', 'validacion', 'Swagger',
-            'inyeccion de dependencias', 'Maven', 'arquitectura capas'
+            'Spring Boot 3', 'REST API', 'JPA', 'Hibernate',
+            'Microservices', 'DTOs', 'Bean Validation', 'OpenAPI/Swagger',
+            'Dependency Injection', 'Maven', 'Layered Architecture', 'Lombok'
         ]
     },
 
@@ -2579,9 +2580,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'purple',
         area: 'gestion',
         palabrasClave: [
-            'Scrum', 'metodologias agiles', 'Sprint', 'Product Backlog',
-            'Jira', 'Planning Poker', 'retrospectiva', 'velocity',
-            'burndown', 'Product Owner', 'Scrum Master', 'ceremonies'
+            'Scrum Framework', 'Agile Methodologies', 'Sprint Planning', 'Product Backlog',
+            'Jira', 'Planning Poker', 'Sprint Retrospective', 'Velocity',
+            'Burndown Chart', 'Product Owner', 'Scrum Master', 'Daily Standup'
         ]
     },
 
@@ -2731,9 +2732,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'green',
         area: 'programacion',
         palabrasClave: [
-            'Spring Security', 'JWT', 'OAuth2', 'testing',
-            'JUnit', 'Mockito', 'Redis', 'caching',
-            'RabbitMQ', 'Kafka', 'mensajeria asincrona', 'SonarQube'
+            'Spring Security', 'JWT', 'OAuth 2.0', 'JUnit 5',
+            'Mockito', 'Redis Cache', 'RabbitMQ', 'Apache Kafka',
+            'Async Messaging', 'SonarQube', 'Code Coverage', 'Integration Testing'
         ]
     },
 
@@ -2879,9 +2880,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'purple',
         area: 'gestion',
         palabrasClave: [
-            'testing', 'QA', 'Selenium', 'Cypress', 'Playwright',
-            'TDD', 'BDD', 'Cucumber', 'JMeter', 'performance testing',
-            'quality gates', 'CI/CD', 'cobertura de codigo'
+            'QA Testing', 'Selenium WebDriver', 'Cypress', 'Playwright',
+            'TDD', 'BDD', 'Cucumber', 'JMeter', 'Performance Testing',
+            'Quality Gates', 'CI/CD', 'Code Coverage', 'Test Automation'
         ]
     },
 
@@ -3031,9 +3032,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'cyan',
         area: 'programacion',
         palabrasClave: [
-            'React', 'JavaScript', 'TypeScript', 'hooks', 'componentes',
-            'SPA', 'estado', 'React Router', 'TanStack Query',
-            'Tailwind CSS', 'responsive design', 'Vite'
+            'React 18+', 'JavaScript ES6+', 'TypeScript', 'React Hooks',
+            'Components', 'SPA', 'State Management', 'React Router',
+            'TanStack Query', 'Tailwind CSS', 'Responsive Design', 'Vite'
         ]
     },
 
@@ -3179,9 +3180,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'indigo',
         area: 'arquitectura',
         palabrasClave: [
-            'Clean Architecture', 'microservicios', 'DDD', 'CQRS',
-            'patrones de diseno', 'C4 Model', 'ADR', 'API Gateway',
-            'event-driven', 'Hexagonal', 'resiliencia', 'escalabilidad'
+            'Clean Architecture', 'Microservices', 'Domain-Driven Design',
+            'CQRS', 'Design Patterns', 'C4 Model', 'ADRs', 'API Gateway',
+            'Event-Driven Architecture', 'Hexagonal Architecture', 'Scalability'
         ]
     },
 
@@ -3331,9 +3332,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'blue',
         area: 'mobile',
         palabrasClave: [
-            'React Native', 'Expo', 'mobile', 'iOS', 'Android',
-            'navegacion', 'componentes nativos', 'Zustand',
-            'APIs nativas', 'publicacion', 'App Store', 'Play Store'
+            'React Native', 'Expo SDK', 'iOS', 'Android',
+            'React Navigation', 'Native Components', 'Zustand',
+            'Native APIs', 'App Store', 'Google Play Store', 'Mobile UI/UX'
         ]
     },
 
@@ -3479,9 +3480,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'cyan',
         area: 'programacion',
         palabrasClave: [
-            'Next.js', 'SSR', 'SSG', 'ISR', 'Server Components',
-            'Vercel', 'Prisma', 'accesibilidad', 'Core Web Vitals',
-            'i18n', 'Server Actions', 'App Router', 'Playwright'
+            'Next.js 14+', 'SSR', 'SSG', 'ISR', 'React Server Components',
+            'Vercel', 'Prisma ORM', 'WCAG Accessibility', 'Core Web Vitals',
+            'i18n', 'Server Actions', 'App Router', 'Playwright E2E'
         ]
     },
 
@@ -3631,9 +3632,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'blue',
         area: 'mobile',
         palabrasClave: [
-            'arquitectura mobile', 'Clean Architecture', 'MVVM',
-            'testing', 'Detox', 'CI/CD', 'EAS Build',
-            'offline-first', 'Firebase', 'analytics', 'monetizacion'
+            'Mobile Architecture', 'Clean Architecture', 'MVVM Pattern',
+            'Detox Testing', 'CI/CD Mobile', 'EAS Build', 'Offline-First',
+            'Firebase', 'Analytics', 'App Monetization', 'Push Notifications'
         ]
     },
 
@@ -3780,9 +3781,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'emerald',
         area: 'gestion',
         palabrasClave: [
-            'proyecto de titulo', 'metodologia Scrum', 'MVP',
-            'documentacion tecnica', 'defensa de proyecto', 'trabajo en equipo',
-            'gestion de proyectos', 'CI/CD', 'produccion', 'portafolio'
+            'Capstone Project', 'Scrum Methodology', 'MVP Development',
+            'Technical Documentation', 'Project Defense', 'Teamwork',
+            'Project Management', 'CI/CD Pipeline', 'Production Deploy', 'Portfolio'
         ]
     },
 
@@ -3932,9 +3933,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'teal',
         area: 'programacion',
         palabrasClave: [
-            'fullstack', 'NestJS', 'Next.js', 'monorepo', 'Turborepo',
-            'autenticacion', 'JWT', 'OAuth2', 'WebSockets',
-            'API REST', 'TypeScript', 'integracion frontend-backend'
+            'Fullstack Development', 'NestJS', 'Next.js', 'Monorepo', 'Turborepo',
+            'JWT Authentication', 'OAuth 2.0', 'WebSockets', 'REST API',
+            'TypeScript', 'Frontend-Backend Integration', 'Prisma ORM'
         ]
     },
 
@@ -4080,9 +4081,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'amber',
         area: 'datos',
         palabrasClave: [
-            'MongoDB', 'NoSQL', 'Redis', 'caching',
-            'aggregation pipeline', 'sharding', 'replicacion',
-            'optimizacion queries', 'polyglot persistence', 'Elasticsearch'
+            'MongoDB', 'NoSQL Databases', 'Redis Cache', 'Aggregation Pipeline',
+            'Sharding', 'Replication', 'Query Optimization', 'Polyglot Persistence',
+            'Elasticsearch', 'Document Databases', 'Key-Value Stores'
         ]
     },
 
@@ -4232,9 +4233,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'teal',
         area: 'programacion',
         palabrasClave: [
-            'microservicios', 'gRPC', 'RabbitMQ', 'Kafka',
-            'event-driven', 'CQRS', 'Saga pattern', 'observabilidad',
-            'Prometheus', 'Grafana', 'distributed tracing', 'Playwright'
+            'Microservices Architecture', 'gRPC', 'RabbitMQ', 'Apache Kafka',
+            'Event-Driven', 'CQRS Pattern', 'Saga Pattern', 'Observability',
+            'Prometheus', 'Grafana', 'Distributed Tracing', 'Jaeger'
         ]
     },
 
@@ -4380,9 +4381,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'orange',
         area: 'infraestructura',
         palabrasClave: [
-            'AWS', 'Terraform', 'IaC', 'serverless', 'Lambda',
-            'EC2', 'S3', 'VPC', 'API Gateway', 'Step Functions',
-            'disaster recovery', 'Well-Architected', 'cost optimization'
+            'AWS', 'Terraform', 'Infrastructure as Code', 'Serverless',
+            'AWS Lambda', 'Amazon EC2', 'Amazon S3', 'Amazon VPC',
+            'API Gateway', 'AWS Step Functions', 'Disaster Recovery', 'Well-Architected'
         ]
     },
 
@@ -4532,9 +4533,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'teal',
         area: 'programacion',
         palabrasClave: [
-            'GraphQL', 'Apollo', 'real-time', 'WebSockets',
-            'performance', 'Core Web Vitals', 'k6', 'load testing',
-            'multi-tenancy', 'DDD', 'Hexagonal', 'liderazgo tecnico'
+            'GraphQL', 'Apollo Server', 'Real-Time Apps', 'WebSockets',
+            'Performance Optimization', 'Core Web Vitals', 'k6 Load Testing',
+            'Multi-Tenancy', 'Domain-Driven Design', 'Hexagonal Architecture'
         ]
     },
 
@@ -4684,9 +4685,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'blue',
         area: 'mobile',
         palabrasClave: [
-            'Flutter', 'Dart', 'Riverpod', 'state management',
-            'offline-first', 'push notifications', 'App Store',
-            'Play Store', 'CI/CD movil', 'Codemagic', 'Fastlane'
+            'Flutter', 'Dart Language', 'Riverpod', 'State Management',
+            'Offline-First', 'Push Notifications', 'App Store', 'Play Store',
+            'Mobile CI/CD', 'Codemagic', 'Fastlane', 'Cross-Platform'
         ]
     },
 
@@ -4832,9 +4833,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'blue',
         area: 'infraestructura',
         palabrasClave: [
-            'Kubernetes', 'Helm', 'ArgoCD', 'GitOps',
-            'Istio', 'service mesh', 'observabilidad',
-            'Prometheus', 'Grafana', 'Jaeger', 'CI/CD'
+            'Kubernetes', 'Helm Charts', 'ArgoCD', 'GitOps',
+            'Istio Service Mesh', 'Observability Stack', 'Prometheus',
+            'Grafana', 'Jaeger Tracing', 'CI/CD Pipelines', 'K8s Operators'
         ]
     },
 
@@ -4984,9 +4985,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'blue',
         area: 'infraestructura',
         palabrasClave: [
-            'multi-cluster', 'disaster recovery', 'Velero',
-            'security K8s', 'Vault', 'Backstage', 'platform engineering',
-            'FinOps', 'SRE', 'SLOs', 'chaos engineering'
+            'Multi-Cluster K8s', 'Disaster Recovery', 'Velero Backup',
+            'HashiCorp Vault', 'Backstage Portal', 'Platform Engineering',
+            'FinOps', 'SRE Practices', 'SLOs/SLIs', 'Chaos Engineering'
         ]
     },
 
@@ -5132,9 +5133,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'red',
         area: 'seguridad',
         palabrasClave: [
-            'OWASP Top 10', 'SAST', 'DAST', 'SonarQube',
-            'Snyk', 'DevSecOps', 'seguridad aplicaciones',
-            'quality gates', 'vulnerabilidades', 'threat modeling'
+            'OWASP Top 10', 'SAST Analysis', 'DAST Testing', 'SonarQube',
+            'Snyk Security', 'DevSecOps', 'Application Security',
+            'Quality Gates', 'Vulnerability Scanning', 'Threat Modeling'
         ]
     },
 
@@ -5284,9 +5285,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'purple',
         area: 'gestion',
         palabrasClave: [
-            'estimacion software', 'COCOMO', 'story points', 'planning poker',
-            'DORA metrics', 'KPIs', 'ROI', 'TCO', 'NPV', 'business case',
-            'SonarQube', 'metricas calidad', 'lead time', 'velocity'
+            'Software Estimation', 'COCOMO II', 'Story Points', 'Planning Poker',
+            'DORA Metrics', 'KPIs', 'ROI Analysis', 'TCO', 'NPV', 'Business Case',
+            'SonarQube Metrics', 'Lead Time', 'Velocity Tracking'
         ]
     },
 
@@ -5432,9 +5433,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'purple',
         area: 'gestion',
         palabrasClave: [
-            'SAFe', 'LeSS', 'Nexus', 'agile at scale', 'PI Planning',
-            'liderazgo tecnico', '1:1 meetings', 'stakeholder management',
-            'OKRs', 'ADRs', 'RFCs', 'comunicacion ejecutiva', 'Scrum Master'
+            'SAFe Framework', 'LeSS', 'Nexus', 'Agile at Scale', 'PI Planning',
+            'Technical Leadership', '1:1 Meetings', 'Stakeholder Management',
+            'OKRs', 'ADRs', 'RFCs', 'Executive Communication', 'Scrum of Scrums'
         ]
     },
 
@@ -5584,9 +5585,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'slate',
         area: 'general',
         palabrasClave: [
-            'ACM Code of Ethics', 'GDPR', 'CCPA', 'privacidad datos',
-            'AI ethics', 'bias ML', 'Fairlearn', 'WCAG', 'accesibilidad',
-            'propiedad intelectual', 'open source licensing', 'compliance'
+            'ACM Code of Ethics', 'GDPR Compliance', 'CCPA', 'Data Privacy',
+            'AI Ethics', 'ML Bias Detection', 'Fairlearn', 'WCAG Accessibility',
+            'Intellectual Property', 'Open Source Licensing', 'Regulatory Compliance'
         ]
     },
 
@@ -5732,9 +5733,9 @@ export const asignaturas: Record<string, Asignatura> = {
         color: 'emerald',
         area: 'proyecto',
         palabrasClave: [
-            'proyecto integrador', 'cliente real', 'Scrum', 'sprint',
-            'MVP', 'C4 model', 'user story mapping', 'CI/CD',
-            'defensa proyecto', 'handoff', 'UAT', 'produccion'
+            'Capstone Project', 'Real Client', 'Scrum Sprints', 'MVP Development',
+            'C4 Model', 'User Story Mapping', 'CI/CD Pipeline', 'Project Defense',
+            'UAT Testing', 'Production Deployment', 'Handoff Documentation'
         ]
     }
 };
