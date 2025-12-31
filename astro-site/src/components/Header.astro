@@ -5,8 +5,8 @@ const currentPath = Astro.url.pathname;
 // Determinar qué enlace está activo basado en la ruta actual
 const isHome = currentPath.includes('/inicio');
 const isSalaEstudio = currentPath.includes('/sala-de-estudio');
-const isStack = currentPath.includes('/stack');
-const isArquitectura = currentPath.includes('/arquitectura');
+const isStack = currentPath.includes('/stacks');
+const isArquitectura = currentPath.includes('/arquitecturas');
 const isRecursos = currentPath.includes('/recursos');
 const isProyectos = currentPath.includes('/proyectos');
 const isTrayectorias = currentPath.includes('/trayectorias');
@@ -45,10 +45,10 @@ const isComunidad = currentPath.includes('/comunidad');
                data-premium-tooltip="Inicio|Dashboard principal con Plan de Estudios y visión general de la carrera|17 Bimestres,2 Carreras,Stats|navigation|fa-home|NAVEGACIÓN">Inicio</a>
             <a href={`${base}/sala-de-estudio`} class={`nav-link ${isSalaEstudio ? 'active' : ''}`}
                data-premium-tooltip="Sala de Estudio|Explora las asignaturas con información detallada: contenidos, evaluaciones, tecnologías y recursos|APC,IDS,40+ Asignaturas|navigation|fa-book-reader|ESTUDIO">Sala de Estudio</a>
-            <a href={`${base}/stack`} class={`nav-link ${isStack ? 'active' : ''}`}
-               data-premium-tooltip="Stack Tecnológico|150+ tecnologías con rankings de Stack Overflow y GitHub Octoverse 2024|Cloud DW,Terminal CLI,AI/LLM|navigation|fa-layer-group|TECNOLOGÍAS">Stack</a>
-            <a href={`${base}/arquitectura`} class={`nav-link ${isArquitectura ? 'active' : ''}`}
-               data-premium-tooltip="Arquitectura|Patrones de diseño, pipelines de datos, metodologías ágiles y DevOps|Clean Arch,Scrum,CI/CD|navigation|fa-sitemap|ARQUITECTURA">Arquitectura</a>
+            <a href={`${base}/stacks`} class={`nav-link ${isStack ? 'active' : ''}`}
+               data-premium-tooltip="Stacks Tecnológicos|150+ tecnologías con rankings de Stack Overflow y GitHub Octoverse 2024|Cloud DW,Terminal CLI,AI/LLM|navigation|fa-layer-group|TECNOLOGÍAS">Stacks</a>
+            <a href={`${base}/arquitecturas`} class={`nav-link ${isArquitectura ? 'active' : ''}`}
+               data-premium-tooltip="Arquitecturas|Patrones de diseño, pipelines de datos, metodologías ágiles y DevOps|Clean Arch,Scrum,CI/CD|navigation|fa-sitemap|ARQUITECTURA">Arquitecturas</a>
             <a href={`${base}/recursos`} class={`nav-link ${isRecursos ? 'active' : ''}`}
                data-premium-tooltip="Recursos|Herramientas interactivas, videos educativos, certificaciones y más|Gantt,SQL Gen,Quizzes|navigation|fa-tools|HERRAMIENTAS">Recursos</a>
             <a href={`${base}/proyectos`} class={`nav-link ${isProyectos ? 'active' : ''}`}
@@ -122,11 +122,11 @@ const isComunidad = currentPath.includes('/comunidad');
                 <a href={`${base}/sala-de-estudio`} class={`mobile-nav-link ${isSalaEstudio ? 'active' : ''}`}>
                     <i class="fas fa-book-reader"></i> Sala de Estudio
                 </a>
-                <a href={`${base}/stack`} class={`mobile-nav-link ${isStack ? 'active' : ''}`}>
-                    <i class="fas fa-layer-group"></i> Stack
+                <a href={`${base}/stacks`} class={`mobile-nav-link ${isStack ? 'active' : ''}`}>
+                    <i class="fas fa-layer-group"></i> Stacks
                 </a>
-                <a href={`${base}/arquitectura`} class={`mobile-nav-link ${isArquitectura ? 'active' : ''}`}>
-                    <i class="fas fa-sitemap"></i> Arquitectura
+                <a href={`${base}/arquitecturas`} class={`mobile-nav-link ${isArquitectura ? 'active' : ''}`}>
+                    <i class="fas fa-sitemap"></i> Arquitecturas
                 </a>
                 <a href={`${base}/recursos`} class={`mobile-nav-link ${isRecursos ? 'active' : ''}`}>
                     <i class="fas fa-tools"></i> Recursos
@@ -376,9 +376,9 @@ const isComunidad = currentPath.includes('/comunidad');
                     link.classList.add('active');
                 } else if (currentPath.includes('/sala-de-estudio') && href.includes('/sala-de-estudio')) {
                     link.classList.add('active');
-                } else if (currentPath.includes('/stack') && href.includes('/stack')) {
+                } else if (currentPath.includes('/stacks') && href.includes('/stacks')) {
                     link.classList.add('active');
-                } else if (currentPath.includes('/arquitectura') && href.includes('/arquitectura')) {
+                } else if (currentPath.includes('/arquitecturas') && href.includes('/arquitecturas')) {
                     link.classList.add('active');
                 } else if (currentPath.includes('/recursos') && href.includes('/recursos')) {
                     link.classList.add('active');
