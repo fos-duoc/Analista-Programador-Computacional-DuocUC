@@ -592,9 +592,9 @@ const base = import.meta.env.BASE_URL;
        Minimal spacing for dense information display
     ============================================ */
     .drawer-section {
-        margin-bottom: 0;
-        padding-bottom: 0;
-        border-bottom: none;
+        margin-bottom: 0.9rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.06);
         position: relative;
     }
 
@@ -2636,10 +2636,10 @@ const base = import.meta.env.BASE_URL;
         ).join('');
         document.getElementById('drawer-competencias').innerHTML = competenciasHtml;
 
-        // Experiencias - usando data-exp-toggle para event delegation
+        // Experiencias - usando onclick inline para máxima compatibilidad
         const experienciasHtml = asignatura.experiencias.map((exp, index) => `
             <div class="exp-card" id="exp-card-${index}">
-                <div class="exp-header" data-exp-toggle="${index}">
+                <div class="exp-header" onclick="this.parentElement.classList.toggle('expanded')" style="cursor:pointer">
                     <div class="exp-header-left">
                         <span class="exp-number">${exp.numero}</span>
                         <div class="exp-info">

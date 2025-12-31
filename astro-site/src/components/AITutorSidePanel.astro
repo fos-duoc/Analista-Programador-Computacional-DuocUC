@@ -272,15 +272,25 @@ const base = import.meta.env.BASE_URL;
                 <div class="tts-voice-group">
                     <label class="tts-label">Idioma</label>
                     <select class="tts-select" id="tts-puter-lang">
-                        <option value="es-ES">Español (España)</option>
-                        <option value="es-MX" selected>Español (México)</option>
-                        <option value="es-419">Español (Latinoamérica)</option>
-                        <option value="en-US">English (US)</option>
-                        <option value="en-GB">English (UK)</option>
-                        <option value="pt-BR">Português (Brasil)</option>
-                        <option value="fr-FR">Français</option>
-                        <option value="de-DE">Deutsch</option>
-                        <option value="it-IT">Italiano</option>
+                        <optgroup label="🇪🇸 Español">
+                            <option value="es-ES">España - Lucía, Sergio, Conchita</option>
+                            <option value="es-MX" selected>México - Mia, Andrés</option>
+                            <option value="es-US">US Spanish - Lupe, Pedro, Penélope</option>
+                        </optgroup>
+                        <optgroup label="🇨🇳 中文">
+                            <option value="cmn-CN">普通话 (Mandarin) - Zhiyu</option>
+                            <option value="yue-CN">粤语 (Cantonese) - Hiujin</option>
+                        </optgroup>
+                        <optgroup label="🌍 Other Languages">
+                            <option value="en-US">English (US)</option>
+                            <option value="en-GB">English (UK)</option>
+                            <option value="pt-BR">Português (Brasil)</option>
+                            <option value="fr-FR">Français</option>
+                            <option value="de-DE">Deutsch</option>
+                            <option value="it-IT">Italiano</option>
+                            <option value="ja-JP">日本語 (Japanese)</option>
+                            <option value="ko-KR">한국어 (Korean)</option>
+                        </optgroup>
                     </select>
                 </div>
 
@@ -4133,9 +4143,27 @@ Mantén respuestas concisas pero completas.`;
             const langSelect = document.getElementById('tts-puter-lang');
             const lang = langSelect?.value || 'es-MX';
 
+            // Texto de preview según idioma
+            const previewTexts = {
+                'es-ES': 'Hola, soy tu asistente de estudio personal desde España.',
+                'es-MX': 'Hola, soy tu asistente de estudio personal desde México.',
+                'es-US': 'Hola, soy tu asistente de estudio personal. ¡Bienvenido!',
+                'cmn-CN': '你好，我是你的学习助手。',
+                'yue-CN': '你好，我係你嘅學習助手。',
+                'en-US': 'Hello, I am your personal study assistant.',
+                'en-GB': 'Hello, I am your personal study assistant.',
+                'pt-BR': 'Olá, sou seu assistente de estudos pessoal.',
+                'fr-FR': 'Bonjour, je suis votre assistant d\'études personnel.',
+                'de-DE': 'Hallo, ich bin Ihr persönlicher Lernassistent.',
+                'it-IT': 'Ciao, sono il tuo assistente di studio personale.',
+                'ja-JP': 'こんにちは、私はあなたの学習アシスタントです。',
+                'ko-KR': '안녕하세요, 저는 당신의 학습 도우미입니다.'
+            };
+            const previewText = previewTexts[lang] || previewTexts['es-MX'];
+
             btn?.classList.add('playing');
             try {
-                const audio = await puter.ai.txt2speech('Hola, soy tu asistente de estudio personal.', {
+                const audio = await puter.ai.txt2speech(previewText, {
                     engine: engine,
                     language: lang
                 });
