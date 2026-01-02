@@ -13,6 +13,7 @@ import AITutorSidePanel from '../../components/AITutorSidePanel.astro';
 import BestPracticeDrawer from '../../components/BestPracticeDrawer.astro';
 import TechDrawer from '../../components/TechDrawer.astro';
 import SubjectNavigationSidebar from '../../components/SubjectNavigationSidebar.astro';
+import MergedSidebarPanel from '../../components/MergedSidebarPanel.astro';
 import { bimestresYear1, bimestresYear2, bimestresYear3, bimestresYear4 } from '../../data/bimestres';
 import { nombreCortoToId, asignaturas } from '../../data/asignaturas';
 import { subjectToBestPractices, bestPractices } from '../../data/bestPractices';
@@ -664,6 +665,9 @@ const subjectLinks: Record<string, string> = {
 
         <!-- AI Tutor Side Panel (Coursera Coach Style) -->
         <AITutorSidePanel />
+
+        <!-- Merged Sidebar Panel (appears when sidebars collide) -->
+        <MergedSidebarPanel />
     </main>
     <Footer />
 </Layout>

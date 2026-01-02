@@ -928,6 +928,17 @@ function getSubjectTooltip(subject: Asignatura): string {
     }
 
     /* Responsive */
+    /* Hidden state when sidebars are merged */
+    .subject-nav-sidebar.hidden-for-merge {
+        transform: translateX(-100%);
+        pointer-events: none;
+        opacity: 0;
+    }
+
+    .sidebar-expand-btn.hidden-for-merge {
+        display: none !important;
+    }
+
     @media (max-width: 1200px) {
         .subject-nav-sidebar {
             width: 260px !important;
@@ -1396,6 +1407,13 @@ function getSubjectTooltip(subject: Asignatura): string {
 
             // Also check on window resize
             window.addEventListener('resize', checkAndAdjust);
+
+            // Listen for collapse request from MergedSidebarPanel
+            window.addEventListener('requestNavSidebarCollapse', () => {
+                if (state.isOpen) {
+                    toggleSidebar(false);
+                }
+            });
         }
     }
 
