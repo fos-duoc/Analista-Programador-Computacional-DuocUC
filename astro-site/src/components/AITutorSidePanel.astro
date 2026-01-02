@@ -736,7 +736,7 @@ const base = import.meta.env.BASE_URL;
         display: none;
         flex-direction: column;
         gap: 0.2rem;
-        z-index: 100;
+        z-index: 9999;
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(139, 92, 246, 0.1);
         min-width: 70px;
     }
@@ -6070,36 +6070,42 @@ Mantén respuestas concisas pero completas.`;
 
             const self = this;
 
+            // Direct listeners for speed button (more reliable than delegation)
+            const speedBtn = document.getElementById('tts-speed-btn');
+            const speedDropdown = document.getElementById('tts-speed-dropdown');
+
+            if (speedBtn && speedDropdown) {
+                speedBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    speedDropdown.classList.toggle('visible');
+                });
+
+                // Speed options direct listener
+                speedDropdown.querySelectorAll('.tts-speed-option').forEach(option => {
+                    option.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        const speed = parseFloat(this.dataset.speed);
+                        self.speed = speed;
+                        speedDropdown.querySelectorAll('.tts-speed-option').forEach(o => o.classList.remove('active'));
+                        this.classList.add('active');
+                        const label = document.getElementById('tts-speed-label');
+                        if (label) label.textContent = speed + 'x';
+                        speedDropdown.classList.remove('visible');
+                        self.saveSettings();
+                    });
+                });
+            }
+
+            // Document-level click for other controls and closing dropdown
             document.addEventListener('click', function(e) {
-                const speedDropdown = document.getElementById('tts-speed-dropdown');
+                const speedDropdownEl = document.getElementById('tts-speed-dropdown');
                 const modalOverlay = document.getElementById('tts-modal-overlay');
 
                 // Voice button - open modal
                 if (e.target.closest('#tts-voice-btn')) {
                     e.stopPropagation();
                     self.openModal();
-                    return;
-                }
-
-                // Speed button
-                if (e.target.closest('#tts-speed-btn')) {
-                    e.stopPropagation();
-                    speedDropdown?.classList.toggle('visible');
-                    return;
-                }
-
-                // Speed option
-                const speedOption = e.target.closest('.tts-speed-option');
-                if (speedOption) {
-                    e.stopPropagation();
-                    const speed = parseFloat(speedOption.dataset.speed);
-                    self.speed = speed;
-                    document.querySelectorAll('.tts-speed-option').forEach(o => o.classList.remove('active'));
-                    speedOption.classList.add('active');
-                    const label = document.getElementById('tts-speed-label');
-                    if (label) label.textContent = speed + 'x';
-                    speedDropdown?.classList.remove('visible');
-                    self.saveSettings();
                     return;
                 }
 
@@ -6176,8 +6182,8 @@ Mantén respuestas concisas pero completas.`;
                 }
 
                 // Close dropdown if clicking outside
-                if (!e.target.closest('.tts-speed-dropdown')) {
-                    speedDropdown?.classList.remove('visible');
+                if (!e.target.closest('.tts-speed-dropdown') && !e.target.closest('#tts-speed-btn')) {
+                    speedDropdownEl?.classList.remove('visible');
                 }
             });
         }

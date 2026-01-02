@@ -3155,7 +3155,82 @@ const base = import.meta.env.BASE_URL;
         'Concurrencia': 'Concurrencia|Ejecución simultánea de múltiples tareas|Threads,Async,Parallel|info|fa-random|AVANZADO',
         'Seguridad': 'Seguridad|Protección de datos y sistemas|Autenticación,Encriptación|info|fa-shield-alt|SEGURIDAD',
         'Scrum': 'Scrum|Framework ágil para gestión de proyectos|Sprints,Daily,Retrospectiva|methodology|fa-users|AGILE',
-        'Kanban': 'Kanban|Método visual para gestión del flujo de trabajo|Board,WIP Limits|methodology|fa-columns|AGILE'
+        'Kanban': 'Kanban|Método visual para gestión del flujo de trabajo|Board,WIP Limits|methodology|fa-columns|AGILE',
+        // Agile at Scale
+        'SAFe Framework': 'SAFe Framework|Scaled Agile Framework para organizaciones enterprise|ARTs,PI Planning,Value Streams|methodology|fa-sitemap|AGILE SCALE',
+        'LeSS': 'LeSS|Large-Scale Scrum para múltiples equipos|Sprint,Product Backlog único,Coordinación|methodology|fa-object-group|AGILE SCALE',
+        'Nexus': 'Nexus|Framework de Scrum.org para 3-9 equipos Scrum|Integration Team,Nexus Sprint|methodology|fa-layer-group|AGILE SCALE',
+        'Agile at Scale': 'Agile at Scale|Prácticas ágiles para organizaciones grandes|SAFe,LeSS,Nexus,Spotify Model|methodology|fa-expand-arrows-alt|AGILE SCALE',
+        'PI Planning': 'PI Planning|Program Increment Planning, evento SAFe de 2 días|Objetivos,Dependencias,Riesgos|methodology|fa-calendar-check|SAFE',
+        'Scrum of Scrums': 'Scrum of Scrums|Coordinación entre múltiples equipos Scrum|Representantes,Dependencias,Blockers|methodology|fa-users-cog|AGILE SCALE',
+        // Liderazgo y Gestión
+        'Technical Leadership': 'Technical Leadership|Liderazgo técnico de equipos de desarrollo|Mentoring,Decisiones técnicas,Code Reviews|leadership|fa-chess-king|LIDERAZGO',
+        '1:1 Meetings': '1:1 Meetings|Reuniones individuales manager-reportes|Feedback,Career Growth,Blockers|leadership|fa-user-friends|GESTIÓN',
+        'Stakeholder Management': 'Stakeholder Management|Gestión de interesados del proyecto|Expectativas,Comunicación,Poder/Interés|leadership|fa-handshake|GESTIÓN',
+        'Executive Communication': 'Executive Communication|Comunicación efectiva con liderazgo ejecutivo|BLUF,Executive Summary,Datos|leadership|fa-comments-dollar|COMUNICACIÓN',
+        // OKRs y Métricas
+        'OKRs': 'OKRs|Objectives and Key Results, framework de Google|Objetivos,Resultados Clave,Alignment|methodology|fa-bullseye|MÉTRICAS',
+        // Documentación Técnica
+        'ADRs': 'ADRs|Architecture Decision Records para documentar decisiones|Contexto,Decisión,Consecuencias|documentation|fa-file-alt|DOCUMENTACIÓN',
+        'RFCs': 'RFCs|Request for Comments, propuestas técnicas colaborativas|Diseño,Feedback,Consenso|documentation|fa-file-signature|DOCUMENTACIÓN',
+        'Technical Writing': 'Technical Writing|Redacción técnica profesional|Documentación,Claridad,Audiencia|documentation|fa-pen-fancy|DOCUMENTACIÓN',
+        'C4 Model': 'C4 Model|Modelo de diagramación arquitectónica|Context,Container,Component,Code|documentation|fa-project-diagram|ARQUITECTURA',
+        // Testing avanzado
+        'Selenium WebDriver': 'Selenium WebDriver|Automatización de pruebas web|Browser Automation,WebElements|testing|fa-robot|TESTING',
+        'Cypress': 'Cypress|Framework moderno de testing E2E para web|Fast,Reliable,Time Travel|testing|fa-vial|TESTING',
+        'Playwright': 'Playwright|Automatización cross-browser de Microsoft|Multi-browser,Auto-wait|testing|fa-theater-masks|TESTING',
+        'JMeter': 'JMeter|Herramienta Apache para pruebas de carga|Performance,Load Testing|testing|fa-tachometer-alt|TESTING',
+        'Cucumber': 'Cucumber|Framework BDD con sintaxis Gherkin|Given-When-Then,Scenarios|testing|fa-cucumber|TESTING',
+        'Code Coverage': 'Code Coverage|Métrica de cobertura de pruebas|Lines,Branches,Functions|testing|fa-percentage|TESTING',
+        // Frameworks y tecnologías adicionales
+        'NestJS': 'NestJS|Framework Node.js enterprise con TypeScript|Modular,Decorators,DI|framework|fa-feather-alt|BACKEND',
+        'Next.js': 'Next.js|Framework React para producción con SSR/SSG|Vercel,App Router,RSC|framework|fa-forward|FULLSTACK',
+        'Prisma ORM': 'Prisma ORM|ORM moderno de TypeScript para Node.js|Schema,Migrations,Type-safe|tool|fa-database|ORM',
+        'Turborepo': 'Turborepo|Monorepo build system de Vercel|Caching,Parallel,Pipelines|tool|fa-rocket|DEVOPS',
+        'Vite': 'Vite|Build tool ultrarrápido para frontend|HMR,ES Modules,Rollup|tool|fa-bolt|FRONTEND',
+        'Tailwind CSS': 'Tailwind CSS|Framework CSS utility-first|Responsive,Dark Mode,JIT|framework|fa-paint-brush|FRONTEND',
+        'React Hooks': 'React Hooks|APIs funcionales de React|useState,useEffect,Custom Hooks|code|fa-fishing|REACT',
+        'TanStack Query': 'TanStack Query|Gestión de estado servidor para React|Caching,Mutations,Queries|framework|fa-sync-alt|REACT',
+        // Cloud avanzado
+        'AWS Lambda': 'AWS Lambda|Compute serverless de Amazon|Functions,Event-driven,Pay-per-use|cloud|fa-lambda|AWS',
+        'Amazon EC2': 'Amazon EC2|Máquinas virtuales escalables de AWS|Instances,Auto Scaling|cloud|fa-server|AWS',
+        'Amazon S3': 'Amazon S3|Almacenamiento de objetos de AWS|Buckets,Versioning,Lifecycle|cloud|fa-archive|AWS',
+        'Amazon VPC': 'Amazon VPC|Red virtual privada en AWS|Subnets,Security Groups|cloud|fa-network-wired|AWS',
+        'Terraform': 'Terraform|Infrastructure as Code de HashiCorp|HCL,State,Modules,Providers|devops|fa-cubes|IAC',
+        'Serverless': 'Serverless|Arquitectura sin gestión de servidores|FaaS,Pay-per-execution|cloud|fa-cloud|ARQUITECTURA',
+        // Mensajería y eventos
+        'RabbitMQ': 'RabbitMQ|Message broker open source|Queues,Exchanges,AMQP|messaging|fa-envelope|MENSAJERÍA',
+        'Apache Kafka': 'Apache Kafka|Plataforma de streaming distribuido|Topics,Partitions,Consumers|messaging|fa-stream|MENSAJERÍA',
+        'WebSockets': 'WebSockets|Protocolo de comunicación bidireccional|Real-time,Full-duplex,Events|protocol|fa-plug|COMUNICACIÓN',
+        // Observabilidad
+        'Prometheus': 'Prometheus|Sistema de monitoreo y alertas|Metrics,PromQL,Alertmanager|monitoring|fa-chart-line|OBSERVABILIDAD',
+        'Grafana': 'Grafana|Plataforma de visualización de métricas|Dashboards,Alerting,DataSources|monitoring|fa-chart-area|OBSERVABILIDAD',
+        'Jaeger': 'Jaeger|Distributed tracing de Uber|Spans,Traces,Service Maps|monitoring|fa-search|OBSERVABILIDAD',
+        // Seguridad avanzada
+        'OAuth 2.0': 'OAuth 2.0|Protocolo de autorización estándar|Access Tokens,Scopes,Grants|security|fa-key|SEGURIDAD',
+        'JWT': 'JWT|JSON Web Tokens para autenticación|Claims,Signature,Payload|security|fa-id-badge|SEGURIDAD',
+        'OWASP Top 10': 'OWASP Top 10|Top 10 riesgos de seguridad web|Injection,XSS,CSRF|security|fa-shield-alt|SEGURIDAD',
+        // Arquitectura
+        'CQRS': 'CQRS|Command Query Responsibility Segregation|Read/Write separation,Event Sourcing|pattern|fa-code-branch|ARQUITECTURA',
+        'Event-Driven Architecture': 'Event-Driven|Arquitectura basada en eventos|Publishers,Subscribers,Event Bus|pattern|fa-broadcast-tower|ARQUITECTURA',
+        'Domain-Driven Design': 'DDD|Domain-Driven Design de Eric Evans|Bounded Contexts,Aggregates,Entities|pattern|fa-puzzle-piece|ARQUITECTURA',
+        'Hexagonal Architecture': 'Hexagonal Architecture|Ports & Adapters de Alistair Cockburn|Ports,Adapters,Domain Core|pattern|fa-hexagon|ARQUITECTURA',
+        'gRPC': 'gRPC|Framework RPC de alto rendimiento de Google|Protocol Buffers,HTTP/2,Streaming|protocol|fa-exchange-alt|COMUNICACIÓN',
+        // Mobile
+        'React Native': 'React Native|Framework de Meta para apps móviles nativas|iOS,Android,Cross-platform|framework|fa-mobile-alt|MOBILE',
+        'Expo SDK': 'Expo SDK|Plataforma para desarrollo React Native|Managed Workflow,OTA Updates|framework|fa-box|MOBILE',
+        // Calidad y buenas prácticas
+        'SonarQube': 'SonarQube|Plataforma de calidad de código continua|Static Analysis,Quality Gates|tool|fa-bug|CALIDAD',
+        'Clean Code': 'Clean Code|Principios de código limpio de Uncle Bob|Legibilidad,Mantenibilidad|methodology|fa-broom|CALIDAD',
+        'Design Patterns GoF': 'Design Patterns GoF|23 patrones clásicos de Gang of Four|Creational,Structural,Behavioral|pattern|fa-th|PATRONES',
+        // Metodologías adicionales
+        'Scrum Framework': 'Scrum Framework|Framework ágil más popular del mundo|Sprints,Roles,Artifacts,Events|methodology|fa-users|AGILE',
+        'Sprint Planning': 'Sprint Planning|Ceremonia de planificación de Sprint|Sprint Goal,Backlog Selection|methodology|fa-tasks|SCRUM',
+        'Sprint Retrospective': 'Sprint Retrospective|Ceremonia de mejora continua|What went well,Improvements|methodology|fa-redo|SCRUM',
+        'Product Backlog': 'Product Backlog|Lista priorizada de requisitos del producto|User Stories,Refinement,Ordering|methodology|fa-list-ol|SCRUM',
+        'Daily Standup': 'Daily Standup|Reunión diaria de 15 minutos|Yesterday,Today,Blockers|methodology|fa-comments|SCRUM',
+        'Velocity': 'Velocity|Métrica de capacidad del equipo por Sprint|Story Points,Historical Data|methodology|fa-tachometer-alt|SCRUM',
+        'Burndown Chart': 'Burndown Chart|Gráfico de trabajo restante vs tiempo|Ideal Line,Actual Progress|methodology|fa-chart-line|SCRUM'
     };
 
     // Función para obtener tooltip de keyword
