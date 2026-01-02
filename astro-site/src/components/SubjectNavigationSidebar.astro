@@ -38,7 +38,7 @@ function getSubjectTooltip(subject: Asignatura): string {
 }
 ---
 
-<aside id="subject-nav-sidebar" class="subject-nav-sidebar" aria-label="Navegacion de asignaturas">
+<aside id="subject-nav-sidebar" class="subject-nav-sidebar collapsed" aria-label="Navegacion de asignaturas">
     <!-- Resize Handle - Right Edge -->
     <div class="sidebar-resize-handle" id="sidebar-resize-handle" title="Arrastrar para redimensionar">
         <div class="resize-grip">
@@ -188,8 +188,8 @@ function getSubjectTooltip(subject: Asignatura): string {
     </footer>
 </aside>
 
-<!-- Collapsed Toggle Button -->
-<button class="sidebar-expand-btn" id="sidebar-expand-btn" aria-label="Abrir navegación de asignaturas" data-tooltip="Navegador de Asignaturas|Explora todas las asignaturas organizadas por bimestre, año o semana|Filtros,Búsqueda,17 Bimestres|tool|fa-book-open|SALA DE ESTUDIO">
+<!-- Collapsed Toggle Button - visible by default since sidebar starts collapsed -->
+<button class="sidebar-expand-btn visible" id="sidebar-expand-btn" aria-label="Abrir navegación de asignaturas" data-tooltip="Navegador de Asignaturas|Explora todas las asignaturas organizadas por bimestre, año o semana|Filtros,Búsqueda,17 Bimestres|tool|fa-book-open|SALA DE ESTUDIO">
     <i class="fas fa-book-open"></i>
 </button>
 
