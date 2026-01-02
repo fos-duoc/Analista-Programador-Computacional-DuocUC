@@ -29,9 +29,139 @@ const base = import.meta.env.BASE_URL;
             <span class="drawer-code" id="drawer-codigo">PRY1101</span>
         </div>
         <div class="drawer-controls">
-            <button class="drawer-width-btn" id="drawer-width-toggle" aria-label="Expandir ancho" data-tooltip="Ajustar Ancho del Panel|Expande o contrae el panel de información para mejor lectura|Click: Toggle 520px/680px,Arrastrar borde: Ajuste libre,Doble-click: Resetear|tool|fa-arrows-alt-h|PANEL DE ASIGNATURA">
-                <i class="fas fa-arrows-alt-h"></i>
-            </button>
+            <!-- Panel Options Dropdown -->
+            <div class="drawer-options-wrapper" id="drawer-options-wrapper">
+                <button class="drawer-options-btn" id="drawer-options-btn" aria-label="Opciones del panel" aria-expanded="false" aria-haspopup="true">
+                    <i class="fas fa-sliders-h"></i>
+                    <i class="fas fa-chevron-down dropdown-chevron"></i>
+                </button>
+                <div class="drawer-options-dropdown" id="drawer-options-dropdown" role="menu">
+                    <!-- Panel Size Section -->
+                    <div class="dropdown-section">
+                        <div class="dropdown-section-header">
+                            <i class="fas fa-expand-alt"></i>
+                            <span>Tamaño del Panel</span>
+                        </div>
+                        <div class="size-options">
+                            <button class="size-option" data-width="420" role="menuitem">
+                                <span class="size-icon"><i class="fas fa-compress-alt"></i></span>
+                                <span class="size-label">Compacto</span>
+                                <span class="size-value">420px</span>
+                            </button>
+                            <button class="size-option active" data-width="520" role="menuitem">
+                                <span class="size-icon"><i class="fas fa-minus"></i></span>
+                                <span class="size-label">Estándar</span>
+                                <span class="size-value">520px</span>
+                            </button>
+                            <button class="size-option" data-width="680" role="menuitem">
+                                <span class="size-icon"><i class="fas fa-expand"></i></span>
+                                <span class="size-label">Expandido</span>
+                                <span class="size-value">680px</span>
+                            </button>
+                            <button class="size-option" data-width="full" role="menuitem">
+                                <span class="size-icon"><i class="fas fa-expand-arrows-alt"></i></span>
+                                <span class="size-label">Máximo</span>
+                                <span class="size-value">100%</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <!-- Quick Actions Section -->
+                    <div class="dropdown-section">
+                        <div class="dropdown-section-header">
+                            <i class="fas fa-bolt"></i>
+                            <span>Acciones Rápidas</span>
+                        </div>
+                        <div class="action-options">
+                            <button class="action-option" data-action="copy" role="menuitem">
+                                <i class="fas fa-copy"></i>
+                                <span>Copiar Información</span>
+                                <kbd>Ctrl+C</kbd>
+                            </button>
+                            <button class="action-option" data-action="share" role="menuitem">
+                                <i class="fas fa-share-alt"></i>
+                                <span>Compartir</span>
+                            </button>
+                            <button class="action-option" data-action="print" role="menuitem">
+                                <i class="fas fa-print"></i>
+                                <span>Imprimir Ficha</span>
+                                <kbd>Ctrl+P</kbd>
+                            </button>
+                            <button class="action-option highlight" data-action="ask-tutor" role="menuitem">
+                                <i class="fas fa-robot"></i>
+                                <span>Preguntar al Tutor IA</span>
+                                <span class="action-badge">AI</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <!-- Sections Toggle -->
+                    <div class="dropdown-section">
+                        <div class="dropdown-section-header">
+                            <i class="fas fa-layer-group"></i>
+                            <span>Secciones Visibles</span>
+                            <button class="toggle-all-btn" id="toggle-all-sections" title="Mostrar/Ocultar todas">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="section-toggles">
+                            <label class="section-toggle">
+                                <input type="checkbox" data-section="indicators-section" checked />
+                                <span class="toggle-switch"></span>
+                                <span class="toggle-label"><i class="fas fa-signal"></i> Indicadores</span>
+                            </label>
+                            <label class="section-toggle">
+                                <input type="checkbox" data-section="experiencias-section" checked />
+                                <span class="toggle-switch"></span>
+                                <span class="toggle-label"><i class="fas fa-route"></i> Experiencias</span>
+                            </label>
+                            <label class="section-toggle">
+                                <input type="checkbox" data-section="tecnologias" checked />
+                                <span class="toggle-switch"></span>
+                                <span class="toggle-label"><i class="fas fa-code"></i> Tecnologías</span>
+                            </label>
+                            <label class="section-toggle">
+                                <input type="checkbox" data-section="evaluaciones" checked />
+                                <span class="toggle-switch"></span>
+                                <span class="toggle-label"><i class="fas fa-clipboard-check"></i> Evaluaciones</span>
+                            </label>
+                            <label class="section-toggle">
+                                <input type="checkbox" data-section="tips-section" checked />
+                                <span class="toggle-switch"></span>
+                                <span class="toggle-label"><i class="fas fa-lightbulb"></i> Tips</span>
+                            </label>
+                            <label class="section-toggle">
+                                <input type="checkbox" data-section="projects-section" checked />
+                                <span class="toggle-switch"></span>
+                                <span class="toggle-label"><i class="fas fa-rocket"></i> Proyectos</span>
+                            </label>
+                            <label class="section-toggle">
+                                <input type="checkbox" data-section="relevance-section" checked />
+                                <span class="toggle-switch"></span>
+                                <span class="toggle-label"><i class="fas fa-briefcase"></i> Relevancia</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <!-- More Options -->
+                    <div class="dropdown-section compact">
+                        <button class="action-option" data-action="new-tab" role="menuitem">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>Abrir en Nueva Pestaña</span>
+                        </button>
+                        <button class="action-option" data-action="github" role="menuitem">
+                            <i class="fab fa-github"></i>
+                            <span>Ver Materiales en GitHub</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
             <button class="drawer-close" aria-label="Cerrar panel" id="drawer-close-btn">
                 <i class="fas fa-times"></i>
             </button>
@@ -395,30 +525,367 @@ const base = import.meta.env.BASE_URL;
         gap: 0.3rem;
     }
 
-    .drawer-width-btn {
-        width: 22px;
-        height: 22px;
-        border-radius: 5px;
+    /* ============================================
+       DRAWER OPTIONS DROPDOWN - Premium Enterprise
+    ============================================ */
+    .drawer-options-wrapper {
+        position: relative;
+    }
+
+    .drawer-options-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.3rem 0.5rem;
+        border-radius: 6px;
         border: 1px solid rgba(6, 182, 212, 0.25);
         background: rgba(6, 182, 212, 0.08);
         color: #22d3ee;
         cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         transition: all 0.2s ease;
-        font-size: 0.52rem;
+        font-size: 0.6rem;
     }
 
-    .drawer-width-btn:hover {
+    .drawer-options-btn:hover {
         background: rgba(6, 182, 212, 0.18);
         border-color: rgba(6, 182, 212, 0.45);
     }
 
-    .drawer-width-btn.active {
+    .drawer-options-btn[aria-expanded="true"] {
         background: rgba(6, 182, 212, 0.25);
         border-color: rgba(6, 182, 212, 0.55);
+    }
+
+    .drawer-options-btn .dropdown-chevron {
+        font-size: 0.45rem;
+        transition: transform 0.2s ease;
+    }
+
+    .drawer-options-btn[aria-expanded="true"] .dropdown-chevron {
+        transform: rotate(180deg);
+    }
+
+    .drawer-options-dropdown {
+        position: absolute;
+        top: calc(100% + 6px);
+        right: 0;
+        width: 280px;
+        max-height: 0;
+        overflow: hidden;
+        background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+        border: 1px solid rgba(6, 182, 212, 0.3);
+        border-radius: 12px;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(6, 182, 212, 0.1);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+        z-index: 1000;
+    }
+
+    .drawer-options-dropdown.open {
+        max-height: 600px;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        overflow-y: auto;
+    }
+
+    .drawer-options-dropdown::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    .drawer-options-dropdown::-webkit-scrollbar-thumb {
+        background: rgba(6, 182, 212, 0.3);
+        border-radius: 2px;
+    }
+
+    .dropdown-section {
+        padding: 0.6rem;
+    }
+
+    .dropdown-section.compact {
+        padding: 0.4rem 0.6rem;
+    }
+
+    .dropdown-section-header {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.3rem 0.4rem;
+        margin-bottom: 0.5rem;
+        font-size: 0.6rem;
+        font-weight: 600;
+        color: #94a3b8;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .dropdown-section-header i {
+        font-size: 0.55rem;
+        color: #22d3ee;
+    }
+
+    .toggle-all-btn {
+        margin-left: auto;
+        padding: 0.2rem 0.35rem;
+        border: 1px solid rgba(6, 182, 212, 0.2);
+        border-radius: 4px;
+        background: rgba(6, 182, 212, 0.1);
+        color: #22d3ee;
+        cursor: pointer;
+        font-size: 0.5rem;
+        transition: all 0.2s ease;
+    }
+
+    .toggle-all-btn:hover {
+        background: rgba(6, 182, 212, 0.2);
+        border-color: rgba(6, 182, 212, 0.4);
+    }
+
+    .dropdown-divider {
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.2), transparent);
+        margin: 0;
+    }
+
+    /* Size Options Grid */
+    .size-options {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.35rem;
+    }
+
+    .size-option {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.2rem;
+        padding: 0.5rem 0.4rem;
+        border: 1px solid rgba(100, 116, 139, 0.2);
+        border-radius: 8px;
+        background: rgba(30, 41, 59, 0.5);
+        color: #94a3b8;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .size-option:hover {
+        border-color: rgba(6, 182, 212, 0.4);
+        background: rgba(6, 182, 212, 0.1);
+        color: #e2e8f0;
+    }
+
+    .size-option.active {
+        border-color: rgba(6, 182, 212, 0.6);
+        background: rgba(6, 182, 212, 0.15);
+        color: #22d3ee;
+    }
+
+    .size-option .size-icon {
+        font-size: 0.75rem;
+    }
+
+    .size-option .size-label {
+        font-size: 0.58rem;
+        font-weight: 600;
+    }
+
+    .size-option .size-value {
+        font-size: 0.48rem;
+        color: #64748b;
+        font-family: 'JetBrains Mono', monospace;
+    }
+
+    .size-option.active .size-value {
         color: #67e8f9;
+    }
+
+    /* Action Options List */
+    .action-options {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+
+    .action-option {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.45rem 0.6rem;
+        border: none;
+        border-radius: 6px;
+        background: transparent;
+        color: #cbd5e1;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        text-align: left;
+        font-size: 0.62rem;
+        width: 100%;
+    }
+
+    .action-option:hover {
+        background: rgba(6, 182, 212, 0.12);
+        color: #e2e8f0;
+    }
+
+    .action-option i {
+        width: 16px;
+        text-align: center;
+        font-size: 0.58rem;
+        color: #64748b;
+    }
+
+    .action-option:hover i {
+        color: #22d3ee;
+    }
+
+    .action-option span {
+        flex: 1;
+    }
+
+    .action-option kbd {
+        padding: 0.15rem 0.35rem;
+        font-size: 0.48rem;
+        font-family: 'JetBrains Mono', monospace;
+        background: rgba(100, 116, 139, 0.2);
+        border: 1px solid rgba(100, 116, 139, 0.3);
+        border-radius: 4px;
+        color: #64748b;
+    }
+
+    .action-option.highlight {
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(6, 182, 212, 0.1));
+        border: 1px solid rgba(139, 92, 246, 0.25);
+    }
+
+    .action-option.highlight:hover {
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(6, 182, 212, 0.15));
+        border-color: rgba(139, 92, 246, 0.4);
+    }
+
+    .action-option.highlight i {
+        color: #a78bfa;
+    }
+
+    .action-badge {
+        padding: 0.12rem 0.35rem;
+        font-size: 0.45rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+        color: white;
+        border-radius: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    /* Section Toggles */
+    .section-toggles {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .section-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.35rem 0.5rem;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.15s ease;
+    }
+
+    .section-toggle:hover {
+        background: rgba(100, 116, 139, 0.1);
+    }
+
+    .section-toggle input[type="checkbox"] {
+        display: none;
+    }
+
+    .toggle-switch {
+        position: relative;
+        width: 28px;
+        height: 16px;
+        background: rgba(100, 116, 139, 0.3);
+        border-radius: 8px;
+        transition: all 0.2s ease;
+        flex-shrink: 0;
+    }
+
+    .toggle-switch::after {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 12px;
+        height: 12px;
+        background: #64748b;
+        border-radius: 50%;
+        transition: all 0.2s ease;
+    }
+
+    .section-toggle input:checked + .toggle-switch {
+        background: rgba(6, 182, 212, 0.4);
+    }
+
+    .section-toggle input:checked + .toggle-switch::after {
+        left: 14px;
+        background: #22d3ee;
+    }
+
+    .toggle-label {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.58rem;
+        color: #94a3b8;
+    }
+
+    .section-toggle:hover .toggle-label {
+        color: #e2e8f0;
+    }
+
+    .toggle-label i {
+        font-size: 0.52rem;
+        color: #64748b;
+        width: 14px;
+        text-align: center;
+    }
+
+    /* Light Theme */
+    :global([data-theme="light"]) .drawer-options-dropdown {
+        background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+        border-color: rgba(6, 182, 212, 0.25);
+    }
+
+    :global([data-theme="light"]) .dropdown-section-header {
+        color: #475569;
+    }
+
+    :global([data-theme="light"]) .size-option {
+        background: rgba(255, 255, 255, 0.8);
+        color: #475569;
+        border-color: rgba(148, 163, 184, 0.3);
+    }
+
+    :global([data-theme="light"]) .size-option:hover,
+    :global([data-theme="light"]) .size-option.active {
+        background: rgba(6, 182, 212, 0.1);
+        color: #0891b2;
+    }
+
+    :global([data-theme="light"]) .action-option {
+        color: #334155;
+    }
+
+    :global([data-theme="light"]) .action-option:hover {
+        background: rgba(6, 182, 212, 0.1);
+    }
+
+    :global([data-theme="light"]) .toggle-label {
+        color: #475569;
     }
 
     .drawer-close {
@@ -3057,7 +3524,6 @@ const base = import.meta.env.BASE_URL;
 
         function attachDrawerEvents() {
             const closeBtn = document.getElementById('drawer-close-btn');
-            const widthToggleBtn = document.getElementById('drawer-width-toggle');
             const drawer = document.getElementById('subject-drawer');
 
             // Usar onclick directo para evitar duplicados
@@ -3071,38 +3537,374 @@ const base = import.meta.env.BASE_URL;
                 };
             }
 
-            // Overlay removed - drawer now operates as a sidebar
+            // Initialize the new dropdown functionality
+            initDrawerOptionsDropdown();
+        }
 
-            // Width toggle button - expands drawer to 680px or contracts to default
-            if (widthToggleBtn && drawer) {
-                widthToggleBtn.onclick = function(e) {
+        // ============================================
+        // DRAWER OPTIONS DROPDOWN - Premium Features
+        // ============================================
+        function initDrawerOptionsDropdown() {
+            const optionsBtn = document.getElementById('drawer-options-btn');
+            const dropdown = document.getElementById('drawer-options-dropdown');
+            const drawer = document.getElementById('subject-drawer');
+
+            if (!optionsBtn || !dropdown || !drawer) return;
+
+            // Prevent duplicate initialization
+            if (optionsBtn.dataset.initialized === 'true') return;
+            optionsBtn.dataset.initialized = 'true';
+
+            // Toggle dropdown
+            optionsBtn.onclick = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                const isOpen = dropdown.classList.contains('open');
+                dropdown.classList.toggle('open');
+                optionsBtn.setAttribute('aria-expanded', (!isOpen).toString());
+            };
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!dropdown.contains(e.target) && !optionsBtn.contains(e.target)) {
+                    dropdown.classList.remove('open');
+                    optionsBtn.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // Size options
+            const sizeOptions = dropdown.querySelectorAll('.size-option');
+            sizeOptions.forEach(opt => {
+                opt.onclick = function(e) {
                     e.preventDefault();
                     e.stopPropagation();
 
-                    const DEFAULT_WIDTH = 520;
-                    const EXPANDED_WIDTH = 680;
-                    const isExpanded = drawer.classList.contains('expanded-width');
+                    const width = opt.dataset.width;
 
-                    if (isExpanded) {
-                        // Contract to default
-                        drawer.classList.remove('expanded-width');
-                        drawer.style.width = DEFAULT_WIDTH + 'px';
-                        widthToggleBtn.classList.remove('active');
-                        localStorage.setItem('subject_drawer_width', DEFAULT_WIDTH.toString());
+                    // Update active state
+                    sizeOptions.forEach(o => o.classList.remove('active'));
+                    opt.classList.add('active');
+
+                    // Apply width
+                    if (width === 'full') {
+                        drawer.style.width = 'calc(100vw - 340px)';
+                        drawer.classList.add('fullscreen-width');
                     } else {
-                        // Expand to larger width
-                        drawer.classList.add('expanded-width');
-                        drawer.style.width = EXPANDED_WIDTH + 'px';
-                        widthToggleBtn.classList.add('active');
-                        localStorage.setItem('subject_drawer_width', EXPANDED_WIDTH.toString());
+                        drawer.style.width = width + 'px';
+                        drawer.classList.remove('fullscreen-width');
+                        localStorage.setItem('subject_drawer_width', width);
                     }
 
-                    // Dispatch resize event for sidebar sync
+                    // Dispatch resize event
                     window.dispatchEvent(new CustomEvent('subjectDrawerResize', {
                         detail: { width: drawer.offsetWidth }
                     }));
                 };
+            });
+
+            // Action options
+            const actionOptions = dropdown.querySelectorAll('.action-option');
+            actionOptions.forEach(opt => {
+                opt.onclick = function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    const action = opt.dataset.action;
+                    handleDrawerAction(action);
+
+                    // Close dropdown after action (except for some actions)
+                    if (!['share'].includes(action)) {
+                        dropdown.classList.remove('open');
+                        optionsBtn.setAttribute('aria-expanded', 'false');
+                    }
+                };
+            });
+
+            // Section toggles
+            const sectionToggles = dropdown.querySelectorAll('.section-toggle input');
+            sectionToggles.forEach(toggle => {
+                // Restore saved state
+                const sectionId = toggle.dataset.section;
+                const savedState = localStorage.getItem(`drawer_section_${sectionId}`);
+                if (savedState === 'hidden') {
+                    toggle.checked = false;
+                    hideSectionById(sectionId);
+                }
+
+                toggle.onchange = function() {
+                    const sectionId = toggle.dataset.section;
+                    if (toggle.checked) {
+                        showSectionById(sectionId);
+                        localStorage.setItem(`drawer_section_${sectionId}`, 'visible');
+                    } else {
+                        hideSectionById(sectionId);
+                        localStorage.setItem(`drawer_section_${sectionId}`, 'hidden');
+                    }
+                };
+            });
+
+            // Toggle all sections button
+            const toggleAllBtn = document.getElementById('toggle-all-sections');
+            if (toggleAllBtn) {
+                toggleAllBtn.onclick = function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    const allChecked = Array.from(sectionToggles).every(t => t.checked);
+
+                    sectionToggles.forEach(toggle => {
+                        toggle.checked = !allChecked;
+                        const sectionId = toggle.dataset.section;
+                        if (!allChecked) {
+                            showSectionById(sectionId);
+                            localStorage.setItem(`drawer_section_${sectionId}`, 'visible');
+                        } else {
+                            hideSectionById(sectionId);
+                            localStorage.setItem(`drawer_section_${sectionId}`, 'hidden');
+                        }
+                    });
+
+                    // Update button icon
+                    toggleAllBtn.innerHTML = allChecked
+                        ? '<i class="fas fa-eye-slash"></i>'
+                        : '<i class="fas fa-eye"></i>';
+                };
             }
+
+            // Restore size from localStorage
+            const savedWidth = localStorage.getItem('subject_drawer_width');
+            if (savedWidth) {
+                const widthNum = parseInt(savedWidth, 10);
+                sizeOptions.forEach(opt => {
+                    opt.classList.remove('active');
+                    if (opt.dataset.width === savedWidth || parseInt(opt.dataset.width, 10) === widthNum) {
+                        opt.classList.add('active');
+                    }
+                });
+            }
+        }
+
+        function hideSectionById(sectionId) {
+            // Find section by id attribute or class
+            let section = document.getElementById(`drawer-${sectionId}`);
+            if (!section) {
+                section = document.querySelector(`.drawer-section.${sectionId}`);
+            }
+            if (!section) {
+                // Try finding parent section that contains this id
+                const element = document.getElementById(`drawer-${sectionId}`);
+                section = element?.closest('.drawer-section');
+            }
+            if (section) {
+                section.style.display = 'none';
+            }
+        }
+
+        function showSectionById(sectionId) {
+            let section = document.getElementById(`drawer-${sectionId}`);
+            if (!section) {
+                section = document.querySelector(`.drawer-section.${sectionId}`);
+            }
+            if (!section) {
+                const element = document.getElementById(`drawer-${sectionId}`);
+                section = element?.closest('.drawer-section');
+            }
+            if (section) {
+                section.style.display = '';
+            }
+        }
+
+        function handleDrawerAction(action) {
+            const drawer = document.getElementById('subject-drawer');
+            const title = document.getElementById('drawer-title')?.textContent || 'Asignatura';
+            const code = document.getElementById('drawer-codigo')?.textContent || '';
+
+            switch (action) {
+                case 'copy':
+                    copyDrawerContent();
+                    break;
+                case 'share':
+                    shareDrawerContent(title, code);
+                    break;
+                case 'print':
+                    printDrawerContent();
+                    break;
+                case 'ask-tutor':
+                    askTutorAboutSubject(title, code);
+                    break;
+                case 'new-tab':
+                    // TODO: Open subject detail in new tab
+                    showNotification('Próximamente: Vista completa de asignatura', 'info');
+                    break;
+                case 'github':
+                    const githubLink = document.getElementById('drawer-github-link');
+                    if (githubLink?.href && githubLink.href !== '#') {
+                        window.open(githubLink.href, '_blank');
+                    } else {
+                        showNotification('Materiales próximamente disponibles', 'info');
+                    }
+                    break;
+            }
+        }
+
+        function copyDrawerContent() {
+            const title = document.getElementById('drawer-title')?.textContent || '';
+            const code = document.getElementById('drawer-codigo')?.textContent || '';
+            const descripcion = document.getElementById('drawer-descripcion')?.textContent || '';
+            const creditos = document.getElementById('drawer-creditos-val')?.textContent || '';
+
+            const content = `📚 ${title} (${code})
+
+📝 Descripción:
+${descripcion}
+
+📊 Créditos: ${creditos}
+
+🔗 Más información en: ${window.location.href}`;
+
+            navigator.clipboard.writeText(content).then(() => {
+                showNotification('Información copiada al portapapeles', 'success');
+            }).catch(() => {
+                showNotification('Error al copiar', 'error');
+            });
+        }
+
+        function shareDrawerContent(title, code) {
+            const url = window.location.href;
+            const text = `Mira esta asignatura: ${title} (${code})`;
+
+            if (navigator.share) {
+                navigator.share({ title, text, url }).catch(() => {});
+            } else {
+                // Fallback: copy to clipboard
+                navigator.clipboard.writeText(`${text}\n${url}`).then(() => {
+                    showNotification('Enlace copiado para compartir', 'success');
+                });
+            }
+        }
+
+        function printDrawerContent() {
+            const drawer = document.getElementById('subject-drawer');
+            const title = document.getElementById('drawer-title')?.textContent || 'Asignatura';
+
+            // Create print-friendly version
+            const printWindow = window.open('', '_blank');
+            if (printWindow) {
+                printWindow.document.write(`
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                        <title>${title} - Ficha de Asignatura</title>
+                        <style>
+                            body { font-family: system-ui, sans-serif; padding: 2rem; max-width: 800px; margin: 0 auto; }
+                            h1 { color: #0891b2; border-bottom: 2px solid #06b6d4; padding-bottom: 0.5rem; }
+                            h2 { color: #475569; margin-top: 1.5rem; }
+                            .stats { display: flex; gap: 2rem; margin: 1rem 0; padding: 1rem; background: #f1f5f9; border-radius: 8px; }
+                            .stat { text-align: center; }
+                            .stat-value { font-size: 1.5rem; font-weight: bold; color: #0891b2; }
+                            .stat-label { font-size: 0.75rem; color: #64748b; }
+                            ul { padding-left: 1.5rem; }
+                            li { margin: 0.5rem 0; }
+                            .tag { display: inline-block; padding: 0.25rem 0.5rem; background: #e0f2fe; color: #0369a1; border-radius: 4px; margin: 0.2rem; font-size: 0.85rem; }
+                            @media print { body { padding: 1rem; } }
+                        </style>
+                    </head>
+                    <body>
+                        <h1>${title}</h1>
+                        <p><strong>Código:</strong> ${document.getElementById('drawer-codigo')?.textContent || ''}</p>
+                        <div class="stats">
+                            <div class="stat">
+                                <div class="stat-value">${document.getElementById('drawer-creditos-val')?.textContent || ''}</div>
+                                <div class="stat-label">Créditos</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">${document.getElementById('drawer-horas-teoricas')?.textContent || ''}</div>
+                                <div class="stat-label">Hrs. Teóricas</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">${document.getElementById('drawer-horas-practicas')?.textContent || ''}</div>
+                                <div class="stat-label">Hrs. Prácticas</div>
+                            </div>
+                        </div>
+                        <h2>Descripción</h2>
+                        <p>${document.getElementById('drawer-descripcion')?.textContent || ''}</p>
+                        <h2>Propósito</h2>
+                        <p>${document.getElementById('drawer-proposito')?.textContent || ''}</p>
+                        <h2>Objetivos de Aprendizaje</h2>
+                        ${document.getElementById('drawer-objetivos')?.innerHTML || ''}
+                        <h2>Competencias</h2>
+                        <div>${Array.from(document.querySelectorAll('#drawer-competencias .competencia-tag')).map(t => `<span class="tag">${t.textContent}</span>`).join(' ')}</div>
+                        <footer style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #e2e8f0; color: #64748b; font-size: 0.85rem;">
+                            Generado desde: ${window.location.href}<br>
+                            Fecha: ${new Date().toLocaleDateString('es-CL')}
+                        </footer>
+                    </body>
+                    </html>
+                `);
+                printWindow.document.close();
+                printWindow.print();
+            }
+        }
+
+        function askTutorAboutSubject(title, code) {
+            // Open AI Tutor with this subject context
+            if (typeof window.showAITutor === 'function') {
+                window.showAITutor(title, code);
+                showNotification('Tutor IA listo para ayudarte', 'success');
+            } else {
+                showNotification('Tutor IA no disponible', 'error');
+            }
+        }
+
+        function showNotification(message, type = 'info') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `drawer-notification ${type}`;
+            notification.innerHTML = `
+                <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'}"></i>
+                <span>${message}</span>
+            `;
+            notification.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                padding: 0.75rem 1rem;
+                background: ${type === 'success' ? 'rgba(34, 197, 94, 0.95)' : type === 'error' ? 'rgba(239, 68, 68, 0.95)' : 'rgba(6, 182, 212, 0.95)'};
+                color: white;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                font-size: 0.85rem;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+                z-index: 10000;
+                animation: slideIn 0.3s ease;
+            `;
+
+            // Add animation keyframes if not exist
+            if (!document.getElementById('notification-styles')) {
+                const style = document.createElement('style');
+                style.id = 'notification-styles';
+                style.textContent = `
+                    @keyframes slideIn {
+                        from { transform: translateX(100%); opacity: 0; }
+                        to { transform: translateX(0); opacity: 1; }
+                    }
+                    @keyframes slideOut {
+                        from { transform: translateX(0); opacity: 1; }
+                        to { transform: translateX(100%); opacity: 0; }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+
+            document.body.appendChild(notification);
+
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease forwards';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
         }
 
         // ============================================
@@ -3162,10 +3964,11 @@ const base = import.meta.env.BASE_URL;
 
                 drawer.style.width = newWidth + 'px';
 
-                // Remove expanded-width class if manually resizing
-                drawer.classList.remove('expanded-width');
-                const widthBtn = document.getElementById('drawer-width-toggle');
-                widthBtn?.classList.remove('active');
+                // Remove expanded-width and fullscreen classes if manually resizing
+                drawer.classList.remove('expanded-width', 'fullscreen-width');
+
+                // Update size options active state in dropdown
+                updateSizeOptionsActiveState(newWidth);
 
                 // Dispatch resize event in real-time for sidebar sync
                 window.dispatchEvent(new CustomEvent('subjectDrawerResize', {
@@ -3186,6 +3989,9 @@ const base = import.meta.env.BASE_URL;
                 const currentWidth = drawer.offsetWidth;
                 localStorage.setItem('subject_drawer_width', currentWidth.toString());
 
+                // Update size options active state
+                updateSizeOptionsActiveState(currentWidth);
+
                 // Dispatch resize event
                 window.dispatchEvent(new CustomEvent('subjectDrawerResize', {
                     detail: { width: currentWidth }
@@ -3197,13 +4003,25 @@ const base = import.meta.env.BASE_URL;
                 document.removeEventListener('touchend', stopResize);
             }
 
+            // Helper to update size options active state based on current width
+            function updateSizeOptionsActiveState(width) {
+                const sizeOptions = document.querySelectorAll('.size-option');
+                sizeOptions.forEach(opt => {
+                    opt.classList.remove('active');
+                    const optWidth = parseInt(opt.dataset.width, 10);
+                    // Mark active if within 20px tolerance of a preset
+                    if (Math.abs(optWidth - width) <= 20) {
+                        opt.classList.add('active');
+                    }
+                });
+            }
+
             // Double-click to reset
             resizeHandle.addEventListener('dblclick', () => {
                 drawer.style.width = DEFAULT_WIDTH + 'px';
-                drawer.classList.remove('expanded-width');
-                const widthBtn = document.getElementById('drawer-width-toggle');
-                widthBtn?.classList.remove('active');
+                drawer.classList.remove('expanded-width', 'fullscreen-width');
                 localStorage.setItem('subject_drawer_width', DEFAULT_WIDTH.toString());
+                updateSizeOptionsActiveState(DEFAULT_WIDTH);
 
                 window.dispatchEvent(new CustomEvent('subjectDrawerResize', {
                     detail: { width: DEFAULT_WIDTH }

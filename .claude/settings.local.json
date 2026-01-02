@@ -471,7 +471,8 @@
       "Bash(echo \"url=https://bitbucket.org/fuadonates/analista-programador-computacional-duocuc.git\nusername=x-token-auth\npassword=ATCTT3xFfGN0HjSXQOuz3oUlkTiWkCuhmBGdvX73NcuU1iI53ShNwZE1_D7Xx-zjsmvBI1m0Kk10bAmCoJ1ZU13-W8SA5hgrVJRKyXDQH15jk21IpRwsoOeL8orf1IZDdabk4CRRi0kxQevZevc3HLB320I8Itoy5UJfbrYR5GrwoSLPWYsEHqs=805454A4\")",
       "Bash(git credential approve:*)",
       "Bash(cmdkey /list:*)",
-      "Bash(taskkill:*)"
+      "Bash(taskkill:*)",
+      "Bash(git branch:*)"
     ]
   }
 }
