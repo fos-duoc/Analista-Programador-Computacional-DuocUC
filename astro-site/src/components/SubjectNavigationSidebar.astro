@@ -61,15 +61,15 @@ function getSubjectTooltip(subject: Asignatura): string {
 
     <!-- Filter Mode Tabs -->
     <nav class="filter-tabs" role="tablist">
-        <button class="filter-tab active" data-filter="bimestre" role="tab" aria-selected="true" title="Filtrar por bimestre">
+        <button class="filter-tab active" data-filter="bimestre" role="tab" aria-selected="true" data-tooltip="Vista por Bimestre|Organiza las asignaturas en 17 bimestres (10 APC + 7 IDS)|B01-B10: Analista Programador,B11-B17: Ing. Desarrollo Software|filter|fa-calendar-alt|NAVEGACIÓN">
             <i class="fas fa-calendar-alt"></i>
             <span>Bimestre</span>
         </button>
-        <button class="filter-tab" data-filter="year" role="tab" aria-selected="false" title="Filtrar por ano">
+        <button class="filter-tab" data-filter="year" role="tab" aria-selected="false" data-tooltip="Vista por Año Académico|Agrupa asignaturas por año de la carrera|Año 1-2: Fundamentos,Año 3-4: Especialización,Año 5: Titulación|filter|fa-graduation-cap|NAVEGACIÓN">
             <i class="fas fa-graduation-cap"></i>
-            <span>Ano</span>
+            <span>Año</span>
         </button>
-        <button class="filter-tab" data-filter="week" role="tab" aria-selected="false" title="Filtrar por semana">
+        <button class="filter-tab" data-filter="week" role="tab" aria-selected="false" data-tooltip="Vista por Semana|Muestra asignaturas según tu semana actual del bimestre|Semanas 1-10: Clases,Semana 11: Exámenes|filter|fa-calendar-week|NAVEGACIÓN">
             <i class="fas fa-calendar-week"></i>
             <span>Semana</span>
         </button>
