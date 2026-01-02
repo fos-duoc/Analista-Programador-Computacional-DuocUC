@@ -106,7 +106,7 @@ function getSubjectTooltip(subject: Asignatura): string {
                                     data-subject-id={subject.id}
                                     data-subject-name={subject.nombreCorto}
                                     data-subject-code={subject.codigo}
-                                    data-tooltip={getSubjectTooltip(subject)}
+                                    data-premium-tooltip={getSubjectTooltip(subject)}
                                 >
                                     <span class="subject-code">{subject.codigo}</span>
                                     <span class="subject-name">{subject.nombreCorto}</span>
@@ -126,7 +126,7 @@ function getSubjectTooltip(subject: Asignatura): string {
                     <div class={`year-group ${y.color}`}>
                         <button class="group-header" aria-expanded="false">
                             <span class="year-badge">{y.year}</span>
-                            <span class="group-title">Ano {y.year} - {y.title}</span>
+                            <span class="group-title">Año {y.year} - {y.title}</span>
                             <span class="group-count">{subjects.length}</span>
                             <i class="fas fa-chevron-down group-chevron"></i>
                         </button>
@@ -145,7 +145,7 @@ function getSubjectTooltip(subject: Asignatura): string {
                                                 data-subject-id={subject.id}
                                                 data-subject-name={subject.nombreCorto}
                                                 data-subject-code={subject.codigo}
-                                                data-tooltip={getSubjectTooltip(subject)}
+                                                data-premium-tooltip={getSubjectTooltip(subject)}
                                             >
                                                 <span class="subject-code">{subject.codigo}</span>
                                                 <span class="subject-name">{subject.nombreCorto}</span>
@@ -682,105 +682,146 @@ function getSubjectTooltip(subject: Asignatura): string {
     }
 
     .week-group {
-        margin-bottom: 0.35rem;
-        border-radius: 8px;
+        margin-bottom: 0.4rem;
+        border-radius: 10px;
         overflow: hidden;
-        background: rgba(30, 41, 59, 0.3);
-        border: 1px solid rgba(251, 191, 36, 0.2);
+        background: linear-gradient(135deg, rgba(30, 41, 59, 0.4), rgba(15, 23, 42, 0.3));
+        border: 1px solid rgba(251, 191, 36, 0.25);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     }
 
     .week-header {
         width: 100%;
         display: flex;
         align-items: center;
-        gap: 0.4rem;
-        padding: 0.45rem 0.6rem;
+        gap: 0.5rem;
+        padding: 0.6rem 0.75rem;
         border: none;
-        background: transparent;
-        color: #cbd5e1;
+        background: linear-gradient(90deg, rgba(251, 191, 36, 0.05), transparent);
+        color: #e2e8f0;
         cursor: pointer;
         transition: all 0.2s ease;
         text-align: left;
-        font-size: 0.65rem;
+        font-size: 0.72rem;
+        font-family: 'Inter', sans-serif;
     }
 
     .week-header:hover {
-        background: rgba(251, 191, 36, 0.08);
+        background: linear-gradient(90deg, rgba(251, 191, 36, 0.12), rgba(251, 191, 36, 0.03));
     }
 
     .week-badge {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-width: 26px;
-        padding: 0.15rem 0.3rem;
-        font-size: 0.55rem;
+        min-width: 32px;
+        padding: 0.2rem 0.4rem;
+        font-size: 0.65rem;
         font-weight: 700;
-        border-radius: 4px;
-        background: rgba(251, 191, 36, 0.2);
+        border-radius: 6px;
+        background: linear-gradient(135deg, rgba(251, 191, 36, 0.25), rgba(245, 158, 11, 0.15));
         color: #fbbf24;
+        letter-spacing: 0.02em;
+        font-family: 'JetBrains Mono', monospace;
+        box-shadow: 0 1px 3px rgba(251, 191, 36, 0.2);
     }
 
     .week-title {
         flex: 1;
-        font-weight: 500;
+        font-weight: 600;
+        font-size: 0.72rem;
+        letter-spacing: -0.01em;
     }
 
     .week-count {
-        font-size: 0.52rem;
-        color: #64748b;
-        background: rgba(100, 116, 139, 0.15);
-        padding: 0.1rem 0.3rem;
-        border-radius: 10px;
+        font-size: 0.6rem;
+        color: #94a3b8;
+        background: rgba(100, 116, 139, 0.2);
+        padding: 0.15rem 0.4rem;
+        border-radius: 12px;
+        font-weight: 500;
+        font-family: 'JetBrains Mono', monospace;
     }
 
     .week-content {
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.25s ease;
-        padding: 0 0.5rem;
+        transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 0 0.6rem;
     }
 
     .week-header[aria-expanded="true"] + .week-content {
-        max-height: 400px;
-        padding: 0.3rem 0.5rem 0.5rem;
+        max-height: 500px;
+        padding: 0.4rem 0.6rem 0.6rem;
     }
 
     .week-item {
-        padding: 0.35rem 0.4rem;
-        margin-bottom: 0.2rem;
-        border-radius: 5px;
-        background: rgba(15, 23, 42, 0.4);
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: 0.55rem 0.6rem;
+        margin-bottom: 0.35rem;
+        border-radius: 8px;
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.5), rgba(30, 41, 59, 0.3));
+        border: 1px solid rgba(71, 85, 105, 0.2);
         cursor: pointer;
-        transition: all 0.15s ease;
+        transition: all 0.2s ease;
     }
 
     .week-item:hover {
-        background: rgba(251, 191, 36, 0.1);
+        background: linear-gradient(135deg, rgba(251, 191, 36, 0.12), rgba(245, 158, 11, 0.05));
+        border-color: rgba(251, 191, 36, 0.3);
+        transform: translateX(2px);
     }
 
     .week-subject {
         display: block;
-        font-size: 0.6rem;
+        font-size: 0.72rem;
         font-weight: 600;
-        color: #e2e8f0;
-        margin-bottom: 0.15rem;
+        color: #f1f5f9;
+        font-family: 'Inter', sans-serif;
+        letter-spacing: -0.01em;
     }
 
-    .week-exp {
-        display: block;
-        font-size: 0.52rem;
-        color: #64748b;
-        line-height: 1.3;
+    .week-exp-badge {
+        display: inline-block;
+        font-size: 0.58rem;
+        font-weight: 700;
+        color: #fbbf24;
+        background: rgba(251, 191, 36, 0.15);
+        padding: 0.1rem 0.35rem;
+        border-radius: 4px;
+        font-family: 'JetBrains Mono', monospace;
+        letter-spacing: 0.02em;
+        margin-right: 0.3rem;
+    }
+
+    .week-exp-title {
+        font-size: 0.65rem;
+        color: #94a3b8;
+        font-weight: 400;
+        line-height: 1.4;
+        font-family: 'Inter', sans-serif;
     }
 
     .week-empty {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
         text-align: center;
-        font-size: 0.55rem;
+        font-size: 0.68rem;
+        color: #64748b;
+        font-style: normal;
+        padding: 0.8rem;
+        background: rgba(71, 85, 105, 0.1);
+        border-radius: 6px;
+        border: 1px dashed rgba(100, 116, 139, 0.3);
+    }
+
+    .week-empty i {
+        font-size: 0.75rem;
         color: #475569;
-        font-style: italic;
-        padding: 0.5rem;
     }
 
     /* Footer */
@@ -1252,11 +1293,12 @@ function getSubjectTooltip(subject: Asignatura): string {
                                 const category = parseInt(bimNum) <= 10 ? 'APC' : 'IDS';
                                 const tooltip = `${subj.nombreCorto}|${desc}${desc.length >= 100 ? '...' : ''}|${expCount} experiencias,B${bimNum},${subj.creditos || 4} créditos|subject|fa-book|${category} - BIMESTRE ${bimNum}`;
                                 return `
-                                <div class="week-item" data-subject-id="${subj.id}" data-tooltip="${tooltip.replace(/"/g, '&quot;')}">
+                                <div class="week-item" data-subject-id="${subj.id}" data-premium-tooltip="${tooltip.replace(/"/g, '&quot;')}">
                                     <span class="week-subject">${subj.nombreCorto}</span>
-                                    <span class="week-exp">Exp ${item.experiencia.numero}: ${item.experiencia.titulo}</span>
+                                    <span class="week-exp-badge">Exp ${item.experiencia.numero}</span>
+                                    <span class="week-exp-title">${item.experiencia.titulo}</span>
                                 </div>
-                            `}).join('') : '<span class="week-empty">Sin contenido programado</span>'}
+                            `}).join('') : '<span class="week-empty"><i class="fas fa-calendar-times"></i> Sin contenido programado</span>'}
                         </div>
                     </div>
                 `;

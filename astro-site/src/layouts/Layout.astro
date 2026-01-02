@@ -120,22 +120,22 @@ const BUILD_VERSION = Date.now().toString(36);
         }
 
         body.page-enter {
-            animation: pageEnter 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation: pageEnter 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
         }
 
-        /* Astro View Transitions customization - smoother crossfade */
+        /* Astro View Transitions customization - cinematic crossfade */
         ::view-transition-old(root),
         ::view-transition-new(root) {
-            animation-duration: 0.5s;
-            animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            animation-duration: 0.7s;
+            animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
         }
 
         ::view-transition-old(root) {
-            animation: smoothFadeOut 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+            animation: smoothFadeOut 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) both;
         }
 
         ::view-transition-new(root) {
-            animation: smoothFadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+            animation: smoothFadeIn 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) both;
         }
 
         @keyframes smoothFadeOut {
