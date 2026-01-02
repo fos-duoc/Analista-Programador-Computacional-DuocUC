@@ -211,13 +211,13 @@ const base = import.meta.env.BASE_URL;
                         <i class="fas fa-arrow-right suggestion-arrow"></i>
                     </button>
 
-                    <button class="suggestion-card" data-suggestion="Explícame las diferencias entre REST y GraphQL con ejemplos prácticos" data-delay="3">
+                    <button class="suggestion-card" data-suggestion="Crea un diagrama de flujo en Mermaid que muestre el proceso de autenticación JWT con refresh tokens" data-delay="3">
                         <div class="suggestion-icon">
-                            <i class="fas fa-lightbulb"></i>
+                            <i class="fas fa-project-diagram"></i>
                         </div>
                         <div class="suggestion-content">
-                            <span class="suggestion-title">Explicar diferencias</span>
-                            <span class="suggestion-desc">REST vs GraphQL con ejemplos</span>
+                            <span class="suggestion-title">Generar diagrama</span>
+                            <span class="suggestion-desc">Flowchart de auth JWT</span>
                         </div>
                         <i class="fas fa-arrow-right suggestion-arrow"></i>
                     </button>
@@ -4340,6 +4340,270 @@ const base = import.meta.env.BASE_URL;
             font-size: 0.48rem;
         }
     }
+
+    /* ============================================
+       MERMAID DIAGRAM STYLES - Premium Design
+       ============================================ */
+
+    .mermaid-container {
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+        border: 1px solid rgba(102, 126, 234, 0.3);
+        border-radius: 12px;
+        overflow: hidden;
+        margin: 0.75rem 0;
+    }
+
+    .mermaid-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 0.75rem;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+        border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+    }
+
+    .mermaid-badge {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: #a78bfa;
+    }
+
+    .mermaid-badge i {
+        font-size: 0.65rem;
+    }
+
+    .mermaid-actions {
+        display: flex;
+        gap: 0.25rem;
+    }
+
+    .mermaid-actions button {
+        width: 26px;
+        height: 26px;
+        border: none;
+        border-radius: 6px;
+        background: rgba(102, 126, 234, 0.2);
+        color: #a78bfa;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.65rem;
+        transition: all 0.2s ease;
+    }
+
+    .mermaid-actions button:hover {
+        background: rgba(102, 126, 234, 0.4);
+        color: #fff;
+        transform: scale(1.05);
+    }
+
+    .mermaid-actions button.active {
+        background: #667eea;
+        color: #fff;
+    }
+
+    .mermaid-diagram {
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100px;
+        background: rgba(15, 15, 35, 0.5);
+        overflow-x: auto;
+    }
+
+    .mermaid-diagram.rendered svg {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .mermaid-loading {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #a78bfa;
+        font-size: 0.75rem;
+    }
+
+    .mermaid-loading i {
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+    .mermaid-error {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        color: #f43f5e;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .mermaid-error i {
+        font-size: 1.5rem;
+    }
+
+    .mermaid-error span {
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    .mermaid-error small {
+        font-size: 0.65rem;
+        color: rgba(244, 63, 94, 0.7);
+        max-width: 200px;
+        word-break: break-word;
+    }
+
+    .mermaid-code-view {
+        border-top: 1px solid rgba(102, 126, 234, 0.2);
+        background: rgba(15, 15, 35, 0.8);
+    }
+
+    .mermaid-code-view pre {
+        margin: 0;
+        padding: 0.75rem;
+        overflow-x: auto;
+    }
+
+    .mermaid-code-view code {
+        font-family: 'Fira Code', 'Monaco', monospace;
+        font-size: 0.7rem;
+        color: #e0e0e0;
+        white-space: pre;
+    }
+
+    /* Fullscreen Modal */
+    .mermaid-fullscreen-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(10, 10, 20, 0.95);
+        z-index: 10000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        backdrop-filter: blur(10px);
+    }
+
+    .mermaid-fullscreen-modal.visible {
+        opacity: 1;
+    }
+
+    .mermaid-fullscreen-content {
+        width: 95vw;
+        height: 95vh;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        border-radius: 16px;
+        border: 1px solid rgba(102, 126, 234, 0.3);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        box-shadow: 0 25px 80px rgba(102, 126, 234, 0.3);
+    }
+
+    .mermaid-fullscreen-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+        border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+    }
+
+    .mermaid-fullscreen-header span {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #fff;
+    }
+
+    .mermaid-fullscreen-header span i {
+        color: #667eea;
+    }
+
+    .mermaid-fullscreen-close {
+        width: 36px;
+        height: 36px;
+        border: none;
+        border-radius: 8px;
+        background: rgba(244, 63, 94, 0.2);
+        color: #f43f5e;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        transition: all 0.2s ease;
+    }
+
+    .mermaid-fullscreen-close:hover {
+        background: #f43f5e;
+        color: #fff;
+        transform: scale(1.05);
+    }
+
+    .mermaid-fullscreen-body {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        overflow: auto;
+    }
+
+    .mermaid-fullscreen-body svg {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    /* Suggestion buttons for diagrams */
+    .diagram-suggestions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-top: 0.5rem;
+    }
+
+    .diagram-suggestion-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.4rem 0.65rem;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+        border: 1px solid rgba(102, 126, 234, 0.3);
+        border-radius: 20px;
+        color: #a78bfa;
+        font-size: 0.65rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .diagram-suggestion-btn:hover {
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);
+        border-color: rgba(102, 126, 234, 0.5);
+        color: #fff;
+        transform: translateY(-1px);
+    }
+
+    .diagram-suggestion-btn i {
+        font-size: 0.6rem;
+    }
 </style>
 
 <script is:inline>
@@ -4970,6 +5234,25 @@ Selecciona una asignatura del panel izquierdo o pregúntame directamente.`;
 Tu objetivo es ayudar a estudiantes a comprender conceptos, resolver ejercicios y prepararse para evaluaciones.
 Responde en español de Chile, de forma clara, profesional y pedagógica.
 Usa formato Markdown: headers (##), listas (-), código (\`\`\`), negritas (**), etc.
+
+DIAGRAMAS MERMAID: Cuando el estudiante pida diagramas, flujos, arquitecturas, o cuando un concepto se explique mejor visualmente, genera diagramas usando bloques de código Mermaid (\`\`\`mermaid).
+Tipos de diagramas disponibles:
+- flowchart (TD/LR): para flujos de proceso, algoritmos, decisiones
+- sequenceDiagram: para interacciones entre componentes/actores
+- classDiagram: para estructuras OOP, relaciones entre clases
+- erDiagram: para bases de datos, entidades y relaciones
+- stateDiagram-v2: para máquinas de estado, ciclos de vida
+- gantt: para cronogramas, planificación de proyectos
+- mindmap: para mapas conceptuales, lluvia de ideas
+- pie: para distribución porcentual
+Siempre usa sintaxis válida de Mermaid. Ejemplo:
+\`\`\`mermaid
+flowchart TD
+    A[Inicio] --> B{Decisión}
+    B -->|Sí| C[Acción 1]
+    B -->|No| D[Acción 2]
+\`\`\`
+
 Si el estudiante pregunta algo fuera del tema, gentilmente redirige la conversación.
 Mantén respuestas concisas pero completas.`;
 
@@ -5054,9 +5337,45 @@ Mantén respuestas concisas pero completas.`;
 
         // Enhanced Markdown to HTML conversion
         let formattedContent = content;
+        let hasMermaid = false;
 
         // 1. Code blocks (VSCode-style with header and copy button)
+        // Special handling for Mermaid diagrams
         formattedContent = formattedContent.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
+            const langLower = (lang || '').toLowerCase();
+
+            // Check if this is a Mermaid diagram
+            if (langLower === 'mermaid') {
+                hasMermaid = true;
+                const mermaidId = 'mermaid-' + Math.random().toString(36).substr(2, 9);
+                const mermaidCode = code.trim();
+                return `<div class="mermaid-container">
+                    <div class="mermaid-header">
+                        <span class="mermaid-badge"><i class="fas fa-project-diagram"></i> Diagrama</span>
+                        <div class="mermaid-actions">
+                            <button class="mermaid-toggle-code" data-mermaid-id="${mermaidId}" title="Ver/Ocultar código">
+                                <i class="fas fa-code"></i>
+                            </button>
+                            <button class="mermaid-fullscreen" data-mermaid-id="${mermaidId}" title="Pantalla completa">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                            <button class="mermaid-download" data-mermaid-id="${mermaidId}" title="Descargar SVG">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mermaid-diagram" id="${mermaidId}" data-mermaid-code="${escapeHtmlAttr(mermaidCode)}">
+                        <div class="mermaid-loading">
+                            <i class="fas fa-spinner fa-spin"></i> Renderizando diagrama...
+                        </div>
+                    </div>
+                    <div class="mermaid-code-view" id="${mermaidId}-code" style="display: none;">
+                        <pre><code class="language-mermaid">${escapeHtml(mermaidCode)}</code></pre>
+                    </div>
+                </div>`;
+            }
+
+            // Regular code block
             const langClass = lang ? ` class="language-${lang}"` : '';
             const langDisplay = lang || 'code';
             const codeId = 'code-' + Math.random().toString(36).substr(2, 9);
@@ -5178,6 +5497,289 @@ Mantén respuestas concisas pero completas.`;
                 }
             });
         });
+
+        // Render Mermaid diagrams if present
+        if (hasMermaid) {
+            renderMermaidDiagrams(messageDiv);
+        }
+    }
+
+    // ============================================
+    // MERMAID DIAGRAM SUPPORT
+    // ============================================
+
+    let mermaidLoaded = false;
+    let mermaidLoading = false;
+    const mermaidCallbacks = [];
+
+    // Load Mermaid.js library dynamically
+    async function loadMermaid() {
+        if (mermaidLoaded) return Promise.resolve();
+        if (mermaidLoading) {
+            return new Promise(resolve => mermaidCallbacks.push(resolve));
+        }
+
+        mermaidLoading = true;
+        return new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js';
+            script.onload = () => {
+                mermaidLoaded = true;
+                mermaidLoading = false;
+                // Initialize mermaid with premium theme
+                window.mermaid.initialize({
+                    startOnLoad: false,
+                    theme: 'base',
+                    themeVariables: {
+                        primaryColor: '#667eea',
+                        primaryTextColor: '#fff',
+                        primaryBorderColor: '#764ba2',
+                        lineColor: '#667eea',
+                        secondaryColor: '#f093fb',
+                        tertiaryColor: '#1a1a2e',
+                        background: '#0f0f23',
+                        mainBkg: '#1a1a2e',
+                        secondBkg: '#16213e',
+                        nodeBorder: '#667eea',
+                        clusterBkg: '#1a1a2e',
+                        clusterBorder: '#667eea',
+                        defaultLinkColor: '#667eea',
+                        titleColor: '#fff',
+                        edgeLabelBackground: '#1a1a2e',
+                        nodeTextColor: '#fff',
+                        actorTextColor: '#fff',
+                        actorLineColor: '#667eea',
+                        signalColor: '#667eea',
+                        signalTextColor: '#fff',
+                        labelBoxBkgColor: '#1a1a2e',
+                        labelBoxBorderColor: '#667eea',
+                        labelTextColor: '#fff',
+                        loopTextColor: '#fff',
+                        noteBorderColor: '#667eea',
+                        noteBkgColor: '#16213e',
+                        noteTextColor: '#fff',
+                        activationBorderColor: '#667eea',
+                        activationBkgColor: '#1a1a2e',
+                        sequenceNumberColor: '#fff',
+                        sectionBkgColor: '#1a1a2e',
+                        altSectionBkgColor: '#16213e',
+                        sectionBkgColor2: '#1a1a2e',
+                        taskBorderColor: '#667eea',
+                        taskBkgColor: '#667eea',
+                        taskTextColor: '#fff',
+                        taskTextLightColor: '#fff',
+                        taskTextOutsideColor: '#fff',
+                        taskTextClickableColor: '#fff',
+                        activeTaskBorderColor: '#f093fb',
+                        activeTaskBkgColor: '#f093fb',
+                        gridColor: '#667eea',
+                        doneTaskBkgColor: '#4ade80',
+                        doneTaskBorderColor: '#22c55e',
+                        critBorderColor: '#f43f5e',
+                        critBkgColor: '#f43f5e',
+                        todayLineColor: '#f093fb',
+                        fontFamily: 'Inter, system-ui, sans-serif',
+                        fontSize: '14px'
+                    },
+                    flowchart: {
+                        useMaxWidth: true,
+                        htmlLabels: true,
+                        curve: 'basis',
+                        padding: 15
+                    },
+                    sequence: {
+                        useMaxWidth: true,
+                        diagramMarginX: 10,
+                        diagramMarginY: 10,
+                        actorMargin: 50,
+                        width: 150,
+                        height: 65,
+                        boxMargin: 10,
+                        boxTextMargin: 5,
+                        noteMargin: 10,
+                        messageMargin: 35,
+                        mirrorActors: true
+                    },
+                    gantt: {
+                        useMaxWidth: true
+                    },
+                    er: {
+                        useMaxWidth: true
+                    },
+                    class: {
+                        useMaxWidth: true
+                    },
+                    state: {
+                        useMaxWidth: true
+                    },
+                    pie: {
+                        useMaxWidth: true
+                    },
+                    mindmap: {
+                        useMaxWidth: true
+                    }
+                });
+                resolve();
+                mermaidCallbacks.forEach(cb => cb());
+            };
+            script.onerror = () => {
+                mermaidLoading = false;
+                reject(new Error('Failed to load Mermaid.js'));
+            };
+            document.head.appendChild(script);
+        });
+    }
+
+    // Render all Mermaid diagrams in a container
+    async function renderMermaidDiagrams(container) {
+        const diagrams = container.querySelectorAll('.mermaid-diagram[data-mermaid-code]');
+        if (diagrams.length === 0) return;
+
+        try {
+            await loadMermaid();
+
+            for (const diagram of diagrams) {
+                const code = diagram.getAttribute('data-mermaid-code');
+                const id = diagram.id;
+
+                try {
+                    const { svg } = await window.mermaid.render(id + '-svg', code);
+                    diagram.innerHTML = svg;
+                    diagram.classList.add('rendered');
+
+                    // Add pan/zoom functionality
+                    initDiagramInteractions(diagram);
+                } catch (err) {
+                    console.error('Mermaid render error:', err);
+                    diagram.innerHTML = `
+                        <div class="mermaid-error">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span>Error al renderizar diagrama</span>
+                            <small>${escapeHtml(err.message || 'Syntax error')}</small>
+                        </div>
+                    `;
+                    diagram.classList.add('error');
+                }
+            }
+
+            // Setup event listeners for mermaid actions
+            setupMermaidActions(container);
+        } catch (err) {
+            console.error('Failed to load Mermaid:', err);
+            diagrams.forEach(diagram => {
+                diagram.innerHTML = `
+                    <div class="mermaid-error">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Error cargando Mermaid.js</span>
+                    </div>
+                `;
+            });
+        }
+    }
+
+    // Initialize diagram pan/zoom interactions
+    function initDiagramInteractions(diagram) {
+        const svg = diagram.querySelector('svg');
+        if (!svg) return;
+
+        svg.style.cursor = 'grab';
+        svg.style.maxWidth = '100%';
+        svg.style.height = 'auto';
+    }
+
+    // Setup Mermaid action buttons
+    function setupMermaidActions(container) {
+        // Toggle code view
+        container.querySelectorAll('.mermaid-toggle-code').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const mermaidId = this.getAttribute('data-mermaid-id');
+                const codeView = document.getElementById(mermaidId + '-code');
+                if (codeView) {
+                    const isVisible = codeView.style.display !== 'none';
+                    codeView.style.display = isVisible ? 'none' : 'block';
+                    this.classList.toggle('active', !isVisible);
+                }
+            });
+        });
+
+        // Fullscreen view
+        container.querySelectorAll('.mermaid-fullscreen').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const mermaidId = this.getAttribute('data-mermaid-id');
+                const diagram = document.getElementById(mermaidId);
+                if (diagram) {
+                    showMermaidFullscreen(diagram.innerHTML, mermaidId);
+                }
+            });
+        });
+
+        // Download SVG
+        container.querySelectorAll('.mermaid-download').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const mermaidId = this.getAttribute('data-mermaid-id');
+                const diagram = document.getElementById(mermaidId);
+                const svg = diagram?.querySelector('svg');
+                if (svg) {
+                    downloadSVG(svg, mermaidId);
+                }
+            });
+        });
+    }
+
+    // Show diagram in fullscreen modal
+    function showMermaidFullscreen(svgContent, id) {
+        // Remove existing modal if any
+        const existingModal = document.getElementById('mermaid-fullscreen-modal');
+        if (existingModal) existingModal.remove();
+
+        const modal = document.createElement('div');
+        modal.id = 'mermaid-fullscreen-modal';
+        modal.className = 'mermaid-fullscreen-modal';
+        modal.innerHTML = `
+            <div class="mermaid-fullscreen-content">
+                <div class="mermaid-fullscreen-header">
+                    <span><i class="fas fa-project-diagram"></i> Diagrama - Vista Completa</span>
+                    <button class="mermaid-fullscreen-close" title="Cerrar">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="mermaid-fullscreen-body">
+                    ${svgContent}
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        // Close handlers
+        modal.querySelector('.mermaid-fullscreen-close').addEventListener('click', () => modal.remove());
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.remove();
+        });
+        document.addEventListener('keydown', function closeOnEsc(e) {
+            if (e.key === 'Escape') {
+                modal.remove();
+                document.removeEventListener('keydown', closeOnEsc);
+            }
+        });
+
+        // Animate in
+        requestAnimationFrame(() => modal.classList.add('visible'));
+    }
+
+    // Download SVG as file
+    function downloadSVG(svgElement, filename) {
+        const svgData = new XMLSerializer().serializeToString(svgElement);
+        const blob = new Blob([svgData], { type: 'image/svg+xml' });
+        const url = URL.createObjectURL(blob);
+
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `${filename || 'diagram'}.svg`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
     }
 
     // Helper function to escape HTML in code blocks
