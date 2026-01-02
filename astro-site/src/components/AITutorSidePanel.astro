@@ -4172,7 +4172,21 @@ const base = import.meta.env.BASE_URL;
         updateQuickActionsState(true);
 
         // Add initial assistant message with prominent greeting state
-        const greetingMsg = `¡Hola! 👋 Tutor de **${subjectName}** a tu servicio. Resúmenes, código, ejercicios, dudas... ¡pregunta lo que quieras!`;
+        // Special greeting for Sala de Estudio context
+        let greetingMsg;
+        if (subjectCode === 'SALA' || subjectCode === 'GEN') {
+            greetingMsg = `¡Hola! 👋 Bienvenido a la **Sala de Estudio**. Soy tu Tutor IA.
+
+Puedo ayudarte con:
+- 📚 **Resúmenes** de cualquier asignatura
+- 💻 **Código** y ejemplos de programación
+- ✍️ **Ejercicios** de práctica
+- ❓ **Dudas** sobre el contenido
+
+Selecciona una asignatura del panel izquierdo o pregúntame directamente.`;
+        } else {
+            greetingMsg = `¡Hola! 👋 Tutor de **${subjectName}** a tu servicio. Resúmenes, código, ejercicios, dudas... ¡pregunta lo que quieras!`;
+        }
         addMessage('assistant', greetingMsg);
 
         // Make the greeting prominent for 8 seconds

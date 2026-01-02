@@ -29,7 +29,7 @@ const base = import.meta.env.BASE_URL;
             <span class="drawer-code" id="drawer-codigo">PRY1101</span>
         </div>
         <div class="drawer-controls">
-            <button class="drawer-width-btn" id="drawer-width-toggle" aria-label="Expandir ancho" title="Expandir/Contraer ancho">
+            <button class="drawer-width-btn" id="drawer-width-toggle" aria-label="Expandir ancho" data-tooltip="Ajustar Ancho del Panel|Expande o contrae el panel de información para mejor lectura|Click: Toggle 520px/680px,Arrastrar borde: Ajuste libre,Doble-click: Resetear|tool|fa-arrows-alt-h|PANEL DE ASIGNATURA">
                 <i class="fas fa-arrows-alt-h"></i>
             </button>
             <button class="drawer-close" aria-label="Cerrar panel" id="drawer-close-btn">
@@ -3073,13 +3073,34 @@ const base = import.meta.env.BASE_URL;
 
             // Overlay removed - drawer now operates as a sidebar
 
-            // Width toggle button
+            // Width toggle button - expands drawer to 680px or contracts to default
             if (widthToggleBtn && drawer) {
                 widthToggleBtn.onclick = function(e) {
                     e.preventDefault();
                     e.stopPropagation();
-                    drawer.classList.toggle('expanded-width');
-                    widthToggleBtn.classList.toggle('active');
+
+                    const DEFAULT_WIDTH = 520;
+                    const EXPANDED_WIDTH = 680;
+                    const isExpanded = drawer.classList.contains('expanded-width');
+
+                    if (isExpanded) {
+                        // Contract to default
+                        drawer.classList.remove('expanded-width');
+                        drawer.style.width = DEFAULT_WIDTH + 'px';
+                        widthToggleBtn.classList.remove('active');
+                        localStorage.setItem('subject_drawer_width', DEFAULT_WIDTH.toString());
+                    } else {
+                        // Expand to larger width
+                        drawer.classList.add('expanded-width');
+                        drawer.style.width = EXPANDED_WIDTH + 'px';
+                        widthToggleBtn.classList.add('active');
+                        localStorage.setItem('subject_drawer_width', EXPANDED_WIDTH.toString());
+                    }
+
+                    // Dispatch resize event for sidebar sync
+                    window.dispatchEvent(new CustomEvent('subjectDrawerResize', {
+                        detail: { width: drawer.offsetWidth }
+                    }));
                 };
             }
         }

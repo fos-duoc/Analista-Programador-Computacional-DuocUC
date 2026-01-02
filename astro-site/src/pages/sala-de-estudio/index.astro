@@ -2043,17 +2043,27 @@ const subjectLinks: Record<string, string> = {
             drawer.setAttribute('aria-hidden', 'true');
         }
 
-        // AI Tutor: abierto por defecto (visible)
-        const tutorPanel = document.getElementById('ai-tutor-panel');
-        if (tutorPanel) {
-            tutorPanel.classList.add('visible');
-            tutorPanel.classList.remove('minimized');
-        }
-
-        // Ocultar el botón expand del AI Tutor (ya está abierto)
-        const aiExpandBtn = document.getElementById('ai-tutor-expand-btn');
-        if (aiExpandBtn) {
-            aiExpandBtn.classList.remove('visible');
+        // AI Tutor: abierto por defecto con contexto de Sala de Estudio
+        // Solo abrir si no hay un estado guardado (evita duplicar al volver a la página)
+        const savedState = sessionStorage.getItem('aiTutorState');
+        if (!savedState && typeof window.showAITutor === 'function') {
+            // Dar tiempo a que el componente AITutorSidePanel se inicialice
+            setTimeout(() => {
+                if (typeof window.showAITutor === 'function') {
+                    window.showAITutor('Sala de Estudio', 'SALA');
+                }
+            }, 100);
+        } else if (savedState) {
+            // Si hay estado guardado, solo asegurar que el panel esté visible
+            const tutorPanel = document.getElementById('ai-tutor-panel');
+            const aiExpandBtn = document.getElementById('ai-tutor-expand-btn');
+            if (tutorPanel) {
+                tutorPanel.classList.add('visible');
+                tutorPanel.classList.remove('minimized');
+            }
+            if (aiExpandBtn) {
+                aiExpandBtn.classList.remove('visible');
+            }
         }
     }
 
