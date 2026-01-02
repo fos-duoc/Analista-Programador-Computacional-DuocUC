@@ -2059,7 +2059,7 @@ const subjectLinks: Record<string, string> = {
         sessionStorage.setItem('lastSalaPage', currentPage);
     }
 
-    // Asegurar que el drawer y AI Tutor estén cerrados al cargar la página
+    // Asegurar estado inicial de los paneles
     function ensureDrawersClosed() {
         // Cerrar SubjectDrawer (siempre - no persiste entre navegaciones)
         const drawer = document.getElementById('subject-drawer');
@@ -2068,16 +2068,16 @@ const subjectLinks: Record<string, string> = {
             drawer.setAttribute('aria-hidden', 'true');
         }
 
-        // AI Tutor: cerrado por defecto (estado ya limpiado por clearInitialState)
+        // AI Tutor: abierto en modo minimizado por defecto
         const tutorPanel = document.getElementById('ai-tutor-panel');
         if (tutorPanel) {
-            tutorPanel.classList.remove('visible');
+            tutorPanel.classList.add('visible', 'minimized');
         }
 
-        // Mostrar el botón expand del AI Tutor
+        // Ocultar el botón expand del AI Tutor (ya está visible)
         const aiExpandBtn = document.getElementById('ai-tutor-expand-btn');
         if (aiExpandBtn) {
-            aiExpandBtn.classList.add('visible');
+            aiExpandBtn.classList.remove('visible');
         }
     }
 

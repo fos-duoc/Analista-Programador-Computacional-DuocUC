@@ -265,7 +265,7 @@ const base = import.meta.env.BASE_URL;
     .subject-drawer {
         position: fixed;
         top: 70px;
-        right: 382px;
+        right: 320px; /* Aligned with minimized AI Tutor (320px) */
         width: 520px;
         max-width: 95vw;
         height: calc(100vh - 70px);
@@ -3205,8 +3205,8 @@ const base = import.meta.env.BASE_URL;
             const drawer = document.getElementById('subject-drawer');
             if (!drawer) return;
 
-            const DEFAULT_TUTOR_WIDTH = 382;
-            const MIN_DRAWER_RIGHT = 340;  // Min tutor width
+            const DEFAULT_TUTOR_WIDTH = 320; // Minimized AI Tutor width
+            const MIN_DRAWER_RIGHT = 320;  // Min tutor width (minimized)
             const MAX_DRAWER_RIGHT = 700;  // Max tutor width
 
             // Get saved tutor width or use default
