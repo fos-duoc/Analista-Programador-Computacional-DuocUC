@@ -9,8 +9,7 @@ import { asignaturas, nombreCortoToId, type Asignatura } from '../data/asignatur
 const base = import.meta.env.BASE_URL;
 ---
 
-<!-- Overlay para cerrar el drawer al hacer clic fuera -->
-<div id="subject-drawer-overlay" class="drawer-overlay"></div>
+<!-- Overlay removed - drawer now works as a sidebar that coexists with other panels -->
 
 <!-- Drawer Panel -->
 <aside id="subject-drawer" class="subject-drawer" aria-hidden="true" role="dialog" aria-labelledby="drawer-title">
@@ -242,29 +241,10 @@ const base = import.meta.env.BASE_URL;
 
 <style>
     /* ============================================
-       DRAWER OVERLAY
-       - Starts below header (70px) to keep navigation visible
-       - Enterprise-grade UX pattern
+       DRAWER OVERLAY - REMOVED
+       Now operates as a sidebar without overlay
+       Drawer coexists with SubjectNavigationSidebar and AITutor
     ============================================ */
-    .drawer-overlay {
-        position: fixed;
-        top: 70px; /* Below header */
-        left: 0;
-        width: 100%;
-        height: calc(100vh - 70px);
-        background: rgba(0, 0, 0, 0.5);
-        backdrop-filter: blur(2px);
-        z-index: 999; /* Below header (1000) */
-        opacity: 0;
-        visibility: hidden;
-        /* Faster overlay transition (200ms per Material Design 3) */
-        transition: opacity 0.2s ease, visibility 0.2s ease;
-    }
-
-    .drawer-overlay.active {
-        opacity: 1;
-        visibility: visible;
-    }
 
     /* ============================================
        DRAWER PANEL - Premium Enterprise Design
@@ -1877,9 +1857,6 @@ const base = import.meta.env.BASE_URL;
     /* ============================================
        LIGHT MODE - Structured Styles
     ============================================ */
-    :global([data-theme="light"]) .drawer-overlay {
-        background: rgba(0, 0, 0, 0.35);
-    }
 
     :global([data-theme="light"]) .subject-drawer {
         background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
@@ -2594,14 +2571,12 @@ const base = import.meta.env.BASE_URL;
 
         // Abrir el drawer
         const drawer = document.getElementById('subject-drawer');
-        const overlay = document.getElementById('subject-drawer-overlay');
 
         drawer?.classList.add('open');
         drawer?.setAttribute('aria-hidden', 'false');
-        overlay?.classList.add('active');
 
-        // Prevenir scroll del body
-        document.body.style.overflow = 'hidden';
+        // Dispatch event for layout sync (no body scroll lock - sidebar mode)
+        window.dispatchEvent(new CustomEvent('subjectDrawerToggle', { detail: { isOpen: true } }));
     };
 
     // Mostrar contenido placeholder para asignaturas sin datos completos
@@ -2689,14 +2664,12 @@ const base = import.meta.env.BASE_URL;
     // Función para cerrar el drawer
     window.closeSubjectDrawer = function() {
         const drawer = document.getElementById('subject-drawer');
-        const overlay = document.getElementById('subject-drawer-overlay');
 
         drawer?.classList.remove('open');
         drawer?.setAttribute('aria-hidden', 'true');
-        overlay?.classList.remove('active');
 
-        // Restaurar scroll del body
-        document.body.style.overflow = '';
+        // Dispatch event for layout sync
+        window.dispatchEvent(new CustomEvent('subjectDrawerToggle', { detail: { isOpen: false } }));
     };
 
     // Función para actualizar el contenido del drawer
@@ -3023,7 +2996,6 @@ const base = import.meta.env.BASE_URL;
 
         function attachDrawerEvents() {
             const closeBtn = document.getElementById('drawer-close-btn');
-            const overlay = document.getElementById('subject-drawer-overlay');
             const widthToggleBtn = document.getElementById('drawer-width-toggle');
             const drawer = document.getElementById('subject-drawer');
 
@@ -3038,14 +3010,7 @@ const base = import.meta.env.BASE_URL;
                 };
             }
 
-            if (overlay) {
-                overlay.onclick = function(e) {
-                    e.preventDefault();
-                    if (window.closeSubjectDrawer) {
-                        window.closeSubjectDrawer();
-                    }
-                };
-            }
+            // Overlay removed - drawer now operates as a sidebar
 
             // Width toggle button
             if (widthToggleBtn && drawer) {
