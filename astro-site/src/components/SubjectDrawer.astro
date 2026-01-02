@@ -3074,6 +3074,107 @@ const base = import.meta.env.BASE_URL;
 </style>
 
 <script define:vars={{ asignaturasData: asignaturas, nombreCortoToIdMap: nombreCortoToId }}>
+    // Mapa de tooltips para palabras clave
+    const keywordTooltips = {
+        // Lenguajes de Programación
+        'Python': 'Python|Lenguaje versátil para desarrollo, scripting y data science|Sintaxis limpia,Tipado dinámico|code|fa-python|LENGUAJE',
+        'Java': 'Java|Lenguaje OOP robusto para aplicaciones enterprise|JVM,Multiplataforma|code|fa-java|LENGUAJE',
+        'Java 17+': 'Java 17+|Versión LTS moderna con records, sealed classes y pattern matching|Records,Sealed Classes|code|fa-java|LENGUAJE',
+        'JavaScript': 'JavaScript|Lenguaje del navegador y Node.js para desarrollo full-stack|ES6+,Async/Await|code|fa-js|LENGUAJE',
+        'TypeScript': 'TypeScript|JavaScript con tipado estático para código más robusto|Interfaces,Generics|code|fa-code|LENGUAJE',
+        'SQL': 'SQL|Lenguaje para consultas y manipulación de bases de datos|SELECT,JOIN,GROUP BY|code|fa-database|LENGUAJE',
+        'C#': 'C#|Lenguaje moderno de Microsoft para .NET|LINQ,Async,Nullable|code|fa-microsoft|LENGUAJE',
+        'PHP': 'PHP|Lenguaje backend popular para desarrollo web|Laravel,WordPress|code|fa-php|LENGUAJE',
+        'Kotlin': 'Kotlin|Lenguaje moderno para Android y JVM|Null Safety,Coroutines|code|fa-android|LENGUAJE',
+        'Swift': 'Swift|Lenguaje de Apple para iOS y macOS|Optionals,Protocol Oriented|code|fa-apple|LENGUAJE',
+        'Go': 'Go|Lenguaje de Google para sistemas y microservicios|Goroutines,Channels|code|fa-google|LENGUAJE',
+        'Rust': 'Rust|Lenguaje de sistemas con seguridad de memoria|Zero-cost abstractions|code|fa-cog|LENGUAJE',
+        // Conceptos OOP
+        'Clases': 'Clases|Plantillas para crear objetos con atributos y métodos|Encapsulación,Instancias|info|fa-cube|POO',
+        'Objetos': 'Objetos|Instancias de clases que representan entidades del mundo real|Estado,Comportamiento|info|fa-cubes|POO',
+        'Herencia': 'Herencia|Mecanismo para reutilizar código entre clases relacionadas|extends,super|info|fa-sitemap|POO',
+        'Polimorfismo': 'Polimorfismo|Capacidad de objetos de responder de forma diferente al mismo mensaje|Override,Overload|info|fa-shapes|POO',
+        'Encapsulamiento': 'Encapsulamiento|Ocultar detalles internos y exponer solo lo necesario|private,public,getters|info|fa-lock|POO',
+        'Abstracción': 'Abstracción|Simplificar complejidad mostrando solo lo esencial|abstract,interface|info|fa-layer-group|POO',
+        'Interfaces': 'Interfaces|Contratos que definen comportamiento sin implementación|implements,default methods|info|fa-plug|POO',
+        'UML': 'UML|Lenguaje de modelado para diseño de software|Diagramas de clases,Secuencia|tool|fa-project-diagram|DISEÑO',
+        // Estructuras de Datos
+        'ArrayList': 'ArrayList|Lista dinámica basada en arrays con acceso indexado|add(),get(),size()|code|fa-list|ESTRUCTURA',
+        'HashMap': 'HashMap|Estructura clave-valor con acceso O(1) promedio|put(),get(),containsKey()|code|fa-table|ESTRUCTURA',
+        'LinkedList': 'LinkedList|Lista enlazada para inserciones/eliminaciones eficientes|addFirst(),removeLast()|code|fa-link|ESTRUCTURA',
+        'Stack': 'Stack|Estructura LIFO para operaciones push/pop|push(),pop(),peek()|code|fa-layer-group|ESTRUCTURA',
+        'Queue': 'Queue|Estructura FIFO para procesamiento en orden|offer(),poll(),peek()|code|fa-stream|ESTRUCTURA',
+        'Tree': 'Tree|Estructura jerárquica para datos organizados|BST,AVL,Red-Black|code|fa-sitemap|ESTRUCTURA',
+        'Graph': 'Graph|Estructura para relaciones entre nodos|BFS,DFS,Dijkstra|code|fa-project-diagram|ESTRUCTURA',
+        // Excepciones y Error Handling
+        'Excepciones': 'Excepciones|Manejo de errores en tiempo de ejecución|try-catch,throw,finally|code|fa-exclamation-triangle|JAVA',
+        'Try-Catch': 'Try-Catch|Bloque para capturar y manejar excepciones|catch,finally,multi-catch|code|fa-shield-alt|ERROR',
+        // IDEs y Herramientas
+        'IntelliJ IDEA': 'IntelliJ IDEA|IDE profesional de JetBrains para Java y Kotlin|Refactoring,Debugging|tool|fa-laptop-code|IDE',
+        'VS Code': 'VS Code|Editor ligero y extensible de Microsoft|Extensions,Terminal integrado|tool|fa-code|IDE',
+        'Eclipse': 'Eclipse|IDE open source para desarrollo Java|Plugins,Workspace|tool|fa-moon|IDE',
+        'NetBeans': 'NetBeans|IDE gratuito de Apache para Java|GUI Builder,Profiler|tool|fa-laptop-code|IDE',
+        'Git': 'Git|Sistema de control de versiones distribuido|Branches,Commits,Merge|tool|fa-code-branch|CONTROL',
+        'GitHub': 'GitHub|Plataforma de colaboración y hosting de código|Pull Requests,Actions|tool|fa-github|PLATAFORMA',
+        'Docker': 'Docker|Contenedores para aplicaciones portátiles|Images,Containers,Compose|tool|fa-docker|DEVOPS',
+        // Frameworks y Librerías
+        'React': 'React|Librería de Facebook para interfaces de usuario|Components,Hooks,JSX|framework|fa-react|FRONTEND',
+        'Angular': 'Angular|Framework de Google para aplicaciones web|TypeScript,RxJS,CLI|framework|fa-angular|FRONTEND',
+        'Vue': 'Vue.js|Framework progresivo para interfaces web|Reactivity,Composition API|framework|fa-vuejs|FRONTEND',
+        'Spring': 'Spring|Framework Java para aplicaciones enterprise|DI,AOP,Boot|framework|fa-leaf|BACKEND',
+        'Spring Boot': 'Spring Boot|Framework para microservicios Java con auto-configuración|Starters,Actuator|framework|fa-rocket|BACKEND',
+        'Node.js': 'Node.js|Runtime JavaScript para servidor|NPM,Express,Event Loop|framework|fa-node-js|BACKEND',
+        'Django': 'Django|Framework Python para desarrollo web rápido|ORM,Admin,MTV|framework|fa-python|BACKEND',
+        'Laravel': 'Laravel|Framework PHP elegante con sintaxis expresiva|Eloquent,Blade,Artisan|framework|fa-laravel|BACKEND',
+        // Bases de Datos
+        'MySQL': 'MySQL|Base de datos relacional open source popular|InnoDB,Replication|database|fa-database|BD',
+        'PostgreSQL': 'PostgreSQL|BD relacional avanzada con extensiones|JSONB,Full-text search|database|fa-database|BD',
+        'MongoDB': 'MongoDB|Base de datos NoSQL orientada a documentos|JSON,Aggregation,Sharding|database|fa-database|NOSQL',
+        'Redis': 'Redis|Almacén de datos en memoria ultra-rápido|Cache,Pub/Sub,Streams|database|fa-bolt|CACHE',
+        'Oracle': 'Oracle|BD empresarial con alta disponibilidad|PL/SQL,RAC,Partitioning|database|fa-database|BD',
+        // Patrones y Arquitectura
+        'MVC': 'MVC|Patrón Model-View-Controller para separar responsabilidades|Modelo,Vista,Controlador|pattern|fa-th-large|PATRÓN',
+        'REST': 'REST|Estilo arquitectónico para APIs web|HTTP Methods,Stateless|pattern|fa-exchange-alt|API',
+        'API': 'API|Interfaz para comunicación entre sistemas|Endpoints,JSON,HTTP|pattern|fa-plug|INTEGRACIÓN',
+        'Microservicios': 'Microservicios|Arquitectura de servicios pequeños e independientes|Desacoplado,Escalable|pattern|fa-cubes|ARQUITECTURA',
+        'Clean Architecture': 'Clean Architecture|Arquitectura con capas independientes del framework|Entities,Use Cases|pattern|fa-layer-group|ARQUITECTURA',
+        'SOLID': 'SOLID|5 principios de diseño orientado a objetos|SRP,OCP,LSP,ISP,DIP|pattern|fa-gem|PRINCIPIOS',
+        // Testing
+        'JUnit': 'JUnit|Framework de testing para Java|@Test,Assertions,Mocks|testing|fa-vial|TESTING',
+        'Testing': 'Testing|Verificación de calidad del software|Unit,Integration,E2E|testing|fa-check-double|CALIDAD',
+        'TDD': 'TDD|Desarrollo guiado por pruebas|Red-Green-Refactor|testing|fa-sync|METODOLOGÍA',
+        // Cloud y DevOps
+        'AWS': 'AWS|Servicios cloud de Amazon|EC2,S3,Lambda,RDS|cloud|fa-aws|CLOUD',
+        'Azure': 'Azure|Plataforma cloud de Microsoft|App Service,Functions|cloud|fa-microsoft|CLOUD',
+        'GCP': 'GCP|Google Cloud Platform|Compute,BigQuery,Kubernetes|cloud|fa-google|CLOUD',
+        'CI/CD': 'CI/CD|Integración y despliegue continuo|Jenkins,GitHub Actions|devops|fa-infinity|DEVOPS',
+        'Kubernetes': 'Kubernetes|Orquestación de contenedores|Pods,Services,Deployments|devops|fa-dharmachakra|DEVOPS',
+        // Otros conceptos
+        'Algoritmos': 'Algoritmos|Secuencias de pasos para resolver problemas|Ordenamiento,Búsqueda|info|fa-cogs|FUNDAMENTOS',
+        'Recursión': 'Recursión|Técnica donde una función se llama a sí misma|Caso base,Caso recursivo|info|fa-redo|TÉCNICA',
+        'Concurrencia': 'Concurrencia|Ejecución simultánea de múltiples tareas|Threads,Async,Parallel|info|fa-random|AVANZADO',
+        'Seguridad': 'Seguridad|Protección de datos y sistemas|Autenticación,Encriptación|info|fa-shield-alt|SEGURIDAD',
+        'Scrum': 'Scrum|Framework ágil para gestión de proyectos|Sprints,Daily,Retrospectiva|methodology|fa-users|AGILE',
+        'Kanban': 'Kanban|Método visual para gestión del flujo de trabajo|Board,WIP Limits|methodology|fa-columns|AGILE'
+    };
+
+    // Función para obtener tooltip de keyword
+    function getKeywordTooltip(keyword) {
+        // Buscar coincidencia exacta o parcial
+        if (keywordTooltips[keyword]) {
+            return keywordTooltips[keyword];
+        }
+        // Buscar coincidencia parcial (case-insensitive)
+        const lowerKw = keyword.toLowerCase();
+        for (const [key, value] of Object.entries(keywordTooltips)) {
+            if (key.toLowerCase() === lowerKw || lowerKw.includes(key.toLowerCase())) {
+                return value;
+            }
+        }
+        // Tooltip genérico si no se encuentra
+        return `${keyword}|Concepto clave de la asignatura|Importante para el aprendizaje|info|fa-tag|KEYWORD`;
+    }
+
     // Estado global del drawer
     window.subjectDrawerData = {
         asignaturas: asignaturasData,
@@ -3383,12 +3484,13 @@ const base = import.meta.env.BASE_URL;
             indicatorsSection.style.display = 'none';
         }
 
-        // Palabras Clave
+        // Palabras Clave con tooltips premium
         if (asignatura.palabrasClave && asignatura.palabrasClave.length > 0) {
             keywordsSection.style.display = 'block';
-            const keywordsHtml = asignatura.palabrasClave.map(kw =>
-                `<span class="keyword-tag">${kw}</span>`
-            ).join('');
+            const keywordsHtml = asignatura.palabrasClave.map(kw => {
+                const tooltip = getKeywordTooltip(kw);
+                return `<span class="keyword-tag" data-premium-tooltip="${tooltip}">${kw}</span>`;
+            }).join('');
             document.getElementById('drawer-palabras-clave').innerHTML = keywordsHtml;
         } else {
             keywordsSection.style.display = 'none';
