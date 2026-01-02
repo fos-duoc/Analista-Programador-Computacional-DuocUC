@@ -6500,6 +6500,8 @@ Mantén respuestas concisas pero completas.`;
     document.addEventListener('astro:page-load', () => {
         if (window.ttsManager) {
             window.ttsManager.stop();
+            // Reset flag to allow re-initialization after page transitions
+            window.ttsManager._controlsInitialized = false;
             window.ttsManager.initControls();
             window.ttsManager.populateBrowserVoices();
         }

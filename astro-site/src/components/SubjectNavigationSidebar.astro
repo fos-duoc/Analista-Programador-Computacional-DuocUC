@@ -1381,27 +1381,16 @@ function getSubjectTooltip(subject: Asignatura): string {
             });
 
             function checkAndAdjust() {
+                // Sidebars are now pure overlays - no auto-collapse needed
+                // User controls sidebar visibility manually
+                // Only adjust max-width on very small screens
                 const viewportWidth = window.innerWidth;
-                const aiTutorWidth = 320; // Minimized AI Tutor
-                const leftSidebarWidth = state.width || 280;
 
-                // Calculate available space
-                // Viewport - LeftSidebar - SubjectDrawer - AITutor margin
-                const availableSpace = viewportWidth - leftSidebarWidth - (drawerOpen ? drawerWidth : 0) - aiTutorWidth;
-
-                // If space is too tight (< 300px for main content), collapse left sidebar
-                if (drawerOpen && availableSpace < 300 && state.isOpen) {
-                    toggleSidebar(false);
-                }
-
-                // Also adjust max-width of left sidebar based on drawer
-                if (drawerOpen) {
-                    const maxAllowed = Math.min(400, viewportWidth - drawerWidth - aiTutorWidth - 300);
-                    if (maxAllowed > 220) {
-                        sidebar.style.maxWidth = maxAllowed + 'px';
-                    }
+                if (viewportWidth < 768) {
+                    // On mobile, limit sidebar width
+                    sidebar.style.maxWidth = Math.min(280, viewportWidth - 60) + 'px';
                 } else {
-                    sidebar.style.maxWidth = '400px'; // Reset to default
+                    sidebar.style.maxWidth = '400px';
                 }
             }
 

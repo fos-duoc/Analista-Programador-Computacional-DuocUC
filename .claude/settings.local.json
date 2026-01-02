@@ -472,7 +472,9 @@
       "Bash(git credential approve:*)",
       "Bash(cmdkey /list:*)",
       "Bash(taskkill:*)",
-      "Bash(git branch:*)"
+      "Bash(git branch:*)",
+      "Bash(xargs:*)",
+      "Bash(du -sh:*)"
     ]
   }
 }
