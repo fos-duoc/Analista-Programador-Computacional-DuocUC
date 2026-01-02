@@ -13,6 +13,15 @@ const base = import.meta.env.BASE_URL;
 
 <!-- Drawer Panel -->
 <aside id="subject-drawer" class="subject-drawer" aria-hidden="true" role="dialog" aria-labelledby="drawer-title">
+    <!-- Resize Handle - Left Edge -->
+    <div class="drawer-resize-handle" id="drawer-resize-handle" title="Arrastrar para redimensionar">
+        <div class="resize-grip">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
     <!-- Header del Drawer -->
     <header class="drawer-header">
         <div class="drawer-header-content">
@@ -284,6 +293,58 @@ const base = import.meta.env.BASE_URL;
     /* Expanded width mode */
     .subject-drawer.expanded-width {
         width: 680px;
+    }
+
+    /* Resizing state - disable transitions for smooth resize */
+    .subject-drawer.resizing {
+        transition: none !important;
+        user-select: none;
+    }
+
+    /* ============================================
+       RESIZE HANDLE - Left Edge
+    ============================================ */
+    .drawer-resize-handle {
+        position: absolute;
+        left: -3px;
+        top: 0;
+        width: 6px;
+        height: 100%;
+        cursor: ew-resize;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        transition: background 0.2s ease;
+    }
+
+    .drawer-resize-handle:hover,
+    .drawer-resize-handle.active {
+        background: linear-gradient(90deg,
+            rgba(6, 182, 212, 0.4) 0%,
+            rgba(6, 182, 212, 0.15) 50%,
+            transparent 100%);
+    }
+
+    .drawer-resize-handle .resize-grip {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+
+    .drawer-resize-handle:hover .resize-grip,
+    .subject-drawer.resizing .drawer-resize-handle .resize-grip {
+        opacity: 1;
+    }
+
+    .drawer-resize-handle .resize-grip span {
+        width: 3px;
+        height: 3px;
+        background: rgba(6, 182, 212, 0.7);
+        border-radius: 50%;
     }
 
     /* ============================================
@@ -3023,6 +3084,110 @@ const base = import.meta.env.BASE_URL;
             }
         }
 
+        // ============================================
+        // DRAWER RESIZE - Drag to resize from left edge
+        // ============================================
+        function initDrawerResize() {
+            const drawer = document.getElementById('subject-drawer');
+            const resizeHandle = document.getElementById('drawer-resize-handle');
+
+            if (!drawer || !resizeHandle) return;
+
+            const MIN_WIDTH = 400;
+            const MAX_WIDTH = 900;
+            const DEFAULT_WIDTH = 520;
+
+            let isResizing = false;
+            let startX = 0;
+            let startWidth = 0;
+
+            // Restore saved width
+            const savedWidth = localStorage.getItem('subject_drawer_width');
+            if (savedWidth) {
+                const width = parseInt(savedWidth, 10);
+                if (width >= MIN_WIDTH && width <= MAX_WIDTH) {
+                    drawer.style.width = width + 'px';
+                }
+            }
+
+            function startResize(e) {
+                e.preventDefault();
+                isResizing = true;
+                startX = e.clientX || e.touches?.[0]?.clientX || 0;
+                startWidth = drawer.offsetWidth;
+
+                drawer.classList.add('resizing');
+                resizeHandle.classList.add('active');
+                document.body.style.cursor = 'ew-resize';
+                document.body.style.userSelect = 'none';
+
+                document.addEventListener('mousemove', doResize);
+                document.addEventListener('mouseup', stopResize);
+                document.addEventListener('touchmove', doResize, { passive: false });
+                document.addEventListener('touchend', stopResize);
+            }
+
+            function doResize(e) {
+                if (!isResizing) return;
+                e.preventDefault();
+
+                const clientX = e.clientX || e.touches?.[0]?.clientX || 0;
+                // Dragging left increases width, dragging right decreases
+                const deltaX = startX - clientX;
+                let newWidth = startWidth + deltaX;
+
+                // Clamp to min/max
+                newWidth = Math.max(MIN_WIDTH, Math.min(MAX_WIDTH, newWidth));
+
+                drawer.style.width = newWidth + 'px';
+
+                // Remove expanded-width class if manually resizing
+                drawer.classList.remove('expanded-width');
+                const widthBtn = document.getElementById('drawer-width-toggle');
+                widthBtn?.classList.remove('active');
+            }
+
+            function stopResize() {
+                if (!isResizing) return;
+                isResizing = false;
+
+                drawer.classList.remove('resizing');
+                resizeHandle.classList.remove('active');
+                document.body.style.cursor = '';
+                document.body.style.userSelect = '';
+
+                // Save width
+                const currentWidth = drawer.offsetWidth;
+                localStorage.setItem('subject_drawer_width', currentWidth.toString());
+
+                // Dispatch resize event
+                window.dispatchEvent(new CustomEvent('subjectDrawerResize', {
+                    detail: { width: currentWidth }
+                }));
+
+                document.removeEventListener('mousemove', doResize);
+                document.removeEventListener('mouseup', stopResize);
+                document.removeEventListener('touchmove', doResize);
+                document.removeEventListener('touchend', stopResize);
+            }
+
+            // Double-click to reset
+            resizeHandle.addEventListener('dblclick', () => {
+                drawer.style.width = DEFAULT_WIDTH + 'px';
+                drawer.classList.remove('expanded-width');
+                const widthBtn = document.getElementById('drawer-width-toggle');
+                widthBtn?.classList.remove('active');
+                localStorage.setItem('subject_drawer_width', DEFAULT_WIDTH.toString());
+
+                window.dispatchEvent(new CustomEvent('subjectDrawerResize', {
+                    detail: { width: DEFAULT_WIDTH }
+                }));
+            });
+
+            resizeHandle.addEventListener('mousedown', startResize);
+            resizeHandle.addEventListener('touchstart', startResize, { passive: false });
+        }
+
         // Escape key - solo una vez
         if (!window._subjectDrawerEventsInitialized) {
             document.addEventListener('keydown', function(e) {
@@ -3095,10 +3260,23 @@ const base = import.meta.env.BASE_URL;
             window._splitPaneSyncInitialized = true;
         }
 
+        // Initialize drawer resize
+        if (!window._drawerResizeInitialized) {
+            initDrawerResize();
+            window._drawerResizeInitialized = true;
+        }
+
         // Ejecutar inmediatamente
         attachDrawerEvents();
 
         // Re-attach después de View Transitions
-        document.addEventListener('astro:page-load', attachDrawerEvents);
+        document.addEventListener('astro:page-load', () => {
+            attachDrawerEvents();
+            // Re-initialize resize if needed (for View Transitions)
+            if (!window._drawerResizeInitialized) {
+                initDrawerResize();
+                window._drawerResizeInitialized = true;
+            }
+        });
     })();
 </script>
