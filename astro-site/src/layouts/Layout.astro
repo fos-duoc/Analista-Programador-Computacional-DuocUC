@@ -308,16 +308,24 @@ const BUILD_VERSION = Date.now().toString(36);
             }
 
             bindEvents() {
-                // Use event delegation for better performance
-                document.addEventListener('mouseenter', (e) => {
-                    if (!e.target || typeof e.target.closest !== 'function') return; const target = e.target.closest('[data-premium-tooltip]');
-                    if (target) this.handleMouseEnter(target);
-                }, true);
+                // Use mouseover/mouseout for better event delegation (they bubble)
+                document.addEventListener('mouseover', (e) => {
+                    const target = e.target?.closest?.('[data-premium-tooltip]');
+                    if (target && target !== this.currentTarget) {
+                        this.handleMouseEnter(target);
+                    }
+                });
 
-                document.addEventListener('mouseleave', (e) => {
-                    if (!e.target || typeof e.target.closest !== 'function') return; const target = e.target.closest('[data-premium-tooltip]');
-                    if (target) this.handleMouseLeave();
-                }, true);
+                document.addEventListener('mouseout', (e) => {
+                    const target = e.target?.closest?.('[data-premium-tooltip]');
+                    if (target) {
+                        // Check if we're moving to a child element (don't hide)
+                        const relatedTarget = e.relatedTarget?.closest?.('[data-premium-tooltip]');
+                        if (relatedTarget !== target) {
+                            this.handleMouseLeave();
+                        }
+                    }
+                });
 
                 // Handle scroll and resize
                 window.addEventListener('scroll', () => this.hide(), { passive: true });
