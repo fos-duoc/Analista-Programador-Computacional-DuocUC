@@ -72,15 +72,15 @@ const base = import.meta.env.BASE_URL;
             </button>
         </div>
         <!-- Zoom Controls -->
-        <div class="zoom-controls" id="zoom-controls" data-tooltip="Control de Zoom|Ajusta el tamaño del texto para mejor legibilidad|Rango: 80% - 150%,Doble-click: Resetear|view|fa-search-plus|TUTOR IA">
-            <button class="zoom-btn zoom-out" id="zoom-out-btn" data-tooltip="Reducir Texto|Disminuye el tamaño de fuente del chat|Atajo: Ctrl + -,Mínimo: 80%|view|fa-minus|ZOOM">
+        <div class="zoom-controls" id="zoom-controls" data-premium-tooltip="Control de Zoom|Ajusta el tamaño del texto para mejor legibilidad|Rango: 70% - 150%,Doble-click: Resetear|view|fa-search-plus|TUTOR IA">
+            <button class="zoom-btn zoom-out" id="zoom-out-btn" data-premium-tooltip="Reducir Texto|Disminuye el tamaño de fuente del chat|Atajo: Ctrl + -,Mínimo: 70%|view|fa-minus|ZOOM">
                 <i class="fas fa-minus"></i>
             </button>
-            <span class="zoom-level" id="zoom-level" data-tooltip="Nivel de Zoom Actual|Porcentaje actual del tamaño de texto|100% es el tamaño por defecto|info|fa-percentage|ZOOM">100%</span>
-            <button class="zoom-btn zoom-in" id="zoom-in-btn" data-tooltip="Ampliar Texto|Aumenta el tamaño de fuente del chat|Atajo: Ctrl + +,Máximo: 150%|view|fa-plus|ZOOM">
+            <span class="zoom-level" id="zoom-level" data-premium-tooltip="Nivel de Zoom Actual|Porcentaje actual del tamaño de texto|100% es el tamaño por defecto|info|fa-percentage|ZOOM">100%</span>
+            <button class="zoom-btn zoom-in" id="zoom-in-btn" data-premium-tooltip="Ampliar Texto|Aumenta el tamaño de fuente del chat|Atajo: Ctrl + +,Máximo: 150%|view|fa-plus|ZOOM">
                 <i class="fas fa-plus"></i>
             </button>
-            <button class="zoom-btn zoom-reset" id="zoom-reset-btn" data-tooltip="Restablecer Zoom|Vuelve al tamaño de texto por defecto (100%)|Atajo: Ctrl + 0|action|fa-undo|ZOOM">
+            <button class="zoom-btn zoom-reset" id="zoom-reset-btn" data-premium-tooltip="Restablecer Zoom|Vuelve al tamaño de texto por defecto (100%)|Atajo: Ctrl + 0|action|fa-undo|ZOOM">
                 <i class="fas fa-undo"></i>
             </button>
         </div>
@@ -1740,6 +1740,7 @@ const base = import.meta.env.BASE_URL;
     }
 
     /* Zoom applied to content */
+    .tutor-body.zoom-70 { font-size: 0.62rem; }
     .tutor-body.zoom-80 { font-size: 0.71rem; }
     .tutor-body.zoom-90 { font-size: 0.80rem; }
     .tutor-body.zoom-100 { font-size: 0.89rem; }
@@ -4629,7 +4630,7 @@ const base = import.meta.env.BASE_URL;
 
         if (!tutorBody || !zoomInBtn || !zoomOutBtn) return;
 
-        const ZOOM_LEVELS = [80, 90, 100, 110, 120, 130, 140, 150];
+        const ZOOM_LEVELS = [70, 80, 90, 100, 110, 120, 130, 140, 150];
         const DEFAULT_ZOOM = 100;
         let currentZoomIndex = ZOOM_LEVELS.indexOf(DEFAULT_ZOOM);
 
