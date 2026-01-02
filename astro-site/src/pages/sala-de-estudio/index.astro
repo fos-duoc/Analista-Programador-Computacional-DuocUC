@@ -681,24 +681,11 @@ const subjectLinks: Record<string, string> = {
     .malla-page {
         min-height: 100vh;
         padding-top: 80px;
-        margin-left: var(--nav-sidebar-width, 280px);
-        transition: margin-left 0.3s ease;
+        /* No margin adjustments - sidebars are pure overlays */
     }
 
-    /* When sidebar is collapsed */
-    .malla-page.sidebar-collapsed {
-        margin-left: 0;
-    }
-
-    /* Adjust quick-nav for sidebar */
+    /* Quick-nav stays full width - sidebars are overlays */
     .quick-nav {
-        left: var(--nav-sidebar-width, 280px);
-        width: calc(100% - var(--nav-sidebar-width, 280px));
-        transition: left 0.3s ease, width 0.3s ease;
-    }
-
-    .malla-page.sidebar-collapsed .quick-nav,
-    body.sidebar-collapsed .quick-nav {
         left: 0;
         width: 100%;
     }
@@ -1920,18 +1907,6 @@ const subjectLinks: Record<string, string> = {
     /* =============================================
        RESPONSIVE
        ============================================= */
-    /* Sidebar hidden on smaller screens */
-    @media (max-width: 1200px) {
-        .malla-page {
-            margin-left: 0 !important;
-        }
-
-        .quick-nav {
-            left: 0 !important;
-            width: 100% !important;
-        }
-    }
-
     @media (max-width: 768px) {
         .malla-hero {
             padding: 3rem 1.5rem 4rem;
@@ -2121,45 +2096,11 @@ const subjectLinks: Record<string, string> = {
         });
     }
 
-    // Handle sidebar resize events and panel state sync
+    // Sidebars are pure overlays - no layout adjustments needed
     function initSidebarLayoutSync() {
-        const mallaPage = document.querySelector('.malla-page');
-        if (!mallaPage) return;
-
-        // Listen for sidebar resize
-        window.addEventListener('navSidebarResize', (e) => {
-            const width = e.detail?.width || 280;
-            document.documentElement.style.setProperty('--nav-sidebar-width', `${width}px`);
-        });
-
-        // Listen for sidebar toggle
-        window.addEventListener('navSidebarToggle', (e) => {
-            const isOpen = e.detail?.isOpen;
-            if (isOpen) {
-                mallaPage.classList.remove('sidebar-collapsed');
-                document.body.classList.remove('sidebar-collapsed');
-            } else {
-                mallaPage.classList.add('sidebar-collapsed');
-                document.body.classList.add('sidebar-collapsed');
-            }
-        });
-
-        // Listen for SubjectDrawer toggle (new sidebar mode)
-        window.addEventListener('subjectDrawerToggle', (e) => {
-            const isOpen = e.detail?.isOpen;
-            if (isOpen) {
-                mallaPage.classList.add('subject-drawer-open');
-                document.body.classList.add('subject-drawer-open');
-            } else {
-                mallaPage.classList.remove('subject-drawer-open');
-                document.body.classList.remove('subject-drawer-open');
-            }
-        });
-
-        // Start with sidebar collapsed by default (clean page load)
-        // The sidebar will toggle this when opened by the user
-        mallaPage.classList.add('sidebar-collapsed');
-        document.body.classList.add('sidebar-collapsed');
+        // All sidebars (SubjectNavigationSidebar, SubjectDrawer, AITutor)
+        // are position:fixed overlays that don't affect main content layout.
+        // No margin/padding adjustments required.
     }
 
     // Inicializar en carga inicial y View Transitions
