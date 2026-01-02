@@ -16,8 +16,8 @@ const base = import.meta.env.BASE_URL;
 ---
 
 <!-- AI Tutor Side Panel - Premium Design -->
-<!-- Starts visible and minimized for clean page load -->
-<aside id="ai-tutor-panel" class="ai-tutor-panel visible minimized" aria-label="Tutor IA" role="complementary">
+<!-- Starts hidden - user opens via expand button -->
+<aside id="ai-tutor-panel" class="ai-tutor-panel" aria-label="Tutor IA" role="complementary">
     <!-- Resize Handle - Left Edge -->
     <div class="panel-resize-handle" id="panel-resize-handle" title="Arrastrar para redimensionar">
         <div class="resize-grip">
@@ -241,8 +241,8 @@ const base = import.meta.env.BASE_URL;
     </div>
 </aside>
 
-<!-- AI Tutor Expand Button - Floating -->
-<button class="ai-tutor-expand-btn" id="ai-tutor-expand-btn" aria-label="Abrir Tutor IA con Gemini" data-tooltip="Tutor IA Gemini|Asistente inteligente para resolver dudas, generar código y explicar conceptos|Chat,TTS,Resúmenes|ai|fa-robot|POWERED BY GEMINI">
+<!-- AI Tutor Expand Button - Floating (visible by default since panel starts hidden) -->
+<button class="ai-tutor-expand-btn visible" id="ai-tutor-expand-btn" aria-label="Abrir Tutor IA con Gemini" data-tooltip="Tutor IA Gemini|Asistente inteligente para resolver dudas, generar código y explicar conceptos|Chat,TTS,Resúmenes|ai|fa-robot|POWERED BY GEMINI">
     <img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg" alt="AI Tutor" class="ai-tutor-expand-icon" />
 </button>
 

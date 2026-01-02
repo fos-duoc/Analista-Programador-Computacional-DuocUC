@@ -2034,25 +2034,25 @@ const subjectLinks: Record<string, string> = {
         sessionStorage.setItem('lastSalaPage', currentPage);
     }
 
-    // Asegurar estado inicial de los paneles
+    // Asegurar estado inicial de los paneles - todos cerrados
     function ensureDrawersClosed() {
-        // Cerrar SubjectDrawer (siempre - no persiste entre navegaciones)
+        // Cerrar SubjectDrawer
         const drawer = document.getElementById('subject-drawer');
         if (drawer) {
             drawer.classList.remove('open');
             drawer.setAttribute('aria-hidden', 'true');
         }
 
-        // AI Tutor: abierto en modo minimizado por defecto
+        // AI Tutor: cerrado por defecto
         const tutorPanel = document.getElementById('ai-tutor-panel');
         if (tutorPanel) {
-            tutorPanel.classList.add('visible', 'minimized');
+            tutorPanel.classList.remove('visible', 'minimized');
         }
 
-        // Ocultar el botón expand del AI Tutor (ya está visible)
+        // Mostrar el botón expand del AI Tutor
         const aiExpandBtn = document.getElementById('ai-tutor-expand-btn');
         if (aiExpandBtn) {
-            aiExpandBtn.classList.remove('visible');
+            aiExpandBtn.classList.add('visible');
         }
     }
 
