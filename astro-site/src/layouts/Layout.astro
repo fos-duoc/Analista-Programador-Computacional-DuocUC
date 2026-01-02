@@ -120,31 +120,62 @@ const BUILD_VERSION = Date.now().toString(36);
         }
 
         body.page-enter {
-            animation: pageEnter 0.4s ease-out forwards;
+            animation: pageEnter 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
 
-        /* Astro View Transitions customization - opacity only for stability */
+        /* Astro View Transitions customization - smoother crossfade */
         ::view-transition-old(root),
         ::view-transition-new(root) {
-            animation-duration: 0.3s;
+            animation-duration: 0.5s;
+            animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         ::view-transition-old(root) {
-            animation: fadeOut 0.3s ease-out both;
+            animation: smoothFadeOut 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
         }
 
         ::view-transition-new(root) {
-            animation: fadeIn 0.3s ease-out both;
+            animation: smoothFadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
         }
 
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
+        @keyframes smoothFadeOut {
+            from {
+                opacity: 1;
+                filter: blur(0px);
+            }
+            to {
+                opacity: 0;
+                filter: blur(4px);
+            }
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        @keyframes smoothFadeIn {
+            from {
+                opacity: 0;
+                filter: blur(4px);
+            }
+            to {
+                opacity: 1;
+                filter: blur(0px);
+            }
+        }
+
+        /* Smooth transition for reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            ::view-transition-old(root),
+            ::view-transition-new(root) {
+                animation-duration: 0.2s;
+            }
+
+            @keyframes smoothFadeOut {
+                from { opacity: 1; }
+                to { opacity: 0; }
+            }
+
+            @keyframes smoothFadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
         }
     </style>
 
