@@ -63,6 +63,82 @@ const subjectLinks: Record<string, string> = {
     "Computacion Nube": "Bimestre-02%20-%20POO%20I%2C%20Cloud%2C%20Comunicacion/Computacion-Nube",
     "Comunicacion": "Bimestre-02%20-%20POO%20I%2C%20Cloud%2C%20Comunicacion/Comunicacion"
 };
+
+// Area icons for tooltips
+const areaIcons: Record<string, string> = {
+    'programacion': 'fa-code',
+    'base-datos': 'fa-database',
+    'cloud': 'fa-cloud',
+    'metodologias': 'fa-project-diagram',
+    'fundamentos': 'fa-book',
+    'seguridad': 'fa-shield-alt',
+    'frontend': 'fa-palette',
+    'mobile': 'fa-mobile-alt',
+    'arquitectura': 'fa-sitemap',
+    'softskills': 'fa-users'
+};
+
+// Generate premium tooltip for a subject
+function getSubjectTooltip(subjectName: string, subjectId?: string): string {
+    if (!subjectId || !asignaturas[subjectId]) {
+        return `${subjectName}|Click para ver detalles de la asignatura||subject|fa-book|ASIGNATURA`;
+    }
+
+    const asig = asignaturas[subjectId];
+    const title = asig.nombreCorto || asig.nombre;
+
+    // Build description (truncate if too long)
+    let desc = asig.descripcion || asig.proposito || 'Asignatura del plan de estudios';
+    if (desc.length > 120) {
+        desc = desc.substring(0, 117) + '...';
+    }
+
+    // Build features from keywords or technologies
+    let features: string[] = [];
+    if (asig.palabrasClave && asig.palabrasClave.length > 0) {
+        features = asig.palabrasClave.slice(0, 3);
+    } else if (asig.tecnologias && asig.tecnologias.length > 0) {
+        features = asig.tecnologias.slice(0, 3).map(t => t.nombre);
+    }
+    const featuresStr = features.join(',');
+
+    // Get icon based on area
+    const icon = areaIcons[asig.area] || 'fa-book';
+
+    // Category label
+    const bimestreLabel = `B${String(asig.bimestre).padStart(2, '0')} - ${asig.creditos} CR`;
+
+    return `${title}|${desc}|${featuresStr}|subject|${icon}|${bimestreLabel}`;
+}
+
+// Generate premium tooltip for bimestre cards
+function getBimestreTooltip(bimNumber: number, bimTitle: string, subjects: {name: string}[], isIDS = false): string {
+    const programLabel = isIDS ? 'IDS' : 'APC';
+    const subjectNames = subjects.map(s => s.name).slice(0, 3).join(', ');
+    const totalSubjects = subjects.length;
+    return `Bimestre ${bimNumber}|${bimTitle}. ${totalSubjects} asignaturas: ${subjectNames}|Click para explorar,${totalSubjects} asignaturas|bimestre|fa-calendar-alt|${programLabel}`;
+}
+
+// Generate premium tooltip for tech icons
+function getTechTooltip(techId: string): string {
+    if (!techId || !technologies[techId]) {
+        return '';
+    }
+    const tech = technologies[techId];
+    const desc = tech.descripcion || `Tecnología utilizada en el programa`;
+    const truncDesc = desc.length > 100 ? desc.substring(0, 97) + '...' : desc;
+    const features = tech.tags ? tech.tags.slice(0, 3).join(',') : '';
+    return `${tech.nombre}|${truncDesc}|${features}|tech|fa-cog|TECNOLOGÍA`;
+}
+
+// Generate premium tooltip for best practice icons
+function getBestPracticeTooltip(bp: typeof bestPractices[keyof typeof bestPractices]): string {
+    if (!bp) return '';
+    const desc = bp.descripcionCorta || bp.descripcion || 'Buena práctica de desarrollo';
+    const truncDesc = desc.length > 100 ? desc.substring(0, 97) + '...' : desc;
+    const category = bp.categoria?.toUpperCase() || 'PRÁCTICA';
+    return `${bp.nombreCorto || bp.nombre}|${truncDesc}||bestpractice|${bp.icon}|${category}`;
+}
 ---
 
 <Layout title="Sala de Estudio | DuocUC Informática">
@@ -198,7 +274,7 @@ const subjectLinks: Record<string, string> = {
                     </div>
                     <div class="bimestres-grid">
                         {bimestresYear1.map((bim) => (
-                            <div class="bimestre-card" data-bimestre={bim.number}>
+                            <div class="bimestre-card" data-bimestre={bim.number} data-premium-tooltip={getBimestreTooltip(bim.number, bim.title, bim.subjects, false)}>
                                 <div class="card-header">
                                     <span class="bim-number">B{bim.number}</span>
                                     <span class="bim-title">{bim.title}</span>
@@ -209,6 +285,7 @@ const subjectLinks: Record<string, string> = {
                                         const hasData = !!subjectId;
                                         const practiceIds = subjectId ? (subjectToBestPractices[subjectId] || []) : [];
                                         const practices = practiceIds.map(id => bestPractices[id]).filter(Boolean).slice(0, 4);
+                                        const subjectTooltip = getSubjectTooltip(subject.name, subjectId);
                                         return (
                                             <div class="subject-wrapper">
                                                 <button
@@ -217,6 +294,7 @@ const subjectLinks: Record<string, string> = {
                                                     data-subject-id={subjectId}
                                                     data-subject-name={subject.name}
                                                     aria-label={`Ver detalles de ${subject.name}`}
+                                                    data-premium-tooltip={subjectTooltip}
                                                 >
                                                     {subject.iconType === 'fontawesome' ? (
                                                         <i class={subject.icon}></i>
@@ -235,6 +313,7 @@ const subjectLinks: Record<string, string> = {
                                                                 data-bp-id={bp.id}
                                                                 title={`${bp.nombreCorto}: ${bp.descripcionCorta}`}
                                                                 aria-label={`Ver ${bp.nombre}`}
+                                                                data-premium-tooltip={getBestPracticeTooltip(bp)}
                                                             >
                                                                 <i class={bp.icon}></i>
                                                             </button>
@@ -254,7 +333,7 @@ const subjectLinks: Record<string, string> = {
                                         const techId = iconToTechId[iconClass];
                                         const hasTech = !!techId && !!technologies[techId];
                                         return hasTech ? (
-                                            <button type="button" class="tech-icon-btn" data-tech-id={techId} title={technologies[techId]?.nombre}>
+                                            <button type="button" class="tech-icon-btn" data-tech-id={techId} title={technologies[techId]?.nombre} data-premium-tooltip={getTechTooltip(techId)}>
                                                 <i class={icon.startsWith('fas') ? icon : `devicon-${icon}`}></i>
                                             </button>
                                         ) : (
@@ -275,7 +354,7 @@ const subjectLinks: Record<string, string> = {
                     </div>
                     <div class="bimestres-grid">
                         {bimestresYear2.map((bim) => (
-                            <div class={`bimestre-card ${bim.featured ? 'featured' : ''}`} data-bimestre={bim.number}>
+                            <div class={`bimestre-card ${bim.featured ? 'featured' : ''}`} data-bimestre={bim.number} data-premium-tooltip={getBimestreTooltip(bim.number, bim.title, bim.subjects, false)}>
                                 <div class="card-header">
                                     <span class="bim-number">B{bim.number}</span>
                                     <span class="bim-title">{bim.title}</span>
@@ -287,6 +366,7 @@ const subjectLinks: Record<string, string> = {
                                         const hasData = !!subjectId;
                                         const practiceIds = subjectId ? (subjectToBestPractices[subjectId] || []) : [];
                                         const practices = practiceIds.map(id => bestPractices[id]).filter(Boolean).slice(0, 4);
+                                        const subjectTooltip = getSubjectTooltip(subject.name, subjectId);
                                         return (
                                             <div class="subject-wrapper">
                                                 <button
@@ -295,6 +375,7 @@ const subjectLinks: Record<string, string> = {
                                                     data-subject-id={subjectId}
                                                     data-subject-name={subject.name}
                                                     aria-label={`Ver detalles de ${subject.name}`}
+                                                    data-premium-tooltip={subjectTooltip}
                                                 >
                                                     {subject.iconType === 'fontawesome' ? (
                                                         <i class={subject.icon}></i>
@@ -313,6 +394,7 @@ const subjectLinks: Record<string, string> = {
                                                                 data-bp-id={bp.id}
                                                                 title={`${bp.nombreCorto}: ${bp.descripcionCorta}`}
                                                                 aria-label={`Ver ${bp.nombre}`}
+                                                                data-premium-tooltip={getBestPracticeTooltip(bp)}
                                                             >
                                                                 <i class={bp.icon}></i>
                                                             </button>
@@ -332,7 +414,7 @@ const subjectLinks: Record<string, string> = {
                                         const techId = iconToTechId[iconClass];
                                         const hasTech = !!techId && !!technologies[techId];
                                         return hasTech ? (
-                                            <button type="button" class="tech-icon-btn" data-tech-id={techId} title={technologies[techId]?.nombre}>
+                                            <button type="button" class="tech-icon-btn" data-tech-id={techId} title={technologies[techId]?.nombre} data-premium-tooltip={getTechTooltip(techId)}>
                                                 <i class={icon.startsWith('fas') ? icon : `devicon-${icon}`}></i>
                                             </button>
                                         ) : (
@@ -388,7 +470,7 @@ const subjectLinks: Record<string, string> = {
                     </div>
                     <div class="bimestres-grid">
                         {bimestresYear3.map((bim) => (
-                            <div class="bimestre-card ids" data-bimestre={bim.number}>
+                            <div class="bimestre-card ids" data-bimestre={bim.number} data-premium-tooltip={getBimestreTooltip(bim.number, bim.title, bim.subjects, true)}>
                                 <div class="card-header">
                                     <span class="bim-number">B{bim.number}</span>
                                     <span class="bim-title">{bim.title}</span>
@@ -399,6 +481,7 @@ const subjectLinks: Record<string, string> = {
                                         const hasData = !!subjectId;
                                         const practiceIds = subjectId ? (subjectToBestPractices[subjectId] || []) : [];
                                         const practices = practiceIds.map(id => bestPractices[id]).filter(Boolean).slice(0, 4);
+                                        const subjectTooltip = getSubjectTooltip(subject.name, subjectId);
                                         return (
                                             <div class="subject-wrapper">
                                                 <button
@@ -407,6 +490,7 @@ const subjectLinks: Record<string, string> = {
                                                     data-subject-id={subjectId}
                                                     data-subject-name={subject.name}
                                                     aria-label={`Ver detalles de ${subject.name}`}
+                                                    data-premium-tooltip={subjectTooltip}
                                                 >
                                                     {subject.iconType === 'fontawesome' ? (
                                                         <i class={subject.icon}></i>
@@ -425,6 +509,7 @@ const subjectLinks: Record<string, string> = {
                                                                 data-bp-id={bp.id}
                                                                 title={`${bp.nombreCorto}: ${bp.descripcionCorta}`}
                                                                 aria-label={`Ver ${bp.nombre}`}
+                                                                data-premium-tooltip={getBestPracticeTooltip(bp)}
                                                             >
                                                                 <i class={bp.icon}></i>
                                                             </button>
@@ -444,7 +529,7 @@ const subjectLinks: Record<string, string> = {
                                         const techId = iconToTechId[iconClass];
                                         const hasTech = !!techId && !!technologies[techId];
                                         return hasTech ? (
-                                            <button type="button" class="tech-icon-btn" data-tech-id={techId} title={technologies[techId]?.nombre}>
+                                            <button type="button" class="tech-icon-btn" data-tech-id={techId} title={technologies[techId]?.nombre} data-premium-tooltip={getTechTooltip(techId)}>
                                                 <i class={icon.startsWith('fas') ? icon : `devicon-${icon}`}></i>
                                             </button>
                                         ) : (
@@ -465,7 +550,7 @@ const subjectLinks: Record<string, string> = {
                     </div>
                     <div class="bimestres-grid">
                         {bimestresYear4.map((bim) => (
-                            <div class="bimestre-card ids" data-bimestre={bim.number}>
+                            <div class="bimestre-card ids" data-bimestre={bim.number} data-premium-tooltip={getBimestreTooltip(bim.number, bim.title, bim.subjects, true)}>
                                 <div class="card-header">
                                     <span class="bim-number">B{bim.number}</span>
                                     <span class="bim-title">{bim.title}</span>
@@ -476,6 +561,7 @@ const subjectLinks: Record<string, string> = {
                                         const hasData = !!subjectId;
                                         const practiceIds = subjectId ? (subjectToBestPractices[subjectId] || []) : [];
                                         const practices = practiceIds.map(id => bestPractices[id]).filter(Boolean).slice(0, 4);
+                                        const subjectTooltip = getSubjectTooltip(subject.name, subjectId);
                                         return (
                                             <div class="subject-wrapper">
                                                 <button
@@ -484,6 +570,7 @@ const subjectLinks: Record<string, string> = {
                                                     data-subject-id={subjectId}
                                                     data-subject-name={subject.name}
                                                     aria-label={`Ver detalles de ${subject.name}`}
+                                                    data-premium-tooltip={subjectTooltip}
                                                 >
                                                     {subject.iconType === 'fontawesome' ? (
                                                         <i class={subject.icon}></i>
@@ -502,6 +589,7 @@ const subjectLinks: Record<string, string> = {
                                                                 data-bp-id={bp.id}
                                                                 title={`${bp.nombreCorto}: ${bp.descripcionCorta}`}
                                                                 aria-label={`Ver ${bp.nombre}`}
+                                                                data-premium-tooltip={getBestPracticeTooltip(bp)}
                                                             >
                                                                 <i class={bp.icon}></i>
                                                             </button>
@@ -521,7 +609,7 @@ const subjectLinks: Record<string, string> = {
                                         const techId = iconToTechId[iconClass];
                                         const hasTech = !!techId && !!technologies[techId];
                                         return hasTech ? (
-                                            <button type="button" class="tech-icon-btn" data-tech-id={techId} title={technologies[techId]?.nombre}>
+                                            <button type="button" class="tech-icon-btn" data-tech-id={techId} title={technologies[techId]?.nombre} data-premium-tooltip={getTechTooltip(techId)}>
                                                 <i class={icon.startsWith('fas') ? icon : `devicon-${icon}`}></i>
                                             </button>
                                         ) : (
