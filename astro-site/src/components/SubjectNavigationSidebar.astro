@@ -1024,6 +1024,9 @@ function getSubjectTooltip(subject: Asignatura): string {
         // Initialize week view
         populateWeekView(state.selectedBimestre);
 
+        // Sync with SubjectDrawer (middle sidebar)
+        initDrawerSync();
+
         // ===== FUNCTIONS =====
 
         function restoreState() {
@@ -1345,6 +1348,54 @@ function getSubjectTooltip(subject: Asignatura): string {
 
             resizeHandle.addEventListener('mousedown', startResize);
             resizeHandle.addEventListener('touchstart', startResize, { passive: false });
+        }
+
+        // ===== DRAWER SYNC =====
+        // Sync left sidebar with SubjectDrawer (middle sidebar)
+        function initDrawerSync() {
+            const VIEWPORT_THRESHOLD = 1200; // Collapse if viewport < this when drawer is open
+            let drawerWidth = 520; // Default SubjectDrawer width
+            let drawerOpen = false;
+
+            // Listen for SubjectDrawer toggle
+            window.addEventListener('subjectDrawerToggle', (e) => {
+                drawerOpen = e.detail?.isOpen ?? false;
+                checkAndAdjust();
+            });
+
+            // Listen for SubjectDrawer resize
+            window.addEventListener('subjectDrawerResize', (e) => {
+                drawerWidth = e.detail?.width ?? 520;
+                checkAndAdjust();
+            });
+
+            function checkAndAdjust() {
+                const viewportWidth = window.innerWidth;
+                const aiTutorWidth = 320; // Minimized AI Tutor
+                const leftSidebarWidth = state.width || 280;
+
+                // Calculate available space
+                // Viewport - LeftSidebar - SubjectDrawer - AITutor margin
+                const availableSpace = viewportWidth - leftSidebarWidth - (drawerOpen ? drawerWidth : 0) - aiTutorWidth;
+
+                // If space is too tight (< 300px for main content), collapse left sidebar
+                if (drawerOpen && availableSpace < 300 && state.isOpen) {
+                    toggleSidebar(false);
+                }
+
+                // Also adjust max-width of left sidebar based on drawer
+                if (drawerOpen) {
+                    const maxAllowed = Math.min(400, viewportWidth - drawerWidth - aiTutorWidth - 300);
+                    if (maxAllowed > 220) {
+                        sidebar.style.maxWidth = maxAllowed + 'px';
+                    }
+                } else {
+                    sidebar.style.maxWidth = '400px'; // Reset to default
+                }
+            }
+
+            // Also check on window resize
+            window.addEventListener('resize', checkAndAdjust);
         }
     }
 
