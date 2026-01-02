@@ -47,50 +47,66 @@
       }
     }
     </script><!-- Cache Control --><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><!-- View Transitions --><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/Analista-Programador-Computacional-DuocUC/assets/ClientRouter.astro_astro_type_script_index_0_lang.QW52Ox2j.js"></script><!-- Page Entrance Animation --><style>
-        /* Smooth page entrance animation - opacity only to preserve fixed positioning */
+        /* Smooth page entrance animation */
         @keyframes pageEnter {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         body.page-enter {
-            animation: pageEnter 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+            animation: pageEnter 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* Astro View Transitions customization - cinematic crossfade */
+        /* Astro View Transitions - Premium Cinematic Crossfade
+           Using expo-out easing for smooth deceleration */
         ::view-transition-old(root),
         ::view-transition-new(root) {
-            animation-duration: 0.7s;
-            animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+            animation-duration: 0.9s;
+            animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
+        /* Old page exits: fade + blur + subtle scale down */
         ::view-transition-old(root) {
-            animation: smoothFadeOut 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+            animation: cinematicFadeOut 0.45s cubic-bezier(0.4, 0, 1, 1) forwards;
         }
 
+        /* New page enters: delayed fade + blur + subtle rise */
         ::view-transition-new(root) {
-            animation: smoothFadeIn 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+            animation: cinematicFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
         }
 
-        @keyframes smoothFadeOut {
-            from {
+        @keyframes cinematicFadeOut {
+            0% {
                 opacity: 1;
                 filter: blur(0px);
+                transform: scale(1) translateY(0);
             }
-            to {
+            100% {
                 opacity: 0;
-                filter: blur(4px);
+                filter: blur(6px);
+                transform: scale(0.98) translateY(-8px);
             }
         }
 
-        @keyframes smoothFadeIn {
-            from {
+        @keyframes cinematicFadeIn {
+            0% {
                 opacity: 0;
+                filter: blur(8px);
+                transform: scale(1.01) translateY(12px);
+            }
+            40% {
                 filter: blur(4px);
             }
-            to {
+            100% {
                 opacity: 1;
                 filter: blur(0px);
+                transform: scale(1) translateY(0);
             }
         }
 
@@ -98,20 +114,20 @@
         @media (prefers-reduced-motion: reduce) {
             ::view-transition-old(root),
             ::view-transition-new(root) {
-                animation-duration: 0.2s;
+                animation-duration: 0.3s;
             }
 
-            @keyframes smoothFadeOut {
+            @keyframes cinematicFadeOut {
                 from { opacity: 1; }
                 to { opacity: 0; }
             }
 
-            @keyframes smoothFadeIn {
+            @keyframes cinematicFadeIn {
                 from { opacity: 0; }
                 to { opacity: 1; }
             }
         }
-    </style><!-- Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;500;600;700&family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"><!-- Icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"><!-- AOS --><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"><!-- Main Styles with dynamic cache busting --><link rel="stylesheet" href="/Analista-Programador-Computacional-DuocUC/assets/css/style.css?v=mjxaotvt"><link rel="icon" href="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media(prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-astro-transition-scope]{animation:none!important}}
+    </style><!-- Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;500;600;700&family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"><!-- Icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"><!-- AOS --><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"><!-- Main Styles with dynamic cache busting --><link rel="stylesheet" href="/Analista-Programador-Computacional-DuocUC/assets/css/style.css?v=mjxc508d"><link rel="icon" href="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media(prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-astro-transition-scope]{animation:none!important}}
 .astro-route-announcer{position:absolute;left:0;top:0;clip:rect(0 0 0 0);clip-path:inset(50%);overflow:hidden;white-space:nowrap;width:1px;height:1px}
 </style>
 <link rel="stylesheet" href="/Analista-Programador-Computacional-DuocUC/assets/index.CShgjMo_.css">
@@ -121,7 +137,7 @@ Más <i class="fas fa-chevron-down"></i> </button> <div class="dropdown-menu"> <
 </a> <a href="/Analista-Programador-Computacional-DuocUC/portafolio" class="dropdown-item " data-premium-tooltip="Portafolio Guiado|Guía paso a paso para construir un portafolio profesional impactante|5 Pasos,Checklist,Templates|navigation|fa-briefcase|PORTAFOLIO"> <i class="fas fa-briefcase"></i> Portafolio
 </a> <a href="/Analista-Programador-Computacional-DuocUC/laboratorios" class="dropdown-item " data-premium-tooltip="Laboratorios|Práctica de código con ejercicios interactivos y plataformas|Python,JS,SQL,Git|navigation|fa-flask|PRÁCTICA"> <i class="fas fa-flask"></i> Laboratorios
 </a> <a href="/Analista-Programador-Computacional-DuocUC/comunidad" class="dropdown-item " data-premium-tooltip="Comunidad|Networking con comunidades tech chilenas, eventos y mentoría|8 Comunidades,70K+ Miembros|navigation|fa-users|NETWORKING"> <i class="fas fa-users"></i> Comunidad
-</a> </div> </div> </nav> <div class="header-actions"> <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" data-premium-tooltip="Cambiar Tema|Alternar entre modo oscuro y claro para mejor experiencia visual||feature|fa-adjust|PREFERENCIAS"> <i class="fas fa-moon" id="theme-icon-dark"></i> <i class="fas fa-sun" id="theme-icon-light"></i> </button> <div class="repo-icons"> <a href="https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC" target="_blank" class="repo-icon-btn github" data-premium-tooltip="GitHub|Repositorio principal del proyecto con todos los materiales del curso|Código,Issues,PRs|info|fa-code-branch|REPOSITORIO"> <i class="fab fa-github"></i> </a> <a href="https://gitlab.com/" target="_blank" class="repo-icon-btn gitlab" data-premium-tooltip="GitLab|Mirror del repositorio en GitLab con CI/CD integrado|CI/CD,Pipelines|info|fa-code-merge|REPOSITORIO"> <i class="fab fa-gitlab"></i> </a> <a href="https://bitbucket.org/" target="_blank" class="repo-icon-btn bitbucket" data-premium-tooltip="BitBucket|Mirror en Atlassian BitBucket para integración con Jira|Atlassian,Jira|info|fa-code|REPOSITORIO"> <i class="fab fa-bitbucket"></i> </a> <a href="https://dev.azure.com/" target="_blank" class="repo-icon-btn azure" data-premium-tooltip="Azure DevOps|Mirror en Microsoft Azure DevOps para pipelines enterprise|Pipelines,Boards|info|fa-cloud|REPOSITORIO"> <i class="fab fa-microsoft"></i> </a> </div> </div> </div> <!-- Mobile Navigation Drawer --> <nav class="mobile-nav" id="mobile-nav" aria-label="Navegación móvil"> <div class="mobile-nav-content"> <div class="mobile-nav-header"> <span class="mobile-nav-title">Navegación</span> <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Cerrar menú"> <i class="fas fa-times"></i> </button> </div> <div class="mobile-nav-links"> <a href="/Analista-Programador-Computacional-DuocUC/inicio" class="mobile-nav-link "> <i class="fas fa-home"></i> Inicio
+</a> </div> </div> </nav> <div class="header-actions"> <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" data-premium-tooltip="Cambiar Tema|Alternar entre modo oscuro y claro para mejor experiencia visual||feature|fa-adjust|PREFERENCIAS"> <i class="fas fa-moon" id="theme-icon-dark"></i> <i class="fas fa-sun" id="theme-icon-light"></i> </button> <div class="repo-icons"> <a href="https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC" target="_blank" class="repo-icon-btn github" data-premium-tooltip="GitHub|Repositorio principal del proyecto con todos los materiales del curso|Código,Issues,PRs|info|fa-code-branch|REPOSITORIO"> <i class="fab fa-github"></i> </a> <a href="https://gitlab.com/fos-duoc/analista-programador-computacional-duocuc" target="_blank" class="repo-icon-btn gitlab" data-premium-tooltip="GitLab|Mirror del repositorio en GitLab con CI/CD integrado|CI/CD,Pipelines|info|fa-code-merge|REPOSITORIO"> <i class="fab fa-gitlab"></i> </a> <a href="https://bitbucket.org/fos-duoc/analista-programador-computacional-duocuc" target="_blank" class="repo-icon-btn bitbucket" data-premium-tooltip="BitBucket|Mirror en Atlassian BitBucket para integración con Jira|Atlassian,Jira|info|fa-code|REPOSITORIO"> <i class="fab fa-bitbucket"></i> </a> <a href="https://dev.azure.com/fos-duoc/Analista-Programador-Computacional-DuocUC/_git/Analista-Programador-Computacional-DuocUC" target="_blank" class="repo-icon-btn azure" data-premium-tooltip="Azure DevOps|Mirror en Microsoft Azure DevOps para pipelines enterprise|Pipelines,Boards|info|fa-cloud|REPOSITORIO"> <i class="fab fa-microsoft"></i> </a> </div> </div> </div> <!-- Mobile Navigation Drawer --> <nav class="mobile-nav" id="mobile-nav" aria-label="Navegación móvil"> <div class="mobile-nav-content"> <div class="mobile-nav-header"> <span class="mobile-nav-title">Navegación</span> <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Cerrar menú"> <i class="fas fa-times"></i> </button> </div> <div class="mobile-nav-links"> <a href="/Analista-Programador-Computacional-DuocUC/inicio" class="mobile-nav-link "> <i class="fas fa-home"></i> Inicio
 </a> <a href="/Analista-Programador-Computacional-DuocUC/sala-de-estudio" class="mobile-nav-link "> <i class="fas fa-book-reader"></i> Sala de Estudio
 </a> <a href="/Analista-Programador-Computacional-DuocUC/recursos" class="mobile-nav-link "> <i class="fas fa-tools"></i> Recursos
 </a> <a href="/Analista-Programador-Computacional-DuocUC/stacks" class="mobile-nav-link "> <i class="fas fa-layer-group"></i> Stacks
@@ -131,7 +147,7 @@ Más <i class="fas fa-chevron-down"></i> </button> <div class="dropdown-menu"> <
 </a> <a href="/Analista-Programador-Computacional-DuocUC/portafolio" class="mobile-nav-link "> <i class="fas fa-briefcase"></i> Portafolio
 </a> <a href="/Analista-Programador-Computacional-DuocUC/laboratorios" class="mobile-nav-link "> <i class="fas fa-flask"></i> Laboratorios
 </a> <a href="/Analista-Programador-Computacional-DuocUC/comunidad" class="mobile-nav-link "> <i class="fas fa-users"></i> Comunidad
-</a> </div> <div class="mobile-nav-footer"> <div class="mobile-nav-repos"> <a href="https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC" target="_blank" class="mobile-repo-icon github"> <i class="fab fa-github"></i> </a> <a href="https://gitlab.com/" target="_blank" class="mobile-repo-icon gitlab"> <i class="fab fa-gitlab"></i> </a> <a href="https://bitbucket.org/" target="_blank" class="mobile-repo-icon bitbucket"> <i class="fab fa-bitbucket"></i> </a> <a href="https://dev.azure.com/" target="_blank" class="mobile-repo-icon azure"> <i class="fab fa-microsoft"></i> </a> </div> </div> </div> </nav> <!-- Mobile Nav Overlay --> <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div> </header> <script>
+</a> </div> <div class="mobile-nav-footer"> <div class="mobile-nav-repos"> <a href="https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC" target="_blank" class="mobile-repo-icon github"> <i class="fab fa-github"></i> </a> <a href="https://gitlab.com/fos-duoc/analista-programador-computacional-duocuc" target="_blank" class="mobile-repo-icon gitlab"> <i class="fab fa-gitlab"></i> </a> <a href="https://bitbucket.org/fos-duoc/analista-programador-computacional-duocuc" target="_blank" class="mobile-repo-icon bitbucket"> <i class="fab fa-bitbucket"></i> </a> <a href="https://dev.azure.com/fos-duoc/Analista-Programador-Computacional-DuocUC/_git/Analista-Programador-Computacional-DuocUC" target="_blank" class="mobile-repo-icon azure"> <i class="fab fa-microsoft"></i> </a> </div> </div> </div> </nav> <!-- Mobile Nav Overlay --> <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div> </header> <script>
     // Theme toggle function - globally accessible
     function toggleTheme() {
         const html = document.documentElement;
@@ -139,7 +155,6 @@ Más <i class="fas fa-chevron-down"></i> </button> <div class="dropdown-menu"> <
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         html.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
-        console.log('Theme toggled to:', newTheme);
     }
 
     // Initialize header functionality
@@ -2244,7 +2259,7 @@ public class EventSourcedOrderRepository implements OrderRepository {
 <span class="sep" data-astro-cid-sz7xmlte>·</span>
 Hecho con <i class="fas fa-heart heart" data-astro-cid-sz7xmlte></i> y <i class="fas fa-coffee coffee" data-astro-cid-sz7xmlte></i> usando
 <a href="https://astro.build" target="_blank" class="astro-link" data-premium-tooltip="Astro|Framework web moderno con Islands Architecture|Fast,SEO,DX|tool|fa-rocket|astro.build" data-astro-cid-sz7xmlte> <i class="devicon-astro-plain" data-astro-cid-sz7xmlte></i> Astro
-</a> </div> <!-- Useful Links --> <div class="footer-useful" data-astro-cid-sz7xmlte> <a href="https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/commits/main" target="_blank" rel="noopener noreferrer" class="useful-link" data-premium-tooltip="Changelog|Historial de cambios y actualizaciones|Commits,Releases|info|fa-history|GITHUB" data-astro-cid-sz7xmlte> <i class="fas fa-history" data-astro-cid-sz7xmlte></i> <span data-astro-cid-sz7xmlte>Changelog</span> </a><a href="https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/issues" target="_blank" rel="noopener noreferrer" class="useful-link" data-premium-tooltip="Issues|Reportar bugs o solicitar features|Bugs,Features,Help|info|fa-bug|GITHUB" data-astro-cid-sz7xmlte> <i class="fas fa-bug" data-astro-cid-sz7xmlte></i> <span data-astro-cid-sz7xmlte>Issues</span> </a> </div> <!-- Tech Stack --> <div class="footer-tech" data-astro-cid-sz7xmlte> <span class="tech-label" data-astro-cid-sz7xmlte>Built with:</span> <div class="tech-icon" style="--color: #ff5a03;" data-premium-tooltip="Astro|Framework moderno para sitios de contenido|Islands,Zero JS,SSG|tool|fa-rocket|Astro (2021)" data-astro-cid-sz7xmlte> <i class="devicon-astro-plain" data-astro-cid-sz7xmlte></i> </div><div class="tech-icon" style="--color: #3178c6;" data-premium-tooltip="TypeScript|JavaScript con tipado estático|Types,Interfaces|tool|fa-code|Microsoft (2012)" data-astro-cid-sz7xmlte> <i class="devicon-typescript-plain" data-astro-cid-sz7xmlte></i> </div><div class="tech-icon" style="--color: #264de4;" data-premium-tooltip="CSS3|Estilos y diseño visual|Flexbox,Grid,Animations|tool|fa-paint-brush|W3C (2011)" data-astro-cid-sz7xmlte> <i class="devicon-css3-plain" data-astro-cid-sz7xmlte></i> </div><div class="tech-icon" style="--color: #e34c26;" data-premium-tooltip="HTML5|Estructura semántica web|Semantic,Accessible|tool|fa-code|W3C (2014)" data-astro-cid-sz7xmlte> <i class="devicon-html5-plain" data-astro-cid-sz7xmlte></i> </div> </div> <!-- Keyboard Shortcut + Back to Top --> <div class="footer-actions" data-astro-cid-sz7xmlte> <div class="kbd-hint" data-premium-tooltip="Command Palette|Abre la paleta de comandos para navegación rápida|Buscar,Navegar,Acciones|feature|fa-keyboard|ATAJO" data-astro-cid-sz7xmlte> <kbd data-astro-cid-sz7xmlte>⌘</kbd><kbd data-astro-cid-sz7xmlte>K</kbd> </div> <div class="deploy-status" data-premium-tooltip="Deploy Status|El sitio está desplegado y funcionando correctamente|GitHub Pages,Live|info|fa-circle|HOSTING" data-astro-cid-sz7xmlte> <span class="status-dot" data-astro-cid-sz7xmlte></span> <span data-astro-cid-sz7xmlte>Live</span> </div> <button class="back-to-top" id="footerBackToTop" data-premium-tooltip="Volver Arriba|Scroll suave al inicio de la página||feature|fa-arrow-up|NAVEGACIÓN" data-astro-cid-sz7xmlte> <i class="fas fa-arrow-up" data-astro-cid-sz7xmlte></i> </button> </div> </div> </div> <!-- Animated Background Blobs --> <div class="footer-bg" data-astro-cid-sz7xmlte> <!-- Large slow-moving blobs --> <div class="blob blob-1" data-astro-cid-sz7xmlte></div> <div class="blob blob-2" data-astro-cid-sz7xmlte></div> <div class="blob blob-3" data-astro-cid-sz7xmlte></div> <!-- Medium morphing blobs --> <div class="blob blob-4" data-astro-cid-sz7xmlte></div> <div class="blob blob-5" data-astro-cid-sz7xmlte></div> <!-- Small accent blobs --> <div class="blob blob-6" data-astro-cid-sz7xmlte></div> <div class="blob blob-7" data-astro-cid-sz7xmlte></div> <!-- Gradient mesh overlay --> <div class="gradient-mesh" data-astro-cid-sz7xmlte></div> </div> </footer> <script type="module">document.addEventListener("astro:page-load",()=>{const o=document.getElementById("footerBackToTop");o&&(o.onclick=()=>window.scrollTo({top:0,behavior:"smooth"}))});</script>   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <script>(function(){const BUILD_VERSION = "mjxaotvt";
+</a> </div> <!-- Useful Links --> <div class="footer-useful" data-astro-cid-sz7xmlte> <a href="https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/commits/main" target="_blank" rel="noopener noreferrer" class="useful-link" data-premium-tooltip="Changelog|Historial de cambios y actualizaciones|Commits,Releases|info|fa-history|GITHUB" data-astro-cid-sz7xmlte> <i class="fas fa-history" data-astro-cid-sz7xmlte></i> <span data-astro-cid-sz7xmlte>Changelog</span> </a><a href="https://github.com/fos-duoc/Analista-Programador-Computacional-DuocUC/issues" target="_blank" rel="noopener noreferrer" class="useful-link" data-premium-tooltip="Issues|Reportar bugs o solicitar features|Bugs,Features,Help|info|fa-bug|GITHUB" data-astro-cid-sz7xmlte> <i class="fas fa-bug" data-astro-cid-sz7xmlte></i> <span data-astro-cid-sz7xmlte>Issues</span> </a> </div> <!-- Tech Stack --> <div class="footer-tech" data-astro-cid-sz7xmlte> <span class="tech-label" data-astro-cid-sz7xmlte>Built with:</span> <div class="tech-icon" style="--color: #ff5a03;" data-premium-tooltip="Astro|Framework moderno para sitios de contenido|Islands,Zero JS,SSG|tool|fa-rocket|Astro (2021)" data-astro-cid-sz7xmlte> <i class="devicon-astro-plain" data-astro-cid-sz7xmlte></i> </div><div class="tech-icon" style="--color: #3178c6;" data-premium-tooltip="TypeScript|JavaScript con tipado estático|Types,Interfaces|tool|fa-code|Microsoft (2012)" data-astro-cid-sz7xmlte> <i class="devicon-typescript-plain" data-astro-cid-sz7xmlte></i> </div><div class="tech-icon" style="--color: #264de4;" data-premium-tooltip="CSS3|Estilos y diseño visual|Flexbox,Grid,Animations|tool|fa-paint-brush|W3C (2011)" data-astro-cid-sz7xmlte> <i class="devicon-css3-plain" data-astro-cid-sz7xmlte></i> </div><div class="tech-icon" style="--color: #e34c26;" data-premium-tooltip="HTML5|Estructura semántica web|Semantic,Accessible|tool|fa-code|W3C (2014)" data-astro-cid-sz7xmlte> <i class="devicon-html5-plain" data-astro-cid-sz7xmlte></i> </div> </div> <!-- Keyboard Shortcut + Back to Top --> <div class="footer-actions" data-astro-cid-sz7xmlte> <div class="kbd-hint" data-premium-tooltip="Command Palette|Abre la paleta de comandos para navegación rápida|Buscar,Navegar,Acciones|feature|fa-keyboard|ATAJO" data-astro-cid-sz7xmlte> <kbd data-astro-cid-sz7xmlte>⌘</kbd><kbd data-astro-cid-sz7xmlte>K</kbd> </div> <div class="deploy-status" data-premium-tooltip="Deploy Status|El sitio está desplegado y funcionando correctamente|GitHub Pages,Live|info|fa-circle|HOSTING" data-astro-cid-sz7xmlte> <span class="status-dot" data-astro-cid-sz7xmlte></span> <span data-astro-cid-sz7xmlte>Live</span> </div> <button class="back-to-top" id="footerBackToTop" data-premium-tooltip="Volver Arriba|Scroll suave al inicio de la página||feature|fa-arrow-up|NAVEGACIÓN" data-astro-cid-sz7xmlte> <i class="fas fa-arrow-up" data-astro-cid-sz7xmlte></i> </button> </div> </div> </div> <!-- Animated Background Blobs --> <div class="footer-bg" data-astro-cid-sz7xmlte> <!-- Large slow-moving blobs --> <div class="blob blob-1" data-astro-cid-sz7xmlte></div> <div class="blob blob-2" data-astro-cid-sz7xmlte></div> <div class="blob blob-3" data-astro-cid-sz7xmlte></div> <!-- Medium morphing blobs --> <div class="blob blob-4" data-astro-cid-sz7xmlte></div> <div class="blob blob-5" data-astro-cid-sz7xmlte></div> <!-- Small accent blobs --> <div class="blob blob-6" data-astro-cid-sz7xmlte></div> <div class="blob blob-7" data-astro-cid-sz7xmlte></div> <!-- Gradient mesh overlay --> <div class="gradient-mesh" data-astro-cid-sz7xmlte></div> </div> </footer> <script type="module">document.addEventListener("astro:page-load",()=>{const o=document.getElementById("footerBackToTop");o&&(o.onclick=()=>window.scrollTo({top:0,behavior:"smooth"}))});</script>   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <script>(function(){const BUILD_VERSION = "mjxc508d";
 
         // Force cache refresh on new builds
         (function() {

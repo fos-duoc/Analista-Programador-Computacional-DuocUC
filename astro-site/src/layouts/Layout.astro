@@ -113,50 +113,66 @@ const BUILD_VERSION = Date.now().toString(36);
 
     <!-- Page Entrance Animation -->
     <style is:inline>
-        /* Smooth page entrance animation - opacity only to preserve fixed positioning */
+        /* Smooth page entrance animation */
         @keyframes pageEnter {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         body.page-enter {
-            animation: pageEnter 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+            animation: pageEnter 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* Astro View Transitions customization - cinematic crossfade */
+        /* Astro View Transitions - Premium Cinematic Crossfade
+           Using expo-out easing for smooth deceleration */
         ::view-transition-old(root),
         ::view-transition-new(root) {
-            animation-duration: 0.7s;
-            animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+            animation-duration: 0.9s;
+            animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
+        /* Old page exits: fade + blur + subtle scale down */
         ::view-transition-old(root) {
-            animation: smoothFadeOut 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+            animation: cinematicFadeOut 0.45s cubic-bezier(0.4, 0, 1, 1) forwards;
         }
 
+        /* New page enters: delayed fade + blur + subtle rise */
         ::view-transition-new(root) {
-            animation: smoothFadeIn 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+            animation: cinematicFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
         }
 
-        @keyframes smoothFadeOut {
-            from {
+        @keyframes cinematicFadeOut {
+            0% {
                 opacity: 1;
                 filter: blur(0px);
+                transform: scale(1) translateY(0);
             }
-            to {
+            100% {
                 opacity: 0;
-                filter: blur(4px);
+                filter: blur(6px);
+                transform: scale(0.98) translateY(-8px);
             }
         }
 
-        @keyframes smoothFadeIn {
-            from {
+        @keyframes cinematicFadeIn {
+            0% {
                 opacity: 0;
+                filter: blur(8px);
+                transform: scale(1.01) translateY(12px);
+            }
+            40% {
                 filter: blur(4px);
             }
-            to {
+            100% {
                 opacity: 1;
                 filter: blur(0px);
+                transform: scale(1) translateY(0);
             }
         }
 
@@ -164,15 +180,15 @@ const BUILD_VERSION = Date.now().toString(36);
         @media (prefers-reduced-motion: reduce) {
             ::view-transition-old(root),
             ::view-transition-new(root) {
-                animation-duration: 0.2s;
+                animation-duration: 0.3s;
             }
 
-            @keyframes smoothFadeOut {
+            @keyframes cinematicFadeOut {
                 from { opacity: 1; }
                 to { opacity: 0; }
             }
 
-            @keyframes smoothFadeIn {
+            @keyframes cinematicFadeIn {
                 from { opacity: 0; }
                 to { opacity: 1; }
             }

@@ -515,17 +515,13 @@ const base = import.meta.env.BASE_URL;
     </div>
 
     <script is:inline define:vars={{ base }}>
-        // Check if user has already visited the site in this session
-        const hasVisited = sessionStorage.getItem('site_visited');
+        // Check navigation type
         const navType = performance.getEntriesByType('navigation')[0]?.type;
 
-        // Skip splash if: user navigated back/forward OR already visited in this session
-        if (navType === 'back_forward' || hasVisited) {
-            // Use replace to avoid adding to history
+        // Only skip splash on back/forward browser navigation (not explicit clicks)
+        if (navType === 'back_forward') {
             window.location.replace(base + '/inicio');
         } else {
-            // Mark that user has visited
-            sessionStorage.setItem('site_visited', 'true');
 
             // Intelligent Preloading System
             const statusEl = document.getElementById('loading-status');
@@ -655,17 +651,6 @@ const base = import.meta.env.BASE_URL;
                 }, 500);
             }, 7300); // 7.3s + 0.5s fade = 7.8s total
         }
-    </script>
-
-    <!-- Handle Astro ViewTransitions navigation -->
-    <script>
-        // When navigating via ViewTransitions, check if coming from another page
-        document.addEventListener('astro:page-load', () => {
-            const hasVisited = sessionStorage.getItem('site_visited');
-            if (hasVisited && window.location.pathname.endsWith('/') && !window.location.pathname.includes('/inicio')) {
-                window.location.replace(window.location.pathname.replace(/\/$/, '') + '/inicio');
-            }
-        });
     </script>
 </body>
 </html>
