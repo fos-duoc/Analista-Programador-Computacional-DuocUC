@@ -3,7 +3,9 @@
  * Premium Splash/Redirect Page
  * Shows a beautiful animated splash screen before redirecting to /inicio
  * Now with intelligent preloading of critical resources
+ * Uses ViewTransitions for smooth page transitions
  */
+import { ViewTransitions } from 'astro:transitions';
 const base = import.meta.env.BASE_URL;
 ---
 
@@ -15,6 +17,9 @@ const base = import.meta.env.BASE_URL;
     <title>Analista Programador Computacional - DuocUC</title>
     <meta name="description" content="Plataforma educativa para estudiantes del programa Analista Programador Computacional de DuocUC">
     <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+
+    <!-- Astro View Transitions for smooth navigation -->
+    <ViewTransitions />
 
     <!-- Preconnect to critical external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,9 +41,6 @@ const base = import.meta.env.BASE_URL;
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-
-    <!-- Auto-redirect after animation -->
-    <meta http-equiv="refresh" content="8;url={base}/inicio">
 
     <style>
         * {
@@ -326,6 +328,16 @@ const base = import.meta.env.BASE_URL;
             to { width: 100%; }
         }
 
+        /* Fade out animation before redirect */
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+        .fade-out {
+            animation: fadeOut 0.5s ease-out forwards;
+        }
+
         .loading-details {
             margin-top: 1rem;
             font-size: 0.7rem;
@@ -498,123 +510,140 @@ const base = import.meta.env.BASE_URL;
     </div>
 
     <script is:inline define:vars={{ base }}>
-        // Intelligent Preloading System
-        const statusEl = document.getElementById('loading-status');
-        const detailsEl = document.getElementById('loading-details');
+        // Check if user navigated back - if so, redirect immediately without animation
+        const navType = performance.getEntriesByType('navigation')[0]?.type;
+        const hasSeenSplash = sessionStorage.getItem('splashSeen');
 
-        const preloadTasks = [
-            { name: 'Conectando con servicios', delay: 300 },
-            { name: 'Cargando página principal', delay: 800 },
-            { name: 'Preparando Sala de Estudio', delay: 1500 },
-            { name: 'Cargando fuentes de iconos', delay: 2200 },
-            { name: 'Inicializando AI Tutor', delay: 3000 },
-            { name: 'Precargando recursos', delay: 4000 },
-            { name: 'Optimizando experiencia', delay: 5500 },
-            { name: 'Listo para comenzar', delay: 7000 }
-        ];
+        // If user pressed back or already saw splash, go to inicio immediately
+        if (navType === 'back_forward' || hasSeenSplash === 'true') {
+            window.location.replace(base + '/inicio');
+        } else {
+            // Mark that user has seen the splash
+            sessionStorage.setItem('splashSeen', 'true');
 
-        let completedTasks = [];
+            // Intelligent Preloading System
+            const statusEl = document.getElementById('loading-status');
+            const detailsEl = document.getElementById('loading-details');
 
-        // Update status text with animation
-        function updateStatus(text) {
-            if (statusEl) {
-                statusEl.style.opacity = '0';
+            const preloadTasks = [
+                { name: 'Conectando con servicios', delay: 300 },
+                { name: 'Cargando página principal', delay: 800 },
+                { name: 'Preparando Sala de Estudio', delay: 1500 },
+                { name: 'Cargando fuentes de iconos', delay: 2200 },
+                { name: 'Inicializando AI Tutor', delay: 3000 },
+                { name: 'Precargando recursos', delay: 4000 },
+                { name: 'Optimizando experiencia', delay: 5500 },
+                { name: 'Listo para comenzar', delay: 7000 }
+            ];
+
+            let completedTasks = [];
+
+            // Update status text with animation
+            function updateStatus(text) {
+                if (statusEl) {
+                    statusEl.style.opacity = '0';
+                    setTimeout(() => {
+                        statusEl.textContent = text;
+                        statusEl.style.opacity = '1';
+                    }, 150);
+                }
+            }
+
+            // Add completed task to details
+            function addCompletedTask(task) {
+                completedTasks.push(task);
+                if (detailsEl && completedTasks.length <= 3) {
+                    detailsEl.innerHTML = completedTasks.slice(-3).map(t =>
+                        `<span class="check">✓</span>${t}`
+                    ).join(' · ');
+                }
+            }
+
+            // Schedule status updates
+            preloadTasks.forEach((task, index) => {
                 setTimeout(() => {
-                    statusEl.textContent = text;
-                    statusEl.style.opacity = '1';
-                }, 150);
-            }
-        }
+                    updateStatus(task.name);
+                    if (index > 0) {
+                        addCompletedTask(preloadTasks[index - 1].name);
+                    }
+                }, task.delay);
+            });
 
-        // Add completed task to details
-        function addCompletedTask(task) {
-            completedTasks.push(task);
-            if (detailsEl && completedTasks.length <= 3) {
-                detailsEl.innerHTML = completedTasks.slice(-3).map(t =>
-                    `<span class="check">✓</span>${t}`
-                ).join(' · ');
-            }
-        }
+            // Actual preloading tasks
+            (async function preloadResources() {
+                try {
+                    // 1. Prefetch all main pages
+                    const pagesToPrefetch = [
+                        base + '/inicio',
+                        base + '/sala-de-estudio',
+                        base + '/recursos',
+                        base + '/stacks',
+                        base + '/arquitecturas',
+                        base + '/trayectorias',
+                        base + '/laboratorios',
+                        base + '/portafolio',
+                        base + '/proyectos',
+                        base + '/comunidad'
+                    ];
 
-        // Schedule status updates
-        preloadTasks.forEach((task, index) => {
+                    pagesToPrefetch.forEach(url => {
+                        const link = document.createElement('link');
+                        link.rel = 'prefetch';
+                        link.href = url;
+                        link.as = 'document';
+                        document.head.appendChild(link);
+                    });
+
+                    // 2. Preload Devicon font (already in head, but ensure it's loaded)
+                    await document.fonts.ready;
+
+                    // 3. Warm up Gemini API connection
+                    const apiWarmup = new Image();
+                    apiWarmup.src = 'https://generativelanguage.googleapis.com/favicon.ico?' + Date.now();
+
+                    // 4. Preload commonly used Simple Icons
+                    const commonIcons = [
+                        'python', 'javascript', 'react', 'nodejs', 'postgresql', 'docker',
+                        'typescript', 'java', 'csharp', 'git', 'github', 'visualstudiocode',
+                        'mongodb', 'mysql', 'redis', 'linux', 'windows', 'apple',
+                        'html5', 'css3', 'sass', 'tailwindcss', 'bootstrap',
+                        'angular', 'vuedotjs', 'nextdotjs', 'express', 'fastapi',
+                        'django', 'flask', 'spring', 'dotnet', 'kubernetes', 'terraform'
+                    ];
+                    commonIcons.forEach(icon => {
+                        const img = new Image();
+                        img.src = `https://cdn.simpleicons.org/${icon}`;
+                    });
+
+                    // 5. Cache the API key check (if stored in localStorage)
+                    const apiKey = localStorage.getItem('gemini_api_key');
+                    if (apiKey) {
+                        sessionStorage.setItem('gemini_ready', 'true');
+                    }
+
+                    // 6. Preload Mermaid.js for AI Tutor diagrams
+                    const mermaidLink = document.createElement('link');
+                    mermaidLink.rel = 'preload';
+                    mermaidLink.href = 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js';
+                    mermaidLink.as = 'script';
+                    document.head.appendChild(mermaidLink);
+
+                } catch (e) {
+                    console.log('Preload optimization:', e.message);
+                }
+            })();
+
+            // Smooth redirect with fade-out animation
             setTimeout(() => {
-                updateStatus(task.name);
-                if (index > 0) {
-                    addCompletedTask(preloadTasks[index - 1].name);
-                }
-            }, task.delay);
-        });
+                // Add fade-out class to body
+                document.body.classList.add('fade-out');
 
-        // Actual preloading tasks
-        (async function preloadResources() {
-            try {
-                // 1. Prefetch all main pages
-                const pagesToPrefetch = [
-                    base + '/inicio',
-                    base + '/sala-de-estudio',
-                    base + '/recursos',
-                    base + '/stacks',
-                    base + '/arquitecturas',
-                    base + '/trayectorias',
-                    base + '/laboratorios',
-                    base + '/portafolio',
-                    base + '/proyectos',
-                    base + '/comunidad'
-                ];
-
-                pagesToPrefetch.forEach(url => {
-                    const link = document.createElement('link');
-                    link.rel = 'prefetch';
-                    link.href = url;
-                    link.as = 'document';
-                    document.head.appendChild(link);
-                });
-
-                // 2. Preload Devicon font (already in head, but ensure it's loaded)
-                await document.fonts.ready;
-
-                // 3. Warm up Gemini API connection
-                // Just establish TCP connection, don't make actual API call
-                const apiWarmup = new Image();
-                apiWarmup.src = 'https://generativelanguage.googleapis.com/favicon.ico?' + Date.now();
-
-                // 4. Preload commonly used Simple Icons
-                const commonIcons = [
-                    'python', 'javascript', 'react', 'nodejs', 'postgresql', 'docker',
-                    'typescript', 'java', 'csharp', 'git', 'github', 'visualstudiocode',
-                    'mongodb', 'mysql', 'redis', 'linux', 'windows', 'apple',
-                    'html5', 'css3', 'sass', 'tailwindcss', 'bootstrap',
-                    'angular', 'vuedotjs', 'nextdotjs', 'express', 'fastapi',
-                    'django', 'flask', 'spring', 'dotnet', 'kubernetes', 'terraform'
-                ];
-                commonIcons.forEach(icon => {
-                    const img = new Image();
-                    img.src = `https://cdn.simpleicons.org/${icon}`;
-                });
-
-                // 5. Cache the API key check (if stored in localStorage)
-                const apiKey = localStorage.getItem('gemini_api_key');
-                if (apiKey) {
-                    sessionStorage.setItem('gemini_ready', 'true');
-                }
-
-                // 6. Preload Mermaid.js for AI Tutor diagrams
-                const mermaidLink = document.createElement('link');
-                mermaidLink.rel = 'preload';
-                mermaidLink.href = 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js';
-                mermaidLink.as = 'script';
-                document.head.appendChild(mermaidLink);
-
-            } catch (e) {
-                console.log('Preload optimization:', e.message);
-            }
-        })();
-
-        // Redirect after animation completes
-        setTimeout(() => {
-            window.location.href = base + '/inicio';
-        }, 7800);
+                // Wait for animation to complete, then navigate
+                setTimeout(() => {
+                    window.location.href = base + '/inicio';
+                }, 500);
+            }, 7300); // 7.3s + 0.5s fade = 7.8s total
+        }
     </script>
 </body>
 </html>
