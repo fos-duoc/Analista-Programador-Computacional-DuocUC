@@ -43,9 +43,9 @@ const base = import.meta.env.BASE_URL;
             </div>
         </div>
         <!-- TTS Controls -->
-        <div class="tts-controls" id="tts-controls" data-tooltip="Controles de Voz|Configura la síntesis de voz para escuchar las respuestas|Click micrófono: Seleccionar voz,Click velocidad: Ajustar rapidez|audio|fa-volume-up|TUTOR IA">
+        <div class="tts-controls" id="tts-controls" data-premium-tooltip="Controles de Voz|Configura la síntesis de voz para escuchar las respuestas|Click micrófono: Seleccionar voz,Click velocidad: Ajustar rapidez|audio|fa-volume-up|TUTOR IA">
             <!-- Voice Selector Button - Premium Design -->
-            <button class="tts-voice-btn" id="tts-voice-btn" data-tooltip="Seleccionar Voz|Elige la voz del asistente para lectura en voz alta|Voces del sistema,Voces de Puter.ai (premium)|audio|fa-microphone-alt|VOZ">
+            <button class="tts-voice-btn" id="tts-voice-btn" data-premium-tooltip="Seleccionar Voz|Elige la voz del asistente para lectura en voz alta|Voces del sistema,Voces de Puter.ai (premium)|audio|fa-microphone-alt|VOZ">
                 <svg class="voice-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 2C10.3431 2 9 3.34315 9 5V12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12V5C15 3.34315 13.6569 2 12 2Z" fill="currentColor" opacity="0.9"/>
                     <path d="M6.5 10V12C6.5 15.0376 8.96243 17.5 12 17.5C15.0376 17.5 17.5 15.0376 17.5 12V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
@@ -55,7 +55,7 @@ const base = import.meta.env.BASE_URL;
                 <span class="voice-indicator"></span>
             </button>
             <!-- Speed Selector -->
-            <button class="tts-speed-btn" id="tts-speed-btn" data-tooltip="Velocidad de Lectura|Ajusta qué tan rápido habla el asistente|0.75x: Lento (ideal para aprender),1x: Normal,1.5x-2x: Rápido|audio|fa-tachometer-alt|VELOCIDAD">
+            <button class="tts-speed-btn" id="tts-speed-btn" data-premium-tooltip="Velocidad de Lectura|Ajusta qué tan rápido habla el asistente|0.75x: Lento (ideal para aprender),1x: Normal,1.5x-2x: Rápido|audio|fa-tachometer-alt|VELOCIDAD">
                 <i class="fas fa-tachometer-alt"></i>
                 <span id="tts-speed-label">1x</span>
             </button>
@@ -67,7 +67,7 @@ const base = import.meta.env.BASE_URL;
                 <button class="tts-speed-option" data-speed="1.75">1.75x</button>
                 <button class="tts-speed-option" data-speed="2">2x</button>
             </div>
-            <button class="tts-stop-btn" id="tts-stop-btn" data-tooltip="Detener Lectura|Para la síntesis de voz inmediatamente|Atajo: Esc|action|fa-stop|CONTROL" style="display: none;">
+            <button class="tts-stop-btn" id="tts-stop-btn" data-premium-tooltip="Detener Lectura|Para la síntesis de voz inmediatamente|Atajo: Esc|action|fa-stop|CONTROL" style="display: none;">
                 <i class="fas fa-stop"></i>
             </button>
         </div>
@@ -84,7 +84,7 @@ const base = import.meta.env.BASE_URL;
                 <i class="fas fa-undo"></i>
             </button>
         </div>
-        <button class="tutor-close" id="tutor-close" aria-label="Cerrar panel" data-tooltip="Cerrar Panel|Cierra el Tutor IA y guarda tu conversación|El historial se mantiene en la sesión|action|fa-times|CONTROL">
+        <button class="tutor-close" id="tutor-close" aria-label="Cerrar panel" data-premium-tooltip="Cerrar Panel|Cierra el Tutor IA y guarda tu conversación|El historial se mantiene en la sesión|action|fa-times|CONTROL">
             <i class="fas fa-times"></i>
         </button>
     </header>
@@ -333,7 +333,7 @@ const base = import.meta.env.BASE_URL;
 </aside>
 
 <!-- AI Tutor Expand Button - Floating (visible by default since panel starts hidden) -->
-<button class="ai-tutor-expand-btn visible" id="ai-tutor-expand-btn" aria-label="Abrir Tutor IA con Gemini" data-tooltip="Tutor IA Gemini|Asistente inteligente para resolver dudas, generar código y explicar conceptos|Chat,TTS,Resúmenes|ai|fa-robot|POWERED BY GEMINI">
+<button class="ai-tutor-expand-btn visible" id="ai-tutor-expand-btn" aria-label="Abrir Tutor IA con Gemini" data-premium-tooltip="Tutor IA Gemini|Asistente inteligente para resolver dudas, generar código y explicar conceptos|Chat,TTS,Diagramas,Resúmenes|ai|fa-robot|POWERED BY GEMINI">
     <img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg" alt="AI Tutor" class="ai-tutor-expand-icon" />
 </button>
 
