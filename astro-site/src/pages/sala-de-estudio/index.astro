@@ -2051,16 +2051,18 @@ const subjectLinks: Record<string, string> = {
         // Solo abrir si no hay un estado guardado (evita duplicar al volver a la página)
         const savedState = sessionStorage.getItem('aiTutorState');
         if (!savedState && typeof window.showAITutor === 'function') {
-            // Dar tiempo a que el componente AITutorSidePanel se inicialice
+            // Dar tiempo a que el componente AITutorSidePanel se inicialice completamente
             setTimeout(() => {
                 if (typeof window.showAITutor === 'function') {
                     window.showAITutor('Sala de Estudio', 'SALA');
                 }
-            }, 100);
+            }, 350);
         } else if (savedState) {
-            // Si hay estado guardado, solo asegurar que el panel esté visible
+            // Si hay estado guardado, verificar que la tarjeta de bienvenida premium esté presente
             const tutorPanel = document.getElementById('ai-tutor-panel');
             const aiExpandBtn = document.getElementById('ai-tutor-expand-btn');
+            const messagesContainer = document.getElementById('tutor-messages');
+
             if (tutorPanel) {
                 tutorPanel.classList.add('visible');
                 tutorPanel.classList.remove('minimized');
@@ -2068,6 +2070,28 @@ const subjectLinks: Record<string, string> = {
             if (aiExpandBtn) {
                 aiExpandBtn.classList.remove('visible');
             }
+
+            // Verificar después de un frame si la tarjeta premium está presente
+            // Si no, restaurarla manualmente
+            requestAnimationFrame(() => {
+                try {
+                    const state = JSON.parse(savedState);
+                    if (state.isPremiumWelcome && messagesContainer) {
+                        const premiumCard = messagesContainer.querySelector('.premium-welcome-card');
+                        if (!premiumCard) {
+                            // La tarjeta no está, re-crearla
+                            const template = document.getElementById('premium-welcome-template');
+                            if (template) {
+                                const welcomeCard = template.content.cloneNode(true);
+                                messagesContainer.innerHTML = ''; // Limpiar cualquier contenido previo
+                                messagesContainer.appendChild(welcomeCard);
+                            }
+                        }
+                    }
+                } catch (e) {
+                    console.warn('Error checking premium welcome state:', e);
+                }
+            });
         }
     }
 

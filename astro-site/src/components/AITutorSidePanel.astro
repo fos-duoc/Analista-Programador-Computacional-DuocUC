@@ -5263,6 +5263,10 @@ Mantén respuestas concisas pero completas.`;
                                 if (template) {
                                     const welcomeCard = template.content.cloneNode(true);
                                     messagesContainer.appendChild(welcomeCard);
+                                    // Initialize suggestion card click handlers after DOM update
+                                    requestAnimationFrame(() => {
+                                        initSuggestionCards();
+                                    });
                                 } else {
                                     // Fallback to text greeting
                                     addMessage('assistant', state.greeting);
