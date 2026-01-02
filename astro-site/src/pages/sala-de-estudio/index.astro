@@ -2034,7 +2034,7 @@ const subjectLinks: Record<string, string> = {
         sessionStorage.setItem('lastSalaPage', currentPage);
     }
 
-    // Asegurar estado inicial de los paneles - todos cerrados
+    // Asegurar estado inicial de los paneles
     function ensureDrawersClosed() {
         // Cerrar SubjectDrawer
         const drawer = document.getElementById('subject-drawer');
@@ -2043,16 +2043,17 @@ const subjectLinks: Record<string, string> = {
             drawer.setAttribute('aria-hidden', 'true');
         }
 
-        // AI Tutor: cerrado por defecto
+        // AI Tutor: abierto por defecto (visible)
         const tutorPanel = document.getElementById('ai-tutor-panel');
         if (tutorPanel) {
-            tutorPanel.classList.remove('visible', 'minimized');
+            tutorPanel.classList.add('visible');
+            tutorPanel.classList.remove('minimized');
         }
 
-        // Mostrar el botón expand del AI Tutor
+        // Ocultar el botón expand del AI Tutor (ya está abierto)
         const aiExpandBtn = document.getElementById('ai-tutor-expand-btn');
         if (aiExpandBtn) {
-            aiExpandBtn.classList.add('visible');
+            aiExpandBtn.classList.remove('visible');
         }
     }
 

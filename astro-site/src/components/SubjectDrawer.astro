@@ -3145,6 +3145,11 @@ const base = import.meta.env.BASE_URL;
                 drawer.classList.remove('expanded-width');
                 const widthBtn = document.getElementById('drawer-width-toggle');
                 widthBtn?.classList.remove('active');
+
+                // Dispatch resize event in real-time for sidebar sync
+                window.dispatchEvent(new CustomEvent('subjectDrawerResize', {
+                    detail: { width: newWidth }
+                }));
             }
 
             function stopResize() {
