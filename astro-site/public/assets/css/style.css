@@ -1767,9 +1767,9 @@ body,
 .tech-preview-icon[data-tooltip]::before {
   content: attr(data-tooltip);
   position: absolute;
-  bottom: calc(100% + 10px);
+  top: calc(100% + 10px);
   left: 50%;
-  transform: translateX(-50%) translateY(8px) scale(0.9);
+  transform: translateX(-50%) translateY(-8px) scale(0.9);
   padding: 0.6rem 1rem;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   color: #ffffff;
@@ -1794,11 +1794,11 @@ body,
 .tech-preview-icon[data-tooltip]::after {
   content: '';
   position: absolute;
-  bottom: calc(100% + 4px);
+  top: calc(100% + 4px);
   left: 50%;
-  transform: translateX(-50%) translateY(8px);
+  transform: translateX(-50%) translateY(-8px);
   border: 7px solid transparent;
-  border-top-color: #0f172a;
+  border-bottom-color: #0f172a;
   opacity: 0;
   visibility: hidden;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1832,7 +1832,7 @@ body,
 }
 
 [data-theme="light"] .tech-preview-icon[data-tooltip]::after {
-  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
 }
 
 /* Mobile tooltip adjustments for hero preview */
