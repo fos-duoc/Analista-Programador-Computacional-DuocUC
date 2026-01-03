@@ -400,6 +400,7 @@ const BUILD_VERSION = Date.now().toString(36);
             }
 
             show(target) {
+                if (!this.tooltip) return;
                 const data = this.parseTooltipData(target);
                 if (!data.title && !data.description) return;
 
@@ -410,7 +411,7 @@ const BUILD_VERSION = Date.now().toString(36);
             }
 
             hide() {
-                this.tooltip.classList.remove('visible');
+                if (this.tooltip) this.tooltip.classList.remove('visible');
                 this.currentTarget = null;
             }
 
@@ -556,7 +557,13 @@ const BUILD_VERSION = Date.now().toString(36);
             }
         }
 
-        document.addEventListener('DOMContentLoaded', initTooltipSystem);
+        // Initialize immediately if DOM is ready, otherwise wait
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initTooltipSystem);
+        } else {
+            initTooltipSystem();
+        }
+        // Also reinit on Astro View Transitions
         document.addEventListener('astro:page-load', initTooltipSystem);
 
         // ============================================
