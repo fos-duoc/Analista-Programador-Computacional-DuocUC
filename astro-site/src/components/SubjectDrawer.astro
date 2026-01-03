@@ -162,6 +162,19 @@ const base = import.meta.env.BASE_URL;
                     </div>
                 </div>
             </div>
+            <!-- Zoom Controls -->
+            <div class="drawer-zoom-controls" id="drawer-zoom-controls" data-premium-tooltip="Control de Zoom|Ajusta el tamaño del texto para mejor legibilidad|Rango: 70% - 150%,Doble-click: Resetear|view|fa-search-plus|PANEL">
+                <button class="drawer-zoom-btn zoom-out" id="drawer-zoom-out-btn" data-premium-tooltip="Reducir Texto|Disminuye el tamaño de fuente del contenido|Mínimo: 70%|view|fa-minus|ZOOM">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <span class="drawer-zoom-level" id="drawer-zoom-level" data-premium-tooltip="Nivel de Zoom Actual|Porcentaje actual del tamaño de texto|100% es el tamaño por defecto|info|fa-percentage|ZOOM">100%</span>
+                <button class="drawer-zoom-btn zoom-in" id="drawer-zoom-in-btn" data-premium-tooltip="Ampliar Texto|Aumenta el tamaño de fuente del contenido|Máximo: 150%|view|fa-plus|ZOOM">
+                    <i class="fas fa-plus"></i>
+                </button>
+                <button class="drawer-zoom-btn zoom-reset" id="drawer-zoom-reset-btn" data-premium-tooltip="Restablecer Zoom|Vuelve al tamaño de texto por defecto (100%)|Click para resetear|action|fa-undo|ZOOM">
+                    <i class="fas fa-undo"></i>
+                </button>
+            </div>
             <button class="drawer-close" aria-label="Cerrar panel" id="drawer-close-btn">
                 <i class="fas fa-times"></i>
             </button>
@@ -523,6 +536,75 @@ const base = import.meta.env.BASE_URL;
         display: flex;
         align-items: center;
         gap: 0.3rem;
+    }
+
+    /* ============================================
+       DRAWER ZOOM CONTROLS - Premium Enterprise
+    ============================================ */
+    .drawer-zoom-controls {
+        display: flex;
+        align-items: center;
+        gap: 0.2rem;
+        padding: 0.15rem 0.3rem;
+        background: rgba(139, 92, 246, 0.08);
+        border: 1px solid rgba(139, 92, 246, 0.2);
+        border-radius: 8px;
+        margin-right: 0.3rem;
+    }
+
+    .drawer-zoom-btn {
+        width: 22px;
+        height: 22px;
+        border-radius: 5px;
+        border: 1px solid transparent;
+        background: rgba(139, 92, 246, 0.12);
+        color: #c4b5fd;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        font-size: 0.55rem;
+    }
+
+    .drawer-zoom-btn:hover {
+        background: rgba(139, 92, 246, 0.25);
+        border-color: rgba(139, 92, 246, 0.4);
+        color: #e9d5ff;
+        transform: scale(1.08);
+    }
+
+    .drawer-zoom-btn:active {
+        transform: scale(0.95);
+    }
+
+    .drawer-zoom-level {
+        font-size: 0.55rem;
+        color: #a78bfa;
+        font-weight: 600;
+        min-width: 32px;
+        text-align: center;
+        padding: 0 0.15rem;
+        font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    }
+
+    :global([data-theme="light"]) .drawer-zoom-controls {
+        background: rgba(139, 92, 246, 0.06);
+        border-color: rgba(139, 92, 246, 0.18);
+    }
+
+    :global([data-theme="light"]) .drawer-zoom-btn {
+        background: rgba(139, 92, 246, 0.1);
+        color: #7c3aed;
+    }
+
+    :global([data-theme="light"]) .drawer-zoom-btn:hover {
+        background: rgba(139, 92, 246, 0.2);
+        color: #6d28d9;
+    }
+
+    :global([data-theme="light"]) .drawer-zoom-level {
+        color: #7c3aed;
     }
 
     /* ============================================
@@ -3716,6 +3798,66 @@ const base = import.meta.env.BASE_URL;
 
             // Initialize the new dropdown functionality
             initDrawerOptionsDropdown();
+
+            // Initialize zoom controls
+            initDrawerZoom();
+        }
+
+        // ============================================
+        // DRAWER ZOOM CONTROLS - Premium Features
+        // ============================================
+        function initDrawerZoom() {
+            const zoomInBtn = document.getElementById('drawer-zoom-in-btn');
+            const zoomOutBtn = document.getElementById('drawer-zoom-out-btn');
+            const zoomResetBtn = document.getElementById('drawer-zoom-reset-btn');
+            const zoomLevelEl = document.getElementById('drawer-zoom-level');
+            const drawerBody = document.querySelector('.drawer-body');
+
+            if (!zoomInBtn || !zoomOutBtn || !drawerBody) return;
+
+            // Prevent duplicate initialization
+            if (zoomInBtn.dataset.initialized === 'true') return;
+            zoomInBtn.dataset.initialized = 'true';
+
+            // Load saved zoom or default to 100
+            let currentZoom = parseInt(localStorage.getItem('drawer_zoom') || '100');
+            applyZoom(currentZoom);
+
+            function applyZoom(level) {
+                currentZoom = Math.max(70, Math.min(150, level));
+                const scale = currentZoom / 100;
+                drawerBody.style.fontSize = scale + 'rem';
+                if (zoomLevelEl) zoomLevelEl.textContent = currentZoom + '%';
+                localStorage.setItem('drawer_zoom', currentZoom.toString());
+            }
+
+            zoomInBtn.onclick = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                applyZoom(currentZoom + 10);
+            };
+
+            zoomOutBtn.onclick = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                applyZoom(currentZoom - 10);
+            };
+
+            if (zoomResetBtn) {
+                zoomResetBtn.onclick = function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    applyZoom(100);
+                };
+            }
+
+            // Double-click on zoom level to reset
+            if (zoomLevelEl) {
+                zoomLevelEl.ondblclick = function(e) {
+                    e.preventDefault();
+                    applyZoom(100);
+                };
+            }
         }
 
         // ============================================
