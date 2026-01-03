@@ -5380,12 +5380,14 @@ Mantén respuestas concisas pero completas.`;
         messageDiv.className = `message ${role}`;
 
         // Enhanced Markdown to HTML conversion
-        let formattedContent = content;
+        // Normalize line endings first (Windows \r\n -> Unix \n)
+        let formattedContent = content.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
         let hasMermaid = false;
 
         // 1. Code blocks (VSCode-style with header and copy button)
         // Special handling for Mermaid diagrams
-        formattedContent = formattedContent.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
+        // Regex handles: ```lang\n, ```lang \n, ```lang (with optional whitespace)
+        formattedContent = formattedContent.replace(/```(\w+)?[ \t]*\n?([\s\S]*?)```/g, (match, lang, code) => {
             const langLower = (lang || '').toLowerCase();
 
             // Check if this is a Mermaid diagram
