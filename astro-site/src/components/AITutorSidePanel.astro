@@ -5387,10 +5387,13 @@ Mantén respuestas concisas pero completas.`;
         // STEP 1: Extract ALL code blocks first and replace with placeholders
         // This protects code content from being modified by subsequent transformations
         const codeBlocks = [];
-        const CODE_PLACEHOLDER = '___CODE_BLOCK_PLACEHOLDER_';
+        // Use a unique placeholder that won't be affected by Markdown transformations
+        const CODE_PLACEHOLDER = '\u0000CODEBLOCK\u0000';
 
-        // Match code blocks with various formats: ```lang, ``` lang, ```\n, etc.
-        formattedContent = formattedContent.replace(/```(\w*)\s*\n([\s\S]*?)```/g, (match, lang, code) => {
+        // Match code blocks - very flexible regex to catch all formats:
+        // ```lang\n...\n```, ```lang ...\n```, ``` lang\n...\n```, etc.
+        // The key is to match opening ``` with optional language, then content, then closing ```
+        formattedContent = formattedContent.replace(/```\s*(\w*)\s*\n?([\s\S]*?)```/g, (match, lang, code) => {
             const index = codeBlocks.length;
             const langLower = (lang || '').toLowerCase().trim();
             const codeContent = code;  // Keep original whitespace, will trim later
@@ -5440,7 +5443,7 @@ Mantén respuestas concisas pero completas.`;
                 </div>`);
             }
 
-            return CODE_PLACEHOLDER + index + '___';
+            return CODE_PLACEHOLDER + index + CODE_PLACEHOLDER;
         });
 
         // 2. Inline code (before other formatting)
@@ -5493,7 +5496,7 @@ Mantén respuestas concisas pero completas.`;
         // STEP FINAL: Restore code blocks from placeholders
         // This ensures code content was never modified by the transformations above
         codeBlocks.forEach((block, index) => {
-            formattedContent = formattedContent.replace(CODE_PLACEHOLDER + index + '___', block);
+            formattedContent = formattedContent.replace(CODE_PLACEHOLDER + index + CODE_PLACEHOLDER, block);
         });
 
         // Clean up br tags around code blocks
@@ -5518,7 +5521,15 @@ Mantén respuestas concisas pero completas.`;
         `;
 
         messagesContainer.appendChild(messageDiv);
-        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+        // Scroll to bottom - the scroll is on tutor-body, not tutor-messages
+        const tutorBody = messagesContainer.closest('.tutor-body');
+        if (tutorBody) {
+            // Use setTimeout to ensure DOM has updated
+            setTimeout(() => {
+                tutorBody.scrollTop = tutorBody.scrollHeight;
+            }, 50);
+        }
 
         // Attach TTS speak button event listener
         const speakBtn = messageDiv.querySelector('.tts-speak-btn');
