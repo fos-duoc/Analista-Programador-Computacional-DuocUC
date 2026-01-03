@@ -5235,23 +5235,67 @@ Tu objetivo es ayudar a estudiantes a comprender conceptos, resolver ejercicios 
 Responde en español de Chile, de forma clara, profesional y pedagógica.
 Usa formato Markdown: headers (##), listas (-), código (\`\`\`), negritas (**), etc.
 
-DIAGRAMAS MERMAID: Cuando el estudiante pida diagramas, flujos, arquitecturas, o cuando un concepto se explique mejor visualmente, genera diagramas usando bloques de código Mermaid (\`\`\`mermaid).
-Tipos de diagramas disponibles:
-- flowchart (TD/LR): para flujos de proceso, algoritmos, decisiones
-- sequenceDiagram: para interacciones entre componentes/actores
-- classDiagram: para estructuras OOP, relaciones entre clases
-- erDiagram: para bases de datos, entidades y relaciones
-- stateDiagram-v2: para máquinas de estado, ciclos de vida
-- gantt: para cronogramas, planificación de proyectos
-- mindmap: para mapas conceptuales, lluvia de ideas
-- pie: para distribución porcentual
-Siempre usa sintaxis válida de Mermaid. Ejemplo:
+=== CAPACIDAD DE DIAGRAMAS MERMAID (OBLIGATORIO) ===
+SIEMPRE que el estudiante pida diagramas, ERD, esquemas, flujos, arquitecturas, modelos, o visualizaciones, DEBES generar un diagrama Mermaid válido usando bloques \`\`\`mermaid. NO describas el diagrama con texto, CRÉALO.
+
+**ERD (Diagramas Entidad-Relación)** - OBLIGATORIO para bases de datos:
+\`\`\`mermaid
+erDiagram
+    CLIENTE ||--o{ PEDIDO : realiza
+    PEDIDO ||--|{ DETALLE_PEDIDO : contiene
+    PRODUCTO ||--o{ DETALLE_PEDIDO : incluido_en
+    CLIENTE {
+        int id_cliente PK
+        string nombre
+        string email UK
+        date fecha_registro
+    }
+    PEDIDO {
+        int id_pedido PK
+        int id_cliente FK
+        date fecha
+        decimal total
+    }
+\`\`\`
+
+**Flowchart** - Para algoritmos y procesos:
 \`\`\`mermaid
 flowchart TD
-    A[Inicio] --> B{Decisión}
-    B -->|Sí| C[Acción 1]
-    B -->|No| D[Acción 2]
+    A[Inicio] --> B{Condición}
+    B -->|Sí| C[Proceso]
+    B -->|No| D[Alternativa]
+    C --> E[Fin]
 \`\`\`
+
+**Diagrama de Clases** - Para POO/UML:
+\`\`\`mermaid
+classDiagram
+    class Persona {
+        -String nombre
+        +getNombre() String
+    }
+    class Estudiante {
+        -String matricula
+    }
+    Persona <|-- Estudiante
+\`\`\`
+
+**Secuencia** - Para interacciones:
+\`\`\`mermaid
+sequenceDiagram
+    Cliente->>Servidor: Request
+    Servidor->>DB: Query
+    DB-->>Servidor: Data
+    Servidor-->>Cliente: Response
+\`\`\`
+
+Otros: stateDiagram-v2, gantt, mindmap, pie
+
+REGLAS:
+- "ERD", "entidad-relación", "modelo de datos", "tablas" → USA erDiagram
+- "flujo", "algoritmo", "proceso" → USA flowchart
+- "clases", "UML", "POO" → USA classDiagram
+- NUNCA digas "no puedo crear diagramas" - SÍ PUEDES con Mermaid
 
 Si el estudiante pregunta algo fuera del tema, gentilmente redirige la conversación.
 Mantén respuestas concisas pero completas.`;
@@ -6508,6 +6552,19 @@ Mantén respuestas concisas pero completas.`;
             window.ttsManager.stop();
             // Reset flag to allow re-initialization after page transitions
             window.ttsManager._controlsInitialized = false;
+            // Use requestAnimationFrame + small delay to ensure DOM is ready
+            requestAnimationFrame(() => {
+                setTimeout(() => {
+                    window.ttsManager.initControls();
+                    window.ttsManager.populateBrowserVoices();
+                }, 50);
+            });
+        }
+    });
+
+    // Fallback: Also init on DOMContentLoaded for initial page load
+    document.addEventListener('DOMContentLoaded', () => {
+        if (window.ttsManager && !window.ttsManager._controlsInitialized) {
             window.ttsManager.initControls();
             window.ttsManager.populateBrowserVoices();
         }
