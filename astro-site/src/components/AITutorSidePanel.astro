@@ -5384,18 +5384,23 @@ Mantén respuestas concisas pero completas.`;
         let formattedContent = content.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
         let hasMermaid = false;
 
-        // 1. Code blocks (VSCode-style with header and copy button)
-        // Special handling for Mermaid diagrams
-        // Regex handles: ```lang\n, ```lang \n, ```lang (with optional whitespace)
-        formattedContent = formattedContent.replace(/```(\w+)?[ \t]*\n?([\s\S]*?)```/g, (match, lang, code) => {
-            const langLower = (lang || '').toLowerCase();
+        // STEP 1: Extract ALL code blocks first and replace with placeholders
+        // This protects code content from being modified by subsequent transformations
+        const codeBlocks = [];
+        const CODE_PLACEHOLDER = '___CODE_BLOCK_PLACEHOLDER_';
+
+        // Match code blocks with various formats: ```lang, ``` lang, ```\n, etc.
+        formattedContent = formattedContent.replace(/```(\w*)\s*\n([\s\S]*?)```/g, (match, lang, code) => {
+            const index = codeBlocks.length;
+            const langLower = (lang || '').toLowerCase().trim();
+            const codeContent = code;  // Keep original whitespace, will trim later
 
             // Check if this is a Mermaid diagram
             if (langLower === 'mermaid') {
                 hasMermaid = true;
                 const mermaidId = 'mermaid-' + Math.random().toString(36).substr(2, 9);
-                const mermaidCode = code.trim();
-                return `<div class="mermaid-container">
+                const mermaidCode = codeContent.trim();
+                codeBlocks.push(`<div class="mermaid-container">
                     <div class="mermaid-header">
                         <span class="mermaid-badge"><i class="fas fa-project-diagram"></i> Diagrama</span>
                         <div class="mermaid-actions">
@@ -5418,22 +5423,24 @@ Mantén respuestas concisas pero completas.`;
                     <div class="mermaid-code-view" id="${mermaidId}-code" style="display: none;">
                         <pre><code class="language-mermaid">${escapeHtml(mermaidCode)}</code></pre>
                     </div>
-                </div>`;
+                </div>`);
+            } else {
+                // Regular code block
+                const langClass = langLower ? ` class="language-${langLower}"` : '';
+                const langDisplay = langLower || 'code';
+                const codeId = 'code-' + Math.random().toString(36).substr(2, 9);
+                codeBlocks.push(`<div class="code-block">
+                    <div class="code-header">
+                        <span class="code-lang">${langDisplay}</span>
+                        <button class="code-copy" data-code-id="${codeId}" title="Copiar código">
+                            <i class="fas fa-copy"></i> Copiar
+                        </button>
+                    </div>
+                    <pre><code${langClass} id="${codeId}">${escapeHtml(codeContent.trim())}</code></pre>
+                </div>`);
             }
 
-            // Regular code block
-            const langClass = lang ? ` class="language-${lang}"` : '';
-            const langDisplay = lang || 'code';
-            const codeId = 'code-' + Math.random().toString(36).substr(2, 9);
-            return `<div class="code-block">
-                <div class="code-header">
-                    <span class="code-lang">${langDisplay}</span>
-                    <button class="code-copy" data-code-id="${codeId}" title="Copiar código">
-                        <i class="fas fa-copy"></i> Copiar
-                    </button>
-                </div>
-                <pre><code${langClass} id="${codeId}">${escapeHtml(code.trim())}</code></pre>
-            </div>`;
+            return CODE_PLACEHOLDER + index + '___';
         });
 
         // 2. Inline code (before other formatting)
@@ -5476,12 +5483,22 @@ Mantén respuestas concisas pero completas.`;
         // 11. Links
         formattedContent = formattedContent.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener" class="md-link">$1</a>');
 
-        // 12. Line breaks (convert remaining newlines, but not inside pre/code)
-        formattedContent = formattedContent.replace(/\n(?![^<]*<\/pre>)/g, '<br>');
+        // 12. Line breaks (convert remaining newlines to <br>)
+        formattedContent = formattedContent.replace(/\n/g, '<br>');
 
         // Clean up extra br tags around block elements
-        formattedContent = formattedContent.replace(/<br>\s*(<h[1-6]|<ul|<ol|<blockquote|<div|<hr)/g, '$1');
-        formattedContent = formattedContent.replace(/(<\/h[1-6]>|<\/ul>|<\/ol>|<\/blockquote>|<\/div>|<hr[^>]*>)\s*<br>/g, '$1');
+        formattedContent = formattedContent.replace(/<br>\s*(<h[1-6]|<ul|<ol|<blockquote|<hr)/g, '$1');
+        formattedContent = formattedContent.replace(/(<\/h[1-6]>|<\/ul>|<\/ol>|<\/blockquote>|<hr[^>]*>)\s*<br>/g, '$1');
+
+        // STEP FINAL: Restore code blocks from placeholders
+        // This ensures code content was never modified by the transformations above
+        codeBlocks.forEach((block, index) => {
+            formattedContent = formattedContent.replace(CODE_PLACEHOLDER + index + '___', block);
+        });
+
+        // Clean up br tags around code blocks
+        formattedContent = formattedContent.replace(/<br>\s*(<div class="(mermaid-container|code-block)")/g, '$1');
+        formattedContent = formattedContent.replace(/(<\/div>)\s*<br>(?=\s*<div class="(mermaid-container|code-block)")/g, '$1');
 
         const avatarContent = role === 'assistant'
             ? '<img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg" alt="AI" />'
